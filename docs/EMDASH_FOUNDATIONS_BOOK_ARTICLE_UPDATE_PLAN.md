@@ -2,13 +2,25 @@
 
 Date: 2026-10-26
 Plan-ID: EMDASH-FOUNDATIONS-BOOK-ARTICLE-UPDATE
-Status: complete local draft revision; source review, artifact inspection and local distribution promotion qualified
+Status: comprehensive local draft revision and focused Pi/Sigma clarification complete; refreshed local artifacts checked; implementation follow-ups remain separate
 Parent: [strict-functor/duality foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Worktree: `/home/user1/emdash1-strict-functor-duality-v1`
 Branch: `goal/strict-functor-duality-v3.2`
 Implementation checkpoint: `f0e22340`
 
 ## Direction and scope
+
+Priority reaffirmed, 2026-10-26: the comprehensive book/article revision was
+completed at `1fe72617`. A later review, checkpoint `414344cb`, identified a
+retained Pi/Sigma higher-profile mismatch. The current documentation-only
+follow-up clarifies the strict fibre components of displayed modifications,
+the existing whole forward uncurrying functor, and section evaluation at
+the actual total object. It distinguishes the qualified isolated correction
+from production, which is unchanged. Refresh the local drafts to book
+`0.10.1-dev` and overview `0.4.1-dev` through the existing exporters.
+No native implementation, semantic redesign, health aggregate or performance
+work belongs to this pass. Carry forward the earlier 46-source/189-claim
+review for unchanged material; validate the affected sources and artifacts.
 
 The user now prioritizes the book and shorter overview article over further
 production-health/performance work. That decision supersedes the earlier
@@ -227,6 +239,12 @@ review and parent ledger. It does not alter the corrected manuscript examples
 or reopen the waived frontend aggregate during this documentation stage.
 
 ## Completion boundary
+
+The focused profile follow-up is complete in local drafts `0.10.1-dev` and
+`0.4.1-dev`. Its [review and artifact record](EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md#refreshed-local-artifacts)
+contains the owning gates, visual scope, hashes and production-status boundary.
+The earlier B0–B6 disposition below remains the comprehensive baseline. No
+source promotion or native inverse is claimed by this documentation checkpoint.
 
 B0–B4 are accounted for by the [source/claim review](EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md),
 covering all 46 manifest sources and the overview. B5 passes the final owning

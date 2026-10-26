@@ -1,7 +1,7 @@
 # Sigma sections: preserve the higher mapping profile
 
 Date: 2026-10-26
-Status: isolated core, focused consumers, native prefix and complete central/groupoidal gate pass; promotion review next; production unchanged
+Status: isolated core, focused consumers, native prefix and complete central/groupoidal gate pass; documentation clarification complete; promotion review retained; production unchanged
 Parent: [foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Application: [native nerve continuation](EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md)
 Baseline: `81157237`, core SHA-256 `70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e`
@@ -55,7 +55,7 @@ coefficients, dualities and identity/relative Homd interface remain as selected.
 | SP-3 | Replay the current native consumer | The common totalization prefix passes with the corrected core, a plain typed identity view and no added section-identity comparison. The native inverse remains unresolved. |
 | SP-4 | Qualify central and affected library/reviewer scopes | Complete central/groupoidal gate passes in 537.190s / 2,550,112 KiB under 900s/4 GiB. Central assertions remain 2,441 (2,158 positive/283 negative). The two earlier failures and all focused repairs are retained. |
 | SP-5 | Promote only after the required owning gates | Review exact patch, warning changes, owner positions, source registry/catalog and source-pin consumers. Preserve unrelated work and deferred final-integration obligations. No automatic evidence rebaseline. |
-| SP-6 | Update the affected exposition and resume the native inverse | Correct the book/article's whole-uncurrying claims after the implementation settles. Then continue the original section-constructor/higher-action problem on the corrected profile. |
+| SP-6 | Update the affected exposition and later resume the native inverse | Limited clarification complete in book 0.10.1-dev / overview 0.4.1-dev, with owning checks and visual review. Isolated-versus-production status is explicit; source promotion and native reconstruction remain later implementation work. |
 
 The direct lexical inventory names the core, central checks, cubical square
 total, structured groupoidal J and path-induction transitivity. The cubical
@@ -78,9 +78,10 @@ verified independently of running another checker.
 
 The [targeted prose inventory](../emdash2/audits/pi_sigma_section_profile/prose_inventory.json)
 finds that the article's `(y,p)` section-evaluation route already agrees with
-the corrected interface. The later manuscript update should clarify the
-higher profile and explicit forward constructor, and replace the legacy
-whole equality in the Foundations report. No broad chapter redesign is indicated.
+the corrected interface. The current manuscript update clarifies the higher
+profile and explicit forward constructor, and replaces the legacy whole
+equality as the Foundations report's expository contract. It records that
+production still retains the old folds. No broad chapter redesign is indicated.
 
 ## Boundaries
 
@@ -91,7 +92,8 @@ whole equality in the Foundations report. No broad chapter redesign is indicated
 - Do not introduce an inverse to forward uncurrying on all higher cells, a new
   weak-category universe, global strictness for transformations, or operational
   equality-proof arguments.
-- The completed book/article drafts remain historical snapshots. Their limited
-  uncurrying-profile update is now required; no publication has occurred.
+- The earlier book/article drafts remain historical snapshots. Their limited
+  uncurrying-profile update is complete in the [refreshed local artifacts](EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md#refreshed-local-artifacts);
+  no publication has occurred.
 - Resource limits remain explicit, serialized and without swap. Broad health
   optimization and unrelated frontend work remain deferred.

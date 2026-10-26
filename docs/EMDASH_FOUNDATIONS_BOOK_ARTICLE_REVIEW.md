@@ -4,6 +4,60 @@ Date: 2026-10-26
 Plan: [active update plan](EMDASH_FOUNDATIONS_BOOK_ARTICLE_UPDATE_PLAN.md)
 Source baseline: `f0e22340`; first manuscript checkpoint: `730cfdff`.
 
+## Focused higher-profile follow-up
+
+The later isolated correction at `414344cb` motivates a bounded exposition
+update, prioritized by the user before further implementation. Appendix G
+and article §3 now state that displayed modifications have strict fibre
+components even though displayed maps remain lax across the base. They
+present `sigma_functord_sec_func` as the existing whole forward construction
+and distinguish its source from the broader section category. Chapter 5
+retains evaluation at the total object `(y,p)` and points to that qualification.
+The Foundations/current-status reports no longer present the legacy whole
+identification as the intended mathematical contract; both explicitly record
+that its production clauses are still present.
+
+The earlier review of all 46 sources and 189 claims is carried forward for
+unchanged material. No new checked theorem or evidence ID is introduced.
+The direct Homd ladder, Sigma-Hom dualities, ordinary/displayed facade
+comparisons and Gray closure are unchanged. The kernel SHA-256 remains
+`70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e`.
+Draft editions `0.10.1-dev` and `0.4.1-dev` distinguish the revised artifacts
+from the completed snapshot below. The snapshot's hashes are historical;
+new artifact measurements are recorded separately after export and inspection.
+
+### Refreshed local artifacts
+
+| Artifact | Edition | Pages / fonts | SHA-256 |
+| --- | --- | --- | --- |
+| [Book PDF](emdash-book.pdf) | 0.10.1-dev | 425 / 18 embedded | `905d588a003b386ec0c00ea2e79d0bbef092aae57386e96f6b282268e3da3622` |
+| [Overview PDF](emdash3_2.pdf) | 0.4.1-dev | 20 / 14 embedded | `ed595a77d52365c08e2bb3a54212d94e4fa6e340e060113074ff224ee0b9adc9` |
+
+Both owning release pipelines pass, including the 46-source/189-claim book
+check, 3,237 book math spans, all 17 article registry tests, bounded browser
+audits, normalized exports and PDF checks. The first book check found a
+relative audit link; correcting that source link made the complete pipeline
+pass. The first article export passed automation but visual inspection found
+the new uncurrying formula crossing its column. Its two-line source correction
+passes the repeated article pipeline and the final image inspection; only
+the corrected artifact hash above is used for promotion.
+
+Visual review covers book pages 1, 43, 398, 406 and 407; article pages 1, 5,
+6, 7 and 10, with pages 5–7 and 10 reinspected after the formula correction.
+The final changed displays, Homd ladder, section normalization route and
+adjacent table transition are legible without clipping or overlap. The
+earlier broad visual review remains evidence for unchanged content, not a
+claim that all pages were manually reinspected in this follow-up.
+
+`book:promote` and `article:promote` copy the generated PDF and owning
+Markdown sources to the four existing local distribution paths. The logs are
+under `emdash2/tmp/probes/book_article_profile_followup/`; no log or temporary
+image is tracked. Distribution byte equality, exact diff/links and the
+unchanged native source hash are checked before the checkpoint. No native
+checker, frontend aggregate, renderer redesign, publication or push is part
+of this documentation-only pass. The Pi/Sigma source correction and the
+remaining native/integration gates stay open in their existing plans.
+
 ## Scope of this review
 
 This is a migration-specific exposition audit, not a fresh proof of every
@@ -123,7 +177,7 @@ or performed. Assembly, PDF export, metadata/font/text checks, and visual
 inspection use the existing owning tools. Artifact measurements and checksums
 are appended only after their terminal results are verified.
 
-## Final local artifact qualification
+## Earlier local artifact qualification (0.10.0 / 0.4.0)
 
 | Artifact | Edition | Pages / fonts | SHA-256 |
 | --- | --- | --- | --- |

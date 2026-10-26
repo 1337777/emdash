@@ -342,8 +342,26 @@ The family supplies a fibre $E[k]$ and strict transport
 $E[p]:E[k]\to E[k']$ for every $p:k\to k'$. Its higher action is also part of
 one functor. In the kernel, `Catd_cat K` classifies these families. Its
 `Functord_cat` maps remain lax across $K$, with strict component functors;
-`Transfd_cat` retains their higher transformations. Strictness inside the
-coefficient and lax variation across the base are separate requirements.
+`Transfd_cat` retains their higher transformations, whose components in each
+fibre are strict transformations. Strictness inside the coefficient and lax
+variation across the base are separate requirements.
+
+A displayed map $FF:R\to D$ therefore gives a section over the total of $R$:
+
+$$
+\begin{aligned}
+\operatorname{uncurry}(FF)&:\Pi_{(k,r):\Sigma_KR}D[k],\\
+\operatorname{uncurry}(FF)[k,r]&=FF[k](r).
+\end{aligned}
+$$
+
+The whole forward functor is `sigma_functord_sec_func`. This construction
+does not identify the entire section category with the displayed-map
+category: general transformations between sections may be lax in the fibre
+variable, whereas displayed modifications have strict fibre components.
+The retained legacy identification has a checked isolated correction;
+production integration remains open. The forward construction and its
+component computation are already present in the active source.
 
 Reindexing along $F:A\\vdash K$ is substitution:
 

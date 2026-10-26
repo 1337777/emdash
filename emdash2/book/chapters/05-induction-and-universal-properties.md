@@ -203,6 +203,13 @@ in each fibre.
 > motive and base datum, and `PathInd_transfd` internalizes the theorem
 > while the source object varies.
 
+For a motive pulled back from $Z$, a displayed map out of the representable
+family supplies this section through the forward uncurrying constructor.
+The section is still evaluated at the total object $(y,p)$; it is not
+silently retyped as a displayed map over $Z$. The higher-profile distinction
+and the remaining implementation correction are recorded in
+[Appendix G](#appendix-formal-presentation).
+
 There are three layers here, and it helps not to conflate them:
 
 - `path_ind_sec` is the readable theorem at a fixed source;

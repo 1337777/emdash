@@ -4043,32 +4043,30 @@ stable, preserving the existing identity/composition cuts. Capped next-action
 rules apply to constructor-visible cells and agree with the whole route; no
 arbitrary Sigma-arrow eta or path cast is introduced.
 
-For the Sigma first projection, this stable head makes section uncurrying a
-direct proof-time comparison:
-
-Qualification update (2026-10-26): the following whole-category comparison
-is still implemented in production but is too strong for the current
-`Cat_cart` higher profile. The [finite/source audit](../audits/pi_sigma_section_profile/README.md)
-and [correction plan](../../docs/EMDASH_SIGMA_SECTION_PROFILE_CORRECTION_PLAN.md)
-retain the explicit forward functor below and are removing the unrestricted
-category/object/next-Hom identification. Read the displayed equality as a
-legacy contract awaiting that correction, not as a qualified higher equivalence.
-
-```text
-Π_(k,r) D[k] = (k :^n K ; R[k] ⊢ D[k]).
-```
-
-Runtime object and next-hom projections supply the corresponding displayed
-functor and transfor components; the whole section category does not reduce to
-the displayed-functor category.
-
-Displayed-functor uncurrying itself varies through one whole ordinary functor:
+For the Sigma first projection, a displayed map `R => D` gives a section
+of the projection pullback. This is a whole forward functor:
 
 ```text
 sigma_functord_sec_func(R,D)
   : Functor(Functord_cat(R,D),Pi_cat(Sigma(R),pi1^*D)),
 sigma_functord_sec_func[FF] -> sigma_functord_sec(FF).
 ```
+
+The higher profiles of its source and target differ. A displayed modification
+has strict components in the fibre variable; a general transformation between
+the Sigma sections need not. Even for constant families over a terminal base,
+the source specializes to Cartesian mapping Homs and the target to the lax
+mapping category. Thus this forward construction does not justify identifying
+the two whole categories or supplying an unrestricted inverse.
+
+Implementation qualification (2026-10-26): production still contains the
+legacy whole-category comparison and object/next-Hom folds. The
+[finite/source audit](../audits/pi_sigma_section_profile/README.md) qualifies
+their removal in an isolated copy, preserving the forward functor and the
+path-induction computations. Production integration remains pending under the
+[correction plan](../../docs/EMDASH_SIGMA_SECTION_PROFILE_CORRECTION_PLAN.md).
+The legacy folds are recorded implementation debt, not a qualified higher
+equivalence in this account.
 
 For a whole displayed transformation `eta : FF => GG`, its generic functor
 action already owns one transformation between the two uncurried sections.

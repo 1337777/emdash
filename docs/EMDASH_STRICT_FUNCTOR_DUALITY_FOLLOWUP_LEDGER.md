@@ -2,7 +2,19 @@
 
 Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: Pi/Sigma profile correction active; native nerve work retained; book/article snapshot needs a targeted profile update; production health/final integration remain deferred
+Status: prioritized book/article profile clarification and local artifacts complete; isolated Pi/Sigma correction and native nerve work retained; production health/final integration remain deferred
+
+Priority reaffirmed, 2026-10-26: the comprehensive draft update is already
+complete at `1fe72617`. Finish the limited higher-profile clarification and
+regenerate local book/article artifacts before any further implementation.
+The qualified isolated correction at `414344cb` remains unpromoted. This
+documentation pass neither closes production integration nor starts another
+native-nerve or health/performance experiment.
+
+Completed local follow-up: book `0.10.1-dev` and overview `0.4.1-dev` pass
+their owning pipelines and changed-page visual review. See the [artifact record](EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md#refreshed-local-artifacts).
+The four distribution files are refreshed through existing exporters. The
+source correction, nerve reconstruction and final integration remain open.
 
 Required profile correction: the [Pi/Sigma audit](../emdash2/audits/pi_sigma_section_profile/README.md)
 finds that the inherited whole uncurrying identification does not preserve

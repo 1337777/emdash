@@ -326,8 +326,10 @@ $$
 k:^{n}K\ ;\ E[k]\vdash D[k].
 $$
 
-Displayed transfors arise by taking the next hom in this category. The
-`Catd`, `Functord`, and `Transfd` facades keep these levels visible
+Displayed transfors arise by taking the next hom in this category. Their
+components in each fibre are strict transformations, as required by the
+Cartesian coefficient; the displayed maps themselves remain lax across the
+base. The `Catd`, `Functord`, and `Transfd` facades keep these levels visible
 instead of flattening them into pointwise functions.
 
 Two categorical dependent formers organize families:
@@ -734,6 +736,31 @@ categories and their arrow action is part of the interface.
 > projections, evaluation, and action. Evidence `SLICE-DEPENDENT-PRODUCTS`
 > separately records the selected slice adjunction $u^*\dashv\Pi_u$; it does
 > not identify slice dependent products with global section categories.
+
+The first projection $\pi_1:\Sigma_KR\to K$ also gives a useful forward
+construction. A displayed map $FF:R\to D$ determines a section of
+$\pi_1^*D$, with value $FF[k](r)$ at $(k,r)$. Its whole owner is
+
+```text
+sigma_functord_sec_func(R,D)
+  : Functord_cat(R,D)
+    → Pi_cat(Sigma_cat(R), Sigma_proj1_pullback_catd(R,D)).
+```
+
+Its object projection is `sigma_functord_sec`; the generic functor action
+carries a displayed modification to a transformation between these sections.
+This forward construction must be distinguished from an identification of the
+two whole categories. Even over a terminal base, the section side admits lax
+transformations between fibre functors, while the displayed-map side requires
+strict fibre transformations.
+
+> **Formal status — research boundary.** The active source contains the
+> forward owner and its projection ladder, but also retains an overstrong
+> whole-category identification. The
+> [Pi/Sigma profile audit](../../audits/pi_sigma_section_profile/README.md)
+> qualifies an isolated correction preserving the forward construction and
+> path-induction computations. Its production integration remains open;
+> neither whole equivalence nor an unrestricted inverse is claimed here.
 
 ### The WalkingEnd Rule Package
 

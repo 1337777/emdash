@@ -2,7 +2,7 @@
 title: "Functorial Type Theory: Univalent Foundations for Mathematics"
 authors: "The emdash contributors"
 edition: "expanded development edition"
-editionVersion: "0.10.0-dev"
+editionVersion: "0.10.1-dev"
 publicationDate: "2026-10-26"
 status: "draft"
 license: "CC-BY-SA-3.0"
@@ -2404,6 +2404,13 @@ in each fibre.
 > section is `path_ind_sec`; `PathInd_func` packages its action in the
 > motive and base datum, and `PathInd_transfd` internalizes the theorem
 > while the source object varies.
+
+For a motive pulled back from $Z$, a displayed map out of the representable
+family supplies this section through the forward uncurrying constructor.
+The section is still evaluated at the total object $(y,p)$; it is not
+silently retyped as a displayed map over $Z$. The higher-profile distinction
+and the remaining implementation correction are recorded in
+[Appendix G](#appendix-formal-presentation).
 
 There are three layers here, and it helps not to conflate them:
 
@@ -19442,8 +19449,10 @@ $$
 k:^{n}K\ ;\ E[k]\vdash D[k].
 $$
 
-Displayed transfors arise by taking the next hom in this category. The
-`Catd`, `Functord`, and `Transfd` facades keep these levels visible
+Displayed transfors arise by taking the next hom in this category. Their
+components in each fibre are strict transformations, as required by the
+Cartesian coefficient; the displayed maps themselves remain lax across the
+base. The `Catd`, `Functord`, and `Transfd` facades keep these levels visible
 instead of flattening them into pointwise functions.
 
 Two categorical dependent formers organize families:
@@ -19850,6 +19859,31 @@ categories and their arrow action is part of the interface.
 > projections, evaluation, and action. Evidence `SLICE-DEPENDENT-PRODUCTS`
 > separately records the selected slice adjunction $u^*\dashv\Pi_u$; it does
 > not identify slice dependent products with global section categories.
+
+The first projection $\pi_1:\Sigma_KR\to K$ also gives a useful forward
+construction. A displayed map $FF:R\to D$ determines a section of
+$\pi_1^*D$, with value $FF[k](r)$ at $(k,r)$. Its whole owner is
+
+```text
+sigma_functord_sec_func(R,D)
+  : Functord_cat(R,D)
+    → Pi_cat(Sigma_cat(R), Sigma_proj1_pullback_catd(R,D)).
+```
+
+Its object projection is `sigma_functord_sec`; the generic functor action
+carries a displayed modification to a transformation between these sections.
+This forward construction must be distinguished from an identification of the
+two whole categories. Even over a terminal base, the section side admits lax
+transformations between fibre functors, while the displayed-map side requires
+strict fibre transformations.
+
+> **Formal status — research boundary.** The active source contains the
+> forward owner and its projection ladder, but also retains an overstrong
+> whole-category identification. The
+> [Pi/Sigma profile audit](../../audits/pi_sigma_section_profile/README.md)
+> qualifies an isolated correction preserving the forward construction and
+> path-induction computations. Its production integration remains open;
+> neither whole equivalence nor an unrestricted inverse is claimed here.
 
 ### The WalkingEnd Rule Package
 

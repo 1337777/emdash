@@ -2,13 +2,23 @@
 
 Date: 2026-10-26
 Plan-ID: NATIVE-NERVE-FOUNDATIONS-ADAPTATION-V3.2
-Status: NF-1 results retained; isolated Pi/Sigma profile correction and central gate pass, promotion review pending before further reconstruction
+Status: NF-1 results retained; prioritized book/article follow-up complete locally; isolated Pi/Sigma correction awaits production integration before further reconstruction
 Parent: [consolidated foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Receiver: `goal/strict-functor-duality-v3.2`, checkpoint `1fe72617`
 Donor: `goal/native-nerve-legacy-completion-v3.2`, checkpoint `280e7a03`
 Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 
 ## Authorization and current boundary
+
+Current scheduling, 2026-10-26: the user reaffirmed book/article priority.
+The limited profile clarification and refreshed local artifacts take
+precedence over further native implementation. Preserve the recorded NF-1
+results and the qualified isolated correction; do not infer completion or
+discard their remaining obligations.
+
+That documentation follow-up is now checked in local drafts `0.10.1-dev`
+and `0.4.1-dev`; see the [artifact record](EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md#refreshed-local-artifacts).
+No native source or candidate law changed during it.
 
 The user expanded the parent goal to adapt and finish the legacy nerve work
 after the foundations and book/article revision. The local manuscript stage

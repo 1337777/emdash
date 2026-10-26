@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active consolidated goal; isolated Pi/Sigma profile correction passes its owning gates, promotion review next; native nerve continuation retained; targeted prose update and final integration pending
+Status: active consolidated goal; prioritized book/article follow-up complete locally; isolated Pi/Sigma correction and native nerve results retained; production integration remains open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,22 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Documentation priority reaffirmed, 2026-10-26: complete the focused
+[book/article follow-up](EMDASH_FOUNDATIONS_BOOK_ARTICLE_UPDATE_PLAN.md)
+before further implementation. The comprehensive local drafts already exist;
+this pass clarifies displayed modifications, forward Sigma uncurrying and
+the precise pending source correction, then refreshes their local artifacts.
+Do not resume nerve experiments, broad health/performance work or unrelated
+frontend improvements during this pass. The isolated correction is retained
+at `414344cb`; it is not silently promoted by a prose change. Earlier entries
+below describe their original next steps and are subordinate to this priority.
+
+The focused follow-up now passes its owning source/render/PDF checks, with
+local book `0.10.1-dev` and overview `0.4.1-dev`. The [artifact record](EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md#refreshed-local-artifacts)
+records changed-page inspection and the precise unpromoted source correction.
+This closes the requested documentation pass. It does not authorize a detour
+into broad health/performance work or close any remaining implementation gate.
 
 Pi/Sigma profile correction, 2026-10-26: the [new scoped correction plan](EMDASH_SIGMA_SECTION_PROFILE_CORRECTION_PLAN.md)
 and [finite/source audit](../emdash2/audits/pi_sigma_section_profile/README.md)

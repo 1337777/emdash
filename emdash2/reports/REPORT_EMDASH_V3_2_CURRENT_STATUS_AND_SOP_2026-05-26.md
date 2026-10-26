@@ -2543,11 +2543,16 @@ and the `Transfd_cat` next hom. The constant-family comparison with
 `Functor_cat K A` is also direct; do not rely on comparison transitivity.
 
 For sections over `Sigma_proj1_pullback_catd`, the distinct `Pi_cat` and
-`Functord_cat` heads now support a direct proof-time uncurrying comparison.
-Runtime subject reduction for `path_ind_sec -> fib_cov_transf` crosses the
-general Pi/displayed object ladder and one measured join between ordinary
-`Obj(Transf_cat)` classifiers. A direct specialized displayed-`Obj` rule is
-redundant. The next `Transfd_cat` projection is retained for iterability.
+`Functord_cat` heads still have a legacy proof-time comparison in production.
+Its object/next-Hom folds are also retained there, but the current `Cat_cart`
+coefficient makes their unrestricted identification too strong. Use the
+existing forward `sigma_functord_sec_func` as the expository contract. The
+[profile correction](../audits/pi_sigma_section_profile/README.md) removes
+those three identifications in isolation and routes `path_ind_sec` through
+`sigma_functord_sec(fib_cov_transf(...))`, preserving its actual Sigma base.
+Its core and complete central/groupoidal checks pass; production integration
+is still pending. Earlier subject-reduction evidence for the bare retyping
+does not establish the missing higher equivalence.
 
 The stable projection-pullback family is now an explicit runtime selection,
 not the automatic reduct of either
