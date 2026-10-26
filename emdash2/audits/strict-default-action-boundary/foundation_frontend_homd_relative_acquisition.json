@@ -1,0 +1,186 @@
+{
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "canonicalExportSha256": "5fe27c717a83f950431cf61a806a493499f3b03635310c63dcf3c9b751c327cd",
+  "scope": "General FF endpoint via existing represented Hom, strict whiskering and represented coefficient composition",
+  "commands": [
+    {
+      "name": "hom_precomp_along_fapp1_func",
+      "ordinal": 723,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "33b490a1e5ed7a04238aa717a3b00fb7192e5e3a2a7abe150bc3109ba2c10445"
+    },
+    {
+      "name": "hom_precomp_along_fapp1_fapp0",
+      "ordinal": 724,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "93c83e06535c0642fa6fc1c2e3879efde481e270bcad58f9f66c4d59dd1a2b89"
+    },
+    {
+      "name": "hom_int_precomp_tele_func",
+      "ordinal": 737,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "d6b9d00f86673017fc813347c9d715e5c2381f6ccddef15a7a7181a3609fb6ef"
+    },
+    {
+      "name": "hom_int_precomp_func",
+      "ordinal": 738,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "304e8214dc24d7423934de2549a1fbb300c2a9722548e0e48a8dc5ce1ede2871"
+    },
+    {
+      "name": "hom_postcomp_fapp1_func",
+      "ordinal": 649,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "73c3cf8f331c632fa886cd885bad5a3c9a945d1673565685b985bf9453a90160"
+    },
+    {
+      "name": "hom_postcomp_fapp1_fapp0",
+      "ordinal": 650,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "5cd420e7a6a3785cbb49ecff5e192b905c079e770d338ee6e5990dd864bdf2ba"
+    },
+    {
+      "name": "Homd_coeff_rep_func",
+      "ordinal": 1457,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "a7561d8928e528601d6487781e8aa0a61d18b30e406fa502320e23d4a4bc839b"
+    },
+    {
+      "name": "Homd_coeff_rep",
+      "ordinal": 1458,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "b7181534ac488524d293257f6d2026166823f4bf95f997a268238beacdf4e043"
+    }
+  ],
+  "sourceComputations": [
+    {
+      "id": "transfor-classifier-definition",
+      "ordinal": 839,
+      "kind": "symbol",
+      "sha256": "d9bd6ff613da62a2f0e1508b30bb737b4727052d3cd04d000563ca087f9bf21d",
+      "canonicalCommand": "injective symbol Transf [A B : Cat] (F G : τ (Functor A B)) : Grpd\n  ≔ Obj (@Transf_cat A B F G);"
+    },
+    {
+      "id": "post-hom",
+      "ordinal": 651,
+      "kind": "rule",
+      "sha256": "d673528706c30c95eef0ffb5b86b6b2f57aeda935f4099dad3147701628322e2",
+      "canonicalCommand": "rule @fapp1_func _ _ (@hom_postcomp_func $A $B $F $W $X $Y $f) $g $h ↪ \n@hom_postcomp_fapp1_func $A $B $F $W $X $Y $f $g $h;"
+    },
+    {
+      "id": "post-object",
+      "ordinal": 652,
+      "kind": "rule",
+      "sha256": "5e8f8502822eadca466aae2f908ffffb506f73b47631dbcc08b8952783fe6add",
+      "canonicalCommand": "rule fapp0 (@hom_postcomp_fapp1_func $A $B $F $W $X $Y $f $g $h) $alpha ↪ \n@hom_postcomp_fapp1_fapp0 $A $B $F $W $X $Y $f $g $h $alpha;"
+    },
+    {
+      "id": "post-arrow",
+      "ordinal": 653,
+      "kind": "rule",
+      "sha256": "f566929fc8c0ad23ad49dcf0c97399708052a7afde3f3511122790505f9169e2",
+      "canonicalCommand": "rule @fapp1_fapp0 _ _ (@hom_postcomp_func $A $B $F $W $X $Y $f) $g $h $alpha ↪ \n@hom_postcomp_fapp1_fapp0 $A $B $F $W $X $Y $f $g $h $alpha;"
+    },
+    {
+      "id": "post-component",
+      "ordinal": 1533,
+      "kind": "rule",
+      "sha256": "2aa6db7578798cecea71aa16109ef1c8dbabba51e2fc8cd423486115f06fb552",
+      "canonicalCommand": "rule @tapp0_fapp0 _ _ _ _ $x\n     (@hom_postcomp_fapp1_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $K $A\n      $B $H $F $G $epsilon) ↪ @fapp1_fapp0 $A $B $H (@fapp0 $K $A $F $x)\n                              (@fapp0 $K $A $G $x)\n                              (@tapp0_fapp0 $K $A $F $G $x $epsilon);"
+    },
+    {
+      "id": "transfor-composite-component",
+      "ordinal": 884,
+      "kind": "rule",
+      "sha256": "6c34cde90b6552dde52ea28e54d7d285f11f0efc73f021749c5372c8dff02655",
+      "canonicalCommand": "rule @tapp0_fapp0 _ _ _ _ $Y (@comp_fapp0 (Functor_cat $A $B) $F $G $H $η $ϵ) ↪ \ncomp_fapp0 (@tapp0_fapp0 $A $B $G $H $Y $η) (@tapp0_fapp0 $A $B $F $G $Y $ϵ);"
+    },
+    {
+      "id": "represented-hom",
+      "ordinal": 739,
+      "kind": "rule",
+      "sha256": "ec76282e66f5652b4686e57eb1faada71d50e2004ff04dc3cae1869050898d6a",
+      "canonicalCommand": "rule @fapp1_func _ _ (@hom_int $A $B $F) $Y $X ↪ @hom_int_precomp_tele_func\n                                                 $A $B $F $Y $X;"
+    },
+    {
+      "id": "represented-arrow",
+      "ordinal": 740,
+      "kind": "rule",
+      "sha256": "f3f8dfed39474dc4f86190c33d4b077cda840c518bedbd65a19a1da8cdae9604",
+      "canonicalCommand": "rule @fapp1_fapp0 _ _ (@hom_int $A $B $F) $Y $X $p ↪ @hom_int_precomp_func $A\n                                                     $B $F $Y $X $p;"
+    },
+    {
+      "id": "represented-object",
+      "ordinal": 742,
+      "kind": "rule",
+      "sha256": "6d2c8425e0e3081d0d90adf136f99d91ffd4542315870593f8ef36f3289e53de",
+      "canonicalCommand": "rule @fapp0 _ _ (@hom_int_precomp_tele_func $A $B $F $Y $X) $p ↪ @hom_int_precomp_func\n                                                                 $A $B $F $Y\n                                                                 $X $p;"
+    },
+    {
+      "id": "represented-component",
+      "ordinal": 922,
+      "kind": "rule",
+      "sha256": "ea281ffd8f694031442922e31c1357ba042163d9628e6d054431fb68ec9b078b",
+      "canonicalCommand": "rule @tapp0_fapp0 $B Cat_cart _ _ $b\n     (@strict_transfor _ _ _ _ (@hom_int_precomp_func $A $B $F $Y $X $f)) ↪ \n@hom_precomp_along_func $A $A (@id_func $A) (@fapp0 $B $A $F $b) $X $Y $f;"
+    },
+    {
+      "id": "coefficient-include-hom",
+      "ordinal": 1470,
+      "kind": "rule",
+      "sha256": "d2ce1d11616e67e3430f47ae4f6438c87a9f407687aacac358f43d547765adbf",
+      "canonicalCommand": "rule @fapp1_func _ _ Homd_coeff_include $A $B ↪ Homd_coeff_rep_func $A $B;"
+    },
+    {
+      "id": "coefficient-include-arrow",
+      "ordinal": 1471,
+      "kind": "rule",
+      "sha256": "87ca9effb0ab7ad455c6966f5a97e2d07245e5e37dd0ac3a456c52472cd1d91c",
+      "canonicalCommand": "rule @fapp1_fapp0 _ _ Homd_coeff_include $A $B $F ↪ @Homd_coeff_rep $A $B $F;"
+    },
+    {
+      "id": "represented-coefficient-object",
+      "ordinal": 1460,
+      "kind": "rule",
+      "sha256": "e669c24ccd6823785587cd8e493c3b860a8a9edf22902193600fd5613a8245d1",
+      "canonicalCommand": "rule @hom_postcomp_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart) $A $B\n     (Op_cat (Functor_cat $B (Op_cat Cat_cart)))\n     (@Homd_coeff_conjoint $B $B (@id Cat_cat $B)) $F ↪ @Homd_coeff_rep $A $B\n                                                        $F;"
+    },
+    {
+      "id": "coefficient-right-represented-composition",
+      "ordinal": 1474,
+      "kind": "rule",
+      "sha256": "2df324ffe0fc1f8f169b42a8338a756505e07cd90eda463a26e77de59f3f9157",
+      "canonicalCommand": "rule @comp_fapp0 Homd_coeff_cat $A $B $C $P (@Homd_coeff_rep $A $B $F) ↪ \n@comp_cat_fapp0 $A $B (Homd_index_cat $C) $P $F;"
+    },
+    {
+      "id": "diagram-precomposition-mate",
+      "ordinal": 1538,
+      "kind": "rule",
+      "sha256": "b1763b4ac4ea2f646e375f4a5c4e56575c61d7d4fddee54cb5dae5804a91816d",
+      "canonicalCommand": "rule @hom_precomp_along_fapp0 (Functor_cat $K Homd_coeff_cat)\n     (Functor_cat $K Homd_coeff_cat)\n     (@id Cat_cat (Functor_cat $K Homd_coeff_cat)) _ $X _ $FF\n     (@Homd_coeff_mate $K $E $D $U) ↪ @comp_fapp0\n                                      (Functor_cat $K Homd_coeff_cat) $X\n                                      (@Homd_coeff_diagram $K $D)\n                                      (@Homd_coeff_diagram $K $E)\n                                      (@Homd_coeff_mate $K $E $D $U) $FF;"
+    },
+    {
+      "id": "cartesian-prewhiskering-component",
+      "ordinal": 1535,
+      "kind": "rule",
+      "sha256": "899bb9f1da4354b0bd11d604eadd3d423c5570290de7786ddf6cddfafe18bb11",
+      "canonicalCommand": "rule @tapp0_fapp0 _ _ _ _ $a\n     (@strict_transfor _ _ _ _\n      (@hom_precomp_along_fapp1_fapp0 Cat_cart Cat_cart\n       (@id Cat_cat Cat_cart) $C $A $B $H $F $G $U)) ↪ fapp0\n                                                       (@Functor_cart_component_func\n                                                        $B $C $F $G\n                                                        (@fapp0 $A $B $H $a))\n                                                       $U;"
+    },
+    {
+      "id": "dimension-two-precomposition",
+      "ordinal": 1537,
+      "kind": "rule",
+      "sha256": "60a7c5e531728f3409e9017d856b4b54b0c328518eef393ede1753927f497697",
+      "canonicalCommand": "rule @hom_precomp_along_func (CoAt2_cat $C) (CoAt2_cat $C)\n     (@id Cat_cat (CoAt2_cat $C)) $Z $X $Y $p ↪ @Op_func (Hom_cat $C $Y $Z)\n                                                (Hom_cat $C $X $Z)\n                                                (@hom_precomp_along_func $C\n                                                 $C (@id_func $C) $Z $X $Y $p);"
+    }
+  ]
+}

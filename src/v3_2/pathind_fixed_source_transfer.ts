@@ -2,7 +2,7 @@
  * PATHIND-TRUSTED-PROFILE-1C root-only existing-authority transfer.
  *
  * Covariance is inherited from the source-prior Homd transfer. This local
- * consumer adds two opaque declarations, six runtime rules and five checked
+ * consumer adds two opaque declarations, five runtime rules and five checked
  * definitions, with no new proof rule. The module deliberately
  * stops before PathInd_func, PathInd_transfd, varying-source packaging,
  * transitivity, and public/browser/package presentation.
@@ -913,65 +913,6 @@ const displayedHomObjectFusionRule =
     };
 };
 
-const transforClassifierDeltaRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const A = builder.capture('A');
-    const B = builder.capture('B');
-    const F = builder.capture('F');
-    const G = builder.capture('G');
-    const objectClassifierAt = (
-        target: CoreLfTransferBuilderExpression
-    ): CoreLfTransferBuilderExpression =>
-        globalCall(builder, objectClassifier, [{
-            plicity: 'explicit',
-            value: target
-        }]);
-    return {
-        order: 3,
-        id: 'pathind.fixed-source.transfor-classifier-delta',
-        groupId: 'pathind.fixed-source.prerequisite-projection',
-        clauseOrder: 2,
-        sourceOwner: transforClassifier,
-        variables: [
-            {
-                name: 'A',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'B',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'F',
-                type: builder.template(functorType(builder, A, B))
-            },
-            {
-                name: 'G',
-                type: builder.template(functorType(builder, A, B))
-            }
-        ],
-        left: builder.pattern(transforClassifierAt(
-            builder,
-            A,
-            B,
-            F,
-            G
-        )),
-        right: builder.template(objectClassifierAt(transforCategoryAt(
-            builder,
-            A,
-            B,
-            F,
-            G
-        ))),
-        provenance: source(
-            'active transparent definition at lines 9150-9151: ' +
-                'Transf A B F G ≔ Obj (Transf_cat A B F G)'
-        )
-    };
-};
-
 const pathInductionComponentObjectRule =
 (): CoreLfTransferRuntimeRule => {
     const builder = new CoreLfTransferScopedBuilder();
@@ -1188,7 +1129,6 @@ const pathInductionSigmaPullbackRule =
 const runtimeRules: readonly CoreLfTransferRuntimeRule[] = Object.freeze([
     displayedFunctorObjectRule(),
     displayedHomObjectFusionRule(),
-    transforClassifierDeltaRule(),
     pathInductionComponentObjectRule(),
     pathInductionPointRule(),
     pathInductionSigmaPullbackRule()

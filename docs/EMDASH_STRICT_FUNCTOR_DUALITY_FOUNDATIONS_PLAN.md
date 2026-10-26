@@ -42,6 +42,16 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+General-FF frontend endpoint, 2026-10-26: the
+[relative Homd continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_relative_review.md)
+computes the actual typed relative root through the whole section and y/v/f
+ladder to `Hom_E[y](E[f](u),FF[y](v))`, while rejecting strict-transfor admission
+of arbitrary FF. Native conformance passes33 positive/two negative assertions.
+Represented Hom/whiskering owners are shared with PathOut/PathInd using their
+retained Core names. Remaining higher-action consumers, other frontend/source
+reviews, production health and final integration remain required; the prior
+47-failure aggregate is not upgraded by these focused results.
+
 Identity Homd frontend qualification, 2026-10-26: the
 [shared covariance/identity continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_identity_review.md)
 now computes a typed root through x/u/y/v/f to the intended fibre Hom, with

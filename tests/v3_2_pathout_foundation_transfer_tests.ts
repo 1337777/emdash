@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { compileCoreCategoricalMixedActionTransfer } from '../src/v3_2/categorical_mixed_action_transfer';
 import { coreCategoricalFamilyCoefficient } from '../src/v3_2/categorical_family_coefficient';
 import { coreCategoricalFibredProductCoreName } from '../src/v3_2/categorical_fibred_product_transfer';
 import { CORE_CATEGORICAL_STRUCTURAL_SYMBOLS, coreCategoricalStructuralSymbolCoreName } from '../src/v3_2/categorical_structural_transfer';
@@ -445,13 +446,11 @@ const infer = (term: KernelExpression) => {
 };
 
 describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
-    it('seals the migrated 5/15/2/9 root-only boundary', () => {
+    it('seals the local 3/11/2/9 boundary and inherited Hom action', () => {
         assert.deepEqual(
             CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY
                 .prerequisiteDeclarationNames,
             [
-                'hom_int_precomp_tele_func',
-                'hom_int_precomp_func',
                 'Sigma_func',
                 'Sigma_coeff_func',
                 'hom_int_view'
@@ -469,12 +468,8 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
                 'pathout.foundation.precomposition-object-action',
                 'pathout.foundation.' +
                     'precomposition-identity-incoming',
-                'pathout.foundation.hom-int-precomp-component',
                 'pathout.foundation.' +
                     'hom-int-precomp-component-object-fusion',
-                'pathout.foundation.hom-int-precomp-full-action',
-                'pathout.foundation.hom-int-precomp-capped-action',
-                'pathout.foundation.hom-int-precomp-tele-application',
                 'pathout.foundation.sigma-func-object',
                 'pathout.foundation.sigma-func-capped-action',
                 'pathout.foundation.sigma-coeff-object',
@@ -517,7 +512,7 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
                 CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY
                     .generatedProofConstraintCount
             ],
-            [5, 15, 2, 9, 4]
+            [3, 11, 2, 9, 4]
         );
         assert.equal(
             CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY
@@ -533,9 +528,9 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
 
     it('compiles every entry through the generic transfer engines', () => {
         const compilation = compileCorePathoutFoundation1bTransfer();
-        assert.equal(compilation.prerequisiteCompiled.declarations.length, 5);
+        assert.equal(compilation.prerequisiteCompiled.declarations.length, 3);
         assert.equal(compilation.libraryCompiled.declarations.length, 9);
-        assert.equal(compilation.runtime.rules.length, 15);
+        assert.equal(compilation.runtime.rules.length, 11);
         assert.equal(
             compilation.runtime.rules.every(rule =>
                 rule.subjectValidation.kind === 'typescript-checked'
@@ -561,8 +556,6 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
             [
                 'opaque-signature',
                 'opaque-signature',
-                'opaque-signature',
-                'opaque-signature',
                 'checked-transparent-definition'
             ]
         );
@@ -575,7 +568,7 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
         );
         assert.equal(
             CORE_PATHOUT_FOUNDATION_1B_RUNTIME_MODULE.runtimeRules.length,
-            15
+            11
         );
         assert.equal(
             CORE_PATHOUT_FOUNDATION_1B_PROOF_MODULE.proofRules.length,
@@ -853,12 +846,14 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
         },
         () => {
             const c=compileCorePathoutFoundation1bTransfer();
-            const modules=[c.prerequisiteCompiled,c.libraryCompiled];
+            const inherited=compileCoreCategoricalMixedActionTransfer().precomposition.compiled;
+            const modules=[inherited,c.prerequisiteCompiled,c.libraryCompiled];
             const references=Object.assign({},...modules.flatMap(module=>[module.externalFreeReferences,
                 module.externalTransparentDefinitions,Object.fromEntries(module.linkage.entries.flatMap(link=>
                     link.kind==='free-declaration'?[[link.coreName,link.backendName]]:[]))]));
             const serialize=(term:KernelExpression)=>serializeKernelExpression(term,{externalFreeReferences:references});
-            const declarations=modules.flatMap(module=>module.declarations.flatMap(decl=>[
+            const declarations=modules.flatMap(module=>module.declarations.filter(decl=>module!==inherited||
+                CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY.inheritedRepresentedDeclarationNames.includes(decl.symbol.name)).flatMap(decl=>[
                 `assert ⊢ @${decl.symbol.name} : ${serialize(decl.type)};`,
                 ...(decl.body?[`assert ⊢ @${decl.symbol.name} ≡ ${serialize(decl.body)};`]:[])
             ]));

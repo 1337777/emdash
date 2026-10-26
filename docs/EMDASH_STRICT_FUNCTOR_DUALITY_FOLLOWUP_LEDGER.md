@@ -4,6 +4,14 @@ Date: 2026-10-25 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: active integration; complete source/reviewer/central scopes qualified and promoted; production health, frontend/source pins and final integration remain open
 
+General-FF endpoint continuation, 2026-10-26: the
+[actual typed relative Homd consumer](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_relative_review.md)
+now joins the public presheaf and its fibre-Hom value. FF remains lax; a strict
+FF admission control is rejected. This supersedes the endpoint obstruction
+recorded below. Native conformance passes33 positives/two negatives; the shared
+action relocation and its downstream evidence have their own verification.
+Higher-action consumers and complete integration remain separate obligations.
+
 Identity Homd frontend continuation, 2026-10-26: the
 [typed root-to-leaf consumer](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_identity_review.md)
 now passes through the actual whole section and y/v/f ladder. The shared

@@ -1,7 +1,7 @@
 # Frontend integration of the strict-functor and duality migration
 
 Date: 2026-10-25
-Status: active implementation; shared coefficient and directed telescope qualified; structural/displayed/Homd migration remains
+Status: active integration; identity/general-FF Homd endpoint computations qualified; higher-action consumers, remaining frontend profiles and final integration remain
 Owner: R14 of the [foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Scope: migrate existing TypeScript consumers to the qualified native source;
 no new mathematical profile, generic-checker redesign or resumed bulk transfer.
@@ -488,6 +488,15 @@ Transfer the existing native owners and qualify a constructed typed consumer.
 The full Homd P-index endpoint and broader integration remain required.
 
 ## Constraints
+
+The [general-FF endpoint continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_relative_review.md)
+now computes the actual typed relative root through its whole section and
+y/v/f ladder to `Hom_E[y](E[f](u),FF[y](v))`. It imports the existing native
+represented-Hom, whiskering and right-represented Q operations, preserving
+general lax FF. The shared actions precede mixed Homd and are reused by
+PathOut/PathInd without duplicate declarations. The verification records
+downstream relocation checks separately. Remaining higher-action consumers
+and full frontend/production integration are still required.
 
 The [identity Homd frontend continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_identity_review.md)
 qualifies the actual typed root through the whole y-section, v and f to

@@ -1,0 +1,263 @@
+{
+  "status": "typed general-FF endpoint, native counterpart and affected downstream scopes qualified; overall frontend integration remains open",
+  "previousCheckpoint": "3779a156",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "currentInputs": {
+    "src/v3_2/categorical_compositional_natural_transfer.ts": "f464d7aa17bae1a909efb98ee32677c4268e69e215af842815ce13a2d973ddca",
+    "src/v3_2/categorical_direct_mixed_source_action_transfer.ts": "f3519397672345d6824c76dd4227e0960ced6ebda1415a628d075f52c2a2b2df",
+    "src/v3_2/categorical_mixed_action_transfer.ts": "11e24db2f8d197e57d815e86e21c49c542f9ca9aa8323b5b17397c73e4702a96",
+    "src/v3_2/categorical_precomposition_action_transfer.ts": "0db5218a1bbe2a8540bc079495c595243ce09ac46442ded8b99b0c784f206796",
+    "src/v3_2/pathind_fixed_source_transfer.ts": "ebf22c06e7abe6a1868a261892918fddcda6b1b44d2e5c29629ec965e187081e",
+    "src/v3_2/pathout_foundation_transfer.ts": "b9ceff0821b929f5d4eba8629491bec457ec2518d82c501c403170f5de34f8e1",
+    "tests/v3_2_categorical_mixed_action_transfer_tests.ts": "004731165c789fdc27589a23d8adf3078f89abeba5573b9f99931186827fff6b",
+    "tests/v3_2_pathind_fixed_source_transfer_tests.ts": "dc0d431b0c07bbe444f85764f352360df76f646cec0a747ed2e9d75dbcb99c39",
+    "tests/v3_2_pathout_foundation_transfer_tests.ts": "b267be8aa3610f77425a3f8e0346a5f8440a5d92ca79abf59106bd90243474f6"
+  },
+  "nativeReceipts": [
+    {
+      "id": "20261026T082222Z-101f9dbde78b44faa18ea1ce82e34aa9",
+      "outcome": "failed",
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "checkerExit": 1,
+      "wallSeconds": 31.132389297010377,
+      "childrenMaxRssKiB": 168628,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "inputs": {
+        "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/elab0-yRC59r/probe.lp": "872c62463fd474696d3bc1a898227cedc71f593cd9b336bcaabda8291925ddbb"
+      },
+      "inputSnapshot": "8e0e595cc90dbb422fd32e63ce2966fbde8ada6d7d33b94542183adec645ea08",
+      "log": "logs/check-runs/20261026T082222Z-101f9dbde78b44faa18ea1ce82e34aa9.log",
+      "logSha256": "fe70e6d6bd08c43bab2ade79bfef7ba2f0bc4ad2036587bd521e6cb85bc6ca0b"
+    },
+    {
+      "id": "20261026T082538Z-a82c032e153b4afda14e30c2eb88316d",
+      "outcome": "passed-fresh",
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "checkerExit": 0,
+      "wallSeconds": 42.619077778887004,
+      "childrenMaxRssKiB": 169032,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "inputs": {
+        "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/kernel_boundary_continuation/relative_native_typed_body.lp": "b671a6d2f13405294b663b0cf2dc93ff2141b710f652f2de87f1ceea043b0560"
+      },
+      "inputSnapshot": "ad5b20225121f0ee88acdc342f62513392c080dbe7f89057c15936c803d12244",
+      "log": "logs/check-runs/20261026T082538Z-a82c032e153b4afda14e30c2eb88316d.log",
+      "logSha256": "8f82c17446dc726d183c4d0375261a86d17036d9423091c0389e43175f2bd4ee"
+    },
+    {
+      "id": "20261026T084117Z-99232858a6974b0b8c532c56b3467ac8",
+      "outcome": "passed-fresh",
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "checkerExit": 0,
+      "wallSeconds": 51.70535786403343,
+      "childrenMaxRssKiB": 168212,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "inputs": {
+        "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/elab0-EkwhLL/probe.lp": "b671a6d2f13405294b663b0cf2dc93ff2141b710f652f2de87f1ceea043b0560"
+      },
+      "inputSnapshot": "f046364062254ecfd38bf44a45bbca55261346d15f1a48196fad744987a2e820",
+      "log": "logs/check-runs/20261026T084117Z-99232858a6974b0b8c532c56b3467ac8.log",
+      "logSha256": "27c9268fef82c6d935a355d39451ee4801396b53fbc43dd7657f7bc9cbb04cef"
+    }
+  ],
+  "nativeFinalInput": {
+    "receipt": "20261026T084117Z-99232858a6974b0b8c532c56b3467ac8",
+    "sha256": "b671a6d2f13405294b663b0cf2dc93ff2141b710f652f2de87f1ceea043b0560",
+    "matchesTypedReplay": true,
+    "positiveAssertions": 33,
+    "negativeAssertions": 2
+  },
+  "warnings": {
+    "baselineReceipt": "20261026T074618Z-a6c7280c5afd4b619b7abd18c230c269",
+    "currentReceipt": "20261026T084117Z-99232858a6974b0b8c532c56b3467ac8",
+    "normalizedImportedBlocks": 1886,
+    "criticalPairs": 1704,
+    "added": 0,
+    "removed": 0,
+    "method": "Exact multiset of ANSI-yellow emdash3_2.lp blocks"
+  },
+  "focused": [
+    {
+      "log": "wave454_relative_typed.out",
+      "passed": 6,
+      "failed": 0,
+      "skipped": 1,
+      "scope": "Actual typed identity and general-FF ladder; negative strict FF admission; metadata and public consumers"
+    },
+    {
+      "log": "wave458_relative_downstream.out",
+      "scope": "Compositional-natural binder and mixed source action only",
+      "passed": 12,
+      "failed": 0,
+      "skipped": 1,
+      "note": "Later PathInd scopes in this run failed duplicate PathOut ownership; those failures are retained and subsequently repaired."
+    },
+    {
+      "log": "wave464_relocated_clause_groups.out",
+      "passed": 25,
+      "failed": 1,
+      "skipped": 2,
+      "note": "Only remaining failure was PathOut policy/rule-count expectation after owner relocation; whole moving PathInd and all computation/negative consumers passed."
+    },
+    {
+      "log": "wave468_pathout_metadata_replay.out",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "scope": "Repaired PathOut generic compilation/policy scope"
+    },
+    {
+      "log": "wave465_relative_native_final.out",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "scope": "Current emitted native counterpart;33positive2negative assertions"
+    },
+    {
+      "log": "wave469_relative_fixed_source.out",
+      "passed": 17,
+      "failed": 0,
+      "skipped": 1,
+      "durationMs": 63061.176068,
+      "scope": "Complete fixed-source PathInd consumer scope"
+    }
+  ],
+  "typecheck": {
+    "log": "wave466_relative_final_typecheck.out",
+    "exitCode": 0,
+    "sha256": "70685b4df7789c854b9e1ceab7d78a6d0f9a0831c11eb0010b7b5fdbe0e50c39"
+  },
+  "lint": {
+    "log": "wave467_relative_final_lint.out",
+    "exitCode": 0,
+    "sha256": "f742f989be94e529cde1c75bc31645378f1840908710384b8406b93407d056d9"
+  },
+  "metadataOnlyAfterStaticChecks": [
+    "PathOut expected opaque-policy count4\u21922 and local rule count15\u219211; owning test recompiles and passes in wave468."
+  ],
+  "history": [
+    {
+      "logs": [
+        "wave444_relative_current.out",
+        "wave445_relative_precomp.out",
+        "wave446_relative_represented.out",
+        "wave447_relative_components.out"
+      ],
+      "disposition": "Unreduced relative action identifies successive existing native owner prerequisites."
+    },
+    {
+      "logs": [
+        "wave448_relative_postcomp.out",
+        "wave450_relative_transfor_classifier.out",
+        "wave451_relative_subject_debug.out"
+      ],
+      "disposition": "Postcomposition subject typing exposed inferred LHS slots using raw composition instead of the actual stable postcomposition endpoints. Corrected to native inferred-slot annotations; no proof-time equation promoted to runtime."
+    },
+    {
+      "logs": [
+        "wave452_relative_native_slots.out",
+        "wave453_relative_mate_slots.out"
+      ],
+      "disposition": "Diagram aliases on native inferred slots prevented matching. Native wildcard slots restore the whole canonical-mate cut and the presheaf comparison reaches equality in986steps."
+    },
+    {
+      "log": "wave456_relative_native.out",
+      "disposition": "Bare whole-lambda inference failed for represented inclusion. Exact typed mirror and whole equality pass in wave457; final emitter in wave465 produces identical source bytes and passes."
+    },
+    {
+      "logs": [
+        "wave458_relative_downstream.out",
+        "wave460_relative_shared_pathout.out",
+        "wave461_shared_represented_pathout.out",
+        "wave463_represented_relocation.out"
+      ],
+      "disposition": "Removed duplicated represented-Hom owners from PathOut, retained original Core names, repaired explicit dependency/name routing and contiguous local group numbering."
+    }
+  ],
+  "aggregateBoundary": "Last complete TypeScript gate remains wave413 with47failed tests; no new residual count or aggregate pass claimed",
+  "remaining": [
+    "Required higher-action frontend consumers",
+    "PathOut transitivity and remaining authoring/source review failures",
+    "Final TypeScript aggregate and production health",
+    "Book/article then adapted legacy nerves"
+  ],
+  "logRoot": "emdash2/tmp/probes/kernel_boundary_continuation",
+  "artifactHashes": {
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_relative_acquisition.json": "8e58d6d9991826209f04d21de604d27663bf5c61b384a8356166e295de3a37d6",
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_relative_review.md": "8b8c5189c3a4d69f4807562927de5c247fe7ed4f17d6afc640019657e3c059c4"
+  },
+  "logHashes": {
+    "wave454_relative_typed.out": "09f3a774ba6ffc117485bb0694d9165e6b253965e725d0adbd9969f7b91693a1",
+    "wave458_relative_downstream.out": "b4ec4b0906b59ec2e710135a00acd764cd7c68f61be3af62e7b4c1a7792c2a4f",
+    "wave464_relocated_clause_groups.out": "9cccc25d18b9b2fd84b6a9bea736b7565336b9e84c1cec54888d828b0c0808d8",
+    "wave468_pathout_metadata_replay.out": "3a01232a1a0952e20ea6e3d4dced79a73b51cb00f75a6d2518ac4d9d90d692d8",
+    "wave465_relative_native_final.out": "e7cb07ee7d52fb33dd96a510b620ce9cc8db639361037a27157d78b2b053cd78",
+    "wave469_relative_fixed_source.out": "6a8bb3cbf0823c79af90d2bb2bca31cf29e9a94ca6172f6496a0d37307205455"
+  }
+}

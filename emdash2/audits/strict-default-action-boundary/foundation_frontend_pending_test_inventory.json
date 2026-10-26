@@ -382,6 +382,11 @@
       "scope": "Typed identity Homd root-to-leaf; shared covariance and unchanged PathInd consumers",
       "review": "foundation_frontend_homd_identity_review.md",
       "doesNotQualify": "General-FF relative endpoint, complete higher action, complete aggregate or production health"
+    },
+    {
+      "scope": "Typed general lax-FF Homd endpoint, current native counterpart and shared represented action",
+      "review": "foundation_frontend_homd_relative_review.md",
+      "doesNotQualify": "Complete higher-action transfer, transitivity, full aggregate or production health"
     }
   ],
   "latestAggregate": {

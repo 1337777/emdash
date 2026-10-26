@@ -44,18 +44,18 @@ describe('MIXED-NEST-ACTION-0B', () => {
             ['Homd_index_cat', 'homd_index_presheaf', 'Functor_cart_component_func',
                 'fib_cov_tapp0_func', 'homd_', 'Functor_catd_fapp0_func',
                 'Homd_target_section_cat', 'FibCov_target_catd', 'fib_cov_int', 'fib_cov_src_func', 'fib_cov_transf',
-                'Homd_coeff_conjoint', 'Homd_coeff_mate', 'Homd_coeff_mate_func', 'homd_id_src_sec', 'homd_id_src_func',
+                'Homd_coeff_conjoint', 'Homd_coeff_rep_func', 'Homd_coeff_rep', 'Homd_coeff_mate', 'Homd_coeff_mate_func', 'homd_id_src_sec', 'homd_id_src_func',
                 'homd_id_tgt_func', 'homd_id_', 'homd_src_sec', 'homd_src_func', 'homd_tgt_func']
         );
         assert.equal(
             CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_BOUNDARY
                 .declarationCount,
-            21
+            23
         );
         assert.equal(
             CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_BOUNDARY
                 .runtimeRuleCount,
-            23
+            30
         );
         assert.equal(
             CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_BOUNDARY
@@ -84,7 +84,7 @@ describe('MIXED-NEST-ACTION-0B', () => {
         assert.equal(
             CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_MODULE
                 .declarations.length,
-            21
+            23
         );
         assert.equal(
             CORE_CATEGORICAL_MIXED_ACTION_RUNTIME_MODULE
@@ -101,8 +101,8 @@ describe('MIXED-NEST-ACTION-0B', () => {
             compileCoreCategoricalMixedActionTransfer();
         assert.equal(compilation.initialCompiled.declarations.length, 7);
         assert.equal(compilation.compiled.declarations.length, 3);
-        assert.equal(compilation.identityCompiled.declarations.length, 11);
-        assert.equal(compilation.runtime.rules.length, 8);
+        assert.equal(compilation.identityCompiled.declarations.length, 13);
+        assert.equal(compilation.runtime.rules.length, 15);
         assert.equal(
             compilation.runtime.rules.every(rule =>
                 rule.subjectValidation.kind === 'typescript-checked'
@@ -110,7 +110,7 @@ describe('MIXED-NEST-ACTION-0B', () => {
             true
         );
         assert.deepEqual(
-            compilation.composedRuntime.ruleIds.slice(-23),
+            compilation.composedRuntime.ruleIds.filter(id=>CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_BOUNDARY.runtimeRuleIds.includes(id)),
             CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_BOUNDARY
                 .runtimeRuleIds
         );
@@ -118,7 +118,7 @@ describe('MIXED-NEST-ACTION-0B', () => {
             CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_POLICY.entries.map(
                 entry => entry.policy
             ),
-            Array.from({length:21}, (_,i) => [5,8,9,10,11,12,13].includes(i) ? 'opaque-signature' : 'checked-transparent-definition')
+            Array.from({length:23}, (_,i) => [5,8,9,10,11,13,14,15].includes(i) ? 'opaque-signature' : 'checked-transparent-definition')
         );
         assert.equal(
             CORE_CATEGORICAL_MIXED_ACTION_RUNTIME_POLICY.entries.every(
@@ -172,7 +172,7 @@ describe('MIXED-NEST-ACTION-0B', () => {
             app(fib(D,y),fib(E,y),component,v)));
     });
 
-    it('computes the typed identity root through the whole y-section and its endpoint', () => {
+    it('computes typed identity and general-FF roots through the whole y-section', () => {
         const c=compileCoreCategoricalMixedActionTransfer();
         const at=provenance('derived','constructed identity Homd ladder');
         const invoke=(name:string,args:readonly KernelExpression[]=[],implicitCount=0):KernelExpression=>{
@@ -227,18 +227,50 @@ describe('MIXED-NEST-ACTION-0B', () => {
         equal(leaf,expected);
         assert.throws(()=>checker.infer(checker.rootContext,
             app(fibre(E,y),invoke('Homd_index_cat',[I]),local,foreign)));
+
+        const FF=add('relative_homd_FF',obj(invoke('Transf_cat',[K,Cart,D,E],2)));
+        const diagramCategory=invoke('Functor_cat',[K,Q]);
+        const relativeTarget=app(invoke('Op_cat',[invoke('CoAt2_cat',[diagramCategory])]),
+            invoke('Functor_cart_cat',[K,Cart]),invoke('Homd_target_index_func',[K]),diagram(D));
+        const relativeRoot=invoke('homd_int',[K,D,E,FF],3);
+        const relativeSource=invoke('tapp0_fapp0',[K,Cart,E,relativeTarget,x,relativeRoot],4);
+        const relativeSection=app(fibre(E,x),invoke('Op_cat',[invoke('Homd_target_section_cat',[K,D,x],1)]),relativeSource,u);
+        const relativeLocal=invoke('tapp0_fapp0',[K,Q,diagram(D),diagram(ix),y,relativeSection],4);
+        const relativeObserved=invoke('homd_index_presheaf',[I,
+            app(fibre(D,y),invoke('Homd_index_cat',[I]),relativeLocal,foreign)],1);
+        const relativeEndpoint=invoke('homd_',[K,D,E,FF,x,u,y,foreign],3);
+        const ffPoint=invoke('tapp0_fapp0',[K,Cart,D,E,y,FF],4);
+        const relativeLeaf=app(invoke('Op_cat',[I]),Cart,relativeObserved,f);
+        const relativeExpected=hom(fibre(E,y),app(fibre(E,x),fibre(E,y),fAction,u),
+            app(fibre(D,y),fibre(E,y),ffPoint,foreign));
+        const relativeChecker=createCoreLfChecker(environment,8192,c.composedRuntime);
+        for(const term of [relativeRoot,relativeSource,relativeSection,relativeLocal,relativeObserved,relativeEndpoint,relativeLeaf]) {
+            assert.doesNotThrow(()=>relativeChecker.infer(relativeChecker.rootContext,term));
+        }
+        equal(relativeSection,invoke('homd_src_sec',[K,D,E,FF,x,u],3));
+        equal(relativeLocal,invoke('homd_tgt_func',[K,D,E,FF,x,u,y],3));
+        equal(relativeObserved,relativeEndpoint);
+        equal(relativeLeaf,relativeExpected);
+        assert.throws(()=>relativeChecker.infer(relativeChecker.rootContext,
+            invoke('strict_transfor',[K,Cart,D,E,FF],4)));
     });
 
-    it('matches native identity declarations, definitions and whole ladder', {
+    it('matches native identity and relative declarations and whole ladders', {
         skip:process.env.EMDASH_RUN_LAMBDAPI_HOMD_IDENTITY_PROBES!=='1'
     },()=>{
-        const c=compileCoreCategoricalMixedActionTransfer(),m=c.identityCompiled;
-        const references={...m.externalFreeReferences,...m.externalTransparentDefinitions,
-            ...Object.fromEntries(m.linkage.entries.flatMap(l=>l.kind==='free-declaration'?[[l.coreName,l.backendName]]:[]))};
+        const c=compileCoreCategoricalMixedActionTransfer();
+        const modules=[c.precomposition.compiled,c.identityCompiled];
+        const references=Object.assign({},...modules.flatMap(m=>[m.externalFreeReferences,m.externalTransparentDefinitions,
+            Object.fromEntries(m.linkage.entries.flatMap(l=>l.kind==='free-declaration'?[[l.coreName,l.backendName]]:[]))]));
         const serialize=(term:KernelExpression)=>serializeKernelExpression(term,{externalFreeReferences:references});
         const source=['require open emdash.emdash3_2;',
-            ...m.declarations.flatMap(d=>[`assert ⊢ @${d.symbol.name} : ${serialize(d.type)};`,
-                ...(d.body?[`assert ⊢ @${d.symbol.name} ≡ ${serialize(d.body)};`]:[])]),
+            ...modules.flatMap(m=>m.declarations.flatMap(d=>[`assert ⊢ @${d.symbol.name} : ${serialize(d.type)};`,
+                // Expected typing disambiguates the whole represented-inclusion body;
+                // its full function equality is still checked, not only its points.
+                ...(d.body ? d.symbol.name==='Homd_coeff_rep_func' ? [
+                    `symbol relative_rep_mirror : ${serialize(d.type)} ≔ ${serialize(d.body)};`,
+                    'assert ⊢ @Homd_coeff_rep_func ≡ relative_rep_mirror;'
+                ] : [`assert ⊢ @${d.symbol.name} ≡ ${serialize(d.body)};`] : [])])),
             'symbol K : Cat; symbol E : τ (Catd K);',
             'symbol x : τ (Obj K); symbol y : τ (Obj K);',
             'symbol u : τ (Obj (fapp0 E x)); symbol v : τ (Obj (fapp0 E y));',
@@ -257,7 +289,22 @@ describe('MIXED-NEST-ACTION-0B', () => {
             '  ≡ Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K Cat_cart E x y f) u) v;',
             'symbol D : τ (Catd K); symbol w : τ (Obj (fapp0 D y));',
             'assertnot ⊢ @fapp0 (fapp0 E y) (Homd_index_cat (Hom_cat K x y)) T w',
-            '  : τ (Obj (Homd_index_cat (Hom_cat K x y)));'
+            '  : τ (Obj (Homd_index_cat (Hom_cat K x y)));',
+            'symbol FF : τ (@Transf K Cat_cart D E);',
+            'symbol SR : τ (Obj (@Homd_target_section_cat K D x)) ≔',
+            '  @fapp0 (fapp0 E x) (Op_cat (@Homd_target_section_cat K D x))',
+            '    (@tapp0_fapp0 K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D)) x',
+            '      (@homd_int K D E FF)) u;',
+            'assert ⊢ SR ≡ @homd_src_sec K D E FF x u;',
+            'symbol TR : τ (Functor (fapp0 D y) (Homd_index_cat (Hom_cat K x y))) ≔',
+            '  @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K D)',
+            '    (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y SR;',
+            'assert ⊢ TR ≡ @homd_tgt_func K D E FF x u y;',
+            'assert ⊢ @homd_index_presheaf (Hom_cat K x y) (fapp0 TR w) ≡ @homd_ K D E FF x u y w;',
+            'assert ⊢ fapp0 (@homd_index_presheaf (Hom_cat K x y) (fapp0 TR w)) f',
+            '  ≡ Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K Cat_cart E x y f) u)',
+            '      (fapp0 (@tapp0_fapp0 K Cat_cart D E y FF) w);',
+            'assertnot ⊢ FF : τ (@StrictTransfor K Cat_cart D E);'
         ].join('\n');
         assert.doesNotMatch(source,/dttlf_|emdash_v3_2_/u);
         const result=checkLambdapiProbe({source:source+'\n',sourceMap:[]},{

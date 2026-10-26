@@ -7,7 +7,8 @@
  * No mathematical owner or equation is added.
  */
 
-import { compileCoreNativePrecompositionAction, CORE_NATIVE_PRECOMPOSITION_LINKAGE, NativePrecompositionPrerequisite } from './categorical_precomposition_action_transfer';
+import { compileCoreNativePrecompositionProof, CORE_NATIVE_PRECOMPOSITION_LINKAGE, NativePrecompositionPrerequisite } from './categorical_precomposition_action_transfer';
+import { compileCoreCategoricalMixedActionTransfer } from './categorical_mixed_action_transfer';
 import {
     CORE_CATEGORICAL_DIRECT_MIXED_CONSTANT_MIDDLE_TRANSFER_LINKAGE,
     CoreCategoricalDirectMixedConstantMiddleCompilation,
@@ -477,7 +478,7 @@ Object.freeze({
     declarationCount: declarations.length,
     runtimeRuleCount: 0,
     proofRuleCount: 0,
-    inheritedNativeRuntimeRuleCount: 5,
+    inheritedNativeRuntimeRuleCount: 15,
     inheritedNativeProofRuleCount: 1,
     checkedDefinitionNames: Object.freeze(['comp_cat_con_fapp1_func']),
     activeKernelOwnerDelta: 0,
@@ -488,19 +489,20 @@ Object.freeze({
 });
 
 export function compileCoreCategoricalCompositionalNaturalAt<P extends NativePrecompositionPrerequisite>(prerequisite:P) {
-    const native = compileCoreNativePrecompositionAction(prerequisite);
+    const native = compileCoreCategoricalMixedActionTransfer().precomposition;
+    const proofProgram = compileCoreNativePrecompositionProof(prerequisite);
     const compiled = compileCoreLfDeclarations(
         CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_MODULE,
         CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_POLICY,
         CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_LINKAGE,
-        { initialEnvironment:native.compiled.environment, runtimeProgram:native.composedRuntime,
-          comparisonStepLimit:512, definitionTypeProof:{program:native.proofProgram,declarations:[{
+        { initialEnvironment:prerequisite.compiled.environment, runtimeProgram:prerequisite.runtimeFragment.runtime,
+          comparisonStepLimit:512, definitionTypeProof:{program:proofProgram,declarations:[{
               symbol:prewhiskeringAction,proofRuleIds:['pathout.foundation.precomposition-identity-family']
           }]} }
     );
-    const declarationContext = new CoreLfMixedDeclarationContext(native.declarationContext,[compiled]);
-    return {prerequisite,native,compiled,declarationContext,runtimeFragment:native.runtimeFragment,
-        runtime:native.runtimeFragment.localProgram,composedRuntime:native.composedRuntime};
+    const declarationContext = new CoreLfMixedDeclarationContext(prerequisite.declarationContext,[compiled]);
+    return {prerequisite,native,compiled,declarationContext,runtimeFragment:prerequisite.runtimeFragment,
+        runtime:prerequisite.runtimeFragment.localProgram,composedRuntime:prerequisite.runtimeFragment.runtime};
 }
 export type CoreCategoricalCompositionalNaturalCompilation = ReturnType<
     typeof compileCoreCategoricalCompositionalNaturalAt<CoreCategoricalDirectMixedConstantMiddleCompilation>>;

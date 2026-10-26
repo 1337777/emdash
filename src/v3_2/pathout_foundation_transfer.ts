@@ -1,14 +1,14 @@
 /**
  * PATHOUT-LIBRARY-FOUNDATION-1B root-only existing-authority transfer.
  *
- * The migrated closure has four opaque prerequisites, the checked native
- * Hom view, fifteen runtime clauses and two proof comparisons. Nine ordinary
+ * The migrated closure has two opaque prerequisites, the checked native
+ * Hom view, eleven local runtime clauses and two proof comparisons. Nine ordinary
  * PathOut library names are then checked as transparent definitions.  This
  * file is intentionally absent from the public and browser barrels while the
  * profile is being qualified.
  */
 
-import { nativePrecompositionIdentityFamilyProofRule } from './categorical_precomposition_action_transfer';
+import { CORE_NATIVE_PRECOMPOSITION_LINKAGE, nativePrecompositionIdentityFamilyProofRule } from './categorical_precomposition_action_transfer';
 import { CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_MODULE, CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_POLICY } from './categorical_fibred_dependent_target_transfer';
 import {
     CORE_CATEGORICAL_DEPENDENT_COMPOSITION_SYMBOLS,
@@ -733,96 +733,6 @@ const modifiers = (
     sourceOpacity
 });
 
-const representedSourceTelescopeType =
-(): CoreLfTransferExpression => {
-    const builder = new CoreLfTransferScopedBuilder();
-    return builder.term(builder.pi(
-        'A',
-        builder.global(category),
-        A => builder.pi(
-            'B',
-            builder.global(category),
-            B => builder.pi(
-                'F',
-                functorType(builder, B, A),
-                F => builder.pi(
-                    'Y',
-                    objectType(builder, A),
-                    Y => builder.pi(
-                        'X',
-                        objectType(builder, A),
-                        X => functorType(
-                            builder,
-                            homCategoryAt(
-                                builder,
-                                oppositeAt(builder, A),
-                                Y,
-                                X
-                            ),
-                            homCategoryAt(
-                                builder,
-                                cartesianFamiliesAt(builder, B),
-                                representedHomAt(builder, A, B, F, Y),
-                                representedHomAt(builder, A, B, F, X)
-                            )
-                        ),
-                        implicitMode
-                    ),
-                    implicitMode
-                ),
-                explicitMode
-            ),
-            implicitMode
-        ),
-        implicitMode
-    ));
-};
-
-const representedSourceActionType = (): CoreLfTransferExpression => {
-    const builder = new CoreLfTransferScopedBuilder();
-    return builder.term(builder.pi(
-        'A',
-        builder.global(category),
-        A => builder.pi(
-            'B',
-            builder.global(category),
-            B => builder.pi(
-                'F',
-                functorType(builder, B, A),
-                F => builder.pi(
-                    'Y',
-                    objectType(builder, A),
-                    Y => builder.pi(
-                        'X',
-                        objectType(builder, A),
-                        X => builder.pi(
-                            'p',
-                            homType(
-                                builder,
-                                oppositeAt(builder, A),
-                                Y,
-                                X
-                            ),
-                            _p => homType(
-                                builder,
-                                cartesianFamiliesAt(builder, B),
-                                representedHomAt(builder, A, B, F, Y),
-                                representedHomAt(builder, A, B, F, X)
-                            ),
-                            explicitMode
-                        ),
-                        implicitMode
-                    ),
-                    implicitMode
-                ),
-                explicitMode
-            ),
-            implicitMode
-        ),
-        implicitMode
-    ));
-};
-
 const sigmaFunctorType = (): CoreLfTransferExpression => {
     const builder = new CoreLfTransferScopedBuilder();
     return builder.term(builder.pi(
@@ -839,26 +749,6 @@ const sigmaFunctorType = (): CoreLfTransferExpression => {
 
 const prerequisiteDeclarations:
 readonly CoreLfTransferDeclaration[] = Object.freeze([
-    Object.freeze({
-        order: 0,
-        symbol: representedSourceTelescope,
-        type: representedSourceTelescopeType(),
-        body: coreLfTransferAbsentBody(),
-        modifiers: modifiers('ordinary', 'opaque'),
-        provenance: source(
-            'symbol hom_int_precomp_tele_func [A B : Cat]'
-        )
-    }),
-    Object.freeze({
-        order: 1,
-        symbol: representedSourceAction,
-        type: representedSourceActionType(),
-        body: coreLfTransferAbsentBody(),
-        modifiers: modifiers('ordinary', 'opaque'),
-        provenance: source(
-            'symbol hom_int_precomp_func [A B : Cat]'
-        )
-    }),
     Object.freeze({
         order: 2,
         symbol: sigmaTotalizationFunctor,
@@ -889,9 +779,10 @@ readonly CoreLfTransferDeclaration[] = Object.freeze([
         modifiers:modifiers('ordinary','transparent'),
         provenance:source('symbol hom_int_view [A B : Cat] (F : τ (Functor B A)) : τ (Functor (Op_cat A) (Catd_cat B));')
     })
-]);
+].map((d,order)=>({...d,order})));
 
 const prerequisiteExternalSymbols = Object.freeze([
+    representedSourceTelescope, representedSourceAction,
     category,
     decodeOwner,
     objectClassifier,
@@ -955,6 +846,7 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
 );
 
 const providerLinks = [
+    ...CORE_NATIVE_PRECOMPOSITION_LINKAGE.entries,
     ...CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_LINKAGE.entries,
     ...CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_LINKAGE
         .entries,
@@ -1514,86 +1406,6 @@ const precompositionIdentityIncomingRule =
     };
 };
 
-const representedSourceComponentRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const A = builder.capture('A');
-    const B = builder.capture('B');
-    const F = builder.capture('F');
-    const Y = builder.capture('Y');
-    const X = builder.capture('X');
-    const f = builder.capture('f');
-    const b = builder.capture('b');
-    const representedY = representedHomAt(builder, A, B, F, Y);
-    const representedX = representedHomAt(builder, A, B, F, X);
-    return {
-        order: 6,
-        id: 'pathout.foundation.hom-int-precomp-component',
-        groupId: 'pathout.foundation.represented-source-component-action',
-        clauseOrder: 2,
-        sourceOwner: transforComponentCapped,
-        variables: [
-            {
-                name: 'A',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'B',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'F',
-                type: builder.template(functorType(builder, B, A))
-            },
-            {
-                name: 'Y',
-                type: builder.template(objectType(builder, A))
-            },
-            {
-                name: 'X',
-                type: builder.template(objectType(builder, A))
-            },
-            {
-                name: 'f',
-                type: builder.template(homType(
-                    builder,
-                    oppositeAt(builder, A),
-                    Y,
-                    X
-                ))
-            },
-            {
-                name: 'b',
-                type: builder.template(objectType(builder, B))
-            }
-        ],
-        left: builder.pattern(transforComponentAt(
-            builder,
-            B,
-            builder.global(familyCoefficient),
-            builder.wildcard(representedY),
-            builder.wildcard(representedX),
-            b,
-            strictViewAt(builder, B, representedY, representedX, representedSourceActionAt(builder, A, B, F, Y, X, f))
-        )),
-        right: builder.template(homPrecompositionFunctorAt(
-            builder,
-            A,
-            A,
-            identityFunctorAt(builder, A),
-            functorObjectAt(builder, B, A, F, b),
-            X,
-            Y,
-            f
-        )),
-        provenance: source(
-            'rule @tapp0_fapp0 $B Cat_cat _ _ $b ' +
-                '(@hom_int_precomp_func $A $B $F $Y $X $f)'
-        )
-    };
-};
-
-/** Derived only from active lines 9704 and 7977 for weak-head execution. */
 const representedSourceComponentObjectFusionRule =
 (): CoreLfTransferRuntimeRule => {
     const builder = new CoreLfTransferScopedBuilder();
@@ -1689,214 +1501,6 @@ const representedSourceComponentObjectFusionRule =
     };
 };
 
-const representedSourceFullRule = (): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const A = builder.capture('A');
-    const B = builder.capture('B');
-    const F = builder.capture('F');
-    const Y = builder.capture('Y');
-    const X = builder.capture('X');
-    return {
-        order: 8,
-        id: 'pathout.foundation.hom-int-precomp-full-action',
-        groupId: 'pathout.foundation.represented-source-action',
-        clauseOrder: 0,
-        sourceOwner: functorHomFull,
-        variables: [
-            {
-                name: 'A',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'B',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'F',
-                type: builder.template(functorType(builder, B, A))
-            },
-            {
-                name: 'Y',
-                type: builder.template(objectType(builder, A))
-            },
-            {
-                name: 'X',
-                type: builder.template(objectType(builder, A))
-            }
-        ],
-        left: builder.pattern(functorHomFullAt(
-            builder,
-            oppositeAt(builder, A),
-            cartesianFamiliesAt(builder, B),
-            internalHomAt(builder, A, B, F),
-            Y,
-            X
-        )),
-        right: builder.template(representedSourceTelescopeAt(
-            builder,
-            A,
-            B,
-            F,
-            Y,
-            X
-        )),
-        provenance: source(
-            'rule @fapp1_func _ _ (@hom_int $A $B $F) $Y $X'
-        )
-    };
-};
-
-const representedSourceCappedRule = (): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const A = builder.capture('A');
-    const B = builder.capture('B');
-    const F = builder.capture('F');
-    const Y = builder.capture('Y');
-    const X = builder.capture('X');
-    const p = builder.capture('p');
-    return {
-        order: 9,
-        id: 'pathout.foundation.hom-int-precomp-capped-action',
-        groupId: 'pathout.foundation.represented-source-action',
-        clauseOrder: 1,
-        sourceOwner: functorHomCapped,
-        variables: [
-            {
-                name: 'A',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'B',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'F',
-                type: builder.template(functorType(builder, B, A))
-            },
-            {
-                name: 'Y',
-                type: builder.template(objectType(builder, A))
-            },
-            {
-                name: 'X',
-                type: builder.template(objectType(builder, A))
-            },
-            {
-                name: 'p',
-                type: builder.template(homType(
-                    builder,
-                    oppositeAt(builder, A),
-                    Y,
-                    X
-                ))
-            }
-        ],
-        left: builder.pattern(functorHomCappedAt(
-            builder,
-            oppositeAt(builder, A),
-            cartesianFamiliesAt(builder, B),
-            internalHomAt(builder, A, B, F),
-            Y,
-            X,
-            p
-        )),
-        right: builder.template(representedSourceActionAt(
-            builder,
-            A,
-            B,
-            F,
-            Y,
-            X,
-            p
-        )),
-        provenance: source(
-            'rule @fapp1_fapp0 _ _ (@hom_int $A $B $F) ' +
-                '$Y $X $p'
-        )
-    };
-};
-
-const representedSourceTelescopeApplicationRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const A = builder.capture('A');
-    const B = builder.capture('B');
-    const F = builder.capture('F');
-    const Y = builder.capture('Y');
-    const X = builder.capture('X');
-    const p = builder.capture('p');
-    const sourceHom = homCategoryAt(
-        builder,
-        oppositeAt(builder, A),
-        Y,
-        X
-    );
-    const targetHom = homCategoryAt(
-        builder,
-        cartesianFamiliesAt(builder, B),
-        representedHomAt(builder, A, B, F, Y),
-        representedHomAt(builder, A, B, F, X)
-    );
-    return {
-        order: 10,
-        id: 'pathout.foundation.hom-int-precomp-tele-application',
-        groupId: 'pathout.foundation.represented-source-action',
-        clauseOrder: 2,
-        sourceOwner: functorObject,
-        variables: [
-            {
-                name: 'A',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'B',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'F',
-                type: builder.template(functorType(builder, B, A))
-            },
-            {
-                name: 'Y',
-                type: builder.template(objectType(builder, A))
-            },
-            {
-                name: 'X',
-                type: builder.template(objectType(builder, A))
-            },
-            {
-                name: 'p',
-                type: builder.template(homType(
-                    builder,
-                    oppositeAt(builder, A),
-                    Y,
-                    X
-                ))
-            }
-        ],
-        left: builder.pattern(functorObjectAt(
-            builder,
-            sourceHom,
-            targetHom,
-            representedSourceTelescopeAt(builder, A, B, F, Y, X),
-            p
-        )),
-        right: builder.template(representedSourceActionAt(
-            builder,
-            A,
-            B,
-            F,
-            Y,
-            X,
-            p
-        )),
-        provenance: source(
-            'rule @fapp0 _ _ ' +
-                '(@hom_int_precomp_tele_func $A $B $F $Y $X) $p'
-        )
-    };
-};
-
 const sigmaFunctorObjectRule = (coefficient = false): CoreLfTransferRuntimeRule => {
     const builder = new CoreLfTransferScopedBuilder();
     const K = builder.capture('K');
@@ -1986,16 +1590,14 @@ const runtimeRules: readonly CoreLfTransferRuntimeRule[] = Object.freeze([
     postcompositionIdentitySourceUnitRule(),
     precompositionObjectActionRule(),
     precompositionIdentityIncomingRule(),
-    representedSourceComponentRule(),
     representedSourceComponentObjectFusionRule(),
-    representedSourceFullRule(),
-    representedSourceCappedRule(),
-    representedSourceTelescopeApplicationRule(),
     sigmaFunctorObjectRule(),
     sigmaFunctorCappedRule(),
     sigmaFunctorObjectRule(true),
     sigmaFunctorCappedRule(true)
-]);
+].map((r,order,all)=>({...r,order,
+    clauseOrder:all.slice(0,order).filter(prior=>prior.groupId===r.groupId).length
+})));
 
 const runtimeExternalSymbols = Object.freeze([
     ...prerequisiteExternalSymbols,
@@ -2736,6 +2338,7 @@ readonly CoreLfTransferDeclaration[] = Object.freeze([
 ]);
 
 const libraryExternalSymbols = Object.freeze([
+    representedSourceTelescope, representedSourceAction,
     category,
     decodeOwner,
     objectClassifier,
@@ -2900,7 +2503,8 @@ export const CORE_PATHOUT_FOUNDATION_1B_CORE_NAMES = Object.freeze(
                 id,
                 (prerequisiteDeclarations.some(declaration =>
                     symbolEquals(declaration.symbol, target)
-                ) || symbolEquals(target,homPostcompositionFunctor) || symbolEquals(target,homPrecompositionFunctor))
+                ) || symbolEquals(target,homPostcompositionFunctor) || symbolEquals(target,homPrecompositionFunctor)
+                  || symbolEquals(target,representedSourceTelescope) || symbolEquals(target,representedSourceAction))
                     ? prerequisiteCoreName(target)
                     : libraryCoreName(target)
             ]
@@ -2968,6 +2572,9 @@ Object.freeze({
         libraryDeclarations.map(declaration => declaration.symbol.name)
     ),
     prerequisiteDeclarationCount: prerequisiteDeclarations.length,
+    inheritedRepresentedDeclarationNames: Object.freeze([
+        'hom_int_precomp_tele_func','hom_int_precomp_func'
+    ]),
     runtimeRuleCount: runtimeRules.length,
     proofRuleCount: proofRules.length,
     transparentLibraryDefinitionCount: libraryDeclarations.length,

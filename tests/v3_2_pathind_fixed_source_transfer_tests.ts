@@ -643,7 +643,6 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
             [
                 'pathind.fixed-source.displayed-functor-object',
                 'pathind.fixed-source.displayed-hom-object-fusion',
-                'pathind.fixed-source.transfor-classifier-delta',
                 'pathind.fixed-source.path-ind-section-object-action',
                 'pathind.fixed-source.path-ind-point-computation',
                 'pathind.fixed-source.' +
@@ -680,7 +679,7 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
                 CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
                     .boundedOracleAssertionCount
             ],
-            [2, 6, 0, 5, 1, 8, 5, 27]
+            [2, 5, 0, 5, 1, 8, 5, 27]
         );
         assert.equal(
             CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
@@ -704,7 +703,7 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
                 compilation.libraryCompiled.declarations.length,
                 compilation.runtime.rules.length
             ],
-            [4, 2, 5, 6]
+            [4, 2, 5, 5]
         );
         assert.equal(
             compilation.runtime.rules.every(rule =>

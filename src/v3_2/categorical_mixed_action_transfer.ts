@@ -5,6 +5,7 @@
  * target/diagram action remains a separate transfer requirement.
  */
 import { binderMode } from './kernel';
+import { compileCoreNativePrecompositionAction } from './categorical_precomposition_action_transfer';
 import {
     CoreLfTransferBuilderExpression as Expr, CoreLfTransferScopedBuilder as Builder,
     CoreLfTransferDeclaration, CoreLfTransferRuntimeRule, coreLfQualifiedSymbol,
@@ -148,6 +149,13 @@ const identityDeclarations = [
         (b,s)=>obj(b,fibre(b,s.K,covarianceTarget(b,s.K,s.E),s.x)),undefined,true),
     declaration('Homd_coeff_conjoint',[...categoryPair,['F','explicit',(b,s)=>fn(b,s.B,s.A)]],
         (b,s)=>obj(b,hom(b,Q(b),s.A,s.B)),undefined,true),
+    declaration('Homd_coeff_rep_func',[['A','explicit',cat],['B','explicit',cat]],
+        (b,s)=>fn(b,cc(b,s.A,s.B),hom(b,Q(b),s.A,s.B)),
+        (b,s)=>b.call(b.global(sym('hom_postcomp_func')),[cart(b),cart(b),id(b,cart(b)),s.A,s.B,index(b,s.B),
+            call(b,'Homd_coeff_conjoint',[s.B,s.B,id(b,s.B)],2)]
+                .map((value,i)=>({value,plicity:[2,3,6].includes(i)?'explicit':'implicit'})))),
+    declaration('Homd_coeff_rep',[...categoryPair,['F','explicit',(b,s)=>fn(b,s.A,s.B)]],
+        (b,s)=>obj(b,hom(b,Q(b),s.A,s.B)),undefined,true),
     declaration('Homd_coeff_mate',[
         ['K','implicit',cat],['E','implicit',(b,s)=>fn(b,s.K,cart(b))],['D','implicit',(b,s)=>fn(b,s.K,cart(b))],
         ['U','explicit',(b,s)=>obj(b,hom(b,cc(b,s.K,cart(b)),s.E,s.D))]],
@@ -193,7 +201,7 @@ const finalDeclarations = [
 const declarations=[...initialDeclarations,...identityDeclarations,...finalDeclarations].map((d,order)=>({...d,order}));
 const externalNames=['Cat','τ','Obj','Functor','Hom_cat','Cat_cat','Cat_cart','Functor_cat','Functor_cart_cat',
     'Catd_cat','Transf_cat','Op_cat','CoAt2_cat','fapp0','fapp1_func','fapp1_fapp0','fapp0_func','tapp0_func','tapp0_fapp0','strict_transfor',
-    'hom_precomp_along_func','comp_cat_fapp0','id_func','hom_con','hom_','Functor_cart_include','Homd_coeff_cat','Homd_coeff_include',
+    'hom_postcomp_func','hom_postcomp_fapp0','hom_precomp_along_func','hom_precomp_along_fapp0','comp_fapp0','comp_cat_fapp0','id_func','hom_con','hom_','Functor_cart_include','Homd_coeff_cat','Homd_coeff_include',
     'Homd_coeff_diagram','Homd_representable_func','Homd_target_index_func','Homd_target_catd',
     'homd_rel_cart_int','homd_id_int','homd_int','Op_func','Functor_catd','Functor_catd_func',
     // Preserve predecessor links used by downstream mixed profiles.
@@ -310,6 +318,52 @@ const uVariable: Variable = ['u',(b,s)=>obj(b,fibre(b,s.K,s.E,s.x))];
 const mateVariables: readonly Variable[] = [...covarianceVariables,['D',(b,s)=>fn(b,s.K,cart(b))],
     ['U',(b,s)=>obj(b,hom(b,cc(b,s.K,cart(b)),s.E,s.D))]];
 const identityRuntimeRules = [
+    rule('coefficient-include-hom','fapp1_func',[['A',cat],['B',cat]],
+        (b,s)=>action(b,cart(b),Q(b),b.global(sym('Homd_coeff_include')),s.A,s.B),
+        (b,s)=>call(b,'Homd_coeff_rep_func',[s.A,s.B])),
+    rule('coefficient-include-arrow','fapp1_fapp0',[['A',cat],['B',cat],['F',(b,s)=>fn(b,s.A,s.B)]],
+        (b,s)=>capped(b,cart(b),Q(b),b.global(sym('Homd_coeff_include')),s.A,s.B,s.F),
+        (b,s)=>call(b,'Homd_coeff_rep',[s.A,s.B,s.F],2)),
+    rule('represented-coefficient-object','hom_postcomp_fapp0',[['A',cat],['B',cat],['F',(b,s)=>fn(b,s.A,s.B)]],
+        (b,s)=>b.call(b.global(sym('hom_postcomp_fapp0')),[cart(b),cart(b),id(b,cart(b)),s.A,s.B,index(b,s.B),
+            call(b,'Homd_coeff_conjoint',[s.B,s.B,id(b,s.B)],2),s.F]
+                .map((value,i)=>({value,plicity:[2,3,6,7].includes(i)?'explicit':'implicit'}))),
+        (b,s)=>call(b,'Homd_coeff_rep',[s.A,s.B,s.F],2)),
+    rule('coefficient-right-represented-composition','comp_fapp0',[
+        ['A',cat],['B',cat],['C',cat],['P',(b,s)=>obj(b,hom(b,Q(b),s.B,s.C))],['F',(b,s)=>fn(b,s.A,s.B)]],
+        (b,s)=>call(b,'comp_fapp0',[Q(b),s.A,s.B,s.C,s.P,call(b,'Homd_coeff_rep',[s.A,s.B,s.F],2)],4),
+        (b,s)=>comp(b,s.A,s.B,index(b,s.C),s.P,s.F)),
+    rule('diagram-precomposition-mate','hom_precomp_along_fapp0',[
+        ...mateVariables,['X',(b,s)=>fn(b,s.K,Q(b))],
+        ['FF',(b,s)=>obj(b,transf(b,s.K,Q(b),s.X,diagram(b,s.K,s.D)))]],
+        (b,s)=>b.call(b.global(sym('hom_precomp_along_fapp0')),
+            [fc(b,s.K,Q(b)),fc(b,s.K,Q(b)),id(b,fc(b,s.K,Q(b))),b.wildcard(diagram(b,s.K,s.E)),s.X,b.wildcard(diagram(b,s.K,s.D)),
+                s.FF,mate(b,s.K,s.E,s.D,s.U)].map((value,i)=>({value,plicity:[2,3,6,7].includes(i)?'explicit':'implicit'}))),
+        (b,s)=>call(b,'comp_fapp0',[fc(b,s.K,Q(b)),s.X,diagram(b,s.K,s.D),diagram(b,s.K,s.E),
+            mate(b,s.K,s.E,s.D,s.U),s.FF],4)),
+    rule('cartesian-prewhiskering-component','tapp0_fapp0',[
+        ['A',cat],['B',cat],['C',cat],['H',(b,s)=>fn(b,s.A,s.B)],
+        ['F',(b,s)=>fn(b,s.B,s.C)],['G',(b,s)=>fn(b,s.B,s.C)],
+        ['U',(b,s)=>obj(b,hom(b,cc(b,s.B,s.C),s.F,s.G))],['a',(b,s)=>obj(b,s.A)]],
+        (b,s)=>component(b,b.wildcard(s.A),b.wildcard(s.C),
+            b.wildcard(comp(b,s.A,s.B,s.C,s.F,s.H)),b.wildcard(comp(b,s.A,s.B,s.C,s.G,s.H)),s.a,
+            call(b,'strict_transfor',[b.wildcard(s.A),b.wildcard(s.C),b.wildcard(comp(b,s.A,s.B,s.C,s.F,s.H)),
+                b.wildcard(comp(b,s.A,s.B,s.C,s.G,s.H)),
+                b.call(b.global(sym('hom_precomp_along_fapp1_fapp0')),
+                    [cart(b),cart(b),id(b,cart(b)),s.C,s.A,s.B,s.H,s.F,s.G,s.U]
+                        .map((value,i)=>({value,plicity:[2,3,6,9].includes(i)?'explicit':'implicit'})))],4)),
+        (b,s)=>app(b,hom(b,cc(b,s.B,s.C),s.F,s.G),
+            hom(b,s.C,app(b,s.B,s.C,s.F,app(b,s.A,s.B,s.H,s.a)),app(b,s.B,s.C,s.G,app(b,s.A,s.B,s.H,s.a))),
+            call(b,'Functor_cart_component_func',[s.B,s.C,s.F,s.G,app(b,s.A,s.B,s.H,s.a)],2),s.U)),
+    rule('dimension-two-precomposition','hom_precomp_along_func',[
+        ['C',cat],['Z',(b,s)=>obj(b,s.C)],['X',(b,s)=>obj(b,s.C)],['Y',(b,s)=>obj(b,s.C)],
+        ['p',(b,s)=>obj(b,hom(b,s.C,s.X,s.Y))]],
+        (b,s)=>b.call(b.global(sym('hom_precomp_along_func')),
+            [call(b,'CoAt2_cat',[s.C]),call(b,'CoAt2_cat',[s.C]),id(b,call(b,'CoAt2_cat',[s.C])),s.Z,s.X,s.Y,s.p]
+                .map((value,i)=>({value,plicity:[2,3,6].includes(i)?'explicit':'implicit'}))),
+        (b,s)=>call(b,'Op_func',[hom(b,s.C,s.Y,s.Z),hom(b,s.C,s.X,s.Z),
+            b.call(b.global(sym('hom_precomp_along_func')),[s.C,s.C,id(b,s.C),s.Z,s.X,s.Y,s.p]
+                .map((value,i)=>({value,plicity:[2,3,6].includes(i)?'explicit':'implicit'})))],2)),
     rule('covariance-root','tapp0_fapp0',[...covarianceVariables,xVariable],
         (b,s)=>component(b,s.K,cart(b),b.wildcard(s.E),b.wildcard(covarianceTarget(b,s.K,s.E)),s.x,
             call(b,'fib_cov_int',[s.K,s.E],1)),
@@ -376,7 +430,7 @@ export const CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_BOUNDARY=Object.freeze({
 const initialModule=makeModule('native-homd-ladder-initial',initialDeclarations);
 export const CORE_NATIVE_HOMD_IDENTITY_MODULE=makeModule('native-homd-identity',identityDeclarations,initialDeclarations.map(d=>d.symbol.name));
 const finalModule=makeModule('native-homd-ladder-final',finalDeclarations,[...initialDeclarations,...identityDeclarations].map(d=>d.symbol.name));
-export const CORE_NATIVE_HOMD_IDENTITY_RUNTIME_MODULE=makeModule('native-homd-identity-projections',[],[...initialDeclarations,...identityDeclarations].map(d=>d.symbol.name),identityRuntimeRules);
+export const CORE_NATIVE_HOMD_IDENTITY_RUNTIME_MODULE=makeModule('native-homd-identity-projections',[],[...initialDeclarations,...identityDeclarations].map(d=>d.symbol.name).concat('hom_precomp_along_fapp1_fapp0'),identityRuntimeRules);
 const identityRuntimePolicy=createCoreLfTransferPolicyOverlay(CORE_NATIVE_HOMD_IDENTITY_RUNTIME_MODULE,{
     revision:'native-homd-identity-projections-policy',moduleRevision:CORE_NATIVE_HOMD_IDENTITY_RUNTIME_MODULE.revision,
     entries:identityRuntimeRules.map(r=>({order:r.order,target:{kind:'runtime-rule' as const,id:r.id},policy:'runtime-rewrite' as const,
@@ -389,15 +443,17 @@ function compileNativeLadder() {
     const initialRuntimeFragment=compileCoreLfRuntimeFragment(CORE_CATEGORICAL_MIXED_ACTION_RUNTIME_MODULE,
         CORE_CATEGORICAL_MIXED_ACTION_RUNTIME_POLICY,initialContext,{
             dependencies:[{relation:'earlier-fragment',fragment:prerequisite.runtimeFragment}],comparisonStepLimit:512});
+    const precomposition=compileCoreNativePrecompositionAction({compiled:initialCompiled,
+        declarationContext:initialContext,runtimeFragment:initialRuntimeFragment});
     const identityCompiled=compileCoreLfDeclarations(CORE_NATIVE_HOMD_IDENTITY_MODULE,makePolicy(CORE_NATIVE_HOMD_IDENTITY_MODULE),makeLinkage(CORE_NATIVE_HOMD_IDENTITY_MODULE),{
-        initialEnvironment:initialCompiled.environment,runtimeProgram:initialRuntimeFragment.runtime,comparisonStepLimit:2048});
-    const identityContext=new CoreLfMixedDeclarationContext(initialContext,[identityCompiled]);
+        initialEnvironment:precomposition.compiled.environment,runtimeProgram:precomposition.composedRuntime,comparisonStepLimit:2048});
+    const identityContext=new CoreLfMixedDeclarationContext(precomposition.declarationContext,[identityCompiled]);
     const runtimeFragment=compileCoreLfRuntimeFragment(CORE_NATIVE_HOMD_IDENTITY_RUNTIME_MODULE,identityRuntimePolicy,identityContext,{
-        dependencies:[{relation:'earlier-fragment',fragment:initialRuntimeFragment}],comparisonStepLimit:2048});
+        dependencies:[{relation:'earlier-fragment',fragment:precomposition.runtimeFragment}],comparisonStepLimit:2048});
     const compiled=compileCoreLfDeclarations(finalModule,makePolicy(finalModule),makeLinkage(finalModule),{
         initialEnvironment:identityCompiled.environment,runtimeProgram:runtimeFragment.runtime,comparisonStepLimit:512});
     const declarationContext=new CoreLfMixedDeclarationContext(identityContext,[compiled]);
-    return {prerequisite,initialCompiled,identityCompiled,initialRuntimeFragment,compiled,declarationContext,runtimeFragment,
+    return {prerequisite,initialCompiled,identityCompiled,precomposition,initialRuntimeFragment,compiled,declarationContext,runtimeFragment,
         runtime:runtimeFragment.localProgram,composedRuntime:runtimeFragment.runtime};
 }
 export type CoreCategoricalMixedActionCompilation=ReturnType<typeof compileNativeLadder>;

@@ -599,7 +599,7 @@ CoreCategoricalDirectMixedSourceActionCompilation {
     const declarationContext = new CoreLfMixedDeclarationContext(
         new CoreLfMixedDeclarationContext(
             mixedAction.prerequisite.declarationContext,
-            [mixedAction.initialCompiled, mixedAction.identityCompiled]
+            [mixedAction.initialCompiled, mixedAction.precomposition.compiled, mixedAction.identityCompiled]
         ),
         [compiled]
     );
