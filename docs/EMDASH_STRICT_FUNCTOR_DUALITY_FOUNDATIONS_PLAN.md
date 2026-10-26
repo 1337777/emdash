@@ -42,6 +42,14 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Identity Homd frontend qualification, 2026-10-26: the
+[shared covariance/identity continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_identity_review.md)
+now computes a typed root through x/u/y/v/f to the intended fibre Hom, with
+20 positive/one negative native assertions. Covariance has one earlier owner
+and the existing PathInd consumers remain passing. General-FF endpoint and
+remaining higher-action transfer, full frontend integration and production
+health remain open; the prior aggregate is not relabelled as passing.
+
 Latest frontend continuation, 2026-10-26: the
 [native prewhiskering tranche](../emdash2/audits/strict-default-action-boundary/foundation_frontend_prewhiskering_review.md)
 closes the actual whole moving PathInd component using existing native

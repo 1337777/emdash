@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { CORE_NATIVE_HOMD_IDENTITY_MODULE } from '../src/v3_2/categorical_mixed_action_transfer';
 import { CORE_CATEGORICAL_STRUCTURAL_SYMBOLS, coreCategoricalStructuralSymbolCoreName } from '../src/v3_2/categorical_structural_transfer';
 import { coreCategoricalFamilyCoefficient } from '../src/v3_2/categorical_family_coefficient';
 import { coreCategoricalFibredProductCoreName } from '../src/v3_2/categorical_fibred_product_transfer';
@@ -50,8 +51,6 @@ import {
     provenance
 } from '../src/v3_2/kernel';
 import {
-    CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_MODULE,
-    CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_POLICY,
     CORE_PATHIND_FIXED_SOURCE_1C_LIBRARY_MODULE,
     CORE_PATHIND_FIXED_SOURCE_1C_LIBRARY_POLICY,
     CORE_PATHIND_FIXED_SOURCE_1C_RUNTIME_MODULE,
@@ -630,14 +629,11 @@ const infer = (term: KernelExpression) => {
 };
 
 describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
-    it('seals the reviewed exact 5/10/0/6 root-only boundary', () => {
+    it('seals the local boundary and inherited covariance', () => {
         assert.deepEqual(
             CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
                 .trustedDeclarationNames,
             [
-                'fib_cov_int',
-                'fib_cov_src_func',
-                'fib_cov_transf',
                 'path_ind_sec',
                 'path_ind_func_fapp0'
             ]
@@ -648,10 +644,6 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
                 'pathind.fixed-source.displayed-functor-object',
                 'pathind.fixed-source.displayed-hom-object-fusion',
                 'pathind.fixed-source.transfor-classifier-delta',
-                'pathind.fixed-source.fib-cov-target-section-fusion',
-                'pathind.fixed-source.fib-cov-package-component',
-                'pathind.fixed-source.fib-cov-component-object',
-                'pathind.fixed-source.fib-cov-section-point',
                 'pathind.fixed-source.path-ind-section-object-action',
                 'pathind.fixed-source.path-ind-point-computation',
                 'pathind.fixed-source.' +
@@ -662,7 +654,6 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
             CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
                 .transparentDefinitionNames,
             [
-                'FibCov_target_catd',
                 'pathout_refl_eval_func',
                 'pathout_refl_eval_base_func',
                 'pathout_refl_arrow_sec',
@@ -689,7 +680,7 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
                 CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
                     .boundedOracleAssertionCount
             ],
-            [5, 10, 0, 6, 1, 8, 5, 27]
+            [2, 6, 0, 5, 1, 8, 5, 27]
         );
         assert.equal(
             CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
@@ -707,24 +698,19 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
         const compilation = compileCorePathindFixedSource1cTransfer();
         assert.deepEqual(
             [
-                compilation.fibreTargetCompiled.declarations.length,
+                compilation.covarianceCompiled.declarations.filter(d=>
+                    CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY.inheritedCovarianceDeclarationNames.includes(d.symbol.name)).length,
                 compilation.trustedCompiled.declarations.length,
                 compilation.libraryCompiled.declarations.length,
                 compilation.runtime.rules.length
             ],
-            [1, 5, 5, 10]
+            [4, 2, 5, 6]
         );
         assert.equal(
             compilation.runtime.rules.every(rule =>
                 rule.subjectValidation.kind === 'typescript-checked'
             ),
             true
-        );
-        assert.deepEqual(
-            CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_POLICY.entries.map(
-                entry => entry.policy
-            ),
-            ['checked-transparent-definition']
         );
         assert.equal(
             CORE_PATHIND_FIXED_SOURCE_1C_TRUSTED_POLICY.entries.every(
@@ -747,7 +733,7 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
         );
         assert.deepEqual(
             [
-                CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_MODULE
+                CORE_NATIVE_HOMD_IDENTITY_MODULE
                     .proofRules.length,
                 CORE_PATHIND_FIXED_SOURCE_1C_TRUSTED_MODULE
                     .proofRules.length,
@@ -1142,14 +1128,17 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
         },
         () => {
             const c = compileCorePathindFixedSource1cTransfer();
-            const modules = [c.fibreTargetCompiled, c.trustedCompiled, c.libraryCompiled];
+            const modules = [c.covarianceCompiled, c.trustedCompiled, c.libraryCompiled];
             const references = Object.assign({}, ...modules.flatMap(module => [
                 module.externalFreeReferences, module.externalTransparentDefinitions,
                 Object.fromEntries(module.linkage.entries.flatMap(link =>
                     link.kind === 'free-declaration' ? [[link.coreName, link.backendName]] : []))
             ]));
             const serialize = (term: KernelExpression) => serializeKernelExpression(term, { externalFreeReferences: references });
-            const declarations = modules.flatMap(module => module.declarations.flatMap(decl => [
+            const declarations = modules.flatMap(module => module.declarations.filter(decl =>
+                module !== c.covarianceCompiled ||
+                CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY.inheritedCovarianceDeclarationNames.includes(decl.symbol.name)
+            ).flatMap(decl => [
                 `assert ⊢ @${decl.symbol.name} : ${serialize(decl.type)};`,
                 ...(decl.body ? [`assert ⊢ @${decl.symbol.name} ≡ ${serialize(decl.body)};`] : [])
             ]));

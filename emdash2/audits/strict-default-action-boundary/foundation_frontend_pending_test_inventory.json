@@ -377,6 +377,11 @@
         "log": "wave423_prewhisker_integration_repairs.out"
       },
       "doesNotQualify": "General-FF Homd endpoint, complete TypeScript gate, production health or later stages"
+    },
+    {
+      "scope": "Typed identity Homd root-to-leaf; shared covariance and unchanged PathInd consumers",
+      "review": "foundation_frontend_homd_identity_review.md",
+      "doesNotQualify": "General-FF relative endpoint, complete higher action, complete aggregate or production health"
     }
   ],
   "latestAggregate": {

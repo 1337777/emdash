@@ -1,0 +1,177 @@
+{
+  "status": "identity root-to-leaf frontend and relocated consumers qualified; full relative/higher/frontend completion remains open",
+  "previousCheckpoint": "49c1a4c5",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "currentInputs": {
+    "src/v3_2/categorical_direct_mixed_source_action_transfer.ts": "7c28c1e35c91bdb7bd8f0249fadcfa9d3d95aeb922bcca7f009e810fef16e465",
+    "src/v3_2/categorical_mixed_action_transfer.ts": "c79caa3c53ebc4a198cd245b5b2ae22bb1404846fc69b1869b3aea15e17d15c0",
+    "src/v3_2/pathind_fixed_source_transfer.ts": "070bf628fde9ac4cfed098d4fc1870c8c338fa27283efd2ee25080736e245dc9",
+    "tests/v3_2_categorical_mixed_action_transfer_tests.ts": "9b6d2c045114fe7e5dfb06d7b1f48f561e92a88960c12c7194d3f07fa9c63187",
+    "tests/v3_2_pathind_fixed_source_transfer_tests.ts": "d79122e01f01d604abaa3a47af1ff5edc2c7234c12cbecb60cfdd8948bd9825c"
+  },
+  "nativeReceipts": [
+    {
+      "id": "20261026T074353Z-086233bb0a6b461cb8fdf3aabf80e250",
+      "outcome": "timeout",
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "checkerExit": 137,
+      "wallSeconds": 60.04468921292573,
+      "childrenMaxRssKiB": 83136,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "inputs": {
+        "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/elab0-jzQjOI/probe.lp": "4a1c66db2a7263a1d80473a81bf4ecdf7ee33da74b41a56a7913ca0081372ebd"
+      },
+      "inputSnapshot": "40895533fe7b43e0cb853404977229b34261b0b9ac05fc4ff60f1265090275e5",
+      "log": "logs/check-runs/20261026T074353Z-086233bb0a6b461cb8fdf3aabf80e250.log",
+      "logSha256": "b4bc9e17fd63b13ee7ae961dfa1ab64684111bced0bd8f1c20d33b65f9147df0"
+    },
+    {
+      "id": "20261026T074618Z-a6c7280c5afd4b619b7abd18c230c269",
+      "outcome": "passed-fresh",
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "checkerExit": 0,
+      "wallSeconds": 40.090440248837695,
+      "childrenMaxRssKiB": 170028,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 120000
+      },
+      "inputs": {
+        "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/kernel_boundary_continuation/identity_homd_native.lp": "4a1c66db2a7263a1d80473a81bf4ecdf7ee33da74b41a56a7913ca0081372ebd"
+      },
+      "inputSnapshot": "d7dbc7f297c0dc846dc6e2fb4d7e512e59f943ef1b8fdd56f44ce17259a6aa99",
+      "log": "logs/check-runs/20261026T074618Z-a6c7280c5afd4b619b7abd18c230c269.log",
+      "logSha256": "5840df43f583763456429c0807c348b4e4aa7658a04510d58618dee40da33449"
+    }
+  ],
+  "nativeEmittedInput": {
+    "sha256": "4a1c66db2a7263a1d80473a81bf4ecdf7ee33da74b41a56a7913ca0081372ebd",
+    "positiveAssertions": 20,
+    "negativeAssertions": 1,
+    "replay": "Supported checker, serial guarded probe, OCAMLRUNPARAM=o=20,v=1024, EMDASH_PROBE_TIMEOUT=120s, 2GiB; defaults unchanged"
+  },
+  "warnings": {
+    "baselineReceipt": "20261026T055447Z-04e7fd4a2ae54db7a8958ed7058702c8",
+    "currentReceipt": "20261026T074618Z-a6c7280c5afd4b619b7abd18c230c269",
+    "normalizedImportedBlocks": 1886,
+    "criticalPairs": 1704,
+    "added": 0,
+    "removed": 0,
+    "method": "Exact multiset of ANSI-yellow emdash3_2.lp diagnostic blocks, excluding checker result and GC footer"
+  },
+  "focused": [
+    {
+      "log": "wave433_shared_identity_consumers.out",
+      "scope": "Fixed-source PathInd",
+      "passed": 17,
+      "failed": 0,
+      "skipped": 1,
+      "note": "This combined run also records two mixed-suite metadata/budget failures, repaired in wave435."
+    },
+    {
+      "log": "wave435_identity_ladder_replay.out",
+      "passed": 6,
+      "failed": 0,
+      "skipped": 1
+    },
+    {
+      "log": "wave438_identity_downstream.out",
+      "passed": 20,
+      "failed": 0,
+      "skipped": 2,
+      "durationMs": 198089.185142
+    }
+  ],
+  "typecheck": {
+    "log": "wave442_identity_checkpoint_typecheck.out",
+    "exitCode": 0,
+    "sha256": "70685b4df7789c854b9e1ceab7d78a6d0f9a0831c11eb0010b7b5fdbe0e50c39"
+  },
+  "lint": {
+    "log": "wave441_identity_final_lint.out",
+    "exitCode": 0,
+    "sha256": "f742f989be94e529cde1c75bc31645378f1840908710384b8406b93407d056d9",
+    "finalNativeScopeFilter": {
+      "log": "wave443_identity_native_scope_lint.out",
+      "exitCode": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "logRoot": "emdash2/tmp/probes/kernel_boundary_continuation",
+  "history": [
+    {
+      "log": "wave432_shared_homd_identity_tests.out",
+      "disposition": "Corrected native probe API use and extended the source-action finalization to retain the new source-prior identity declaration prefix."
+    },
+    {
+      "log": "wave433_shared_identity_consumers.out",
+      "disposition": "Mixed suite count changed from10 to21; the unchanged relative-root equality exceeded its1024-step bound after gaining identity computation. The4096-step focused replay passes, with no solver default change."
+    },
+    {
+      "log": "wave434_identity_native.out",
+      "disposition": "60s timeout, no reported typing error; exact emitted bytes passed at120s with unchanged memory cap."
+    }
+  ],
+  "aggregateBoundary": "wave413 complete aggregate remains failed at47 tests; no new aggregate/residual count claimed",
+  "remaining": [
+    "Transfer general-FF target/diagram action to the actual relative endpoint",
+    "Complete required higher identity/relative action transfer",
+    "PathOut transitivity and remaining frontend/source-review consumers",
+    "Final frontend aggregate and production health",
+    "Book/article then adapted legacy nerve stages"
+  ],
+  "artifactHashes": {
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_identity_acquisition.json": "05e8421fe13275779fe2bd8802ed97bc87e973cf024883993ec9790bfc9e0a17",
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_identity_review.md": "6b11188eb8f4865eb95b21454716f9d3293c5c797f6a67b23ede67c2450bcbb7"
+  },
+  "logHashes": {
+    "wave433_shared_identity_consumers.out": "bc363610ee026416067f510b482ff942b3819b9b60cfd7f6e3064ab91cc8c333",
+    "wave435_identity_ladder_replay.out": "c9563b010dbd88815f8bc92907a7c5003270c169c4ced66123953e3d08004dc4",
+    "wave438_identity_downstream.out": "47b7c253891092d7047a8b9134be8ab19e01cf6599bcf0c66c5b8609e8cdc723"
+  },
+  "changesAfterFocusedRuns": [
+    "The imported fib_cov_int constant modifier and Homd_coeff_conjoint injectivity now exactly match the canonical declaration metadata; types, bodies and runtime clauses unchanged.",
+    "The PathInd native emitter filters its inherited module to the original four covariance declarations, preserving the existing native assertion scope."
+  ]
+}

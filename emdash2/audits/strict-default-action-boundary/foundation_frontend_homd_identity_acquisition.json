@@ -1,0 +1,142 @@
+{
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "canonicalExportSha256": "5fe27c717a83f950431cf61a806a493499f3b03635310c63dcf3c9b751c327cd",
+  "scope": "Shared native covariance and direct identity Homd source/section/target/presheaf ladder",
+  "commands": [
+    {
+      "name": "FibCov_target_catd",
+      "ordinal": 1419,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "ca24a841aad2986473147e027de9d534d56d2056cb3a568301727524acbe7ea2"
+    },
+    {
+      "name": "fib_cov_int",
+      "ordinal": 1421,
+      "modifiers": [
+        "constant"
+      ],
+      "hasBody": false,
+      "sha256": "098dca427589a143454965b4d929931f7608da89d0efbe325329b80de1d635bf"
+    },
+    {
+      "name": "fib_cov_src_func",
+      "ordinal": 1422,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "64f2f6a2e5730a0c37489707154dab08a684e860948509f09d4a78039f1a6caf"
+    },
+    {
+      "name": "fib_cov_transf",
+      "ordinal": 1423,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "c0d0f0642b00aefb42b9165e7cfa493502053c1d59b00d6fe824ac56300151be"
+    },
+    {
+      "name": "Homd_coeff_conjoint",
+      "ordinal": 1451,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "fbc05c507d6eccb75707eaa9066acdbaa666521c2462a7c65d55768b9941586b"
+    },
+    {
+      "name": "Homd_coeff_mate",
+      "ordinal": 1489,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "2f306f4815db668c3e1f7f594a52622387cd22bf8beac403444954867b6e02fd"
+    },
+    {
+      "name": "Homd_coeff_mate_func",
+      "ordinal": 1503,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "128a2e19c89ce0c630ea6dce7c9c34d30fb136e13d2bc3f23ef266bea7fe7ef2"
+    },
+    {
+      "name": "homd_id_src_sec",
+      "ordinal": 1508,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "a08b47fbe517d2ffb0c8c97203e83a452984b7f501e5da624e156fe1bf0bbeb3"
+    },
+    {
+      "name": "homd_id_src_func",
+      "ordinal": 1509,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "0ab87d1407bbbcb19eff57b04aa9d9438a6e84d8dc706441ac093eb263fb8b3e"
+    },
+    {
+      "name": "homd_id_tgt_func",
+      "ordinal": 1510,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "2e1e1303d17e8c371c368d252fcaeeb498691feaaa8ecae9b10693e6364a78dc"
+    },
+    {
+      "name": "homd_id_",
+      "ordinal": 1511,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "e999fd768725fdcb696145eedb5b519c9a45a6fbd20a5fdf4a4ef7d92e62de84"
+    }
+  ],
+  "runtimeRules": [
+    {
+      "id": "categorical.mixed-action.covariance-root",
+      "ordinal": 1424,
+      "sha256": "123cda2f1bbd78e1e4fd3b35215c773a98fc876eba7a80d683b142ebc7bfbf5f",
+      "canonicalCommand": "rule @tapp0_fapp0 $K Cat_cart _ _ $x (@fib_cov_int $K $E) ↪ @fib_cov_src_func\n                                                            $K $E $x;"
+    },
+    {
+      "id": "categorical.mixed-action.covariance-object",
+      "ordinal": 1425,
+      "sha256": "21bf09cb95670d36faf88959553016bab56e2998665e9fee87c6d4a00dae6a48",
+      "canonicalCommand": "rule fapp0 (@fib_cov_src_func $K $E $x) $u ↪ @fib_cov_transf $K $E $x $u;"
+    },
+    {
+      "id": "categorical.mixed-action.covariance-component",
+      "ordinal": 1426,
+      "sha256": "86e34a4bd1db19a7dce21778b03ef6b68d25fa82aca8e193e6b310648ad5bf51",
+      "canonicalCommand": "rule @tapp0_fapp0 $K Cat_cart _ _ $y\n     (@strict_transfor _ _ _ _ (@fib_cov_transf $K $E $x $u)) ↪ @fib_cov_tapp0_func\n                                                                $K $E $x $y\n                                                                $u;"
+    },
+    {
+      "id": "categorical.mixed-action.opposite-functor-involution",
+      "ordinal": 548,
+      "sha256": "5cbaa20d506f05f4d57d7aefcc6f89e2594efa7ca0f971a61d9a063fb04d71c9",
+      "canonicalCommand": "rule Op_func (@Op_func $A $B $F) ↪ $F;"
+    },
+    {
+      "id": "categorical.mixed-action.identity-homd-root",
+      "ordinal": 1529,
+      "sha256": "54a1592b4a845cc2a84efa22e27e7544bdf34ae0be7b4fca8679682532875040",
+      "canonicalCommand": "rule @tapp0_fapp0 _ _ _ _ $x (@strict_transfor _ _ _ _ (@homd_id_int $K $E)) ↪ \n@Op_func (Op_cat (@fapp0 $K Cat_cart $E $x))\n(@Homd_target_section_cat $K $E $x) (@homd_id_src_func $K $E $x);"
+    },
+    {
+      "id": "categorical.mixed-action.mate-object",
+      "ordinal": 1504,
+      "sha256": "25ed1a14b6e032938749ae992056b4692a7559e3a55ba4a30642e5cb3467b5ec",
+      "canonicalCommand": "rule fapp0 (@Homd_coeff_mate_func $K $E $D) $U ↪ @Homd_coeff_mate $K $E $D $U;"
+    },
+    {
+      "id": "categorical.mixed-action.mate-component",
+      "ordinal": 1490,
+      "sha256": "5373ed3152a025b778880bafe2b5e456ce0490723a3e6f7466343ab40841349d",
+      "canonicalCommand": "rule @tapp0_fapp0 _ _ _ _ $y (@Homd_coeff_mate $K $E $D $U) ↪ (@Homd_coeff_conjoint\n                                                               (@fapp0 $K\n                                                                Cat_cart $D\n                                                                $y)\n                                                               (@fapp0 $K\n                                                                Cat_cart $E\n                                                                $y)\n                                                               (fapp0\n                                                                (@Functor_cart_component_func\n                                                                 $K Cat_cart\n                                                                 $E $D $y)\n                                                                $U));"
+    },
+    {
+      "id": "categorical.mixed-action.conjoint-object",
+      "ordinal": 1452,
+      "sha256": "ca1e23ebc79f25b9d1a994c6652a5cde5a4234e597be5fe553b47b4b67e7d8d0",
+      "canonicalCommand": "rule fapp0 (@Homd_coeff_conjoint $A $B $F) $a ↪ @Op_func (Op_cat $B) Cat_cart\n                                                (@hom_con $A $a $B $F);"
+    }
+  ]
+}

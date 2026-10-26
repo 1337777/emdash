@@ -591,7 +591,7 @@ CoreCategoricalDirectMixedSourceActionCompilation {
         mixedAction.compiled.linkage,
         {
             initialEnvironment:
-                mixedAction.initialCompiled.environment,
+                mixedAction.identityCompiled.environment,
             runtimeProgram: runtimeFragment.runtime,
             comparisonStepLimit: 512
         }
@@ -599,7 +599,7 @@ CoreCategoricalDirectMixedSourceActionCompilation {
     const declarationContext = new CoreLfMixedDeclarationContext(
         new CoreLfMixedDeclarationContext(
             mixedAction.prerequisite.declarationContext,
-            [mixedAction.initialCompiled]
+            [mixedAction.initialCompiled, mixedAction.identityCompiled]
         ),
         [compiled]
     );

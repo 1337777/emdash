@@ -489,6 +489,15 @@ The full Homd P-index endpoint and broader integration remain required.
 
 ## Constraints
 
+The [identity Homd frontend continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_identity_review.md)
+qualifies the actual typed root through the whole y-section, v and f to
+`Hom_E[y](E[f](u),v)`. FibCov is now shared earlier with the same Core names;
+PathInd consumes it and no longer needs its old object-fold rule. Native
+conformance passes20 positives/one negative, and the focused mixed and
+PathInd consumers pass. The general-FF target/diagram action and complete
+higher-action transfer remain required; the isolated general-FF failure is
+not repaired by strictifying FF or adding a direct endpoint rule.
+
 - Follow the native source and its existing migration outline. Do not add
   new Lambdapi rules to make an old frontend type pass.
 - Preserve fail-closed source/command/profile checks. Update pins only for

@@ -1,8 +1,9 @@
 /**
  * PATHIND-TRUSTED-PROFILE-1C root-only existing-authority transfer.
  *
- * Exact local boundary: five opaque declarations, ten runtime rules, no
- * proof rule, and six transparent definitions.  The module deliberately
+ * Covariance is inherited from the source-prior Homd transfer. This local
+ * consumer adds two opaque declarations, six runtime rules and five checked
+ * definitions, with no new proof rule. The module deliberately
  * stops before PathInd_func, PathInd_transfd, varying-source packaging,
  * transitivity, and public/browser/package presentation.
  */
@@ -20,6 +21,7 @@ import {
     CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_LINKAGE
 } from './categorical_fibred_dependent_target_transfer';
 import {
+    compileCoreCategoricalMixedActionTransfer,
     CORE_CATEGORICAL_MIXED_ACTION_SYMBOLS,
     CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_LINKAGE
 } from './categorical_mixed_action_transfer';
@@ -579,38 +581,6 @@ const pathoutReflexiveArrowAt = (
         { plicity: 'explicit', value: arrow }
     ]);
 
-const fibreCovariantTargetAt = (
-    builder: CoreLfTransferScopedBuilder,
-    base: CoreLfTransferBuilderExpression,
-    family: CoreLfTransferBuilderExpression
-): CoreLfTransferBuilderExpression =>
-    globalCall(builder, fibreCovariantTarget, [
-        { plicity: 'implicit', value: base },
-        { plicity: 'explicit', value: family }
-    ]);
-
-const fibreCovariantInternalAt = (
-    builder: CoreLfTransferScopedBuilder,
-    base: CoreLfTransferBuilderExpression,
-    family: CoreLfTransferBuilderExpression
-): CoreLfTransferBuilderExpression =>
-    globalCall(builder, fibreCovariantInternal, [
-        { plicity: 'implicit', value: base },
-        { plicity: 'explicit', value: family }
-    ]);
-
-const fibreCovariantSourceFunctorAt = (
-    builder: CoreLfTransferScopedBuilder,
-    base: CoreLfTransferBuilderExpression,
-    family: CoreLfTransferBuilderExpression,
-    source: CoreLfTransferBuilderExpression
-): CoreLfTransferBuilderExpression =>
-    globalCall(builder, fibreCovariantSourceFunctor, [
-        { plicity: 'implicit', value: base },
-        { plicity: 'explicit', value: family },
-        { plicity: 'explicit', value: source }
-    ]);
-
 const fibreCovariantTransformationAt = (
     builder: CoreLfTransferScopedBuilder,
     base: CoreLfTransferBuilderExpression,
@@ -728,13 +698,6 @@ const modifiers = (
     sourceOpacity
 });
 
-const cartesianFamiliesAt = (
-    b: CoreLfTransferScopedBuilder, K: CoreLfTransferBuilderExpression
-): CoreLfTransferBuilderExpression => globalCall(b, cartesianFunctorCategory, [
-    { plicity: 'explicit', value: K },
-    { plicity: 'explicit', value: b.global(familyCoefficient) }
-]);
-
 const strictCovarianceAt = (
     b: CoreLfTransferScopedBuilder, K: CoreLfTransferBuilderExpression,
     E: CoreLfTransferBuilderExpression, x: CoreLfTransferBuilderExpression,
@@ -746,129 +709,6 @@ const strictCovarianceAt = (
     { plicity: 'implicit', value: E },
     { plicity: 'explicit', value: fibreCovariantTransformationAt(b, K, E, x, u) }
 ]);
-
-const fibreCovariantTargetType = (): CoreLfTransferExpression => {
-    const builder = new CoreLfTransferScopedBuilder();
-    return builder.term(builder.pi(
-        'K',
-        builder.global(category),
-        K => builder.pi(
-            'E',
-            displayedFamilyType(builder, K),
-            _E => displayedFamilyType(builder, K),
-            explicitMode
-        ),
-        implicitMode
-    ));
-};
-
-const fibreCovariantTargetBody = (): CoreLfTransferExpression => {
-    const builder = new CoreLfTransferScopedBuilder();
-    return builder.term(builder.lam(
-        'K',
-        builder.global(category),
-        K => builder.lam(
-            'E',
-            displayedFamilyType(builder, K),
-            E => contravariantRepresentableAt(
-                builder,
-                cartesianFamiliesAt(builder, K),
-                E,
-                oppositeAt(builder, K),
-                internalHomAt(
-                    builder,
-                    K,
-                    K,
-                    identityFunctorAt(builder, K)
-                )
-            ),
-            explicitMode
-        ),
-        implicitMode
-    ));
-};
-
-const fibreCovariantInternalType = (): CoreLfTransferExpression => {
-    const builder = new CoreLfTransferScopedBuilder();
-    return builder.term(builder.pi(
-        'K',
-        builder.global(category),
-        K => builder.pi(
-            'E',
-            displayedFamilyType(builder, K),
-            E => displayedFunctorType(
-                builder,
-                K,
-                E,
-                fibreCovariantTargetAt(builder, K, E)
-            ),
-            explicitMode
-        ),
-        implicitMode
-    ));
-};
-
-const fibreCovariantSourceFunctorType = (): CoreLfTransferExpression => {
-    const builder = new CoreLfTransferScopedBuilder();
-    return builder.term(builder.pi(
-        'K',
-        builder.global(category),
-        K => builder.pi(
-            'E',
-            displayedFamilyType(builder, K),
-            E => builder.pi(
-                'x',
-                objectType(builder, K),
-                x => functorType(
-                    builder,
-                    fibreAt(builder, K, E, x),
-                    fibreAt(
-                        builder,
-                        K,
-                        fibreCovariantTargetAt(builder, K, E),
-                        x
-                    )
-                ),
-                explicitMode
-            ),
-            explicitMode
-        ),
-        implicitMode
-    ));
-};
-
-const fibreCovariantTransformationType = (): CoreLfTransferExpression => {
-    const builder = new CoreLfTransferScopedBuilder();
-    return builder.term(builder.pi(
-        'K',
-        builder.global(category),
-        K => builder.pi(
-            'E',
-            displayedFamilyType(builder, K),
-            E => builder.pi(
-                'x',
-                objectType(builder, K),
-                x => builder.pi(
-                    'u',
-                    objectType(builder, fibreAt(builder, K, E, x)),
-                    _u => objectType(
-                        builder,
-                        fibreAt(
-                            builder,
-                            K,
-                            fibreCovariantTargetAt(builder, K, E),
-                            x
-                        )
-                    ),
-                    explicitMode
-                ),
-                explicitMode
-            ),
-            explicitMode
-        ),
-        implicitMode
-    ));
-};
 
 const pathInductionSectionType = (): CoreLfTransferExpression => {
     const builder = new CoreLfTransferScopedBuilder();
@@ -950,41 +790,8 @@ const pathInductionComponentFunctorType =
     ));
 };
 
-const fibreTargetDeclaration: CoreLfTransferDeclaration = Object.freeze({
-    order: 0,
-    symbol: fibreCovariantTarget,
-    type: fibreCovariantTargetType(),
-    body: coreLfTransferExplicitBody(fibreCovariantTargetBody()),
-    modifiers: modifiers('ordinary', 'transparent'),
-    provenance: source('symbol FibCov_target_catd [K : Cat]')
-});
-
 const trustedDeclarations:
 readonly CoreLfTransferDeclaration[] = Object.freeze([
-    Object.freeze({
-        order: 0,
-        symbol: fibreCovariantInternal,
-        type: fibreCovariantInternalType(),
-        body: coreLfTransferAbsentBody(),
-        modifiers: modifiers('ordinary', 'opaque'),
-        provenance: source('constant symbol fib_cov_int')
-    }),
-    Object.freeze({
-        order: 1,
-        symbol: fibreCovariantSourceFunctor,
-        type: fibreCovariantSourceFunctorType(),
-        body: coreLfTransferAbsentBody(),
-        modifiers: modifiers('ordinary', 'opaque'),
-        provenance: source('symbol fib_cov_src_func [K : Cat]')
-    }),
-    Object.freeze({
-        order: 2,
-        symbol: fibreCovariantTransformation,
-        type: fibreCovariantTransformationType(),
-        body: coreLfTransferAbsentBody(),
-        modifiers: modifiers('injective', 'opaque'),
-        provenance: source('injective symbol fib_cov_transf [K : Cat]')
-    }),
     Object.freeze({
         order: 3,
         symbol: pathInductionSection,
@@ -1001,7 +808,7 @@ readonly CoreLfTransferDeclaration[] = Object.freeze([
         modifiers: modifiers('ordinary', 'opaque'),
         provenance: source('symbol path_ind_func_fapp0 [Z : Cat]')
     })
-]);
+].map((d,order)=>({...d,order})));
 
 const displayedFunctorObjectRule =
 (): CoreLfTransferRuntimeRule => {
@@ -1161,227 +968,6 @@ const transforClassifierDeltaRule =
         provenance: source(
             'active transparent definition at lines 9150-9151: ' +
                 'Transf A B F G ≔ Obj (Transf_cat A B F G)'
-        )
-    };
-};
-
-const fibreCovariantTargetSectionFusionRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const K = builder.capture('K');
-    const E = builder.capture('E');
-    const x = builder.capture('x');
-    const objectClassifierAt = (
-        target: CoreLfTransferBuilderExpression
-    ): CoreLfTransferBuilderExpression =>
-        globalCall(builder, objectClassifier, [{
-            plicity: 'explicit',
-            value: target
-        }]);
-    return {
-        order: 4,
-        id: 'pathind.fixed-source.fib-cov-target-section-fusion',
-        groupId: 'pathind.fixed-source.prerequisite-projection',
-        clauseOrder: 3,
-        sourceOwner: objectClassifier,
-        variables: [
-            {
-                name: 'K',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'E',
-                type: builder.template(displayedFamilyType(builder, K))
-            },
-            {
-                name: 'x',
-                type: builder.template(objectType(builder, K))
-            }
-        ],
-        left: builder.pattern(objectClassifierAt(functorObjectAt(
-            builder,
-            K,
-            builder.global(familyCoefficient),
-            fibreCovariantTargetAt(builder, K, E),
-            x
-        ))),
-        right: builder.template(objectClassifierAt(homCategoryAt(
-            builder,
-            cartesianFamiliesAt(builder, K),
-            representableFamilyAt(builder, K, x),
-            E
-        ))),
-        provenance: source(
-            'Forward object projection of FibCov_target_catd through hom_con and Cartesian Hom'
-        )
-    };
-};
-
-const fibreCovariantPackageComponentRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const K = builder.capture('K');
-    const E = builder.capture('E');
-    const x = builder.capture('x');
-    return {
-        order: 6,
-        id: 'pathind.fixed-source.fib-cov-package-component',
-        groupId: 'pathind.fixed-source.fib-cov-projections',
-        clauseOrder: 0,
-        sourceOwner: transforComponentCapped,
-        variables: [
-            {
-                name: 'K',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'E',
-                type: builder.template(displayedFamilyType(builder, K))
-            },
-            {
-                name: 'x',
-                type: builder.template(objectType(builder, K))
-            }
-        ],
-        left: builder.pattern(componentAt(
-            builder,
-            K,
-            builder.wildcard(E),
-            builder.wildcard(fibreCovariantTargetAt(builder, K, E)),
-            x,
-            fibreCovariantInternalAt(builder, K, E)
-        )),
-        right: builder.template(fibreCovariantSourceFunctorAt(
-            builder,
-            K,
-            E,
-            x
-        )),
-        provenance: source(
-            'rule @tapp0_fapp0 $K Cat_cart _ _ $x ' +
-                '(@fib_cov_int $K $E)'
-        )
-    };
-};
-
-const fibreCovariantComponentObjectRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const K = builder.capture('K');
-    const E = builder.capture('E');
-    const x = builder.capture('x');
-    const u = builder.capture('u');
-    return {
-        order: 7,
-        id: 'pathind.fixed-source.fib-cov-component-object',
-        groupId: 'pathind.fixed-source.fib-cov-projections',
-        clauseOrder: 1,
-        sourceOwner: functorObject,
-        variables: [
-            {
-                name: 'K',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'E',
-                type: builder.template(displayedFamilyType(builder, K))
-            },
-            {
-                name: 'x',
-                type: builder.template(objectType(builder, K))
-            },
-            {
-                name: 'u',
-                type: builder.template(objectType(
-                    builder,
-                    fibreAt(builder, K, E, x)
-                ))
-            }
-        ],
-        left: builder.pattern(functorObjectAt(
-            builder,
-            fibreAt(builder, K, E, x),
-            fibreAt(
-                builder,
-                K,
-                fibreCovariantTargetAt(builder, K, E),
-                x
-            ),
-            fibreCovariantSourceFunctorAt(builder, K, E, x),
-            u
-        )),
-        right: builder.template(fibreCovariantTransformationAt(
-            builder,
-            K,
-            E,
-            x,
-            u
-        )),
-        provenance: source(
-            'rule fapp0 (@fib_cov_src_func $K $E $x) $u'
-        )
-    };
-};
-
-const fibreCovariantSectionPointRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const K = builder.capture('K');
-    const E = builder.capture('E');
-    const x = builder.capture('x');
-    const u = builder.capture('u');
-    const y = builder.capture('y');
-    const represented = representableFamilyAt(builder, K, x);
-    return {
-        order: 8,
-        id: 'pathind.fixed-source.fib-cov-section-point',
-        groupId: 'pathind.fixed-source.fib-cov-projections',
-        clauseOrder: 2,
-        sourceOwner: transforComponentCapped,
-        variables: [
-            {
-                name: 'K',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'E',
-                type: builder.template(displayedFamilyType(builder, K))
-            },
-            {
-                name: 'x',
-                type: builder.template(objectType(builder, K))
-            },
-            {
-                name: 'u',
-                type: builder.template(objectType(
-                    builder,
-                    fibreAt(builder, K, E, x)
-                ))
-            },
-            {
-                name: 'y',
-                type: builder.template(objectType(builder, K))
-            }
-        ],
-        left: builder.pattern(componentAt(
-            builder,
-            K,
-            builder.wildcard(represented),
-            builder.wildcard(E),
-            y,
-            strictCovarianceAt(builder, K, E, x, u)
-        )),
-        right: builder.template(covariantFibreActionAt(
-            builder,
-            K,
-            E,
-            x,
-            y,
-            u
-        )),
-        provenance: source(
-            'rule @tapp0_fapp0 $K Cat_cart _ _ $y ' +
-                '(@fib_cov_transf $K $E $x $u)'
         )
     };
 };
@@ -1603,10 +1189,6 @@ const runtimeRules: readonly CoreLfTransferRuntimeRule[] = Object.freeze([
     displayedFunctorObjectRule(),
     displayedHomObjectFusionRule(),
     transforClassifierDeltaRule(),
-    fibreCovariantTargetSectionFusionRule(),
-    fibreCovariantPackageComponentRule(),
-    fibreCovariantComponentObjectRule(),
-    fibreCovariantSectionPointRule(),
     pathInductionComponentObjectRule(),
     pathInductionPointRule(),
     pathInductionSigmaPullbackRule()
@@ -1912,59 +1494,6 @@ readonly CoreLfTransferDeclaration[] = Object.freeze([
     })
 ]);
 
-const fibreTargetExternalSymbols = Object.freeze([
-    cartesianFunctorCategory,
-    category,
-    decodeOwner,
-    objectClassifier,
-    familyCoefficient,
-    displayedCategoryCategory,
-    displayedFamilyClassifier,
-    oppositeCategory,
-    contravariantRepresentable,
-    internalHom,
-    identityFunctor
-]);
-
-export const CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_MODULE:
-CoreLfModuleSpec = createCoreLfModuleSpec({
-    revision: `${CORE_PATHIND_FIXED_SOURCE_1C_REVISION}-FIBRE-TARGET`,
-    moduleId: MODULE_ID,
-    fragmentId: 'pathind-fixed-source-1c-fibre-target',
-    authorityPath: 'emdash2/emdash3_2.lp',
-    sourceSha256: CORE_PATHOUT_FOUNDATION_SOURCE_SHA256,
-    dependencies: [],
-    externalSymbols: fibreTargetExternalSymbols.map(target => ({
-        symbol: target,
-        availability: 'earlier-fragment' as const
-    })),
-    declarations: [fibreTargetDeclaration],
-    inductives: [],
-    runtimeRules: [],
-    proofRules: []
-});
-
-export const CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_POLICY:
-CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
-    CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_MODULE,
-    {
-        revision: `${CORE_PATHIND_FIXED_SOURCE_1C_REVISION}-` +
-            'FIBRE-TARGET-POLICY-1',
-        moduleRevision:
-            CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_MODULE.revision,
-        entries: [{
-            order: 0,
-            target: {
-                kind: 'declaration' as const,
-                symbol: fibreCovariantTarget
-            },
-            policy: 'checked-transparent-definition' as const,
-            evidence:
-                'Exact native FibCov target under the current foundations migration'
-        }]
-    }
-);
-
 const trustedExternalSymbols = Object.freeze([
     category,
     decodeOwner,
@@ -1978,7 +1507,7 @@ const trustedExternalSymbols = Object.freeze([
     sectionCategory,
     pathoutCategory,
     pathoutReflexiveObject,
-    fibreCovariantTarget
+    fibreCovariantTarget, fibreCovariantInternal, fibreCovariantSourceFunctor, fibreCovariantTransformation
 ]);
 
 export const CORE_PATHIND_FIXED_SOURCE_1C_TRUSTED_MODULE:
@@ -2263,31 +1792,11 @@ const localDeclarationLinks = (
         backendName: declaration.symbol.name
     }));
 
-export const CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_LINKAGE:
-CoreLfTransferDeclarationLinkage =
-    createCoreLfTransferDeclarationLinkage(
-        CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_MODULE,
-        {
-            revision: `${CORE_PATHIND_FIXED_SOURCE_1C_REVISION}-` +
-                'FIBRE-TARGET-LINKAGE-1',
-            moduleRevision:
-                CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_MODULE.revision,
-            entries: [
-                ...fibreTargetExternalSymbols.map((target, order) =>
-                    dependencyLink(target, order)
-                ),
-                ...localDeclarationLinks(
-                    [fibreTargetDeclaration],
-                    fibreTargetExternalSymbols.length
-                )
-            ]
-        }
-    );
-
-const fibreTargetLocalLinks =
-    CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_LINKAGE.entries.filter(entry =>
-        symbolEquals(entry.symbol, fibreCovariantTarget)
-    );
+// Compatibility linkage: covariance retains its former Core names and is
+// declared once in the source-prior mixed Homd transfer.
+export const CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_LINKAGE =
+    CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_LINKAGE;
+const fibreTargetLocalLinks = CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_LINKAGE.entries;
 
 export const CORE_PATHIND_FIXED_SOURCE_1C_TRUSTED_LINKAGE:
 CoreLfTransferDeclarationLinkage =
@@ -2399,13 +1908,15 @@ Object.freeze({
     runtimeRuleIds: Object.freeze(runtimeRules.map(rule => rule.id)),
     proofRuleIds: Object.freeze([] as string[]),
     transparentDefinitionNames: Object.freeze([
-        fibreTargetDeclaration.symbol.name,
         ...libraryDeclarations.map(declaration => declaration.symbol.name)
     ]),
     trustedDeclarationCount: trustedDeclarations.length,
     runtimeRuleCount: runtimeRules.length,
     proofRuleCount: 0,
-    transparentDefinitionCount: 1 + libraryDeclarations.length,
+    transparentDefinitionCount: libraryDeclarations.length,
+    inheritedCovarianceDeclarationNames: Object.freeze([
+        'FibCov_target_catd','fib_cov_int','fib_cov_src_func','fib_cov_transf'
+    ]),
     typedLibraryConsumerCount: 1,
     negativeConsumerCount: 8,
     selectedRuntimeObservationCount: 5,
@@ -2432,7 +1943,7 @@ Object.freeze({
 
 export interface CorePathindFixedSource1cCompilation {
     readonly predecessor: CorePathoutFoundation1bCompilation;
-    readonly fibreTargetCompiled: CoreLfCompiledDeclarationModule;
+    readonly covarianceCompiled: CoreLfCompiledDeclarationModule;
     readonly trustedCompiled: CoreLfCompiledDeclarationModule;
     readonly libraryCompiled: CoreLfCompiledDeclarationModule;
     readonly compiled: CoreLfCompiledDeclarationModule;
@@ -2449,33 +1960,20 @@ CorePathindFixedSource1cCompilation {
     if (cachedCompilation !== undefined) return cachedCompilation;
     validateCorePathindFixedSource1cReviewV8();
     const predecessor = compileCorePathoutFoundation1bTransfer();
-    const fibreTargetCompiled = compileCoreLfDeclarations(
-        CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_MODULE,
-        CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_POLICY,
-        CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_LINKAGE,
+    const covarianceCompiled = compileCoreCategoricalMixedActionTransfer().identityCompiled;
+    const trustedCompiled = compileCoreLfDeclarations(
+        CORE_PATHIND_FIXED_SOURCE_1C_TRUSTED_MODULE,
+        CORE_PATHIND_FIXED_SOURCE_1C_TRUSTED_POLICY,
+        CORE_PATHIND_FIXED_SOURCE_1C_TRUSTED_LINKAGE,
         {
             initialEnvironment: predecessor.compiled.environment,
             runtimeProgram: predecessor.composedRuntime,
             comparisonStepLimit: 512
         }
     );
-    const fibreTargetContext = new CoreLfMixedDeclarationContext(
-        predecessor.declarationContext,
-        [fibreTargetCompiled]
-    );
-    const trustedCompiled = compileCoreLfDeclarations(
-        CORE_PATHIND_FIXED_SOURCE_1C_TRUSTED_MODULE,
-        CORE_PATHIND_FIXED_SOURCE_1C_TRUSTED_POLICY,
-        CORE_PATHIND_FIXED_SOURCE_1C_TRUSTED_LINKAGE,
-        {
-            initialEnvironment: fibreTargetCompiled.environment,
-            runtimeProgram: predecessor.composedRuntime,
-            comparisonStepLimit: 512
-        }
-    );
     const trustedContext = new CoreLfMixedDeclarationContext(
         predecessor.declarationContext,
-        [fibreTargetCompiled, trustedCompiled]
+        [trustedCompiled]
     );
     const runtimeFragment = compileCoreLfRuntimeFragment(
         CORE_PATHIND_FIXED_SOURCE_1C_RUNTIME_MODULE,
@@ -2514,11 +2012,11 @@ CorePathindFixedSource1cCompilation {
     );
     const declarationContext = new CoreLfMixedDeclarationContext(
         predecessor.declarationContext,
-        [fibreTargetCompiled, trustedCompiled, libraryCompiled]
+        [trustedCompiled, libraryCompiled]
     );
     cachedCompilation = Object.freeze({
         predecessor,
-        fibreTargetCompiled,
+        covarianceCompiled,
         trustedCompiled,
         libraryCompiled,
         compiled: libraryCompiled,

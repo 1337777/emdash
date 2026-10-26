@@ -4,6 +4,14 @@ Date: 2026-10-25 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: active integration; complete source/reviewer/central scopes qualified and promoted; production health, frontend/source pins and final integration remain open
 
+Identity Homd frontend continuation, 2026-10-26: the
+[typed root-to-leaf consumer](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_identity_review.md)
+now passes through the actual whole section and y/v/f ladder. The shared
+covariance declarations preserve their Core names; the old PathInd FibCov
+object-fold rule is removed and its consumers pass. This supersedes the
+unpromoted identity experiment below. General-FF endpoint, higher action and
+full integration remain required; native source qualification is unchanged.
+
 Latest frontend disposition, 2026-10-26: the
 [prewhiskering continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_prewhiskering_review.md)
 closes the constructed whole moving PathInd component. The complete aggregate
