@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active consolidated goal; local book/article revision complete; native sources promoted and frontend tranche accepted; legacy-nerve review next, production health/final integration still deferred
+Status: active consolidated goal; local book/article revision complete; native nerve adaptation in progress; production health/final integration still deferred
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,18 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+NF-1 realization checkpoint, 2026-10-26: the [isolated candidate](../emdash2/audits/native_nerve_foundations/README.md#native-realization-and-whole-generator-recovery)
+constructs the native-to-walking map and derives its whole evaluation and
+generator comparisons. The universal transformation is a new structural
+owner, with original filler and unit projections; no whole inverse is assumed.
+The retained replay passes in 46.854s / 288,032 KiB. Two owner-position core
+identity instances are still unpromoted and add 31 reported overlap warnings;
+the candidate adds none beyond that patched-import baseline. The attempted
+local alternative still fails its unit observation. Preserve this exact
+qualification boundary and continue with whole graph reconstruction/inverses.
+Book/article work remains complete at its local draft scope; unrelated health
+and performance investigations remain deferred.
 
 NF-1 receiver construction, 2026-10-26: the [whole observer candidate](../emdash2/audits/native_nerve_foundations/README.md)
 now derives its lax admission from the default leg and constructs the whole

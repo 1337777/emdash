@@ -1,0 +1,233 @@
+/* NF-1 general native universal-arrow projection.
+   New structural transfor on the existing total; no inverse law is supplied. */
+require open emdash.audits.native_nerve_foundations.walking_observer;
+require open emdash.emdash3_2_arrow_diagram_families;
+
+symbol nerve_native_arrow_value [C : Cat] (q : τ (Obj (@LaxArrow_cat C)))
+  : τ (Hom C
+      (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q)
+      (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) q))
+≔ sigma_Snd (sigma_Snd q);
+
+// The existing one-category assembly is generalized to a default lax
+// transfor. Its further naturality computation must retain native fillers.
+injective symbol nerve_native_universal_transf (C : Cat)
+  : τ (@Transf (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C));
+
+rule @tapp0_fapp0 _ _ _ _ $q (@nerve_native_universal_transf $C)
+  ↪ @nerve_native_arrow_value $C $q;
+
+// Pre/right off-diagonal action: the target's stored arrow after source action.
+symbol nerve_native_right_hom_func [C : Cat]
+  (q r : τ (Obj (@LaxArrow_cat C)))
+  : τ (Functor (Hom_cat (@LaxArrow_cat C) q r)
+      (Hom_cat C
+        (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q)
+        (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) r)))
+≔ @comp_cat_fapp0 (Hom_cat (@LaxArrow_cat C) q r)
+    (Hom_cat C
+      (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q)
+      (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) r))
+    (Hom_cat C
+      (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q)
+      (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) r))
+    (@hom_postcomp_func C C (@id_func C)
+      (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q)
+      (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) r)
+      (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) r)
+      (@nerve_native_arrow_value C r))
+    (@fapp1_func (@LaxArrow_cat C) C (@cubical_src_func C) q r);
+
+rule @tapp1_func _ _ _ _ $q $r (@nerve_native_universal_transf $C)
+  ↪ @nerve_native_right_hom_func $C $q $r;
+rule @tapp1_fapp0 _ _ _ _ $q $r (@nerve_native_universal_transf $C) $p
+  ↪ @fapp0 _ _ (@nerve_native_right_hom_func $C $q $r) $p;
+
+// Typed identity view of the existing postcomposition/image comparison.
+// Generic F remains visible while this body is checked. Instantiation may
+// compute F[h] first; no new comparison rule or equality argument is needed.
+protected symbol nerve_postcomp_cell_view [A B : Cat]
+  (F : τ (Functor B A)) (w : τ (Obj A))
+  [x y : τ (Obj B)] (h : τ (Hom B x y))
+  (g : τ (Hom A w (@fapp0 B A F x)))
+  (z : τ (Hom A w (@fapp0 B A F y)))
+  (alpha : τ (Hom (Hom_cat A w (@fapp0 B A F y))
+    (@hom_precomp_along_fapp0 A A (@id_func A)
+      (@fapp0 B A F y) w (@fapp0 B A F x) g (@fapp1_fapp0 B A F x y h)) z))
+  : τ (Hom (Hom_cat A w (@fapp0 B A F y))
+      (@hom_postcomp_fapp0 A B F w x y h g) z)
+≔ alpha;
+
+// Canonical native-square projection of the already extracted post cell.
+// Nested Sigma constructors are the actual native edge/square introductions.
+// The original alpha is data of p; no independent comparison is postulated.
+// lhs-audit: keep 1 -- the normalized total-opposite source fixes the
+// underlying category of the erased identity at the represented input.
+rule @fdapp1_int_cell (CoAbove2_cat (Op_cat $S)) _ _
+    (@tapp1_at_transf _ _ _ _
+      (Struct_sigma $x (Struct_sigma $y $u))
+      (@nerve_native_universal_transf $C))
+    (Struct_sigma $x (Struct_sigma $y $u))
+    (Struct_sigma $x1 (Struct_sigma $y1 $v))
+    (Struct_sigma $a (Struct_sigma $b $alpha))
+    (@id $S (Struct_sigma $x (Struct_sigma $y $u)))
+  ↪ @nerve_postcomp_cell_view $C (@LaxArrow_cat $C)
+      (@cubical_tgt_func $C) $x
+      (@lax_edge $C $x $y $u) (@lax_edge $C $x1 $y1 $v)
+      (@lax_square $C $x $x1 $y $y1 $u $v $a $b $alpha) $u
+      (@hom_precomp_along_fapp0 $C $C (@id_func $C) $y1 $x $x1 $a $v)
+      $alpha;
+
+// Normal unit of this native universal projection, at the whole cell owner.
+// lhs-audit: keep 1 -- normalized total-dual source and erased identity carrier.
+rule @fdapp1_comma_projection_transf (CoAbove2_cat (Op_cat $S)) _ _
+    (@tapp1_at_transf _ _ _ _ $q (@nerve_native_universal_transf $C))
+    (@fdapp1_int_transfd _ _ _
+      (@tapp1_at_transf _ _ _ _ $q (@nerve_native_universal_transf $C)))
+    $r $r (@id $S $r)
+  ↪ @id (Functor_cat (Hom_cat (@LaxArrow_cat $C) $q $r)
+      (Hom_cat $C
+        (@fapp0 (@LaxArrow_cat $C) $C (@cubical_src_func $C) $q)
+        (@fapp0 (@LaxArrow_cat $C) $C (@cubical_tgt_func $C) $r)))
+      (@nerve_native_right_hom_func $C $q $r);
+
+// Capped-first projection of the same whole unit, not arbitrary strict naturality.
+// lhs-audit: keep 1 -- the same normalized total-dual identity discriminator.
+rule @fdapp1_int_cell (CoAbove2_cat (Op_cat $S)) _ _
+    (@tapp1_at_transf _ _ _ _ $q (@nerve_native_universal_transf $C))
+    $r $r (@id $S $r) $f
+  ↪ @id
+      (Hom_cat $C
+        (@fapp0 (@LaxArrow_cat $C) $C (@cubical_src_func $C) $q)
+        (@fapp0 (@LaxArrow_cat $C) $C (@cubical_tgt_func $C) $r))
+      (@fapp0 _ _ (@nerve_native_right_hom_func $C $q $r) $f);
+
+symbol nerve_walking_realize_func (C : Cat)
+  : τ (Functor (@LaxArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C))
+≔ @transf_arrow_diagram_func (@LaxArrow_cat C) C
+    (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C);
+
+symbol nerve_walking_realize_object_path [C : Cat]
+  (q : τ (Obj (@LaxArrow_cat C)))
+  : τ (@= (Functor WalkingArrow_cat C)
+      (@OddDual_func (OddDual_cat WalkingArrow_cat) (OddDual_cat C)
+        (@fapp0 _ _ (nerve_walking_realize_func C) q))
+      (@walking_arrow_func C
+        (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q)
+        (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) q)
+        (@nerve_native_arrow_value C q)))
+≔ @transf_arrow_diagram_point_path (@LaxArrow_cat C) C
+    (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C) q;
+
+assert [C : Cat] [x y : τ (Obj C)] (u : τ (Hom C x y)) ⊢
+  @tapp0_fapp0 _ _ _ _ (@lax_edge C x y u) (nerve_native_universal_transf C)
+  ≡ u;
+
+// The default identity leg and the whole Hom projection must agree.
+assert [C : Cat] [x y : τ (Obj C)] (u : τ (Hom C x y)) ⊢
+  @tapp1_fapp0 _ _ _ _ (@lax_edge C x y u) (@lax_edge C x y u)
+    (nerve_native_universal_transf C) (@id (@LaxArrow_cat C) (@lax_edge C x y u))
+  ≡ u;
+
+// Recover the actual directed filler through the intrinsic extraction ladder.
+assert [C : Cat] [x x1 y y1 : τ (Obj C)]
+  (u : τ (Hom C x y)) (v : τ (Hom C x1 y1))
+  (a : τ (Hom C x x1)) (b : τ (Hom C y y1))
+  (alpha : τ (Obj (@homdc_square_fibre C x x1 y y1 u v a b))) ⊢
+  @tapp1_post_laxity_cell (@LaxArrow_cat C) C
+    (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C)
+    (@lax_edge C x y u) (@lax_edge C x y u) (@lax_edge C x1 y1 v)
+    (@lax_square C x x1 y y1 u v a b alpha)
+    (@id (@LaxArrow_cat C) (@lax_edge C x y u))
+  ≡ @nerve_postcomp_cell_view C (@LaxArrow_cat C) (@cubical_tgt_func C) x
+      (@lax_edge C x y u) (@lax_edge C x1 y1 v)
+      (@lax_square C x x1 y y1 u v a b alpha) u
+      (@hom_precomp_along_fapp0 C C (@id_func C) y1 x x1 a v) alpha;
+
+// Actual native identity, including the normalized total-dual identity route.
+assert [C : Cat] [x y : τ (Obj C)] (u : τ (Hom C x y)) ⊢
+  @tapp1_post_laxity_cell (@LaxArrow_cat C) C
+    (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C)
+    (@lax_edge C x y u) (@lax_edge C x y u) (@lax_edge C x y u)
+    (@id (@LaxArrow_cat C) (@lax_edge C x y u))
+    (@id (@LaxArrow_cat C) (@lax_edge C x y u))
+  ≡ @nerve_postcomp_cell_view C (@LaxArrow_cat C) (@cubical_tgt_func C) x
+      (@lax_edge C x y u) (@lax_edge C x y u)
+      (@id (@LaxArrow_cat C) (@lax_edge C x y u)) u u
+      (@id (Hom_cat C x y) u);
+
+// Same typed transport boundary on both sides: only the filler changes.
+assertnot [C : Cat] [x x1 y y1 : τ (Obj C)]
+  (u : τ (Hom C x y)) (v : τ (Hom C x1 y1))
+  (a : τ (Hom C x x1)) (b : τ (Hom C y y1))
+  (alpha beta : τ (Obj (@homdc_square_fibre C x x1 y y1 u v a b))) ⊢
+  @tapp1_post_laxity_cell (@LaxArrow_cat C) C
+    (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C)
+    (@lax_edge C x y u) (@lax_edge C x y u) (@lax_edge C x1 y1 v)
+    (@lax_square C x x1 y y1 u v a b alpha)
+    (@id (@LaxArrow_cat C) (@lax_edge C x y u))
+  ≡ @nerve_postcomp_cell_view C (@LaxArrow_cat C) (@cubical_tgt_func C) x
+      (@lax_edge C x y u) (@lax_edge C x1 y1 v)
+      (@lax_square C x x1 y y1 u v a b alpha) u
+      (@hom_precomp_along_fapp0 C C (@id_func C) y1 x x1 a v) beta;
+
+// Whole unit with both native endpoints still variable.
+assert [C : Cat] (q r : τ (Obj (@LaxArrow_cat C))) ⊢
+  @tapp1_post_laxity_transf (@LaxArrow_cat C) C
+    (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C)
+    q r r (@id (@LaxArrow_cat C) r)
+  ≡ @id (Functor_cat (Hom_cat (@LaxArrow_cat C) q r)
+      (Hom_cat C
+        (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q)
+        (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) r)))
+      (@nerve_native_right_hom_func C q r);
+
+// Whole/capped/next-action controls for the prerequisite owner correction.
+assert [A B : Cat] (F : τ (Functor (TotalOp_cat B) A))
+  (w : τ (Obj A)) (x : τ (Obj B)) ⊢
+  @hom_postcomp_func A (TotalOp_cat B) F w x x (@id B x)
+  ≡ @id_func (Hom_cat A w (@fapp0 (TotalOp_cat B) A F x));
+
+assert [A B : Cat] (F : τ (Functor (TotalOp_cat B) A))
+  (w : τ (Obj A)) (x : τ (Obj B))
+  (g : τ (Hom A w (@fapp0 (TotalOp_cat B) A F x))) ⊢
+  @hom_postcomp_fapp0 A (TotalOp_cat B) F w x x (@id B x) g ≡ g;
+
+assert [A B : Cat] (F : τ (Functor (TotalOp_cat B) A))
+  (w : τ (Obj A)) (x : τ (Obj B))
+  (g h : τ (Hom A w (@fapp0 (TotalOp_cat B) A F x)))
+  (alpha : τ (Hom (Hom_cat A w (@fapp0 (TotalOp_cat B) A F x)) g h)) ⊢
+  @fapp1_fapp0 _ _ (@hom_postcomp_func A (TotalOp_cat B) F w x x (@id B x)) g h alpha
+  ≡ alpha;
+
+assertnot [A B : Cat] (F : τ (Functor (TotalOp_cat B) A))
+  (w : τ (Obj A)) (x : τ (Obj B))
+  (p : τ (Hom (TotalOp_cat B) x x))
+  (g : τ (Hom A w (@fapp0 (TotalOp_cat B) A F x))) ⊢
+  @hom_postcomp_fapp0 A (TotalOp_cat B) F w x x p g ≡ g;
+
+// Existing mixed exchange recovers the entire defining walking diagram.
+// This retains source, target and the original universal transfor at once.
+symbol nerve_realize_whole_evaluation_path (C : Cat)
+  : τ (@= (Functor WalkingArrow_cat (Functor_cat (@LaxArrow_cat C) C))
+      (@diagram_oplax_family_shape_func (@LaxArrow_cat C) WalkingArrow_cat C
+        (nerve_walking_realize_func C))
+      (@walking_arrow_func (Functor_cat (@LaxArrow_cat C) C)
+        (@cubical_src_func C) (@cubical_tgt_func C)
+        (nerve_native_universal_transf C)))
+≔ @eq_refl (Functor WalkingArrow_cat (Functor_cat (@LaxArrow_cat C) C))
+    (@walking_arrow_func (Functor_cat (@LaxArrow_cat C) C)
+      (@cubical_src_func C) (@cubical_tgt_func C)
+      (nerve_native_universal_transf C));
+
+// Generator observation of that whole comparison is the original transfor,
+// not only its value at one native arrow object.
+symbol nerve_realize_whole_generator_path (C : Cat)
+  : τ (@= (@Transf (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C))
+      (@fapp1_fapp0 WalkingArrow_cat (Functor_cat (@LaxArrow_cat C) C)
+        (@diagram_oplax_family_shape_func (@LaxArrow_cat C) WalkingArrow_cat C
+          (nerve_walking_realize_func C))
+        walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+      (nerve_native_universal_transf C))
+≔ @eq_refl (@Transf (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C))
+    (nerve_native_universal_transf C);

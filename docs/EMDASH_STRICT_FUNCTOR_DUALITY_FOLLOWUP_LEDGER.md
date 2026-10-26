@@ -2,7 +2,16 @@
 
 Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: local book/article continuation complete; legacy-nerve review next; production health/final integration remain deferred obligations
+Status: local book/article continuation complete; native nerve adaptation active; production health/final integration remain deferred obligations
+
+SF-NERVES / NF-1 realization: the [retained isolated construction](../emdash2/audits/native_nerve_foundations/README.md#native-realization-and-whole-generator-recovery)
+adds a native universal-transformation owner and derives Realize with whole
+walking evaluation/generator comparisons. Original filler/unit controls pass.
+The two core total-dual identity instances are unpromoted; their 31 additional
+critical-pair warnings require review before promotion. The local typed-unit
+alternative failed the component control and is not adopted. Both whole
+walking inverses, whole higher projection qualification, named-interchanger
+agreement and later NF stages remain required. Production sources are unchanged.
 
 SF-NERVES / NF-1: the [receiver observer/tensor candidate](../emdash2/audits/native_nerve_foundations/README.md)
 qualifies whole forward construction and its original generator/square

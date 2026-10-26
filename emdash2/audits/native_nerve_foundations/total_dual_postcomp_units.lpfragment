@@ -1,0 +1,8 @@
+// Total-dual source identities retain the underlying carrier after
+// normalization. These are the corresponding instances of the same unit cut.
+// lhs-audit: keep 1,2 -- result Hom category and actual erased-source discriminator.
+rule @hom_postcomp_func $A (CoAbove2_cat (Op_cat $B)) $F $W $X $X (@id $B $X)
+  ↪ @id_func (Hom_cat $A $W (@fapp0 (CoAbove2_cat (Op_cat $B)) $A $F $X));
+// lhs-audit: keep 2 -- same erased total-dual source, at the capped owner.
+rule @hom_postcomp_fapp0 _ (CoAbove2_cat (Op_cat $B)) _ _ $X $X (@id $B $X) $g
+  ↪ $g;

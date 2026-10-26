@@ -1,0 +1,434 @@
+{
+  "schema": "emdash-native-nerve-realization-v1",
+  "status": "passing isolated realization candidate with unpromoted core-unit prerequisite; whole inverse laws remain open",
+  "receiverBaseline": "6ce33d51",
+  "receiverInputs": {
+    "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+    "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+    "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+    "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+    "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+    "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+    "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+    "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+    "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+    "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+    "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+    "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+    "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+    "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+    "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+    "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+    "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+    "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+    "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+    "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+    "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+    "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+    "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+    "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+    "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+    "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+    "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "artifactHashes": {
+    "walking_realization.lpfragment": "2a6b7e974261f3a65c64d18ea61a5f4e06e8848be2777be3f48abcded0584d5a",
+    "total_dual_postcomp_units.lpfragment": "d72ed818cd623c380d2651bdb9e4a7123ef2417ab29c3b3dc060c9e83ae068c5",
+    "replay_realization.py": "148caac26a2e542cac0a05768635a5ca64aaaf11ae9da3b69739f5ad661d40f7"
+  },
+  "checker": {
+    "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+    "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+    "version": "dev-3.0.0-90-gdb4f7809-dirty"
+  },
+  "sourceScope": {
+    "structuralDeclarations": [
+      "nerve_native_universal_transf"
+    ],
+    "projectionRules": 6,
+    "newUnificationRules": 0,
+    "corePrerequisiteRules": 2,
+    "productionFilesChanged": false,
+    "derived": [
+      "nerve_walking_realize_func",
+      "nerve_walking_realize_object_path",
+      "nerve_realize_whole_evaluation_path",
+      "nerve_realize_whole_generator_path"
+    ]
+  },
+  "controls": {
+    "positive": 8,
+    "negative": 2,
+    "notes": "Counts exclude inherited observer checks. Three positives and one negative concern the two proposed core identity cases."
+  },
+  "runs": [
+    {
+      "id": "20261026T135406Z-e8c4580f08954fea87f1acf88419f675",
+      "outcome": "passed-fresh",
+      "wallSeconds": 46.85284676798619,
+      "childrenMaxRssKiB": 288260,
+      "inputSnapshot": "bef5482c7036d7f380beedc0abc2e153e9e8510d196ada59e5c282696389066b",
+      "logSha256": "16280cc97e56dc2a660c021f9cd3297b811b15ccaedf7a6881dc734c9c65899f",
+      "target": "tmp/probes/native_nerve_foundations/realization_imports.lp",
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T135706Z-91ed55ba44cb4df487da2281a6e348d5",
+      "outcome": "passed-fresh",
+      "wallSeconds": 47.12561133992858,
+      "childrenMaxRssKiB": 287824,
+      "inputSnapshot": "85faee4cfe4a768b1e6b6121d2ed9089f63457905fcbf99cf955f7ed6bb22e86",
+      "logSha256": "e8117ca4ace3bd9fbc7f4877b7db268bf81422e041eab9593357ab2dc3dd5edd",
+      "target": "tmp/probes/native_nerve_foundations/walking_realization.lp",
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T140826Z-492d8b7d2ed742d8929ae0df4cae6297",
+      "outcome": "failed",
+      "wallSeconds": 49.12791868089698,
+      "childrenMaxRssKiB": 288156,
+      "inputSnapshot": "df827bcd16d243aa8c06c23ffa9fe516626853eef2aa75251188ea6299e9574d",
+      "logSha256": "bf50d761a07d7351be4f4a494406ea7a39cf245d042f2d305099bb89268181f9",
+      "target": "tmp/probes/native_nerve_foundations/walking_realization.lp",
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T141449Z-f39a137fa0df46d8991c182b197812e8",
+      "outcome": "failed",
+      "wallSeconds": 49.131704149069265,
+      "childrenMaxRssKiB": 287988,
+      "inputSnapshot": "ed091ab80d811d5deda741a3c97b87d2263942ab3789d9b71dc33e4541fe3b05",
+      "logSha256": "9e4f361a7b2649fd33e4508c5f0c0dc2153ba63ab6402f2cfcc55934791535bd",
+      "target": "tmp/probes/native_nerve_foundations/walking_realization.lp",
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T143408Z-6ce1e14805774213bd309aabcc7d8a1e",
+      "outcome": "failed",
+      "wallSeconds": 46.35945721389726,
+      "childrenMaxRssKiB": 287780,
+      "inputSnapshot": "fb106f13036b1ce836ae963c1c3cd8d0318f2b9f536284cf7bc34a674de303af",
+      "logSha256": "121110aeaa424be59d04ee8057157387f2dff3bce881aca7a8784d71367fb6c6",
+      "target": "tmp/probes/native_nerve_foundations/walking_realization.lp",
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T144733Z-1b3e9587e1db48ef99bec914def31b6b",
+      "outcome": "failed",
+      "wallSeconds": 49.89991792081855,
+      "childrenMaxRssKiB": 287948,
+      "inputSnapshot": "5335c80e80e1404efeae3ff3cf92be05965b9f9a614ea181e15bbd753d52a082",
+      "logSha256": "15e1b2c0963c64bad63b5cd8318341dc3bcecb6d74f475e4c5c37610d8ddfb54",
+      "target": "tmp/probes/native_nerve_foundations/walking_realization.lp",
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T145609Z-4eda0fa52bf44dd790d76f24c3357643",
+      "outcome": "failed",
+      "wallSeconds": 50.777331290068105,
+      "childrenMaxRssKiB": 287556,
+      "inputSnapshot": "4e7277472b5ed74a77ff52609c49a67241dc59d6b5481d4f22b406f455d67101",
+      "logSha256": "9b8d655e9d996c2ec1344dade2dd510ac5d92c64cad727f80f0577366b590763",
+      "target": "tmp/probes/native_nerve_foundations/walking_realization.lp",
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T151509Z-5b4bca0ce5164fa0b25f81d2ab989065",
+      "outcome": "passed-fresh",
+      "wallSeconds": 56.73013852490112,
+      "childrenMaxRssKiB": 284684,
+      "inputSnapshot": "127070a6aace27cd6ef67525535a8ffd863b5b5ca0407fa46d94eeb610a2d16a",
+      "logSha256": "b19d92f2b574e96c0aa5cb8255655cd4c89bc6f7ddd1f294ca4cb7b44c22034f",
+      "target": "tmp/probes/native_nerve_foundations/walking_realization.lp",
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T153035Z-32d52e992598438aacbd09d9e966ee0f",
+      "outcome": "passed-fresh",
+      "wallSeconds": 42.7857855160255,
+      "childrenMaxRssKiB": 284336,
+      "inputSnapshot": "2277a9e8fb9c08c7a86c6b8f41080ed0ed05ad52595b096f5e74fe4115b0cd04",
+      "logSha256": "7b8611466d728340b0bde9302e9037c48c0bfe16fb602c2a2f89e4d014b96548",
+      "target": "tmp/probes/native_nerve_foundations/walking_realization.lp",
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T155000Z-e3ee22ff43d64e3fbd836f15d1ae1e7d",
+      "outcome": "timeout",
+      "wallSeconds": 90.07587814400904,
+      "childrenMaxRssKiB": 83176,
+      "inputSnapshot": "f7218bf1bb32140059a7ad0b1f91656258bfa935eebe33a3ae1b185d87b1c511",
+      "logSha256": "09c37708254b56bb40593b67d48490ea39baac7cfa4bb2235b99596adacbc6c7",
+      "target": "tmp/probes/native_nerve_foundations/walking_realization.lp",
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T160202Z-fafe853baf0a4922bee7ec1aa9f52999",
+      "outcome": "timeout",
+      "wallSeconds": 90.1391890309751,
+      "childrenMaxRssKiB": 82912,
+      "inputSnapshot": "68215601d8cc6b7ac000700ba8bca7a28509b6d43ba090b125aac4b536e1ead8",
+      "logSha256": "e539247ed9928057b43e3fb7f7f653e660f89d08cfe59861a12fda374f3b438a",
+      "target": "tmp/probes/native_nerve_foundations/walking_realization.lp",
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T160806Z-b146f0f9c2db42f89d78f74f89e9e268",
+      "outcome": "passed-fresh",
+      "wallSeconds": 113.87982623605058,
+      "childrenMaxRssKiB": 290320,
+      "inputSnapshot": "f7218bf1bb32140059a7ad0b1f91656258bfa935eebe33a3ae1b185d87b1c511",
+      "logSha256": "87243d9b6c9ebc7e0adcb7a81b5fb4429c397331aa501be988cf3126b2ca4861",
+      "target": "tmp/probes/native_nerve_foundations/walking_realization.lp",
+      "timeoutMs": 180000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T164441Z-5f0b85f5d2a749f0a996bb008fcf6a8c",
+      "outcome": "passed-fresh",
+      "wallSeconds": 46.85378123400733,
+      "childrenMaxRssKiB": 288032,
+      "inputSnapshot": "42d5ad90ecec4eebe8ac849a4d26436e1a112dd43480df7e900832c7261b777f",
+      "logSha256": "60f610eac956d0b57cbdf439df12b2ddb9e94994f7705bf901959ce99ab59cfd",
+      "target": "native_nerve_realization_review.lp",
+      "timeoutMs": 180000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T165110Z-3ce49711c7af4c2e8529dbfcb9bfae9a",
+      "outcome": "passed-fresh",
+      "wallSeconds": 79.19478462892585,
+      "childrenMaxRssKiB": 285112,
+      "inputSnapshot": "85497959503f1c26fac858005dcd329b922ab3d9d2820c5178a57f4d78934ce7",
+      "logSha256": "6b5cf0735493100408a6fe09e6e9438dae5ae9170de9f7e3214470108ff75e10",
+      "target": "native_nerve_realization_review.lp",
+      "timeoutMs": 180000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T175044Z-f54b8b6967054ae6a094439f969b8a35",
+      "outcome": "failed",
+      "wallSeconds": 57.07112451805733,
+      "childrenMaxRssKiB": 292048,
+      "inputSnapshot": "a9fe9796f1516cda401ddf664fcc77f1c6ead2a11a40ad361040208055d30b8e",
+      "logSha256": "95a9fc83157786a7e2c0b3ae2579afdb723e252a230642cea951b8998acd6589",
+      "target": "tmp/probes/native_nerve_foundations/walking_realization_typed_units.lp",
+      "timeoutMs": 180000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T175329Z-545907f1557a495ea7ae5be9b832b899",
+      "outcome": "failed",
+      "wallSeconds": 82.16988431895152,
+      "childrenMaxRssKiB": 290088,
+      "inputSnapshot": "a3ac7f3a86309bd6fe05c308c01530f41b0fc916dc55ae01b57ad9f66fad11ea",
+      "logSha256": "31244896839d3d6cd5104593867c36398bb71a91a26de64e8106b7398b6531bf",
+      "target": "tmp/probes/native_nerve_foundations/walking_realization_typed_units.lp",
+      "timeoutMs": 180000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    }
+  ],
+  "warningComparison": {
+    "unmodifiedImportBaseline": "20261026T135406Z-e8c4580f08954fea87f1acf88419f675",
+    "patchedImportBaseline": "20261026T165110Z-3ce49711c7af4c2e8529dbfcb9bfae9a",
+    "candidate": "20261026T164441Z-5f0b85f5d2a749f0a996bb008fcf6a8c",
+    "candidateMatchesPatchedBaseline": {
+      "categories": true,
+      "locations": true,
+      "term_heads": true,
+      "rule_families": true,
+      "parser_issues": true
+    },
+    "unmodifiedCategories": {
+      "replaceable pattern variable": 181,
+      "unjoinable critical pair": 2124
+    },
+    "patchedCategories": {
+      "replaceable pattern variable": 181,
+      "unjoinable critical pair": 2155
+    },
+    "coreUnitAddedRuleFamilies": [
+      {
+        "heads": [
+          "hom_postcomp_func",
+          "id"
+        ],
+        "count": 9
+      },
+      {
+        "heads": [
+          "fapp0",
+          "hom_postcomp_func"
+        ],
+        "count": 1
+      },
+      {
+        "heads": [
+          "hom_postcomp_fapp0",
+          "id"
+        ],
+        "count": 9
+      },
+      {
+        "heads": [
+          "Op_cat",
+          "hom_postcomp_func"
+        ],
+        "count": 4
+      },
+      {
+        "heads": [
+          "Op_cat",
+          "hom_postcomp_fapp0"
+        ],
+        "count": 4
+      },
+      {
+        "heads": [
+          "comp_fapp0",
+          "hom_postcomp_fapp0"
+        ],
+        "count": 1
+      },
+      {
+        "heads": [
+          "hom_postcomp_fapp0",
+          "hom_postcomp_fapp0"
+        ],
+        "count": 1
+      },
+      {
+        "heads": [
+          "fapp1_func",
+          "hom_postcomp_func"
+        ],
+        "count": 1
+      },
+      {
+        "heads": [
+          "fapp1_fapp0",
+          "hom_postcomp_func"
+        ],
+        "count": 1
+      }
+    ],
+    "qualification": "31 extra reported critical pairs come from the unpromoted core-unit instances. Focused whole/capped/higher unit consumers pass; complete overlap qualification remains open."
+  },
+  "failedHypotheses": [
+    {
+      "receipts": [
+        "20261026T140826Z-492d8b7d2ed742d8929ae0df4cae6297"
+      ],
+      "finding": "Raw constructor filler projection lacks the category of the identity after total-dual erasure; subject reduction rejects it."
+    },
+    {
+      "receipts": [
+        "20261026T141449Z-f39a137fa0df46d8991c182b197812e8"
+      ],
+      "finding": "Adding the source discriminator alone leaves the postcomposition/image boundary unmatched during subject reduction."
+    },
+    {
+      "receipts": [
+        "20261026T143408Z-6ce1e14805774213bd309aabcc7d8a1e",
+        "20261026T144733Z-1b3e9587e1db48ef99bec914def31b6b"
+      ],
+      "finding": "Typed identity cell view admits the filler projection; raw readback and then the native unit observation still fail."
+    },
+    {
+      "receipts": [
+        "20261026T145609Z-4eda0fa52bf44dd790d76f24c3357643"
+      ],
+      "finding": "Direct whole unit projection needs identity postcomposition for the total-dual source at its actual core owner."
+    },
+    {
+      "receipts": [
+        "20261026T175044Z-f54b8b6967054ae6a094439f969b8a35",
+        "20261026T175329Z-545907f1557a495ea7ae5be9b832b899"
+      ],
+      "finding": "Generic typed unit views permit subject reduction without core changes, but both attempted component readbacks fail. This alternative is not adopted; the exact failure mechanism is not settled."
+    }
+  ],
+  "resourceReview": {
+    "receipts": [
+      "20261026T155000Z-e3ee22ff43d64e3fbd836f15d1ae1e7d",
+      "20261026T160202Z-fafe853baf0a4922bee7ec1aa9f52999",
+      "20261026T160806Z-b146f0f9c2db42f89d78f74f89e9e268"
+    ],
+    "finding": "Both 90s timeouts stopped in unchanged imports. A measured 180s replay retained the 2GiB cap and passed at 113.880s; first import took 108.15s and second 2.71s. No candidate command reached the 0.5s timing threshold. The retained replay later passed in 46.854s. No causal host-load claim or permanent profile change."
+  },
+  "remaining": [
+    "Complete overlap review and owner regression before promoting the core-unit prerequisite.",
+    "The universal transfor is newly declared structural data, not derived from previous Sigma rules. Its whole higher/naturality interface still needs qualification.",
+    "Derive actual whole walking inverse laws; point or generator readback is insufficient.",
+    "Compare observed tensor filler with the original named interchanger and retain next-Hom action.",
+    "Continue all NF cube, simplex, same-index, degree-zero and degeneracy obligations."
+  ],
+  "isolatedCoreSha256": "8eb4ccba6a07e318e989981fcdbe067d7d9c8c046b84818632d4644dc480d8be",
+  "artifactNote": "Trailing separator moved from fragment to replay assembly after the passing run; assembled core and candidate bytes remain identical to the recorded inputs."
+}

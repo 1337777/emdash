@@ -2,7 +2,7 @@
 
 Date: 2026-10-26
 Plan-ID: NATIVE-NERVE-FOUNDATIONS-ADAPTATION-V3.2
-Status: NF-1 whole observer and tensor coordinate candidate qualified; realization and whole inverses next
+Status: NF-1 observer qualified and isolated realization candidate retained; normalization prerequisite and whole inverses open
 Parent: [consolidated foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Receiver: `goal/strict-functor-duality-v3.2`, checkpoint `1fe72617`
 Donor: `goal/native-nerve-legacy-completion-v3.2`, checkpoint `280e7a03`
@@ -151,6 +151,19 @@ remain outside this continuation. None is an automatic prerequisite for the
 required comparisons.
 
 ## First bounded implementation slice
+
+Current slice, 2026-10-26: the [realization candidate](../emdash2/audits/native_nerve_foundations/README.md#native-realization-and-whole-generator-recovery)
+constructs the whole reverse map from a new native universal-transformation
+owner and derives its whole walking-family/generator comparison through the
+existing mixed exchange. It recovers the original directed filler and its
+unit without new unification rules. This is a non-library construction with
+two unpromoted core identity instances, not a derived inverse theorem or
+completed NF-1. The exact [verification](../emdash2/audits/native_nerve_foundations/realization_verification.json)
+records the passing isolated replay, failed local alternative, 31 prerequisite
+overlap warnings, and import-only explanation of the earlier timeouts.
+Next work is whole graph/reconstruction and actual inverses; core-unit overlap
+qualification remains required before production promotion. Do not return to
+unrelated health/performance work or broaden the mathematical scope.
 
 1. Inventory current `diagram_oplax_evaluation_*`, transformation-to-arrow
    diagrams, native graph, Sigma section/totalization and degree-zero mapping

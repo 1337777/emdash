@@ -48,7 +48,8 @@ independent semantic model of those structural declarations.
 Still required:
 
 - general native universal-arrow realization and both whole walking inverse
-  laws;
+  laws (the isolated realization candidate below now supplies the forward
+  construction; its prerequisite is not promoted);
 - comparison of the observed tensor square's filler with the separately named
   `gray_interchanger`, including its higher observation;
 - whole opposite closure in arbitrary tensor diagrams and its reverse map;
@@ -82,3 +83,61 @@ the original diagram-evaluation baseline, failed hypotheses, retained replay,
 resource measurements and warning comparison. Logs and exact input blobs
 remain in the receiver's ignored receipt store. No production owner or check
 registry entry is added by this non-library checkpoint.
+
+## Native realization and whole generator recovery
+
+[`walking_realization.lpfragment`](walking_realization.lpfragment) constructs
+`Realize_C : N(C) → G(C)` using the existing transformation-to-walking-diagram
+operation. It adds one structural owner, the native universal transformation
+`U_C : src ⇒ tgt`, with six projection rules. Its point component is the
+stored native arrow, its whole right Hom action is existing postcomposition
+after source action, and its extracted post/left cell recovers the original
+native square filler. The unit rules are specific to this projection; general
+lax naturality remains nonidentity. A protected typed identity view uses an
+existing postcomposition comparison without a new unification rule or an
+equality argument.
+
+The existing mixed diagram exchange derives a comparison of the **whole**
+realized walking family with `walking_arrow_func(src,tgt,U_C)`, and hence
+recovers the entire transformation U_C at its generator. These are defined
+reflexivity proofs, not new inverse axioms. The new U_C itself is structural
+data, not a theorem derived from the previous Sigma projection rules. Neither
+whole walking inverse is established by this checkpoint.
+
+The candidate requires the two identity instances in
+[`total_dual_postcomp_units.lpfragment`](total_dual_postcomp_units.lpfragment).
+They are inserted at the existing postcomposition owner in an isolated copy:
+total duality erases the identity's original category tag, so the ordinary
+identity pattern does not cover this source presentation. Whole, capped and
+higher identity observations pass, with a negative control for an arbitrary
+nonidentity arrow. Production sources remain unchanged.
+
+The [realization record](realization_verification.json) pins every input,
+the exact patched core, replay artifacts and sixteen measured attempts. The
+retained candidate passes in 46.854s / 288,032 KiB with subject reduction and
+the 180s / 2 GiB guard. Its eight positive and two negative controls exclude
+the inherited observer checks. All five warning inventory fields equal the
+patched-import baseline. The two core instances add **31 reported critical
+pairs** relative to the unmodified imports, in nine recorded head families;
+their full overlap/owner qualification is still a prerequisite to promotion.
+
+A local alternative using generic typed unit views passes subject reduction
+without the core instances but fails the actual unit-component check. It is
+not adopted. Two earlier 90s timeouts occurred in unchanged imports, before
+the new whole comparison; the later timed replay locates 108.15s in the first
+import and no candidate command above 0.5s. This is not evidence that the new
+comparison itself needs that time, nor a reason to alter resource defaults.
+
+Replay the isolated candidate from the repository root:
+
+```bash
+python3 emdash2/audits/native_nerve_foundations/replay_realization.py \
+  --timeout-seconds 180 --timing
+```
+
+`--mode units-baseline` checks the same imports with the two core instances.
+`--mode without-units` retains the failed omission control and its actual
+nonzero status. The replay enforces source/checker pins and uses the existing
+serial guard. No broad health or integration check is required to retain this
+non-library experiment. Next: whole graph reconstruction and the two actual
+inverse laws, with the prerequisite boundary kept visible.
