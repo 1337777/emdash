@@ -35,6 +35,7 @@ deferred. Exact status, evidence and resumption boundaries live in each owner.
 ## Active Plans
 
 - `../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md`: [Strict-functor default and corrected-duality foundations](../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md). Active in its dedicated worktree; preserves lax transfors and blended Hom/Homd owners. The separate application goal remains paused.
+- `../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md`: [Native nerve adaptation on the corrected foundations](../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md). Active continuation of the consolidated foundations goal after the local book/article revision; pinned donor inventory, selected higher shapes, whole mapping/inverse obligations, and excluded legacy tooling. This does not resume or merge the separate donor thread.
 - `REPORT_EMDASH_V3_2_PRESHEAVES_SITES_SCHEMES_PRELIMINARY_PLAN_2026-08-01.md`: [Emdash v3.2 Presheaves, Sites, And Schemes Living Preliminary Plan](REPORT_EMDASH_V3_2_PRESHEAVES_SITES_SCHEMES_PRELIMINARY_PLAN_2026-08-01.md).
 - `../../docs/TYPESCRIPT_ELABORATOR_V3_2_SCALE_QUALIFICATION_PLAN.md`: [TypeScript Elaborator v3.2 — Systematic Transfer Scale Qualification](../../docs/TYPESCRIPT_ELABORATOR_V3_2_SCALE_QUALIFICATION_PLAN.md).
 - `REPORT_EMDASH_V3_2_PROFUNCTOR_REPRESENTABILITY_REDESIGN_PRELIM_PLAN_2026-06-19.md`: [EMDASH v3.2 Profunctor Representability Redesign Preliminary Plan](REPORT_EMDASH_V3_2_PROFUNCTOR_REPRESENTABILITY_REDESIGN_PRELIM_PLAN_2026-06-19.md).

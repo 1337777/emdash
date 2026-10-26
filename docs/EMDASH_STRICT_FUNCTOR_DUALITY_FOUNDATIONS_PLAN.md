@@ -42,6 +42,16 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Nerve adaptation review, 2026-10-26: the [new continuation plan](EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md)
+and [119-file pinned donor inventory](EMDASH_NATIVE_NERVE_DONOR_INVENTORY.json)
+complete NF-0. Donor `280e7a03` is clean and has no production-LP changes;
+its 106 audit artifacts contain a whole positive cube decoder but no complete
+nerve equivalence. Preserve its later higher-simplex/strict-map choice. Exclude
+all ten donor tooling/SOP/DevOps deltas. The next bounded receiver tranche
+adapts whole walking evaluation/realization and tests the actual degree-two
+closure profile, without assuming the remaining inverses or changing the
+settled default foundation.
+
 Book/article completion, 2026-10-26: the [update plan](EMDASH_FOUNDATIONS_BOOK_ARTICLE_UPDATE_PLAN.md)
 and [46-source review](EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md) qualify local
 book 0.10.0-dev and overview 0.4.0-dev. Their source/evidence, bounded browser,

@@ -4,6 +4,14 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: local book/article continuation complete; legacy-nerve review next; production health/final integration remain deferred obligations
 
+SF-NERVES / NF-0: [donor adaptation review](EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md)
+now pins `280e7a03` and inventories all 119 donor deltas. The 106 audit files
+are historical candidate evidence; ten tooling/SOP/DevOps files are excluded.
+The whole positive decoder is real progress, but walking reconstruction,
+reverse closure, whole inverses, degree zero, same-index and degeneracy results
+remain required. The donor's later higher-shape choice is retained. No native
+candidate has yet been requalified in the receiver. NF-1 is next.
+
 Book/article closure: the [complete source/artifact review](EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md)
 records book 0.10.0-dev (425 pages) and overview 0.4.0-dev (20 pages), their
 hashes, owning gates, visual inspection and local distribution copies.

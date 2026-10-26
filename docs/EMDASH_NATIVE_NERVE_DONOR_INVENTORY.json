@@ -1,0 +1,970 @@
+{
+  "schema": "emdash-native-nerve-donor-inventory-v1",
+  "date": "2026-10-26",
+  "receiverCommit": "1fe726170e3af32f3c740b271a52a1953e227370",
+  "donorCommit": "280e7a030e0ded2d85c6f46e9fe60b18c7774952",
+  "commonBaseline": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "donorWorktree": "/home/user1/emdash1-native-nerves-legacy-v1",
+  "donorWorktreeCleanAtReview": true,
+  "scope": "All tracked donor deltas from the common baseline; no files imported or replayed by this inventory. Hashes are from pinned Git objects.",
+  "counts": {
+    "excluded-tooling-sop": 10,
+    "plan-reference": 3,
+    "nerve-audit": 106
+  },
+  "productionLpDeltas": [],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "change": "M",
+      "bytes": 12616,
+      "sha256": "754a465e3ec7a240f3a223729d2677e022d45f204f36eebf24ceda2e802d10e0",
+      "group": "excluded-tooling-sop",
+      "disposition": "exclude from import; retain receiver resource/checker/SOP rules"
+    },
+    {
+      "path": "docs/DEVOPS.md",
+      "change": "M",
+      "bytes": 15534,
+      "sha256": "2cb267e8da6d3b444703d754d5e66c029fbee42fe0677abd0ba9819b9448e8cb",
+      "group": "excluded-tooling-sop",
+      "disposition": "exclude legacy runtime/DevOps directions; retain receiver SOP"
+    },
+    {
+      "path": "docs/EMDASH_NATIVE_NERVE_CONSTRUCTION_BLUEPRINT.md",
+      "change": "A",
+      "bytes": 38016,
+      "sha256": "723e5d5f181e2b6a652b416231c146c6d06511f07d4982ff8a73922cecf28e1c",
+      "group": "plan-reference",
+      "disposition": "recover decisions and scope; receiver plan remains authority"
+    },
+    {
+      "path": "docs/EMDASH_NATIVE_NERVE_LEGACY_CONTINUATION_PLAN.md",
+      "change": "A",
+      "bytes": 123601,
+      "sha256": "0bd741a5ae85f9725a58fce8a0570631a19eb15d0fbd40347c4c07d70ac0c086",
+      "group": "plan-reference",
+      "disposition": "recover decisions and scope; receiver plan remains authority"
+    },
+    {
+      "path": "emdash2/AGENTS.md",
+      "change": "M",
+      "bytes": 35389,
+      "sha256": "4333a1c62729e1d78fba3825f1b2b5bf772411598ce08f1e09479e1ed52293bd",
+      "group": "excluded-tooling-sop",
+      "disposition": "exclude from import; retain receiver resource/checker/SOP rules"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/README.md",
+      "change": "A",
+      "bytes": 58044,
+      "sha256": "d249386782d23fe525a9a0cbf939734694c338635dd71b1374b171a1d139fb86",
+      "group": "nerve-audit",
+      "disposition": "reference inventory and qualifications"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/admitted_evaluation_reindex.lp.inc",
+      "change": "A",
+      "bytes": 5862,
+      "sha256": "d6b6d6898db12ee4a187c1e30e1913f7ae8516c0df2d065c5e40a5d2306bb2dc",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/classifier_candidate.lp",
+      "change": "A",
+      "bytes": 13984,
+      "sha256": "a53949d56f1e69452e1509c3fde13f5dc8825518f4d1afe829e4f2592e108e54",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/classifier_controls.lp",
+      "change": "A",
+      "bytes": 11917,
+      "sha256": "9663fe62e5fb0e1433ade29820525b0023057e4449e55800fa3f3ac0b4dd2934",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/composition_controls.lp",
+      "change": "A",
+      "bytes": 6792,
+      "sha256": "2ec37721baf3cbd224a68a05433bb5c1640a419c859f29edf1f03214e354f3a7",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/composition_validation.json",
+      "change": "A",
+      "bytes": 24945,
+      "sha256": "72369e8f410c847860025fb566d61600e5f691173e1aa728dd92e7c467400b03",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/construction_strict_profiles_candidate.lp",
+      "change": "A",
+      "bytes": 3302,
+      "sha256": "39a6bba504d04945130e82571645349dab82e5be450699de92fccb685ade163f",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/cube2_assembly_sketch.lp",
+      "change": "A",
+      "bytes": 4087,
+      "sha256": "55149feef06bbe08cf39fb9716930ec407dcf07bbae749061b2ecbc795b4c295",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/cube2_assembly_validation.json",
+      "change": "A",
+      "bytes": 19284,
+      "sha256": "347900f7fb850a9fdb42bfd0e423025588571fccee14b578dc2af84e668aed61",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/cube_positive_decoder_candidate.lp",
+      "change": "A",
+      "bytes": 2899,
+      "sha256": "28db2cccdda42fcdcf3023acee7df7b83599bb158e2743ab5f7700221c6ee972",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/cube_positive_decoder_square_controls.lp",
+      "change": "A",
+      "bytes": 4075,
+      "sha256": "f8201292bd9aa5d2b683efe93a585334ea4a64dfba88407cf04cfdb948ece397",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/cube_positive_recursion_sketch.lp",
+      "change": "A",
+      "bytes": 8492,
+      "sha256": "ecc3e792d2d096349ff82e0a8f9e23d7bb263227248fa5b6e110868e0639a0de",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/cube_positive_recursion_validation.json",
+      "change": "A",
+      "bytes": 15141,
+      "sha256": "0dd85b016f6e81885027d315ae8fba76a35a6b338b1a6d42ee9e3e8e76ff2c3b",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/direct_annotation_boundary.lp",
+      "change": "A",
+      "bytes": 1380,
+      "sha256": "cde7bec1b55b991184ca908f0f11794043328ce17f0615f8da8a2ce64dba1c61",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/evaluation_candidate.lp",
+      "change": "A",
+      "bytes": 7644,
+      "sha256": "36f3b8ba433de1a7ea170d6f691fa7626778322a2d360317be0fbbf56e4b952e",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/evaluation_controls.lp",
+      "change": "A",
+      "bytes": 2644,
+      "sha256": "36d9a44392174ead87c9b61069f46c473bb9d5d6ce784ab61fe5d48bd6dfeb3d",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/evaluation_profile_boundary.lp",
+      "change": "A",
+      "bytes": 2503,
+      "sha256": "bed1a0497b1507e3ff7fefe91b5e1ddba427767f9c662280f786e5c232e14a22",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/evidence.json",
+      "change": "A",
+      "bytes": 14984,
+      "sha256": "a72995f105e27ebc7911365dafec62fdcdac6c0b90cc08e7f662f5c8b52e95e0",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/family_admission_candidate.lp",
+      "change": "A",
+      "bytes": 4725,
+      "sha256": "2f2df9e81068e530b33b35d8ad3a67d9122f840f6f05d4fae238261cda3b25ea",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/filler_controls.lp",
+      "change": "A",
+      "bytes": 12106,
+      "sha256": "f3d2dae0f84b59cc1efbf43c492dfde1a57c867d21d76e77e347ffb09c0eb72b",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/filler_validation.json",
+      "change": "A",
+      "bytes": 69554,
+      "sha256": "caa2ccfc6bfea5771f90b25aeb37c96d6fde66a0c535c1c57c0f7d852656e42d",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/graph_construction_coherence_candidate.lp",
+      "change": "A",
+      "bytes": 10145,
+      "sha256": "cc59c731e6b3c8766051f1e5678c08b9201b8aae1d5f5dee96dba092cfb443b6",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/graph_construction_coherence_validation.json",
+      "change": "A",
+      "bytes": 48514,
+      "sha256": "b1163ac085de380dd1ac6973e6cd9a83cc30d3c5bcb4c84501e33b18e7a4c33a",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/graph_construction_owner_controls.lp.inc",
+      "change": "A",
+      "bytes": 13446,
+      "sha256": "44d319852da65f7d5e5496b55ea06ec08027d5404a90f754a28ecf2914798168",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/graph_whole_cell_candidate.lp",
+      "change": "A",
+      "bytes": 3594,
+      "sha256": "01e24c0dfbf4f9603a24bc6710f294c345649badc7cc59d9dac1acd328753307",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/graph_whole_implementation.lp.inc",
+      "change": "A",
+      "bytes": 1197,
+      "sha256": "63025afa59f641d6665d6d9a2381006ea79f490c532d5a81b77209b98f426ad0",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/graph_whole_implementation_controls.lp.inc",
+      "change": "A",
+      "bytes": 8688,
+      "sha256": "9943c2c828e5fd0ae5840c9fa6003907e7e7b4156aad5b450608c90f8d29cf33",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/graph_whole_implementation_validation.json",
+      "change": "A",
+      "bytes": 29656,
+      "sha256": "ac7644f264446aef8b22ac2ed4190c6dc907e0a8ca1a063a8ebf63fb0ed633a9",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/graph_whole_projections_candidate.lp",
+      "change": "A",
+      "bytes": 1790,
+      "sha256": "3da86dfbbb3256f020d3e33528a583f5cb7c524c89a93e87ceabdeaafbcedd56",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/identity_cell_controls.lp",
+      "change": "A",
+      "bytes": 3085,
+      "sha256": "04386b91af97e860bc9f5d6ae8f8b1f5d5a11f8b53e293fdc8b8e42357223f42",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/interaction_controls.lp",
+      "change": "A",
+      "bytes": 430,
+      "sha256": "5c944c94e0c775c0456609f808d8ec11f2c4b2e45d5ce2e1bd63767dbfdc49bf",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/launch_replay.json",
+      "change": "A",
+      "bytes": 23246,
+      "sha256": "b61c2145fef73fb7d3dc902b0aab6bcbdafb20fe39d808040ccbf7e460104e66",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/native_identity_insertion_sketch.lp",
+      "change": "A",
+      "bytes": 6099,
+      "sha256": "a8187be8a12083ab0a22a4b31f7a529e061179030d44f36eab422ed024cae73e",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/native_identity_insertion_validation.json",
+      "change": "A",
+      "bytes": 28787,
+      "sha256": "61d3616ea6f6f275f7afaafc0d5e11a717f52b17d4eaa2f01562fe0e5a971393",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/native_identity_target_comparison.lp",
+      "change": "A",
+      "bytes": 3205,
+      "sha256": "0829309482ec504cffd55eef87d3ec33abc761b01480f21402b29e7b57adb071",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/native_identity_target_validation.json",
+      "change": "A",
+      "bytes": 14604,
+      "sha256": "b64a4279effec28596f5dedb49c641ec2692b7ac5925fd0834bdc83e4a8894be",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/native_section_totalization.lp.inc",
+      "change": "A",
+      "bytes": 8878,
+      "sha256": "e03663343138766ce9fd0bdea6b477a8c70492dfd0892298e41a09d039f359d6",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/native_section_totalization_controls.lp.inc",
+      "change": "A",
+      "bytes": 3305,
+      "sha256": "67c13de7b1b408cebc56ec2faab38f64b043c7346aaa2ab5574f57765138ca86",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/native_section_totalization_validation.json",
+      "change": "A",
+      "bytes": 35149,
+      "sha256": "675e9c3a1dd2e108d91a9b7ecf12f89635df87638ea184d7226330a33e0009d9",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/native_triangle_cone_sketch.lp",
+      "change": "A",
+      "bytes": 7892,
+      "sha256": "bdf88caf611a8699bd73e344418300c4bcea5c2ee7c0f52d3472c963c44b8116",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/native_triangle_cone_validation.json",
+      "change": "A",
+      "bytes": 22083,
+      "sha256": "7f5a7470d28c136947ad35a3da021563a0bd40de51b040969721a3cc3f687ea1",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/native_universal_hom.lp.inc",
+      "change": "A",
+      "bytes": 1908,
+      "sha256": "38c77da84e041523fac49e57dac2228257fc483827bcb1f6ebd6016e8991839a",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/native_universal_hom_controls.lp.inc",
+      "change": "A",
+      "bytes": 8461,
+      "sha256": "2110fb76d892c64f91fb21da5f03e0f0e76d58f6ca8644b608f4be94ee524305",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/native_universal_hom_validation.json",
+      "change": "A",
+      "bytes": 33105,
+      "sha256": "8d2e4d49025b8f651ad49b677a9ccb609ce2188723f8b7754e2938eab4ad41db",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/normal_op_unit_controls.lp",
+      "change": "A",
+      "bytes": 2108,
+      "sha256": "7c996dbece7212da80195c720445ad7847fa08ae7083eb8f014b99de9148c5d7",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/normal_op_units_candidate.lp",
+      "change": "A",
+      "bytes": 951,
+      "sha256": "85302dcc3aecd7683cf86f802c3d495b3700ea6b15d330946699b6e17f7afd10",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/normal_op_units_owner.patch",
+      "change": "A",
+      "bytes": 865,
+      "sha256": "eb23794da0527e24c4b2c2aa46ff49acb60c1712536d33160591f76b9b95e8f1",
+      "group": "nerve-audit",
+      "disposition": "historical owner experiment; no direct application"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/observation_candidate.lp",
+      "change": "A",
+      "bytes": 7945,
+      "sha256": "97fc00d244d047872f831d39d90a68d596c93eb4df1b3d78f897e5b138dc02a7",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/observation_controls.lp",
+      "change": "A",
+      "bytes": 4876,
+      "sha256": "485be6b2f15b91ec74ad80f4eb74ca4e73a46df434abaec47426656cd9de97a5",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/observation_interaction_controls.lp",
+      "change": "A",
+      "bytes": 469,
+      "sha256": "2d4d0ebff8bc69dd61e1ac51301c9dc960c7615b9b8cf507e7b0a5b8074ed10c",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/observation_validation.json",
+      "change": "A",
+      "bytes": 85578,
+      "sha256": "d7cffb31b4f9701ec44b2e627a39fc2b896bb0d487497ea25131cb1e236abebb",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/precomposition_object_eval_candidate.lp",
+      "change": "A",
+      "bytes": 573,
+      "sha256": "7d67d24e39f91d88767d324fe3bb85bd6746f1efbe72eb955eb2ac3d6e7dcf15",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/precomposition_object_eval_controls.lp",
+      "change": "A",
+      "bytes": 3725,
+      "sha256": "fa8d5328f0e6e3f036e49ce4d60265787f806c749f8f344f90c4dc967f32fc10",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/profile_lift_scope_controls.lp",
+      "change": "A",
+      "bytes": 3198,
+      "sha256": "57d93ded07d2e5b5f44bbe5a42e35b9e5e3c6c633459cc9575efe95af32b754b",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/profile_lift_validation.json",
+      "change": "A",
+      "bytes": 47187,
+      "sha256": "875f1740221775fa1b4df77b24f59f9f7656699e7b76e59fdefb784a163b0e6e",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/profile_scope_controls.lp",
+      "change": "A",
+      "bytes": 2736,
+      "sha256": "fdc182b47e5a8fa6397a4cc0e197d2cf3c69673d802cbd4fd76abe3a5f0724e5",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/profiled_realization_candidate.lp",
+      "change": "A",
+      "bytes": 1031,
+      "sha256": "16b94a2fcf6062f7a4be78e35075b9ba925c6f85c9d16c707f6e3ade25eb20b0",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/profiled_realization_controls.lp",
+      "change": "A",
+      "bytes": 18978,
+      "sha256": "1b1ffb4315f85a3407826a5a902c4a3e07c4dee90410421b0e6a922654d0752e",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/profiled_realization_interaction_controls.lp",
+      "change": "A",
+      "bytes": 274,
+      "sha256": "e095dd64f6efa6179bc433472b6f97d2118d09d4e090e730af474e0e0e74d9d8",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/profiled_reflection_candidate.lp",
+      "change": "A",
+      "bytes": 8099,
+      "sha256": "58c6d529c591658dce40098e8daa87841769115cda5658dd162980785fa33e0f",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/profiled_reflection_controls.lp",
+      "change": "A",
+      "bytes": 3532,
+      "sha256": "87394c1544d9ef694bd3ee5a7ee68e6d1da5e45262a5ad430e02a1c19c6308a7",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/profiled_reflection_owner.patch",
+      "change": "A",
+      "bytes": 967,
+      "sha256": "268dacb749987f074ae5c1f48a1fe1385647a5a660e4b3dc447a6600d0d226dd",
+      "group": "nerve-audit",
+      "disposition": "historical owner experiment; no direct application"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/profiled_reflection_validation.json",
+      "change": "A",
+      "bytes": 44650,
+      "sha256": "a27e35d2a00adf9ed8b7c51483db2e04475cdc85847f19ff92e83232a894f076",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/projection_pullback_constant_views.lp.inc",
+      "change": "A",
+      "bytes": 1506,
+      "sha256": "bd9cd3ef08a25204fa654a6ad4e63189d807eba0af93579cc4df10edc85baf71",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/property_cells.lp",
+      "change": "A",
+      "bytes": 4883,
+      "sha256": "237ca0b8c80ef9f89a34a1dba1e69ca2d54f670c1addf3ec4b5d858e950646c2",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/realization_candidate.lp",
+      "change": "A",
+      "bytes": 4617,
+      "sha256": "1ec7fb816e09f501b33cecb6698877686454c9586c2494dda1896ec184c13615",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/realization_controls.lp",
+      "change": "A",
+      "bytes": 6361,
+      "sha256": "86d2af7581dc2c0181b37e8f7d37996fce6a08060bfa97dbb76aa83c7c6bd7bc",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/realization_exchange_candidate.lp",
+      "change": "A",
+      "bytes": 801,
+      "sha256": "9f09feceb297b8a1770c7e38291a903085b713e1aca952f1dcc767bdebb666c1",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/realization_interaction_controls.lp",
+      "change": "A",
+      "bytes": 546,
+      "sha256": "8742fe74fb4e1b69a151e5e4714c3a217b5682fd336b99eec641c54d1c209dd9",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/realization_support_candidate.lp",
+      "change": "A",
+      "bytes": 2572,
+      "sha256": "cd610a657356e6715bdab97ab9f21d0c934f9abc3a6287d4edc9d1a5340926c0",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/realization_support_owner.patch",
+      "change": "A",
+      "bytes": 1599,
+      "sha256": "8c44722b7353c2fd3d14a6f0de416ae9da75eb7777875f32ea9d0e093335171b",
+      "group": "nerve-audit",
+      "disposition": "historical owner experiment; no direct application"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/realization_validation.json",
+      "change": "A",
+      "bytes": 45071,
+      "sha256": "a4176e8f0cb0a3993a63425d5dc6e89c8d5253168c78f0b9dc995de83275c3e9",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/replay_graph_construction.py",
+      "change": "A",
+      "bytes": 4521,
+      "sha256": "5e2340cab15d84505de8d5de51a5ec7dc1e40c09ab6c77530af70c56459060fc",
+      "group": "nerve-audit",
+      "disposition": "legacy replay reference; do not run unchanged against receiver"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/replay_graph_whole.py",
+      "change": "A",
+      "bytes": 2696,
+      "sha256": "f3275fb5a0149892a27ded5b257fcb264d5136e11cb7bc245c6edb862ed89c3c",
+      "group": "nerve-audit",
+      "disposition": "legacy replay reference; do not run unchanged against receiver"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/replay_left_inner_curry.py",
+      "change": "A",
+      "bytes": 4060,
+      "sha256": "487da1796efa520101ff1245ae3c5a85933a4dbe9d1437a8e3afe0eb077761b5",
+      "group": "nerve-audit",
+      "disposition": "legacy replay reference; do not run unchanged against receiver"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/replay_native_section_totalization.py",
+      "change": "A",
+      "bytes": 3564,
+      "sha256": "d625daa3104364ead7cd816305ab0409bcae20af294b83c5415b7bf2165c345a",
+      "group": "nerve-audit",
+      "disposition": "legacy replay reference; do not run unchanged against receiver"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/replay_native_universal_hom.py",
+      "change": "A",
+      "bytes": 2838,
+      "sha256": "6f75e754763278a1d7dbeac118a7ffc458b6970ab33fd6c7fc36a51ccf5f4e25",
+      "group": "nerve-audit",
+      "disposition": "legacy replay reference; do not run unchanged against receiver"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/replay_walking_graph_reindex.py",
+      "change": "A",
+      "bytes": 3588,
+      "sha256": "ce795af19fe5ca25fc33ce626e4a84d18b9ed7b6ca351af19099be7776c59f46",
+      "group": "nerve-audit",
+      "disposition": "legacy replay reference; do not run unchanged against receiver"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/section_identity_presentation.lp.inc",
+      "change": "A",
+      "bytes": 503,
+      "sha256": "6afba1a6df6d6e1ae8b104b055ab8e368d35de0f52c267d67e4552b84d037d3b",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/sigma_identity_candidate.lp",
+      "change": "A",
+      "bytes": 851,
+      "sha256": "384ab668262318d43be9bcadbcb705142fa3992101c471bd014c5b3815e14f01",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/sigma_identity_controls.lp",
+      "change": "A",
+      "bytes": 2121,
+      "sha256": "c8695ed4d5dd1b8290d9b22b6bc15a975f555b1912ec0e2c16cd8cdea961ffa7",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/sigma_identity_owner.patch",
+      "change": "A",
+      "bytes": 696,
+      "sha256": "7eaa2cbf2fa43c769f4bdad26f0f111a9418f4b1253e7a1e83cd047d0877bc26",
+      "group": "nerve-audit",
+      "disposition": "historical owner experiment; no direct application"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/sigma_pairing_generation_candidate.lp",
+      "change": "A",
+      "bytes": 4459,
+      "sha256": "795beef5384cf01c6646d88e5db25a810e99547b5df5e1b86d96d7ef6bad9f7c",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/sigma_pairing_generation_controls.lp",
+      "change": "A",
+      "bytes": 4669,
+      "sha256": "2bf8c6e542b57ad1c0fb94503c83cc688b1b0ec33603eac7728b30ec8306395c",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/sigma_pairing_generation_owner.patch",
+      "change": "A",
+      "bytes": 971,
+      "sha256": "e94ac57182a0e8c7bd2409077ae66225111a44a7392bd4ebb6944f212a8104ab",
+      "group": "nerve-audit",
+      "disposition": "historical owner experiment; no direct application"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/sigma_pairing_generation_validation.json",
+      "change": "A",
+      "bytes": 50988,
+      "sha256": "c470bf251a6bcaad96d687ee00d4c120b18a89695caf7e98e1aa9ecbbe5e2e51",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/strict_admission_hom_view_candidate.lp",
+      "change": "A",
+      "bytes": 580,
+      "sha256": "d359faec6f33170f4b7a195da1fcdd1e7fe1784b3da8c7822a8c9d6a19d8f433",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/terminal_mapping_boundary.lp",
+      "change": "A",
+      "bytes": 3623,
+      "sha256": "84985048c4c5a4e52bedac18b2e70652210d4026aba305462496f6c31b54abdb",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/terminal_mapping_validation.json",
+      "change": "A",
+      "bytes": 8981,
+      "sha256": "66b495f57025f7f1e21c6c91d53a12dd97cf1ab6bef7ef4de8e9d8de284a505f",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_family_profile_candidate.lp",
+      "change": "A",
+      "bytes": 11897,
+      "sha256": "ed20f842b4baead361d3ae62712406f211e57138dbe6c005d61b4dfac6ec351b",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_generation_candidate.lp",
+      "change": "A",
+      "bytes": 6054,
+      "sha256": "d8462a05821423f2afe0ba3714de86adb244f0691be8af32f0bee90789b7bf6f",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_generation_controls.lp",
+      "change": "A",
+      "bytes": 2709,
+      "sha256": "23d22297f2ef33a13b1e1981cf93c27ee07887330bc49ddc55f4f889a7f91882",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_graph_reindex.lp.inc",
+      "change": "A",
+      "bytes": 5023,
+      "sha256": "4be0a12ba3adaa45cfa14fd5afa4501ac487300c137f4f0051551adad076c079",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_graph_reindex_controls.lp.inc",
+      "change": "A",
+      "bytes": 3940,
+      "sha256": "5df6a64dd869737cb2ee909c44919f8f27d0f05348986099d05041f42f5155e9",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_graph_reindex_validation.json",
+      "change": "A",
+      "bytes": 32379,
+      "sha256": "1172e1f9704688a297090a08e82cf77a259c18a8d0e8f101afc32b6c5289f91f",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_left_coevaluation_candidate.lp",
+      "change": "A",
+      "bytes": 10189,
+      "sha256": "4021172719f7b3c5aa7fa95923c7fb7f3be667e87f5c780e15405062b81db6f7",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_left_coevaluation_validation.json",
+      "change": "A",
+      "bytes": 13734,
+      "sha256": "8c4264158cb22679967274ed1ff74d84f74dbb0655ffa2e323d7fec0fe344f70",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_left_curry_candidate.lp",
+      "change": "A",
+      "bytes": 4651,
+      "sha256": "39615c5ff24e0e117b5d6270ebf3c1547ea5d84753bcfe4b39e9b2859d37463f",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_left_evaluation_candidate.lp",
+      "change": "A",
+      "bytes": 4757,
+      "sha256": "3373cac0a5e088c4a17589fc6d0d4311c2d48244f30a84374327ab95200a5d36",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_left_forward_decoder_validation.json",
+      "change": "A",
+      "bytes": 20059,
+      "sha256": "14ea5d5861637491c1c0068423144fc4b3fa27f9888e160035d532475cc48492",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_left_inner_curry_candidate.lp",
+      "change": "A",
+      "bytes": 13505,
+      "sha256": "793aea65b06810c541f874aeaa2179e69cecd7791cf5277219a812f639ea19e0",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_left_inner_curry_validation.json",
+      "change": "A",
+      "bytes": 15749,
+      "sha256": "e2c6b0d187dd5ac1a826c1fd639c13026cb346728df06f759db634c35a862d33",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_whole_reconstruction_candidate.lp",
+      "change": "A",
+      "bytes": 10521,
+      "sha256": "84dbc8c54167bd8be68b47789c3bb67a438c5fa93950083316ef72f5c67ee240",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_whole_reconstruction_controls.lp",
+      "change": "A",
+      "bytes": 1973,
+      "sha256": "dbfb5da14265de588a5ebc165ebd04ed328b01af734e8d625f08af7b708ffac8",
+      "group": "nerve-audit",
+      "disposition": "candidate for owner-by-owner adaptation"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_whole_reconstruction_owner.patch",
+      "change": "A",
+      "bytes": 3550,
+      "sha256": "586e8966be0f54aa602f36451197ec03acc48d89e0fe674f46b9c25e9f453600",
+      "group": "nerve-audit",
+      "disposition": "historical owner experiment; no direct application"
+    },
+    {
+      "path": "emdash2/audits/native_nerve_oplax/walking_whole_validation.json",
+      "change": "A",
+      "bytes": 48397,
+      "sha256": "331b0b4974623f7066c75ff04acba0b781efa39d49da7d4e10918e05b76284a4",
+      "group": "nerve-audit",
+      "disposition": "historical validation; no qualification transfer"
+    },
+    {
+      "path": "emdash2/reports/INDEX.md",
+      "change": "M",
+      "bytes": 17105,
+      "sha256": "b3ca6960ea52adc03b669a48a22704003453e51158bdaa7788cd20f101552781",
+      "group": "plan-reference",
+      "disposition": "recover decisions and scope; receiver plan remains authority"
+    },
+    {
+      "path": "emdash2/scripts/check_metrics.py",
+      "change": "M",
+      "bytes": 27735,
+      "sha256": "e89b07acde635801d70511bf8eeb3185ea5044a5212715877fa55c9f639dc377",
+      "group": "excluded-tooling-sop",
+      "disposition": "exclude from import; retain receiver resource/checker/SOP rules"
+    },
+    {
+      "path": "emdash2/scripts/lambdapi_resource_guard.sh",
+      "change": "M",
+      "bytes": 5821,
+      "sha256": "6cfc7991b5b96a9910c1c25a1b71fc5b4ff3eb0ce88c224b454b29ea05c10402",
+      "group": "excluded-tooling-sop",
+      "disposition": "exclude from import; retain receiver resource/checker/SOP rules"
+    },
+    {
+      "path": "emdash2/scripts/run_lambdapi.py",
+      "change": "M",
+      "bytes": 15146,
+      "sha256": "34178b206e846aec31666aa0f4823089b9724be2f7e9b092c72e3db07f49b8e9",
+      "group": "excluded-tooling-sop",
+      "disposition": "exclude from import; retain receiver resource/checker/SOP rules"
+    },
+    {
+      "path": "emdash2/scripts/test_lambdapi_resource_guard.py",
+      "change": "M",
+      "bytes": 16149,
+      "sha256": "cd8760e8aa8774448182cf8b8bded5fbbecd8a692dfc570877a6eb610049f2a6",
+      "group": "excluded-tooling-sop",
+      "disposition": "exclude from import; retain receiver resource/checker/SOP rules"
+    },
+    {
+      "path": "emdash2/tests/test_check_metrics.py",
+      "change": "M",
+      "bytes": 24180,
+      "sha256": "40e7a353f9ba456ce66d852fc876b9a66e6cff019f51a670f4623bedd337ecc3",
+      "group": "excluded-tooling-sop",
+      "disposition": "exclude from import; retain receiver resource/checker/SOP rules"
+    },
+    {
+      "path": "emdash2/tests/test_check_runner.py",
+      "change": "M",
+      "bytes": 10281,
+      "sha256": "71508b4c178025f4b7ec64f2dd9fd7a1bedbeeead919405f12d9344c83d0a608",
+      "group": "excluded-tooling-sop",
+      "disposition": "exclude from import; retain receiver resource/checker/SOP rules"
+    },
+    {
+      "path": "scripts/devops.py",
+      "change": "M",
+      "bytes": 16465,
+      "sha256": "6cb36cc60304b1ae2a9cae56609bcc8ea57d2099542d4a9ce79e995904da70b0",
+      "group": "excluded-tooling-sop",
+      "disposition": "exclude from import; retain receiver resource/checker/SOP rules"
+    }
+  ]
+}
