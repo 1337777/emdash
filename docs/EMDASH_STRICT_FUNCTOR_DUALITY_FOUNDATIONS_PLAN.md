@@ -42,14 +42,25 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+NF-1 Sigma implementation prefix, 2026-10-26: the [actual whole-Hom implementation](../emdash2/audits/native_nerve_foundations/README.md#early-owner-prefix-whole-sigma-graph-implementation)
+now passes through the existing represented-Sigma construction and canonical
+`tapp1_int_cart` input. Direct whole-Hom evaluation recovers the original
+square; a different input transformation cannot replace the original. The
+early-owner prefix passes in 156.370s / 543,148 KiB with unchanged warning
+inventory. It adds one projection rule and one structural whole construction
+view, not a primitive inverse or new admission. Full-module qualification,
+the native Graph(U) section reconstruction and the second inverse remain open.
+
 NF-1 represented-Sigma consumer, 2026-10-26: [the current constructor at J=id](../emdash2/audits/native_nerve_foundations/README.md#existing-represented-sigma-graph-consumer)
 checks as a general B→N(C) graph and recovers its original component. The
 native U specialization is a whole N(C) endofunctor, with no new admission
 premise, rule or unifier. Its 52-input snapshot failed allocation at 2 GiB
 and passed unchanged at 3 GiB in 235.567s / 2,209,972 KiB. The separate
-whole-Hom implementation candidate stopped in imports at 300s and is being
-retried at 450s / 3 GiB. That candidate and native reconstruction remain
-unqualified; resource defaults and production sources are unchanged.
+whole-Hom implementation candidate stopped in imports at 300s and 450s.
+Its dependency-minimal early-owner prefix subsequently passed at 300s /
+2 GiB as recorded above. The general mathematical target is unchanged, and
+full-module qualification and native reconstruction remain open. Defaults
+and production sources are unchanged.
 
 NF-1 native composite, 2026-10-26: [the new whole derivation](../emdash2/audits/native_nerve_foundations/README.md#native-composite-as-the-original-universal-graph)
 compares `Observe ∘ Realize` with `Graph(U)` for the original U. It uses a

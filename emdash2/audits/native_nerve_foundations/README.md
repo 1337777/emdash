@@ -319,7 +319,53 @@ python3 emdash2/audits/native_nerve_foundations/replay_graph.py \
 
 The next owner-position candidate connects the public graph's whole Hom to
 this represented construction and checks its action directly, so the public
-square shortcut cannot hide the alternative projection order. Its 300-second
-attempt stopped in unchanged imports before the new clause was loaded; the
-same frozen candidate is being checked at 450s / 3 GiB. That candidate is
-not qualified by the passing definition-only consumer above.
+square shortcut cannot hide the alternative projection order. Its 300s and
+450s attempts both stopped in unchanged imports before the new clause was
+loaded. A dependency-minimal prefix through the graph owner omits eight
+imports used by the later ordinary-category suffix. Its first 180s / 2 GiB
+run also stopped in the existing graph imports. The prefix and its final
+distinct-input control now pass at 300s / 2 GiB, as recorded below. This
+isolates the actual construction without restricting its general
+transformation input. Prefix qualification does not replace the full-module
+gate or follow merely from the definition-only consumer above.
+
+## Early-owner prefix: whole Sigma graph implementation
+
+[`graph_sigma_body_owner.lpfragment`](graph_sigma_body_owner.lpfragment)
+connects the existing public graph with the actual earlier
+`comma_graph_internal_func`, fed by `tapp1_int_cart` of the original lax
+carrier. The public graph head remains stable. Its whole `fapp1_func`
+projection now delegates to this Sigma implementation, retaining the entire
+Hom functor. One proof-time construction view relates the whole maps while
+keeping the original families, base change and internal-action section as
+residual obligations. This is an explicit implementation contract, not a
+theorem inferred from point observations.
+
+The [controls](native_sigma_prefix_controls.lpfragment) evaluate the Sigma
+body directly, independently of the public graph's capped shortcut. Both the
+original component and the original directed square are recovered. In
+particular, `fapp0(fapp1_func(SigmaBody),p)` agrees with the square carrying
+the original laxity cell. A different input transformation cannot replace
+the selected one in the whole comparison. No new admission premise,
+primitive arrow or equality-proof argument is introduced.
+
+The [prefix verification](sigma_implementation_prefix_verification.json)
+records the full patched owner before truncation, the exact retained prefix,
+the eight omitted suffix imports and all run receipts. The final control
+replay passes with subject reduction in **156.370s / 543,148 KiB**, under
+300s / 2 GiB. All five warning fields match the completed dependency stream
+before the early owner in that same run; no new warning is emitted by this
+prefix. The inherited core-unit overlap boundary is unchanged.
+
+```bash
+python3 emdash2/audits/native_nerve_foundations/replay_graph.py \
+  --record sigma_implementation_prefix_verification.json --timeout-seconds 300
+```
+
+The replay validates the original full source and full patched hash before
+applying the recorded prefix restriction. Its assembled result matches the
+passing inputs exactly. This is **early-owner qualification only**: the
+remaining full-module/reviewer interaction is still required, and the
+300s/450s full-scope import timeouts remain failures. Next, compare the
+original Graph(U) section with the tautological Sigma section; neither the
+second inverse nor Sigma source generation is supplied by this checkpoint.

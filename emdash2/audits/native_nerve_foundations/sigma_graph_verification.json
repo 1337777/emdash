@@ -57,7 +57,7 @@
     "graph_reindex_owner.lpfragment": "1742f9f0f41fc757747884933d27636c267c2741d8eaef56023a5a694b8bcd47",
     "graph_whole_generator.lpfragment": "7a7b3da47955bf29f9e39ba63ab4ae69079a7208c4817d23c2958cc62bd5ac09",
     "native_sigma_graph.lpfragment": "1c8cd4456fedf1bcdb7103a484b906a3632bc622909ee95fecddd44927cb67d0",
-    "replay_graph.py": "4c7d78d18565c9596284817b700a5deb9c9a4fce2defe231b8a2bf79c40a50c1",
+    "replay_graph.py": "a137a6938db4c3d2822693fab428278191cd6648ec7fb333cd8e369ae88056a9",
     "replay_realization.py": "148caac26a2e542cac0a05768635a5ca64aaaf11ae9da3b69739f5ad661d40f7",
     "total_dual_postcomp_units.lpfragment": "d72ed818cd623c380d2651bdb9e4a7123ef2417ab29c3b3dc060c9e83ae068c5",
     "walking_first_inverse.lpfragment": "4c4bff0c0b134b364d44d18285c8dad913839c209bc8abfd80bac51d0f40414f",
@@ -204,5 +204,6 @@
     },
     "parserIssues": {},
     "note": "This definition-only consumer imports a larger current-source closure; these counts do not constitute a comparison with the smaller prior graph target."
-  }
+  },
+  "replayPrefixNote": "The later optional ownerPrefixes metadata is absent in this record; its full source assembly is unchanged."
 }

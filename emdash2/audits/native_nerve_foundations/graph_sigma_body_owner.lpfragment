@@ -1,0 +1,31 @@
+// Actual represented-Sigma implementation of the existing public graph.
+// The source-variable profile is already supplied by tapp1_int_cart;
+// the inner y-family and the original eta retain their lax action.
+symbol nerve_graph_sigma_body [B C : Cat] [F G : τ (Functor B C)]
+  (L : τ (@LaxTransfor B C F G)) : τ (Functor B (@LaxArrow_cat C))
+≔ @comma_graph_internal_func B C F G
+    (@tapp1_int_cart B C F G (@lax_transfor B C F G L));
+
+// Refine the generic Hom projection through that actual implementation.
+// The existing capped square projection is retained as a separate order.
+rule @fapp1_func _ _ (@gray_transf_graph_func $B $C $F $G $L) $x $y
+  ↪ @fapp1_func $B (@LaxArrow_cat $C) (@nerve_graph_sigma_body $B $C $F $G $L) $x $y;
+
+// Whole construction view. Keep both totalization factors, every family
+// and the entire original internal-action section as residual obligations.
+unif_rule @gray_transf_graph_func $B $C $F $G $L
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@CoAbove2_func _ _ (@Op_func _ _ (@sigma_pullback_total_func $A $K $H $E)))
+      (@CoAbove2_func _ _ (@Op_func _ _ (@section_total_func $A0 $V $s)))
+  ↪ [ $A ≡ TotalOp_cat $B; $A0 ≡ TotalOp_cat $B; $K ≡ TotalOp_cat $C;
+      $H ≡ @TotalOp_func $B $C $F;
+      $E ≡ @comma_graph_target_base_catd $C;
+      $V ≡ @comma_graph_target_catd $B $C $F;
+      $s ≡ @comma_graph_target_sec $B $C $F $G
+        (@tapp1_int_cart $B $C $F $G (@lax_transfor $B $C $F $G $L)) ];
+
+symbol nerve_graph_sigma_body_path [B C : Cat] [F G : τ (Functor B C)]
+  (L : τ (@LaxTransfor B C F G))
+  : τ (@= (Functor B (@LaxArrow_cat C))
+      (@gray_transf_graph_func B C F G L) (@nerve_graph_sigma_body B C F G L))
+≔ @eq_refl (Functor B (@LaxArrow_cat C)) (@gray_transf_graph_func B C F G L);

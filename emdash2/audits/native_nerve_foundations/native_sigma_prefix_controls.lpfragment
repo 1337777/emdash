@@ -1,0 +1,30 @@
+require open emdash.native_nerve_graph_whole_review;
+require open emdash.emdash3_2_represented_comma_families;
+
+// The same early Sigma implementation, specialized to the original U.
+symbol nerve_native_sigma_body (C : Cat)
+  : τ (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+≔ @nerve_graph_sigma_body (@LaxArrow_cat C) C
+    (@cubical_src_func C) (@cubical_tgt_func C)
+    (@make_lax_transfor _ _ _ _ (nerve_native_universal_transf C)
+      (@nerve_default_lax_profile _ _ _ _ (nerve_native_universal_transf C)));
+
+// Observe the implementation directly, so the public capped graph shortcut
+// cannot conceal the alternative whole-Hom projection order.
+assert [B C : Cat] [F G : τ (Functor B C)]
+  (L : τ (@LaxTransfor B C F G)) (x : τ (Obj B)) ⊢
+  @fapp0 B (@LaxArrow_cat C) (@nerve_graph_sigma_body B C F G L) x
+  ≡ @lax_edge C (@fapp0 B C F x) (@fapp0 B C G x)
+      (@tapp0_fapp0 B C F G x (@lax_transfor B C F G L));
+
+assert [B C : Cat] [F G : τ (Functor B C)]
+  (L : τ (@LaxTransfor B C F G)) [x y : τ (Obj B)] (p : τ (Hom B x y)) ⊢
+  @fapp0 _ _ (@fapp1_func B (@LaxArrow_cat C) (@nerve_graph_sigma_body B C F G L) x y) p
+  ≡ @gray_transf_standard_square B C F G L x y p;
+
+// The whole implementation comparison must keep the original transfor.
+assertnot [B C : Cat] [F G : τ (Functor B C)]
+  (L M : τ (@LaxTransfor B C F G)) ⊢
+  @eq_refl (Functor B (@LaxArrow_cat C)) (@gray_transf_graph_func B C F G L)
+  : τ (@= (Functor B (@LaxArrow_cat C))
+      (@gray_transf_graph_func B C F G L) (@nerve_graph_sigma_body B C F G M));

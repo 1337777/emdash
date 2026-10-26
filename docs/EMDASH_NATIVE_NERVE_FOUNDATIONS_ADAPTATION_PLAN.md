@@ -152,14 +152,30 @@ required comparisons.
 
 ## First bounded implementation slice
 
+Whole Sigma implementation prefix, 2026-10-26: the [early-owner replay](../emdash2/audits/native_nerve_foundations/README.md#early-owner-prefix-whole-sigma-graph-implementation)
+now connects the public graph's whole Hom to the actual existing Sigma body.
+Direct implementation evaluation recovers both the original component and
+square, and an unrelated input transformation is rejected. One whole-Hom
+projection rule and one whole construction view are added; no new admission
+or primitive arrow is supplied. The final prefix check passes in 156.370s /
+543,148 KiB under 300s / 2 GiB, with unchanged warning inventory. The exact
+prefix excludes eight later-suffix imports. Full-module/reviewer qualification
+is still required; the earlier import timeouts are not passes. Next is the
+actual Graph(U) section's whole comparison with Sigma's tautological section,
+followed by the second inverse. Prepared Sigma-generation fragments remain
+unqualified until their owning checks are completed.
+
 Represented-Sigma consumer, 2026-10-26: the [current public constructor at J=id](../emdash2/audits/native_nerve_foundations/README.md#existing-represented-sigma-graph-consumer)
 checks as a general graph B→N(C), using existing `tapp1_int_cart`, and recovers
 the original component. This is a definition-only consumer, not native
 reconstruction. Its 52-input closure failed allocation at 2 GiB and passed
 the same snapshot at 3 GiB in 235.567s / 2,209,972 KiB, with host headroom
 reviewed. The subsequent whole-Hom implementation candidate timed out in
-unchanged imports at 300s; its frozen 450s / 3 GiB replay remains pending.
-Do not infer that candidate's qualification from the earlier component check.
+unchanged imports at both 300s and 450s. A dependency-minimal early-owner
+prefix omits eight suffix imports; it retains the general Hom-action target.
+After its 180s / 2 GiB import timeout, that prefix and its final distinct-input
+control pass as recorded above. Keep prefix and full-module qualification
+distinct; do not infer either from the earlier component check alone.
 
 Native composite continuation, 2026-10-26: the [whole comparison](../emdash2/audits/native_nerve_foundations/README.md#native-composite-as-the-original-universal-graph)
 now derives `Observe ∘ Realize ≐ Graph(U)` using the original whole universal

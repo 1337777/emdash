@@ -1,0 +1,268 @@
+{
+  "schema": "emdash-native-nerve-sigma-implementation-v1",
+  "status": "early-owner prefix passes whole implementation, Hom action and direct square/noncollapse controls; full-module qualification and native reconstruction remain open",
+  "receiverBaseline": "2bd48722",
+  "receiverInputs": {
+    "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+    "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+    "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+    "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+    "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+    "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+    "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+    "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+    "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+    "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+    "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+    "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+    "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+    "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+    "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+    "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+    "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+    "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+    "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+    "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+    "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+    "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+    "emdash3_2_represented_comma_families.lp": "9c9b18ead5d894635b068e6ea397f7c305cf3e31d1804a8e181818ed189e5305",
+    "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+    "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+    "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+    "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+    "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "artifactHashes": {
+    "graph_endpoint_controls.lpfragment": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9",
+    "graph_endpoint_projections.lpfragment": "976f48c86c4d3141d875342067610404d45f6c021d63d194a1c0a25a08f3889c",
+    "graph_reindex_owner.lpfragment": "1742f9f0f41fc757747884933d27636c267c2741d8eaef56023a5a694b8bcd47",
+    "graph_sigma_body_owner.lpfragment": "4bd90043ac22007231d9a111b131b96533bd7fb43f79064578c74a1aeea0558f",
+    "graph_whole_generator.lpfragment": "7a7b3da47955bf29f9e39ba63ab4ae69079a7208c4817d23c2958cc62bd5ac09",
+    "native_sigma_prefix_controls.lpfragment": "52f9f0cbe357a442c425a23064742a70a29c4f41a6e26cf840034970670e4fc5",
+    "replay_graph.py": "a137a6938db4c3d2822693fab428278191cd6648ec7fb333cd8e369ae88056a9",
+    "replay_realization.py": "148caac26a2e542cac0a05768635a5ca64aaaf11ae9da3b69739f5ad661d40f7",
+    "total_dual_postcomp_units.lpfragment": "d72ed818cd623c380d2651bdb9e4a7123ef2417ab29c3b3dc060c9e83ae068c5",
+    "walking_first_inverse.lpfragment": "4c4bff0c0b134b364d44d18285c8dad913839c209bc8abfd80bac51d0f40414f",
+    "walking_generation.lpfragment": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323",
+    "walking_generation_self.lpfragment": "1aa65f234ee9d67b6dde8e945aac1975dece244d445da7e6cd46bc83093c0b06",
+    "walking_realization.lpfragment": "2a6b7e974261f3a65c64d18ea61a5f4e06e8848be2777be3f48abcded0584d5a"
+  },
+  "checker": {
+    "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+    "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+    "version": "dev-3.0.0-90-gdb4f7809-dirty"
+  },
+  "ownerPatches": [
+    {
+      "owner": "emdash3_2.lp",
+      "fragment": "total_dual_postcomp_units.lpfragment",
+      "anchor": "// Strict default maps preserve represented postcomposition. Whole functors\n",
+      "resultSha256": "8eb4ccba6a07e318e989981fcdbe067d7d9c8c046b84818632d4644dc480d8be"
+    },
+    {
+      "owner": "emdash3_2_walking_arrow_introduction.lp",
+      "fragment": "walking_generation_self.lpfragment",
+      "anchor": "// Postcomposition of the free walking-arrow introduction. A strict functor\n",
+      "resultSha256": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d"
+    },
+    {
+      "owner": "emdash3_2_gray_transformation_graph.lp",
+      "fragment": "graph_endpoint_projections.lpfragment",
+      "anchor": "// Public object observation, retained as the graph functor's ordinary action.\n",
+      "resultSha256": "ce67e1a3223d50273f2fb554c90b130443e322edc3f1726628dffa49184804a0"
+    },
+    {
+      "owner": "emdash3_2_gray_transformation_graph.lp",
+      "fragment": "graph_reindex_owner.lpfragment",
+      "anchor": "// Public object observation, retained as the graph functor's ordinary action.\n",
+      "resultSha256": "db87cf675f63982930023ec8b397315111dadb0800a1c1d5ec2e82aaed9cd68a"
+    },
+    {
+      "owner": "emdash3_2_represented_comma_families.lp",
+      "fragment": "graph_sigma_body_owner.lpfragment",
+      "anchor": "// The actual whole input classifier.\n",
+      "resultSha256": "672170ce8cbfab64d1ebdbe50f32a2f082c126e6b0e1de40b7db053006d636ee"
+    }
+  ],
+  "ownerPrefixes": [
+    {
+      "owner": "emdash3_2_represented_comma_families.lp",
+      "throughAnchor": "// The actual whole input classifier.\n",
+      "omittedImports": [
+        "require open emdash.emdash3_2_zero_arrow_cones;",
+        "require open emdash.emdash3_2_iso_evidence_constructors;",
+        "require open emdash.emdash3_2_one_cat_adjunction_family_views;",
+        "require open emdash.emdash3_2_one_cat_pointwise_equivalences;",
+        "require open emdash.emdash3_2_one_cat_op;",
+        "require open emdash.emdash3_2_omega_equiv_composition;",
+        "require open emdash.emdash3_2_transfor_whiskering;",
+        "require open emdash.emdash3_2_identity_presented_iso_mapping;"
+      ],
+      "resultSha256": "b46a6873373cfbe9488b6308199513ce802c177ca86a119032e73cba3605e488"
+    }
+  ],
+  "programs": {
+    "native_nerve_graph_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "graph_endpoint_controls.lpfragment"
+      ],
+      "sha256": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9"
+    },
+    "native_nerve_realization_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "walking_realization.lpfragment"
+      ],
+      "sha256": "2a6b7e974261f3a65c64d18ea61a5f4e06e8848be2777be3f48abcded0584d5a"
+    },
+    "native_nerve_generation_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "walking_generation.lpfragment"
+      ],
+      "sha256": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323"
+    },
+    "native_nerve_graph_whole_review.lp": {
+      "prefix": "require open emdash.native_nerve_graph_review;\nrequire open emdash.native_nerve_realization_review;\nrequire open emdash.native_nerve_generation_review;\n\n",
+      "separator": "\n",
+      "fragments": [
+        "graph_whole_generator.lpfragment",
+        "walking_first_inverse.lpfragment"
+      ],
+      "sha256": "6a69911880e10a4332a14582444d5ed45b146ea9e969975ede3e96c8fea47b4e"
+    },
+    "native_nerve_sigma_graph_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "native_sigma_prefix_controls.lpfragment"
+      ],
+      "sha256": "52f9f0cbe357a442c425a23064742a70a29c4f41a6e26cf840034970670e4fc5"
+    }
+  },
+  "target": "native_nerve_sigma_graph_review.lp",
+  "scope": {
+    "newStructuralComparison": "public graph agrees at proof time with the actual represented-Sigma construction, retaining all original input data",
+    "newRuntimeRules": 1,
+    "runtimeRule": "whole fapp1_func of the public graph delegates to the existing Sigma implementation",
+    "newPrimitiveSymbols": 0,
+    "newAdmissionPremises": 0,
+    "positiveControls": 2,
+    "negativeControls": 1,
+    "controlsMeaning": "Direct implementation object and full-Hom evaluation recover the original component/square. An unrelated transfor cannot replace the original. Inherited suites are separate.",
+    "productionFilesChanged": false,
+    "excludedScope": "Eight imports and the later suffix of represented_comma_families are excluded from the prefix experiment; no full-module promotion claim."
+  },
+  "runs": [
+    {
+      "id": "20261026T190822Z-23d69a7ed1c9450782ae4f653bf74d4d",
+      "outcome": "timeout",
+      "wallSeconds": 300.07218714710325,
+      "childrenMaxRssKiB": 129564,
+      "inputSnapshot": "190345d308ad0e916ac9aeac575a9c5dc70e85f29df68e8b0d5f00ac937f84e3",
+      "logSha256": "e417b9dd2951a3cffb7d0a4f91e5fea943416c87dd4bb205c36f42d35cc261f2",
+      "target": "native_nerve_sigma_graph_review.lp",
+      "timeoutMs": 300000,
+      "memoryMiB": 3072,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T191341Z-a978d9cf25cd4608814681b0078dfa84",
+      "outcome": "timeout",
+      "wallSeconds": 450.0392562679481,
+      "childrenMaxRssKiB": 129884,
+      "inputSnapshot": "190345d308ad0e916ac9aeac575a9c5dc70e85f29df68e8b0d5f00ac937f84e3",
+      "logSha256": "1109088a11dab3a7746d7268c2a4e12785f24cdc1eb34ef079972a60ad3b1c9a",
+      "target": "native_nerve_sigma_graph_review.lp",
+      "timeoutMs": 450000,
+      "memoryMiB": 3072,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T192258Z-1dcbc6ecb6fc4a7c930d28fb5d862114",
+      "outcome": "timeout",
+      "wallSeconds": 180.0425016428344,
+      "childrenMaxRssKiB": 129620,
+      "inputSnapshot": "939e7fc6fcba05a981f4e2f29c87dc79196015b3acf5d9ee47967501ef63fc21",
+      "logSha256": "19bd7f2036ee4ed9de40a66200840c5999da599bbe7844a20ffab5316b6e1b92",
+      "target": "native_nerve_sigma_graph_review.lp",
+      "timeoutMs": 180000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T192657Z-cd2eb8fb7ec1479ab4c552ecb8764842",
+      "outcome": "passed-fresh",
+      "wallSeconds": 179.94971295213327,
+      "childrenMaxRssKiB": 559916,
+      "inputSnapshot": "939e7fc6fcba05a981f4e2f29c87dc79196015b3acf5d9ee47967501ef63fc21",
+      "logSha256": "fe5867f670e1a11495ddb7da9da63b0598e693195d422d24399f901e5dca03b9",
+      "target": "native_nerve_sigma_graph_review.lp",
+      "timeoutMs": 300000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T193212Z-0c3512a4001144dca2dfc6bf76d9de73",
+      "outcome": "passed-fresh",
+      "wallSeconds": 156.36957584996708,
+      "childrenMaxRssKiB": 543148,
+      "inputSnapshot": "9a4087fc4aa668ae32fc8706fca8b6fedb35a62f5ad7b8ce403f32829e5763cf",
+      "logSha256": "9fa6dfec1dcb59298a78e5fd3918185e0d0c08b560a4c2200a7f76ba58d76ca9",
+      "target": "native_nerve_sigma_graph_review.lp",
+      "timeoutMs": 300000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    }
+  ],
+  "warningComparison": {
+    "baseline": "completed imported dependency stream before the early represented-comma owner, within the retained run",
+    "candidate": "20261026T193212Z-0c3512a4001144dca2dfc6bf76d9de73",
+    "equalFields": {
+      "categories": true,
+      "locations": true,
+      "term_heads": true,
+      "rule_families": true,
+      "parser_issues": true
+    },
+    "categories": {
+      "replaceable pattern variable": 181,
+      "unjoinable critical pair": 2155
+    },
+    "qualification": "No new warning inventory entries after loading the prefix and its new clause. This does not establish confluence or qualify the omitted suffix. The earlier core-unit 31-warning prerequisite remains open."
+  },
+  "resourceReview": {
+    "fullModuleTimeouts": "300s and 450s at 3GiB; both stop in unchanged one-category imports before the new clause. Only the intended owner and reviewer differ from the earlier passing full consumer snapshot.",
+    "prefixTimeout": "180s/2GiB stops in inherited graph imports; unchanged prefix passes at 300s/2GiB.",
+    "retainedPassSeconds": 156.36957584996708,
+    "retainedPassRssKiB": 543148,
+    "defaultsChanged": false
+  },
+  "replayCommand": "python3 emdash2/audits/native_nerve_foundations/replay_graph.py --record sigma_implementation_prefix_verification.json --timeout-seconds 300",
+  "remaining": [
+    "Full owner/suffix replay and original reviewer interaction after the new whole-Hom clause; prefix success is insufficient.",
+    "Identify the original native Graph(U) section with the tautological Sigma section and derive the second inverse.",
+    "Qualify the native universal-transformation higher action and inherited core-unit overlap boundary.",
+    "All later NF cube, simplex, same-index, degree-zero and degeneracy obligations."
+  ]
+}

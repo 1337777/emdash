@@ -4,13 +4,23 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: local book/article continuation complete; native nerve adaptation active; production health/final integration remain deferred obligations
 
+SF-NERVES / Sigma implementation prefix: [the whole graph Hom](../emdash2/audits/native_nerve_foundations/README.md#early-owner-prefix-whole-sigma-graph-implementation)
+now delegates to its actual represented-Sigma construction. Direct evaluation
+recovers the original component and square, while a distinct input transfor
+is rejected. The early-owner prefix passes with subject reduction and no new
+warning inventory entries. Full-module/reviewer replay remains required;
+the old import timeouts remain recorded failures. Next is the original
+Graph(U) section versus Sigma's tautological section and the second inverse.
+
 SF-NERVES / existing Sigma graph: [the definition-only consumer](../emdash2/audits/native_nerve_foundations/README.md#existing-represented-sigma-graph-consumer)
 passes using the existing represented-comma constructor and `tapp1_int_cart`.
 Its 3 GiB replay qualifies the whole map's type and original point computation,
 not its comparison with the public graph or the second inverse. The new
-whole-Hom implementation is still being checked separately; a 300s import
-timeout is retained, with a frozen 450s / 3 GiB retry in progress. Keep the
-prepared Sigma-generation proposals unqualified and all promotion gates open.
+whole-Hom implementation is still being checked separately. The full scope
+timed out in imports at 300s and 450s; its dependency-minimal prefix and final
+control subsequently pass as recorded above. That prefix result does not
+qualify the full module. Keep the prepared Sigma-generation proposals
+unqualified and all promotion gates open.
 
 SF-NERVES / NF-1 native composite: [the checked comparison](../emdash2/audits/native_nerve_foundations/README.md#native-composite-as-the-original-universal-graph)
 now gives `Observe ∘ Realize ≐ Graph(U)`, preserving the original whole U.

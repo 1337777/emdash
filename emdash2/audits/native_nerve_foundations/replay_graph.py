@@ -58,6 +58,24 @@ def main() -> int:
         owner.write_text(source)
         if digest(owner) != patch["resultSha256"]:
             raise SystemExit(f"assembled owner differs: {patch['owner']}")
+    # A recorded early-owner audit may exclude a later suffix and its imports.
+    # Check both the full patched input above and the exact reduced result;
+    # this does not qualify the omitted module suffix.
+    for scope in record.get("ownerPrefixes", []):
+        owner = pinned_file(package, scope["owner"])
+        source = owner.read_text()
+        anchor = scope["throughAnchor"]
+        if source.count(anchor) != 1:
+            raise SystemExit(f"prefix boundary changed: {scope['owner']}")
+        source = source[:source.index(anchor) + len(anchor)]
+        for statement in scope["omittedImports"]:
+            line = statement + "\n"
+            if source.count(line) != 1:
+                raise SystemExit(f"suffix import changed: {statement}")
+            source = source.replace(line, "", 1)
+        owner.write_text(source)
+        if digest(owner) != scope["resultSha256"]:
+            raise SystemExit(f"assembled prefix differs: {scope['owner']}")
     for name, program in record["programs"].items():
         if Path(name).name != name or Path(name).suffix != ".lp":
             raise SystemExit(f"invalid generated program name: {name}")
