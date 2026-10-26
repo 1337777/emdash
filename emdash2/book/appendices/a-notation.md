@@ -11,8 +11,16 @@ syntax.
 | Book notation | Reading | Current implementation witness |
 | --- | --- | --- |
 | $a\to_C b$ | an arrow of $C$ from $a$ to $b$ | `Hom C a b` |
-| $F:A\vdash B$ | a functor from $A$ to $B$ | `Functor A B` |
-| $E:K\vdash\mathsf{Cat}$ | a Cat-valued directed family | `Catd K` |
+| $F:A\vdash B$ | a strict public functor from $A$ to $B$ | `Functor A B` |
+| $[A,B]$ | strict functors with default lax transformations | `Functor_cat A B` |
+| $\operatorname{Cart}(A,B)$ | Cartesian mapping category with strict transformations | `Functor_cart_cat A B` |
+| $\mathsf{Cat}_{\mathrm{cart}}$ | category coefficient with Cartesian mapping Homs | `Cat_cart` |
+| $E:K\vdash\mathsf{Cat}_{\mathrm{cart}}$ | an admitted directed family | `Catd K` |
+| $T(C)$, $R(C)$, $O(C)=R(T(C))$ | reversal in dimension 1, dimensions ≥2, and all positive dimensions, respectively | `Op_cat`, `CoAbove2_cat`, `TotalOp_cat` |
+| $C_2(C)$ | reversal in dimension 2 only | `CoAt2_cat C` |
+| $P(I)=T([I,T(\mathsf{Cat}_{\mathrm{cart}})])$ | dependent-Hom index category, with fixed-object presheaf view $T(I)\to\mathsf{Cat}_{\mathrm{cart}}$ | `Homd_index_cat I` |
+| $Q$ with $\operatorname{Hom}_Q(A,B)=\operatorname{Cart}(A,P(B))$ | coefficient for the whole dependent-Hom section | `Homd_coeff_cat` |
+| $S_E(x)=\operatorname{Transf}_{K,Q}(iE,i\mathsf{Rep}_x)$ | whole dependent-Hom section category | `Homd_target_section_cat E x` |
 | $E[f]$ | functorial action of a family on a base arrow | `catd_transport_func` |
 | $H_x$ | the based hom-category $\operatorname{Hom}_W(*,x)$ | `Hom_cat WalkingEnd_cat walking_base x` |
 | $W$, $*$, $\ell$ | WalkingEnd, its base, and its directed generator | `WalkingEnd_cat`, `walking_base`, `walking_loop` |
@@ -33,8 +41,8 @@ syntax.
 | $u^*(h)$ | precomposition by $u$, namely $h\circ u$ | `hom_precomp_along_fapp0` |
 | $\eta[f]$ | off-diagonal action of a transfor on $f:x\to y$ | `tapp1_fapp0` |
 | $\chi^\Phi_{(p,u)}$ | displayed transport-comparison component | `fdapp1_int_cell` |
-| $\phi^F_{g,f}:F[g]\circ F[f]\Rightarrow F[g\circ f]$ | the functor compositor extracted from whole laxity | `fapp1_compositor` |
-| $\mathsf{GrayHom}_{\mathrm{lax}}(A,B)$ | strict-functor objects with the ambient lax-arrow and higher-hom tower | `GrayHom_lax A B` |
+| $\phi^F_{g,f}:F[g]\circ F[f]\Rightarrow F[g\circ f]$ | the extracted compositor, strict under the public functor laws | `fapp1_compositor` |
+| $\mathsf{GrayHom}_{\mathrm{lax}}(A,B)$ | public functor objects with classified conventional lax arrows and ambient higher Homs | `GrayHom_lax A B` |
 | $A\otimes_R B$ | the stable tensor head selected by the checked right Gray closure | `GrayTensor_R A B` |
 | $P:A\rightsquigarrow B$ | a Cat-valued profunctor on $A^{\mathrm{op}}\times B$ | `Prof A B` |
 | $U_A$ | the unit hom profunctor | `Unit_prof A` |
@@ -59,7 +67,7 @@ syntax.
 | $\boldsymbol\Delta[n]$ | the standard representable semisimplex $\operatorname{Hom}(-,n+1)$ | `StandardSimplex (succ n)` |
 | $\mathsf{Face}(p,n)$ | injective monotone maps from the $p$-vertex ordinal to the $n$-vertex ordinal | `FaceCode p n` |
 | $\mathsf{Obs}(C,n)$ | a dependent-simplex code paired with one object of its native decoded category | `DependentSimplexObservation C n` |
-| $X:\mathcal K^{\mathrm{op}}\to\mathsf{Cat}$ | a Cat-valued presheaf on $\mathcal K$ | `Psh K` |
+| $X:T(\mathcal K)\to\mathsf{Cat}_{\mathrm{cart}}$ | a Cat-valued presheaf on $\mathcal K$ | `Psh K` |
 | $yU$ | the representable presheaf $\operatorname{Hom}_{\mathcal K}(-,U)$ | `yoneda_psh K U` |
 | $p^*R$ | pullback of the sieve $R$ by postcomposing its probes with $p$ | `sieve_pullback K V U p R` |
 | $D_U(s)$ | the sieve of probes along which the restricted section is invertible | `comm_ring_psh_invertibility_sieve K O U s` |
@@ -84,6 +92,12 @@ syntax.
 | $A[t,t^{-1}]\to A[u,u^{-1}]$ | the canonical coordinate-inversion map between supplied one-variable localizations | `comm_ring_laurent_transition_map A P Q LP LQ` |
 | $\mathsf{Laurent}(S,\Omega)$ | a common base and Laurent presentation on the literal rings and restrictions of the actual overlap $\Omega$ | `BinarySchemeLaurentOverlapPresentation K S overlap` |
 | $\mathsf{PLine}_{\mathrm{sup}}(\mathcal K)$ | an already-global binary scheme, its actual overlap, and its Laurent coordinate package | `SuppliedProjectiveLinePresentation K` |
+
+The symbols $P$, $Q$, and $T$ have local uses elsewhere, such as profunctors,
+cokernels, and monads. Their types and the defining section distinguish those
+uses from the dependent-Hom abbreviations above. An unqualified ordinary
+$C^{\mathrm{op}}$ agrees with both $T(C)$ and $O(C)$ at one-category height;
+native higher-dimensional formulas specify the operation they require.
 
 The homological notation in [Chapter 31](#chapter-31) keeps selected
 objects and their structural arrows visible.

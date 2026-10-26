@@ -247,7 +247,7 @@ interface fixes the canonical forward functor D→1 and retains the inverse
 functors and the existing whole inverse laws. Object-groupoid
 contractibility is derived afterward as an observation of this data.
 
-For a family E:K→Cat, the coherent version contracts the whole family map
+For an admitted family E:K→Cat_cart, the coherent version contracts the whole family map
 E→const₁. Its selected inverse is one whole dependent functor. Evaluation
 at k retains that inverse in the fibre E(k); it does not independently
 choose a contraction for every fibre. The current Ω interface has
@@ -273,6 +273,9 @@ F:B→C and h:F⇒const_t, its whole Hom comparison contracts the category of
 such transformations. It supplies the actual comparison from Arr(h) to the
 chosen terminal-arrow family, with its inverse. The default family is the
 original unit whiskered by F. The initial case uses the counit dually.
+The native arrow-family view lands in the oplax walking-arrow diagram
+category. It keeps the direction of the transformation-induced comparison;
+the ordinary diagram view is a separate specialization.
 The closed profile of the literal terminal category is used internally;
 callers provide no old terminal record or separate square proof.
 
@@ -367,11 +370,14 @@ $$
 These functors are the arrow action of one whole covariant family
 
 $$
-\mathsf{SliceSigma}(C):C\longrightarrow\mathsf{Cat}.
+\mathsf{SliceSigma}(C):C_2(C)\longrightarrow\mathsf{Cat}_{\mathrm{cart}}.
 \tag{30.18}
 $$
 
-The fibre at $X$ is exactly $C/X$. Hence the domain of (30.17) is preserved
+Here $C_2$ reverses dimension 2. The slice is the transpose of the
+restriction total, so its whole base two-cell action has this shift even
+though its first-arrow action is covariant. The fibre at $X$ is exactly
+$C/X$. Hence the domain of (30.17) is preserved
 definitionally, and the structure arrow computes by ordinary postcomposition;
 no equality transport is inserted to repair its endpoint.
 
@@ -386,8 +392,8 @@ Postcomposition does not choose a pullback domain. A chosen pullback structure
 supplies the opposite-variance whole family
 
 $$
-\mathsf{SliceBaseChange}(PB):C^{\mathrm{op}}
-\longrightarrow\mathsf{Cat},
+\mathsf{SliceBaseChange}(PB):T(C)
+\longrightarrow\mathsf{Cat}_{\mathrm{cart}},
 \tag{30.19}
 $$
 
@@ -521,7 +527,7 @@ A category with chosen pullbacks need not have dependent products. The extra
 structure selects a third whole slice family
 
 $$
-\mathsf{SliceDependentProduct}(DP):C\longrightarrow\mathsf{Cat}
+\mathsf{SliceDependentProduct}(DP):C_2(C)\longrightarrow\mathsf{Cat}_{\mathrm{cart}}
 \tag{30.31}
 $$
 

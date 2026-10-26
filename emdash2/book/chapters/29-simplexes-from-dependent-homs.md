@@ -209,19 +209,24 @@ $$
 No triangle record has been introduced. Equation (29.11) is the dependent
 fibre component of an arrow in a Sigma total.
 
-The generic calculation is worth stating. Let $E$ be a Cat-valued family on
-$K$, and consider total objects $(x,u)$ and $(y,v)$. Their hom in the total
-category has the native presentation
+The generic calculation is worth stating. Let
+$E:K\to\mathsf{Cat}_{\mathrm{cart}}$, fix $(x,u)$ and $(y,v)$, and put
+$I=\operatorname{Hom}_K(x,y)$. The identity dependent-Hom presheaf
+$H:T(I)\to\mathsf{Cat}_{\mathrm{cart}}$ has value
+$H[p]=\operatorname{Hom}_{E[y]}(E[p](u),v)$. The native category formula is
 
 $$
 \operatorname{Hom}_{\sum E}((x,u),(y,v))
-  \simeq
-  \sum_{p:x\to y}
-    \operatorname{Hom}_{E(y)}(E[p]{(u)},v).
+=O\!\left(\sum_{O(I)}O_{\mathrm{fib}}(H)\right).
 \tag{29.12}
 $$
 
-The second factor is precisely a dependent hom. Specializing $E$ to the
+Here $T$ reverses dimension 1 and $O$ every positive dimension, as in
+Chapter 14. Its objects are the familiar pairs
+$(p,\alpha:E[p](u)\to v)$. The two dualities retain the correct higher
+arrows; an ordinary undualized sum of these values would not specify them.
+
+The fibre value is precisely a dependent hom. Specializing $E$ to the
 representable family $\operatorname{Hom}_C(x_0,-)$ gives (29.11). Nesting
 this hom slice beneath the next outgoing-path Sigma gives tetrahedra, then
 higher simplexes. The recursion is therefore semantic before it is coded:

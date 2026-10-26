@@ -43,7 +43,7 @@ be a diagram. A parameterized covariant weight has the form
 $$
 W:J'\rightsquigarrow J,
 \qquad
-W:(J')^{\mathrm{op}}\times J\longrightarrow\mathsf{Cat}.
+W:(J')^{\mathrm{op}}\times J\longrightarrow\mathsf{Cat}_{\mathrm{cart}}.
 $$
 
 For each $j':J'$, the partial functor $W(j',-)$ is a Cat-valued weight on

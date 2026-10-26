@@ -1,13 +1,29 @@
 # Strict-functor/duality migration: unresolved work and regression ledger
 
-Date: 2026-10-25 (UTC)
+Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active integration; complete source/reviewer/central scopes qualified and promoted; production health, frontend/source pins and final integration remain open
+Status: active book/article revision; native source scopes promoted and frontend tranche accepted; production health/final integration remain deferred obligations
+
+Current priority, user direction, 2026-10-26: proceed with the comprehensive
+[book/article revision](EMDASH_FOUNDATIONS_BOOK_ARTICLE_UPDATE_PLAN.md).
+Production-health and further performance work are deferred pending that
+priority, while their unsatisfied validation obligations remain visible.
+The accepted frontend checkpoint is `f0e22340`; do not start another full
+frontend aggregate or another health sequence as a documentation prerequisite.
+
+Book/article source tranche: 26 of the 46 manifest sources have revised
+foundational passages, alongside the overview article, style guide and
+189-entry evidence register. The book and article source/render gates pass;
+full manuscript/claim review and final PDF artifacts remain under the
+[active documentation plan](EMDASH_FOUNDATIONS_BOOK_ARTICLE_UPDATE_PLAN.md).
+No kernel rules, renderer code or resource defaults changed. The last health
+measurement ended at its 300-second bound and is recorded in the parent plan;
+no new health work follows it during this priority.
 
 User decision, 2026-10-26: waive another immediate full TypeScript aggregate
 after the two test-only id ownership fixes. Carry the complete aggregate and
-passing13-case owning replay as this tranche's accepted evidence. Continue
-to production health; do not describe the failed aggregate as green or treat
+passing 13-case owning replay as this tranche's accepted evidence. The later
+priority change above now selects book/article work; do not describe the failed aggregate as green or treat
 the waiver as permission to omit checks after future substantive changes.
 
 Complete frontend replay, 2026-10-26:1,837 passes,two failed identity-ownership

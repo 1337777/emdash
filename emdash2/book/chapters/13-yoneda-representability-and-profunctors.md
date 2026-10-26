@@ -251,11 +251,13 @@ $$
 Applying this organization to composition shows that hom is functorial in
 both endpoints, contravariantly in its source and covariantly in its target.
 
-The two representable variances combine in the hom bifunctor
+For the native version, joint Cartesian currying uses the Cartesian mapping
+category, and the opposite below is $T$, reversal of dimension 1. The two
+representable variances combine in the hom bifunctor
 
 $$
 \operatorname{Hom}_{X}(-,-):
-X^{\mathrm{op}}\times X\longrightarrow\mathsf{Cat}.
+X^{\mathrm{op}}\times X\longrightarrow\mathsf{Cat}_{\mathrm{cart}}.
 $$
 
 Reindexing its two endpoints along functors $F:A\to X$ and $G:B\to X$
@@ -263,7 +265,7 @@ gives
 
 $$
 \operatorname{Hom}_{X}(F{-},G{-}):
-A^{\mathrm{op}}\times B\longrightarrow\mathsf{Cat}.
+A^{\mathrm{op}}\times B\longrightarrow\mathsf{Cat}_{\mathrm{cart}}.
 $$
 
 This two-variable view is the bridge from Yoneda to profunctors. It makes
@@ -281,11 +283,13 @@ For categories `A` and `B`, a Cat-valued profunctor from `A`
 to `B` is a functorial family
 
 $$
-P:A^{\mathrm{op}}\times B\longrightarrow\mathsf{Cat}.
+P:A^{\mathrm{op}}\times B\longrightarrow\mathsf{Cat}_{\mathrm{cart}}.
 $$
 
 We write `P:A prof B` informally and write its fibre at `(a,b)`
-as `P(a,b)`. The opposite on `A` records the variance:
+as `P(a,b)`. The coefficient is the admitted Cartesian universe of Chapter 2;
+vertical family maps can still be lax across the product base. The opposite
+on `A` is dimension-one transpose and records the variance:
 
 - an arrow $p:a'\to a$ acts contravariantly in the first endpoint;
 - an arrow $q:b\to b'$ acts covariantly in the second endpoint.
@@ -306,6 +310,10 @@ directed-family and transfor calculus of Chapters 2 and 9.
 > `Prof_base(A,B)=A^op times B`; `Prof_cat` is the fixed-endpoint
 > category and `ProfMap` its vertical-map classifier.
 
+The Homd coefficient $Q$ of Chapter 2 is a separate curried construction
+with its specific index category $P(I)$. It does not change this product-base
+profunctor convention or assert an equivalence of their whole classifiers.
+
 This definition introduces no new primitive notion of naturality. A
 profunctor is a familiar Cat-valued functor on a product base, viewed through
 notation that makes its two variances visible.
@@ -315,7 +323,7 @@ notation that makes its two variances visible.
 Every category `X` has a canonical profunctor
 
 $$
-U_X:X^{\mathrm{op}}\times X\longrightarrow\mathsf{Cat},
+U_X:X^{\mathrm{op}}\times X\longrightarrow\mathsf{Cat}_{\mathrm{cart}},
 \qquad
 U_X(x,y):=\operatorname{Hom}_X(x,y).
 $$

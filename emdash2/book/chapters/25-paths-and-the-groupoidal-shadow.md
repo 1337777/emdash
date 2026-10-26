@@ -347,8 +347,9 @@ $\operatorname{ap}$/concatenation expressions in (25.18). The presentation is
 therefore recognizable without selecting the notation of (25.18) as a second
 normal form.
 
-For an arbitrary directed codomain, the compositor is a directed cell and
-need not have an inverse. Here its codomain is
+A general transformation naturality cell in a directed codomain need not
+have an inverse. The compositor of a public functor is a strict special case.
+For the path-functor instance considered here, its codomain is
 
 $$
 \operatorname{Hom}_{\operatorname{Path}(B)}(f(x),f(z))
@@ -358,26 +359,27 @@ $$
 
 A cell between the two arrows in (25.18) is consequently an equality between
 paths. Path symmetry supplies its inverse. No inverse field is postulated and
-no second pseudofunctor hierarchy is introduced. The generic lax witness has
-become a pseudo witness because it landed in a groupoidal hom.
+no second pseudofunctor hierarchy is introduced. The path-valued reading
+remains valid even though the current functor laws already make the native
+compositor strict. The endpoint comparison with path concatenation is still
+a separately stated mathematical equality.
 
 This gives a simple three-way interpretation of the same internal action:
 
 $$
 \begin{array}{rcl}
-\text{directed target}&:&\text{the compositor may be noninvertible},\\
-\text{path target}&:&\text{the compositor is invertible by symmetry},\\
-\text{selected strict profile}&:&\text{the compositor specializes to identity}.
+\text{general lax transfor}&:&\text{the post/left cell may be noninvertible},\\
+\text{path target}&:&\text{every such cell is invertible by symmetry},\\
+\text{public functor compositor}&:&\text{strict by the default functor laws}.
 \end{array}
 \tag{25.20}
 $$
 
-Strictness and pseudo-functoriality are therefore not obtained by erasing the
-generic witness. They are two special behaviours of it. This is especially
-important when a strict specialization is also available. The witness cell
-remains visible before that specialization, while an explicit strict profile
-can state exactly where identity behaviour is intended. Chapter 28 will use
-that distinction when comparing Cartesian and Gray-style closure.
+The distinction is between the type of a cell and the computation of the
+particular owner that produced it. Path symmetry explains invertibility in a
+path target; the public functor laws explain the stricter compositor value.
+Neither fact forces a general transformation's post/left cell to be an
+identity. Chapter 28 uses that retained laxity for the Gray interchanger.
 
 The compositor is retained before it is capped at the particular path $p$.
 At that whole level it is a transformation, functorial in the first path.

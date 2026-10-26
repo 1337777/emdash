@@ -167,7 +167,7 @@ covariantly in its endpoint, not contravariantly in its source.
 Let
 
 $$
-E:\mathsf{PathOut}_Z(x)\longrightarrow\mathsf{Cat}
+E:\mathsf{PathOut}_Z(x)\longrightarrow\mathsf{Cat}_{\mathrm{cart}}
 $$
 
 be a directed family. An element
@@ -324,7 +324,7 @@ therefore recovered without making all directed arrows groupoidal.
 Fixed-source arrow induction varies a motive over outgoing arrows. A
 contextual eliminator goes one step further: it compares two families over an
 inductively presented base. Schematically, suppose
-$R,D:K\to\mathsf{Cat}$.
+$R,D:K\to\mathsf{Cat}_{\mathrm{cart}}$.
 At each base object it should provide a functor
 
 $$

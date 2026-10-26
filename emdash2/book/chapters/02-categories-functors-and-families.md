@@ -115,7 +115,7 @@ state when that inclusion captures all arrows.
 
 ## 2.3 Functors Act At Every Dimension
 
-A functor `F:A -> B` has an object action
+A functor in the native calculus is strict. A functor `F:A -> B` has an object action
 
 $$
 x\longmapsto F[x]
@@ -142,7 +142,9 @@ F[\mathrm{id}_x]=\mathrm{id}_{F[x]},
 F[g\circ f]=F[g]\circ F[f].
 $$
 
-In the active calculus these are owned globally. A named construction that is
+These laws apply to every public functor, including each iterated hom action.
+They do not require an additional strict-functor wrapper. In the active
+calculus they are owned globally. A named construction that is
 already a functor does not receive a private copy of the identity and
 composition laws. This is more than code reuse: it expresses the foundational
 thesis that substitution-like operations should be internalized until their
@@ -179,10 +181,21 @@ G[f]\circ\eta[x]
 \eta[y]\circ F[f].
 $$
 
-In the iterated-hom presentation, naturality is not an external proposition
-attached after the components are chosen. It is part of the higher action of
-the transfor object. Further homs between transfors provide higher transfors
-and their components.
+The default higher-dimensional transfor is lax. Its retained comparison has
+the direction
+
+$$
+G[f]\circ\eta[x]\Longrightarrow\eta[y]\circ F[f].
+$$
+
+The precomposition, or right, presentation supplies the selected strict leg:
+the off-diagonal value $\eta[f]$ computes from $\eta[y]\circ F[f]$.
+The postcomposition, or left, comparison need not be invertible. Thus strict
+functors do not make all transformations strictly natural.
+
+Naturality is not an external proposition attached after the components are
+chosen. The comparison is extracted from the transfor's internal action.
+Further homs between transfors provide higher transfors and their components.
 
 Vertical composition is computed componentwise, and identity transfors have
 identity components. Whiskering and functor action provide horizontal
@@ -208,12 +221,32 @@ $$
 \operatorname{Hom}_{\mathsf{Cat}}(A,B)=\mathsf{Functor}(A,B).
 $$
 
-Thus an arrow in the categorical universe is a functor. A Cat-valued directed
-family over `K` is consequently a functor
+An arrow in this public universe is therefore a strict functor, while its
+higher mapping categories retain lax transformations. Dependent families use
+a more specific coefficient category,
 
 $$
-E:K\longrightarrow\mathsf{Cat}.
+\mathsf{Cat}_{\mathrm{cart}},\qquad
+\operatorname{Hom}_{\mathsf{Cat}_{\mathrm{cart}}}(A,B)
+=\mathsf{Cart}(A,B).
 $$
+
+It has the same category objects and strict functor objects. Its mapping
+categories select strict transformations. There is a whole inclusion into
+$\mathsf{Cat}$; agreement on objects and functors does not identify their
+higher cells.
+
+An admitted directed family over $K$ has type
+
+$$
+E:K\longrightarrow\mathsf{Cat}_{\mathrm{cart}}.
+$$
+
+This is the meaning of the directed-family classifier in the dependent
+calculus below. Its transport profile is built into its coefficient type.
+Ordinary Hom families, including the representables used in the main proof,
+have this same type. Arbitrary diagrams into the public $\mathsf{Cat}$ are
+not silently admitted as dependent families.
 
 We write its fibre over `k` as `E[k]`. A base arrow
 `p:k -> l` induces the reindexing functor
@@ -227,7 +260,7 @@ forward to `E[p](u)` even when `p` has no inverse. Ordinary path
 transport is recovered when `K` is a path category, but directed
 transport is strictly more general.
 
-A morphism between families `E,D:K -> Cat` is a displayed or
+A morphism between these admitted families is a displayed or
 fibrewise functor
 
 $$
@@ -246,15 +279,16 @@ $$
 The arrow points from “map, then transport in `D`” toward “transport in
 `E`, then map.” It need not be an identity and need not be invertible.
 This is the first elementary appearance of laxity in the dependent calculus.
-Strict/cartesian constructions may make the comparison compute to an
-identity, but that is additional structure or focused computation, not the
-default meaning of a family morphism.
+The coefficient restriction makes the transport functors and their internal
+fibre naturality strict. It does not make this comparison across the base
+an identity. A strict displayed map is a further specialization; the default
+family morphism retains its directed comparison.
 
 <!-- evidence:CAT-DIRECTED-FAMILIES -->
 
 > **Formal status — checked.** Evidence `CAT-DIRECTED-FAMILIES` covers
-> Cat-valued families, fibres, arrow reindexing, fibre functors, and the
-> canonical displayed comparison cell. A general directed family is not
+> families valued in `Cat_cart`, fibres, arrow reindexing, fibre functors,
+> and the canonical displayed comparison cell. A general directed family is not
 > required to send its base arrows to equivalences.
 
 <a id="chapter-2-6"></a>
@@ -323,7 +357,7 @@ a constant family is precisely a functorial choice varying over `K`.
 
 Totals make genuine dependence visible, but not every pair of declarations
 over a base depends on one another. Let
-$B,C:K\vdash\mathsf{Cat}$ be two families over the same category. Their
+$B,C:K\vdash\mathsf{Cat}_{\mathrm{cart}}$ be two families over the same category. Their
 fibrewise product is the transparent family
 
 $$
@@ -400,7 +434,7 @@ fibrewise product.
 ### 2.6.2 Base Change And Evaluation
 
 A functor $F:A\vdash K$ can change the base of a family
-$D:K\vdash\mathsf{Cat}$. The pulled-back family $F^*D$ has fibre
+$D:K\vdash\mathsf{Cat}_{\mathrm{cart}}$. The pulled-back family $F^*D$ has fibre
 $(F^*D)[a]=D[F[a]]$. Its total category carries a canonical functor
 
 $$
@@ -422,10 +456,10 @@ not a claim that arbitrary functors between total categories admit a
 computational pullback.
 
 The same fibrewise structure supports coherent evaluation. Fix an ordinary
-category $A$ and a family $B:K\vdash\mathsf{Cat}$, and write
+category $A$ and a family $B:K\vdash\mathsf{Cat}_{\mathrm{cart}}$, and write
 
 $$
-S(A,B)[k]:=\operatorname{Functor}(A,B[k]).
+S(A,B)[k]:=\operatorname{Cart}(A,B[k]).
 $$
 
 Then
@@ -435,7 +469,8 @@ $$
 P\bigl(S(A,B),\mathsf{Const}_K(A)\bigr)\Longrightarrow B
 $$
 
-projects in each fibre to ordinary functor evaluation:
+is a strict displayed map and projects in each fibre to Cartesian joint
+evaluation:
 
 $$
 \mathsf{Eval}_d(B)[k]=\mathsf{Eval}(A,B[k]).
@@ -449,7 +484,7 @@ E\Longrightarrow\mathsf{Const}_K(1).
 $$
 
 Composing it with a constant section yields a fixed argument. Pairing that
-argument with a varying functor and applying $\mathsf{Eval}_d$ therefore
+argument with a varying Cartesian functor and applying $\mathsf{Eval}_d$ therefore
 interprets application without asking the user to supply a separate
 naturality square. Base-arrow and higher action are inherited from the
 internal functorial calculus.
@@ -503,13 +538,127 @@ types justify it.
 > fixed-source representable and its contravariant source action. Generic
 > functoriality owns its action in the varying target.
 
+<a id="chapter-2-7-1"></a>
+
+### 2.7.1 Dependent Hom And The Hom Of A Total
+
+Let $E:K\to\mathsf{Cat}_{\mathrm{cart}}$, and fix $x:K$ and $u:E[x]$.
+For $y:K$, $v:E[y]$ and $f:x\to y$, the directed dependent hom has value
+
+$$
+H_{E,x,u,y,v}[f]
+=\operatorname{Hom}_{E[y]}(E[f](u),v).
+$$
+
+Its variance matters already when a higher cell changes $f$. Write $T(C)$
+for reversal of dimension 1 and $O(C)$ for reversal of every positive
+dimension. These are distinct operations on an omega-category. The
+fixed-endpoint presheaf has type
+
+$$
+H_{E,x,u,y,v}:T(\operatorname{Hom}_K(x,y))
+\longrightarrow\mathsf{Cat}_{\mathrm{cart}}.
+$$
+
+The whole construction must also vary in $y$ and $v$. It uses the index
+category and coefficient category
+
+$$
+\begin{aligned}
+P(I)&=T\bigl(\mathsf{Functor}(I,T(\mathsf{Cat}_{\mathrm{cart}}))\bigr),\\
+\operatorname{Hom}_Q(A,B)&=\mathsf{Cart}(A,P(B)).
+\end{aligned}
+$$
+
+An object of $P(I)$ has the presheaf view $T(I)\to\mathsf{Cat}_{\mathrm{cart}}$.
+Keeping $P(I)$ as the varying classifier retains its higher maps; the
+fixed-object view does not identify it with a Cartesian presheaf category.
+Let $i:\mathsf{Cat}_{\mathrm{cart}}\to Q$ be the represented inclusion. The
+whole section category is
+
+$$
+S_E(x)=\mathsf{Transf}_{K,Q}(iE,i\mathsf{Rep}_x).
+$$
+
+The dependent hom supplies an object of this category. Its components are
+functors $E[y]\to P(\operatorname{Hom}_K(x,y))$, and their naturality over $K$
+is part of the same transformation. Thus $y$ is internal to one categorical
+term, rather than an independently chosen family of pointwise formulas.
+
+The successive observations have the following types:
+
+| Observation | Type or value |
+| --- | --- |
+| Whole identity Homd | a canonical strict displayed map $E\to H_E$, with $H_E[x]=T(S_E(x))$ |
+| At $x$ | $E[x]\to T(S_E(x))$ |
+| At $u$ | an object of $S_E(x)$, using $\operatorname{Obj}(T(S_E(x)))=\operatorname{Obj}(S_E(x))$ |
+| At $y$ | $E[y]\to P(\operatorname{Hom}_K(x,y))$ |
+| At $v$ | the presheaf $T(\operatorname{Hom}_K(x,y))\to\mathsf{Cat}_{\mathrm{cart}}$ |
+| At $f$ | $\operatorname{Hom}_{E[y]}(E[f](u),v)$ |
+
+The source-$u$ view can equivalently be written
+$T(E[x])\to S_E(x)$. This is ordinary functor duality; it does not equate the
+higher directions in $S_E(x)$ and its transpose. Each rung projects the
+whole construction directly. No enlarged context of triples $(y,v,f)$ or
+final currying step is needed.
+
+For a displayed map $\Phi:D\Rightarrow E$, the public relative construction
+is a composite with this identity core. It retains a general lax $\Phi$ and
+has endpoint value
+
+$$
+\operatorname{Hom}_{E[y]}(E[f](u),\Phi[y](v)),
+\qquad u:E[x],\quad v:D[y].
+$$
+
+The coefficient $Q$ supplies the represented operations consumed here. This
+interface is not a claim that unrestricted profunctor composition or all
+coend coherence has been derived.
+
+<!-- evidence:CAT-DEPENDENT-HOM -->
+
+> **Formal status — checked.** Evidence `CAT-DEPENDENT-HOM` covers the
+> admitted coefficient, whole identity section, direct projection ladder and
+> defined general-map extension. The native owners are `homd_id_int`,
+> `homd_id_src_sec`, `homd_id_tgt_func`, `homd_id_`, and the public
+> `homd_int`/`homd_` interface.
+
+Dependent hom also describes the entire hom-category of a total. Put
+$I=\operatorname{Hom}_K(x,y)$ and $H=H_{E,x,u,y,v}$. The native category
+presentation is
+
+$$
+\operatorname{Hom}_{\Sigma E}((x,u),(y,v))
+=O\left(\sum_{f:O(I)} O_{\mathrm{fib}}(H)[f]\right).
+$$
+
+Here $O_{\mathrm{fib}}(H)$ is total fibre duality: it turns the family on
+$T(I)$ into one on $O(I)$. The outer total reversal restores the fibre
+hom directions. On objects this gives exactly the familiar data
+
+$$
+(f,\alpha),\qquad f:x\to y,\qquad \alpha:E[f](u)\to v.
+$$
+
+The pair description alone does not specify the higher variance of the hom
+category. Over a one-category base, the index hom is discrete and the
+familiar sum-of-fibre-homs reading is recovered. For a general omega-base,
+the displayed dualities in the full formula are essential.
+
+<!-- evidence:CAT-SIGMA-HOM -->
+
+> **Formal status — checked.** Evidence `CAT-SIGMA-HOM` covers the actual
+> `Hom_cat` reduction for Sigma totals and its recursive observations. The
+> pair notation is its object reading, not a competing unqualified Sigma
+> family on the positive index.
+
 <a id="chapter-2-8"></a>
 
 ## 2.8 The Interfaces Needed By The Main Proof
 
 The Chapter 8 calculation uses only a compact part of this chapter:
 
-1. `Code:W -> Cat` is a directed family, so every based arrow
+1. `Code:W -> Cat_cart` is an admitted directed family, so every based arrow
    `p:* -> x` acts by a functor `Code[p]`.
 2. The target family is the representable `Rep_*`, whose base-arrow
    action is postcomposition.

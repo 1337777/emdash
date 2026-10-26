@@ -258,8 +258,8 @@ on its next homs. In particular, if a category is coherently groupoidal, its
 core inclusion is an omega-equivalence and each directed arrow can be related
 to an object path through the selected homwise inverse.
 
-For a directed family classified as `D:StrictFunctor(C,Cat)`, coherent
-groupoidality of `C` supplies equivalence of transport along a base arrow:
+For a functor $D:C\to\mathsf{Cat}$, coherent groupoidality of $C$
+supplies equivalence of transport along a base arrow:
 
 $$
 D[f]:D[x]\simeq D[y].
@@ -267,14 +267,15 @@ $$
 
 This recovers the familiar groupoidal behavior of path-indexed families as a
 special case. The fibre-transport theorem uses both the source's groupoidality
-and the family's classified strict action. It does not supply the same
-conclusion for an arbitrary unclassified directed family.
+and the strict public functor laws. The same conclusion applies to an
+admitted dependent family through its coefficient inclusion into the public
+universe; no extra strict-functor admission is required.
 
 <!-- evidence:EQUIV-HOM-ACTION -->
 
 > **Formal status — checked.** Evidence `EQUIV-HOM-ACTION` covers the
 > one-way next-hom action and its specialization to equivalence of fibre
-> transport over a coherently groupoidal source for a classified strict family.
+> transport over a coherently groupoidal source.
 
 <a id="chapter-4-8"></a>
 
@@ -288,7 +289,7 @@ path.
 The WalkingEnd code has a different type:
 
 $$
-\mathsf{Code}:W\longrightarrow\mathsf{Cat}.
+\mathsf{Code}:W\longrightarrow\mathsf{Cat}_{\mathrm{cart}}.
 $$
 
 Its generator is a directed arrow in `W`, so its image need only be a

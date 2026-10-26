@@ -18,9 +18,11 @@ The published book record and ongoing source may carry different versions.
 This overview concentrates on the foundational architecture. The companion
 book also develops the newer monad and Cartesian/indexed interfaces, whole
 kernel/cokernel and homology operations, and retained proof-CAS computation.
-The current whole-opposite and Sigma-Hom encodings have known soundness
-defects; higher-variance-dependent formal claims remain unqualified pending
-repair. Local checks in the research artifact are not a consistency certificate.
+The current foundation distinguishes strict public functors, conventional lax
+transformations, and Cartesian coefficients for dependent families. Separate
+dimension-one and total dualities govern the dependent-Hom and Sigma-Hom
+interfaces below. Local source and computation checks remain distinct from a
+global consistency, confluence, or complete categorical-semantics theorem.
 
 # Abstract
 
@@ -33,7 +35,7 @@ proof obligations.
 
 Emdash is an executable investigation of this idea. Its active Lambdapi
 development contains an autonomous categorical or directed dependent type
-theory of categories, Cat-valued families, reindexing, total categories,
+theory of categories, admitted category-valued families, reindexing, total categories,
 section categories, dependent homs, functors, and transfors. Lambdapi's
 dependent $\\lambda\\Pi$ framework supplies a complementary outer logical
 layer. A small TypeScript implementation mirrors this separation: an explicit
@@ -312,22 +314,36 @@ TypeScript checker.
 
 # 3. Directed Families, Totals, And Sections
 
-Let $K$ be a category. A directed family over $K$ is a functor
-$E:K\\vdash\\mathbf{Cat}$. It supplies a fibre category $E[k]$ for every
-object $k$, but also transport along every base arrow:
+Let $K$ be a category. Public functors are strict, while transformations
+retain conventional lax naturality. For $\eta:F\Rightarrow G$ and $p:x\to y$,
+the retained comparison has direction
 
 $$
-p:k\\to k'
-\\qquad\\Longrightarrow\\qquad
-E[p]:E[k]\\vdash E[k'].
+G[p]\circ\eta_x\Longrightarrow\eta_y\circ F[p].
 $$
 
-The arrow action is essential. A pointwise assignment of categories is not
-yet a directed dependent type. In the kernel, the stable category of such
-families is `Catd_cat K`; morphisms and higher morphisms are exposed by
-`Functord_cat` and `Transfd_cat`. Their ordinary Cat-valued presentations are
-available through controlled projections and proof-time comparisons, but the
-stable displayed heads are retained so that higher action remains iterable.
+The pre/right leg computes strictly; the post/left cell need not be invertible.
+It is extracted from internal action, not supplied as an independent square.
+
+A dependent family has the more specific coefficient type
+
+$$
+E:K\longrightarrow\mathsf{Cat}_{\mathrm{cart}}.
+$$
+
+The public universe has $\operatorname{Hom}_{\mathsf{Cat}}(A,B)=[A,B]$, the
+category of strict functors and lax transformations. The coefficient
+$\mathsf{Cat}_{\mathrm{cart}}$ has the same category and functor objects but
+Cartesian mapping Homs $\operatorname{Cart}(A,B)$, with strict transformations.
+Ordinary Hom families use this same coefficient. This restriction is internal
+to the family type; it is not an equality-proof argument attached to each use.
+
+The family supplies a fibre $E[k]$ and strict transport
+$E[p]:E[k]\to E[k']$ for every $p:k\to k'$. Its higher action is also part of
+one functor. In the kernel, `Catd_cat K` classifies these families. Its
+`Functord_cat` maps remain lax across $K$, with strict component functors;
+`Transfd_cat` retains their higher transformations. Strictness inside the
+coefficient and lax variation across the base are separate requirements.
 
 Reindexing along $F:A\\vdash K$ is substitution:
 
@@ -381,24 +397,77 @@ application tower. They are not a second primitive function calculus.
 <p>The common shape behind total arrows and section action is the dependent hom.</p>
 </div>
 
-Given
+Fix $x:K$ and $u:E[x]$. For $y:K$, $v:E[y]$ and $f:x\to y$, the local
+value is
 
 $$
-u\\in E[x],\\qquad v\\in E[y],\\qquad p:x\\to y,
+H_{E,x,u,y,v}[f]=\operatorname{Hom}_{E[y]}(E[f](u),v).
 $$
 
-the fibre component of a directed arrow is
+Write $T(C)$ for reversal of dimension 1 and $O(C)$ for reversal of all
+positive dimensions. The local presheaf is
 
 $$
-\\mathrm{Hom}_{E[y]}(E[p](u),v).
+H_{E,x,u,y,v}:T(\operatorname{Hom}_K(x,y))
+\longrightarrow\mathsf{Cat}_{\mathrm{cart}}.
 $$
 
-As $p$ varies this expression must itself carry action. Emdash packages it as
-a Cat-valued construction over the base hom, with variance chosen so that
-higher pre- and postcomposition normalize in the intended direction. The
-public `homd_` and internalized `homd_int` owners are therefore more than
-notation for a pointwise hom formula. They retain the object action, base
-arrow action, and the next hom needed by later consumers.
+To internalize $y$, the current construction uses
+
+$$
+\begin{aligned}
+P(I)&=T([I,T(\mathsf{Cat}_{\mathrm{cart}})]),\\
+\operatorname{Hom}_Q(A,B)&=\operatorname{Cart}(A,P(B)),\\
+S_E(x)&=\operatorname{Transf}_{K,Q}(iE,i\mathsf{Rep}_x),
+\end{aligned}
+$$
+
+where $i:\mathsf{Cat}_{\mathrm{cart}}\to Q$ is the represented inclusion and
+$\mathsf{Rep}_x[y]=\operatorname{Hom}_K(x,y)$. An object of $P(I)$ has a
+presheaf view $T(I)\to\mathsf{Cat}_{\mathrm{cart}}$; this does not identify
+its higher mapping category with a Cartesian presheaf category.
+
+The identity dependent Hom is a whole strict displayed map from $E$ to the
+family with fibre $T(S_E(x))$. At $x$ it is a functor
+$E[x]\to T(S_E(x))$, equivalently a source-contravariant view
+$T(E[x])\to S_E(x)$. Its successive projections are:
+
+| Fixed data | Remaining whole object or action |
+| --- | --- |
+| $x,u$ | an object of $S_E(x)$, hence a whole transformation over $K$ |
+| $x,u,y$ | a functor $E[y]\to P(\operatorname{Hom}_K(x,y))$ |
+| $x,u,y,v$ | a presheaf $T(\operatorname{Hom}_K(x,y))\to\mathsf{Cat}_{\mathrm{cart}}$ |
+| $x,u,y,v,f$ | $\operatorname{Hom}_{E[y]}(E[f](u),v)$ |
+
+The object carriers of $S_E(x)$ and $T(S_E(x))$ agree; their higher directions
+do not. The transformation defining $S_E(x)$ supplies the whole $y$-action,
+so this is a direct projection ladder, not a pointwise family followed by
+currying from a larger context.
+
+For a displayed map $\Phi:D\Rightarrow E$, the public relative Homd is a
+composite with this identity core. Its leaf is
+$\operatorname{Hom}_{E[y]}(E[f](u),\Phi[y](v))$. General lax $\Phi$ remains
+allowed; the construction retains its comparison cells instead of declaring
+its naturality to be an equality.
+
+The full category of total arrows has the corrected normal form
+
+$$
+\operatorname{Hom}_{\Sigma_K E}((x,u),(y,v))
+=O\!\left(\Sigma_{O(I)}O_{\mathrm{fib}}(H_{E,x,u,y,v})\right),
+\qquad I=\operatorname{Hom}_K(x,y).
+$$
+
+Total fibre duality changes the base of $H:T(I)\to\mathsf{Cat}_{\mathrm{cart}}$
+to $O(I)$; the final total opposite restores the fibre direction. At objects
+this is still the pair $(f,\alpha:E[f](u)\to v)$. That pair reading alone
+would not specify the higher Hom category.
+
+The source owners are `homd_id_int` and its direct projections, with
+`homd_int` the defined relative composite and `homd_` the fixed-endpoint
+presheaf. The coefficient $Q$ supplies the structural and represented
+operations consumed here. This account does not claim an unrestricted coend
+model or a complete general profunctor theory.
 
 This internalization avoids a common design trap. Suppose one defined a
 displayed functor only by maps on fibre objects and fibre arrows and then
@@ -435,7 +504,7 @@ context extension, dependent programs, and their directed action are part of
 one computational structure.
 
 These operations iterate to genuine dependent telescopes. If
-$R:K\\vdash\\mathbf{Cat}$, then $\\Sigma_KR$ is the extended directed
+$R:K\to\mathsf{Cat}_{\mathrm{cart}}$, then $\\Sigma_KR$ is the extended directed
 context. A second family depending on both $k$ and $r\\in R[k]$ becomes a
 family over this total category. The owners
 `Sigma_catd_functord_catd` and `Sigma_transfd_funcd` internalize the
@@ -536,7 +605,7 @@ $$
 }
 </div>
 
-Now let $E:\\mathrm{PathOut}_Z(x)\\vdash\\mathbf{Cat}$ be a motive and
+Now let $E:\mathrm{PathOut}_Z(x)\to\mathsf{Cat}_{\mathrm{cart}}$ be a motive and
 $u\\in E[\\iota_x]$. Transport along the canonical arrow defines a section:
 
 $$
@@ -601,11 +670,11 @@ The fixed-source component can be pictured as motive transport:
 }
 </div>
 
-There are two different kinds of non-strictness here. First, changing the
+Two independent distinctions matter here. First, changing the
 source object acts contravariantly on `PathOut`, so the target section is
 pulled back rather than transported by an identity. Second, an arbitrary
-displayed functor need not preserve a transported Sigma arrow as a strict
-cartesian map; its component-level comparison remains visible through the
+lax displayed functor need not send a chosen Sigma transport arrow to
+the chosen transport arrow; its component-level comparison remains visible through the
 displayed internal-hom action. The theorem packages the comparisons that are
 actually justified. It does not obtain a stronger strictness principle by
 calling the construction "induction."
@@ -814,7 +883,9 @@ eta pattern:
 The first uses $x$ in both function and argument positions. The second
 abstracts after evaluation at a fixed inner object. The third exchanges
 independent variables before evaluation. Each compiles to existing product,
-pairing, evaluation, composition, and exchange owners.
+pairing, evaluation, composition, and exchange owners. Joint evaluation and
+exchange require the Cartesian mapping profile; evaluation at a fixed inner
+argument still accepts the ordinary lax mapping category.
 
 **Dependency-aware structural compilation.** The compiler treats a context as
 ordered typed slots plus dependency edges. For each abstraction it first
@@ -1296,20 +1367,23 @@ This is more than a carrier-level free groupoid, but less than a packaged
 adjunction: the action of `Groupoidify` on a source functor has not yet been
 constructed.
 
-The directed side of the same story is exposed by a compositor
+The directed side of the same story is exposed by a transformation's
+post/left cell
 
 $$
-\\phi^F_{g,f}:F[g]\\circ F[f]\\Longrightarrow F[g\\circ f]
+\lambda_{\eta,g,f}:G[g]\circ\eta[f]\Longrightarrow\eta[g\circ f].
 $$
 
-projected from whole internal laxity. In a path target this cell is invertible;
-strictness identifies it with an equality-induced arrow; in an arbitrary
-directed target it may remain noninvertible. Emdash reuses that distinction in
-the profiled category $\\mathsf{GrayHom}_{\\mathrm{lax}}(A,B)$: objects are
-opaque `StrictFunctor` classifiers, arrows are classified `LaxTransfor`
-objects, and higher Homs come from the ambient tower. The classified lax view
-makes pre/right action strict while retaining the post/left comparison.
-The separate `StrictFunctor_cat` has strict objects and ambient transfors.
+In a path target it is invertible; for a strict transformation it agrees with
+an equality-induced arrow; for a general lax transformation it can remain
+noninvertible. Its identity-transformation specialization is the functor
+compositor, which is strict under the current public functor laws.
+
+The selected mapping category $\mathsf{GrayHom}_{\mathrm{lax}}(A,B)$ has
+public functors as objects and classified `LaxTransfor` arrows, with higher
+Homs inherited from the ambient tower. Its whole inclusion into $[A,B]$
+retains the pre/right strict leg and the directed post/left cell. The two
+categories are not identified by their shared functor objects.
 
 One selected right closure is checked:
 

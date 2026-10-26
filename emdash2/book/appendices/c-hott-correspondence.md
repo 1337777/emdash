@@ -61,7 +61,7 @@ identity. Its inverse supplies predecessor action.
 In the directed proof,
 
 $$
-\mathsf{Code}:W\longrightarrow\mathsf{Cat}
+\mathsf{Code}:W\longrightarrow\mathsf{Cat}_{\mathrm{cart}}
 $$
 
 is specified by a category and an endofunctor. Natural-number successor is

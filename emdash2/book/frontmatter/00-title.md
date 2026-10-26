@@ -23,6 +23,14 @@ results. Chapter details, notation, and cross-references
 may still change. The active implementation remains authoritative whenever
 prose and code disagree.
 
+The foundational convention is strict public functors with conventional lax
+transformations. Admitted dependent families and representable Hom use a
+Cartesian coefficient category. Chapter 2 introduces the whole dependent-Hom
+projection ladder and the higher-dimensional Sigma–Hom formula; Chapter 14
+distinguishes dimension-one transpose from total opposite. The remaining
+simplicial/cubical nerve comparisons are later work, not consequences claimed
+by this revision.
+
 Book record: [10.5281/zenodo.21544186](https://doi.org/10.5281/zenodo.21544186).
 Code and source: [github.com/hotdocx/emdash](https://github.com/hotdocx/emdash).
 The [bibliographic self-reference](#ref-emdash-book) identifies the book;

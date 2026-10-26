@@ -13,8 +13,8 @@ the implementation authority.
 | Area | Checked nucleus used by the book | Explicit boundary |
 | --- | --- | --- |
 | Equality-local type theory | Equality induction, path action, Sigma/Pi path interfaces, elementary inductives | No claim of a complete standalone HoTT implementation |
-| Directed categories | Iterated homs, identities, composition, functors, transfors, opposites, products | No complete weak omega-category metatheory or model theorem |
-| Directed families | Fibres, transport, family morphisms, Sigma totals, Pi sections, displayed hom action, fibrewise products, pullback totalization, displayed evaluation, and finite canonical sibling/Sigma telescopes | Arbitrary dependency or variance graphs, unrestricted mixed introduction/evaluation, and exchange across genuine dependency remain open |
+| Directed categories | Iterated Homs, strict public functors, conventional lax transfors, distinct dimension-one/above-one/total dualities, and products | No complete weak omega-category metatheory or model theorem |
+| Directed families | Cartesian-coefficient families and transport, lax family morphisms, Sigma totals, Pi sections, the whole identity/relative Homd projection ladder and dualized Sigma–Hom, fibrewise products, pullback totalization, displayed evaluation, and finite canonical sibling/Sigma telescopes | Arbitrary dependency or variance graphs, unrestricted mixed introduction/evaluation, and exchange across genuine dependency remain open |
 | Cut and transfor calculus | Lower-star postcomposition, upper-star precomposition, off-diagonal `tapp1`, horizontal composition, selected universal beta/eta cuts, whole internal displayed laxity, ordinary post/pre surfaces, and the retained functor compositor | No unrestricted runtime associativity rewrite, fully lax units, or claim that all higher coherence is judgmental |
 | Equivalence and univalence | `TypeEquiv`, groupoid univalence, truncated-universe univalence, native recursive omega-equivalence facade and one-way hom action | No full general object-equality/ordinary-isomorphism equivalence for arbitrary categories |
 | Induction | Nat and equality induction, fixed/varying-source `PathOut` induction, composition benchmark | No general equivalence with homotopy-initial categorical algebras |
@@ -22,7 +22,7 @@ the implementation authority.
 | Truncation and height | Recursive truncation properties and closure, evidence-property, finite `IsNCat` object truncation, classified `NType_cat(n)` targets, point-computing `Trunc_ntype(n,A)`, restricted elimination, and whole map action | No general directed categorical truncation, arbitrary quotient schema, left-exactness theorem, or complete comparison with every hub-and-spoke presentation |
 | WalkingEnd calculation | Code, encode, power, spiral, contextual decoder, normalization cell/path, two inverse laws, carrier equivalence, noninvertibility results, and the whole free-inversion comparison with the Circle | No packaged monoid isomorphism, reverse `BNat` functor, full hom-category equivalence with `BNat`, or directed initiality theorem |
 | Groupoidal realization | Path categories and path functors; product-path split/join and coherent transport; Circle/Integer encode-decode and monodromy; WalkingEnd/Circle and WalkingArrow/interval mapping theorems; category-indexed groupoidification; path-realized pseudo-laxity | Source functoriality and the packaged groupoidification adjunction, closure for every former, generic simplex regressions, and a complete computational HoTT metatheory remain open |
-| Profiled Gray direction | Whole `IsStrictFunctor` properties, opaque action classifiers, ambient transfors in `StrictFunctor_cat`, classified `LaxTransfor` arrows in `GrayHom_lax`, selected strict-cut migration, one right closure, and the walking square with nonidentity interchanger and next action | No mirror closure, full Crans–Gray biclosed monoidal structure, or tensor functoriality/coherence |
+| Profiled Gray direction | Derived `IsStrictFunctor` evidence for public functors, classified conventional `LaxTransfor` arrows in `GrayHom_lax`, one right closure, and the walking square with nonidentity interchanger and next action | No mirror closure, full Crans–Gray biclosed monoidal structure, or tensor functoriality/coherence |
 | Semisimplicial and dependent simplexes | Computing injective face codes and augmented index; join-built ordinal shapes; Yoneda standard semisimplices; homd/Sigma triangle and tetrahedron action; intrinsic flagged codes; generic nonempty faces; one canonical ordinal source in variable dimension with selected checks through dimension four and retained next action | No degeneracies, whole `DependentSimplex_cat(C,n)` classifier, mapping-category equivalence with `Functor_cat(Delta[n],C)`, judgmental agreement of all finite presentations, or general Kan, Segal, Rezk, complicial, or oriental theory |
 | Ordinary categorical specialization | Precategories, univalent categories, strict categories, functors, natural transformations, and ordinary Yoneda developed over the native vocabulary | These readable one-categorical theorems are mathematical development, not definitions of native `Cat` |
 | Adjunctions and equivalences | Triangle cuts, whole Hom-comparison identity-image extraction and ordinary introduction with retained heads; one-way lift from ordinary isomorphism to native evidence | No checked native fully-faithful/essentially-surjective characterization or general adjointification package |
@@ -37,7 +37,7 @@ the implementation authority.
 | Affine geometry | Yoneda functor of points; ordinary basic-open sieve; pointwise localization representation and multiplicative intersection; big affine slice, coordinate presheaf, and least generated Zariski topology; assumption-explicit reflective structure sheaf, localization locality, and thin affine presentation | No whole natural basic-open equivalence, global localization choice, CommRing-valued sheafification construction, small-site comparison, subcanonicity, stalk-local theorem, qcqs comparison, or representation-independent category of affine schemes |
 | Site-relative schemes | One global reflective ringed object and covering sieve; witness-rich binary generation; whole actual-slice restriction; supplied affine-basis realizations; topology-local ring forcing; dependent binary scheme total; selected actual overlap with derived ring restrictions | Binary and relative to the supplied site; no atlas-first gluing, induced slice topology, arbitrary pullback construction, overlap-affineness theorem, scheme-morphism category, compact-open/classical comparison, or representation-independent scheme theorem |
 | Supplied projective-line boundary | Universal-property Laurent transition maps; literal common-overlap identity package; thin adapter to actual inherited chart restrictions; dependent total of one already-global scheme, its actual overlap, and Laurent coordinates | The global object and Laurent identity paths remain supplied; no atlas-first gluing, projectivity or non-affineness proof, graded ring, homogeneous localization, degree-zero construction, `Proj`, or general projective space |
-| Opposite, duality, and dagger | Opposite category action and selected opposite-duality comparisons | Dagger, unitary structure, and dagger univalence are mathematical development pending a native involutive interface |
+| Opposite, duality, and dagger | Dimension-one transpose for Hom/Prof, shifted fibre dualities, and total-opposite adjunction comparisons | Dagger, unitary structure, and dagger univalence are mathematical development pending a native involutive interface |
 | Structure identity and saturation | Truncation/evidence-property footholds and ordinary-isomorphism lift | Generic native structure identity and Rezk completion, including their higher universal properties, are research boundaries |
 | Weighted limits and Kan interfaces | Weighted representability, beta/eta comparison, right-adjoint preservation, terminal/conjoint specializations | Standard end formulas, pointwise Kan semantics, existence, and general dependent adjunctions are not globally packaged |
 | Weighted colimits and join | Opposite-dual colimit preservation, terminal/companion specializations, primitive join recursor and three beta observations | General coend semantics and join-as-collage mapping, hom-decomposition, opposite, and dependent-elimination theorems remain open |
@@ -156,14 +156,19 @@ weaker operational theorem, and interpretation in a suitable strict/lax
 omega-categorical model. The current executable artifact is evidence for
 specific interfaces, not a substitute for that theorem.
 
-There are also known defects, not merely missing metatheorems. Variance
-diagnostics for the current whole opposite action and Sigma-Hom encoding
-can construct an inhabitant of the encoded empty type. These are tracked
-encoding defects, not admitted mathematical principles. Consequently,
-“checked” in this development edition records typechecking and specified
-computations in an experimental calculus; it is not a soundness certificate
-for arbitrary consequences. Repair of these encodings remains a separate
-foundational task.
+Earlier whole-opposite and Sigma–Hom encodings had recorded variance
+counterexamples. The current source uses separate dimension-one and total
+dualities, Cartesian family coefficients, and the revised whole Homd ladder.
+The historical diagnostics remain evidence about their original source
+boundary, not current positive examples. The migration's typechecking and
+computation checks do not establish consistency or eliminate the need for a
+model of the combined structural rules.
+
+The five terminal Homd presentations are accepted as whole proof-time
+comparisons. Their old literal constant runtime forms are not the current
+contract. Broad production-health and performance qualification also remain
+separate from the checked native source scopes and selected frontend
+computations; documentation does not turn a timed-out health run into a pass.
 
 The renewed TypeScript product now elaborates a bounded direct-TypeScript and
 categorical-text surface into backend-neutral explicit Core, then checks and

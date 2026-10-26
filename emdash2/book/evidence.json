@@ -157,7 +157,7 @@
     },
     "CAT-FUNCTOR-CALCULUS": {
       "status": "checked",
-      "statement": "Ambient functors expose object and iterated-hom action with normal identity computation and retained compositor cells. Strict composition computation requires a classified stable view or a qualified named constructor.",
+      "statement": "Public functors have strict identity and composition laws, object action and iterable hom action. These computations use the generic functor owners without a strict-functor admission wrapper.",
       "owners": [
         {
           "file": "emdash3_2.lp",
@@ -184,8 +184,8 @@
           "symbol": "comp_cat_fapp0"
         },
         {
-          "file": "emdash3_2_gray_profiles.lp",
-          "symbol": "strict_functor"
+          "file": "emdash3_2_strict_functor_actions.lp",
+          "symbol": "functor_composition_path"
         }
       ],
       "reviewers": [
@@ -194,8 +194,8 @@
           "symbol": "fapp1_fapp0"
         },
         {
-          "file": "examples/gray_profiles.lp",
-          "symbol": "strict_functor"
+          "file": "examples/dependent_hom_laxity.lp",
+          "symbol": "fapp1_compositor"
         }
       ]
     },
@@ -409,7 +409,7 @@
     },
     "CAT-HOM-CUTS": {
       "status": "checked",
-      "statement": "Represented-hom postcomposition and precomposition retain distinct stable full and capped owners, normal identity computation, qualified identity/profile accumulation and adjacent cuts, and proof-time ordinary-composition comparisons. Arbitrary functor-indexed action retains its laxity.",
+      "statement": "Represented-hom postcomposition and precomposition retain distinct stable full and capped owners, identity and consecutive-action computation under the strict public functor contract, adjacent cuts, and proof-time ordinary-composition comparisons.",
       "owners": [
         {
           "file": "emdash3_2.lp",
@@ -441,7 +441,7 @@
     },
     "CAT-TRANSFOR-CALCULUS": {
       "status": "checked",
-      "statement": "Transformations form the next hom between functors and expose point components together with higher naturality action.",
+      "statement": "Default conventional lax transfors have point components and iterable off-diagonal action with a strict pre/right leg and retained directed post/left comparison.",
       "owners": [
         {
           "file": "emdash3_2.lp",
@@ -465,8 +465,12 @@
     },
     "CAT-DIRECTED-FAMILIES": {
       "status": "checked",
-      "statement": "A Cat-valued directed family has fibres and functorial reindexing, while a family morphism has fibre functors and directed comparison cells.",
+      "statement": "An admitted family K→Cat_cart has strict transports and coefficient-level strict transformations; displayed maps between such families retain lax comparisons across K.",
       "owners": [
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "Cat_cart"
+        },
         {
           "file": "emdash3_2.lp",
           "symbol": "Catd"
@@ -581,7 +585,7 @@
     },
     "CAT-DISPLAYED-EVALUATION": {
       "status": "checked",
-      "statement": "Constant-domain displayed evaluation projects fibrewise to ordinary functor evaluation and retains generic base/higher action, while displayed terminal weakening projects to the ordinary terminal functor.",
+      "statement": "Constant-domain displayed Cartesian mapping families have a whole strict displayed evaluation with its fibre evaluation projection, while terminal weakening and fixed-index evaluation reuse the existing action calculus.",
       "owners": [
         {
           "file": "emdash3_2.lp",
@@ -1588,10 +1592,10 @@
     },
     "TRANSF-STRICT-NATURALITY": {
       "status": "checked",
-      "statement": "The stable classified strict-transfor view owns both post/left and pre/right naturality cuts through the existing tapp1 calculus. Raw ambient transfors retain directed cells; property evidence alone supplies paths rather than blanket runtime rewriting.",
+      "statement": "The stable classified strict-transfor view owns both post/left and pre/right naturality cuts through the existing tapp1 calculus. Default conventional lax transfors have pre/right computation and retain the directed post/left cell; property evidence alone does not make that cell a runtime identity.",
       "owners": [
         {
-          "file": "emdash3_2_gray_profiles.lp",
+          "file": "emdash3_2.lp",
           "symbol": "strict_transfor"
         },
         {
@@ -1612,11 +1616,15 @@
     },
     "TRANSF-HORIZONTAL-CALCULUS": {
       "status": "checked",
-      "statement": "The product-composition action supplies an iterable horizontal composite of a pair of ordinary transfors, with checked point, full off-diagonal, and capped off-diagonal projections.",
+      "statement": "The product-composition action retains an iterable horizontal composite and its point, full off-diagonal, and capped projections. The explicit Cartesian functor-composition interface uses Cartesian mapping categories; ordinary equality of the two whiskering routes is not asserted for arbitrary lax squares.",
       "owners": [
         {
           "file": "emdash3_2.lp",
           "symbol": "comp_prod_fapp1_fapp0"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "Functor_comp_pair_func"
         }
       ],
       "reviewers": [
@@ -2240,7 +2248,7 @@
     },
     "OP-DUALITY": {
       "status": "checked",
-      "statement": "Opposite category, functor, transfor, and adjunction operations expose the selected involutive and variance-reversing computations used by the duality arguments.",
+      "statement": "Dimension-one transpose, reversal above dimension one, and total opposite have distinct involutive actions. Op_transf uses strict Cartesian transformations, while TotalOp_transf acts on ordinary transfors. The retained Op_adjunction owner uses total opposite for its categories, functors, unit and counit.",
       "owners": [
         {
           "file": "emdash3_2.lp",
@@ -2257,12 +2265,64 @@
         {
           "file": "emdash3_2.lp",
           "symbol": "Op_adjunction"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "CoAbove2_cat"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "CoAt2_cat"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "TotalOp_cat"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "TotalOp_func"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "TotalOp_transf"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "Op_catd"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "TotalOp_catd"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "Op_prof"
         }
       ],
       "reviewers": [
         {
           "file": "emdash3_2_checks.lp",
           "symbol": "Op_adjunction"
+        },
+        {
+          "file": "emdash3_2_checks.lp",
+          "symbol": "Op_transf"
+        },
+        {
+          "file": "emdash3_2_checks.lp",
+          "symbol": "TotalOp_transf"
+        },
+        {
+          "file": "emdash3_2_checks.lp",
+          "symbol": "Op_catd"
+        },
+        {
+          "file": "emdash3_2_checks.lp",
+          "symbol": "TotalOp_catd"
+        },
+        {
+          "file": "emdash3_2_checks.lp",
+          "symbol": "Op_prof"
         }
       ]
     },
@@ -2292,7 +2352,7 @@
     },
     "WEIGHTED-COLIMIT-PRESERVATION": {
       "status": "checked",
-      "statement": "Weighted colimits are presented through opposite weighted limits, and the selected left-adjoint preservation certificate is derived by applying right-adjoint preservation to the opposite adjunction.",
+      "statement": "Weighted colimits use dimension-one transpose and product-swap profunctor duality. Left-adjoint preservation is derived from the actual transposed whole Hom comparison through implication, reindexing, and mate steps; it does not use the total-opposite adjunction package.",
       "owners": [
         {
           "file": "emdash3_2.lp",
@@ -3818,7 +3878,7 @@
     },
     "PATH-PSEUDO-LAXITY": {
       "status": "checked",
-      "statement": "For a raw map h between groupoids, the generic compositor of path_map_func(h) decodes to an equality between paths with a canonical eq_sym inverse; its formal endpoints compare propositionally with the readable eq_ap/eq_trans composites, and the whole compositor retains one next hom action.",
+      "statement": "For a raw map h between groupoids, the extracted compositor of path_map_func(h) has a path-valued reading with an eq_sym inverse. Its endpoints compare propositionally with eq_ap/eq_trans, and its whole form retains next action. Public functor strictness does not erase this endpoint comparison or force arbitrary transformation laxity to be strict.",
       "owners": [
         {
           "file": "emdash3_2_path_pseudo_laxity.lp",
@@ -4130,19 +4190,11 @@
     },
     "GRAY-COMPUTATIONAL-PROFILE": {
       "status": "checked",
-      "statement": "IsStrictFunctor constrains the existing whole compositor. Opaque StrictFunctor admission provides stable classified action, a raw-carrier observation and canonical evidence. StrictFunctor_cat retains ambient transfors; GrayHom_lax selects opaque conventional LaxTransfor arrows, with pre/right computation and retained post/left laxity. Higher modifications are shared. Generic strict cuts are retired, with normal identities and qualified constructor instances retained.",
+      "statement": "Public functors are strict by default and functor_is_strict derives evidence about their existing whole compositor. GrayHom_lax has public Functor objects and opaque LaxTransfor_cat Homs, retaining ambient modifications and a whole inclusion into Functor_cat. The categories are not identified by their shared object classifier.",
       "owners": [
         {
           "file": "emdash3_2_gray_profiles.lp",
           "symbol": "IsStrictFunctor"
-        },
-        {
-          "file": "emdash3_2_gray_profiles.lp",
-          "symbol": "StrictFunctor"
-        },
-        {
-          "file": "emdash3_2_gray_profiles.lp",
-          "symbol": "strict_functor"
         },
         {
           "file": "emdash3_2_gray_profiles.lp",
@@ -4163,6 +4215,10 @@
         {
           "file": "emdash3_2_gray_profiles.lp",
           "symbol": "IsStrictTransfor"
+        },
+        {
+          "file": "emdash3_2_gray_profiles.lp",
+          "symbol": "functor_is_strict"
         }
       ],
       "reviewers": [
@@ -4172,7 +4228,7 @@
         },
         {
           "file": "examples/gray_profiles.lp",
-          "symbol": "strict_functor_is_strict"
+          "symbol": "functor_is_strict"
         },
         {
           "file": "examples/gray_profiles.lp",
@@ -4198,7 +4254,7 @@
     },
     "GRAY-RIGHT-CLOSURE": {
       "status": "checked",
-      "statement": "The selected GrayTensor_R has one profiled right closure: whole curry and uncurry, each paired with supplied IsStrictFunctor evidence, form an OmegaEquivAlong between GrayHom_lax(GrayTensor_R(A,B),C) and GrayHom_lax(A,GrayHom_lax(B,C)), with whole beta/eta and coevaluation/evaluation derived at strict identity packages.",
+      "statement": "The selected GrayTensor_R has one profiled right closure: whole public curry and uncurry functors form an OmegaEquivAlong between GrayHom_lax(GrayTensor_R(A,B),C) and GrayHom_lax(A,GrayHom_lax(B,C)), with whole beta/eta and coevaluation/evaluation derived at identity functors. Strictness is inherited from the public functor contract.",
       "owners": [
         {
           "file": "emdash3_2_gray_right_closure.lp",
@@ -4210,7 +4266,7 @@
         },
         {
           "file": "emdash3_2_gray_right_closure.lp",
-          "symbol": "gray_curry_R_is_strict"
+          "symbol": "gray_uncurry_R_func"
         },
         {
           "file": "emdash3_2_gray_right_closure.lp",
@@ -4232,7 +4288,7 @@
         },
         {
           "file": "examples/gray_right_closure.lp",
-          "symbol": "strict_functor_is_strict"
+          "symbol": "functor_is_strict"
         },
         {
           "file": "examples/gray_right_closure.lp",
@@ -4994,7 +5050,7 @@
     },
     "PRIMARY-TERMINAL-FAMILY-UNIVERSALITY": {
       "status": "checked",
-      "statement": "The direct ordinary terminal/initial family interface takes the supplied adjunction itself and derives whole Hom contraction, invertible modification and diagram presentation comparisons without a caller-supplied terminal profile or square proof.",
+      "statement": "The ordinary terminal/initial family interface takes the supplied adjunction and derives whole Hom contraction, invertible modification and diagram-presentation comparisons. Its native presentation uses oplax walking-arrow diagrams, with the actual forward and inverse observations checked; callers supply no terminal profile or square proof.",
       "owners": [
         {
           "file": "emdash3_2_one_cat_terminal_adjunction_families.lp",
@@ -5011,16 +5067,24 @@
         {
           "file": "emdash3_2_one_cat_terminal_adjunction_families.lp",
           "symbol": "one_cat_terminal_adjunction_family_presentation_evidence"
+        },
+        {
+          "file": "emdash3_2_one_cat_terminal_adjunction_families.lp",
+          "symbol": "one_cat_oplax_terminal_adjunction_family_presentation_evidence"
+        },
+        {
+          "file": "emdash3_2_one_cat_terminal_adjunction_families.lp",
+          "symbol": "one_cat_oplax_initial_adjunction_family_presentation_evidence"
         }
       ],
       "reviewers": [
         {
           "file": "examples/one_cat_terminal_adjunction_families.lp",
-          "symbol": "one_cat_terminal_adjunction_family_presentation_evidence"
+          "symbol": "one_cat_oplax_terminal_adjunction_family_presentation_evidence"
         },
         {
           "file": "examples/one_cat_terminal_adjunction_families.lp",
-          "symbol": "one_cat_initial_adjunction_family_presentation_evidence"
+          "symbol": "one_cat_oplax_initial_adjunction_family_presentation_evidence"
         }
       ]
     },
@@ -5085,6 +5149,98 @@
         {
           "file": "examples/freyd_whole_homology_family_comparison.lp",
           "symbol": "one_cat_homology_family_comparison_evidence"
+        }
+      ]
+    },
+    "CAT-DEPENDENT-HOM": {
+      "status": "checked",
+      "statement": "For admitted families, the identity Homd root has a whole Q-valued section and direct x/u/y/v/f projections. Its defined extension accepts general lax FF and computes Hom(E[f](u),FF[y](v)); no whole equality of the index category with a Cartesian presheaf category is asserted.",
+      "owners": [
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "Homd_index_cat"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "Homd_coeff_cat"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "Homd_target_section_cat"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "homd_id_int"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "homd_id_src_sec"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "homd_id_tgt_func"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "homd_id_"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "homd_int"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "homd_"
+        }
+      ],
+      "reviewers": [
+        {
+          "file": "emdash3_2_checks.lp",
+          "symbol": "homd_id_src_sec"
+        },
+        {
+          "file": "emdash3_2_checks.lp",
+          "symbol": "homd_id_tgt_func"
+        },
+        {
+          "file": "emdash3_2_checks.lp",
+          "symbol": "homd_"
+        }
+      ]
+    },
+    "CAT-SIGMA-HOM": {
+      "status": "checked",
+      "statement": "The hom-category of an admitted Sigma total has the total-dual Sigma presentation over TotalOp(Hom_K(x,y)), with total fibre duality of the identity Homd presheaf. Its objects are base arrows paired with forward fibre arrows.",
+      "owners": [
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "Sigma_cat"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "TotalOp_cat"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "TotalOp_catd"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "homd_"
+        },
+        {
+          "file": "emdash3_2.lp",
+          "symbol": "sigma_arrow"
+        }
+      ],
+      "reviewers": [
+        {
+          "file": "examples/dependent_hom_laxity.lp",
+          "symbol": "TotalOp_catd"
+        },
+        {
+          "file": "examples/sigma_recursive_hom_action.lp",
+          "symbol": "homd_"
         }
       ]
     }

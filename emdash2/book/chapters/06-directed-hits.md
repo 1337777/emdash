@@ -92,7 +92,7 @@ theorem.
 Let
 
 $$
-R,D:W\longrightarrow\mathsf{Cat}
+R,D:W\longrightarrow\mathsf{Cat}_{\mathrm{cart}}
 $$
 
 be directed Cat-valued families. At the base, suppose we are given a functor
@@ -226,7 +226,7 @@ Chapter 8 requires more than the ordinary recursor. Its code family and based
 representable family are both nonconstant:
 
 $$
-\mathsf{Code},\mathsf{Rep}_*:W\longrightarrow\mathsf{Cat}.
+\mathsf{Code},\mathsf{Rep}_*:W\longrightarrow\mathsf{Cat}_{\mathrm{cart}}.
 $$
 
 At the base, natural-number powers give a carrier function

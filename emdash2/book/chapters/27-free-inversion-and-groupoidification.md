@@ -367,10 +367,10 @@ $$
 $$
 
 The codomain of the unit is a path category. Therefore the directed
-compositor is realized as an equality between paths and is invertible by
-symmetry, exactly as in Chapter 25. It is nevertheless an explicit cell: it
-is not definitionally collapsed to an identity term. Its whole transformation
-form retains a next hom action.
+compositor is realized as an equality between paths, as in Chapter 25.
+Under the strict public functor laws its native value is the identity. Its
+whole extracted transformation and next action remain available; the
+path-realized presentation does not require a new independent compositor.
 
 This observation explains why the construction begins with $C$, not with its
 underlying graph. A graph-level free groupoid would create inverse paths for
@@ -388,12 +388,11 @@ the corresponding compositor, so extending $F$ respects the same boundary.
 The generic theorem is sensitive to the categorical structure of $C$, not
 only to its collection of arrows.
 
-In a strict specialization the two endpoints displayed in (27.17) may become
-convertible. That does not make the compositor term itself an identity, and
-the active negative check confirms it is not collapsed to one. This is useful
-after retirement of the historical generic strict endpoint cuts: the
-coherence witness and its next action remain present, with stronger
-computation confined to its qualified profiles and named instances.
+The two endpoints displayed in (27.17) agree by strict functor computation.
+The current reviewer also checks the identity value of the extracted unit
+compositor. This does not collapse arbitrary transformation naturality: the
+nonidentity post/left cell used by the Gray square comes from a general lax
+transformation, not the identity transformation of this unit functor.
 
 Nor is an infinite record of associators and higher laws added beside the
 unit. The compositor in (27.17) is projected from the same internal-action

@@ -76,10 +76,12 @@ Functorial type theory keeps the same idea but permits each $X(U)$ to be a
 category rather than merely a set:
 
 $$
-X:\mathcal K^{\mathrm{op}}\longrightarrow\mathsf{Cat}.
+X:T(\mathcal K)\longrightarrow\mathsf{Cat}_{\mathrm{cart}}.
 $$
 
-Now a stage may contain objects, arrows between observations, and higher
+Here $T$ reverses dimension 1. The Cartesian coefficient is the same one
+used for directed families and Hom in Chapter 2. Now a stage may contain
+objects, arrows between observations, and higher
 coherence inherited from the ambient categorical structure. Restriction is a
 functor. It transports both observations and their comparisons. Presheaf maps
 are natural family maps, so they too act coherently at every stage.

@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active integration; complete migrated source and diagnostic scopes qualified; production sources promoted; production health, frontend/source pins and final integration remain open
+Status: active book/article revision; migrated native sources promoted and frontend tranche accepted with the recorded aggregate-repeat waiver; production health and final integration deferred
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -42,10 +42,36 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+User priority change, 2026-10-26: focus now on the book and shorter overview
+article. The implementation and accepted frontend checkpoint are sufficient
+to begin that work. Production-health/performance continuation and the
+remaining final-integration audit are deferred obligations, not prerequisites
+to documentation and not declared complete. Follow the new
+[book/article update plan](EMDASH_FOUNDATIONS_BOOK_ARTICLE_UPDATE_PLAN.md).
+The already-running bounded measurement may finish; do not launch further
+health work while this documentation priority is active.
+
+Production-health measurement disposition after `f0e22340`: the retained
+receipts contain 46 registered 90-second timeouts (including the final child
+after the parent's 45-count stop) and 89 cached successes. No registry profile
+or validation script changed. The last bounded measurements were:
+
+| Target | Explicit profile | Terminal result |
+| --- | --- | --- |
+| 21-input `emdash3_2_one_cat_family_naturality_paths.lp` | 180s / 2 GiB | Pass, 68.843s, 781,552 KiB; receipt `20261026T110603Z-fd7152ae6aa84ab984b8d7da3c457efa` |
+| 104-input `emdash3_2_one_cat_native_homology_window_maps.lp` | 300s / 2 GiB | Minor-GC allocation failure, 174.102s; receipt `20261026T110743Z-597a80c4bc7049a18436e1d67bf8ae18` |
+| Same frozen 104-input target | 300s / 3 GiB | Timeout, 300.035s; receipt `20261026T111056Z-ae075b8996d24b06bdcb7028b1208a21` |
+
+The final run finished under its existing bound after the documentation
+priority change. These are measured failures, not passes without typing
+errors. Further health/performance investigation is deferred; it is not a
+prerequisite to the book/article revision. Source/checker bytes, subject
+reduction, serial execution, file limits and no-swap safeguards were retained.
+
 User decision, 2026-10-26: the complete frontend aggregate and the passing
 focused correction of its two id ownership assertions are sufficient for
 this tranche. Do not rerun the28-minute aggregate now. Checkpoint the reviewed
-tranche and continue with production-health qualification. Preserve the
+tranche; the subsequent priority change above selects book/article work. Preserve the
 actual failed aggregate result and the separate passing replay; this is a
 scoped repeat waiver, not a blanket waiver of later validation.
 
@@ -118,7 +144,7 @@ continue to describe its status until the dependency gates below are met.
 | Stage | Required continuation | Start condition and planning boundary |
 | --- | --- | --- |
 | SF-CLOSE | Finish and qualify the foundations migration, including the five approved whole terminal Homd comparisons and the normalization/validation ledger. | Retain runtime leaf, higher-action and inverse computations; include all five whole comparisons in the complete diagnostics without exclusions. |
-| SF-BOOK | Update the Emdash book comprehensively for the settled foundations and all migration changes. | After the migration settles, perform the careful source/claim review and write a dedicated proposed subplan before editing chapters. Follow source ownership and the book/print SOP; regenerate artifacts through their tools. |
+| SF-BOOK | Update the Emdash book comprehensively for the settled foundations and all migration changes. | Active now under the user's 2026-10-26 priority change and the dedicated book/article plan. Remaining production health does not block the source/claim review or chapter updates. Follow source ownership and regenerate artifacts through their tools. |
 | SF-ARTICLE | Update the shorter overview research article consistently with the settled foundations and revised book. | Plan with the book review, preserve the article's shorter overview role, and validate its sources and generated artifacts. The existing publication/article plan is historical ownership guidance, not authorization to publish. |
 | SF-NERVES | Review, import, adapt, integrate and finish the partial simplicial/cubical nerve work from `/home/user1/emdash1-native-nerves-legacy-v1/` in the new foundations. | Begin after foundations and book/article updates settle. First review the donor's current code, plans, scope and evidence and write a dedicated proposed subplan. Adapt the actual mathematics and code; do not automatically merge the legacy branch or inherit its qualification. |
 
@@ -179,8 +205,8 @@ older running/failed states and do not override it.
 | Central diagnostics | The actual central target passes all 2,441 assertions on the supported checker, including all five approved terminal comparisons. | Preserve the accepted contracts through production integration. |
 | Production sources | All 1,388 original registered files have qualified source coverage. The 648 changed files have been promoted and checkpointed as `57e627b9`; 740 are unchanged. The initial StrictTransfor relocation is preserved. | Complete production health and owning integration gates. |
 | Production bookkeeping | Registry, strict catalog, core TOC, inferred-slot audit and report lifecycle checks pass; active core also passes. Health's central check passed; the aggregate was stopped after45 observed90s timeouts, preserving receipts. | Measure representative import/consumer cost before restarting with justified profiles. A generated not-run report is not execution evidence. |
-| Frontend/source pins | Selected current coefficients, direct identity/general-FF Homd computation, PathOut/PathInd/transitivity and authoring consumers have focused/native qualification. The complete TypeScript gate has1,837 passes,two ownership-assertion failures and63 skips; the corrected owning scopes pass13 cases with one native skip. The user explicitly waives the immediate aggregate repeat. | Carry this exact scoped evidence into final integration; review any newly affected boundary normally. Proceed to production health. |
-| Book, article and nerves | Required continuations are recorded in SF-BOOK/SF-ARTICLE/SF-NERVES. | Begin their detailed reviews/subplans only after the preceding stages settle. |
+| Frontend/source pins | Selected current coefficients, direct identity/general-FF Homd computation, PathOut/PathInd/transitivity and authoring consumers have focused/native qualification. The complete TypeScript gate has1,837 passes,two ownership-assertion failures and63 skips; the corrected owning scopes pass13 cases with one native skip. The user explicitly waives the immediate aggregate repeat. | Carry this exact scoped evidence into final integration; review any newly affected boundary normally. Proceed with the prioritized book/article revision. |
+| Book, article and nerves | Book/article source review is active under the user's priority change; the dedicated update plan records its source/evidence contract. Legacy nerve completion remains the later mathematical continuation. | Prioritize the book/article revision now. Keep deferred health/final-integration obligations explicit and review legacy nerve adaptation after documentation settles. |
 
 #### Migration evidence chronology (newest entries first)
 

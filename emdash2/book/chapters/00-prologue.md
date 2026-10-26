@@ -73,7 +73,7 @@ $$
 How can an opaque arrow be assigned a number? We construct a Cat-valued family
 
 $$
-\mathsf{Code}:W\longrightarrow\mathsf{Cat}
+\mathsf{Code}:W\longrightarrow\mathsf{Cat}_{\mathrm{cart}}
 $$
 
 whose fibre at `*` is the path category of natural numbers. The

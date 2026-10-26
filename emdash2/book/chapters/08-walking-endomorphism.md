@@ -27,7 +27,7 @@ The proof uses six interfaces:
 
 - `Path(A)`, the equality-local path category of a type `A`;
 - functor action `F[f]` on arrows and its higher action on cells;
-- a directed Cat-valued family $E:K\to\mathsf{Cat}$ and its fibre
+- a directed Cat-valued family $E:K\to\mathsf{Cat}_{\mathrm{cart}}$ and its fibre
   `E[k]`;
 - a displayed functor between two such families;
 - natural-number induction;
@@ -161,9 +161,10 @@ $$
 $$
 
 The first is retained normal identity action. The second follows from the
-generator computation of `Code` and the named strict-composition computation
-of the opaque WalkingEnd recursor. This computation does not apply to an
-arbitrary ambient functor and adds no separate composite-prefix rule.
+generator computation of `Code` and strict functor composition. The literal
+generator observation belongs to the opaque WalkingEnd recursor; preservation
+of composition is the public default. No separate composite-prefix rule is
+added.
 
 <!-- evidence:WE-ENCODE-PREFIX -->
 
@@ -260,7 +261,7 @@ be `Cat`, choose `Path(Nat)` as the object, and choose the
 successor functor as its endomorphism. The result is
 
 $$
-\mathsf{Code}:W\longrightarrow\mathsf{Cat}
+\mathsf{Code}:W\longrightarrow\mathsf{Cat}_{\mathrm{cart}}
 $$
 
 with constructor computations
@@ -319,7 +320,7 @@ $$
 The target of the decoder is the based representable family
 
 $$
-\mathsf{Rep}_*:W\longrightarrow\mathsf{Cat},
+\mathsf{Rep}_*:W\longrightarrow\mathsf{Cat}_{\mathrm{cart}},
 \qquad
 \mathsf{Rep}_*[x]=H_x.
 $$
@@ -381,7 +382,7 @@ hom. This is the **spiral**.
 > component has the direction shown above.
 
 The contextual elimination principle for `W` may be read as follows.
-Given directed families $R,D:W\to\mathsf{Cat}$, a base functor
+Given directed families $R,D:W\to\mathsf{Cat}_{\mathrm{cart}}$, a base functor
 
 $$
 u:R[*]\longrightarrow D[*],

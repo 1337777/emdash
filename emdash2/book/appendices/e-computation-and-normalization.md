@@ -39,9 +39,9 @@ A computational operation should have one owner. Ambient functor action is
 owned by the `fapp*` calculus; transfor action by `tapp*`;
 displayed hom action by `fdapp*` and `tdapp*`; Sigma and Pi expose
 their own structural projections. Readable aliases route through these owners
-instead of copying their semantic bodies. Composition and naturality retain
-laxity by default; stricter computation needs its actual profile or a
-qualified named constructor.
+instead of copying their semantic bodies. Public functor composition is
+strict. Default transformation naturality has a strict pre/right leg and a
+retained post/left comparison; its strict classifier also computes that leg.
 
 This prevents two kinds of drift:
 
@@ -51,8 +51,8 @@ This prevents two kinds of drift:
 
 The WalkingEnd development illustrates the policy. The contextual eliminator
 owns the constructor-specific base and generator observations. Its derived
-recursor has separately qualified strict composition computation at a stable
-named head; this does not make every functor strict. The decoder's
+recursor inherits strict public functor composition while retaining its own
+constructor observations. The decoder's
 normalization cell is the displayed hom-action of one constructed functor; it
 is not a custom recursion rule for every arbitrary based arrow.
 
@@ -77,20 +77,23 @@ dependent action over every represented source arrow. Restriction and
 extension remain whole functors, while their beta and eta laws are paths
 between whole functors. Thus the universal property controls higher action
 without replacing every composite mapping expression by one runtime normal
-form. The compositor of the unit is retained as a directed cell with a next
-action; it is not globally collapsed to identity.
+form. The unit compositor is extracted through the same whole owner and
+next action, and its native value is the identity under strict functor laws.
 
-The Gray experiment makes strictness a property rather than a second functor
-grammar. `IsStrictFunctor` constrains the compositor already extracted from
-whole internal action. `StrictFunctor` admits an ambient functor with that
-evidence opaquely, without exposing the admission proof. Its stable view owns
-strict computation and canonical evidence; the explicit raw view recovers a
-visible carrier. Raw evidence alone does not install those reductions. Curry
-and uncurry for the selected right closure have whole beta/eta paths, and the
-walking-square interchanger is a nonidentity directed cell projected from
-whole laxity. The integration replaces the selected generic strict cuts with
-profiled or qualified constructor computation. It does not supply a general
-weak-category normalizer or a full Crans–Gray tensor.
+The Gray profile retains public strict functors and classified conventional
+lax transformations, with ambient higher Homs. Its inclusion does not identify
+the profiled mapping category with the ordinary one. Curry and uncurry for
+the selected right closure have whole beta/eta paths. The walking-square
+interchanger remains a nonidentity post/left cell projected from a general
+transformation's whole laxity. It is not the compositor of a non-strict
+functor. This supplies neither a general weak-category normalizer nor a full
+Crans–Gray tensor.
+
+Five special terminal-source Homd presentations use whole proof-time
+comparisons with their constant forms. Their literal runtime heads remain
+unchanged. These comparisons carry no equality arguments in operational
+symbols, and they do not turn every equivalent presentation into the same
+runtime normal form.
 
 ## E.4 Direction And Variance In Normal Forms
 

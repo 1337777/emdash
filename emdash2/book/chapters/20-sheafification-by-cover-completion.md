@@ -179,7 +179,7 @@ families,
 
 $$
 \operatorname{Match}_{aP},\operatorname{Sect}_{aP}:
-\mathcal Q_J\longrightarrow\mathbf{Cat}.
+\mathcal Q_J\longrightarrow\mathsf{Cat}_{\mathrm{cart}}.
 $$
 
 The collection of glue operations is retained as one displayed functor
@@ -555,7 +555,8 @@ general comparison with classical plus-construction sheafification. Those are
 separate mathematical obligations.
 
 There is also no claim here about sheafifying every universe of coefficients
-uniformly. The value category has been fixed to $\mathbf{Cat}$, and the sheaf
+uniformly. The value categories are native categories with the admitted
+Cartesian family coefficient, and the sheaf
 facade has been realized concretely as a presheaf paired with locality
 evidence. Moving to sets, groupoids with a different equality policy,
 commutative rings, or a universe of small categories requires a corresponding

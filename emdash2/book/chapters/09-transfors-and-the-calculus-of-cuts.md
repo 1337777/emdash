@@ -111,11 +111,10 @@ Before capping at $g$, `hom_postcomp_func` remains a functor between
 hom-categories, so its action on 2-cells between possible values of $g$ is
 still available.
 
-For a general functor $K$, consecutive action by $K[p]$ and $K[q]$ instead
-retains the ambient compositor. Accumulation under $q\circ p$ needs the
-corresponding strict profile or a qualified named construction. The
-identity-indexed represented-hom computation displayed above remains
-available without making every functor strict.
+For a general public functor $K$, the strict functor law likewise identifies
+consecutive action by $K[p]$ and $K[q]$ with action by $K[q\circ p]$.
+The whole represented-hom owners retain this computation before the final
+arrow argument is supplied; no extra strict-functor wrapper is required.
 
 ### 9.2.2 Example 2: Precomposition Reverses The Action Order
 
@@ -150,8 +149,8 @@ That reversal is contravariance, not a special exception to associativity.
 
 > **Formal status — checked.** Evidence `CAT-HOM-CUTS`. The full and capped
 > lower-star and upper-star actions have identity, consecutive-action, and
-> adjacent raw-cut computations at their qualified identity/profile instances.
-> Arbitrary functor-indexed action retains its laxity. Ordinary-composition readings remain
+> adjacent raw-cut computations under the strict public functor contract.
+> Ordinary-composition readings remain
 > proof-time comparisons where selecting a second runtime normal form would
 > be harmful.
 
@@ -209,8 +208,9 @@ $$
 The first source and target are $Fx\to Gz$; the second are $Fw\to Gy$.
 In each case the selected normal form is one off-diagonal action on the
 composite source arrow. The action still uses `tapp1_fapp0`; the stable
-strict-profile head authorizes these runtime reductions. An arbitrary
-ambient transfor retains directed comparison cells instead. At the uncapped level
+strict-profile head authorizes both runtime reductions. A default lax
+transfor already has the pre/right reduction and retains the post/left
+comparison. At the uncapped level
 `tapp1_func` remains a functor between hom-categories, so a 2-cell between
 $f$ and $f'$ is carried to a 2-cell between $\eta[f]$ and $\eta[f']$ after
 the cut has normalized.
@@ -220,13 +220,13 @@ the cut has normalized.
 > **Formal status — checked.** Evidence `TRANSF-STRICT-NATURALITY`. Both
 > full-functor and capped-arrow forms reuse the generic `tapp*` calculus at
 > the stable classified strict view. Raw evidence supplies paths; it does
-> not install runtime cuts on every ambient transformation.
+> not make the post/left cut strict on every ambient transformation.
 
 The familiar strict naturality square is the identity-boundary instance. For
 $f:x\to y$, the expressions $G[f]\circ\eta_x$ and
 $\eta_y\circ F[f]$ both normalize through the common interior $\eta[f]$.
-For a general ambient transfor these boundaries are connected through its
-retained laxity cells. OneCat targets turn the appropriate cells into ordinary
+For a general ambient transfor these boundaries are connected by its
+retained post/left cell. OneCat targets turn the appropriate cells into ordinary
 equality paths; a classified strict view additionally selects computation.
 
 Identity and vertical composition follow the same architecture. The identity
@@ -410,7 +410,7 @@ available.
 ### 9.4.4 Fibred Structural Cuts
 
 The same introduction/elimination pattern appears in a dependent categorical
-context. Let $B,C:K\vdash\mathsf{Cat}$ be independent families over one base,
+context. Let $B,C:K\vdash\mathsf{Cat}_{\mathrm{cart}}$ be independent families over one base,
 and let $P(B,C)$ be their fibrewise product. For displayed functors
 
 $$
@@ -654,7 +654,7 @@ higher-dimensional consumers need.
 ## 9.7 Directed Family Transfors And Lax Comparison
 
 Strict cut elimination should not be confused with strictness of every
-directed comparison. Let $E,D:K\to\mathsf{Cat}$ be directed families and let
+directed comparison. Let $E,D:K\to\mathsf{Cat}_{\mathrm{cart}}$ be directed families and let
 
 $$
 \Phi:E\Longrightarrow D
@@ -772,8 +772,9 @@ negative direction.
 > **Formal status — checked.** Evidence `FUNCTORD-WHOLE-LAXITY`. The whole
 > displayed owner, both ordinary variance surfaces, their capped cells, and
 > the functor-compositor specialization are active. Their next actions remain
-> in the generic hom calculus. The action-profile integration has retired
-> the generic strict endpoint cuts. A complete weak omega-category coherence
+> in the generic hom calculus. Public functor computation and the default
+> pre/right transfor leg are strict; the post/left comparison remains directed.
+> A complete weak omega-category coherence
 > theorem remains outside this checked boundary.
 
 Cut elimination is therefore not a feature catalogue. It is the organizing

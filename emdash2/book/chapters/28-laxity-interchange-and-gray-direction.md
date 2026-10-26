@@ -9,19 +9,17 @@ F(g)\circ F(f)=F(g\circ f).
 \tag{28.1}
 $$
 
-In a directed higher setting, the more informative object is the comparison
-cell that (28.1) would erase. Its source is the composite of the two separate
-arrow actions, its target is the action on the composite arrow, and its next
-action records how that comparison varies. When the cell is invertible, one
-has pseudo-functorial behaviour. When it is an identity, one has a selected
-strict behaviour. When it is merely directed, one has genuine laxity.
+Public functors in emdash preserve composition strictly, so (28.1) is part
+of their computational contract. This does not erase transformation-level
+laxity. A transformation between strict functors may have a noninvertible
+naturality cell, and its internal action retains that cell and its higher
+action. This is the directed comparison studied in this chapter.
 
-The previous chapters repeatedly changed the *target* of such a witness. In a
-path category it became invertible. In a strict computational profile it
-specialized to identity. This chapter keeps the target directed and asks where
-the noninvertible cell itself comes from. The answer is not an extra square
-axiom. It is a component of the same whole internal action that already
-supports dependent transport and ordinary naturality.
+The previous chapters changed the target of directed witnesses. A path-valued
+target makes such a witness invertible. A strict transformation profile
+identifies it with an equality-induced arrow. Here the post/left naturality
+cell remains directed. It comes from the same internal action that supports
+dependent transport, rather than an independently supplied square axiom.
 
 The geometric test is the walking square. Let
 $I=\mathsf{WalkingArrow}$ and consider a selected tensor-shaped category
@@ -95,10 +93,10 @@ $$
 \epsilon[f\circ h].
 $$
 
-Post/left and pre/right are skew views of one off-diagonal action. They need
-not be identified by a pointwise square equation before their whole owners
-have been compared. The explicit orientation becomes important when one of
-the two views is selected for the Gray interchanger.
+Post/left and pre/right are views of one off-diagonal action. Under the
+conventional lax default, the pre/right view computes strictly. The post/left
+view can remain noninvertible. This explicit asymmetry determines the
+orientation of the Gray interchanger.
 
 This order of construction matters. If one wrote only the component (28.4),
 the variable $f$ and its higher arrows would already have been capped. By
@@ -118,8 +116,11 @@ $$
 
 Thus the compositor is an identity-transformation specialization of whole
 naturality. It is not postulated independently of the transformation
-calculus. The same provenance is what allowed Chapter 25 to realize it as a
-path and Chapter 27 to retain it on the groupoidification unit.
+calculus. For public functors this specialization is strict: its canonical
+strictness evidence follows from the functor rules. Path realization still
+applies to extracted cells, but a nonidentity interchanger must come from a
+transformation whose post/left naturality remains lax, not from a non-strict
+public functor.
 
 <!-- evidence:FUNCTORD-WHOLE-LAXITY -->
 
@@ -130,10 +131,10 @@ path and Chapter 27 to retain it on the groupoidification unit.
 > the identity-transformation specialization. The next hom action remains
 > available. No independent naturality square is added.
 
-## 28.2 Strictness As A Property And Profile
+## 28.2 Strict Functors And Profiled Transformation Homs
 
-Strictness should constrain the compositor already obtained in (28.5), not
-manufacture a second compositor beside it. For a cell $c:x\to y$, write
+A property of an extracted cell should refer to that existing cell, not
+manufacture another witness beside it. For $c:x\to y$, write
 
 $$
 \mathsf{IsStrictCell}(c)
@@ -141,105 +142,70 @@ $$
   \sum_{p:x=y}\bigl(c=\operatorname{pathToHom}(p)\bigr).
 $$
 
-The endpoint path is explicit. Ambient lax endpoints need not agree
-judgmentally; the property supplies the particular agreement and identifies
-the existing cell with its equality-induced arrow. Apply it to the whole compositor transformation
-$\Phi^F_{X,g}$, whose component at $f$ is $\phi^F_{g,f}$. For an ambient
-carrier $F$ and evidence $p$ this gives
+This is an internal property: it supplies an endpoint path and identifies the
+cell with its equality-induced arrow. Applied to the whole compositor
+$\Phi^F_{X,g}$, it gives
 
 $$
-\begin{aligned}
 \mathsf{IsStrictFunctor}(F)
-  &\equiv
-    \prod_{X,Y,Z,g}\mathsf{IsStrictCell}(\Phi^F_{X,g}),\\
-\mathsf{makeStrict}(F,p)
-  &:\mathsf{StrictFunctor}(A,B).
-\end{aligned}
+  \;\equiv\;
+  \prod_{X,Y,Z,g}\mathsf{IsStrictCell}(\Phi^F_{X,g}).
 \tag{28.6}
 $$
 
-The property remains witness-rich, but the classifier is opaque. Admission
-internalizes the certificate; the classified object does not reveal which
-certificate was chosen. Visible admissions compare at proof time by their
-ambient carriers. This does not assert proof irrelevance for the property
-itself, and it introduces no second grammar of strict functors.
+Every public functor has canonical evidence of (28.6), derived from its
+strict computation. Such evidence is an observation of the functor laws,
+not an extra parameter required to use the functor. The former strict-functor
+admission layer is no longer needed.
 
-A stable view, written $\operatorname{strict}(S)$, places such a package back
-in the ambient functor classifier. For a visible admission its point action
-computes, while its hom action retains the classified head. The explicit raw
-observation $\operatorname{underlying}(S)$ recovers the admitted carrier and
-its action. The stable and raw presentations compare at proof time.
-
-The stable view owns strict composition and identity computation of the
-existing whole internal-action compositor. Canonical strictness evidence is
-derived from these computations, independently of the admission certificate.
-Capped evidence is obtained by evaluating the whole property. Arbitrary raw
-evidence does not install a blanket identity rule on its carrier.
-
-The full category $\mathsf{StrictFunctor}_{\mathrm{cat}}(A,B)$ now packages
-these objects with all ambient transformations and their higher homs. Generic
-composition/naturality cuts have been retired. Focused negative controls
-check the separation between ambient lax action and classified computation.
-
-This still requires no second functor theory. Define the profiled internal hom
+Transformations retain a separate profile interface. The selected internal
+hom
 
 $$
 \mathsf{GrayHom}_{\mathrm{lax}}(A,B)
 \tag{28.7}
 $$
 
-to have strict packages as objects and classified conventional lax
-transformations between their stable views as homs:
+has ordinary public functors as objects and classified conventional lax
+transformations as its next Hom:
 
 $$
 \begin{aligned}
 \operatorname{Obj}(\mathsf{GrayHom}_{\mathrm{lax}}(A,B))
-  &\equiv\mathsf{StrictFunctor}(A,B),\\
-\operatorname{Hom}(S,T)
-  &\equiv
-  \operatorname{LaxTransfor}(\operatorname{strict}S,
-                         \operatorname{strict}T).
+  &=\mathsf{Functor}(A,B),\\
+\operatorname{Hom}_{\mathsf{GrayHom}_{\mathrm{lax}}(A,B)}(F,G)
+  &=\mathsf{LaxTransfor}_{\mathrm{cat}}(F,G).
 \end{aligned}
 \tag{28.8}
 $$
 
-`IsLaxTransfor` constrains the existing pre/right cell. Opaque admission gives
-a stable `lax_transfor` view with that one-sided computation, while its
-post/left cell remains directed. Profiled identity and composition project to
-the ambient operations. Homs between classified transformations reuse ambient
-modifications and all subsequent iterated cells. The whole inclusion exposes
-these selected carriers and their retained higher action.
+The classifier retains an opaque admission of a transformation satisfying the
+pre/right property. Its stable ambient view computes that leg; the post/left
+cell remains directed. Identity and composition project to the corresponding
+ambient operations. Homs between classified transformations reuse the ambient
+modifications and subsequent iterated cells.
 
-Thus (28.8) differs from the full `StrictFunctor_cat`: Gray arrows have an
-explicit lax profile, while the full subcategory retains all ambient
-transformations. The category is not definitionally the
-ambient functor category, and an arbitrary ambient functor is not silently
-accepted as one of its objects.
+There is therefore a whole inclusion into $[A,B]$. It is the identity on
+functor objects and observes the selected transformation profile on Homs.
+Both mapping categories now use the conventional lax orientation, but the
+profiled Hom retains its own classifier. The source does not identify the
+two categories or supply a whole inverse to this inclusion. Object agreement
+alone would not justify either claim.
 
-The selected identity illustrates the separation. It is the ordinary identity
-functor admitted with supplied strictness evidence. Gray curry, uncurry, join
-maps, and transformation graphs follow the same pattern: first construct the
-ordinary whole functor, then supply an $\mathsf{IsStrictFunctor}$ proof about
-its existing whole compositor for admission. The proof may be supplied where its full
-internal derivation is not yet needed, but it can never conceal an independent
-forward cell because the property fixes that cell in its own type.
-
-This profile architecture scales better than duplicating products, pullbacks,
-transformations, and modifications for each preservation mode. Further
-properties may refine the same ambient carriers and share the same hom tower;
-duplication is reserved for a genuinely different classifier or computation.
+In particular, an identity functor is already an object of (28.7). Curry,
+uncurry, join maps, and transformation graphs likewise use ordinary public
+functors. No additional strict-functor certificate is supplied for their
+admission. Strict-transfor classifiers remain meaningful because they also
+make the retained post/left naturality strict.
 
 <!-- evidence:GRAY-COMPUTATIONAL-PROFILE -->
 
 > **Formal status — checked.** Evidence `GRAY-COMPUTATIONAL-PROFILE`.
-> `IsStrictFunctor` constrains the existing whole compositor. `StrictFunctor`
-> admits carriers opaquely, with stable classified action, an explicit raw
-> observation and canonical evidence independent of the admission certificate.
-> `StrictFunctor_cat` reuses the complete ambient transformation tower.
-> `GrayHom_lax` instead uses opaque classified conventional lax arrows,
-> retaining ambient modifications above them. Generic strict cuts are retired;
-> normal identities and qualified named strict instances remain.
-> No duplicate functor grammar or compositor is introduced.
+> `functor_is_strict` derives the property of the existing whole compositor.
+> `GrayHom_lax` has public `Functor` objects and `LaxTransfor_cat` Homs;
+> `grayhom_lax_include_func` retains the ambient higher action.
+> Neither this inclusion nor the default lax convention identifies
+> `GrayHom_lax` with `Functor_cat`.
 
 ## 28.3 One Selected Right Closure
 
@@ -255,17 +221,15 @@ $$
 $$
 
 The tensor head $A\otimes_R B$ is stable and distinct from the Cartesian
-product. Curry and uncurry in (28.9) are whole functors between the two profile
-categories, each paired with supplied $\mathsf{IsStrictFunctor}$ evidence.
-Their composites are compared
+product. Curry and uncurry in (28.9) are whole public functors between the
+two profile categories, hence strict by default. Their composites are compared
 with the appropriate identity functors by whole beta and eta paths, and the
 resulting fixed-forward equivalence retains hom action.
 
 Equation (28.9) is an equivalence of profiled mapping *categories*. On the
-left, objects are strict classifiers for maps out of the selected tensor and
-arrows are classified lax transformations. On the right, an outer strict
-classifier selects, at each object of $A$, an inner strict classifier
-$B\to C$; its arrows have the classified lax behaviour of (28.8). Curry and
+left, objects are functors out of the selected tensor and arrows are
+classified lax transformations. On the right, an outer functor selects, at
+each object of $A$, an inner functor $B\to C$; its arrows have the classified lax behaviour of (28.8). Curry and
 uncurry transport not only objects but this transformation tower.
 
 The adjective *right* fixes which variable is moved into the internal hom. A
@@ -282,8 +246,8 @@ A\longrightarrow
 \tag{28.10}
 $$
 
-is curry applied to the strict identity package on $A\otimes_R B$. Dually,
-evaluation is uncurry applied to the strict identity package of the internal hom.
+is curry applied to the identity functor on $A\otimes_R B$. Dually,
+evaluation is uncurry applied to the identity functor of the internal hom.
 These two maps give introduction and elimination for the selected tensor
 boundary.
 
@@ -297,8 +261,8 @@ derived. The square is not added beside the closure.
 
 > **Formal status — checked.** Evidence `GRAY-RIGHT-CLOSURE`. Whole strict curry
 > and uncurry package the right-closure equivalence (28.9), with whole beta/eta
-> and hom action. Coevaluation and evaluation are derived at selected identity
-> codes. The tensor remains distinct from the Cartesian product and the beta
+> and hom action. Coevaluation and evaluation are derived at identity
+> functors. The tensor remains distinct from the Cartesian product and the beta
 > comparison is equality evidence, not a competing object-level runtime fold.
 
 There is a complementary combinatorial route to Gray products. In
@@ -452,12 +416,11 @@ whole constructions. The tensor in this chapter is consequently written
 $\otimes_R$: it records the selected right closure rather than pretending
 that the mirror and monoidal boundaries have already been built.
 
-The action-profile integration removes the historical generic strict
-composition and naturality conversions. Stable classified views select their
-own computation; explicit raw evidence provides paths, and qualified named
-constructors may compute directly. Ambient noncollapse controls and the
-nonidentity interchanger check these boundaries. This qualification does not
-establish general confluence or resolve the separate higher Op/duality defects.
+The current foundation separates strict public functors from conventional
+lax transformations. It preserves the nonidentity interchanger while making
+functor composition strict. This chapter's checks concern that selected
+closure and its observations. They do not establish general confluence,
+a model of every structural rule, or the full monoidal theory.
 
 ## 28.7 The End Of The Fourth Spiral
 
@@ -481,9 +444,8 @@ $$
 $$
 
 The path target, strict property, and arbitrary directed target select
-different behaviours of the retained witness. The unprofiled cell remains
-observable; neither ordinary equality evidence nor opaque admission of a
-particular carrier makes every ambient cell an identity.
+different behaviours of the retained witness. The general post/left transformation cell remains observable. Strictness of
+public functors does not make every transformation cell an identity.
 
 The three rows of (28.16) should be read as operations on one owner, not as
 three parallel theories. The arbitrary directed cell is primary. A
@@ -491,8 +453,9 @@ path-valued target changes its hom into equality and thereby supplies an
 inverse. A strict package retains an endpoint path and identifies the same
 cell with the arrow induced by that path. A stable classified view supplies
 its specified judgmental computation, while raw evidence remains a path.
-Neither specialization requires the ambient compositor, its whole
-transformation, or its next action to be redeclared.
+Neither specialization requires the whole naturality owner or its next
+action to be redeclared. For the identity transformation of a public functor,
+strictness already follows from the default laws.
 
 This suggests a discipline for extending the higher theory. First locate the
 whole internal action before introducing a pointwise coherence name. Second
@@ -504,15 +467,16 @@ owner is too easy to postulate; an owner without a concrete consumer is too
 easy to misorient.
 
 The mirror Gray closure can follow the same discipline. Its construction
-should begin from the pre/right whole action, not by reversing the arrow in
-(28.15) after the fact. Comparing the two closures will then be a theorem
+must specify the complementary transformation convention and its whole
+action; the current pre/right leg is strict and cannot supply a second
+nonidentity cell merely by reversing (28.15). Comparing the two closures will then be a theorem
 about their whole curry and evaluation structures. Likewise, a future
 associator for the tensor should be derived at the mapping-category level
 before its components are named. This keeps higher coherence attached to the
 operations that generate it.
 
 The walking square is therefore valuable even though it is small. It tests
-all of the architectural seams at once: strict packages versus ambient functors,
+all of the architectural seams at once: strict functors versus lax transfors,
 profiled homs versus duplicated hierarchies, closure versus an opaque tensor,
 whole transformations versus square axioms, and directed cells versus paths.
 Passing that test does not finish Gray theory, but it gives the unfinished

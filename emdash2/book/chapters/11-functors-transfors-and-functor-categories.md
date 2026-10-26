@@ -46,22 +46,20 @@ on higher cells by iteration.
 
 > **Formal status — checked.** Evidence `CAT-FUNCTOR-CALCULUS`.
 > `fapp0` is object action, `fapp1_func` is the full next-hom action,
-> and `fapp1_fapp0` is its value at one arrow. Normal identity computation
-> remains generic; composition retains an ambient laxity cell. Strict
-> composition computation uses a classified view or a qualified constructor.
+> and `fapp1_fapp0` is its value at one arrow. Public functors preserve
+> identities and composition strictly, including their iterable hom action.
 
-For the stable view of a classified strict functor, preservation is oriented
-as cut elimination:
+Preservation of composition is oriented as cut elimination:
 
 $$
 F[g]\circ F[f]\rightsquigarrow F[g\circ f].
 $$
 
-An arbitrary ambient functor instead retains the compositor between these
-endpoints and its higher action. Explicit strictness evidence constrains that
-existing cell. Admission to the opaque strict classifier supplies a stable
-view with the displayed computation; evidence alone does not rewrite the raw
-carrier. Named constructions may also have separately qualified strict rules.
+This applies to every public functor, without an additional admission or
+wrapper. The compositor can still be extracted from internal action, but its
+strictness is now a consequence of the default functor laws. The directed
+comparison retained for a general transformation is a different matter: strict
+functors need not be related by strictly natural transformations.
 
 ## 11.2 From Natural Transformations To Transfors
 
@@ -138,9 +136,15 @@ Setting $f$ to an identity makes the usual strict naturality square reappear. Bo
 boundary composites normalize through the same off-diagonal interior
 $\eta[f]$. Thus naturality is not merely a proposition verified after a
 family of components has been assembled; the classified family action
-absorbs neighboring cuts. An ambient transfor retains the two directed cells
-instead. The conventional lax profile selects only pre/right strictness,
-leaving the post/left cell observable.
+absorbs neighboring cuts. The default transfor is already conventional lax:
+its pre/right cut computes, while the post/left comparison remains observable.
+For $f:x\to y$, this retained comparison has direction
+
+$$
+G[f]\circ\eta_x\Longrightarrow\eta_y\circ F[f].
+$$
+
+The strict-transfor classifier additionally makes the post/left cut strict.
 
 <!-- evidence:TRANSF-STRICT-NATURALITY -->
 
@@ -148,7 +152,8 @@ leaving the post/left cell observable.
 > `TRANSF-STRICT-NATURALITY`. Both capped equations and their uncapped
 > hom-functor forms are runtime reductions at the stable `strict_transfor`
 > view, using the existing `tapp1*` calculus. The full forms retain action on
-> the next cells; raw ambient transfors have negative noncollapse controls.
+> the next cells. Default lax transfors retain the post/left cell; its
+> noncollapse controls distinguish them from the strict view.
 
 This is the chapter's central checked theorem. It explains why the calculus
 uses a transfor rather than a bare dependent function of point components:
@@ -162,7 +167,7 @@ $$
 [A,B]:=\operatorname{Functor\_cat}(A,B)
 $$
 
-has functors $A\to B$ as objects. Its hom-category between $F$ and $G$ is
+has strict functors $A\to B$ as objects. Its hom-category between $F$ and $G$ is
 
 $$
 \operatorname{Transf\_cat}(F,G).
@@ -172,6 +177,14 @@ An identity arrow in $[A,B]$ is the identity transfor. Composition in
 $[A,B]$ is vertical composition of transfors. Iterating the hom of
 $\operatorname{Transf\_cat}(F,G)$ yields modifications and higher transfors
 without changing the ambient notion of category.
+
+The Cartesian mapping category $\operatorname{Cart}(A,B)$ has the same
+functor objects but requires strict transformations internally. It supports
+joint Cartesian evaluation and currying. The ordinary category $[A,B]$
+retains lax transformations and supports evaluation at a fixed argument.
+These two mapping categories must not be identified merely because their
+objects agree. The family coefficient $\mathsf{Cat}_{\mathrm{cart}}$ uses
+the Cartesian Homs; the public universe uses $[A,B]$.
 
 <!-- evidence:CAT-TRANSFOR-CALCULUS -->
 
@@ -226,11 +239,13 @@ $$
 K[\alpha_a]\circ\beta_{Fa}.
 $$
 
-Naturality of $\beta$ identifies the two. The native calculus packages the
-pair $(\alpha,\beta)$ under the product-composition action, so its
-off-diagonal value first transports the $A$-arrow through $\alpha$ and then
-through $\beta$. This gives a single iterable owner rather than two competing
-component formulas.
+Strict naturality of $\beta$ identifies the two. For a general lax $\beta$,
+its naturality cell instead compares the second expression to the first.
+The native horizontal owner retains one off-diagonal composite and its higher
+action. The explicit Cartesian functor-composition interface uses
+$\operatorname{Cart}(A,B)$ in its inputs, while ordinary one-sided whiskering
+continues to admit lax transformations. These interfaces do not identify the
+two routes through an arbitrary lax square.
 
 <!-- evidence:TRANSF-HORIZONTAL-CALCULUS -->
 

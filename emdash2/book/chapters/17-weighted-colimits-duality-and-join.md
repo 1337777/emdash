@@ -10,8 +10,8 @@ universal arrows point away from the colimit.
 Opposite duality makes this reversal a proof method rather than an invitation
 to duplicate the theory. The active weighted-colimit classifier is defined
 through the weighted-limit classifier in opposite categories. Its
-preservation theorem is therefore the right-adjoint theorem of Chapter 16
-applied once to the opposite adjunction.
+preservation theorem follows the implication, reindexing, and mate steps
+of Chapter 16, using the transposed whole Hom comparison.
 
 The second half of the chapter gives this duality a directed geometry. The
 join $A\star B$ contains a left part, a right part, and an internally natural
@@ -37,7 +37,7 @@ $$
 be a contravariant weight, meaning a Cat-valued profunctor
 
 $$
-W:J^{\mathrm{op}}\times J'\longrightarrow\mathsf{Cat}.
+W:J^{\mathrm{op}}\times J'\longrightarrow\mathsf{Cat}_{\mathrm{cart}}.
 $$
 
 For fixed $j':J'$, the weight $W(-,j')$ is contravariant in $J$. At a
@@ -76,6 +76,11 @@ The same words “represented by” occur in both formulas, but the representabl
 hom has changed side.
 
 ## 17.2 One Universal Owner Through Opposite Categories
+
+In this weighted construction, the superscript $\mathrm{op}$ means the
+dimension-one transpose $T$ of Chapter 14. Profunctor duality swaps product
+endpoints and preserves the coefficient fibre. It does not apply total
+opposite to that fibre.
 
 For
 
@@ -123,9 +128,10 @@ comes from the same profunctor comparison used for limits.
 <!-- evidence:OP-DUALITY -->
 
 > **Formal status — checked.** Evidence `OP-DUALITY`. The involutive
-> category, functor, transfor, profunctor, and adjunction operations justify
-> the variance reversal. No independent colimit cancellation calculus is
-> introduced.
+> category and functor transpose, together with product-swap `Op_prof`,
+> justify this variance reversal. The total-opposite adjunction package has
+> a different type and is not used to define this classifier. No independent
+> colimit cancellation calculus is introduced.
 
 ## 17.3 Conical Colimits And Left Kan Extensions
 
@@ -233,15 +239,11 @@ C:J'\longrightarrow A
 $$
 
 carries a comparison certifying it as the $W$-weighted colimit of
-$F:J\to A$. Passing to opposites turns the data into:
-
-1. a weighted-limit comparison for $C^{\mathrm{op}}$ and
-   $F^{\mathrm{op}}$ in $A^{\mathrm{op}}$;
-2. the opposite adjunction
-   $R^{\mathrm{op}}\dashv S^{\mathrm{op}}$;
-3. a right adjoint $S^{\mathrm{op}}:A^{\mathrm{op}}\to B^{\mathrm{op}}$.
-
-Theorem 16.1 therefore supplies a weighted-limit comparison represented by
+$F:J\to A$. The definition first reads this as a weighted-limit comparison
+in $T(A)$. The adjunction supplies a whole Hom-profunctor comparison;
+product-swap duality transposes that comparison, retaining its actual inverse.
+Reindexing and implication then give the same three-comparison pattern as in
+Theorem 16.1, represented by
 
 $$
 S^{\mathrm{op}}C^{\mathrm{op}}
@@ -266,9 +268,10 @@ $$
 $$
 
 The first and last steps are adjunction mates, and the middle step is the
-given colimit representation. The implementation obtains this chain by
-calling the right-adjoint theorem on `Op_adjunction`; it does not repeat the
-three steps under new primitive names.
+given colimit representation. The implementation obtains this chain from the
+transposed whole Hom comparison, reusing profunctor comparison, implication,
+and reindexing. It needs no opposite unit/counit package or new primitive
+colimit comparison.
 
 <!-- evidence:WEIGHTED-COLIMIT-PRESERVATION -->
 
@@ -279,9 +282,9 @@ three steps under new primitive names.
 >
 > **Formal status — checked.** Evidence
 > `WEIGHTED-COLIMIT-PRESERVATION`. The owner
-> `left_adjoint_preserves_weighted_colimit_con` applies
-> `right_adjoint_preserves_weighted_limit_cov_comp` to the opposite
-> adjunction. The theorem is conditional on the supplied colimit comparison.
+> `left_adjoint_preserves_weighted_colimit_con` uses the transposed Hom
+> comparison of the supplied adjunction. The theorem remains conditional on
+> the supplied colimit comparison.
 
 Consequently, the terminal and companion specializations yield the familiar
 interface-level corollaries: left adjoints preserve selected conical colimits

@@ -59,16 +59,14 @@ central proof; Chapters 9--17 form the ratified category-theory, universal-
 construction, and directed-duality spiral. Chapters 18--24 develop local
 geometry, 25--28 groupoidal and Gray structure, 29 dependent simplexes,
 30 Cartesian/indexed constructions, and 31 homology and proof-CAS integration.
-Local edition `0.9.1-dev` retains the native whole-universality reformulation,
-both displayed LES/snake certificates and their nonsplit example. Chapter 12
-now exposes the ordinary whole-family adjunction lift; Chapter 30 explains
-whole product pairing, categorical contraction, and the explicit ordinary
-terminal/initial adjunction presentations. Chapter 31 distinguishes current
-whole constructions, retained ordinary observations and retired algorithms.
-General higher terminality and the new whole input/H comparison remain
-explicitly unqualified follow-up interfaces. The
-[consolidation review](../../docs/TYPESCRIPT_EMDASH_CATEGORICAL_CORE_CONSOLIDATION_REVIEW.md)
-records the source/trust boundaries and validation.
+The current source revision explains the migrated strict-functor default,
+conventional lax transformations, Cartesian family coefficients, corrected
+whole dependent-Hom ladder, and separate dualities. It retains the native
+whole-universality, LES/snake, and nonsplit model developments. The active
+[book/article update plan](../../docs/EMDASH_FOUNDATIONS_BOOK_ARTICLE_UPDATE_PLAN.md)
+records chapter review, evidence changes, and remaining manuscript/artifact
+validation. Production-health qualification and later legacy nerve adaptation
+remain separate goal obligations.
 Appendix G owns the formal
 presentation. Contents and the evidence appendix are generated from
 their structured authorities.

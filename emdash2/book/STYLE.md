@@ -79,12 +79,17 @@ The canonical surface-syntax report owns notation. In particular:
 ```text
 a ->^C b                 ordinary hom
 F : A ⊢ B                ordinary functor
-E : K ⊢ Cat              directed Cat-valued family
+E : K ⊢ Cat_cart         admitted directed category-valued family
 Π (k :^n K), E[k]        section category
 ```
 
 Book-only abbreviations must be declared in the notation appendix and must not
 be described as implemented parser syntax.
+
+Public functors are strict; default transformations are conventional lax.
+Distinguish the public category universe from the Cartesian coefficient of
+admitted families. In native formulas, state whether an opposite means
+dimension-one transpose, reversal above dimension one, or total opposite.
 
 Every mathematical expression chooses one source mode:
 

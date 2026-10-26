@@ -31,7 +31,7 @@ The following terms remain separate throughout the book.
 | gaunt category | a HoTT category that is also strict | runtime strictness |
 | native `IsNCat(n,C)` | recursive finite height of the hom-categories | object identity agrees with isomorphism |
 | strict naturality cut | a selected `tapp1` composite reduces to one off-diagonal action | all coherence is judgmental |
-| computational strict-functor property | `IsStrictFunctor(F)` compares the existing compositor with its equality-induced arrow; `StrictFunctor(A,B)` admits $F$ with that evidence opaquely | every ambient functor is strict or every coherence is judgmental |
+| strict public functor | preserves identities and composition through the native action rules; `IsStrictFunctor(F)` records a derived property of its existing compositor | that transformations between functors are strict |
 | runtime strictness | an oriented kernel reduction chooses a normal form | object truncation or invertibility |
 | dagger category | identity agrees with *unitary* isomorphism | identity agrees with every isomorphism |
 
@@ -40,13 +40,12 @@ In particular, the HoTT phrase *strict category* begins with a
 uses this definition. A strict precategory may still have nontrivial
 automorphisms that cannot come from its proposition-valued object identity.
 
-The proof-carrying row is the profile used in Chapter 28. It does not decode a
-second functor grammar. `IsStrictFunctor` constrains the compositor already
-extracted from an ambient functor, and the opaque `StrictFunctor` classifier
-admits that functor with its evidence while leaving the ambient transformation and
-higher-hom calculus shared with lax maps. This is a local property/evidence
-specialization. The integration retires generic strict endpoint cuts while
-retaining normal identity computation and qualified constructor instances.
+Public functors are strict by default. The property `IsStrictFunctor`
+still describes the compositor extracted from internal action, and canonical
+evidence follows from the functor rules; there is no additional admission
+through a strict-functor wrapper. Transformations remain conventional lax.
+Their strict classifier is useful precisely because strict functors do not
+force strictly commuting naturality squares.
 
 <!-- evidence:GRAY-WALKING-INTERCHANGER -->
 
@@ -118,8 +117,8 @@ $$
 
 The phrase *strict transfor* in this book describes this selected two-sided
 cut behavior; it is not a new classifier of categories. Ambient ordinary and
-displayed transfors retain directed comparison cells. The conventional lax
-profile selects pre/right computation while retaining the post/left cell.
+displayed transfors retain the post/left directed comparison. Pre/right
+computation is the conventional lax default, not an extra functor assumption.
 
 The third notion is runtime strictness itself. The arrow
 $t\rightsquigarrow u$ records a chosen normal form in the Lambdapi theory.
@@ -137,52 +136,81 @@ do compute.
 > dimension/object truncation and the two profiled `tapp1` naturality
 > reductions. No checked theorem identifies these interfaces.
 
-## 14.4 Opposite Duality Computes
+## 14.4 Dualities At Different Dimensions
 
-For every native category $C$, the opposite category has the same objects and
-reversed homs:
+An opposite operation must specify which dimensions it reverses. Write
 
 $$
-\operatorname{Hom}_{C^{\mathrm{op}}}(x,y)
-=\operatorname{Hom}_{C}(y,x).
+T(C)=\mathsf{Op}(C),\qquad
+R(C)=\mathsf{CoAbove2}(C),\qquad
+O(C)=R(T(C)).
 $$
 
-Identity arrows are unchanged, while the factors of composition reverse.
-The active operation is involutive not only on categories but through the
-iterable functor and transfor layers:
+| Operation | Reversed dimensions | Native owner |
+| --- | --- | --- |
+| $T$ | dimension 1 only | `Op_cat` |
+| $R$ | dimensions 2, 3, … | `CoAbove2_cat` |
+| $O$ | every positive dimension | `TotalOp_cat` |
+| $C_2$ | dimension 2 only | `CoAt2_cat` |
+
+All preserve the object carrier. Their Hom projections explain the difference:
 
 $$
 \begin{aligned}
-(C^{\mathrm{op}})^{\mathrm{op}}&\rightsquigarrow C,\\
-(F^{\mathrm{op}})^{\mathrm{op}}&\rightsquigarrow F,\\
-(\alpha^{\mathrm{op}})^{\mathrm{op}}&\rightsquigarrow\alpha.
+\operatorname{Hom}_{T(C)}(x,y)&=\operatorname{Hom}_C(y,x),\\
+\operatorname{Hom}_{R(C)}(x,y)&=O(\operatorname{Hom}_C(x,y)),\\
+\operatorname{Hom}_{O(C)}(x,y)&=O(\operatorname{Hom}_C(y,x)).
 \end{aligned}
 $$
 
-Opposite reverses vertical composition of transfors. It also turns an
-adjunction
+Thus ordinary Hom uses $T(C)$ in its contravariant object slot. Replacing it
+by $O(C)$ would also reverse the higher cells in that slot. For an ordinary
+one-category the distinction disappears, since its Homs are discrete. It
+cannot be suppressed for a general native category.
+
+These operations are involutive. Their actions on functors retain the same
+specified dimensions, but their actions on transformations have different
+profiles. Fibre transpose uses strict transformations; total opposite acts
+on ordinary lax transformations as well. For example, if $\eta:F\Rightarrow G$,
+total duality gives
 
 $$
-F\dashv G
+O(\eta):O(G)\Rightarrow O(F):O(A)\to O(B).
 $$
 
-into
+The reversal includes the higher naturality cell. It is not obtained by
+reversing component arrows while leaving that cell untouched.
+
+For a family $E:K\to\mathsf{Cat}_{\mathrm{cart}}$, the corresponding whole
+fibre operations also change the base:
 
 $$
-G^{\mathrm{op}}\dashv F^{\mathrm{op}}.
+T_{\mathrm{fib}}(E):C_2(K)\to\mathsf{Cat}_{\mathrm{cart}},\qquad
+O_{\mathrm{fib}}(E):R(K)\to\mathsf{Cat}_{\mathrm{cart}}.
 $$
 
-The new unit is the opposite of the old counit, and the new counit is the
-opposite of the old unit. Applying opposite twice reduces to the original
-adjunction package. This is a computational duality, not a silent convention
-that suppresses variance.
+Their fibres are respectively $T(E[x])$ and $O(E[x])$. The shifted bases
+record the action on transformations between transports, not a change of
+fibre objects. Chapter 2 uses total fibre duality in the Sigma–Hom formula.
+
+The native adjunction operation uses total opposite. It sends
+
+$$
+F\dashv G:A\rightleftarrows B
+\qquad\text{to}\qquad
+O(G)\dashv O(F):O(B)\rightleftarrows O(A).
+$$
+
+The new unit is the total opposite of the old counit, and conversely.
+Applying the operation twice computes back to the original package.
 
 <!-- evidence:OP-DUALITY -->
 
-> **Formal status — checked.** Evidence `OP-DUALITY`. The principal owners
-> are `Op_cat`, `Op_func`, `Op_transf`, and `Op_adjunction`. Their
-> involution and variance-reversal rules are the checked basis for the
-> weighted-colimit duality in Chapter 17.
+> **Formal status — checked.** Evidence `OP-DUALITY`. `Op_transf` uses the
+> Cartesian transformation profile; `TotalOp_transf` acts on ordinary
+> transfors. Despite its retained name, `Op_adjunction` uses `TotalOp_cat`,
+> `TotalOp_func`, and `TotalOp_transf`. These are distinct contracts, not
+> alternative spellings of one unrestricted opposite.
 
 ## 14.5 Dagger Structure Is Chosen Self-Duality
 
@@ -264,8 +292,10 @@ The three reversal notions have different input data.
 | categorical duality | a chosen equivalence $C^{\mathrm{op}}\simeq D$ | a comparison between two categories |
 | dagger | a chosen identity-on-objects involutive map $C^{\mathrm{op}}\to C$ | a unitary notion internal to $C$ |
 
-A native dagger would have to act at every retained hom dimension. At minimum
-it would require:
+A native dagger must first specify which duality is intended. The following
+list uses $T(C)$ as the object-direction opposite; a total dagger would use
+$O(C)$ instead and require the corresponding higher action. At minimum it
+would require:
 
 1. a functor $D:C^{\mathrm{op}}\to C$;
 2. identity-on-objects data, with an explicit decision about whether it
@@ -279,8 +309,8 @@ it would require:
 
 The ordinary equations above are a plausible strict specialization of this
 design, not a license to erase the higher coherence. In particular,
-`Op_cat` supplies only the first half of the ambient reversal and cannot
-serve as a native dagger by itself.
+neither `Op_cat` nor `TotalOp_cat` supplies a chosen map back into $C$.
+Neither operation is a native dagger by itself.
 
 <!-- evidence:NATIVE-DAGGER-INTERFACE -->
 
@@ -306,8 +336,10 @@ $$
 \end{aligned}
 $$
 
-Chapter 17 will use these checked opposite owners to derive the colimit
-preservation theorem rather than repeat the limit proof with reversed arrows.
+Chapter 17 uses dimension-one transpose and product-swap profunctor duality
+on the whole Hom comparison. This preserves its weighted-colimit contract
+without constructing an opposite adjunction with new unit and counit
+profiles. The separate `Op_adjunction` package uses total opposite.
 A dagger could internalize a particular self-dual instance of such an
 argument, but the general theorem needs only opposite duality. This is why the
 book includes dagger structure for conceptual completeness without making it

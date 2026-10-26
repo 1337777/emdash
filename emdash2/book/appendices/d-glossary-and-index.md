@@ -99,7 +99,7 @@ preservation of composition or an equivalence of ambient categories. See
 
 <a id="glossary-cat-family"></a>
 
-**Cat-valued directed family.** A functor $E:K\to\mathsf{Cat}$. It assigns a
+**Cat-valued directed family.** An admitted functor $E:K\to\mathsf{Cat}_{\mathrm{cart}}$. It assigns a
 category $E[k]$ to each base object and a transport functor $E[p]$
 to each directed base arrow. See [Chapter 2](#chapter-2).
 
@@ -133,9 +133,9 @@ Integer classifier. See [Chapter 26](#chapter-26).
 
 **Compositor.** The directed comparison
 $F[g]\circ F[f]\Rightarrow F[g\circ f]$ obtained by specializing whole
-transfor laxity to the identity transfor of $F$. It may become invertible in a
-path target; selected `IsStrictFunctor` evidence instead compares it with an
-equality-induced arrow without globally erasing it. See
+transfor laxity to the identity transfor of $F$. Under the strict public
+functor laws its native value is strict. General transformation post/left
+laxity can still be noninvertible; a path-valued target supplies inverses. See
 [Chapters 25](#chapter-25) and [28](#chapter-28).
 
 <a id="glossary-commutative-ring"></a>
@@ -325,10 +325,10 @@ packaged adjunction remain future interfaces. See [Chapter 27](#chapter-27).
 <a id="glossary-gray-profile"></a>
 
 **Gray profile, selected.** The category
-$\mathsf{GrayHom}_{\mathrm{lax}}(A,B)$ whose objects are opaque
-`StrictFunctor` classifiers and whose arrows are classified `LaxTransfor`
-objects. Higher homs reuse the ambient tower. The separate full subcategory
-`StrictFunctor_cat` retains ambient transfors. One checked
+$\mathsf{GrayHom}_{\mathrm{lax}}(A,B)$ whose objects are public functors
+and whose arrows are classified `LaxTransfor` objects. Higher Homs reuse the
+ambient tower. Its inclusion into the ordinary mapping category does not
+identify their distinct transformation classifiers. One checked
 right closure yields a walking-square interchanger; a full Crans–Gray
 biclosed monoidal structure is not claimed. See [Chapter 28](#chapter-28).
 
@@ -459,9 +459,10 @@ interface for categorical cells. It is distinct from a bare carrier
 
 <a id="glossary-opposite"></a>
 
-**Opposite category.** The active arrow-reversing construction
-$C\mapsto C^{\mathrm{op}}$. Opposite duality exchanges selected limit and
-colimit interfaces while preserving a visible variance ledger. See
+**Opposite category.** In native Hom and profunctor formulas, `Op_cat` is
+the dimension-one transpose $T$. `CoAbove2_cat` reverses dimensions 2 and
+above; `TotalOp_cat` reverses every positive dimension. Their actions on
+transformations and families have distinct types. See
 [Chapter 14](#chapter-14).
 
 <a id="glossary-ordinary-sieve"></a>
@@ -492,7 +493,8 @@ calculus without identifying every directed hom with equality. See
 **Path-realized pseudo-laxity.** The generic directed compositor viewed in a
 path category. Its underlying cell is an equality and therefore invertible,
 while its whole higher action is retained. This is target-induced
-pseudo-functorial behaviour, not a global strictness rule. See
+invertibility. Public functor compositors additionally have strict
+computation; general transformation laxity remains separate. See
 [Chapter 25](#chapter-25).
 
 <a id="glossary-pathout"></a>
@@ -537,14 +539,14 @@ projectivity or non-affineness proof, or a substitute for `Proj`. See
 
 **Presheaf.** A contravariant functor
 $X:\mathcal K^{\mathrm{op}}\to\mathsf{Set}$ or, in the active higher
-presentation, to $\mathsf{Cat}$. It assigns observations to stages and
+presentation, to $\mathsf{Cat}_{\mathrm{cart}}$ with domain $T(\mathcal K)$. It assigns observations to stages and
 functorial restriction to probes. See [Chapters 13](#chapter-13) and
 [18](#chapter-18).
 
 <a id="glossary-profunctor"></a>
 
 **Profunctor.** A Cat-valued functor
-$A^{\mathrm{op}}\times B\to\mathsf{Cat}$, contravariant in its first endpoint
+$T(A)\times B\to\mathsf{Cat}_{\mathrm{cart}}$, contravariant in its first endpoint
 and covariant in its second. See
 [Chapter 13](#chapter-13).
 
