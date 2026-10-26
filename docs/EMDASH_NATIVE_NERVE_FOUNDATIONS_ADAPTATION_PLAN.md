@@ -7,7 +7,7 @@ Supersedes: no donor proof or source pin; adapts the paused legacy work under re
 Side-Task-Ledger: NF stages, source-pinned audit records and the parent follow-up ledger
 Infinity-Codex-Origin: session `01a12a87-a47e-73f1-9351-1159597be30d`
 Infinity-Codex-Decision-Responses: user-authorized consolidated book/article and legacy-nerve continuation, recorded in the parent living plan
-Status: NF-1 results retained; Pi/Sigma native correction installed; affected frontend/final integration and native reconstruction remain open
+Status: native NF-1 reconstruction is the active continuation; Pi/Sigma native correction installed; frontend/final integration remain separate obligations
 Parent: [consolidated foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Receiver: `goal/strict-functor-duality-v3.2`, checkpoint `1fe72617`
 Donor: `goal/native-nerve-legacy-completion-v3.2`, checkpoint `280e7a03`
@@ -15,21 +15,27 @@ Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 
 ## Authorization and current boundary
 
+Priority correction, 2026-10-26: the user correctly noted that book/article
+work was complete and native nerve adaptation had already begun. Resume that
+native work now. The TypeScript adaptation exposed by the Pi/Sigma correction
+is required for frontend integration but is not a dependency of the Lambdapi
+walking inverse. The earlier sentence making it a prerequisite was an agent
+scheduling error. The [unfinished frontend patch](../emdash2/audits/pi_sigma_section_profile/frontend_candidate.json)
+is preserved separately, with its limited test evidence; active frontend
+files remain at the prior checkpoint until that task resumes.
+
 Native correction installed, 2026-10-26: [the integration record](../emdash2/audits/pi_sigma_section_profile/integration.json)
 qualifies the four active native files and their focused consumers. The
 frontend closures still need the corresponding explicit section construction;
-that bounded prerequisite precedes further reconstruction. No native inverse
+that obligation is separate from native reconstruction. No native inverse
 or broader nerve completion follows merely from retiring the classifier folds.
 
-Current scheduling, 2026-10-26: the user reaffirmed book/article priority.
-The limited profile clarification and refreshed local artifacts take
-precedence over further native implementation. Preserve the recorded NF-1
-results and the qualified isolated correction; do not infer completion or
-discard their remaining obligations.
-
-That documentation follow-up is now checked in local drafts `0.10.1-dev`
-and `0.4.1-dev`; see the [artifact record](EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md#refreshed-local-artifacts).
-No native source or candidate law changed during it.
+Completed documentation stage, 2026-10-26: the comprehensive revision and
+limited profile clarification are complete. Local drafts are now
+`0.10.2-dev` and `0.4.2-dev`, including the native-installation status update;
+see the [artifact record](EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md#native-correction-status-synchronization).
+This stage is no longer an execution prerequisite. Preserve the recorded
+NF-1 results and their remaining obligations.
 
 The user expanded the parent goal to adapt and finish the legacy nerve work
 after the foundations and book/article revision. The local manuscript stage

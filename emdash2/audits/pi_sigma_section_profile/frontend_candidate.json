@@ -1,0 +1,90 @@
+{
+  "schema": "emdash-pi-sigma-frontend-candidate-v1",
+  "status": "parked, incomplete frontend adaptation; not active source or qualified profile",
+  "baseRevision": "bc37e5fc68e92db58dbd9a8bc65a907e1fa938c0",
+  "patch": "frontend_candidate.patch",
+  "patchSha256": "3e7c745218b14b0813bf85e2414198b1fe93b1bad18df48317663b6939d63014",
+  "files": {
+    "src/v3_2/categorical_displayed_chain_transfer.ts": {
+      "baseSha256": "dbb1ed167d0f7ce8497f2d412f9da92ed8881fdf3535dc3383cc255ed605170b",
+      "candidateSha256": "d4f58550404b779d12f1b24a1956f58cf8642dddab71cb655c3067b02e3e1108"
+    },
+    "src/v3_2/categorical_displayed_graduation_proposal.ts": {
+      "baseSha256": "374c8aed81054d68fb80646c86fbf28bdd6e4596dde174321dfcada6c1eeca20",
+      "candidateSha256": "fae2d527ba8d060c117698334b8c812bb684b9826faa7078a6740254989c2ebd"
+    },
+    "src/v3_2/categorical_fibred_binder_contract.ts": {
+      "baseSha256": "9b6e526fce04e7a305a3564df32915da8570de8466965a597332d641dd37a4f0",
+      "candidateSha256": "b5e064a6cfc4f086bbdc7b9da2d547750f59ac855b7bd61173ff99e31611634a"
+    },
+    "src/v3_2/categorical_fibred_binder_demo.ts": {
+      "baseSha256": "18d765a4b05469794b41b8609c2da973bdbf392c40e3f9981d178d28e651ca36",
+      "candidateSha256": "b4e33a708d513a05c9b4df3bb2f4c909d836e7402a92fb754b3d67008bd487de"
+    },
+    "src/v3_2/categorical_fibred_binder_transfer.ts": {
+      "baseSha256": "170702cb14dc487dc44ee55077a981c92b322bf51153c7ec4465939ad2cb0458",
+      "candidateSha256": "fe1d11548e28036cd90b7bf96c92a304c99e13fa263daddb93926a309175e798"
+    },
+    "src/v3_2/categorical_fibred_graduation_proposal.ts": {
+      "baseSha256": "53e4e3e6457f630cb3c8f3b75639acdc834cba44bf8034c1777f854bfa086e04",
+      "candidateSha256": "72e30a9392ed63eac230abef23ce571a65a84861c46db6629b142bbecf047d9e"
+    },
+    "src/v3_2/categorical_fibred_transfd_contract.ts": {
+      "baseSha256": "90e4c2d6ad97a27cd1c36bfd280b8942ac3d2ddaadb2ba878c8a04e03a7dba15",
+      "candidateSha256": "49b4490c21b397b34fe39eeda1fe9e6c77a45df33884d474f151bdcec4f3de54"
+    },
+    "src/v3_2/categorical_fibred_transfd_demo.ts": {
+      "baseSha256": "1ecbf7278f42dab04a7c2de1da522fa3fadf496c161e32276a511fdcbcf01f62",
+      "candidateSha256": "33f56c4792858d8ac9bf4ea7e1d5241376acf3f232b0fd2e30b6fb76339098f0"
+    },
+    "src/v3_2/categorical_fibred_transfd_transfer.ts": {
+      "baseSha256": "c9a3130fabde7997c9a1450005d77a4b7eb0b9fb881622448b5d74c8f89fbf15",
+      "candidateSha256": "8512ffb7ccea2bcfbe82fc80a54d66b40101b4413c75034ebddec959f49be7be"
+    },
+    "src/v3_2/categorical_program.ts": {
+      "baseSha256": "0df1e17aaffd2d7995aae279ad0f83eafb7aac657f47c4bc5dd07435aee87074",
+      "candidateSha256": "08efead1894866a91523157d90caf7a632e87701a808895101f42948f3671115"
+    },
+    "src/v3_2/categorical_surface.ts": {
+      "baseSha256": "24058f09e2968b8040b8dc7a603ab3d415ade822a3c09de236b4d6acd4e5efef",
+      "candidateSha256": "628067dd9a48535d6951a663d5c5bdbe00f7f037ead8c3dbbfe8edfed49ef917"
+    },
+    "src/v3_2/pathind_fixed_source_transfer.ts": {
+      "baseSha256": "ebf22c06e7abe6a1868a261892918fddcda6b1b44d2e5c29629ec965e187081e",
+      "candidateSha256": "08fe5540a0c285e05be4e521d0bef70f60c9944b46129fa13362a55f086150d2"
+    },
+    "tests/v3_2_categorical_fibred_binder_contract_tests.ts": {
+      "baseSha256": "6e96129f794f52ab7a3ff0714d76b2da02eca9e0fd4f5a3deb2c3c399d5812e8",
+      "candidateSha256": "f3156017ef100490958dc92ebff703441345e533f9d52bd90ffd1fcac08c68e1"
+    },
+    "tests/v3_2_categorical_fibred_binder_demo_tests.ts": {
+      "baseSha256": "0b9032e515a6ca4f17139ebbe6e4342fc8d6b58bc97962f42b19de63e6db3d28",
+      "candidateSha256": "95b07100e7d3bc341c348eab88209dda602d7e7bf8fe3fb446b8532af8288904"
+    },
+    "tests/v3_2_categorical_fibred_binder_tests.ts": {
+      "baseSha256": "8612f508996a337952567812388580455b27bc5e234f9094bafeab9339fde1bb",
+      "candidateSha256": "5d0353da9ed567df46ed10ac09f3beffbbfb02602fc0f75d5a3dd79abd266645"
+    },
+    "tests/v3_2_categorical_fibred_binder_transfer_tests.ts": {
+      "baseSha256": "6d90e2d3670fb93f55ff4139f44255fafa784ec2f57eb1a3d2e440f4287d9f8c",
+      "candidateSha256": "5f1f83bd0c32076592379ee606a0b81df68ff90c7a46450f48b821f7019785a6"
+    },
+    "tests/v3_2_categorical_fibred_transfd_demo_tests.ts": {
+      "baseSha256": "5b2c7e046a8635ff3c32cfd14ebdbccfedd24cea626177d9799c17b827c075a0",
+      "candidateSha256": "114747080cebda87adf3a476f1a30dfb052c3d564523dd4ee75d626acefb9fed"
+    },
+    "tests/v3_2_categorical_fibred_transfd_transfer_tests.ts": {
+      "baseSha256": "1f23f110ffff7fc47907fbd18c621d625e5b9be67de7c81824e239ee208b769f",
+      "candidateSha256": "b48e80a05c6356bf0bb6650b47a0577b2029a6a32672f1eae4cb47feef4fed16"
+    }
+  },
+  "evidence": {
+    "focusedTests": "13 pass / 1 optional native check skipped in core-transfer3.log; later demo-label edits were not included in that run",
+    "typecheck": "passed before the final demo edits",
+    "nativeConformance": "not run for this candidate",
+    "aggregate": "not run; required before shared frontend integration"
+  },
+  "reason": "The frontend repair is a later integration obligation, not a prerequisite for the native walking inverse. User corrected the continuation priority.",
+  "resume": "Apply the retained patch to the pinned baseline or explicitly adapt it to later sources; finish chain/PathInd consumers, demos, source review, conformance and proportional aggregate qualification. Do not simply advance source hashes.",
+  "applyCommand": "git apply --unidiff-zero emdash2/audits/pi_sigma_section_profile/frontend_candidate.patch"
+}

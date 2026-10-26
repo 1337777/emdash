@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active consolidated goal; book/article follow-up complete; Pi/Sigma correction installed in native sources; affected frontend and final integration remain open
+Status: active consolidated goal; book/article complete; native nerve reconstruction resumed after Pi/Sigma correction; affected frontend and final integration remain open separately
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -42,6 +42,17 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+User correction, 2026-10-26: book/article updates were already complete and
+the nerve migration had already resumed. The Pi/Sigma correction arose from
+that native work and is now installed. Its TypeScript follow-up is not a
+prerequisite for the native inverse; the earlier ordering below was mistaken.
+Resume NF-1, specifically the original universal-graph section versus the
+tautological Sigma section and the second whole walking inverse. Preserve
+the [unfinished frontend candidate](../emdash2/audits/pi_sigma_section_profile/frontend_candidate.json)
+as a separate integration task. It has bounded partial evidence, not a new
+qualified frontend snapshot. The original frontend files were restored only
+after the complete candidate diff was saved and its application verified.
+
 Native profile correction, 2026-10-26: the four active source/reviewer files
 now match the validated Pi/Sigma patch exactly. Fresh production core and
 focused Sigma/PathInd/J checks pass under 90s/2 GiB; registry, rule audit,
@@ -49,8 +60,8 @@ catalog, TOC and report headers pass. The 141 existing inputs of the earlier
 complete central/groupoidal check rehash unchanged, so that result is carried
 forward at its actual scope. [Integration evidence](../emdash2/audits/pi_sigma_section_profile/integration.json)
 also records the remaining frontend gap: active binder, displayed-next-Hom
-and PathInd transfers still encode the retired comparison/folds. Next adapt
-those actual consumers through the existing forward section constructor;
+and PathInd transfers still encode the retired comparison/folds. Their later
+integration must use the existing forward section constructor;
 do not merely refresh their source pins. Broad health/final integration and
 native reconstruction remain open. The previous documentation turn made
 concrete progress and its local artifacts remain dated snapshots.

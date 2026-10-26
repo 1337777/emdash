@@ -6,6 +6,14 @@ Baseline: `81157237`; the isolated evidence below retains that original source b
 
 ## Native integration
 
+The [frontend candidate record](frontend_candidate.json) and
+[patch](frontend_candidate.patch) preserve the unfinished TypeScript work
+against `bc37e5fc`. The tested binder/transfor portion passed 13 cases with
+one optional native check skipped; later demo edits and the full chain/PathInd
+consumer closure remain unqualified. This is not active source or a claimed
+frontend migration. The user corrected the scheduling: native nerve work
+continues independently of this later frontend integration obligation.
+
 The four active native source/reviewer files now exactly match the qualified
 patch outputs. The [integration record](integration.json) pins those bytes,
 fresh production core and focused-consumer receipts, unchanged warning

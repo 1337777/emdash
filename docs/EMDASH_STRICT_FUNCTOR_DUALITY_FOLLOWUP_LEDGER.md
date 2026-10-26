@@ -2,7 +2,16 @@
 
 Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: book/article follow-up complete; native Pi/Sigma correction installed; affected frontend integration next; broad health/final integration remain deferred
+Status: book/article complete; native Pi/Sigma correction installed; NF-1 reconstruction active; affected frontend candidate preserved separately; broad health/final integration remain deferred
+
+Priority correction, 2026-10-26: frontend adaptation is not required before
+native reconstruction. The user identified the scheduling drift. The
+[18-file candidate](../emdash2/audits/pi_sigma_section_profile/frontend_candidate.json)
+is retained with source hashes and a reversible patch; its tested portion
+passed 13 cases with one optional native check skipped, but final consumers,
+conformance and aggregate qualification remain unfinished. Active frontend
+files are restored to their checkpoint bytes. Continue the native second
+inverse on the already-corrected Lambdapi source; do not restart book work.
 
 Pi/Sigma native integration: the [source/gate record](../emdash2/audits/pi_sigma_section_profile/integration.json)
 confirms exact installation of all four qualified outputs, fresh core/focused

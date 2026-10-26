@@ -1,0 +1,726 @@
+--- a/src/v3_2/categorical_displayed_chain_transfer.ts
++++ b/src/v3_2/categorical_displayed_chain_transfer.ts
+@@ -12,0 +13,2 @@
++
++import { CORE_CATEGORICAL_FIBRED_BINDER_FORWARD_LINKAGE } from './categorical_fibred_binder_transfer';
+@@ -1043,37 +1044,0 @@
+-const sigmaSectionType = (): CoreLfTransferExpression => {
+-    const builder = new CoreLfTransferScopedBuilder();
+-    return builder.term(builder.pi(
+-        'K',
+-        builder.global(category),
+-        K => builder.pi(
+-            'R',
+-            displayedFamilyType(builder, K),
+-            R => builder.pi(
+-                'D',
+-                displayedFamilyType(builder, K),
+-                D => builder.pi(
+-                    'FF',
+-                    displayedFunctorType(builder, K, R, D),
+-                    _FF => objectType(
+-                        builder,
+-                        sectionCategoryAt(
+-                            builder,
+-                            sigmaTotal(builder, K, R),
+-                            sigmaProjectionPullbackAt(
+-                                builder,
+-                                K,
+-                                R,
+-                                D
+-                            )
+-                        )
+-                    ),
+-                    explicitMode
+-                ),
+-                implicitMode
+-            ),
+-            implicitMode
+-        ),
+-        implicitMode
+-    ));
+-};
+-
+@@ -1153,14 +1118,2 @@
+-const semanticDeclarations:
+-readonly CoreLfTransferDeclaration[] = Object.freeze([
+-    Object.freeze({
+-        order: 0,
+-        symbol: sigmaFunctordSection,
+-        type: sigmaSectionType(),
+-        body: coreLfTransferAbsentBody(),
+-        modifiers: modifiers('injective', 'opaque'),
+-        provenance: source(
+-            'injective symbol sigma_functord_sec [K : Cat] ' +
+-                '[R D : τ (Catd K)]'
+-        )
+-    })
+-]);
++// sigma_functord_sec is inherited from the earlier binder/section closure.
++const semanticDeclarations: readonly CoreLfTransferDeclaration[] = Object.freeze([]);
+@@ -1244,0 +1198 @@
++    ...CORE_CATEGORICAL_FIBRED_BINDER_FORWARD_LINKAGE.entries,
+@@ -1815,0 +1770 @@
++    sigmaFunctordSection,
+--- a/src/v3_2/categorical_displayed_graduation_proposal.ts
++++ b/src/v3_2/categorical_displayed_graduation_proposal.ts
+@@ -395 +395 @@
+-            newMathematicalOwners: 1,
++            newMathematicalOwners: 0,
+--- a/src/v3_2/categorical_fibred_binder_contract.ts
++++ b/src/v3_2/categorical_fibred_binder_contract.ts
+@@ -10 +10 @@
+-    'FIBRED-BINDER-1-DIRECT-NESTED-CONTRACT-1' as const;
++    'FIBRED-BINDER-1-EXPLICIT-SECTION-CONTRACT-2' as const;
+@@ -60 +60 @@
+-        proofTimeRelation: 'active-sigma-pi-uncurrying-unification',
++        proofTimeRelation: 'distinct-classifiers-with-forward-section-map',
+@@ -74,3 +74 @@
+-        proofRules: [
+-            'sigma-pi-uncurrying'
+-        ],
++        proofRules: [],
+@@ -83 +81 @@
+-            'SCALE-STRESS-2A source-ordered declaration/proof fragment'
++            'SCALE-STRESS-2A declarations without the retired classifier comparison'
+@@ -125 +123 @@
+-            'active-sigma-pi-uncurrying-unification' ||
++            'distinct-classifiers-with-forward-section-map' ||
+--- a/src/v3_2/categorical_fibred_binder_demo.ts
++++ b/src/v3_2/categorical_fibred_binder_demo.ts
+@@ -52 +52 @@
+-        readonly proofTime: 'solved';
++        readonly proofTime: 'stuck';
+@@ -54 +54 @@
+-        readonly proofRuleId: 'stress.sigma-pi.uncurrying';
++        readonly proofRuleId: null;
+@@ -173 +173 @@
+-        compatibility.proofTime.status !== 'solved' ||
++        compatibility.proofTime.status !== 'stuck' ||
+@@ -175,2 +175 @@
+-        compatibility.proofTime.ruleApplications[0]?.ruleId !==
+-            'stress.sigma-pi.uncurrying'
++        compatibility.proofTime.ruleApplications.length !== 0
+@@ -251 +250 @@
+-            proofTime: 'solved' as const,
++            proofTime: 'stuck' as const,
+@@ -253 +252 @@
+-            proofRuleId: 'stress.sigma-pi.uncurrying' as const
++            proofRuleId: null
+@@ -297,2 +296 @@
+-        '  proof-time comparison: solved via ' +
+-            result.classifierCompatibility.proofRuleId,
++        '  proof-time comparison: stuck (use the explicit forward section map)',
+--- a/src/v3_2/categorical_fibred_binder_transfer.ts
++++ b/src/v3_2/categorical_fibred_binder_transfer.ts
+@@ -4,4 +4,4 @@
+- * The exact SCALE-STRESS-2A Catd/Sigma-projection declarations and
+- * Sigma/Pi proof rule are compiled unchanged on top of FIBRED-STRUCTURE-1A.
+- * This promotes no new mathematical declaration or rule: it reuses the
+- * already-active authority in the first root-only usability consumer.
++ * The Catd/Sigma-projection declarations are reused on top of
++ * FIBRED-STRUCTURE-1A. The historical SCALE-STRESS-2A category comparison is
++ * not installed: displayed maps enter the broader Sigma section category
++ * through its explicit forward constructor.
+@@ -25,0 +26 @@
++    CORE_DIRECTED_CONTINUATION_TRANSFER_LINKAGE,
+@@ -30,0 +32 @@
++    binderMode,
+@@ -43,0 +46,2 @@
++    coreLfQualifiedSymbol,
++    coreLfTransferAbsentBody,
+@@ -53 +57,3 @@
+-    compileCoreLfMixedPhases
++    compileCoreLfMixedPhases,
++    createCoreLfMixedDeclarationLinkage,
++    planCoreLfMixedPhases
+@@ -68,0 +75 @@
++    CORE_LF_SCALE_STRESS_2A_POLICY,
+@@ -73 +80 @@
+-    'FIBRED-BINDER-1-EXISTING-SIGMA-PI-CLOSURE-1' as const;
++    'FIBRED-BINDER-1-EXPLICIT-SIGMA-SECTION-2' as const;
+@@ -410,0 +418,81 @@
++const sigmaCategory = coreDirectedContinuationTransferSymbol('sigma-category');
++const sectionCategory = coreDirectedContinuationTransferSymbol('section-category');
++const sigmaSection = coreLfQualifiedSymbol(MODULE_ID, 'sigma_functord_sec');
++const sigmaSectionFunctor = coreLfQualifiedSymbol(MODULE_ID, 'sigma_functord_sec_func');
++const implicitMode = binderMode('implicit', 'functorial');
++const explicitMode = binderMode('explicit', 'functorial');
++
++const forwardClassifiers = (
++    b: CoreLfTransferScopedBuilder,
++    K: CoreLfTransferBuilderExpression,
++    R: CoreLfTransferBuilderExpression,
++    D: CoreLfTransferBuilderExpression
++) => ({
++    direct: globalCall(b, displayedFunctorCategory, [
++        { plicity: 'implicit', value: K },
++        { plicity: 'explicit', value: R },
++        { plicity: 'explicit', value: D }
++    ]),
++    section: globalCall(b, sectionCategory, [
++        { plicity: 'implicit', value: globalCall(b, sigmaCategory, [
++            { plicity: 'implicit', value: K },
++            { plicity: 'explicit', value: R }
++        ]) },
++        { plicity: 'explicit', value: globalCall(b, sigmaProjectionPullback, [
++            { plicity: 'implicit', value: K },
++            { plicity: 'explicit', value: R },
++            { plicity: 'explicit', value: D }
++        ]) }
++    ])
++});
++
++const forwardType = (whole: boolean) => {
++    const b = new CoreLfTransferScopedBuilder();
++    return b.term(b.pi('K', b.global(category), K =>
++        b.pi('R', displayedFamilyType(b, K), R =>
++            b.pi('D', displayedFamilyType(b, K), D => {
++                const { direct, section } = forwardClassifiers(b, K, R, D);
++                return whole ? functorType(b, direct, section)
++                    : b.pi('FF', objectType(b, direct),
++                        () => objectType(b, section), explicitMode);
++            }, implicitMode), implicitMode), implicitMode));
++};
++
++const forwardApply = (
++    b: CoreLfTransferScopedBuilder,
++    K: CoreLfTransferBuilderExpression,
++    R: CoreLfTransferBuilderExpression,
++    D: CoreLfTransferBuilderExpression,
++    FF?: CoreLfTransferBuilderExpression
++) => globalCall(b, FF === undefined ? sigmaSectionFunctor : sigmaSection, [
++    { plicity: 'implicit', value: K },
++    { plicity: 'implicit', value: R },
++    { plicity: 'implicit', value: D },
++    ...(FF === undefined ? [] : [{ plicity: 'explicit' as const, value: FF }])
++]);
++
++const forwardObjectRule = (): CoreLfTransferRuntimeRule => {
++    const b = new CoreLfTransferScopedBuilder();
++    const K = b.capture('K'), R = b.capture('R'), D = b.capture('D'), FF = b.capture('FF');
++    const { direct, section } = forwardClassifiers(b, K, R, D);
++    return {
++        order: 4,
++        id: 'categorical.sigma-section.forward-object',
++        groupId: 'categorical.sigma-section.forward-object',
++        clauseOrder: 0,
++        sourceOwner: functorObject,
++        variables: [
++            { name: 'K', type: b.template(b.global(category)) },
++            { name: 'R', type: b.template(displayedFamilyType(b, K)) },
++            { name: 'D', type: b.template(displayedFamilyType(b, K)) },
++            { name: 'FF', type: b.template(objectType(b, direct)) }
++        ],
++        left: b.pattern(fapp0At(b, b.wildcard(direct), b.wildcard(section),
++            forwardApply(b, K, R, D), FF)),
++        right: b.template(forwardApply(b, K, R, D, FF)),
++        provenance: {
++            authorityPath: 'emdash2/emdash3_2.lp',
++            sourceFragment: 'rule @fapp0 _ _ (@sigma_functord_sec_func $K $R $D) $FF ↪ @sigma_functord_sec $K $R $D $FF;'
++        }
++    };
++};
+@@ -435 +523,3 @@
+-        localCoreName(sigmaProjectionPullback)
++        localCoreName(sigmaProjectionPullback),
++    sigmaFunctordSection: 'emdash_v3_2_displayed_chain_1a_sigma_functord_sec',
++    sigmaFunctordSectionFunctor: 'emdash_v3_2_fibred_binder_sigma_functord_sec_func'
+@@ -448,0 +539,78 @@
++
++// Retain the historical stress program only in its isolated test. The active
++// closure reuses its declarations and has no Sigma/Pi classifier equality.
++const activeModule = createCoreLfModuleSpec({
++    ...CORE_LF_SCALE_STRESS_2A_MODULE,
++    revision: CORE_CATEGORICAL_FIBRED_BINDER_TRANSFER_REVISION,
++    fragmentId: 'categorical-fibred-binder-forward-section',
++    sourceSha256: 'sha256:fe85009da18343b8e5a0d70f7661a385af5b8f66cbdfb8d6d453a2cf59bee21e',
++    externalSymbols: [
++        ...CORE_LF_SCALE_STRESS_2A_MODULE.externalSymbols,
++        ...[functorClassifier, functorObject].map(symbol => ({
++            symbol, availability: 'earlier-fragment' as const
++        }))
++    ],
++    declarations: [
++        ...CORE_LF_SCALE_STRESS_2A_MODULE.declarations,
++        ...[sigmaSection, sigmaSectionFunctor].map((symbol, i) => ({
++            order: i + 2,
++            symbol,
++            type: forwardType(i === 1),
++            body: coreLfTransferAbsentBody(),
++            modifiers: { visibility: 'public' as const, rigidity: 'injective' as const,
++                sourceOpacity: 'opaque' as const },
++            provenance: { authorityPath: 'emdash2/emdash3_2.lp',
++                sourceFragment: `injective symbol ${symbol.name} [K : Cat]` }
++        }))
++    ],
++    proofRules: [],
++    runtimeRules: [forwardObjectRule()]
++});
++const activePolicy = createCoreLfTransferPolicyOverlay(activeModule, {
++    revision: 'FIBRED-BINDER-1-EXPLICIT-SIGMA-SECTION-POLICY-2',
++    moduleRevision: activeModule.revision,
++    entries: [
++        ...CORE_LF_SCALE_STRESS_2A_POLICY.entries.filter(
++            entry => entry.target.kind !== 'proof-rule'
++        ),
++        ...[sigmaSection, sigmaSectionFunctor].map((symbol, i) => ({
++            order: i + 2, target: { kind: 'declaration' as const, symbol },
++            policy: 'opaque-signature' as const,
++            evidence: 'Existing native forward section owner, without classifier retyping'
++        })),
++        { order: 4, target: { kind: 'runtime-rule' as const,
++            id: 'categorical.sigma-section.forward-object' },
++        policy: 'runtime-rewrite' as const, evidence: 'Existing whole forward functor object projection' }
++    ]
++});
++const activePlan = planCoreLfMixedPhases(activeModule, activePolicy);
++export const CORE_CATEGORICAL_FIBRED_BINDER_FORWARD_LINKAGE =
++    createCoreLfMixedDeclarationLinkage(activePlan, {
++        revision: 'FIBRED-BINDER-1-FORWARD-SECTION-LINKAGE-2',
++        moduleRevision: activeModule.revision,
++        entries: [
++            ...CORE_LF_SCALE_STRESS_2A_LINKAGE.entries,
++            ...[functorClassifier, functorObject].map(symbol => {
++                const link = CORE_DIRECTED_CONTINUATION_TRANSFER_LINKAGE.entries.find(
++                    entry => entry.symbol.moduleId === symbol.moduleId && entry.symbol.name === symbol.name);
++                if (!link) throw new Error(`Missing forward section dependency ${symbol.name}`);
++                return link;
++            }),
++            { symbol: sigmaSection, kind: 'free-declaration' as const,
++                coreName: CORE_CATEGORICAL_FIBRED_BINDER_CORE_NAMES.sigmaFunctordSection,
++                backendName: sigmaSection.name },
++            { symbol: sigmaSectionFunctor, kind: 'free-declaration' as const,
++                coreName: CORE_CATEGORICAL_FIBRED_BINDER_CORE_NAMES.sigmaFunctordSectionFunctor,
++                backendName: sigmaSectionFunctor.name }
++        ].map((entry, order) => ({ ...entry, order }))
++    });
++const emptyProofModule = createCoreLfModuleSpec({
++    ...proofPhase.module,
++    revision: 'FIBRED-BINDER-1-NO-CLASSIFIER-EQUALITY-2',
++    proofRules: []
++});
++const emptyProofPolicy = createCoreLfTransferPolicyOverlay(emptyProofModule, {
++    revision: 'FIBRED-BINDER-1-NO-CLASSIFIER-EQUALITY-POLICY-2',
++    moduleRevision: emptyProofModule.revision,
++    entries: []
++});
+@@ -523 +691,3 @@
+-        'Sigma_proj1_pullback_catd'
++        'Sigma_proj1_pullback_catd',
++        'sigma_functord_sec',
++        'sigma_functord_sec_func'
+@@ -525,6 +695,4 @@
+-    proofRuleIds: Object.freeze([
+-        'stress.sigma-pi.uncurrying'
+-    ]),
+-    declarationCount: 2,
+-    proofRuleCount: 1,
+-    runtimeRuleCount: 2,
++    proofRuleIds: Object.freeze([] as string[]),
++    declarationCount: 4,
++    proofRuleCount: 0,
++    runtimeRuleCount: 3,
+@@ -534 +702,2 @@
+-        'categorical.family-coefficient.composition'
++        'categorical.family-coefficient.composition',
++        'categorical.sigma-section.forward-object'
+@@ -539 +708 @@
+-    proofTimeComparisonInstalled: true,
++    proofTimeComparisonInstalled: false,
+@@ -582,2 +751,2 @@
+-        CORE_LF_SCALE_STRESS_2A_PLAN,
+-        CORE_LF_SCALE_STRESS_2A_LINKAGE,
++        activePlan,
++        CORE_CATEGORICAL_FIBRED_BINDER_FORWARD_LINKAGE,
+@@ -586 +755 @@
+-            initialCheckingRuntime: runtimeFragment.runtime
++            runtimeDependencies: [{ relation: 'earlier-fragment', fragment: runtimeFragment }]
+@@ -594,2 +763 @@
+-    const proofProgram = mixed.proofProgram;
+-    if (compiled === undefined || proofProgram === undefined) {
++    if (compiled === undefined) {
+@@ -599,0 +768,6 @@
++    const proofProgram = compileCoreLfProofProgram(
++        emptyProofModule, emptyProofPolicy, mixed.declarations,
++        { runtimeProgram: mixed.latestRuntime?.runtime }
++    );
++    const wholeRuntime = mixed.latestRuntime;
++    if (!wholeRuntime) throw new Error('Missing forward section runtime');
+@@ -606,3 +780,3 @@
+-        runtimeFragment,
+-        runtime: runtimeFragment.localProgram,
+-        composedRuntime: runtimeFragment.runtime
++        runtimeFragment: wholeRuntime,
++        runtime: wholeRuntime.localProgram,
++        composedRuntime: wholeRuntime.runtime
+@@ -613,3 +787,2 @@
+- * Recheck the exact proof rule in a descendant user declaration
+- * environment. The qualified authority declarations still come from the
+- * immutable transfer context; only user assumptions are added.
++ * Provide ordinary comparison in a descendant environment without the
++ * retired Sigma/Pi classifier equality. No proof rule is installed here.
+@@ -622,2 +795,2 @@
+-        proofPhase.module,
+-        proofPhase.policy,
++        emptyProofModule,
++        emptyProofPolicy,
+--- a/src/v3_2/categorical_fibred_graduation_proposal.ts
++++ b/src/v3_2/categorical_fibred_graduation_proposal.ts
+@@ -204,3 +204,3 @@
+-                declarationSlots: 2,
+-                runtimeRuleSlots: 3,
+-                proofRuleSlots: 1,
++                declarationSlots: 4,
++                runtimeRuleSlots: 4,
++                proofRuleSlots: 0,
+@@ -214 +214 @@
+-                runtimeRuleSlots: 21,
++                runtimeRuleSlots: 19,
+@@ -241,3 +241,3 @@
+-            declarationSlots: 48,
+-            runtimeRuleSlots: 96,
+-            proofRuleSlots: 3,
++            declarationSlots: 50,
++            runtimeRuleSlots: 95,
++            proofRuleSlots: 2,
+@@ -555 +555 @@
+-            .declarationSlots !== 48 ||
++            .declarationSlots !== 50 ||
+@@ -557 +557 @@
+-            .runtimeRuleSlots !== 96 ||
++            .runtimeRuleSlots !== 95 ||
+@@ -559 +559 @@
+-            .proofRuleSlots !== 3 ||
++            .proofRuleSlots !== 2 ||
+--- a/src/v3_2/categorical_fibred_transfd_contract.ts
++++ b/src/v3_2/categorical_fibred_transfd_contract.ts
+@@ -68 +68 @@
+-            'Sigma_proj1_pullback_catd(E,D)),FF,GG)',
++            'Sigma_proj1_pullback_catd(E,D)),sigma_functord_sec(FF),sigma_functord_sec(GG))',
+@@ -74 +74 @@
+-            'active-next-hom-and-sigma-uncurrying-reduction',
++            'distinct-section-hom-with-forward-functor-action',
+@@ -94,2 +93,0 @@
+-            'Sigma/Pi object-classifier uncurrying join',
+-            'Sigma/Pi next-hom uncurrying',
+--- a/src/v3_2/categorical_fibred_transfd_demo.ts
++++ b/src/v3_2/categorical_fibred_transfd_demo.ts
+@@ -54 +54 @@
+-        readonly directSigmaPiRuntime: 'equal';
++        readonly directSigmaPiRuntime: 'not-equal';
+@@ -186 +186 @@
+-        compatibility.directSigmaPiRuntime.status !== 'equal' ||
++        compatibility.directSigmaPiRuntime.status !== 'not-equal' ||
+@@ -279 +279 @@
+-            directSigmaPiRuntime: 'equal' as const,
++            directSigmaPiRuntime: 'not-equal' as const,
+--- a/src/v3_2/categorical_fibred_transfd_transfer.ts
++++ b/src/v3_2/categorical_fibred_transfd_transfer.ts
+@@ -4 +4 @@
+- * This module selects eight active v3.2 declarations, twenty-one existing
++ * This module selects active v3.2 declarations and nineteen existing
+@@ -1852,151 +1851,0 @@
+-const sigmaPiObjectJoinRule =
+-(): CoreLfTransferRuntimeRule => {
+-    const builder = new CoreLfTransferScopedBuilder();
+-    const K = builder.capture('K');
+-    const R = builder.capture('R');
+-    const D = builder.capture('D');
+-    const sigma = sigmaCategoryAt(builder, K, R);
+-    const constantTerminal = constantFamilyAt(
+-        builder,
+-        sigma,
+-        builder.global(terminalCategory)
+-    );
+-    const pullback = globalCall(
+-        builder,
+-        sigmaProjectionPullback,
+-        [
+-            { plicity: 'implicit', value: K },
+-            { plicity: 'explicit', value: R },
+-            { plicity: 'explicit', value: D }
+-        ]
+-    );
+-    return {
+-        order: 3,
+-        id: 'categorical.transfd.sigma-pi-object-join',
+-        groupId: 'categorical.transfd.sigma-pi-object-join',
+-        clauseOrder: 0,
+-        sourceOwner: objectClassifier,
+-        variables: [
+-            {
+-                name: 'K',
+-                type: builder.template(builder.global(category))
+-            },
+-            {
+-                name: 'R',
+-                type: builder.template(displayedFamilyType(builder, K))
+-            },
+-            {
+-                name: 'D',
+-                type: builder.template(displayedFamilyType(builder, K))
+-            }
+-        ],
+-        left: builder.pattern(objectClassifierAt(
+-            builder,
+-            transforCategoryAt(
+-                builder,
+-                sigma,
+-                builder.global(familyCoefficient),
+-                constantTerminal,
+-                pullback
+-            )
+-        )),
+-        right: builder.template(objectClassifierAt(
+-            builder,
+-            transforCategoryAt(
+-                builder,
+-                K,
+-                builder.global(familyCoefficient),
+-                R,
+-                D
+-            )
+-        )),
+-        provenance: source(
+-            'rule Obj (@Transf_cat (@Sigma_cat $K $R) Cat_cart ' +
+-            '(@Const_catd (@Sigma_cat $K $R) Terminal_cat) ' +
+-            '(@Sigma_proj1_pullback_catd $K $R $D)) ↪ ' +
+-            'Obj (@Transf_cat $K Cat_cart $R $D)'
+-        )
+-    };
+-};
+-
+-const sigmaPiNextHomRule =
+-(): CoreLfTransferRuntimeRule => {
+-    const builder = new CoreLfTransferScopedBuilder();
+-    const K = builder.capture('K');
+-    const R = builder.capture('R');
+-    const D = builder.capture('D');
+-    const s = builder.capture('s');
+-    const t = builder.capture('t');
+-    const sigma = sigmaCategoryAt(builder, K, R);
+-    const constantTerminal = constantFamilyAt(
+-        builder,
+-        sigma,
+-        builder.global(terminalCategory)
+-    );
+-    const pullback = globalCall(
+-        builder,
+-        sigmaProjectionPullback,
+-        [
+-            { plicity: 'implicit', value: K },
+-            { plicity: 'explicit', value: R },
+-            { plicity: 'explicit', value: D }
+-        ]
+-    );
+-    const pi = sectionCategoryAt(builder, sigma, pullback);
+-    return {
+-        order: 4,
+-        id: 'categorical.transfd.sigma-pi-next-hom',
+-        groupId: 'categorical.transfd.sigma-pi-next-hom',
+-        clauseOrder: 0,
+-        sourceOwner: displayedTransformationCategory,
+-        variables: [
+-            {
+-                name: 'K',
+-                type: builder.template(builder.global(category))
+-            },
+-            {
+-                name: 'R',
+-                type: builder.template(displayedFamilyType(builder, K))
+-            },
+-            {
+-                name: 'D',
+-                type: builder.template(displayedFamilyType(builder, K))
+-            },
+-            {
+-                name: 's',
+-                type: builder.template(objectType(builder, pi))
+-            },
+-            {
+-                name: 't',
+-                type: builder.template(objectType(builder, pi))
+-            }
+-        ],
+-        left: builder.pattern(
+-            displayedTransformationCategoryAt(
+-                builder,
+-                sigma,
+-                constantTerminal,
+-                pullback,
+-                s,
+-                t
+-            )
+-        ),
+-        right: builder.template(
+-            displayedTransformationCategoryAt(
+-                builder,
+-                K,
+-                R,
+-                D,
+-                s,
+-                t
+-            )
+-        ),
+-        provenance: source(
+-            'rule @Transfd_cat (@Sigma_cat $K $R) ' +
+-            '(@Const_catd (@Sigma_cat $K $R) Terminal_cat) ' +
+-            '(@Sigma_proj1_pullback_catd $K $R $D) $s $t ↪ ' +
+-            '@Transfd_cat $K $R $D $s $t'
+-        )
+-    };
+-};
+-
+@@ -3220,2 +3068,0 @@
+-    sigmaPiObjectJoinRule(),
+-    sigmaPiNextHomRule(),
+@@ -3631,2 +3478,18 @@
+-            { value: sourceFunctor },
+-            { value: targetFunctor }
++            { value: kernelCall(kernelFree(
++                CORE_CATEGORICAL_FIBRED_BINDER_CORE_NAMES.sigmaFunctordSection,
++                nodeProvenance
++            ), [
++                { plicity: 'implicit', value: base },
++                { plicity: 'implicit', value: sourceFamily },
++                { plicity: 'implicit', value: targetFamily },
++                { plicity: 'explicit', value: sourceFunctor }
++            ], nodeProvenance) },
++            { value: kernelCall(kernelFree(
++                CORE_CATEGORICAL_FIBRED_BINDER_CORE_NAMES.sigmaFunctordSection,
++                nodeProvenance
++            ), [
++                { plicity: 'implicit', value: base },
++                { plicity: 'implicit', value: sourceFamily },
++                { plicity: 'implicit', value: targetFamily },
++                { plicity: 'explicit', value: targetFunctor }
++            ], nodeProvenance) }
+@@ -3687 +3550 @@
+-    sigmaPiRuntimeNextHomBridgeInstalled: true,
++    sigmaPiRuntimeNextHomBridgeInstalled: false,
+--- a/src/v3_2/categorical_program.ts
++++ b/src/v3_2/categorical_program.ts
+@@ -8990,2 +8990,3 @@
+-     * Execute the active proof-only Sigma/Pi uncurrying comparison while
+-     * retaining the negative runtime comparison.
++     * Compare the direct displayed-map and Sigma-section classifiers.
++     * They remain distinct; use the explicit forward section constructor
++     * for a value, rather than retyping either whole category.
+--- a/src/v3_2/categorical_surface.ts
++++ b/src/v3_2/categorical_surface.ts
+@@ -947 +946,0 @@
+-    | 'sigma-pi-uncurrying-proof'
+@@ -11127 +11125,0 @@
+-                        'sigma-pi-uncurrying-proof',
+@@ -12182 +12179,0 @@
+-                    'sigma-pi-uncurrying-proof',
+@@ -12225 +12221,0 @@
+-                            'sigma-pi-uncurrying-proof'
+@@ -13542 +13537,0 @@
+-                            'sigma-pi-uncurrying-proof',
+@@ -14816 +14810,0 @@
+-                    'sigma-pi-uncurrying-proof'
+--- a/src/v3_2/pathind_fixed_source_transfer.ts
++++ b/src/v3_2/pathind_fixed_source_transfer.ts
+@@ -133,0 +134 @@
++const sigmaFunctordSection = symbol('sigma_functord_sec');
+@@ -1113,7 +1114,6 @@
+-        right: builder.template(strictCovarianceAt(
+-            builder,
+-            Z,
+-            D,
+-            x,
+-            u
+-        )),
++        right: builder.template(globalCall(builder, sigmaFunctordSection, [
++            { plicity: 'implicit', value: Z },
++            { plicity: 'implicit', value: representableFamilyAt(builder, Z, x) },
++            { plicity: 'implicit', value: D },
++            { plicity: 'explicit', value: strictCovarianceAt(builder, Z, D, x, u) }
++        ])),
+@@ -1513,0 +1514 @@
++    sigmaFunctordSection,
+--- a/tests/v3_2_categorical_fibred_binder_contract_tests.ts
++++ b/tests/v3_2_categorical_fibred_binder_contract_tests.ts
+@@ -47 +47 @@
+-        it('keeps direct/nested compatibility proof-only', () => {
++        it('keeps direct/nested classifiers distinct', () => {
+@@ -53 +53 @@
+-                'active-sigma-pi-uncurrying-unification'
++                'distinct-classifiers-with-forward-section-map'
+--- a/tests/v3_2_categorical_fibred_binder_demo_tests.ts
++++ b/tests/v3_2_categorical_fibred_binder_demo_tests.ts
+@@ -44 +44 @@
+-            ['solved', 'not-equal']
++            ['stuck', 'not-equal']
+--- a/tests/v3_2_categorical_fibred_binder_tests.ts
++++ b/tests/v3_2_categorical_fibred_binder_tests.ts
+@@ -81 +80,0 @@
+-                    'sigma-pi-uncurrying-proof',
+@@ -196 +194,0 @@
+-                    'sigma-pi-uncurrying-proof',
+@@ -239 +237 @@
+-            assert.equal(compatibility.proofTime.status, 'solved');
++            assert.equal(compatibility.proofTime.status, 'stuck');
+@@ -241,4 +239 @@
+-            assert.equal(
+-                compatibility.proofTime.ruleApplications[0]?.ruleId,
+-                'stress.sigma-pi.uncurrying'
+-            );
++            assert.deepEqual(compatibility.proofTime.ruleApplications, []);
+--- a/tests/v3_2_categorical_fibred_binder_transfer_tests.ts
++++ b/tests/v3_2_categorical_fibred_binder_transfer_tests.ts
+@@ -89 +89 @@
+-                ['declaration', 'declaration', 'proof']
++                ['declaration', 'declaration', 'declaration', 'declaration', 'runtime']
+@@ -93 +93 @@
+-                ['stress.sigma-pi.uncurrying']
++                []
+@@ -109 +109 @@
+-                2
++                3
+@@ -114,2 +114 @@
+-                    'categorical.displayed-functor-composition.point',
+-                    'categorical.family-coefficient.composition'
++                    'categorical.sigma-section.forward-object'
+@@ -128 +127 @@
+-        it('solves direct/nested classifiers in both proof orientations', () => {
++        it('keeps direct/nested classifiers distinct in both proof orientations', () => {
+@@ -138,10 +137,4 @@
+-            assert.equal(forward.status, 'solved');
+-            assert.equal(symmetric.status, 'solved');
+-            assert.equal(
+-                forward.ruleApplications[0]?.ruleId,
+-                'stress.sigma-pi.uncurrying'
+-            );
+-            assert.equal(
+-                symmetric.ruleApplications[0]?.orientation,
+-                'symmetric'
+-            );
++            assert.equal(forward.status, 'stuck');
++            assert.equal(symmetric.status, 'stuck');
++            assert.deepEqual(forward.ruleApplications, []);
++            assert.deepEqual(symmetric.ruleApplications, []);
+@@ -234 +227 @@
+-                            'assert ⊢',
++                            'assertnot ⊢',
+--- a/tests/v3_2_categorical_fibred_transfd_demo_tests.ts
++++ b/tests/v3_2_categorical_fibred_transfd_demo_tests.ts
+@@ -49 +49 @@
+-            ['not-equal', 'solved', 'equal', 'equal']
++            ['not-equal', 'solved', 'equal', 'not-equal']
+--- a/tests/v3_2_categorical_fibred_transfd_transfer_tests.ts
++++ b/tests/v3_2_categorical_fibred_transfd_transfer_tests.ts
+@@ -31 +31 @@
+-    it('checks seven local declarations, inherited id, twenty-one runtime rules, and one proof rule', () => {
++    it('checks seven local declarations, inherited id, nineteen runtime rules, and one proof rule', () => {
+@@ -52 +52 @@
+-        assert.equal(compilation.runtime.rules.length, 21);
++        assert.equal(compilation.runtime.rules.length, 19);
+@@ -54 +54 @@
+-            compilation.runtime.ruleIds.slice(10, 17),
++            compilation.runtime.ruleIds.slice(8, 15),
+@@ -170 +170 @@
+-            'equal'
++            'not-equal'
