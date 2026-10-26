@@ -415,6 +415,16 @@ is unknown. This is an inconclusive integration attempt, not a passing gate or
 a recorded900-second timeout. The older aggregate failure inventory remains
 applicable except where the focused migration above supplies new evidence.
 
+## F05 continuation: fixed-source PathInd and covariance
+
+The [fixed-source PathInd frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_pathind_fixed_review.md)
+now uses native Cartesian covariance, its ordinary transformation view and the
+actual Sigma-pullback computation. Eleven signatures, six bodies and ten native
+computations pass; the final TypeScript replay passes17 cases. The old runtime
+category-presentation fold and a duplicate Hom projection are removed. Historical
+review snapshots remain separate from current authorization. Whole internalized
+PathInd, transitivity and the full Homd P-index endpoint comparison remain open.
+
 ## Constraints
 
 - Follow the native source and its existing migration outline. Do not add

@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { CORE_PATHIND_FIXED_SOURCE_HISTORICAL_PATHOUT_REVISION } from '../src/v3_2/pathind_fixed_source_proposal';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, it } from 'node:test';
@@ -13,7 +14,6 @@ import {
     validateCorePathindFixedSource1cProposal
 } from '../src/v3_2/pathind_fixed_source_proposal';
 import {
-    CORE_PATHOUT_FOUNDATION_1B_REVISION,
     CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY
 } from '../src/v3_2/pathout_foundation_transfer';
 import {
@@ -65,7 +65,7 @@ describe('PATHIND-TRUSTED-PROFILE-1C proposal', () => {
                     proposal.decision.implementationAuthorized
                 ],
                 [
-                    CORE_PATHOUT_FOUNDATION_1B_REVISION,
+                    CORE_PATHIND_FIXED_SOURCE_HISTORICAL_PATHOUT_REVISION,
                     '550316a',
                     '349b6d4',
                     'proposal-only',

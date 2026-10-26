@@ -7,13 +7,19 @@
  */
 
 import {
-    CORE_PATHOUT_FOUNDATION_1B_REVISION,
-    CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY
-} from './pathout_foundation_transfer';
-import {
     CORE_PATHOUT_TRUST_BOUNDARY_0A_AUDIT,
     validateCorePathoutTrustBoundary0aAudit
 } from './pathout_trust_boundary_audit';
+
+// This is the frozen review at checkpoint 550316a, not the live migration.
+export const CORE_PATHIND_FIXED_SOURCE_HISTORICAL_PATHOUT_REVISION =
+    'PATHOUT-LIBRARY-FOUNDATION-1B-TRANSFER-1' as const;
+const historicalPathoutBoundary = Object.freeze({
+    prerequisiteDeclarationCount: 5,
+    runtimeRuleCount: 13,
+    proofRuleCount: 2,
+    transparentLibraryDefinitionCount: 9
+});
 
 export const CORE_PATHIND_FIXED_SOURCE_1C_PROPOSAL_REVISION =
     'PATHIND-TRUSTED-PROFILE-1C-PROPOSAL-1' as const;
@@ -212,21 +218,21 @@ const rawProposal = {
             CORE_PATHOUT_TRUST_BOUNDARY_0A_AUDIT.authority.source.sha256,
         authorityChecksSha256:
             CORE_PATHOUT_TRUST_BOUNDARY_0A_AUDIT.authority.checks.sha256,
-        foundationRevision: CORE_PATHOUT_FOUNDATION_1B_REVISION,
+        foundationRevision: CORE_PATHIND_FIXED_SOURCE_HISTORICAL_PATHOUT_REVISION,
         foundationSemanticCheckpoint: '550316a',
         foundationLedgerCheckpoint: '349b6d4',
         foundationBoundary: {
             prerequisiteDeclarationCount:
-                CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY
+                historicalPathoutBoundary
                     .prerequisiteDeclarationCount,
             runtimeRuleCount:
-                CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY
+                historicalPathoutBoundary
                     .runtimeRuleCount,
             proofRuleCount:
-                CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY
+                historicalPathoutBoundary
                     .proofRuleCount,
             transparentLibraryDefinitionCount:
-                CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY
+                historicalPathoutBoundary
                     .transparentLibraryDefinitionCount
         }
     },
@@ -253,7 +259,7 @@ const rawProposal = {
         activeLambdapiRuleDelta: 0
     },
     selectedPredecessor: {
-        revision: CORE_PATHOUT_FOUNDATION_1B_REVISION,
+        revision: CORE_PATHIND_FIXED_SOURCE_HISTORICAL_PATHOUT_REVISION,
         compileFunction: 'compileCorePathoutFoundation1bTransfer',
         semanticCheckpoint: '550316a',
         reuseWholeQualifiedFoundation: true,
@@ -428,7 +434,7 @@ export function validateCorePathindFixedSource1cProposal(
         proposal.parent.authorityChecksSha256 !==
             CORE_PATHOUT_TRUST_BOUNDARY_0A_AUDIT.authority.checks.sha256 ||
         proposal.parent.foundationRevision !==
-            CORE_PATHOUT_FOUNDATION_1B_REVISION ||
+            CORE_PATHIND_FIXED_SOURCE_HISTORICAL_PATHOUT_REVISION ||
         proposal.parent.foundationSemanticCheckpoint !== '550316a' ||
         proposal.parent.foundationLedgerCheckpoint !== '349b6d4' ||
         !sameData(proposal.parent.foundationBoundary, {
@@ -481,7 +487,7 @@ export function validateCorePathindFixedSource1cProposal(
         proposal.dependencyClosure.selectedFixedSource
             .deferredRuleIds.join(',') !== 'path-ind-functor-component' ||
         proposal.selectedPredecessor.revision !==
-            CORE_PATHOUT_FOUNDATION_1B_REVISION ||
+            CORE_PATHIND_FIXED_SOURCE_HISTORICAL_PATHOUT_REVISION ||
         proposal.selectedPredecessor.semanticCheckpoint !== '550316a' ||
         !proposal.selectedPredecessor.reuseWholeQualifiedFoundation ||
         proposal.selectedPredecessor.duplicateFoundationOwnerOrRule ||

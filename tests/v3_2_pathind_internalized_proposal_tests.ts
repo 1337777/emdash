@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { CORE_PATHIND_INTERNALIZED_HISTORICAL_FIXED_SOURCE_REVISION } from '../src/v3_2/pathind_internalized_proposal';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
@@ -21,7 +22,6 @@ import {
     CORE_DIRECTED_CONTINUATION_TRANSFER_LINKAGE
 } from '../src/v3_2/directed_continuation_transfer';
 import {
-    CORE_PATHIND_FIXED_SOURCE_1C_REVISION,
     CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
 } from '../src/v3_2/pathind_fixed_source_transfer';
 import {
@@ -80,7 +80,7 @@ describe('PATHOUT-LIBRARY-INTERNALIZED-1D proposal', () => {
                     proposal.decision.implementationAuthorized
                 ],
                 [
-                    CORE_PATHIND_FIXED_SOURCE_1C_REVISION,
+                    CORE_PATHIND_INTERNALIZED_HISTORICAL_FIXED_SOURCE_REVISION,
                     'a361dc3',
                     '033dbb8',
                     'proposal-only',

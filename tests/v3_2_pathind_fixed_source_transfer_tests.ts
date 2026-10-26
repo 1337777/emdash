@@ -3,6 +3,9 @@
  */
 
 import assert from 'node:assert/strict';
+import { CORE_CATEGORICAL_STRUCTURAL_SYMBOLS, coreCategoricalStructuralSymbolCoreName } from '../src/v3_2/categorical_structural_transfer';
+import { coreCategoricalFamilyCoefficient } from '../src/v3_2/categorical_family_coefficient';
+import { coreCategoricalFibredProductCoreName } from '../src/v3_2/categorical_fibred_product_transfer';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, it } from 'node:test';
@@ -114,11 +117,7 @@ const categoryType = (): KernelExpression => kernelApplication(
     nodeProvenance
 );
 
-const categoryOfCategories = (): KernelExpression => kernelApplication(
-    'category-of-categories',
-    [],
-    nodeProvenance
-);
+const categoryOfCategories = (): KernelExpression => coreCategoricalFamilyCoefficient(nodeProvenance);
 
 const terminalCategory = (): KernelExpression => kernelFree(
     displayedChainPrerequisiteCoreName('Terminal_cat'),
@@ -158,6 +157,24 @@ const displayedCategory = (base: KernelExpression): KernelExpression =>
         [{ value: base }],
         nodeProvenance
     );
+
+const cartesianFamilies = (base: KernelExpression): KernelExpression => call(
+    coreCategoricalStructuralSymbolCoreName(CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.cartesianFunctorCategory), [
+        { plicity: 'explicit', value: base },
+        { plicity: 'explicit', value: categoryOfCategories() }
+    ]
+);
+
+const strictCovariance = (base: KernelExpression, family: KernelExpression,
+    x: KernelExpression, u: KernelExpression): KernelExpression => call(
+    coreCategoricalFibredProductCoreName('strict-transfor-view'), [
+        { plicity: 'implicit', value: base },
+        { plicity: 'implicit', value: categoryOfCategories() },
+        { plicity: 'implicit', value: representable(base, x) },
+        { plicity: 'implicit', value: family },
+        { plicity: 'explicit', value: fibreCovariantTransformation(base, family, x, u) }
+    ]
+);
 
 const displayedFamilyType = (base: KernelExpression): KernelExpression =>
     objectType(displayedCategory(base));
@@ -613,7 +630,7 @@ const infer = (term: KernelExpression) => {
 };
 
 describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
-    it('seals the reviewed exact 5/12/0/6 root-only boundary', () => {
+    it('seals the reviewed exact 5/10/0/6 root-only boundary', () => {
         assert.deepEqual(
             CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
                 .trustedDeclarationNames,
@@ -628,13 +645,10 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
         assert.deepEqual(
             CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY.runtimeRuleIds,
             [
-                'pathind.fixed-source.contravariant-representable-object',
                 'pathind.fixed-source.displayed-functor-object',
                 'pathind.fixed-source.displayed-hom-object-fusion',
                 'pathind.fixed-source.transfor-classifier-delta',
                 'pathind.fixed-source.fib-cov-target-section-fusion',
-                'pathind.fixed-source.' +
-                    'fixed-evaluation-post-delta-presentation-fusion',
                 'pathind.fixed-source.fib-cov-package-component',
                 'pathind.fixed-source.fib-cov-component-object',
                 'pathind.fixed-source.fib-cov-section-point',
@@ -675,12 +689,12 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
                 CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
                     .boundedOracleAssertionCount
             ],
-            [5, 12, 0, 6, 1, 8, 5, 9]
+            [5, 10, 0, 6, 1, 8, 5, 27]
         );
         assert.equal(
             CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
                 .reviewedAuthorization,
-            'PATHIND-TRUSTED-PROFILE-1C-REVIEWED-8'
+            'STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2'
         );
         assert.equal(
             CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
@@ -698,7 +712,7 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
                 compilation.libraryCompiled.declarations.length,
                 compilation.runtime.rules.length
             ],
-            [1, 5, 5, 12]
+            [1, 5, 5, 10]
         );
         assert.equal(
             compilation.runtime.rules.every(rule =>
@@ -764,7 +778,7 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
         );
     });
 
-    it('computes FibCov target objects as Hom(Catd(Z),Rep(x),D) objects',
+    it('computes FibCov target objects in the Cartesian mapping category',
         () => {
             const witness = fixture();
             assertDefinitionallyEqual(
@@ -774,7 +788,7 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
                     witness.x
                 )),
                 objectType(homCategory(
-                    displayedCategory(witness.Z),
+                    cartesianFamilies(witness.Z),
                     representable(witness.Z, witness.x),
                     witness.D
                 )),
@@ -884,7 +898,7 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
                 ),
                 witness.uD
             ),
-            fibreCovariantTransformation(
+            strictCovariance(
                 witness.Z,
                 witness.D,
                 witness.x,
@@ -994,7 +1008,7 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
                 undefined,
                 witness.runtime
             );
-            assert.equal(runtimeOnlyRho.status, 'not-equal');
+            assert.equal(runtimeOnlyRho.status, 'equal');
         });
 
     it('rejects a source object from the wrong PathOut category', () => {
@@ -1120,32 +1134,45 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
     });
 
     it(
-        'matches all nine bounded active-Lambdapi assertions',
+        'matches native signatures, bodies and fixed-source computations',
         {
             skip:
                 process.env.EMDASH_RUN_LAMBDAPI_PATHIND_FIXED_PROBES !==
                 '1'
         },
         () => {
+            const c = compileCorePathindFixedSource1cTransfer();
+            const modules = [c.fibreTargetCompiled, c.trustedCompiled, c.libraryCompiled];
+            const references = Object.assign({}, ...modules.flatMap(module => [
+                module.externalFreeReferences, module.externalTransparentDefinitions,
+                Object.fromEntries(module.linkage.entries.flatMap(link =>
+                    link.kind === 'free-declaration' ? [[link.coreName, link.backendName]] : []))
+            ]));
+            const serialize = (term: KernelExpression) => serializeKernelExpression(term, { externalFreeReferences: references });
+            const declarations = modules.flatMap(module => module.declarations.flatMap(decl => [
+                `assert ⊢ @${decl.symbol.name} : ${serialize(decl.type)};`,
+                ...(decl.body ? [`assert ⊢ @${decl.symbol.name} ≡ ${serialize(decl.body)};`] : [])
+            ]));
             const source = [
                 'require open emdash.emdash3_2;',
+                ...declarations,
                 'assert [K : Cat] (E D : τ (Catd K)) ⊢',
                 '  Obj (@Functord_cat K E D)',
-                '    ≡ Obj (@Transf_cat K Cat_cat E D);',
+                '    ≡ Obj (@Transf_cat K Cat_cart E D);',
                 'assert [K : Cat] (E : τ (Catd K))',
                 '  (x : τ (Obj K)) ⊢',
                 '  Fibre_cat (@FibCov_target_catd K E) x',
-                '    ≡ @Hom_cat (@Catd_cat K) (@Rep_catd K x) E;',
+                '    ≡ @Hom_cat (Functor_cart_cat K Cat_cart) (@Rep_catd K x) E;',
                 'assert [K : Cat] (E : τ (Catd K)) ⊢',
                 '  @FibCov_target_catd K E',
                 '    ≡ @hom_con',
-                '        (@Catd_cat K)',
+                '        (Functor_cart_cat K Cat_cart)',
                 '        E',
                 '        (Op_cat K)',
                 '        (@hom_int K K (@id_func K));',
                 'assert [K : Cat] (E : τ (Catd K))',
                 '  (x : τ (Obj K)) ⊢',
-                '  @tapp0_fapp0 K Cat_cat E',
+                '  @tapp0_fapp0 K Cat_cart E',
                 '    (@FibCov_target_catd K E) x (@fib_cov_int K E)',
                 '    ≡ @fib_cov_src_func K E x;',
                 'assert [K : Cat] (E : τ (Catd K))',
@@ -1156,8 +1183,8 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
                 'assert [K : Cat] (E : τ (Catd K))',
                 '  (x y : τ (Obj K))',
                 '  (u : τ (Obj (Fibre_cat E x))) ⊢',
-                '  @tapp0_fapp0 K Cat_cat',
-                '    (@Rep_catd K x) E y (@fib_cov_transf K E x u)',
+                '  @tapp0_fapp0 K Cat_cart',
+                '    (@Rep_catd K x) E y (@strict_transfor K Cat_cart (@Rep_catd K x) E (@fib_cov_transf K E x u))',
                 '    ≡ @fib_cov_tapp0_func K E x y u;',
                 'assert [Z : Cat] (x : τ (Obj Z))',
                 '  (E : τ (Catd (@PathOut_cat Z x)))',
@@ -1174,7 +1201,7 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
                 '  @path_ind_sec Z x',
                 '    (@Sigma_proj1_pullback_catd Z (@Rep_catd Z x) D)',
                 '    u',
-                '    ≡ @fib_cov_transf Z D x u;',
+                '    ≡ @strict_transfor Z Cat_cart (@Rep_catd Z x) D (@fib_cov_transf Z D x u);',
                 'assert [Z : Cat] (x y : τ (Obj Z))',
                 '  (p : τ (Hom Z x y)) ⊢',
                 '  @piapp0',
@@ -1184,14 +1211,22 @@ describe('PATHIND-TRUSTED-PROFILE-1C transfer', () => {
                 '      (@pathout_refl_obj Z x))',
                 '    (@pathout_refl_arrow_sec Z x)',
                 '    (@pathout_obj Z x y p)',
-                '    ≡ @pathout_refl_arrow Z x y p;'
+                '    ≡ @pathout_refl_arrow Z x y p;',
+                'assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y)) ⊢',
+                '  @tapp0_fapp0 (@PathOut_cat Z x) Cat_cart',
+                '    (@Const_catd (@PathOut_cat Z x) Terminal_cat)',
+                '    (@Rep_catd (@PathOut_cat Z x) (@pathout_refl_obj Z x))',
+                '    (@pathout_obj Z x y p) (@pathout_refl_arrow_sec Z x)',
+                '  ≡ @Obj_func (Hom_cat (@PathOut_cat Z x) (@pathout_refl_obj Z x) (@pathout_obj Z x y p))',
+                '    (@pathout_refl_arrow Z x y p);'
             ].join('\n');
+            assert.doesNotMatch(source, /dttlf_|emdash_v3_2_/u);
             const result = checkLambdapiProbe(
                 { source: `${source}\n`, sourceMap: [] },
                 {
                     packageRoot: resolve(repositoryRoot, 'emdash2'),
-                    timeoutMs: 20_000,
-                    warningsEnabled: false
+                    timeoutMs: 60_000,
+                    warningsEnabled: true
                 }
             );
             assert.equal(result.accepted, true, result.diagnostics);

@@ -1,0 +1,88 @@
+{
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "canonicalExportSha256": "5fe27c717a83f950431cf61a806a493499f3b03635310c63dcf3c9b751c327cd",
+  "scope": "Fixed-source PathInd and Cartesian fibre-covariance interfaces; source unchanged",
+  "commands": [
+    {
+      "name": "FibCov_target_catd",
+      "ordinal": 1419,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "ca24a841aad2986473147e027de9d534d56d2056cb3a568301727524acbe7ea2"
+    },
+    {
+      "name": "fib_cov_int",
+      "ordinal": 1421,
+      "modifiers": [
+        "constant"
+      ],
+      "hasBody": false,
+      "sha256": "098dca427589a143454965b4d929931f7608da89d0efbe325329b80de1d635bf"
+    },
+    {
+      "name": "fib_cov_src_func",
+      "ordinal": 1422,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "64f2f6a2e5730a0c37489707154dab08a684e860948509f09d4a78039f1a6caf"
+    },
+    {
+      "name": "fib_cov_transf",
+      "ordinal": 1423,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "c0d0f0642b00aefb42b9165e7cfa493502053c1d59b00d6fe824ac56300151be"
+    },
+    {
+      "name": "path_ind_sec",
+      "ordinal": 2020,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "584746860dad6cac6f2335a6e125e12a0c3c13e7540fe71e766cf6c6bbed92cc"
+    },
+    {
+      "name": "path_ind_func_fapp0",
+      "ordinal": 2024,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "6a5dbf8da27bc16e8336ba56e4a005e596c742a69e5fffbbab51e1347110e8ee"
+    },
+    {
+      "name": "pathout_refl_eval_func",
+      "ordinal": 2013,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "7823e78cae23405bc0d477338d9939d1d65be9662eccf5bbaaac0c5ef25258eb"
+    },
+    {
+      "name": "pathout_refl_eval_base_func",
+      "ordinal": 2017,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "19f4b434fc70909c3ae23df9f4aec20791b61377fe01f52ecfce4a97f571088b"
+    },
+    {
+      "name": "pathout_refl_arrow_sec",
+      "ordinal": 2021,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "82aa239d1c3be39f13ac1055f42985bb02b8586c03c94e1d72858fa7fa76b805"
+    },
+    {
+      "name": "PathInd_src_catd",
+      "ordinal": 2022,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "7b97e4624675b21f1eaaa9d7b8f9b3b87bc3cabb3c231e73ee87fa3dbc66d28c"
+    },
+    {
+      "name": "PathInd_tgt_catd",
+      "ordinal": 2023,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "558738de6834dfadfd601b8516f2d718f011b928aee29bca34a958bd9681b36c"
+    }
+  ]
+}

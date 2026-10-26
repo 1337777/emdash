@@ -61,6 +61,14 @@ retain the old runtime expressions as history, not unresolved requirements.
 
 ## Current production boundary — 2026-10-25
 
+The [fixed-source PathInd frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_pathind_fixed_review.md)
+now uses native Cartesian covariance, its ordinary transformation view and the
+actual Sigma-pullback computation. Eleven signatures, six bodies and ten native
+computations pass; the final TypeScript replay passes17 cases. The old runtime
+category-presentation fold and a duplicate Hom projection are removed. Historical
+review snapshots remain separate from current authorization. Whole internalized
+PathInd, transitivity and the full Homd P-index endpoint comparison remain open.
+
 The [ambient Hom and exact PathOut foundation continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_surface_pathout_review.md)
 uses the existing native Hom views for the elementary surface and preserves the
 stronger free Hom owners. The dependent demo uses Cat_cart. PathOut now has

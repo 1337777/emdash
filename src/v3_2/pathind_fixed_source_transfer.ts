@@ -1,12 +1,14 @@
 /**
  * PATHIND-TRUSTED-PROFILE-1C root-only existing-authority transfer.
  *
- * Exact local boundary: five opaque declarations, twelve runtime rules, no
+ * Exact local boundary: five opaque declarations, ten runtime rules, no
  * proof rule, and six transparent definitions.  The module deliberately
  * stops before PathInd_func, PathInd_transfd, varying-source packaging,
  * transitivity, and public/browser/package presentation.
  */
 
+import { compileCoreLfProofProgram } from './lf_transfer_proof';
+import { CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_MODULE, CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_POLICY } from './categorical_fibred_dependent_target_transfer';
 import {
     CORE_CATEGORICAL_DISPLAYED_CHAIN_TRANSFER_LINKAGE
 } from './categorical_displayed_chain_transfer';
@@ -79,7 +81,7 @@ import {
 const MODULE_ID = 'emdash.emdash3_2';
 
 export const CORE_PATHIND_FIXED_SOURCE_1C_REVISION =
-    'PATHIND-TRUSTED-PROFILE-1C-TRANSFER-1' as const;
+    'PATHIND-FIXED-SOURCE-NATIVE-CART-2' as const;
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
@@ -93,8 +95,10 @@ const functorClassifier =
     coreDirectedContinuationTransferSymbol('functor-classifier');
 const transforClassifier =
     coreDirectedContinuationTransferSymbol('transfor-classifier');
-const categoryOfCategories =
-    coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
+const cartesianFunctorCategory = coreLfQualifiedSymbol(MODULE_ID, 'Functor_cart_cat');
+const strictTransforView = coreLfQualifiedSymbol(MODULE_ID, 'strict_transfor');
 const functorCategory =
     coreLfQualifiedSymbol(MODULE_ID, 'Functor_cat');
 const displayedCategoryCategory =
@@ -355,7 +359,7 @@ const fibreAt = (
         { plicity: 'implicit', value: base },
         {
             plicity: 'implicit',
-            value: builder.global(categoryOfCategories)
+            value: builder.global(familyCoefficient)
         },
         { plicity: 'explicit', value: family },
         { plicity: 'explicit', value: point }
@@ -405,7 +409,7 @@ const componentAt = (
         { plicity: 'implicit', value: base },
         {
             plicity: 'implicit',
-            value: builder.global(categoryOfCategories)
+            value: builder.global(familyCoefficient)
         },
         { plicity: 'implicit', value: sourceFamily },
         { plicity: 'implicit', value: targetFamily },
@@ -724,6 +728,25 @@ const modifiers = (
     sourceOpacity
 });
 
+const cartesianFamiliesAt = (
+    b: CoreLfTransferScopedBuilder, K: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression => globalCall(b, cartesianFunctorCategory, [
+    { plicity: 'explicit', value: K },
+    { plicity: 'explicit', value: b.global(familyCoefficient) }
+]);
+
+const strictCovarianceAt = (
+    b: CoreLfTransferScopedBuilder, K: CoreLfTransferBuilderExpression,
+    E: CoreLfTransferBuilderExpression, x: CoreLfTransferBuilderExpression,
+    u: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression => globalCall(b, strictTransforView, [
+    { plicity: 'implicit', value: K },
+    { plicity: 'implicit', value: b.global(familyCoefficient) },
+    { plicity: 'implicit', value: representableFamilyAt(b, K, x) },
+    { plicity: 'implicit', value: E },
+    { plicity: 'explicit', value: fibreCovariantTransformationAt(b, K, E, x, u) }
+]);
+
 const fibreCovariantTargetType = (): CoreLfTransferExpression => {
     const builder = new CoreLfTransferScopedBuilder();
     return builder.term(builder.pi(
@@ -749,7 +772,7 @@ const fibreCovariantTargetBody = (): CoreLfTransferExpression => {
             displayedFamilyType(builder, K),
             E => contravariantRepresentableAt(
                 builder,
-                displayedCategoryAt(builder, K),
+                cartesianFamiliesAt(builder, K),
                 E,
                 oppositeAt(builder, K),
                 internalHomAt(
@@ -980,61 +1003,6 @@ readonly CoreLfTransferDeclaration[] = Object.freeze([
     })
 ]);
 
-const contravariantRepresentableObjectRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const A = builder.capture('A');
-    const W = builder.capture('W');
-    const B = builder.capture('B');
-    const F = builder.capture('F');
-    const x = builder.capture('x');
-    return {
-        order: 0,
-        id: 'pathind.fixed-source.contravariant-representable-object',
-        groupId: 'pathind.fixed-source.prerequisite-projection',
-        clauseOrder: 0,
-        sourceOwner: functorObject,
-        variables: [
-            {
-                name: 'A',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'W',
-                type: builder.template(objectType(builder, A))
-            },
-            {
-                name: 'B',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'F',
-                type: builder.template(functorType(builder, B, A))
-            },
-            {
-                name: 'x',
-                type: builder.template(objectType(builder, B))
-            }
-        ],
-        left: builder.pattern(functorObjectAt(
-            builder,
-            builder.wildcard(oppositeAt(builder, B)),
-            builder.global(categoryOfCategories),
-            contravariantRepresentableAt(builder, A, W, B, F),
-            x
-        )),
-        right: builder.template(homCategoryAt(
-            builder,
-            A,
-            functorObjectAt(builder, B, A, F, x),
-            W
-        )),
-        provenance: source(
-            'rule @fapp0 _ Cat_cat (@hom_con $A $W $B $F) $x'
-        )
-    };
-};
-
 const displayedFunctorObjectRule =
 (): CoreLfTransferRuntimeRule => {
     const builder = new CoreLfTransferScopedBuilder();
@@ -1052,7 +1020,7 @@ const displayedFunctorObjectRule =
         order: 1,
         id: 'pathind.fixed-source.displayed-functor-object',
         groupId: 'pathind.fixed-source.prerequisite-projection',
-        clauseOrder: 1,
+        clauseOrder: 0,
         sourceOwner: objectClassifier,
         variables: [
             {
@@ -1074,13 +1042,13 @@ const displayedFunctorObjectRule =
         right: builder.template(objectClassifierAt(transforCategoryAt(
             builder,
             K,
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             E,
             D
         ))),
         provenance: source(
             'rule Obj (@Functord_cat $K $E $D) ' +
-                '↪ Obj (@Transf_cat $K Cat_cat $E $D)'
+                '↪ Obj (@Transf_cat $K Cat_cart $E $D)'
         )
     };
 };
@@ -1102,7 +1070,7 @@ const displayedHomObjectFusionRule =
         order: 2,
         id: 'pathind.fixed-source.displayed-hom-object-fusion',
         groupId: 'pathind.fixed-source.prerequisite-projection',
-        clauseOrder: 2,
+        clauseOrder: 1,
         sourceOwner: objectClassifier,
         variables: [
             {
@@ -1127,7 +1095,7 @@ const displayedHomObjectFusionRule =
         right: builder.template(objectClassifierAt(transforCategoryAt(
             builder,
             K,
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             E,
             D
         ))),
@@ -1156,7 +1124,7 @@ const transforClassifierDeltaRule =
         order: 3,
         id: 'pathind.fixed-source.transfor-classifier-delta',
         groupId: 'pathind.fixed-source.prerequisite-projection',
-        clauseOrder: 3,
+        clauseOrder: 2,
         sourceOwner: transforClassifier,
         variables: [
             {
@@ -1214,7 +1182,7 @@ const fibreCovariantTargetSectionFusionRule =
         order: 4,
         id: 'pathind.fixed-source.fib-cov-target-section-fusion',
         groupId: 'pathind.fixed-source.prerequisite-projection',
-        clauseOrder: 4,
+        clauseOrder: 3,
         sourceOwner: objectClassifier,
         variables: [
             {
@@ -1233,63 +1201,18 @@ const fibreCovariantTargetSectionFusionRule =
         left: builder.pattern(objectClassifierAt(functorObjectAt(
             builder,
             K,
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             fibreCovariantTargetAt(builder, K, E),
             x
         ))),
-        right: builder.template(objectClassifierAt(transforCategoryAt(
+        right: builder.template(objectClassifierAt(homCategoryAt(
             builder,
-            K,
-            builder.global(categoryOfCategories),
+            cartesianFamiliesAt(builder, K),
             representableFamilyAt(builder, K, x),
             E
         ))),
         provenance: source(
-            'derived TypeScript weak-head fusion of active lines 5481, ' +
-                '7865, 8419, 9177, 13765-13775, and 13923-13928'
-        )
-    };
-};
-
-const fixedEvaluationPostDeltaPresentationFusionRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const K = builder.capture('K');
-    return {
-        order: 5,
-        id:
-            'pathind.fixed-source.' +
-            'fixed-evaluation-post-delta-presentation-fusion',
-        groupId: 'pathind.fixed-source.prerequisite-projection',
-        clauseOrder: 5,
-        sourceOwner: decodeOwner,
-        variables: [{
-            name: 'K',
-            type: builder.template(builder.global(category))
-        }],
-        left: builder.pattern(objectType(
-            builder,
-            functorCategoryAt(
-                builder,
-                functorCategoryAt(
-                    builder,
-                    K,
-                    builder.global(categoryOfCategories)
-                ),
-                builder.global(categoryOfCategories)
-            )
-        )),
-        right: builder.template(objectType(
-            builder,
-            functorCategoryAt(
-                builder,
-                displayedCategoryAt(builder, K),
-                builder.global(categoryOfCategories)
-            )
-        )),
-        provenance: source(
-            'derived stable post-delta presentation fusion of active lines ' +
-                '3316-3317, 5457, and 19067-19072'
+            'Forward object projection of FibCov_target_catd through hom_con and Cartesian Hom'
         )
     };
 };
@@ -1335,7 +1258,7 @@ const fibreCovariantPackageComponentRule =
             x
         )),
         provenance: source(
-            'rule @tapp0_fapp0 $K Cat_cat _ _ $x ' +
+            'rule @tapp0_fapp0 $K Cat_cart _ _ $x ' +
                 '(@fib_cov_int $K $E)'
         )
     };
@@ -1446,7 +1369,7 @@ const fibreCovariantSectionPointRule =
             builder.wildcard(represented),
             builder.wildcard(E),
             y,
-            fibreCovariantTransformationAt(builder, K, E, x, u)
+            strictCovarianceAt(builder, K, E, x, u)
         )),
         right: builder.template(covariantFibreActionAt(
             builder,
@@ -1457,7 +1380,7 @@ const fibreCovariantSectionPointRule =
             u
         )),
         provenance: source(
-            'rule @tapp0_fapp0 $K Cat_cat _ _ $y ' +
+            'rule @tapp0_fapp0 $K Cat_cart _ _ $y ' +
                 '(@fib_cov_transf $K $E $x $u)'
         )
     };
@@ -1606,7 +1529,7 @@ const pathInductionPointRule = (): CoreLfTransferRuntimeRule => {
             )
         )),
         provenance: source(
-            'rule @tapp0_fapp0 (PathOut_cat $Z $x) Cat_cat ' +
+            'rule @tapp0_fapp0 (PathOut_cat $Z $x) Cat_cart ' +
                 '(Const_catd _ Terminal_cat) $E (Struct_sigma $y $p) ' +
                 '(@path_ind_sec $Z $x $E $u)'
         )
@@ -1660,7 +1583,7 @@ const pathInductionSigmaPullbackRule =
             motive,
             u
         )),
-        right: builder.template(fibreCovariantTransformationAt(
+        right: builder.template(strictCovarianceAt(
             builder,
             Z,
             D,
@@ -1675,20 +1598,19 @@ const pathInductionSigmaPullbackRule =
     };
 };
 
+// hom_con object action is inherited from the native dependent-target prerequisite.
 const runtimeRules: readonly CoreLfTransferRuntimeRule[] = Object.freeze([
-    contravariantRepresentableObjectRule(),
     displayedFunctorObjectRule(),
     displayedHomObjectFusionRule(),
     transforClassifierDeltaRule(),
     fibreCovariantTargetSectionFusionRule(),
-    fixedEvaluationPostDeltaPresentationFusionRule(),
     fibreCovariantPackageComponentRule(),
     fibreCovariantComponentObjectRule(),
     fibreCovariantSectionPointRule(),
     pathInductionComponentObjectRule(),
     pathInductionPointRule(),
     pathInductionSigmaPullbackRule()
-]);
+].map((rule, order) => ({ ...rule, order })));
 
 const pathoutReflexiveEvaluationType =
 (): CoreLfTransferExpression => {
@@ -1705,7 +1627,7 @@ const pathoutReflexiveEvaluationType =
                     builder,
                     pathoutCategoryAt(builder, Z, x)
                 ),
-                builder.global(categoryOfCategories)
+                builder.global(familyCoefficient)
             ),
             explicitMode
         ),
@@ -1725,7 +1647,7 @@ const pathoutReflexiveEvaluationBody =
             x => fixedEvaluationAt(
                 builder,
                 pathoutCategoryAt(builder, Z, x),
-                builder.global(categoryOfCategories),
+                builder.global(familyCoefficient),
                 pathoutReflexiveObjectAt(builder, Z, x)
             ),
             explicitMode
@@ -1806,7 +1728,7 @@ const pathoutReflexiveBaseTransportBody =
                         E => functorHomCappedAt(
                             builder,
                             pathoutCategoryAt(builder, Z, x),
-                            builder.global(categoryOfCategories),
+                            builder.global(familyCoefficient),
                             E,
                             pathoutReflexiveObjectAt(builder, Z, x),
                             pathoutObjectAt(builder, Z, x, y, p),
@@ -1991,10 +1913,11 @@ readonly CoreLfTransferDeclaration[] = Object.freeze([
 ]);
 
 const fibreTargetExternalSymbols = Object.freeze([
+    cartesianFunctorCategory,
     category,
     decodeOwner,
     objectClassifier,
-    categoryOfCategories,
+    familyCoefficient,
     displayedCategoryCategory,
     displayedFamilyClassifier,
     oppositeCategory,
@@ -2037,7 +1960,7 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
             },
             policy: 'checked-transparent-definition' as const,
             evidence:
-                'Exact active FibCov target selected by reviewed 1C'
+                'Exact native FibCov target under the current foundations migration'
         }]
     }
 );
@@ -2047,7 +1970,7 @@ const trustedExternalSymbols = Object.freeze([
     decodeOwner,
     objectClassifier,
     functorClassifier,
-    categoryOfCategories,
+    familyCoefficient,
     displayedCategoryCategory,
     displayedFamilyClassifier,
     displayedFunctorClassifier,
@@ -2092,13 +2015,14 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
             },
             policy: 'opaque-signature' as const,
             evidence:
-                'Exact active v3.2 opaque interface selected by reviewed ' +
-                'PATHIND-TRUSTED-PROFILE-1C proposal v8'
+                'Exact native fixed-source interface under the current foundations migration'
         }))
     }
 );
 
 const runtimeExternalSymbols = Object.freeze([
+    cartesianFunctorCategory,
+    strictTransforView,
     ...trustedExternalSymbols,
     homClassifier,
     transforClassifier,
@@ -2157,26 +2081,15 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
             policy: 'runtime-rewrite' as const,
             evidence: rule.id ===
                 'pathind.fixed-source.displayed-hom-object-fusion'
-                ? 'Subject-checked weak-head fusion derived only from ' +
-                    'active lines 5481 and 9177 under reviewed proposal v8'
+                ? 'Forward object projection of the native Catd_cat and Functord_cat definitions'
                 : rule.id ===
                     'pathind.fixed-source.transfor-classifier-delta'
-                    ? 'Active transparent Transf definition at lines ' +
-                        '9150-9151 selected by reviewed proposal v8'
+                    ? 'Active transparent Transf definition; no change of naturality profile'
                     : rule.id ===
                         'pathind.fixed-source.fib-cov-target-section-fusion'
-                        ? 'Subject-checked complete forward fusion of ' +
-                            'active FibCov target and section path under ' +
-                            'reviewed proposal v8'
-                        : rule.id ===
-                            'pathind.fixed-source.' +
-                                'fixed-evaluation-post-delta-' +
-                                'presentation-fusion'
-                            ? 'Stable decoded-type fusion of active lines ' +
-                                '3316-3317, 5457, and 19067-19072 under ' +
-                                'reviewed proposal v8'
-                            : 'Exact active v3.2 fixed-source PathInd ' +
-                                'computation selected by reviewed proposal v8'
+                        ? 'Forward object projection of the native Cartesian FibCov target'
+                        : 'Exact active v3.2 fixed-source PathInd ' +
+                                'computation selected by the current foundations migration'
         }))
     }
 );
@@ -2187,7 +2100,7 @@ const libraryExternalSymbols = Object.freeze([
     objectClassifier,
     homClassifier,
     functorClassifier,
-    categoryOfCategories,
+    familyCoefficient,
     displayedCategoryCategory,
     displayedFamilyClassifier,
     functorObject,
@@ -2477,8 +2390,8 @@ export function assertCorePathindOrdinaryLibraryCapability(
 export const CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY =
 Object.freeze({
     revision: CORE_PATHIND_FIXED_SOURCE_1C_REVISION,
-    reviewedAuthorization:
-        'PATHIND-TRUSTED-PROFILE-1C-REVIEWED-8',
+    reviewedAuthorization: 'STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2',
+    historicalReviewedAuthorization: 'PATHIND-TRUSTED-PROFILE-1C-REVIEWED-8',
     selectedPredecessor: CORE_PATHOUT_FOUNDATION_1B_REVISION,
     trustedDeclarationNames: Object.freeze(
         trustedDeclarations.map(declaration => declaration.symbol.name)
@@ -2496,7 +2409,8 @@ Object.freeze({
     typedLibraryConsumerCount: 1,
     negativeConsumerCount: 8,
     selectedRuntimeObservationCount: 5,
-    boundedOracleAssertionCount: 9,
+    boundedOracleAssertionCount: 27,
+    definitionTypingProofRuleIds: Object.freeze(['categorical.dependent-target.category-presentation']),
     allEntriesUseGenericTransferEngines: true,
     ordinarySafeLibraryCanAddTransparentDefinitions: true,
     ordinarySafeLibraryCanAddOpaqueOwners: false,
@@ -2575,6 +2489,12 @@ CorePathindFixedSource1cCompilation {
             comparisonStepLimit: 512
         }
     );
+    const definitionProof = compileCoreLfProofProgram(
+        CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_MODULE,
+        CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_POLICY,
+        trustedContext,
+        { runtimeProgram: runtimeFragment.runtime, comparisonStepLimit: 512 }
+    );
     const libraryCompiled = compileCoreLfDeclarations(
         CORE_PATHIND_FIXED_SOURCE_1C_LIBRARY_MODULE,
         CORE_PATHIND_FIXED_SOURCE_1C_LIBRARY_POLICY,
@@ -2582,7 +2502,14 @@ CorePathindFixedSource1cCompilation {
         {
             initialEnvironment: trustedCompiled.environment,
             runtimeProgram: runtimeFragment.runtime,
-            comparisonStepLimit: 512
+            comparisonStepLimit: 512,
+            definitionTypeProof: {
+                program: definitionProof,
+                declarations: [{
+                    symbol: pathoutReflexiveEvaluation,
+                    proofRuleIds: ['categorical.dependent-target.category-presentation']
+                }]
+            }
         }
     );
     const declarationContext = new CoreLfMixedDeclarationContext(

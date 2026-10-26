@@ -350,5 +350,17 @@
     "tests/v3_2_categorical_displayed_nd_higher_foundation_transfer_tests.ts": 5,
     "tests/v3_2_categorical_direct_mixed_constant_middle_tests.ts": 2,
     "tests/v3_2_lf_transfer_tests.ts": 3
-  }
+  },
+  "subsequentScopedEvidence": [
+    {
+      "checkpoint": "0bef0f95",
+      "scope": "ELAB-1C ambient Hom, dependent demo and PathOut",
+      "review": "foundation_frontend_surface_pathout_review.md"
+    },
+    {
+      "scope": "Fixed-source PathInd and historical predecessor snapshots",
+      "review": "foundation_frontend_pathind_fixed_review.md",
+      "doesNotQualify": "Whole internalized PathInd or transitivity"
+    }
+  ]
 }

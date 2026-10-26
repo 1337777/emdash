@@ -6,14 +6,21 @@
  * rule; a separate immutable review is required before implementation.
  */
 
-import {
-    CORE_PATHIND_FIXED_SOURCE_1C_REVISION,
-    CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
-} from './pathind_fixed_source_transfer';
+
 import {
     CORE_PATHOUT_TRUST_BOUNDARY_0A_AUDIT,
     validateCorePathoutTrustBoundary0aAudit
 } from './pathout_trust_boundary_audit';
+
+// Preserve the historical review at a361dc3; it does not qualify today's migration.
+export const CORE_PATHIND_INTERNALIZED_HISTORICAL_FIXED_SOURCE_REVISION =
+    'PATHIND-TRUSTED-PROFILE-1C-TRANSFER-1' as const;
+const historicalFixedSourceBoundary = Object.freeze({
+    trustedDeclarationCount: 5,
+    runtimeRuleCount: 12,
+    proofRuleCount: 0,
+    transparentDefinitionCount: 6
+});
 
 export const CORE_PATHIND_INTERNALIZED_1D_PROPOSAL_REVISION =
     'PATHOUT-LIBRARY-INTERNALIZED-1D-PROPOSAL-1' as const;
@@ -307,21 +314,21 @@ const rawProposal = {
             CORE_PATHOUT_TRUST_BOUNDARY_0A_AUDIT.authority.source.sha256,
         authorityChecksSha256:
             CORE_PATHOUT_TRUST_BOUNDARY_0A_AUDIT.authority.checks.sha256,
-        fixedSourceRevision: CORE_PATHIND_FIXED_SOURCE_1C_REVISION,
+        fixedSourceRevision: CORE_PATHIND_INTERNALIZED_HISTORICAL_FIXED_SOURCE_REVISION,
         fixedSourceSemanticCheckpoint: 'a361dc3',
         fixedSourceLedgerCheckpoint: '033dbb8',
         fixedSourceBoundary: {
             trustedDeclarationCount:
-                CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
+                historicalFixedSourceBoundary
                     .trustedDeclarationCount,
             runtimeRuleCount:
-                CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
+                historicalFixedSourceBoundary
                     .runtimeRuleCount,
             proofRuleCount:
-                CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
+                historicalFixedSourceBoundary
                     .proofRuleCount,
             transparentDefinitionCount:
-                CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
+                historicalFixedSourceBoundary
                     .transparentDefinitionCount
         }
     },
@@ -349,7 +356,7 @@ const rawProposal = {
         activeLambdapiRuleDelta: 0
     },
     selectedPredecessor: {
-        revision: CORE_PATHIND_FIXED_SOURCE_1C_REVISION,
+        revision: CORE_PATHIND_INTERNALIZED_HISTORICAL_FIXED_SOURCE_REVISION,
         compileFunction: 'compileCorePathindFixedSource1cTransfer',
         semanticCheckpoint: 'a361dc3',
         reuseWholeQualifiedFixedSourceProfile: true,
@@ -529,7 +536,7 @@ export function validateCorePathindInternalized1dProposal(
         proposal.parent.authorityChecksSha256 !==
             CORE_PATHOUT_TRUST_BOUNDARY_0A_AUDIT.authority.checks.sha256 ||
         proposal.parent.fixedSourceRevision !==
-            CORE_PATHIND_FIXED_SOURCE_1C_REVISION ||
+            CORE_PATHIND_INTERNALIZED_HISTORICAL_FIXED_SOURCE_REVISION ||
         proposal.parent.fixedSourceSemanticCheckpoint !== 'a361dc3' ||
         proposal.parent.fixedSourceLedgerCheckpoint !== '033dbb8' ||
         !sameData(proposal.parent.fixedSourceBoundary, {
@@ -586,7 +593,7 @@ export function validateCorePathindInternalized1dProposal(
         proposal.dependencyClosure.transitivityDefinitionsIncluded ||
         proposal.dependencyClosure.pathCategoryProofBridgeIncluded ||
         proposal.selectedPredecessor.revision !==
-            CORE_PATHIND_FIXED_SOURCE_1C_REVISION ||
+            CORE_PATHIND_INTERNALIZED_HISTORICAL_FIXED_SOURCE_REVISION ||
         proposal.selectedPredecessor.semanticCheckpoint !== 'a361dc3' ||
         !proposal.selectedPredecessor
             .reuseWholeQualifiedFixedSourceProfile ||
