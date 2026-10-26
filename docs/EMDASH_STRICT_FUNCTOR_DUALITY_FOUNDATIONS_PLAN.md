@@ -42,15 +42,25 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+NF-1 common totalization, 2026-10-26: [the actual second composite and canonical identity](../emdash2/audits/native_nerve_foundations/README.md#common-whole-section-totalization)
+now appear as `Tot(s_U)` and `Tot(τ)` in one whole section construction.
+Generic identity section action and totalization resolve the presentation
+failures, with one proof-time unit view retaining both family equality and
+the original section. The retained prefix passes in 122.945s / 560,296 KiB.
+Direct whole-section and whole-functor reconstruction attempts still fail;
+neither native identity is supplied as an axiom. The next task is the full
+internal action/section-constructor comparison, with higher profiles and
+original cell data retained. Full-module/promotion and later NF gates remain.
+
 NF-1 canonical Sigma reassembly, 2026-10-26: [the generic core prerequisite](../emdash2/audits/native_nerve_foundations/README.md#canonical-sigma-reassembly)
 now checks its whole identity using two presentation instances of structural
 source generation. It preserves existing runtime pairing and rejects an
 arbitrary section. The independent core replay passes in 31.217s / 169,740 KiB
 with unchanged warning families. Native section totalization is being checked
 inside the protected represented-comma owner; raw/stable pullback presentation
-after duality normalization is the current formation gap. A bare section
-retyping failed; the candidate now uses the existing section action by a
-displayed identity, formed generically. No native section
+after duality normalization was the formation gap resolved above. A bare section
+retyping failed; the common context now uses the checked existing section
+action by a displayed identity, formed generically. No native section
 reconstruction or second inverse is supplied by this source-generation law.
 
 NF-1 Sigma implementation prefix, 2026-10-26: the [actual whole-Hom implementation](../emdash2/audits/native_nerve_foundations/README.md#early-owner-prefix-whole-sigma-graph-implementation)

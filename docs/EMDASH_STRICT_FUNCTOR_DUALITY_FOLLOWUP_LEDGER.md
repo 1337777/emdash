@@ -4,12 +4,20 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: local book/article continuation complete; native nerve adaptation active; production health/final integration remain deferred obligations
 
+SF-NERVES / common section totalization: [the checked context](../emdash2/audits/native_nerve_foundations/README.md#common-whole-section-totalization)
+now expresses the actual second composite as Tot(s_U) and proves Tot(τ)=id.
+It uses generic section action and one equal-family identity comparison,
+preserving original section data and runtime heads. The whole section and
+whole native-functor reconstruction attempts both remain unresolved; no native
+identity law was added. Next: complete internal-action/section-constructor
+comparison with its higher mapping profile and original next-cell action.
+
 SF-NERVES / canonical Sigma identity: [the generic source-generation check](../emdash2/audits/native_nerve_foundations/README.md#canonical-sigma-reassembly)
 passes for arbitrary and constant families, preserving runtime pairing and
 rejecting arbitrary sections. It is an explicit structural prerequisite,
 not the native graph inverse. Native whole-section totalization remains
 owner-local; a raw/stable pullback-family presentation after duality expansion
-is being resolved by testing generic section action of a displayed identity.
+is resolved for the common context by generic section action of a displayed identity.
 Bare retyping of the section failed. No native section-generation axiom is added.
 
 SF-NERVES / Sigma implementation prefix: [the whole graph Hom](../emdash2/audits/native_nerve_foundations/README.md#early-owner-prefix-whole-sigma-graph-implementation)

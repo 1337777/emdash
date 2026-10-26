@@ -1,0 +1,159 @@
+require open emdash.native_nerve_composite_review;
+require open emdash.native_nerve_sigma_generation_review;
+
+// The existing graph body, viewed as a function of its actual lax carrier.
+symbol nerve_raw_sigma_graph_func [B C : Cat] [F G : τ (Functor B C)]
+  (eta : τ (@Transf B C F G)) : τ (Functor B (@LaxArrow_cat C))
+≔ @comma_graph_internal_func B C F G (@tapp1_int_cart B C F G eta);
+
+symbol nerve_default_graph_sigma_path [B C : Cat] [F G : τ (Functor B C)]
+  (eta : τ (@Transf B C F G))
+  : τ (@= (Functor B (@LaxArrow_cat C)) (@nerve_default_graph_func B C F G eta)
+      (@nerve_raw_sigma_graph_func B C F G eta))
+≔ @eq_trans (Functor B (@LaxArrow_cat C)) (@nerve_default_graph_func B C F G eta)
+    (@nerve_raw_sigma_graph_func B C F G
+      (@lax_transfor B C F G
+        (@make_lax_transfor B C F G eta (@nerve_default_lax_profile B C F G eta))))
+    (@nerve_raw_sigma_graph_func B C F G eta)
+    (@nerve_graph_sigma_body_path B C F G
+      (@make_lax_transfor B C F G eta (@nerve_default_lax_profile B C F G eta)))
+    (@eq_ap (@Transf B C F G) (Functor B (@LaxArrow_cat C))
+      (λ epsilon : τ (@Transf B C F G), @nerve_raw_sigma_graph_func B C F G epsilon)
+      _ _ (@make_lax_transfor_carrier_path B C F G eta
+        (@nerve_default_lax_profile B C F G eta)));
+
+// Reindex the whole section by the existing displayed identity, before
+// concrete duality expands the family. This uses Pi action, not a carrier cast.
+protected symbol nerve_projection_section_view [K : Cat] (R D : τ (Catd K))
+  (s : τ (Obj (@Pi_cat (@Sigma_cat K R)
+    (@Pullback_catd (@Sigma_cat K R) K D (@Sigma_proj1_func K R)))))
+  : τ (Obj (@Pi_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D)))
+≔ @section_postcomp_sec (@Sigma_cat K R)
+    (@Pullback_catd (@Sigma_cat K R) K D (@Sigma_proj1_func K R))
+    (@Sigma_proj1_pullback_catd K R D)
+    (@id_funcd (@Sigma_cat K R)
+      (@Pullback_catd (@Sigma_cat K R) K D (@Sigma_proj1_func K R))) s;
+
+// Totalize a section over the stable projection pullback while D remains
+// variable; this is the existing Sigma construction, with no new primitive.
+protected symbol nerve_projection_section_total [K : Cat] (R D : τ (Catd K))
+  (s : τ (Obj (@Pi_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D))))
+  : τ (Functor (@Sigma_cat K R) (@Sigma_cat K D))
+≔ @comp_cat_fapp0 (@Sigma_cat K R)
+    (@Sigma_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D)) (@Sigma_cat K D)
+    (@sigma_pullback_total_func (@Sigma_cat K R) K (@Sigma_proj1_func K R) D)
+    (@section_total_func (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D) s);
+
+protected symbol nerve_projection_section_total_path [K : Cat] (R D : τ (Catd K))
+  (s : τ (Obj (@Pi_cat (@Sigma_cat K R)
+    (@Pullback_catd (@Sigma_cat K R) K D (@Sigma_proj1_func K R)))))
+  : τ (@= (Functor (@Sigma_cat K R) (@Sigma_cat K D))
+      (@nerve_projection_section_total K R D (@nerve_projection_section_view K R D s))
+      (@comp_cat_fapp0 (@Sigma_cat K R)
+        (@Sigma_cat (@Sigma_cat K R) (@Pullback_catd (@Sigma_cat K R) K D (@Sigma_proj1_func K R)))
+        (@Sigma_cat K D)
+        (@sigma_pullback_total_func (@Sigma_cat K R) K (@Sigma_proj1_func K R) D)
+        (@section_total_func (@Sigma_cat K R)
+          (@Pullback_catd (@Sigma_cat K R) K D (@Sigma_proj1_func K R)) s)))
+≔ @eq_refl (Functor (@Sigma_cat K R) (@Sigma_cat K D))
+    (@nerve_projection_section_total K R D (@nerve_projection_section_view K R D s));
+
+symbol nerve_native_total_catd (C : Cat) : τ (Catd (TotalOp_cat C))
+≔ @homdc_op_edge_catd C C (@hom_int C C (@id_func C));
+
+symbol nerve_native_section_base (C : Cat) : Cat ≔ TotalOp_cat (@LaxArrow_cat C);
+symbol nerve_native_section_raw_family (C : Cat)
+  : τ (Catd (nerve_native_section_base C))
+≔ @comma_graph_target_catd (@LaxArrow_cat C) C (@cubical_src_func C);
+symbol nerve_native_section_family (C : Cat)
+  : τ (Catd (nerve_native_section_base C))
+≔ @Sigma_proj1_pullback_catd (TotalOp_cat C) (nerve_native_total_catd C)
+    (nerve_native_total_catd C);
+
+// Original graph section: all action comes from the original whole U.
+symbol nerve_native_raw_graph_section (C : Cat)
+  : τ (Obj (@Pi_cat (nerve_native_section_base C) (nerve_native_section_raw_family C)))
+≔ @comma_graph_target_sec (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C)
+    (@tapp1_int_cart (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C)
+      (nerve_native_universal_transf C));
+
+// The generic typed identity re-expresses the same whole section over the
+// existing stable projection-pullback owner. No equality argument is supplied.
+symbol nerve_native_graph_section (C : Cat)
+  : τ (Obj (@Pi_cat (nerve_native_section_base C) (nerve_native_section_family C)))
+≔ @nerve_projection_section_view (TotalOp_cat C)
+    (nerve_native_total_catd C) (nerve_native_total_catd C)
+    (nerve_native_raw_graph_section C);
+
+// Totalization is a defined context on whole sections, not a new universe.
+symbol nerve_native_section_underlying (C : Cat)
+  (s : τ (Obj (@Pi_cat (nerve_native_section_base C) (nerve_native_section_family C))))
+  : τ (Functor (nerve_native_section_base C) (nerve_native_section_base C))
+≔ @nerve_projection_section_total (TotalOp_cat C)
+    (nerve_native_total_catd C) (nerve_native_total_catd C) s;
+
+symbol nerve_native_section_total (C : Cat)
+  (s : τ (Obj (@Pi_cat (nerve_native_section_base C) (nerve_native_section_family C))))
+  : τ (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+≔ @TotalOp_func (nerve_native_section_base C) (nerve_native_section_base C)
+    (nerve_native_section_underlying C s);
+
+symbol nerve_native_tautological_total_path (C : Cat)
+  : τ (@= (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+      (nerve_native_section_total C
+        (@nerve_sigma_tautological_sec (TotalOp_cat C) (nerve_native_total_catd C)))
+      (@id_func (@LaxArrow_cat C)))
+≔ @eq_ap
+    (Functor (nerve_native_section_base C) (nerve_native_section_base C))
+    (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+    (λ H : τ (Functor (nerve_native_section_base C) (nerve_native_section_base C)),
+      @TotalOp_func (nerve_native_section_base C) (nerve_native_section_base C) H)
+    (@nerve_sigma_pairing_func (TotalOp_cat C) (nerve_native_total_catd C))
+    (@id_func (nerve_native_section_base C))
+    (@nerve_sigma_pairing_path (TotalOp_cat C) (nerve_native_total_catd C));
+
+// First try the actual totalization comparison without a new presentation law.
+symbol nerve_native_graph_totalization_path (C : Cat)
+  : τ (@= (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+      (nerve_native_section_total C (nerve_native_graph_section C))
+      (@nerve_raw_sigma_graph_func (@LaxArrow_cat C) C
+        (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C)))
+≔ @eq_ap
+    (Functor (nerve_native_section_base C) (nerve_native_section_base C))
+    (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+    (λ H : τ (Functor (nerve_native_section_base C) (nerve_native_section_base C)),
+      @TotalOp_func (nerve_native_section_base C) (nerve_native_section_base C) H)
+    _ _ (@nerve_projection_section_total_path (TotalOp_cat C)
+      (nerve_native_total_catd C) (nerve_native_total_catd C)
+      (nerve_native_raw_graph_section C));
+
+
+// Both actual comparisons are now in the same whole totalization context.
+symbol nerve_native_graph_as_section_path (C : Cat)
+  : τ (@= (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+      (@nerve_default_graph_func (@LaxArrow_cat C) C
+        (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C))
+      (nerve_native_section_total C (nerve_native_graph_section C)))
+≔ @eq_trans (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+    (@nerve_default_graph_func (@LaxArrow_cat C) C
+      (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C))
+    (@nerve_raw_sigma_graph_func (@LaxArrow_cat C) C
+      (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C))
+    (nerve_native_section_total C (nerve_native_graph_section C))
+    (@nerve_default_graph_sigma_path (@LaxArrow_cat C) C
+      (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C))
+    (@eq_sym (Functor (@LaxArrow_cat C) (@LaxArrow_cat C)) _ _
+      (nerve_native_graph_totalization_path C));
+
+symbol nerve_observe_realize_section_path (C : Cat)
+  : τ (@= (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+      (@comp_cat_fapp0 (@LaxArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+        (@LaxArrow_cat C) (nerve_walking_observe_func C) (nerve_walking_realize_func C))
+      (nerve_native_section_total C (nerve_native_graph_section C)))
+≔ @eq_trans (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+    (@comp_cat_fapp0 (@LaxArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+      (@LaxArrow_cat C) (nerve_walking_observe_func C) (nerve_walking_realize_func C))
+    (@nerve_default_graph_func (@LaxArrow_cat C) C
+      (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C))
+    (nerve_native_section_total C (nerve_native_graph_section C))
+    (nerve_observe_realize_graph_path C) (nerve_native_graph_as_section_path C);

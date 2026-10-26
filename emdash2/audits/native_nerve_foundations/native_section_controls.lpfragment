@@ -1,0 +1,17 @@
+require open emdash.native_nerve_sigma_graph_review;
+
+// The comparison does not turn a general displayed map into identity.
+assertnot [K : Cat] (E : τ (Catd K)) (FF : τ (@Functord K E E))
+  (s : τ (Obj (@Pi_cat K E))) ⊢
+  @eq_refl (Obj (@Pi_cat K E)) (@section_postcomp_sec K E E FF s)
+  : τ (@= (Obj (@Pi_cat K E)) (@section_postcomp_sec K E E FF s) s);
+
+// This checkpoint does not supply the missing native inverse.
+assertnot [C : Cat] ⊢
+  @eq_refl (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+    (@nerve_default_graph_func (@LaxArrow_cat C) C
+      (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C))
+  : τ (@= (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+      (@nerve_default_graph_func (@LaxArrow_cat C) C
+        (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C))
+      (@id_func (@LaxArrow_cat C)));

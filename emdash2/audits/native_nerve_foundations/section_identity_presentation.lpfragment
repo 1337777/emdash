@@ -1,0 +1,4 @@
+// Proof-time identity across already-equal family presentations. Preserve
+// the runtime section-map owner and require the original section as data.
+unif_rule @section_postcomp_sec $K $E $D (@id (@Catd_cat $K) $E) $s
+  ≡ $observed ↪ [ $E ≡ $D; $s ≡ $observed ];

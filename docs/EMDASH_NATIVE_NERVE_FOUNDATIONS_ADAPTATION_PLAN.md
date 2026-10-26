@@ -152,17 +152,31 @@ required comparisons.
 
 ## First bounded implementation slice
 
+Common whole totalization, 2026-10-26: the [owner-local construction](../emdash2/audits/native_nerve_foundations/README.md#common-whole-section-totalization)
+now proves `Observe ∘ Realize ≐ Graph(U) ≐ Tot(s_U)` and `Tot(τ) ≐ id_N`
+in one existing section classifier. Generic section action and totalization
+avoid the failed concrete/bare-retyping approaches. One proof-time identity
+view preserves equal-family and original-section obligations; no runtime
+rule or native inverse is added. The retained prefix passes in 122.945s /
+560,296 KiB, with unchanged warning families and mapped locations.
+Both direct reconstruction attempts—whole section and whole native functor—
+remain unsuccessful. Next, inspect the complete native U internal action and
+the Pi/Sigma constructor laws to derive `s_U ≐ τ` or a justified equality of
+their whole totals. Preserve higher mapping profiles and the original next-cell
+data; do not postulate the missing native identity or claim impossibility from
+the current normalization failures. Full-module qualification remains open.
+
 Canonical Sigma reassembly, 2026-10-26: the [independent core check](../emdash2/audits/native_nerve_foundations/README.md#canonical-sigma-reassembly)
 qualifies the whole canonical pairing identity from one structural
 source-generation law and its measured constant-family instance. Existing
 point computation is unchanged; arbitrary sections and runtime eta are
 rejected by controls. The pass takes 31.217s / 169,740 KiB with unchanged
 warning families and exactly mapped locations. Native totalization remains
-owner-local because the construction helpers are protected. Its remaining
-formation comparison is between raw and stable projection pullbacks after
+owner-local because the construction helpers are protected. Its native
+formation comparison involved raw and stable projection pullbacks after
 fibre duality normalizes. A bare generic view fails at the section/displayed-
 functor classifier boundary; existing section action by a displayed identity
-is now being checked before specialization. Do not
+now supplies the checked common context above. Do not
 infer Graph(U) reconstruction from the canonical Sigma identity alone.
 
 Whole Sigma implementation prefix, 2026-10-26: the [early-owner replay](../emdash2/audits/native_nerve_foundations/README.md#early-owner-prefix-whole-sigma-graph-implementation)

@@ -1,0 +1,381 @@
+{
+  "receiverInputs": {
+    "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+    "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+    "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+    "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+    "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+    "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+    "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+    "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+    "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+    "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+    "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+    "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+    "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+    "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+    "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+    "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+    "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+    "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+    "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+    "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+    "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+    "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+    "emdash3_2_represented_comma_families.lp": "9c9b18ead5d894635b068e6ea397f7c305cf3e31d1804a8e181818ed189e5305",
+    "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+    "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+    "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+    "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+    "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "checker": {
+    "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+    "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+    "version": "dev-3.0.0-90-gdb4f7809-dirty"
+  },
+  "ownerPatches": [
+    {
+      "owner": "emdash3_2.lp",
+      "fragment": "total_dual_postcomp_units.lpfragment",
+      "anchor": "// Strict default maps preserve represented postcomposition. Whole functors\n",
+      "resultSha256": "8eb4ccba6a07e318e989981fcdbe067d7d9c8c046b84818632d4644dc480d8be"
+    },
+    {
+      "owner": "emdash3_2_walking_arrow_introduction.lp",
+      "fragment": "walking_generation_self.lpfragment",
+      "anchor": "// Postcomposition of the free walking-arrow introduction. A strict functor\n",
+      "resultSha256": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d"
+    },
+    {
+      "owner": "emdash3_2_gray_transformation_graph.lp",
+      "fragment": "graph_endpoint_projections.lpfragment",
+      "anchor": "// Public object observation, retained as the graph functor's ordinary action.\n",
+      "resultSha256": "ce67e1a3223d50273f2fb554c90b130443e322edc3f1726628dffa49184804a0"
+    },
+    {
+      "owner": "emdash3_2_gray_transformation_graph.lp",
+      "fragment": "graph_reindex_owner.lpfragment",
+      "anchor": "// Public object observation, retained as the graph functor's ordinary action.\n",
+      "resultSha256": "db87cf675f63982930023ec8b397315111dadb0800a1c1d5ec2e82aaed9cd68a"
+    },
+    {
+      "owner": "emdash3_2_represented_comma_families.lp",
+      "fragment": "graph_sigma_body_owner.lpfragment",
+      "anchor": "// The actual whole input classifier.\n",
+      "resultSha256": "672170ce8cbfab64d1ebdbe50f32a2f082c126e6b0e1de40b7db053006d636ee"
+    },
+    {
+      "owner": "emdash3_2.lp",
+      "fragment": "sigma_generation_owner.lpfragment",
+      "anchor": "// Raw canonical-triangle cell extracted from the internal displayed hom-action.\n",
+      "resultSha256": "7d18fc7479c6c0da0933c229525eb3484f11b89386d1d0a871d9d181242b5bdc"
+    },
+    {
+      "owner": "emdash3_2.lp",
+      "fragment": "section_identity_presentation.lpfragment",
+      "anchor": "// Proof-time associativity of the documented postcomposition operation.\n",
+      "resultSha256": "1784a1e3e27935767dba25b4ca540c9f2f29ed7a7ddbf9cfc30033a65ce53614"
+    },
+    {
+      "owner": "emdash3_2_represented_comma_families.lp",
+      "fragment": "native_section_totalization_owner.lpfragment",
+      "anchor": "// The actual whole input classifier.\n",
+      "resultSha256": "a07116b764dc5e526f6ccd5c280046969497c4347fb87f093c9f3fba687c368d"
+    }
+  ],
+  "ownerPrefixes": [
+    {
+      "owner": "emdash3_2_represented_comma_families.lp",
+      "throughAnchor": "// The actual whole input classifier.\n",
+      "omittedImports": [
+        "require open emdash.emdash3_2_zero_arrow_cones;",
+        "require open emdash.emdash3_2_iso_evidence_constructors;",
+        "require open emdash.emdash3_2_one_cat_adjunction_family_views;",
+        "require open emdash.emdash3_2_one_cat_pointwise_equivalences;",
+        "require open emdash.emdash3_2_one_cat_op;",
+        "require open emdash.emdash3_2_omega_equiv_composition;",
+        "require open emdash.emdash3_2_transfor_whiskering;",
+        "require open emdash.emdash3_2_identity_presented_iso_mapping;"
+      ],
+      "resultSha256": "f2d0b1e291d9f4d5114a22a949a06c3906344671a81842ca79959c24cd776e9d"
+    }
+  ],
+  "programs": {
+    "native_nerve_graph_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "graph_endpoint_controls.lpfragment"
+      ],
+      "sha256": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9"
+    },
+    "native_nerve_realization_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "walking_realization.lpfragment"
+      ],
+      "sha256": "2a6b7e974261f3a65c64d18ea61a5f4e06e8848be2777be3f48abcded0584d5a"
+    },
+    "native_nerve_generation_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "walking_generation.lpfragment"
+      ],
+      "sha256": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323"
+    },
+    "native_nerve_graph_whole_review.lp": {
+      "prefix": "require open emdash.native_nerve_graph_review;\nrequire open emdash.native_nerve_realization_review;\nrequire open emdash.native_nerve_generation_review;\n\n",
+      "separator": "\n",
+      "fragments": [
+        "graph_whole_generator.lpfragment",
+        "walking_first_inverse.lpfragment"
+      ],
+      "sha256": "6a69911880e10a4332a14582444d5ed45b146ea9e969975ede3e96c8fea47b4e"
+    },
+    "native_nerve_sigma_graph_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "native_sigma_prefix_controls.lpfragment"
+      ],
+      "sha256": "52f9f0cbe357a442c425a23064742a70a29c4f41a6e26cf840034970670e4fc5"
+    },
+    "native_nerve_sigma_generation_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "sigma_generation.lpfragment"
+      ],
+      "sha256": "cd0542f0a92de40d7bd132705b2281540cf7c182cca788dddb6f1e41eddfe20e"
+    },
+    "native_nerve_composite_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "native_composite_graph.lpfragment"
+      ],
+      "sha256": "a9d7512af42a23a2eba38e3d67da390cea6297a2f571820ccd3e2a89614c1abd"
+    },
+    "native_nerve_section_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "native_section_controls.lpfragment"
+      ],
+      "sha256": "1c08758bd2ad0219437b988310bfb17e7c8670e0b2a071c63874b4b2225b91d3"
+    }
+  },
+  "schema": "emdash-native-nerve-section-totalization-v1",
+  "status": "actual second composite and canonical identity expressed through one whole totalization; native section/total identity reconstruction remains open",
+  "receiverBaseline": "16b330a6",
+  "artifactHashes": {
+    "graph_endpoint_controls.lpfragment": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9",
+    "graph_endpoint_projections.lpfragment": "976f48c86c4d3141d875342067610404d45f6c021d63d194a1c0a25a08f3889c",
+    "graph_reindex_owner.lpfragment": "1742f9f0f41fc757747884933d27636c267c2741d8eaef56023a5a694b8bcd47",
+    "graph_sigma_body_owner.lpfragment": "4bd90043ac22007231d9a111b131b96533bd7fb43f79064578c74a1aeea0558f",
+    "graph_whole_generator.lpfragment": "7a7b3da47955bf29f9e39ba63ab4ae69079a7208c4817d23c2958cc62bd5ac09",
+    "native_composite_graph.lpfragment": "a9d7512af42a23a2eba38e3d67da390cea6297a2f571820ccd3e2a89614c1abd",
+    "native_section_controls.lpfragment": "1c08758bd2ad0219437b988310bfb17e7c8670e0b2a071c63874b4b2225b91d3",
+    "native_section_totalization_owner.lpfragment": "2931c3c9f73013c444043785df4683e8cd3c89201d0f45a1b41dc6b850e9889a",
+    "native_sigma_prefix_controls.lpfragment": "52f9f0cbe357a442c425a23064742a70a29c4f41a6e26cf840034970670e4fc5",
+    "replay_graph.py": "a137a6938db4c3d2822693fab428278191cd6648ec7fb333cd8e369ae88056a9",
+    "replay_realization.py": "148caac26a2e542cac0a05768635a5ca64aaaf11ae9da3b69739f5ad661d40f7",
+    "section_identity_presentation.lpfragment": "65b407a887221cb5202dfad2deb8a7924fa735ed6819003bbfd58225f405259a",
+    "sigma_generation.lpfragment": "cd0542f0a92de40d7bd132705b2281540cf7c182cca788dddb6f1e41eddfe20e",
+    "sigma_generation_owner.lpfragment": "fb433f9372ec58164ecfe96ee3c251524e69d02d65d3e246e0facea3f359e728",
+    "total_dual_postcomp_units.lpfragment": "d72ed818cd623c380d2651bdb9e4a7123ef2417ab29c3b3dc060c9e83ae068c5",
+    "walking_first_inverse.lpfragment": "4c4bff0c0b134b364d44d18285c8dad913839c209bc8abfd80bac51d0f40414f",
+    "walking_generation.lpfragment": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323",
+    "walking_generation_self.lpfragment": "1aa65f234ee9d67b6dde8e945aac1975dece244d445da7e6cd46bc83093c0b06",
+    "walking_realization.lpfragment": "2a6b7e974261f3a65c64d18ea61a5f4e06e8848be2777be3f48abcded0584d5a"
+  },
+  "target": "native_nerve_section_review.lp",
+  "scope": {
+    "newRuntimeRules": 0,
+    "newPrimitiveSymbols": 0,
+    "newProofTimeComparison": 1,
+    "comparison": "section postcomposition by a displayed identity preserves the original section, requiring both family presentations to compare",
+    "constructed": "original native graph section, its actual identity re-expression over the stable projection pullback, and one common totalization context",
+    "derived": [
+      "nerve_default_graph_sigma_path",
+      "nerve_projection_section_total_path",
+      "nerve_native_tautological_total_path",
+      "nerve_native_graph_totalization_path",
+      "nerve_native_graph_as_section_path",
+      "nerve_observe_realize_section_path"
+    ],
+    "wholeNativeInverseAssumed": false,
+    "productionFilesChanged": false,
+    "excludedScope": "Later represented-comma suffix and eight imports remain outside this prefix qualification.",
+    "totalizationContext": "Defined logical context returning a whole endofunctor; no functoriality in arbitrary section transformations is assumed."
+  },
+  "runs": [
+    {
+      "id": "20261026T195010Z-6545d728aa004a53adddbbacc83be26a",
+      "outcome": "failed",
+      "wallSeconds": 104.41697638202459,
+      "childrenMaxRssKiB": 558112,
+      "inputSnapshot": "38c0469dbffe570ba03d0f381b806176ce3f9c79923e3ff1243253274a669e13",
+      "logSha256": "68336bd8bb1cc24d80694ef778e10c79d82aed0fbc8a7758300ed04b5168176f",
+      "target": "native_nerve_section_review.lp",
+      "timeoutMs": 300000,
+      "memoryMiB": 2048
+    },
+    {
+      "id": "20261026T195359Z-6b6fc129a59a404dbbfe7d927169fac7",
+      "outcome": "failed",
+      "wallSeconds": 106.5088427849114,
+      "childrenMaxRssKiB": 544748,
+      "inputSnapshot": "1692c252424afc14555eefe732e5b3bea4e1562e871c3f590b4339fd0dbe9827",
+      "logSha256": "9304f9b0b2ad5f783e1d3b84ecfaa5ef1cc7c15827f5dbda8744459596a5356e",
+      "target": "native_nerve_section_review.lp",
+      "timeoutMs": 300000,
+      "memoryMiB": 2048
+    },
+    {
+      "id": "20261026T195956Z-8a18f998a1194f5a9cffd8aada433d05",
+      "outcome": "failed",
+      "wallSeconds": 133.28189768106677,
+      "childrenMaxRssKiB": 548544,
+      "inputSnapshot": "22fe27d6bd315adf1e8e5bde6e22ad7a600e6cb3c47f5fca8ec5843858d30b1a",
+      "logSha256": "09456e19a1cfd976e2d8444454e3ccbfa79b6ec9db6ac2a37caefd13ec28776e",
+      "target": "native_nerve_section_review.lp",
+      "timeoutMs": 300000,
+      "memoryMiB": 2048
+    },
+    {
+      "id": "20261026T200358Z-58369fc191124e4d81b053abcdfa2343",
+      "outcome": "failed",
+      "wallSeconds": 124.72387775289826,
+      "childrenMaxRssKiB": 559248,
+      "inputSnapshot": "b45f8333bbbddaf702721effb14e857e712e88d6c858fd343f20d2c74b75a528",
+      "logSha256": "bf8b87856dfea40def2feb868763c031cc9366ae52045a6f6037bfcac3367d8f",
+      "target": "native_nerve_section_review.lp",
+      "timeoutMs": 300000,
+      "memoryMiB": 2048
+    },
+    {
+      "id": "20261026T200835Z-41bc582a9c5147ab899dd13bacc686ed",
+      "outcome": "failed",
+      "wallSeconds": 123.0537029390689,
+      "childrenMaxRssKiB": 553124,
+      "inputSnapshot": "a2084f9b73e1fc9e6495e43598c83bc7df696e7574c25de3cd290c2ee9add257",
+      "logSha256": "c489b73903e933124ca43a0e23de91507ef5b4326a645c588b4a2f8f37356416",
+      "target": "native_nerve_section_review.lp",
+      "timeoutMs": 300000,
+      "memoryMiB": 2048
+    },
+    {
+      "id": "20261026T201146Z-fc231a69490b4f7d913c8d0d0df04791",
+      "outcome": "passed-fresh",
+      "wallSeconds": 123.74582642200403,
+      "childrenMaxRssKiB": 547876,
+      "inputSnapshot": "bb1ebb4ec3e2a6c275944f58426ae0abaf3f364e2801c3eb6e7c07512e6d6f10",
+      "logSha256": "6391a2f1928f48e896edde5113d154fb538c6981a50a346403ef0cfe470e9681",
+      "target": "native_nerve_section_review.lp",
+      "timeoutMs": 300000,
+      "memoryMiB": 2048
+    },
+    {
+      "id": "20261026T201905Z-28abfcf8b463467599d760a6673ec09a",
+      "outcome": "failed",
+      "wallSeconds": 124.07204834278673,
+      "childrenMaxRssKiB": 555692,
+      "inputSnapshot": "e0ccb2b67d489d4bb5076931a7984b7ba21429a929bfdd4bd3469f5fa31fc590",
+      "logSha256": "f70e50bf340c09f225de81d27c11da441531e169b42207085608e02e00238a8d",
+      "target": "native_nerve_section_review.lp",
+      "timeoutMs": 300000,
+      "memoryMiB": 2048
+    },
+    {
+      "id": "20261026T202447Z-aa7dad6771504feaa2353d5ab4cf33cf",
+      "outcome": "failed",
+      "wallSeconds": 124.75049761496484,
+      "childrenMaxRssKiB": 556248,
+      "inputSnapshot": "3ae2fd0fa7d196cbd87f7f562afb95a12536ccd698fa8c0675d8061aa484f036",
+      "logSha256": "28778c8831c91d4d3f10e1d9a3bf7f823fbbce9774716698ebf151493d605426",
+      "target": "native_nerve_section_review.lp",
+      "timeoutMs": 300000,
+      "memoryMiB": 2048
+    },
+    {
+      "id": "20261026T203233Z-ed6c22ea10c8465f9ac1b6648451485b",
+      "outcome": "passed-fresh",
+      "wallSeconds": 122.9454765340779,
+      "childrenMaxRssKiB": 560296,
+      "inputSnapshot": "86514f8013b3d6af537fb09e3c9390111d11723dfe7f2f769ffea2c2f76cfc8a",
+      "logSha256": "5312707ca8458afbacaeee5405318c662b7da94bb060f1ca64f4eb5ad9b6f8ac",
+      "target": "native_nerve_section_review.lp",
+      "timeoutMs": 300000,
+      "memoryMiB": 2048
+    }
+  ],
+  "failedHypotheses": [
+    {
+      "receipt": "20261026T195010Z-6545d728aa004a53adddbbacc83be26a",
+      "finding": "External helper definitions cannot reference protected represented-comma symbols; the experiment must be owner-local."
+    },
+    {
+      "receipt": "20261026T195359Z-6b6fc129a59a404dbbfe7d927169fac7",
+      "finding": "Specializing fibre duality before re-expressing the section expands raw pullback beyond the stable projection-family comparison."
+    },
+    {
+      "receipt": "20261026T195956Z-8a18f998a1194f5a9cffd8aada433d05",
+      "finding": "A bare generic carrier identity fails when stable Pi exposes the displayed-functor classifier; an actual section map is required."
+    },
+    {
+      "receipt": "20261026T200358Z-58369fc191124e4d81b053abcdfa2343",
+      "finding": "Generic section action types, but direct native totalization still expands the concrete dual family too early."
+    },
+    {
+      "receipt": "20261026T200835Z-41bc582a9c5147ab899dd13bacc686ed",
+      "finding": "Generic totalization reduces the remaining obligation to section_postcomp(id,s) versus s across already-equal family presentations."
+    },
+    {
+      "receipt": "20261026T201905Z-28abfcf8b463467599d760a6673ec09a",
+      "finding": "The direct whole-section reconstruction proof still fails; neither the concrete family presentation nor the actual graph-to-tautological section equation is closed by this attempt."
+    },
+    {
+      "receipt": "20261026T202447Z-aa7dad6771504feaa2353d5ab4cf33cf",
+      "finding": "The independent whole-functor identity attempt also fails. This is an unresolved proof-time/normalization comparison, not a mathematical impossibility result."
+    }
+  ],
+  "correction": "Use existing section action by a displayed identity and existing Sigma totalization at generic family parameters. One proof-time identity view keeps family equality and the original section as residual obligations. Specialize only afterward and apply total duality by congruence.",
+  "controls": [
+    "An arbitrary displayed map is not made identity on sections.",
+    "The inherited Sigma source-generation controls still reject arbitrary sections and runtime eta.",
+    "Original whole graph, filler, distinct-input and first-inverse checks remain in the loaded closure.",
+    "The missing native graph identity remains an explicit negative typed-reflexivity control after all retained constructions are loaded."
+  ],
+  "remaining": [
+    "Prove the actual graph section equals the tautological section, or justify equality of their whole totals.",
+    "Derive the second walking inverse; canonical Sigma reassembly alone does not supply it.",
+    "Complete full-module/reviewer qualification and inherited core-unit overlap review."
+  ],
+  "warningComparison": {
+    "baseline": "20261026T200835Z-41bc582a9c5147ab899dd13bacc686ed",
+    "candidate": "20261026T203233Z-ed6c22ea10c8465f9ac1b6648451485b",
+    "equalFields": {
+      "categories": true,
+      "locations": false,
+      "term_heads": true,
+      "rule_families": true,
+      "parser_issues": true
+    },
+    "categories": {
+      "replaceable pattern variable": 181,
+      "unjoinable critical pair": 2155
+    },
+    "qualification": "The identity view inserts five core lines; normalize those locations before comparing. No confluence or full-suffix claim.",
+    "sourceLocationMapping": {
+      "insertionLine": 14375,
+      "addedLines": 5,
+      "unchangedAfterMapping": true
+    }
+  },
+  "retainedRun": "20261026T203233Z-ed6c22ea10c8465f9ac1b6648451485b"
+}

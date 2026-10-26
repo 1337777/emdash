@@ -402,9 +402,61 @@ python3 emdash2/audits/native_nerve_foundations/replay_graph.py \
 This supplies the canonical identity target for the native-section comparison.
 It does **not** identify the original Graph(U) section with that target. The
 native totalization experiment must stay at the represented-comma owner to
-use its protected helpers. Its first owner-local attempt exposes a raw versus
+use its protected helpers. Its first owner-local attempt exposed a raw versus
 stable pullback-family comparison after fibre duality expands; a generic
 bare section view also fails when the stable classifier exposes displayed
-functors. The current candidate therefore uses existing section action by a
+functors. The checked common context below therefore uses existing section action by a
 displayed identity, formed while the families remain generic. No new family
 normalization or native section-generation law has been added for that gap.
+
+## Common whole section totalization
+
+[`native_section_totalization_owner.lpfragment`](native_section_totalization_owner.lpfragment)
+now places the original graph section s_U and the tautological section τ in
+the same existing projection-pullback section classifier. Writing Tot_C for
+its **defined** totalization context, the checked comparisons are
+
+```text
+Observe_C ∘ Realize_C ≐ Graph(U_C) ≐ Tot_C(s_U),
+Tot_C(τ) ≐ id_N(C).
+```
+
+Tot_C uses section totalization, projection base change and total duality.
+It is a logical context returning a whole functor, not a new primitive or
+an assumed functor on arbitrary section transformations. The original U and
+its whole internal action remain unchanged.
+
+The construction is owner-local because it uses protected represented-comma
+helpers. Re-expressing a raw section by a bare carrier identity failed at the
+Pi/displayed-functor classifier boundary. The retained construction instead
+uses existing section action by a displayed identity, formed at generic
+family parameters, then specializes it. Generic totalization similarly
+prevents fibre duality from expanding the concrete family too early.
+
+One [proof-time identity view](section_identity_presentation.lpfragment) is
+needed for that existing section action across already-equal family
+presentations. It retains family equality and the original section as
+residual obligations. Runtime owners are preserved; an arbitrary displayed
+map is not made identity. No equality argument enters the operational maps.
+
+The [retained controls](native_section_controls.lpfragment) and
+[verification](native_section_verification.json) pass in **122.945s /
+560,296 KiB**, under 300s / 2 GiB with subject reduction. Warning categories,
+term heads and rule families are unchanged; all locations match after the
+five-line core insertion. This remains an early-owner prefix qualification,
+with the earlier full-suffix and core-unit gates still open.
+
+```bash
+python3 emdash2/audits/native_nerve_foundations/replay_graph.py \
+  --record native_section_verification.json --timeout-seconds 300
+```
+
+The missing comparison is **s_U ≐ τ, or a justified equality of their whole
+totals**. Both a direct section proof and an independent direct functor-identity
+proof were attempted and failed; their exact inputs are retained in the
+verification record. These failures are not mathematical impossibility
+results. The native identity remains an explicit unresolved control, not a
+new law. Before adding stronger generation rules, review the universal
+transformation's complete internal action and the actual Pi/Sigma constructor
+laws, including their higher mapping profiles; point/square agreement cannot
+replace that work.
