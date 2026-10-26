@@ -42,6 +42,16 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Latest frontend continuation, 2026-10-26: the
+[native prewhiskering tranche](../emdash2/audits/strict-default-action-boundary/foundation_frontend_prewhiskering_review.md)
+closes the actual whole moving PathInd component using existing native
+definitions and projections. The complete TypeScript aggregate terminates
+with47 failures; subsequent focused repairs pass61 cases without claiming a
+green aggregate. The identity Homd frontend computes in an isolated extension;
+promotion and general-FF endpoint transfer remain open. Native source/reviewer
+qualification is unchanged. Continue the frontend plan before final health,
+book/article and legacy nerve stages.
+
 ### Consolidated continuation authorized 2026-10-25
 
 The user has expanded this living goal beyond the foundations first pass.

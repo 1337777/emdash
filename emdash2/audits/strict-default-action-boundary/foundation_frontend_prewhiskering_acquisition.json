@@ -1,0 +1,42 @@
+{
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "canonicalExportSha256": "5fe27c717a83f950431cf61a806a493499f3b03635310c63dcf3c9b751c327cd",
+  "scope": "Native composition definition and higher precomposition used by the complete moving-component consumer",
+  "commands": [
+    {
+      "name": "comp_fapp0",
+      "ordinal": 235,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "2cf69773db4124a5717894150f19642990b266abe8ebb5a5d44baac9690bb9c6"
+    },
+    {
+      "name": "comp_cat_fapp0",
+      "ordinal": 448,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "f8de90e028db659635c828786f0943be9fe07b4d7106af3a6130ef57751b993e"
+    },
+    {
+      "name": "hom_precomp_along_fapp1_func",
+      "ordinal": 723,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "33b490a1e5ed7a04238aa717a3b00fb7192e5e3a2a7abe150bc3109ba2c10445"
+    },
+    {
+      "name": "hom_precomp_along_fapp1_fapp0",
+      "ordinal": 724,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "93c83e06535c0642fa6fc1c2e3879efde481e270bcad58f9f66c4d59dd1a2b89"
+    },
+    {
+      "name": "comp_cat_con_fapp1_func",
+      "ordinal": 992,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "83cd763020c663ed5757914a5fe32d8d62c3a9702e031aad1ce28b9659b8c645"
+    }
+  ]
+}

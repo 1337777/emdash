@@ -322,71 +322,6 @@ const componentCompositionRule =
     };
 };
 
-const functorCompositionObjectRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const A = builder.capture('A');
-    const B = builder.capture('B');
-    const C = builder.capture('C');
-    const F = builder.capture('F');
-    const G = builder.capture('G');
-    const x = builder.capture('x');
-    const cat = builder.global(categoryOfCategories);
-    return {
-        order: 1,
-        id: 'categorical.functor-composition.object',
-        groupId: 'categorical.functor-composition',
-        clauseOrder: 0,
-        sourceOwner: functorObject,
-        variables: [
-            {
-                name: 'A',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'B',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'C',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'F',
-                type: builder.template(functorType(builder, B, C))
-            },
-            {
-                name: 'G',
-                type: builder.template(functorType(builder, A, B))
-            },
-            {
-                name: 'x',
-                type: builder.template(objectType(builder, A))
-            }
-        ],
-        left: builder.pattern(fapp0At(
-            builder,
-            A,
-            C,
-            composeAt(builder, cat, A, B, C, F, G),
-            x
-        )),
-        right: builder.template(fapp0At(
-            builder,
-            B,
-            C,
-            F,
-            fapp0At(builder, A, B, G, x)
-        )),
-        provenance: {
-            authorityPath: 'emdash2/emdash3_2.lp',
-            sourceFragment:
-                'rule @fapp0 $A $C ' +
-                '(@comp_fapp0 Cat_cat $A $B $C $F $G) $x'
-        }
-    };
-};
-
 const coefficientCompositionRule = (): CoreLfTransferRuntimeRule => {
     const b = new CoreLfTransferScopedBuilder();
     const A = b.capture('A'), B = b.capture('B'), C = b.capture('C');
@@ -413,9 +348,8 @@ const coefficientCompositionRule = (): CoreLfTransferRuntimeRule => {
 
 const binderRuntimeRules = Object.freeze([
     componentCompositionRule(),
-    functorCompositionObjectRule(),
     coefficientCompositionRule()
-]);
+].map((rule, order) => ({ ...rule, order })));
 
 export const CORE_CATEGORICAL_FIBRED_BINDER_RUNTIME_MODULE:
 CoreLfModuleSpec = createCoreLfModuleSpec({
@@ -593,10 +527,10 @@ Object.freeze({
     ]),
     declarationCount: 2,
     proofRuleCount: 1,
-    runtimeRuleCount: 3,
+    runtimeRuleCount: 2,
+    inheritedRuntimeRuleIds: Object.freeze(['categorical.composition.object.delta']),
     transferredRuntimeRuleIds: Object.freeze([
         'categorical.displayed-functor-composition.point',
-        'categorical.functor-composition.object',
         'categorical.family-coefficient.composition'
     ]),
     newMathematicalOwnerCount: 0,

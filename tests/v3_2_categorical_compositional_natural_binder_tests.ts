@@ -280,6 +280,15 @@ describe('COMPOSITIONAL-NATURAL-BINDER-1B', () => {
         );
     });
 
+    it('computes ordinary prewhiskering components for a general transfor', () => {
+        const { emdash, X, L, FL, GL, eta } = fixture();
+        const whiskered = emdash.transforLambda('preLeaf', FL, GL,
+            x => point(emdash, eta, map(emdash, L, x)));
+        const x = emdash.object('pre_leaf_x', X);
+        assert.equal(emdash.compare(point(emdash, whiskered, x),
+            point(emdash, eta, map(emdash, L, x)), 2048).status, 'equal');
+    });
+
     it('rejects arbitrary point arrows without coherence payloads', () => {
         const { emdash, B, F, G } = fixture();
         const u = emdash.object('natural_binder_u', B);

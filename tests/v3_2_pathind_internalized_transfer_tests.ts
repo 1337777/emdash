@@ -5,6 +5,14 @@
  */
 
 import assert from 'node:assert/strict';
+import { compileCoreCategoricalStructuralTransfer } from '../src/v3_2/categorical_structural_transfer';
+import { coreLfDefinitionalCompare } from '../src/v3_2/lf_conversion';
+import { compileCoreLfProofProgram, createCoreLfProofCheckingChecker } from '../src/v3_2/lf_transfer_proof';
+import { CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_MODULE, CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_POLICY } from '../src/v3_2/categorical_fibred_dependent_target_transfer';
+import { CORE_PATHIND_FIXED_SOURCE_1C_SYMBOLS } from '../src/v3_2/pathind_fixed_source_transfer';
+import { coreCategoricalFibredProductCoreName } from '../src/v3_2/categorical_fibred_product_transfer';
+import { coreCategoricalFibredTransfdCoreName } from '../src/v3_2/categorical_fibred_transfd_transfer';
+import { coreCategoricalFamilyCoefficient } from '../src/v3_2/categorical_family_coefficient';
 import { serializeKernelExpression } from '../src/v3_2/lambdapi';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -421,6 +429,36 @@ describe('PATHOUT-LIBRARY-INTERNALIZED-1D transfer', () => {
             );
         });
 
+    it('computes the whole moving component through native prewhiskering', () => {
+        const {compilation:c, environment, Z, x, E, Ew} = fixture();
+        const app = (owner: Parameters<typeof kernelApplication>[0], args: KernelExpression[]) =>
+            kernelApplication(owner, args.map(value=>({value})), nodeProvenance);
+        const cart=coreCategoricalFamilyCoefficient(nodeProvenance);
+        const R=c.preludeCompiled.application(CORE_PATHIND_INTERNALIZED_1D_SYMBOLS.pathoutMotives,[Z],nodeProvenance);
+        const D=app('constant-displayed-family',[Z,cart]);
+        const S=c.trustedCompiled.application(CORE_PATHIND_INTERNALIZED_1D_SYMBOLS.pathoutReflexiveEvaluationDisplayed,[Z],nodeProvenance);
+        const T=c.preludeCompiled.application(CORE_PATHIND_INTERNALIZED_1D_SYMBOLS.pathoutPi,[Z],nodeProvenance);
+        const theta=c.trustedCompiled.application(CORE_PATHIND_INTERNALIZED_1D_SYMBOLS.pathInductionTransformation,[Z],nodeProvenance);
+        const A=app('functor-object',[Z,cart,R,x]);
+        const F=app('transfor-component-capped',[Z,cart,R,D,x,S]);
+        const G=app('transfor-component-capped',[Z,cart,R,D,x,T]);
+        const component=call(coreCategoricalFibredTransfdCoreName('displayed-component'),
+            [Z,R,D,S,T,x,theta].map((value,i)=>({value,plicity:i<5?'implicit':'explicit'})));
+        const ordinary=call(coreCategoricalFibredProductCoreName('strict-transfor-view'),
+            [A,cart,F,G,component].map((value,i)=>({value,plicity:i<4?'implicit':'explicit'})));
+        const observed=app('transfor-component-capped',[A,cart,F,G,E,ordinary]);
+        const expected=c.predecessor.trustedCompiled.application(CORE_PATHIND_FIXED_SOURCE_1C_SYMBOLS.pathInductionComponentFunctor,[Z,x,E],nodeProvenance);
+        const proof=compileCoreLfProofProgram(CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_MODULE,
+            CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_POLICY,c.declarationContext,
+            {runtimeProgram:c.composedRuntime,comparisonStepLimit:2048});
+        const checker=createCoreLfProofCheckingChecker(environment,c.composedRuntime,proof);
+        assert.doesNotThrow(()=>checker.infer(checker.rootContext,observed));
+        const result=coreLfDefinitionalCompare(environment,observed,expected,2048,undefined,c.composedRuntime);
+        assert.equal(result.status,'equal', result.status === 'not-equal'
+            ? serializeKernelExpression(result.normalizedLeft)+'\nvs\n'+serializeKernelExpression(result.normalizedRight) : result.status);
+        assert.throws(()=>checker.infer(checker.rootContext,app('transfor-component-capped',[A,cart,F,G,Ew,ordinary])));
+    });
+
     it('rejects target transport with a motive over a foreign PathOut',
         () => {
             const witness = fixture();
@@ -495,7 +533,8 @@ describe('PATHOUT-LIBRARY-INTERNALIZED-1D transfer', () => {
         },
         () => {
             const c = compileCorePathindInternalized1dTransfer();
-            const modules = [c.whiskeringCompiled, c.sigmaCompiled, c.preludeCompiled,
+            const structural = compileCoreCategoricalStructuralTransfer().compiled;
+            const modules = [structural, c.whiskering.native.compiled, c.whiskeringCompiled, c.sigmaCompiled, c.preludeCompiled,
                 c.trustedCompiled, c.motiveCompiled, c.prefixLibraryCompiled, c.suffixLibraryCompiled];
             const references = Object.assign({}, ...modules.flatMap(module => [
                 module.externalFreeReferences, module.externalTransparentDefinitions,
@@ -503,7 +542,8 @@ describe('PATHOUT-LIBRARY-INTERNALIZED-1D transfer', () => {
                     link.kind === 'free-declaration' ? [[link.coreName, link.backendName]] : []))
             ]));
             const serialize = (term: KernelExpression) => serializeKernelExpression(term, { externalFreeReferences: references });
-            const declarations = modules.flatMap(module => module.declarations.flatMap(decl => [
+            const declarations = modules.flatMap(module => module.declarations.filter(decl =>
+                module !== structural || ['comp_fapp0','comp_cat_fapp0'].includes(decl.symbol.name)).flatMap(decl => [
                 `assert ⊢ @${decl.symbol.name} : ${serialize(decl.type)};`,
                 ...(decl.body ? [`assert ⊢ @${decl.symbol.name} ≡ ${serialize(decl.body)};`] : [])
             ]));

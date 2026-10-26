@@ -122,6 +122,7 @@ const transforHomCapped =
     coreDirectedContinuationTransferSymbol('transfor-hom-capped');
 
 const {
+    genericComposition,
     functorCategory,
     cartesianFunctorCategory,
     identityFunctor,
@@ -1184,6 +1185,14 @@ CoreLfTransferDeclarationLinkage =
         }
     );
 
+const composeRawFunctors = (
+    b: CoreLfTransferScopedBuilder, A: CoreLfTransferBuilderExpression,
+    B: CoreLfTransferBuilderExpression, C: CoreLfTransferBuilderExpression,
+    F: CoreLfTransferBuilderExpression, G: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression => globalCall(b, genericComposition,
+    [b.global(categoryOfCategories), A, B, C, F, G]
+        .map((value, index) => ({ value, plicity: index < 4 ? 'implicit' : 'explicit' })));
+
 const compositionObjectRule = (): CoreLfTransferRuntimeRule => {
     const builder = new CoreLfTransferScopedBuilder();
     const A = builder.capture('A');
@@ -1228,7 +1237,7 @@ const compositionObjectRule = (): CoreLfTransferRuntimeRule => {
             builder,
             A,
             C,
-            composeFunctors(builder, A, B, C, F, G),
+            composeRawFunctors(builder, A, B, C, F, G),
             x
         )),
         right: builder.template(fapp0(
@@ -1301,7 +1310,7 @@ const compositionArrowRule = (): CoreLfTransferRuntimeRule => {
             builder,
             A,
             C,
-            composeFunctors(builder, A, B, C, F, G),
+            composeRawFunctors(builder, A, B, C, F, G),
             x,
             y,
             p
@@ -3052,10 +3061,11 @@ const productPairProjectionBetaRule = (
         leftClassifier,
         objectClassifierAt(builder, B)
     );
+    // Recover categories from the constructor, not erased inferred carriers.
     const pair_ = pair(
         builder,
-        builder.wildcard(A),
-        builder.wildcard(B),
+        A,
+        B,
         x,
         y
     );
@@ -3085,8 +3095,8 @@ const productPairProjectionBetaRule = (
         ],
         left: builder.pattern(
             side === 'left'
-                ? sigmaFirstAt(builder, leftClassifier, family, pair_)
-                : sigmaSecondAt(builder, leftClassifier, family, pair_)
+                ? sigmaFirstAt(builder, builder.wildcard(leftClassifier), builder.wildcard(family), pair_)
+                : sigmaSecondAt(builder, builder.wildcard(leftClassifier), builder.wildcard(family), pair_)
         ),
         right: builder.template(side === 'left' ? x : y),
         provenance: source(
@@ -3143,6 +3153,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
     sourceSha256: CORE_CATEGORICAL_FIBRED_PRODUCT_SOURCE_SHA256,
     dependencies: [],
     externalSymbols: [
+        genericComposition,
         category,
         groupoid,
         decodeOwner,

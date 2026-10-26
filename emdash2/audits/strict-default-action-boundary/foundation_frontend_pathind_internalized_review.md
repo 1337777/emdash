@@ -7,6 +7,13 @@ identifies the sixteen existing owners consumed by this scope. The
 owns exact current input hashes and receipts. This is a
 continuation record, not completion of the overall frontend migration.
 
+Later qualification, 2026-10-26: the
+[native prewhiskering continuation](foundation_frontend_prewhiskering_review.md)
+now makes the actual whole moving-component regression pass. The failed
+experiment and 38-assertion receipt below remain historical evidence at their
+original inputs; the successor records 44 native assertions and the completed
+aggregate. The full Homd endpoint and overall frontend remain unfinished.
+
 ## Whole interfaces and existing operations
 
 The varying-source package uses Cat_cart coefficients and Cartesian motive

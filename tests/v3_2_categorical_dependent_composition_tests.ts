@@ -91,7 +91,7 @@ describe(
             assert.deepEqual(
                 CORE_CATEGORICAL_DEPENDENT_COMPOSITION_TRANSFER_MODULE
                     .declarations.map(entry => entry.symbol.name),
-                ['Terminal_cat', 'comp_fapp0']
+                ['Terminal_cat']
             );
             assert.deepEqual(
                 CORE_CATEGORICAL_DEPENDENT_COMPOSITION_RUNTIME_MODULE
@@ -152,8 +152,7 @@ describe(
                     declaration.status
                 ]),
                 [
-                    ['Terminal_cat', 'installed-opaque'],
-                    ['comp_fapp0', 'installed-opaque']
+                    ['Terminal_cat', 'installed-opaque']
                 ]
             );
             assert.deepEqual(

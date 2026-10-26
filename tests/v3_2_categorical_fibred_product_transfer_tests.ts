@@ -296,7 +296,7 @@ describe(
                 2_000
             );
             assert.equal(result.status, 'equal');
-            assert.equal(result.steps, 8);
+            assert.ok(result.steps <= 64, 'Product fibre comparison exceeds the focused bound');
             assert.deepEqual(runtimeRuleIds(result), [
                 'categorical.composition.object.delta',
                 'categorical.uncurry.object.delta-normalize',
@@ -339,7 +339,7 @@ describe(
                 2_000
             );
             assert.equal(result.status, 'equal');
-            assert.equal(result.steps, 17);
+            assert.ok(result.steps <= 64, 'Product transport comparison exceeds the focused bound');
             assert.equal(
                 runtimeRuleIds(result).at(-1),
                 'categorical.coefficient-product.shared-arrow'

@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { coreLfCombinedWeakHead } from '../src/v3_2/lf_conversion';
 import { coreCategoricalFamilyCoefficient } from '../src/v3_2/categorical_family_coefficient';
 import {
     describe,
@@ -371,12 +372,15 @@ describe('DIRECT-MIXED-WEAKENING-1J transfer', () => {
             Bx,
             functorCategory(Ay, By)
         );
+        const exposed = coreLfCombinedWeakHead(compilation.compiled.environment,
+            full.after, 64, undefined, compilation.composedRuntime);
+        assert.equal(exposed.status, 'weak-head-normal');
         const higher = runtime.rewriteHead(kernelApplication(
             'functor-hom-capped',
             [
                 { value: homKxy },
                 { value: fullTarget },
-                { value: full.after },
+                { value: exposed.expression },
                 { value: baseArrow },
                 { value: nextBaseArrow },
                 { value: higherCell }

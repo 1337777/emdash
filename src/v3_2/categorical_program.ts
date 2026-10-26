@@ -1296,7 +1296,10 @@ export class CoreCategoricalProgram {
         if (this.displayedChainEnabled && 'declarationContext' in this.dependent &&
             'composedRuntime' in this.dependent) {
             this.projectionPullbackProof = compileCoreCategoricalDisplayedChainProof(
-                this.dependent.declarationContext, this.dependent.composedRuntime);
+                this.dependent.declarationContext, this.dependent.composedRuntime,
+                // Native composition definitions add beta steps in higher telescopes.
+                // The isolated 1024-step replay qualifies this profile-specific budget.
+                this.displayedChain2aEnabled ? 1024 : undefined);
         }
         this.environment = this.dependent.compiled.environment;
         const classifierRuntime = 'composedRuntime' in this.dependent

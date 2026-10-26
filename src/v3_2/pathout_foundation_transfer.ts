@@ -8,6 +8,7 @@
  * profile is being qualified.
  */
 
+import { nativePrecompositionIdentityFamilyProofRule } from './categorical_precomposition_action_transfer';
 import { CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_MODULE, CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_POLICY } from './categorical_fibred_dependent_target_transfer';
 import {
     CORE_CATEGORICAL_DEPENDENT_COMPOSITION_SYMBOLS,
@@ -2049,86 +2050,6 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
     }
 );
 
-const precompositionIdentityFamilyProofRule =
-(): CoreLfTransferProofRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const A = builder.capture('A');
-    const Z = builder.capture('Z');
-    const W = builder.capture('W');
-    const X = builder.capture('X');
-    const h = builder.capture('h');
-    const g = builder.capture('g');
-    return {
-        order: 0,
-        id: 'pathout.foundation.precomposition-identity-family',
-        sourceOwner: precompositionAction,
-        variables: [
-            {
-                name: 'A',
-                role: 'matched' as const,
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'Z',
-                role: 'matched' as const,
-                type: builder.template(objectType(builder, A))
-            },
-            {
-                name: 'W',
-                role: 'matched' as const,
-                type: builder.template(objectType(builder, A))
-            },
-            {
-                name: 'X',
-                role: 'matched' as const,
-                type: builder.template(objectType(builder, A))
-            },
-            {
-                name: 'h',
-                role: 'matched' as const,
-                type: builder.template(homType(builder, A, W, X))
-            },
-            {
-                name: 'g',
-                role: 'matched' as const,
-                type: builder.template(homType(builder, A, X, Z))
-            }
-        ],
-        problem: {
-            left: builder.pattern(precompositionActionAt(
-                builder,
-                A,
-                A,
-                identityFunctorAt(builder, A),
-                Z,
-                W,
-                X,
-                h,
-                g
-            )),
-            right: builder.pattern(compositionAt(
-                builder,
-                A,
-                W,
-                X,
-                Z,
-                g,
-                h
-            ))
-        },
-        // TypeScript represents active source tt ≡ tt by reflexive A ≡ A.
-        generatedConstraints: [{
-            left: builder.template(A),
-            right: builder.template(A)
-        }],
-        provenance: source(
-            'unif_rule @hom_precomp_along_fapp0 $A $A ' +
-                '(@id Cat_cat $A) $Z $W $X $h $g ≡ ' +
-                '@comp_fapp0 $A _ _ $Z $g $h ↪ [ tt ≡ tt ]'
-        )
-    };
-};
-
 const representedSourceProjectionOrderProofRule =
 (): CoreLfTransferProofRule => {
     const builder = new CoreLfTransferScopedBuilder();
@@ -2268,7 +2189,7 @@ const representedSourceProjectionOrderProofRule =
 };
 
 const identityFamilyProofRule =
-    precompositionIdentityFamilyProofRule();
+    nativePrecompositionIdentityFamilyProofRule();
 const projectionOrderProofRule =
     representedSourceProjectionOrderProofRule();
 const proofRules = Object.freeze([

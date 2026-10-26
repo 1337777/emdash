@@ -11,7 +11,7 @@
 
 import { compileCoreLfProofProgram } from './lf_transfer_proof';
 import { CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_MODULE, CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_POLICY } from './categorical_fibred_dependent_target_transfer';
-import { CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_MODULE, CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_POLICY, CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_LINKAGE } from './categorical_compositional_natural_transfer';
+import { compileCoreCategoricalCompositionalNaturalAt, CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_LINKAGE } from './categorical_compositional_natural_transfer';
 import {
     CORE_CATEGORICAL_DISPLAYED_CHAIN_TRANSFER_LINKAGE
 } from './categorical_displayed_chain_transfer';
@@ -142,6 +142,8 @@ const cartesianFunctorCategory = symbol('Functor_cart_cat');
 const cartesianInclusion = symbol('Functor_cart_include');
 const strictTransforView = symbol('strict_transfor');
 const functorComposition = symbol('comp_cat_fapp0');
+const genericComposition = symbol('comp_fapp0');
+const ordinaryCategories = symbol('Cat_cat');
 const prewhiskeringAction = symbol('comp_cat_con_fapp1_func');
 const displayedFamilyClassifier = symbol('Catd');
 const displayedFunctorClassifier = symbol('Functord');
@@ -862,15 +864,16 @@ const composeAt = (b: CoreLfTransferScopedBuilder,
 const ordinaryComponentAt = (b: CoreLfTransferScopedBuilder,
     K: CoreLfTransferBuilderExpression, R: CoreLfTransferBuilderExpression,
     S: CoreLfTransferBuilderExpression, T: CoreLfTransferBuilderExpression,
-    k: CoreLfTransferBuilderExpression, eta: CoreLfTransferBuilderExpression
+    k: CoreLfTransferBuilderExpression, eta: CoreLfTransferBuilderExpression, pattern = false
 ): CoreLfTransferBuilderExpression => {
     const constant = constantFamilyAt(b, K, b.global(familyCoefficient));
+    const inferred = (value: CoreLfTransferBuilderExpression) => pattern ? b.wildcard(value) : value;
     return globalCall(b, strictTransforView, [
-        { plicity: 'implicit', value: fibreAt(b, K, R, k) },
-        { plicity: 'implicit', value: b.global(familyCoefficient) },
-        { plicity: 'implicit', value: fibreFunctorAt(b, K, R, constant, S, k) },
-        { plicity: 'implicit', value: fibreFunctorAt(b, K, R, constant, T, k) },
-        { plicity: 'explicit', value: displayedComponentAt(b, K, R, constant, S, T, k, eta) }
+        { plicity: 'implicit', value: inferred(fibreAt(b, K, R, k)) },
+        { plicity: 'implicit', value: inferred(b.global(familyCoefficient)) },
+        { plicity: 'implicit', value: inferred(fibreFunctorAt(b, K, R, constant, S, k)) },
+        { plicity: 'implicit', value: inferred(fibreFunctorAt(b, K, R, constant, T, k)) },
+        { plicity: 'explicit', value: displayedComponentAt(b, K, inferred(R), inferred(constant), inferred(S), inferred(T), k, eta) }
     ]);
 };
 
@@ -2059,7 +2062,7 @@ const pathInductionFunctorComponentRule =
         ],
         left: builder.pattern(componentAt(
             builder,
-            displayedCategoryAt(builder, pathout),
+            builder.wildcard(displayedCategoryAt(builder, pathout)),
             builder.wildcard(pathInductionSourceFamilyAt(builder, Z, x)),
             builder.wildcard(pathInductionTargetFamilyAt(builder, Z, x)),
             E,
@@ -2176,7 +2179,7 @@ const pathInductionTransformationComponentRule =
         ],
         left: builder.pattern(ordinaryComponentAt(builder, Z,
             pathoutMotivesAt(builder, Z), pathoutReflexiveEvaluationDisplayedAt(builder, Z),
-            pathoutPiAt(builder, Z), x, pathInductionTransformationAt(builder, Z))),
+            pathoutPiAt(builder, Z), x, pathInductionTransformationAt(builder, Z), true)),
         right: builder.template((() => {
             const base = pathoutCategoryAt(builder, Z, x), cart = cartesianFamiliesAt(builder, base);
             const ambient = displayedCategoryAt(builder, base), coefficient = builder.global(familyCoefficient);
@@ -2476,16 +2479,16 @@ const pathInductionTargetFibreStagedParentFusionRule =
 };
 
 // Existing native whole family composition/pullback comparison. The explicit
-// Core facade comp_cat_fapp0 has the native comp_fapp0(Cat_cat,...) body.
+// Core uses the native comp_fapp0(Cat_cat,...) head after unfolding its facade.
 const familyCompositionPullbackRule = (): CoreLfTransferProofRule => {
     const b = new CoreLfTransferScopedBuilder();
     const A=b.capture('A'), B=b.capture('B'), E=b.capture('E'), F=b.capture('F');
     const variable=(name:string,type:CoreLfTransferBuilderExpression)=>({name,role:'matched' as const,type:b.template(type)});
     return {
-        order:1,id:'categorical.reindex.composition-presentation',sourceOwner:functorComposition,
+        order:1,id:'categorical.reindex.composition-presentation',sourceOwner:genericComposition,
         variables:[variable('A',b.global(category)),variable('B',b.global(category)),
             variable('E',displayedFamilyType(b,B)),variable('F',functorType(b,A,B))],
-        problem:{left:b.pattern(composeAt(b,A,B,b.global(familyCoefficient),E,F)),
+        problem:{left:b.pattern(globalCall(b,genericComposition,[b.global(ordinaryCategories),A,B,b.global(familyCoefficient),E,F].map((value,i)=>({value,plicity:i<4?'implicit':'explicit'})))),
             right:b.pattern(pullbackFamilyAt(b,A,B,E,F))},
         generatedConstraints:[{left:b.template(A),right:b.template(A)}],
         provenance:source('unif_rule @comp_fapp0 Cat_cat $A $B Cat_cart $E $F ≡ @Pullback_catd $A $B $E $F ↪ [ tt ≡ tt ];')
@@ -2514,7 +2517,7 @@ const runtimeRules: readonly CoreLfTransferRuntimeRule[] = Object.freeze([
 ]);
 
 const commonExternalSymbols = Object.freeze([
-    cartesianFunctorCategory, cartesianInclusion, strictTransforView, functorComposition, prewhiskeringAction,
+    cartesianFunctorCategory, cartesianInclusion, strictTransforView, functorComposition, genericComposition, ordinaryCategories, prewhiskeringAction,
     category,
     decodeOwner,
     objectClassifier,
@@ -3111,6 +3114,7 @@ export const CORE_PATHIND_INTERNALIZED_1D_TRANSFER_BOUNDARY = Object.freeze({
 
 export interface CorePathindInternalized1dCompilation {
     readonly predecessor: CorePathindFixedSource1cCompilation;
+    readonly whiskering: ReturnType<typeof compileCoreCategoricalCompositionalNaturalAt<CorePathindFixedSource1cCompilation>>;
     readonly whiskeringCompiled: CoreLfCompiledDeclarationModule;
     readonly sigmaCompiled: CoreLfCompiledDeclarationModule;
     readonly preludeCompiled: CoreLfCompiledDeclarationModule;
@@ -3136,20 +3140,15 @@ CorePathindInternalized1dCompilation {
     if (cachedCompilation !== undefined) return cachedCompilation;
     validateCorePathindInternalized1dReviewV14();
     const predecessor = compileCorePathindFixedSource1cTransfer();
-    const whiskeringCompiled = compileCoreLfDeclarations(
-        CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_MODULE,
-        CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_POLICY,
-        CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_LINKAGE,
-        { initialEnvironment: predecessor.compiled.environment,
-          runtimeProgram: predecessor.composedRuntime, comparisonStepLimit: 512 }
-    );
+    const whiskering = compileCoreCategoricalCompositionalNaturalAt(predecessor);
+    const whiskeringCompiled = whiskering.compiled;
     const sigmaCompiled = compileCoreLfDeclarations(
         CORE_PATHIND_INTERNALIZED_1D_SIGMA_MODULE,
         CORE_PATHIND_INTERNALIZED_1D_SIGMA_POLICY,
         CORE_PATHIND_INTERNALIZED_1D_SIGMA_LINKAGE,
         {
             initialEnvironment: whiskeringCompiled.environment,
-            runtimeProgram: predecessor.composedRuntime,
+            runtimeProgram: whiskering.composedRuntime,
             comparisonStepLimit: 512
         }
     );
@@ -3159,7 +3158,7 @@ CorePathindInternalized1dCompilation {
         CORE_PATHIND_INTERNALIZED_1D_PRELUDE_LINKAGE,
         {
             initialEnvironment: sigmaCompiled.environment,
-            runtimeProgram: predecessor.composedRuntime,
+            runtimeProgram: whiskering.composedRuntime,
             comparisonStepLimit: 512
         }
     );
@@ -3169,13 +3168,13 @@ CorePathindInternalized1dCompilation {
         CORE_PATHIND_INTERNALIZED_1D_TRUSTED_LINKAGE,
         {
             initialEnvironment: preludeCompiled.environment,
-            runtimeProgram: predecessor.composedRuntime,
+            runtimeProgram: whiskering.composedRuntime,
             comparisonStepLimit: 512
         }
     );
     const trustedContext = new CoreLfMixedDeclarationContext(
-        predecessor.declarationContext,
-        [whiskeringCompiled, sigmaCompiled, preludeCompiled, trustedCompiled]
+        whiskering.declarationContext,
+        [sigmaCompiled, preludeCompiled, trustedCompiled]
     );
     const subjectProof = compileCoreLfProofProgram(
         CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_MODULE,
@@ -3183,7 +3182,7 @@ CorePathindInternalized1dCompilation {
         trustedContext,
         // The whole component expands both restricted endpoint functors.
         // Its recorded 512-step trace ends in ordinary beta reduction.
-        { runtimeProgram: predecessor.composedRuntime, comparisonStepLimit: 2048 }
+        { runtimeProgram: whiskering.composedRuntime, comparisonStepLimit: 2048 }
     );
     const baseRuntimeFragment = compileCoreLfRuntimeFragment(
         CORE_PATHIND_INTERNALIZED_1D_BASE_RUNTIME_MODULE,
@@ -3192,7 +3191,7 @@ CorePathindInternalized1dCompilation {
         {
             dependencies: [{
                 relation: 'earlier-fragment',
-                fragment: predecessor.runtimeFragment
+                fragment: whiskering.runtimeFragment
             }],
             comparisonStepLimit: 512,
             subjectReductionProof: {
@@ -3238,9 +3237,8 @@ CorePathindInternalized1dCompilation {
         }
     );
     const prefixContext = new CoreLfMixedDeclarationContext(
-        predecessor.declarationContext,
+        whiskering.declarationContext,
         [
-            whiskeringCompiled,
             sigmaCompiled,
             preludeCompiled,
             trustedCompiled,
@@ -3271,9 +3269,8 @@ CorePathindInternalized1dCompilation {
         }
     );
     const declarationContext = new CoreLfMixedDeclarationContext(
-        predecessor.declarationContext,
+        whiskering.declarationContext,
         [
-            whiskeringCompiled,
             sigmaCompiled,
             preludeCompiled,
             trustedCompiled,
@@ -3284,6 +3281,7 @@ CorePathindInternalized1dCompilation {
     );
     cachedCompilation = Object.freeze({
         predecessor,
+        whiskering,
         whiskeringCompiled,
         sigmaCompiled,
         preludeCompiled,

@@ -106,16 +106,16 @@ describe(
             assert.equal(
                 CORE_CATEGORICAL_FIBRED_BINDER_TRANSFER_BOUNDARY
                     .runtimeRuleCount,
-                3
+                2
             );
             assert.deepEqual(
                 compilation.runtime.rules.map(rule => rule.id),
                 [
                     'categorical.displayed-functor-composition.point',
-                    'categorical.functor-composition.object',
                     'categorical.family-coefficient.composition'
                 ]
             );
+            assert.ok(compilation.composedRuntime.ruleIds.includes('categorical.composition.object.delta'));
             assert.equal(
                 compilation.runtime.rules.every(rule =>
                     rule.subjectValidation.kind ===

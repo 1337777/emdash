@@ -460,9 +460,11 @@ const actualTransferRows = () => [
         declarationSlots:
             CORE_CATEGORICAL_FIBRED_BINDER_TRANSFER_BOUNDARY
                 .declarationCount,
+        // This representative scope still consumes ordinary composition;
+        // its duplicate local rule moved to the earlier product owner.
         runtimeRuleSlots:
-            CORE_CATEGORICAL_FIBRED_BINDER_TRANSFER_BOUNDARY
-                .runtimeRuleCount,
+            CORE_CATEGORICAL_FIBRED_BINDER_TRANSFER_BOUNDARY.runtimeRuleCount +
+            CORE_CATEGORICAL_FIBRED_BINDER_TRANSFER_BOUNDARY.inheritedRuntimeRuleIds.length,
         proofRuleSlots:
             CORE_CATEGORICAL_FIBRED_BINDER_TRANSFER_BOUNDARY
                 .proofRuleCount,

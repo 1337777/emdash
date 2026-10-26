@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { coreLfCombinedWeakHead } from '../src/v3_2/lf_conversion';
 import { coreCategoricalFamilyCoefficient } from '../src/v3_2/categorical_family_coefficient';
 import { serializeKernelExpression } from '../src/v3_2/lambdapi';
 import { checkLambdapiProbe } from '../src/v3_2/probe';
@@ -260,12 +261,15 @@ describe('DIRECT-MIXED-CONSTANT-MIDDLE-1M transfer', () => {
         );
         assert.match(serializeCoreExpression(point.after), /comp_cat_fapp0/u);
 
+        const exposed = coreLfCombinedWeakHead(compilation.compiled.environment,
+            point.after, 64, undefined, compilation.composedRuntime);
+        assert.equal(exposed.status, 'weak-head-normal');
         const objectAction = runtime.rewriteHead(kernelApplication(
             'functor-object',
             [
                 { value: W },
                 { value: Z },
-                { value: point.after },
+                { value: exposed.expression },
                 { value: a }
             ],
             p
@@ -275,7 +279,7 @@ describe('DIRECT-MIXED-CONSTANT-MIDDLE-1M transfer', () => {
             [
                 { value: W },
                 { value: Z },
-                { value: point.after },
+                { value: exposed.expression },
                 { value: a },
                 { value: aPrime },
                 { value: alpha }

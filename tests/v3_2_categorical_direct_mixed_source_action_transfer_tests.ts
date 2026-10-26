@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { coreLfCombinedWeakHead } from '../src/v3_2/lf_conversion';
 import { resolve } from 'node:path';
 import { coreCategoricalFamilyCoefficient } from '../src/v3_2/categorical_family_coefficient';
 import { serializeKernelExpression } from '../src/v3_2/lambdapi';
@@ -449,13 +450,16 @@ describe('DIRECT-MIXED-SOURCE-ACTION-1E2 runtime transfer', () => {
             true
         );
 
+        const exposed = coreLfCombinedWeakHead(compilation.compiled.environment,
+            projected.after, 64, undefined, compilation.composedRuntime);
+        assert.equal(exposed.status, 'weak-head-normal');
         const objectAction = compilation.composedRuntime.rewriteHead(
             kernelApplication(
                 'functor-object',
                 [
                     { value: sourceFibre },
                     { value: targetFibre },
-                    { value: projected.after },
+                    { value: exposed.expression },
                     { value: a }
                 ],
                 p
@@ -467,7 +471,7 @@ describe('DIRECT-MIXED-SOURCE-ACTION-1E2 runtime transfer', () => {
                 [
                     { value: sourceFibre },
                     { value: targetFibre },
-                    { value: projected.after },
+                    { value: exposed.expression },
                     { value: a },
                     { value: aPrime },
                     { value: ell }

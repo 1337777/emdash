@@ -1,11 +1,13 @@
 /**
- * COMPOSITIONAL-NATURAL-ACTION-CORRECTION-1B2 signatures-only transfer.
+ * COMPOSITIONAL-NATURAL-ACTION-CORRECTION-1B2 native prewhiskering transfer.
  *
  * The active kernel already owns classifier-exact pre/postwhiskering action
- * functors. This fragment imports only those two signatures; it adds no
- * runtime rule, proof rule, definition mirror, or mathematical owner.
+ * functors. This fragment checks the native prewhiskering definition over the
+ * shared higher-precomposition ladder; postwhiskering retains its signature.
+ * No mathematical owner or equation is added.
  */
 
+import { compileCoreNativePrecompositionAction, CORE_NATIVE_PRECOMPOSITION_LINKAGE, NativePrecompositionPrerequisite } from './categorical_precomposition_action_transfer';
 import {
     CORE_CATEGORICAL_DIRECT_MIXED_CONSTANT_MIDDLE_TRANSFER_LINKAGE,
     CoreCategoricalDirectMixedConstantMiddleCompilation,
@@ -35,6 +37,7 @@ import {
     CoreLfTransferScopedBuilder,
     coreLfQualifiedSymbol,
     coreLfTransferAbsentBody,
+    coreLfTransferExplicitBody,
     createCoreLfModuleSpec,
     createCoreLfTransferPolicyOverlay
 } from './lf_transfer';
@@ -289,12 +292,29 @@ const source = (sourceFragment: string) => ({
     sourceFragment
 });
 
+const prewhiskeringActionBody = (): CoreLfTransferExpression => {
+    const b = new CoreLfTransferScopedBuilder(), cats = b.global(coreLfQualifiedSymbol(MODULE_ID, 'Cat_cat'));
+    const params: readonly [string, 'implicit'|'explicit', (s:Readonly<Record<string,CoreLfTransferBuilderExpression>>)=>CoreLfTransferBuilderExpression][] = [
+        ['X','implicit',()=>b.global(category)],['Y','implicit',()=>b.global(category)],['Z','implicit',()=>b.global(category)],
+        ['L','explicit',s=>functorType(b,s.X,s.Y)],['F','implicit',s=>functorType(b,s.Y,s.Z)],['G','implicit',s=>functorType(b,s.Y,s.Z)]
+    ];
+    const build=(i:number,s:Readonly<Record<string,CoreLfTransferBuilderExpression>>):CoreLfTransferBuilderExpression=>{
+        if(i===params.length){
+            const identity=b.call(b.global(coreLfQualifiedSymbol(MODULE_ID,'id_func')),[{plicity:'implicit',value:cats}]);
+            return b.call(b.global(coreLfQualifiedSymbol(MODULE_ID,'hom_precomp_along_fapp1_func')),
+                [cats,cats,identity,s.Z,s.X,s.Y,s.L,s.F,s.G].map((value,j)=>({value,plicity:j===2||j===3||j===6?'explicit':'implicit'})));
+        }
+        const [name,plicity,type]=params[i];return b.lam(name,type(s),v=>build(i+1,{...s,[name]:v}),plicity==='implicit'?implicitMode:explicitMode);
+    };
+    return b.term(build(0,{}));
+};
+
 const declarations: readonly CoreLfTransferDeclaration[] = Object.freeze([
     {
         order: 0,
         symbol: prewhiskeringAction,
         type: prewhiskeringActionType(),
-        body: coreLfTransferAbsentBody(),
+        body: coreLfTransferExplicitBody(prewhiskeringActionBody()),
         modifiers: {
             visibility: 'public',
             rigidity: 'ordinary',
@@ -325,7 +345,7 @@ const externalSymbols = Object.freeze([
     decodeOwner,
     functorClassifier,
     transforCategory,
-    functorComposition
+    functorComposition, symbol('Cat_cat'), symbol('id_func'), symbol('hom_precomp_along_fapp1_func')
 ]);
 
 export const CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_MODULE:
@@ -359,7 +379,7 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
                 kind: 'declaration' as const,
                 symbol: declaration.symbol
             },
-            policy: 'opaque-signature' as const,
+            policy: declaration.symbol.name === 'comp_cat_con_fapp1_func' ? 'checked-transparent-definition' as const : 'opaque-signature' as const,
             evidence:
                 'Exact pre-existing active-kernel classifier-exact action'
         }))
@@ -367,6 +387,7 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
 );
 
 const dependencyLinks = Object.freeze([
+    ...CORE_NATIVE_PRECOMPOSITION_LINKAGE.entries,
     ...CORE_CATEGORICAL_DIRECT_MIXED_CONSTANT_MIDDLE_TRANSFER_LINKAGE.entries,
     ...CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_LINKAGE.entries,
     ...CORE_CATEGORICAL_STRUCTURAL_TRANSFER_LINKAGE.entries,
@@ -456,6 +477,9 @@ Object.freeze({
     declarationCount: declarations.length,
     runtimeRuleCount: 0,
     proofRuleCount: 0,
+    inheritedNativeRuntimeRuleCount: 5,
+    inheritedNativeProofRuleCount: 1,
+    checkedDefinitionNames: Object.freeze(['comp_cat_con_fapp1_func']),
     activeKernelOwnerDelta: 0,
     importedExistingOwnerCount: declarations.length,
     coreNodeDelta: 0,
@@ -463,22 +487,23 @@ Object.freeze({
     externalCoherenceEvidenceDelta: 0
 });
 
-export interface CoreCategoricalCompositionalNaturalCompilation {
-    readonly prerequisite:
-        CoreCategoricalDirectMixedConstantMiddleCompilation;
-    readonly compiled: CoreLfCompiledDeclarationModule;
-    readonly declarationContext: CoreLfMixedDeclarationContext;
-    readonly runtimeFragment:
-        CoreCategoricalDirectMixedConstantMiddleCompilation[
-            'runtimeFragment'
-        ];
-    readonly runtime:
-        CoreCategoricalDirectMixedConstantMiddleCompilation['runtime'];
-    readonly composedRuntime:
-        CoreCategoricalDirectMixedConstantMiddleCompilation[
-            'composedRuntime'
-        ];
+export function compileCoreCategoricalCompositionalNaturalAt<P extends NativePrecompositionPrerequisite>(prerequisite:P) {
+    const native = compileCoreNativePrecompositionAction(prerequisite);
+    const compiled = compileCoreLfDeclarations(
+        CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_MODULE,
+        CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_POLICY,
+        CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_LINKAGE,
+        { initialEnvironment:native.compiled.environment, runtimeProgram:native.composedRuntime,
+          comparisonStepLimit:512, definitionTypeProof:{program:native.proofProgram,declarations:[{
+              symbol:prewhiskeringAction,proofRuleIds:['pathout.foundation.precomposition-identity-family']
+          }]} }
+    );
+    const declarationContext = new CoreLfMixedDeclarationContext(native.declarationContext,[compiled]);
+    return {prerequisite,native,compiled,declarationContext,runtimeFragment:native.runtimeFragment,
+        runtime:native.runtimeFragment.localProgram,composedRuntime:native.composedRuntime};
 }
+export type CoreCategoricalCompositionalNaturalCompilation = ReturnType<
+    typeof compileCoreCategoricalCompositionalNaturalAt<CoreCategoricalDirectMixedConstantMiddleCompilation>>;
 
 let cachedCompilation:
     CoreCategoricalCompositionalNaturalCompilation | undefined;
@@ -488,27 +513,6 @@ CoreCategoricalCompositionalNaturalCompilation {
     if (cachedCompilation !== undefined) return cachedCompilation;
     const prerequisite =
         compileCoreCategoricalDirectMixedConstantMiddleTransfer();
-    const compiled = compileCoreLfDeclarations(
-        CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_MODULE,
-        CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_POLICY,
-        CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_LINKAGE,
-        {
-            initialEnvironment: prerequisite.compiled.environment,
-            runtimeProgram: prerequisite.composedRuntime,
-            comparisonStepLimit: 512
-        }
-    );
-    const declarationContext = new CoreLfMixedDeclarationContext(
-        prerequisite.declarationContext,
-        [compiled]
-    );
-    cachedCompilation = Object.freeze({
-        prerequisite,
-        compiled,
-        declarationContext,
-        runtimeFragment: prerequisite.runtimeFragment,
-        runtime: prerequisite.runtime,
-        composedRuntime: prerequisite.composedRuntime
-    });
+    cachedCompilation = compileCoreCategoricalCompositionalNaturalAt(prerequisite);
     return cachedCompilation;
 }

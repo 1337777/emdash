@@ -107,7 +107,7 @@ describe(
                 compileCoreCategoricalDependentTransfer();
             assert.equal(
                 compilation.compiled.initialDeclarationCount,
-                26
+                27
             );
             assert.equal(
                 compilation.compiled.declarations.length,
@@ -115,7 +115,7 @@ describe(
             );
             assert.equal(
                 compilation.compiled.environment.declarations.length,
-                28
+                29
             );
             assert.equal(
                 compilation.compiled.declarations.every(

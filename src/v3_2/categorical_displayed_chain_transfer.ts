@@ -52,6 +52,7 @@ import {
     CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_TRANSFER_LINKAGE,
     coreCategoricalFibredWeakenReindexCoreName
 } from './categorical_fibred_weaken_reindex_transfer';
+import { CORE_LF_CANDIDATE_COMPARISON_STEP_LIMIT } from './lf_checker';
 import {
     CORE_CATEGORICAL_STRUCTURAL_TRANSFER_LINKAGE
 } from './categorical_structural_transfer';
@@ -2559,10 +2560,12 @@ export const CORE_CATEGORICAL_DISPLAYED_CHAIN_PROOF_POLICY = createCoreLfTransfe
     });
 export function compileCoreCategoricalDisplayedChainProof(
     declarations: CoreLfMixedDeclarationContext,
-    runtime: CoreLfComposedRuntimeProgram
+    runtime: CoreLfComposedRuntimeProgram,
+    comparisonStepLimit = CORE_LF_CANDIDATE_COMPARISON_STEP_LIMIT
 ): CoreLfCompiledProofProgram {
     return compileCoreLfProofProgram(CORE_CATEGORICAL_DISPLAYED_CHAIN_PROOF_MODULE,
-        CORE_CATEGORICAL_DISPLAYED_CHAIN_PROOF_POLICY, declarations, { runtimeProgram: runtime });
+        CORE_CATEGORICAL_DISPLAYED_CHAIN_PROOF_POLICY, declarations,
+        { runtimeProgram: runtime, comparisonStepLimit });
 }
 
 const semanticRuntimeRules = Object.freeze([

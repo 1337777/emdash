@@ -1,0 +1,436 @@
+{
+  "status": "focused prewhiskering and whole moving-component computation qualified; complete frontend integration unfinished",
+  "previousCheckpoint": "9b688ebd",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "currentInputs": {
+    "src/v3_2/categorical_compositional_natural_transfer.ts": "4321bced26d35b52b6d3f4035578db68afdc901d7df16676ea377155973d15ba",
+    "src/v3_2/categorical_dependent_composition_transfer.ts": "0818001f4537517c51a22211b706ec94c786f9e99f57746ea1df327d7438cce4",
+    "src/v3_2/categorical_displayed_chain_transfer.ts": "dbb1ed167d0f7ce8497f2d412f9da92ed8881fdf3535dc3383cc255ed605170b",
+    "src/v3_2/categorical_fibred_binder_transfer.ts": "170702cb14dc487dc44ee55077a981c92b322bf51153c7ec4465939ad2cb0458",
+    "src/v3_2/categorical_fibred_graduation_proposal.ts": "6b21629937574014b80edaa86f1b8c9f9144c3140e3a6056b0e1cadf8c2b9e3b",
+    "src/v3_2/categorical_fibred_product_transfer.ts": "f1ddcdea7b279a0ca370f9b7b9493634a2dd0fe445d709e90d736736fbc870b8",
+    "src/v3_2/categorical_program.ts": "0df1e17aaffd2d7995aae279ad0f83eafb7aac657f47c4bc5dd07435aee87074",
+    "src/v3_2/categorical_structural_transfer.ts": "0d9fba1c73893be46ec9a2e4a36d79223c7f3be939587430f2fed15cea86a0d4",
+    "src/v3_2/pathind_internalized_transfer.ts": "fe549a33bcae2065f35648a5837a48ce35a1b3605040514b24f541e10feb4621",
+    "src/v3_2/pathout_foundation_transfer.ts": "233d89a8271b4baebe389e249b51a3ebb13ac678c59e999a6e074454e6014f29",
+    "tests/v3_2_categorical_compositional_natural_binder_tests.ts": "08961da9ccf403a2acde50f39dcb9d285227e3e44f79f103f5058b46748be787",
+    "tests/v3_2_categorical_dependent_composition_tests.ts": "a8697887aad3573a84e04ba7bcd9efb7c016dff0789f8fd2bcc7ebf91a40f9d8",
+    "tests/v3_2_categorical_dependent_transfer_tests.ts": "0f470c91c2d98a42892cec317b9e6ac5196eb96d6656b9d0008c1a61559957ca",
+    "tests/v3_2_categorical_direct_mixed_constant_middle_transfer_tests.ts": "9a2cd57ea35af0f91e2075f8f1ac1e16846a5e006b24e2f309fbb4512e17775e",
+    "tests/v3_2_categorical_direct_mixed_introduction_transfer_tests.ts": "7bf12d7384250e77da42aa2782e52ef1241edc902c206ea9c4d5f83b6f8d9603",
+    "tests/v3_2_categorical_direct_mixed_source_action_transfer_tests.ts": "68d967d8110c71047452c2016f479f6feff1adb9cde78c4aaf372bc2ae1284ce",
+    "tests/v3_2_categorical_direct_mixed_weakening_transfer_tests.ts": "1d7e5015bf7474269238827feca26153285231eee368cfa7274a9bb897c5227e",
+    "tests/v3_2_categorical_displayed_chain_transfer_tests.ts": "f3aa4c51361525e08e3f5a8efd6ccc341471bddc224fb18bb47c7f1d0ad2802f",
+    "tests/v3_2_categorical_fibred_binder_demo_tests.ts": "0b9032e515a6ca4f17139ebbe6e4342fc8d6b58bc97962f42b19de63e6db3d28",
+    "tests/v3_2_categorical_fibred_binder_transfer_tests.ts": "6d90e2d3670fb93f55ff4139f44255fafa784ec2f57eb1a3d2e440f4287d9f8c",
+    "tests/v3_2_categorical_fibred_product_demo_tests.ts": "cc90e7dd7270388a401305f304c24c1da16e308824c306bd18d4662d3acdd8dc",
+    "tests/v3_2_categorical_fibred_product_transfer_tests.ts": "98bcfcfa526d158f6574334cfb38f57199ac246f01668ca0ff2cb254b253fde4",
+    "tests/v3_2_categorical_structural_transfer_tests.ts": "30d5c8f95951df6acaa61d427543bc9c2d6a9b04dd5914f7482c79d893c04afd",
+    "tests/v3_2_pathind_internalized_transfer_tests.ts": "2c680bad0a8f27a28e58080db60a24813a05f8cc357b495240bbf822dd9cbbb9",
+    "src/v3_2/categorical_precomposition_action_transfer.ts": "abee6047df1ed79f1b1c108b130713a693dc8c189c718f6ae7eb04cb1338e8c6"
+  },
+  "nativeReceipts": [
+    {
+      "scope": "44 emitted whole PathInd signatures, bodies and projections",
+      "id": "20261026T054606Z-d1315a7459f5457dae4afbd48a4d810b",
+      "outcome": "passed-fresh",
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "checkerExit": 0,
+      "wallSeconds": 26.295164081966504,
+      "childrenMaxRssKiB": 168472,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "inputs": {
+        "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/elab0-sWGLEZ/probe.lp": "e1ccc0181affd71e6d371b2a09d85109c4631f0b3cfef74abaeb1af09693b3d2"
+      },
+      "inputSnapshot": "c1f7e8bcd1c11489e8232fc143b89e81c949aaa9ae71d30ce7797b61c9db9635",
+      "log": "logs/check-runs/20261026T054606Z-d1315a7459f5457dae4afbd48a4d810b.log",
+      "logSha256": "1806c8f8cc61429553a4f82ecd2ec37558fb2848170bc4dd8a9d9d919b2a6b46"
+    },
+    {
+      "scope": "Ordinary prewhiskering and lax naturality noncollapse",
+      "id": "20261026T055447Z-04e7fd4a2ae54db7a8958ed7058702c8",
+      "outcome": "passed-fresh",
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "checkerExit": 0,
+      "wallSeconds": 42.00952361500822,
+      "childrenMaxRssKiB": 168100,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "inputs": {
+        "audits/strict-default-action-boundary/foundation_frontend_prewhiskering.lp": "390d35b5ae4457d50185147c554e8b9d4a56329af9cd2fbb86a3cf2cf3f1a494",
+        "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "inputSnapshot": "907fe3738a4e4550d327af13ef57193c391478d02e4e40bbafa731c83e88b4a2",
+      "log": "logs/check-runs/20261026T055447Z-04e7fd4a2ae54db7a8958ed7058702c8.log",
+      "logSha256": "dc57c62c18254e30ec60fd7ce299c9c8ffb060c2c39e1706825dd07e70bee7da"
+    }
+  ],
+  "aggregate": {
+    "log": "emdash2/tmp/probes/kernel_boundary_continuation/wave413_ts_integration.out",
+    "timeoutSeconds": 7200,
+    "nodeHeapMiB": 2048,
+    "status": "completed-failed",
+    "exitCode": 1,
+    "tests": 1899,
+    "suites": 285,
+    "passed": 1790,
+    "failed": 47,
+    "skipped": 62,
+    "durationMs": 2271108.06804,
+    "failureEvents": [
+      {
+        "file": "tests/v3_2_pathout_transitivity_transfer_tests.ts",
+        "line": 239,
+        "name": "compiles five definitions then one subject-checked local support"
+      },
+      {
+        "file": "tests/v3_2_pathout_transitivity_transfer_tests.ts",
+        "line": 264,
+        "name": "fires the exact complete-parent support at its staged redex"
+      },
+      {
+        "file": "tests/v3_2_pathout_transitivity_transfer_tests.ts",
+        "line": 279,
+        "name": "computes three observations and proves the Sigma/Pi observation"
+      },
+      {
+        "file": "tests/v3_2_pathout_transitivity_transfer_tests.ts",
+        "line": 306,
+        "name": "computes the final four observations to stable precomposition"
+      },
+      {
+        "file": "tests/v3_2_pathout_transitivity_transfer_tests.ts",
+        "line": 321,
+        "name": "types both named transitivity library consumers"
+      },
+      {
+        "file": "tests/v3_2_pathout_transitivity_transfer_tests.ts",
+        "line": 329,
+        "name": "rejects all eight foreign-base and wrong-endpoint consumers"
+      },
+      {
+        "file": "tests/v3_2_pathout_library_graduation_proposal_tests.ts",
+        "line": 20,
+        "name": "pins every completed semantic and presentation predecessor"
+      },
+      {
+        "file": "tests/v3_2_pathout_library_graduation_proposal_tests.ts",
+        "line": 47,
+        "name": "separates five mathematical owners from nine sealed supports"
+      },
+      {
+        "file": "tests/v3_2_pathout_library_graduation_proposal_tests.ts",
+        "line": 104,
+        "name": "rejects prerequisite, classification, and general proposal drift"
+      },
+      {
+        "file": "tests/v3_2_pathout_library_graduation_review_tests.ts",
+        "line": 21,
+        "name": "approves only checkpoint 85b560e and its exact proposal bytes"
+      },
+      {
+        "file": "tests/v3_2_pathout_library_graduation_review_tests.ts",
+        "line": 76,
+        "name": "rejects decision, proposal, and authorization drift"
+      },
+      {
+        "file": "tests/v3_2_categorical_dependent_transfer_tests.ts",
+        "line": 82,
+        "name": "compiles both signatures through the generic LF engine"
+      },
+      {
+        "file": "tests/v3_2_categorical_text_tests.ts",
+        "line": 109,
+        "name": "matches direct pointwise bracket lowering exactly"
+      },
+      {
+        "file": "tests/v3_2_categorical_text_tests.ts",
+        "line": 119,
+        "name": "keeps Unicode and ASCII lambda spellings equivalent"
+      },
+      {
+        "file": "tests/v3_2_categorical_text_tests.ts",
+        "line": 133,
+        "name": "recurses through fixed inner evaluation without sub-brackets"
+      },
+      {
+        "file": "tests/v3_2_categorical_text_tests.ts",
+        "line": 186,
+        "name": "retains zero, one, and two binder-use structural evidence"
+      },
+      {
+        "file": "tests/v3_2_categorical_text_parity_audit_tests.ts",
+        "line": 26,
+        "name": "classifies every public categorical program method exactly once"
+      },
+      {
+        "file": "tests/v3_2_categorical_text_parity_audit_tests.ts",
+        "line": 116,
+        "name": "is deeply frozen, validates, and installs no behavior"
+      },
+      {
+        "file": "tests/v3_2_categorical_text_parity_audit_tests.ts",
+        "line": 121,
+        "name": "fails closed on prerequisite, coverage, proposal, and boundary drift"
+      },
+      {
+        "file": "tests/v3_2_categorical_text_structural_audit_tests.ts",
+        "line": 55,
+        "name": "executes the already available direct weakening target"
+      },
+      {
+        "file": "tests/v3_2_categorical_text_structural_tests.ts",
+        "line": 61,
+        "name": "matches direct displayed weakening exactly"
+      },
+      {
+        "file": "tests/v3_2_categorical_text_dependent_tests.ts",
+        "line": 201,
+        "name": "resolves every mixed slot and recursive application"
+      },
+      {
+        "file": "tests/v3_2_categorical_text_graduation_audit_tests.ts",
+        "line": 28,
+        "name": "retains the 68-method historical partition and accounts for later APIs"
+      },
+      {
+        "file": "tests/v3_2_categorical_text_graduation_audit_tests.ts",
+        "line": 51,
+        "name": "anchors the measured pre-1D1 gap after its checked promotion"
+      },
+      {
+        "file": "tests/v3_2_categorical_text_nested_ordinary_tests.ts",
+        "line": 79,
+        "name": "matches the reviewed exchange/currying construction exactly"
+      },
+      {
+        "file": "tests/v3_2_categorical_text_nested_ordinary_tests.ts",
+        "line": 95,
+        "name": "recurses only to the finite depth in the expected tree"
+      },
+      {
+        "file": "tests/v3_2_categorical_fibred_product_demo_tests.ts",
+        "line": 13,
+        "name": "shows pointwise fibres and shared-base arrow transport"
+      },
+      {
+        "file": "tests/v3_2_categorical_fibred_binder_demo_tests.ts",
+        "line": 13,
+        "name": "executes identity, eta, composition, and classifier evidence"
+      },
+      {
+        "file": "tests/v3_2_categorical_displayed_bracket_tests.ts",
+        "line": 166,
+        "name": "preserves one-slot identity, eta, composition, and weakening"
+      },
+      {
+        "file": "tests/v3_2_categorical_displayed_chain_transfer_tests.ts",
+        "line": 111,
+        "name": "checks the exact prerequisite and semantic runtime closures"
+      },
+      {
+        "file": "tests/v3_2_categorical_displayed_chain_2a_tests.ts",
+        "line": 197,
+        "name": "recurses beneath a closed displayed-functor application"
+      },
+      {
+        "file": "tests/v3_2_categorical_displayed_nd_1a_tests.ts",
+        "line": 119,
+        "name": "computes the object component and typechecks the base-arrow cell"
+      },
+      {
+        "file": "tests/v3_2_categorical_displayed_nd_1a_tests.ts",
+        "line": 192,
+        "name": "inherits the D-061 transfer closure without a new owner or browser promotion"
+      },
+      {
+        "file": "tests/v3_2_categorical_direct_contextual_nd_whiskering_tests.ts",
+        "line": 103,
+        "name": "computes both point equations and retains internal higher action"
+      },
+      {
+        "file": "tests/v3_2_categorical_displayed_nd_higher_foundation_transfer_tests.ts",
+        "line": 48,
+        "name": "pins the active source and exact relocated declaration policy"
+      },
+      {
+        "file": "tests/v3_2_categorical_displayed_nd_higher_foundation_transfer_tests.ts",
+        "line": 102,
+        "name": "checks all transparent bodies and preserves opaque interfaces"
+      },
+      {
+        "file": "tests/v3_2_categorical_displayed_nd_higher_foundation_transfer_tests.ts",
+        "line": 120,
+        "name": "inherits involution and checks the native root projection sequence"
+      },
+      {
+        "file": "tests/v3_2_categorical_displayed_nd_higher_foundation_transfer_tests.ts",
+        "line": 134,
+        "name": "keeps the target package and product surface outside foundation"
+      },
+      {
+        "file": "tests/v3_2_categorical_direct_mixed_introduction_transfer_tests.ts",
+        "line": 54,
+        "name": "projects a whole fibre functor and retains object and arrow action"
+      },
+      {
+        "file": "tests/v3_2_categorical_direct_mixed_source_action_transfer_tests.ts",
+        "line": 176,
+        "name": "projects the contravariant source action to an iterable composite"
+      },
+      {
+        "file": "tests/v3_2_categorical_direct_mixed_weakening_transfer_tests.ts",
+        "line": 74,
+        "name": "projects the fibre owner and keeps base and higher action iterable"
+      },
+      {
+        "file": "tests/v3_2_categorical_direct_mixed_constant_middle_tests.ts",
+        "line": 88,
+        "name": "composes above recursive source, target and pair structure"
+      },
+      {
+        "file": "tests/v3_2_categorical_direct_mixed_constant_middle_transfer_tests.ts",
+        "line": 121,
+        "name": "computes ordinary object and inner-arrow action after point beta"
+      },
+      {
+        "file": "tests/v3_2_categorical_displayed_telescope_generic_tests.ts",
+        "line": 346,
+        "name": "hosts the canonical mixed target and homd_int consumer"
+      },
+      {
+        "file": "tests/v3_2_categorical_displayed_telescope_generic_tests.ts",
+        "line": 811,
+        "name": "parses deep nested mixed eta and reaches the homd_int consumer"
+      },
+      {
+        "file": "tests/v3_2_lf_transfer_tests.ts",
+        "line": 455,
+        "name": "represents nonlinear runtime and proof constraints without owner nodes"
+      },
+      {
+        "file": "tests/v3_2_lf_transfer_tests.ts",
+        "line": 631,
+        "name": "preserves both reviewed profiles and the browser boundary"
+      }
+    ],
+    "logSha256": "26cac0b34aa18acbc3307a038f11a368ef68f0ef49fc062d4606d915ad75613d"
+  },
+  "focused": [
+    {
+      "log": "wave405_prewhisker_native.out",
+      "passed": 9,
+      "failed": 0,
+      "note": "Includes the 44-assertion native counterpart"
+    },
+    {
+      "log": "wave410_general_prewhiskering.out",
+      "passed": 7,
+      "failed": 0
+    },
+    {
+      "log": "wave423_prewhisker_integration_repairs.out",
+      "passed": 61,
+      "failed": 0,
+      "skipped": 3,
+      "durationMs": 154500.130427
+    }
+  ],
+  "typecheck": {
+    "log": "wave427_prewhisker_checkpoint_typecheck.out",
+    "exitCode": 0,
+    "sha256": "70685b4df7789c854b9e1ceab7d78a6d0f9a0831c11eb0010b7b5fdbe0e50c39"
+  },
+  "lint": {
+    "log": "wave428_prewhisker_checkpoint_lint.out",
+    "exitCode": 0,
+    "sha256": "f742f989be94e529cde1c75bc31645378f1840908710384b8406b93407d056d9"
+  },
+  "logRoot": "emdash2/tmp/probes/kernel_boundary_continuation",
+  "historicalFailures": [
+    {
+      "log": "wave408_precomp_final.out",
+      "disposition": "55 passed, one unsupported mixed-cell test-construction failure, six native skips. The owning scope then passed in wave410; independent native noncollapse is retained."
+    },
+    {
+      "logs": [
+        "wave425_prewhisker_repair_typecheck.out",
+        "wave426_prewhisker_repair_lint.out"
+      ],
+      "disposition": "No diagnostics and processes no longer live, but exit handles were lost at compaction; checkpoint checks repeated with captured exits."
+    }
+  ],
+  "unpromotedHomdExperiments": {
+    "identity": {
+      "log": "wave420_homd_identity_root_slots.out",
+      "result": "equal",
+      "steps": 162
+    },
+    "relative": {
+      "log": "wave424_homd_relative_candidate.out",
+      "result": "not-equal",
+      "steps": 1334
+    },
+    "qualification": "Isolated source-derived extension only; actual typed end-to-end frontend consumer and native conformance required."
+  },
+  "remaining": [
+    "Complete identity/general-FF Homd frontend action transfer",
+    "PathOut transitivity and remaining authoring/source reviews",
+    "Full frontend integration and production health",
+    "Book/article revisions then adapted legacy nerves"
+  ],
+  "artifactHashes": {
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_prewhiskering.lp": "390d35b5ae4457d50185147c554e8b9d4a56329af9cd2fbb86a3cf2cf3f1a494",
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_prewhiskering_acquisition.json": "0541b0302e7477e97d1e9d7a38a57e1d18c122f203fa3c4f6e3776609f493c7d",
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_prewhiskering_review.md": "a429143397884c74c6f816320a414a2d87aaff3306b108f4e01321544be38c1c"
+  },
+  "logHashes": {
+    "wave405_prewhisker_native.out": "857202431c21fc60ffad95807b55814fd65d52775e4080d040ae6a30764d5158",
+    "wave410_general_prewhiskering.out": "d4e3375cec581546142e9ef05c352db95f8c8e6cf53c904a5187614fb553025b",
+    "wave423_prewhisker_integration_repairs.out": "ab4757b5588bf3546c07604c53074caaa3332b9117eac2127bc3f4ff5d691545",
+    "wave420_homd_identity_root_slots.out": "081b1c3363dfa15b4f5cc6007ff7f7ac7b8d871b18043f120244c65eebd8b839",
+    "wave424_homd_relative_candidate.out": "9ca39e3a0b221720b046be807f2db0ba7b89af52e7cc75c718faf873e7a17845"
+  }
+}

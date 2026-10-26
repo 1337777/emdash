@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { coreLfCombinedWeakHead } from '../src/v3_2/lf_conversion';
 import { coreCategoricalFamilyCoefficient } from '../src/v3_2/categorical_family_coefficient';
 import {
     describe,
@@ -243,13 +244,16 @@ describe('DIRECT-MIXED-INTRODUCTION-1D runtime transfer', () => {
         if (composition.status !== 'rewritten') assert.fail('Missing Cartesian postcomposition');
         const normalizedTarget = targetFibre;
 
+        const exposed = coreLfCombinedWeakHead(compilation.compiled.environment,
+            composition.after, 64, undefined, compilation.composedRuntime);
+        assert.equal(exposed.status, 'weak-head-normal');
         const objectAction = compilation.composedRuntime.rewriteHead(
             kernelApplication(
                 'functor-object',
                 [
                     { value: sourceFibre },
                     { value: normalizedTarget },
-                    { value: composition.after },
+                    { value: exposed.expression },
                     { value: w }
                 ],
                 p
@@ -261,7 +265,7 @@ describe('DIRECT-MIXED-INTRODUCTION-1D runtime transfer', () => {
                 [
                     { value: sourceFibre },
                     { value: normalizedTarget },
-                    { value: composition.after },
+                    { value: exposed.expression },
                     { value: w },
                     { value: wPrime },
                     { value: h }

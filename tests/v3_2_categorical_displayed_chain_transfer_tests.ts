@@ -247,7 +247,7 @@ describe('DISPLAYED-CHAIN-1A generic transfer', () => {
             ),
             true
         );
-        assert.equal(compilation.composedRuntime.ruleIds.length, 129);
+        assert.equal(compilation.composedRuntime.ruleIds.length, 128);
         assert.equal(
             compilation.composedRuntime.ruleIds.some(ruleId =>
                 /diagnostic/u.test(ruleId)

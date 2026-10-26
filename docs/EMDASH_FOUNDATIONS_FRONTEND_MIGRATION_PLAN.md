@@ -445,6 +445,48 @@ covariance/mate/represented projections for the independent Homd endpoint
 remain in scope. Current native conformance is not complete TypeScript runtime
 qualification. Book/article and nerve dependency gates remain closed.
 
+## F05 computation continuation: native prewhiskering
+
+The current candidate transfers the existing higher-precomposition full and
+capped owners, their projections and their Cat-valued component observation.
+The prewhiskering convenience name receives its actual native definition.
+The identity-family proof comparison is shared with PathOut rather than copied.
+
+A concrete subject check exposed two prerequisites in the existing transfer:
+product projections must recover categories from the pair constructor rather
+than already-erased inferred carriers, and comp_cat_fapp0 must receive its
+native definition. Its existing generic comp_fapp0 declaration moves earlier
+with the same Core name. Composition object/arrow projections then use the
+native raw-composition pattern, and the later duplicate object rule is removed.
+This is a source-ownership/definition migration; it adds no mathematical owner,
+no operational proof payload and no generic checker case. The representative
+binder scope still consumes the relocated ordinary composition action; its
+historical architecture counts distinguish that inherited action from local
+rule ownership.
+
+The actual whole moving PathInd consumer now typechecks and computes to
+path_ind_func_fapp0, and a foreign-motive control is rejected. The independent
+ordinary prewhiskering component also computes for a general transfor. A
+native control retains noncommuting lax naturality. All44 emitted native
+signatures/body/projection assertions pass, together with the repaired focused
+structural/product/binder/PathOut/PathInd/natural-action consumers, typecheck
+and lint. The earlier non-equal audit is historical at its recorded inputs.
+
+The [prewhiskering review](../emdash2/audits/strict-default-action-boundary/foundation_frontend_prewhiskering_review.md)
+records the completed TypeScript aggregate: 1,899 tests, 1,790 passed,
+47 failed and 62 skipped in about38 minutes. Its explicit7200s cumulative
+limit and2GiB Node heap changed no repository default. The previous1800s
+attempt had been too short for this aggregate. Subsequent focused repairs
+pass61 cases (three native opt-ins skipped), covering transferred definition
+exposure, declaration/rule ownership and the higher telescope's scoped proof
+budget. This is not a green aggregate or a measured residual failure count.
+
+The identity Homd root reaches its presheaf through x/u/y/v in an isolated
+source-derived extension; it is not yet promoted or qualified as the complete
+frontend. The general-FF extension still stops at target/diagram action.
+Transfer the existing native owners and qualify a constructed typed consumer.
+The full Homd P-index endpoint and broader integration remain required.
+
 ## Constraints
 
 - Follow the native source and its existing migration outline. Do not add

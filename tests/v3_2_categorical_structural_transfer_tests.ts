@@ -87,6 +87,7 @@ describe(
                     'Functor',
                     'Functor_cart_cat',
                     'id_func',
+                    'comp_fapp0',
                     'comp_cat_fapp0',
                     'Product_cat',
                     'Product_pair',
@@ -109,7 +110,7 @@ describe(
             );
             assert.equal(
                 CORE_CATEGORICAL_STRUCTURAL_TRANSFER_POLICY.entries
-                    .filter((_, index) => index !== 1)
+                    .filter((_, index) => index !== 1 && index !== 5)
                     .every(entry =>
                         entry.policy === 'opaque-signature'
                     ),
@@ -117,7 +118,7 @@ describe(
             );
             assert.equal(
                 CORE_CATEGORICAL_STRUCTURAL_TRANSFER_LINKAGE.entries.length,
-                21
+                24
             );
             assert.equal(
                 CORE_CATEGORICAL_STRUCTURAL_TRANSFER_BOUNDARY
@@ -154,19 +155,23 @@ describe(
             );
             assert.equal(
                 compilation.compiled.declarations.length,
-                17
+                18
             );
             assert.equal(
                 compilation.compiled.environment.declarations.length,
-                26
+                27
             );
             assert.equal(
                 compilation.compiled.declarations[1].status,
                 'intrinsic-transparent'
             );
+            assert.equal(compilation.compiled.declarations[5].status, 'installed-transparent');
+            assert.ok(compilation.compiled.declarations[5].body);
+            assert.equal(compilation.compiled.declarations[4].link.kind, 'free-declaration');
+
             assert.equal(
                 compilation.compiled.declarations
-                    .filter((_, index) => index !== 1)
+                    .filter((_, index) => index !== 1 && index !== 5)
                     .every(
                         declaration =>
                             declaration.status === 'installed-opaque' &&

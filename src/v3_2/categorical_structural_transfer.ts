@@ -3,11 +3,12 @@
  *
  * This is deliberately a declaration-data layer over the generic LF
  * transfer compiler. It does not extend the frozen intrinsic owner catalog
- * and it does not install TypeScript-only computation. Transparent candidate
- * Lambdapi definitions are imported opaquely for this first bracket slice;
- * the supporting `Functor` classifier and ordinary/Cartesian object and
- * product projections are installed through the generic engines. Remaining
- * bodies and rules stay conformance authority. Fixed evaluation preserves
+ * and it does not install TypeScript-only computation. The native generic
+ * composition declaration is source-prior to the checked comp_cat_fapp0
+ * definition. The supporting Functor classifier and ordinary/
+ * Cartesian object and product projections use the generic engines. Other
+ * candidate definitions retain their selected opaque import boundary.
+ * Fixed evaluation preserves
  * the ordinary lax mapping-category consumer during the migration.
  */
 
@@ -74,8 +75,11 @@ const objectClassifier =
     coreDirectedContinuationTransferSymbol('object-classifier');
 const functorClassifier =
     coreDirectedContinuationTransferSymbol('functor-classifier');
+const homClassifier = coreDirectedContinuationTransferSymbol('hom-classifier');
+const categoryOfCategories = coreDirectedContinuationTransferSymbol('category-of-categories');
 
 export const CORE_CATEGORICAL_STRUCTURAL_SYMBOLS = Object.freeze({
+    genericComposition: coreLfQualifiedSymbol(MODULE_ID, 'comp_fapp0'),
     functorCategory:
         coreLfQualifiedSymbol(MODULE_ID, 'Functor_cat'),
     cartesianFunctorCategory:
@@ -111,6 +115,7 @@ export const CORE_CATEGORICAL_STRUCTURAL_SYMBOLS = Object.freeze({
 });
 
 const {
+    genericComposition,
     functorCategory,
     cartesianFunctorCategory,
     identityFunctor,
@@ -379,6 +384,23 @@ const identityFunctorType = (): CoreLfTransferExpression => {
         A => functorType(builder, A, A),
         implicitMode
     ));
+};
+
+const genericCompositionType = (): CoreLfTransferExpression => {
+    const b = new CoreLfTransferScopedBuilder();
+    const h = (A:CoreLfTransferBuilderExpression,x:CoreLfTransferBuilderExpression,y:CoreLfTransferBuilderExpression) =>
+        globalCall(b,decodeOwner,[{plicity:'explicit',value:globalCall(b,homClassifier,
+            [A,x,y].map(value=>({plicity:'explicit' as const,value})))}]);
+    return b.term(b.pi('A',b.global(category),A=>b.pi('X',objectType(b,A),X=>
+        b.pi('Y',objectType(b,A),Y=>b.pi('Z',objectType(b,A),Z=>
+            b.pi('g',h(A,Y,Z),()=>b.pi('f',h(A,X,Y),()=>h(A,X,Z),explicitMode),explicitMode),implicitMode),implicitMode),implicitMode),implicitMode));
+};
+const functorCompositionBody = (): CoreLfTransferExpression => {
+    const b = new CoreLfTransferScopedBuilder();
+    return b.term(b.lam('A',b.global(category),A=>b.lam('B',b.global(category),B=>b.lam('C',b.global(category),C=>
+        b.lam('F',functorType(b,B,C),F=>b.lam('G',functorType(b,A,B),G=>
+            globalCall(b,genericComposition,[b.global(categoryOfCategories),A,B,C,F,G]
+                .map((value,i)=>({value,plicity:i<4?'implicit':'explicit'}))),explicitMode),explicitMode),implicitMode),implicitMode),implicitMode));
 };
 
 const functorCompositionType = (): CoreLfTransferExpression => {
@@ -724,9 +746,17 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
     },
     {
         order: 4,
+        symbol: genericComposition,
+        type: genericCompositionType(),
+        body: coreLfTransferAbsentBody(),
+        modifiers: publicModifiers('ordinary', 'opaque'),
+        provenance: source('symbol comp_fapp0 : Π [A : Cat], Π [X_A Y_A : τ (Obj A)], Π [Z_A: τ (Obj A)]')
+    },
+    {
+        order: 5,
         symbol: functorComposition,
         type: functorCompositionType(),
-        body: coreLfTransferAbsentBody(),
+        body: coreLfTransferExplicitBody(functorCompositionBody()),
         modifiers: publicModifiers('ordinary', 'transparent'),
         provenance: source(
             'symbol comp_cat_fapp0 [A B : Cat] [C : Cat]'
@@ -850,7 +880,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         modifiers: publicModifiers('ordinary', 'opaque'),
         provenance: source('symbol fapp0_func : Π [A B : Cat],')
     }
-];
+].map((declaration, order) => ({ ...declaration, order }));
 
 export const CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE:
 CoreLfModuleSpec = createCoreLfModuleSpec({
@@ -862,6 +892,8 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
     dependencies: [],
     externalSymbols: [
         category,
+        homClassifier,
+        categoryOfCategories,
         groupoid,
         decodeOwner,
         objectClassifier
@@ -1043,7 +1075,7 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
                 symbol: declaration.symbol
             },
             policy:
-                declaration.symbol === functorClassifier
+                (declaration.symbol === functorClassifier || declaration.symbol === functorComposition)
                     ? 'checked-transparent-definition' as const
                     : 'opaque-signature' as const,
             evidence:
@@ -1109,9 +1141,9 @@ CoreLfTransferDeclarationLinkage =
                             order: externalSymbols.length + index,
                             symbol: declaration.symbol,
                             kind: 'free-declaration' as const,
-                            coreName:
-                                `emdash_v3_2_usability_1c_` +
-                                declaration.symbol.name,
+                            coreName: declaration.symbol === genericComposition
+                                ? 'emdash_v3_2_usability_dependent_1a_comp_fapp0'
+                                : `emdash_v3_2_usability_1c_` + declaration.symbol.name,
                             backendName: declaration.symbol.name
                         };
                     }
@@ -1122,7 +1154,7 @@ CoreLfTransferDeclarationLinkage =
 
 export const CORE_CATEGORICAL_STRUCTURAL_TRANSFER_BOUNDARY =
 Object.freeze({
-    status: 'root-only-signature-transfer',
+    status: 'root-only-signature-and-composition-definition-transfer',
     prerequisiteCount:
         CORE_CATEGORICAL_STRUCTURAL_PREREQUISITES.length,
     supportDeclarationCount: 3,
@@ -1133,7 +1165,9 @@ Object.freeze({
     ]),
     allCandidateDeclarationsUseGenericCompiler: true,
     supportTransparentBodiesInstalled: true,
-    candidateTransparentBodiesInstalled: false,
+    candidateTransparentBodiesInstalled: true,
+    candidateTransparentDefinitionNames: Object.freeze(['comp_cat_fapp0']),
+    sourcePriorGenericCompositionIncluded: true,
     runtimeRulesInstalled: true,
     runtimeRuleIds: Object.freeze(
         structuralRuntimeRules.map(rule => rule.id)

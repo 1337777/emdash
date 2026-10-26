@@ -224,41 +224,6 @@ const displayedFamilyType = (
         }])
     );
 
-const genericCompositionType = (): CoreLfTransferExpression => {
-    const builder = new CoreLfTransferScopedBuilder();
-    return builder.term(builder.pi(
-        'A',
-        builder.global(category),
-        A => builder.pi(
-            'X',
-            objectType(builder, A),
-            X => builder.pi(
-                'Y',
-                objectType(builder, A),
-                Y => builder.pi(
-                    'Z',
-                    objectType(builder, A),
-                    Z => builder.pi(
-                        'g',
-                        homType(builder, A, Y, Z),
-                        _g => builder.pi(
-                            'f',
-                            homType(builder, A, X, Y),
-                            _f => homType(builder, A, X, Z),
-                            explicitMode
-                        ),
-                        explicitMode
-                    ),
-                    implicitMode
-                ),
-                implicitMode
-            ),
-            implicitMode
-        ),
-        implicitMode
-    ));
-};
-
 const source = (sourceFragment: string) => ({
     authorityPath: 'emdash2/emdash3_2.lp',
     sourceFragment
@@ -280,21 +245,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         },
         provenance: source('constant symbol Terminal_cat : Cat;')
     },
-    {
-        order: 1,
-        symbol: genericComposition,
-        type: genericCompositionType(),
-        body: coreLfTransferAbsentBody(),
-        modifiers: {
-            visibility: 'public',
-            rigidity: 'ordinary',
-            sourceOpacity: 'opaque'
-        },
-        provenance: source(
-            'symbol comp_fapp0 : Π [A : Cat], ' +
-            'Π [X_A Y_A : τ (Obj A)], Π [Z_A : τ (Obj A)]'
-        )
-    }
+
 ];
 
 export const CORE_CATEGORICAL_DEPENDENT_COMPOSITION_TRANSFER_MODULE:
@@ -308,6 +259,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         CORE_CATEGORICAL_DEPENDENT_COMPOSITION_SOURCE_SHA256,
     dependencies: [],
     externalSymbols: [
+        genericComposition,
         category,
         decodeOwner,
         objectClassifier,
@@ -659,10 +611,8 @@ Object.freeze({
     status: 'root-only-approved-section-composition-closure',
     declarationCount: declarations.length,
     runtimeRuleCount: runtimeRules.length,
-    declarationNames: Object.freeze([
-        terminalCategory.name,
-        genericComposition.name
-    ]),
+    declarationNames: Object.freeze([terminalCategory.name]),
+    inheritedDeclarationNames: Object.freeze([genericComposition.name]),
     runtimeRuleIds: Object.freeze(runtimeRules.map(rule => rule.id)),
     relocatedRuntimeRuleIds: Object.freeze([
         'categorical.displayed-hom-category.reduce'

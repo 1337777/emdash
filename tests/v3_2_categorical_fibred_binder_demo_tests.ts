@@ -32,7 +32,7 @@ describe('TypeScript v3.2 fibred binder demo', () => {
         );
         assert.equal(
             result.compositionPoint.runtimeRuleIds.includes(
-                'categorical.functor-composition.object'
+                'categorical.composition.object.delta'
             ),
             true
         );
