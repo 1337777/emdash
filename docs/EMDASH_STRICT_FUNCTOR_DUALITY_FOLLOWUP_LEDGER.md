@@ -2,7 +2,16 @@
 
 Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: prioritized book/article profile clarification and local artifacts complete; isolated Pi/Sigma correction and native nerve work retained; production health/final integration remain deferred
+Status: book/article follow-up complete; native Pi/Sigma correction installed; affected frontend integration next; broad health/final integration remain deferred
+
+Pi/Sigma native integration: the [source/gate record](../emdash2/audits/pi_sigma_section_profile/integration.json)
+confirms exact installation of all four qualified outputs, fresh core/focused
+consumer checks, matching warnings and static gates. The earlier complete
+central closure's 141 existing files rehash; no aggregate rerun is claimed.
+Frontend code still contains the old comparison/object/next-Hom folds and
+bare PathInd result. SP-5F owns their adaptation through the existing forward
+constructor. Preserve the historical scale test independently of active
+mathematical admission; passing that old encoded test is not requalification.
 
 Priority reaffirmed, 2026-10-26: the comprehensive draft update is already
 complete at `1fe72617`. Finish the limited higher-profile clarification and

@@ -4,6 +4,30 @@ Date: 2026-10-26
 Plan: [active update plan](EMDASH_FOUNDATIONS_BOOK_ARTICLE_UPDATE_PLAN.md)
 Source baseline: `f0e22340`; first manuscript checkpoint: `730cfdff`.
 
+## Native-correction status synchronization
+
+The qualified Pi/Sigma correction is now installed in the active native
+files. The [integration record](../emdash2/audits/pi_sigma_section_profile/integration.json)
+distinguishes fresh native checks and carried-forward central source evidence
+from the frontend/final gates still open. Appendix G and article §3 now state
+that boundary, rather than saying the legacy rules remain in active native
+source. No additional mathematical claim is introduced.
+
+| Artifact | Edition | Pages / fonts | SHA-256 |
+| --- | --- | --- | --- |
+| [Book PDF](emdash-book.pdf) | 0.10.2-dev | 425 / 18 embedded | `23e14d70d5537e00125cce7027127c2b9011c01232d32d2267601ad97b4dce38` |
+| [Overview PDF](emdash3_2.pdf) | 0.4.2-dev | 20 / 14 embedded | `ccf7131f95a3ab349d958123f8739615c062094db150e5eada9850109ccee63f` |
+
+The owning book/article release pipelines pass again for these changed
+sources. Visual inspection covers the changed book status paragraph on page
+406, edition page 1, and article pages 5–6. The existing two-line formula
+remains within its column; no clipping or overlap appears in these views.
+The preceding wider review remains evidence for unchanged content. Existing
+promotion commands refresh the four local distribution files; exact bytes
+are checked before the checkpoint. Logs are under
+`emdash2/tmp/probes/pi_sigma_profile_integration/`. These are local draft
+updates, with no publication or full-goal completion claim.
+
 ## Focused higher-profile follow-up
 
 The later isolated correction at `414344cb` motivates a bounded exposition

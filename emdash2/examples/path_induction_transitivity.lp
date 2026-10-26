@@ -16,7 +16,8 @@ assert [Z : Cat] (x : τ (Obj Z)) ⊢
     x
     (@CompMotive_catd Z x)
     (@id_funcd Z (@Rep_catd Z x))
-    ≡ @path_comp_sec Z x;
+    ≡ @sigma_functord_sec Z (@Rep_catd Z x) (@CompTarget_catd Z x)
+        (@path_comp_sec Z x);
 
 assert [Z : Cat] (x y : τ (Obj Z))
   (p : τ (Hom Z x y)) ⊢

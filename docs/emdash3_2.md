@@ -359,9 +359,9 @@ The whole forward functor is `sigma_functord_sec_func`. This construction
 does not identify the entire section category with the displayed-map
 category: general transformations between sections may be lax in the fibre
 variable, whereas displayed modifications have strict fibre components.
-The retained legacy identification has a checked isolated correction;
-production integration remains open. The forward construction and its
-component computation are already present in the active source.
+The native correction removes the legacy identification while preserving
+this forward construction and its component computation. Frontend adaptation
+and final integration remain open.
 
 Reindexing along $F:A\\vdash K$ is substitution:
 

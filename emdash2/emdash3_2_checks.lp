@@ -3847,7 +3847,8 @@ assert [C : Cat]
     x
     (@Sigma_proj1_pullback_catd C (@Rep_catd C x) D)
     u
-  ≡ @strict_transfor _ _ _ _ (@fib_cov_transf C D x u);
+  ≡ @sigma_functord_sec C (@Rep_catd C x) D
+      (@strict_transfor _ _ _ _ (@fib_cov_transf C D x u));
 
 // At a literal path source, the existing displayed action agrees with
 // primitive right-J transport through ordinary path induction.
@@ -3929,23 +3930,17 @@ assertnot [A : Grpd]
     (Path_cat A) Cat_cart D x x (@eq_refl A x)
   ≡ @id Cat_cart (Fibre_cat D x);
 
-// The reflexive uncurried component join is likewise proof-time only.
+// The reflexive forward-section component follows the existing transport/J
+// comparison. It uses no implicit section cast or special reflexivity unifier.
 assert [A : Grpd]
   (D : τ (Catd (Path_cat A)))
   (x : τ A)
   (u : τ (Obj (Fibre_cat D x))) ⊢
-  @eq_refl
+  @eq_ap (Obj (Fibre_cat D x))
     (Hom Cat_cart Terminal_cat (Fibre_cat D x))
-    (@tapp0_fapp0
-      (@PathOut_cat (Path_cat A) x)
-      Cat_cart
-      (@Const_catd (@PathOut_cat (Path_cat A) x) Terminal_cat)
-      (@Sigma_proj1_pullback_catd
-        (Path_cat A)
-        (@Rep_catd (Path_cat A) x)
-        D)
-      (@pathout_obj (Path_cat A) x x (@eq_refl A x))
-      (@strict_transfor _ _ _ _ (@fib_cov_transf (Path_cat A) D x u)))
+    (λ v : τ (Obj (Fibre_cat D x)), @Obj_func (Fibre_cat D x) v)
+    (@path_cat_structured_transport A D x x u (@eq_refl A x)) u
+    (@path_cat_structured_transport_agrees_ind_eqr A D x x u (@eq_refl A x))
   : τ (@=
       (Hom Cat_cart Terminal_cat (Fibre_cat D x))
       (@tapp0_fapp0
@@ -3957,7 +3952,8 @@ assert [A : Grpd]
           (@Rep_catd (Path_cat A) x)
           D)
         (@pathout_obj (Path_cat A) x x (@eq_refl A x))
-        (@strict_transfor _ _ _ _ (@fib_cov_transf (Path_cat A) D x u)))
+        (@sigma_functord_sec (Path_cat A) (@Rep_catd (Path_cat A) x) D
+        (@strict_transfor _ _ _ _ (@fib_cov_transf (Path_cat A) D x u))))
       (@Obj_func (Fibre_cat D x) u));
 
 assertnot [A : Grpd]
@@ -3973,7 +3969,8 @@ assertnot [A : Grpd]
         (@Rep_catd (Path_cat A) x)
         D)
       (@pathout_obj (Path_cat A) x x (@eq_refl A x))
-      (@strict_transfor _ _ _ _ (@fib_cov_transf (Path_cat A) D x u))
+      (@sigma_functord_sec (Path_cat A) (@Rep_catd (Path_cat A) x) D
+        (@strict_transfor _ _ _ _ (@fib_cov_transf (Path_cat A) D x u)))
   ≡ @Obj_func (Fibre_cat D x) u;
 
 // Phase 9 discrete-category core and homwise adequacy.
@@ -12806,7 +12803,8 @@ assert [Z : Cat] (D : τ (Catd Z)) (x : τ (Obj Z))
     x
     (@Sigma_proj1_pullback_catd Z (@Rep_catd Z x) D)
     u
-    ≡ @strict_transfor _ _ _ _ (@fib_cov_transf Z D x u);
+    ≡ @sigma_functord_sec Z (@Rep_catd Z x) D
+      (@strict_transfor _ _ _ _ (@fib_cov_transf Z D x u));
 
 assert [Z : Cat] (x y : τ (Obj Z)) ⊢
   Fibre_cat (@CompTarget_catd Z x) y
@@ -12816,7 +12814,7 @@ assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y)) ⊢
   Fibre_cat (@CompMotive_catd Z x) (@pathout_obj Z x y p)
     ≡ @Functord_cat Z (@Rep_catd Z y) (@Rep_catd Z x);
 
-assert [Z : Cat] (x : τ (Obj Z)) ⊢
+assertnot [Z : Cat] (x : τ (Obj Z)) ⊢
   @eq_refl Cat_grpd
     (@Pi_cat (@PathOut_cat Z x) (@CompMotive_catd Z x))
   : τ (@= Cat_grpd
@@ -12829,7 +12827,8 @@ assert [Z : Cat] (x : τ (Obj Z)) ⊢
     x
     (@CompMotive_catd Z x)
     (@id_funcd Z (@Rep_catd Z x))
-    ≡ @path_comp_sec Z x;
+    ≡ @sigma_functord_sec Z (@Rep_catd Z x) (@CompTarget_catd Z x)
+      (@path_comp_sec Z x);
 
 assert [Z : Cat] (x y : τ (Obj Z))
   (p : τ (Hom Z x y)) ⊢
@@ -12975,7 +12974,8 @@ assert [Z : Cat] (x : τ (Obj Z)) ⊢
         x
         (@PathInd_transfd Z))))
     (@id_funcd Z (@Rep_catd Z x))
-    ≡ @path_comp_sec Z x;
+    ≡ @sigma_functord_sec Z (@Rep_catd Z x) (@CompTarget_catd Z x)
+      (@path_comp_sec Z x);
 
 assert [Z : Cat] (x y z : τ (Obj Z))
   (p : τ (Hom Z x y))
@@ -12989,16 +12989,8 @@ assert [Z : Cat] (x y z : τ (Obj Z))
       (@Rep_catd Z y)
       (@Rep_catd Z x)
       z
-      (@fapp0
-        (Hom_cat Z x y)
-        (@Functord_cat Z (@Rep_catd Z y) (@Rep_catd Z x))
-        (@tapp0_fapp0
-          Z
-          Cat_cart
-          (@Rep_catd Z x)
-          (@CompTarget_catd Z x)
-          y
-          (@fapp0
+      (@piapp0 (@PathOut_cat Z x) (@CompMotive_catd Z x)
+        (@fapp0
             (Fibre_cat (@CompMotive_catd Z x) (@pathout_refl_obj Z x))
             (@Pi_cat (@PathOut_cat Z x) (@CompMotive_catd Z x))
             (@tapp0_fapp0
@@ -13012,8 +13004,8 @@ assert [Z : Cat] (x y z : τ (Obj Z))
                 (@PathOutPi_funcd Z)
                 x
                 (@PathInd_transfd Z))))
-            (@id_funcd Z (@Rep_catd Z x))))
-        p))
+            (@id_funcd Z (@Rep_catd Z x)))
+        (@pathout_obj Z x y p)))
     q
     ≡ @hom_precomp_along_fapp0 Z Z (@id_func Z) z x y p q;
 
@@ -13082,7 +13074,8 @@ assert [Z : Cat] (x : τ (Obj Z)) ⊢
       (Struct_sigma x (@CompMotive_catd Z x))
       (@PathInd_funcd Z))
     (@id_funcd Z (@Rep_catd Z x))
-    ≡ @path_comp_sec Z x;
+    ≡ @sigma_functord_sec Z (@Rep_catd Z x) (@CompTarget_catd Z x)
+      (@path_comp_sec Z x);
 
 assert [Z : Cat] (x y z : τ (Obj Z))
   (p : τ (Hom Z x y))
@@ -13096,16 +13089,8 @@ assert [Z : Cat] (x y z : τ (Obj Z))
       (@Rep_catd Z y)
       (@Rep_catd Z x)
       z
-      (@fapp0
-        (Hom_cat Z x y)
-        (@Functord_cat Z (@Rep_catd Z y) (@Rep_catd Z x))
-        (@tapp0_fapp0
-          Z
-          Cat_cart
-          (@Rep_catd Z x)
-          (@CompTarget_catd Z x)
-          y
-          (@fapp0
+      (@piapp0 (@PathOut_cat Z x) (@CompMotive_catd Z x)
+        (@fapp0
             (Fibre_cat (@CompMotive_catd Z x) (@pathout_refl_obj Z x))
             (@Pi_cat (@PathOut_cat Z x) (@CompMotive_catd Z x))
             (@tapp0_fapp0
@@ -13115,8 +13100,8 @@ assert [Z : Cat] (x y z : τ (Obj Z))
               (@PathIndTgt_catd Z)
               (Struct_sigma x (@CompMotive_catd Z x))
               (@PathInd_funcd Z))
-            (@id_funcd Z (@Rep_catd Z x))))
-        p))
+            (@id_funcd Z (@Rep_catd Z x)))
+        (@pathout_obj Z x y p)))
     q
     ≡ @hom_precomp_along_fapp0 Z Z (@id_func Z) z x y p q;
 
@@ -15132,21 +15117,23 @@ assert [K : Cat] (R D : τ (Catd K))
   Fibre_cat (@Sigma_proj1_pullback_catd K R D) (Struct_sigma k r)
     ≡ Fibre_cat D k;
 
-assert [K : Cat] (R D : τ (Catd K)) ⊢
+assertnot [K : Cat] (R D : τ (Catd K)) ⊢
   @eq_refl Cat_grpd
     (@Pi_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D))
   : τ (@= Cat_grpd
       (@Pi_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D))
       (@Functord_cat K R D));
 
-assert [K : Cat] (R D : τ (Catd K)) ⊢
+assertnot [K : Cat] (R D : τ (Catd K)) ⊢
   Obj (@Pi_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D))
     ≡ Obj (@Functord_cat K R D);
 
 assert [K : Cat] (R D : τ (Catd K))
   (s t : τ (Obj (@Pi_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D)))) ⊢
   Hom_cat (@Pi_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D)) s t
-    ≡ @Transfd_cat K R D s t;
+    ≡ @Transfd_cat (@Sigma_cat K R)
+        (@Const_catd (@Sigma_cat K R) Terminal_cat)
+        (@Sigma_proj1_pullback_catd K R D) s t;
 
 assert [K A : Cat] ⊢
   @Sigma_cat K (@Const_catd K A) ≡ Product_cat K A;
@@ -16727,7 +16714,7 @@ assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y)) ⊢
     (@pathout_obj Z x y p)
     ≡ @pathout_refl_arrow Z x y p;
 
-assert [Z : Cat] (D : τ (Catd Z)) (x : τ (Obj Z)) ⊢
+assertnot [Z : Cat] (D : τ (Catd Z)) (x : τ (Obj Z)) ⊢
   @eq_refl Cat_grpd
     (@Pi_cat
       (@PathOut_cat Z x)

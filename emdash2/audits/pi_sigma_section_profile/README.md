@@ -1,16 +1,39 @@
 # Pi/Sigma uncurrying: higher-profile audit
 
-Status: finite semantic diagnosis and passing isolated correction; production promotion pending.
+Status: correction applied to the active native files; production core and focused consumers pass; frontend and final integration pending.
 Owner: [correction plan](../../../docs/EMDASH_SIGMA_SECTION_PROFILE_CORRECTION_PLAN.md).
-Baseline: `81157237`; production core is unchanged.
+Baseline: `81157237`; the isolated evidence below retains that original source boundary.
+
+## Native integration
+
+The four active native source/reviewer files now exactly match the qualified
+patch outputs. The [integration record](integration.json) pins those bytes,
+fresh production core and focused-consumer receipts, unchanged warning
+inventory, and the actual frontend consumers still requiring adaptation.
+The core passes in 35.016s / 168,656 KiB and the focused Sigma/PathInd/J
+consumers in 47.164s, both under 90s/2 GiB with subject reduction. All 141
+existing source/package files from the completed central/groupoidal closure
+rehash exactly; its 537.190s result is carried-forward content evidence, not
+a newly executed aggregate.
+
+Registry, rule-LHS audit, catalog, source TOC and report-header checks pass.
+Broad health/final-integration obligations remain open. The TypeScript binder,
+displayed-next-Hom and PathInd transfers still use the retired comparison or
+folds. Their old pins are not updated by this native installation; the four
+passing historical scale tests do not qualify current native semantics.
+
+Historical replay now takes the explicit `--source-revision 81157237` option.
+Every source pin still applies, and omitting that option rejects active-source
+drift. `--assemble-only` verifies the exact closure without running a checker;
+all eight recorded modes passed that assembly check after this extension.
 
 ## The mismatch
 
-The current source uses `Cat_cart` for family coefficients. In particular,
+The source uses `Cat_cart` for family coefficients. In particular,
 `tdapp0_fapp0` of a displayed modification returns a `StrictTransfor` between
-its fibre functors. The same source identifies the whole section category
-over a Sigma projection with `Functord_cat`, and folds its object and next-Hom
-classifiers to the displayed ones.
+its fibre functors. Before this correction, it also identified the whole
+section category over a Sigma projection with `Functord_cat`, and folded its
+object and next-Hom classifiers to the displayed ones.
 
 The terminal-base specialization reveals the problem. Semantically, for
 R=const(A), D=const(B) over 1:
@@ -119,10 +142,10 @@ serial resource guard. It does not modify production or reuse a receipt as a
 new theorem claim.
 
 ```bash
-python3 emdash2/audits/pi_sigma_section_profile/replay.py --mode core
-python3 emdash2/audits/pi_sigma_section_profile/replay.py --mode consumers
-python3 emdash2/audits/pi_sigma_section_profile/replay.py --mode generic-view
-python3 emdash2/audits/pi_sigma_section_profile/replay.py --mode native --timeout-seconds 180
+python3 emdash2/audits/pi_sigma_section_profile/replay.py --source-revision 81157237 --mode core
+python3 emdash2/audits/pi_sigma_section_profile/replay.py --source-revision 81157237 --mode consumers
+python3 emdash2/audits/pi_sigma_section_profile/replay.py --source-revision 81157237 --mode generic-view
+python3 emdash2/audits/pi_sigma_section_profile/replay.py --source-revision 81157237 --mode native --timeout-seconds 180
 ```
 
 The core passes in 35.763s, the initial focused consumers in 35.840s, the
@@ -147,7 +170,7 @@ under the existing 900s/4 GiB profile. All 2,441 central assertions are retained
 
 ```bash
 python3 emdash2/audits/pi_sigma_section_profile/replay.py \
-  --mode central --timeout-seconds 900 --memory-mib 4096
+  --source-revision 81157237 --mode central --timeout-seconds 900 --memory-mib 4096
 ```
 
 Its first two failures remain recorded; neither is relabelled as a green
@@ -156,7 +179,8 @@ unqualified classifier identification, not mathematical non-equivalence of
 every guarded special case. Stronger special-case comparisons require their
 own profile and actual maps.
 
-Production promotion and final integration are still pending. The
+The native files are now installed as recorded above; frontend and final
+integration are still pending. The
 [targeted prose inventory](prose_inventory.json) identifies the later
 clarifications; the article's section evaluation at `(y,p)` is already the
 correct route. No book or article artifact was changed by this audit.

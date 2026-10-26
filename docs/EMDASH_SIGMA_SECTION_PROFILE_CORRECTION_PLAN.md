@@ -1,7 +1,7 @@
 # Sigma sections: preserve the higher mapping profile
 
 Date: 2026-10-26
-Status: isolated core, focused consumers, native prefix and complete central/groupoidal gate pass; documentation clarification complete; promotion review retained; production unchanged
+Status: reviewed native correction installed; production core and focused consumers pass; affected frontend adaptation and final integration remain open
 Parent: [foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Application: [native nerve continuation](EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md)
 Baseline: `81157237`, core SHA-256 `70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e`
@@ -54,8 +54,9 @@ coefficients, dualities and identity/relative Homd interface remain as selected.
 | SP-2 | Preserve actual consumers and reject implicit retyping | Projection, recursive Sigma-Hom and transitivity reviewers pass; whole forward Hom action remains; implicit category/carrier retyping is rejected. The previously failing generic section identity view now passes. |
 | SP-3 | Replay the current native consumer | The common totalization prefix passes with the corrected core, a plain typed identity view and no added section-identity comparison. The native inverse remains unresolved. |
 | SP-4 | Qualify central and affected library/reviewer scopes | Complete central/groupoidal gate passes in 537.190s / 2,550,112 KiB under 900s/4 GiB. Central assertions remain 2,441 (2,158 positive/283 negative). The two earlier failures and all focused repairs are retained. |
-| SP-5 | Promote only after the required owning gates | Review exact patch, warning changes, owner positions, source registry/catalog and source-pin consumers. Preserve unrelated work and deferred final-integration obligations. No automatic evidence rebaseline. |
-| SP-6 | Update the affected exposition and later resume the native inverse | Limited clarification complete in book 0.10.1-dev / overview 0.4.1-dev, with owning checks and visual review. Isolated-versus-production status is explicit; source promotion and native reconstruction remain later implementation work. |
+| SP-5 | Integrate the qualified native correction and its consumers | Four native files exactly match the checked outputs; fresh core/focused consumers, registry, LHS audit, catalog, TOC and report headers pass. All 141 original central source/package inputs rehash. Frontend adaptation remains required; old pins and deferred final-integration obligations are retained. |
+| SP-5F | Adapt the affected frontend semantics | Replace active binder category retyping with the existing forward constructor; remove the object/next-Hom folds; adapt fixed-source PathInd and actual surface consumers. Preserve useful historical stress coverage without installing its retired rule in active closures. Requalify source pins only after this semantic review. |
+| SP-6 | Update the affected exposition and later resume the native inverse | Clarification and installed-source status complete in book 0.10.2-dev / overview 0.4.2-dev, with owning checks and visual review. Frontend/final integration and native reconstruction remain open. |
 
 The direct lexical inventory names the core, central checks, cubical square
 total, structured groupoidal J and path-induction transitivity. The cubical
@@ -80,13 +81,16 @@ The [targeted prose inventory](../emdash2/audits/pi_sigma_section_profile/prose_
 finds that the article's `(y,p)` section-evaluation route already agrees with
 the corrected interface. The current manuscript update clarifies the higher
 profile and explicit forward constructor, and replaces the legacy whole
-equality as the Foundations report's expository contract. It records that
-production still retains the old folds. No broad chapter redesign is indicated.
+equality as the Foundations report's expository contract. The subsequent native
+installation is recorded separately from frontend/final integration. No broad
+chapter redesign is indicated.
 
 ## Boundaries
 
-- Production is unchanged while this candidate is qualified. Earlier native
-  audit results retain their original source pins; new replays get new evidence.
+- Native integration is recorded in [the exact source/gate record](../emdash2/audits/pi_sigma_section_profile/integration.json).
+  Earlier audit results retain their original source pins; historical replay
+  explicitly uses `--source-revision 81157237`. No frontend or aggregate
+  qualification is inferred from the native installation.
 - Keep source-generation and native inverse laws distinct. This correction
   supplies neither `s_U ≐ τ` nor `Observe ∘ Realize ≐ id`.
 - Do not introduce an inverse to forward uncurrying on all higher cells, a new
@@ -97,3 +101,10 @@ production still retains the old folds. No broad chapter redesign is indicated.
   no publication has occurred.
 - Resource limits remain explicit, serialized and without swap. Broad health
   optimization and unrelated frontend work remain deferred.
+
+The previous goal turn completed the prioritized book/article revision and is
+classified as progress. This continuation applies the qualified native fix.
+The frontend inventory is a concrete consequence of the removed native rules,
+not authorization for unrelated frontend redesign. Its initial scale check
+passes four tests with one live-acquisition test skipped, but still compiles
+the old encoded rule; that result is explicitly insufficient for this profile.

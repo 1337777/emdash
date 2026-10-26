@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active consolidated goal; prioritized book/article follow-up complete locally; isolated Pi/Sigma correction and native nerve results retained; production integration remains open
+Status: active consolidated goal; book/article follow-up complete; Pi/Sigma correction installed in native sources; affected frontend and final integration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,19 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Native profile correction, 2026-10-26: the four active source/reviewer files
+now match the validated Pi/Sigma patch exactly. Fresh production core and
+focused Sigma/PathInd/J checks pass under 90s/2 GiB; registry, rule audit,
+catalog, TOC and report headers pass. The 141 existing inputs of the earlier
+complete central/groupoidal check rehash unchanged, so that result is carried
+forward at its actual scope. [Integration evidence](../emdash2/audits/pi_sigma_section_profile/integration.json)
+also records the remaining frontend gap: active binder, displayed-next-Hom
+and PathInd transfers still encode the retired comparison/folds. Next adapt
+those actual consumers through the existing forward section constructor;
+do not merely refresh their source pins. Broad health/final integration and
+native reconstruction remain open. The previous documentation turn made
+concrete progress and its local artifacts remain dated snapshots.
 
 Documentation priority reaffirmed, 2026-10-26: complete the focused
 [book/article follow-up](EMDASH_FOUNDATIONS_BOOK_ARTICLE_UPDATE_PLAN.md)

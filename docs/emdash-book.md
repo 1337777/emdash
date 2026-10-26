@@ -2,7 +2,7 @@
 title: "Functorial Type Theory: Univalent Foundations for Mathematics"
 authors: "The emdash contributors"
 edition: "expanded development edition"
-editionVersion: "0.10.1-dev"
+editionVersion: "0.10.2-dev"
 publicationDate: "2026-10-26"
 status: "draft"
 license: "CC-BY-SA-3.0"
@@ -19877,12 +19877,12 @@ two whole categories. Even over a terminal base, the section side admits lax
 transformations between fibre functors, while the displayed-map side requires
 strict fibre transformations.
 
-> **Formal status — research boundary.** The active source contains the
-> forward owner and its projection ladder, but also retains an overstrong
-> whole-category identification. The
+> **Formal status — research boundary.** The forward owner and its projection
+> ladder are implemented. The
 > [Pi/Sigma profile audit](../../audits/pi_sigma_section_profile/README.md)
-> qualifies an isolated correction preserving the forward construction and
-> path-induction computations. Its production integration remains open;
+> records the removal of a legacy whole-category identification while
+> preserving the forward construction and path-induction computations.
+> Frontend adaptation and final integration remain open;
 > neither whole equivalence nor an unrestricted inverse is claimed here.
 
 ### The WalkingEnd Rule Package

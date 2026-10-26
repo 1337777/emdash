@@ -15,7 +15,7 @@
     "examples/groupoidal_structured_j_eq1.lp": "9bb9dbe8dc911d728c14ec40c8c1c3889b5c2a50cf27ef2e56f07390695e136b"
   },
   "artifacts": {
-    "replay.py": "5204215fd4fc4b263d78cae4a28302f51ec9b20debb9c011271fb9caa4d39ab1",
+    "replay.py": "df0cc8e50f0e27db6634f9198668ddcb58ff8eb6761dacd9a579834add41381f",
     "profile_correction.patch": "5bbc1e061e76017a3e3d1683c62f805dc15ba0be07a99e6516832f232408c2ae",
     "semantic_model.py": "ce5718b2daafe8f64e832dc030fe347a777f441dd1f20ea6ef343f391a26561e",
     "semantic_model_result.json": "06158c427c123cda939786f0289301549c89563bc4de2d04599f91a877c55f76",

@@ -15058,15 +15058,6 @@ unif_rule
         (@Sigma_proj1_func $Z $E)
     ];
 
-// Proof-time uncurrying comparison: sections over a Sigma-projection
-// pullback and displayed functors R => D are stable presentations.
-unif_rule
-  @Pi_cat
-    (@Sigma_cat $K $R)
-    (@Sigma_proj1_pullback_catd $K $R $D)
-  ≡ @Functord_cat $K' $R' $D'
-  ↪ [ $K ≡ $K'; $R ≡ $R'; $D ≡ $D' ];
-
 // DISPLAYED-CHAIN-1A explicit object-level bridge from a displayed functor to
 // its section over the Sigma total. A stable wrapper is required: the
 // proof-time category comparison alone is insufficient to establish subject
@@ -15115,26 +15106,6 @@ injective symbol sigma_functord_sec_func [K : Cat]
 // Object action is the established stable displayed-functor section.
 rule @fapp0 _ _ (@sigma_functord_sec_func $K $R $D) $FF
   ↪ @sigma_functord_sec $K $R $D $FF;
-
-// Runtime classifier join after the general Pi and displayed-facade
-// projections expose the ordinary Cat-valued-transfor presentation. This is
-// the minimal measured join required by path_ind_sec -> fib_cov_transf.
-rule Obj
-      (@Transf_cat
-        (@Sigma_cat $K $R)
-        Cat_cart
-        (@Const_catd (@Sigma_cat $K $R) Terminal_cat)
-        (@Sigma_proj1_pullback_catd $K $R $D))
-  ↪ Obj (@Transf_cat $K Cat_cart $R $D);
-
-// Runtime next-hom projection: transformations between Sigma sections are
-// displayed transformations between the corresponding displayed functors.
-rule @Transfd_cat
-      (@Sigma_cat $K $R)
-      (@Const_catd (@Sigma_cat $K $R) Terminal_cat)
-      (@Sigma_proj1_pullback_catd $K $R $D)
-      $s $t
-  ↪ @Transfd_cat $K $R $D $s $t;
 
 // 9b. Sigma maps and canonical transport arrows
 //
@@ -23791,38 +23762,8 @@ rule @tapp0_fapp0
 rule @path_ind_sec $Z $x
       (@Sigma_proj1_pullback_catd $Z (@hom_ $Z $Z (@id Cat_cat $Z) $x) $D)
       $u
-  ↪ @strict_transfor _ _ _ _ (@fib_cov_transf $Z $D $x $u);
-
-/*
-  Proof-time reflexive component join for structured path-category induction.
-
-  The section-level `path_ind_sec` fold can expose `fib_cov_transf` before the
-  component projection fires. The two rigid heads below identify the
-  reflexive terminal-source component only after the residual constraints
-  verify the exact PathOut/Sigma-pullback presentation. This is a proof-time
-  comparison, not a runtime reduction or a general constant-component law.
-*/
-unif_rule
-  @tapp0_fapp0
-      $K
-      Cat_cart
-      $F
-      $G
-      $k
-      (@strict_transfor _ _ _ _ (@fib_cov_transf (Path_cat $A) $D $x $u))
-  ≡ @Const_func
-      Terminal_cat
-      (@fapp0 (Path_cat $A) Cat_cart $D $x)
-      $u
-  ↪ [
-      $K ≡ @PathOut_cat (Path_cat $A) $x;
-      $F ≡ @Const_catd (@PathOut_cat (Path_cat $A) $x) Terminal_cat;
-      $G ≡ @Sigma_proj1_pullback_catd
-        (Path_cat $A)
-        (@Rep_catd (Path_cat $A) $x)
-        $D;
-      $k ≡ @pathout_obj (Path_cat $A) $x $x (@eq_refl $A $x)
-    ];
+  ↪ @sigma_functord_sec $Z (@hom_ $Z $Z (@id Cat_cat $Z) $x) $D
+      (@strict_transfor _ _ _ _ (@fib_cov_transf $Z $D $x $u));
 
 /*
   Literal path-category comparison between structured action and primitive J.
@@ -23960,45 +23901,8 @@ symbol path_cat_path_ind_app_agrees_structured
               (@path_cat_path_ind_app A D z y v q)
               (@path_cat_structured_transport A D z y v q)))
       (λ v : τ (Obj (Fibre_cat D y)),
-        @eq_trans
-          (Obj (Fibre_cat D y))
-          (@path_cat_path_ind_app A D y y v (@eq_refl A y))
-          v
-          (@path_cat_structured_transport A D y y v (@eq_refl A y))
-          (@eq_ap
-            (Hom Cat_cart Terminal_cat (Fibre_cat D y))
-            (Obj (Fibre_cat D y))
-            (λ H : τ (Hom Cat_cart Terminal_cat (Fibre_cat D y)),
-              @fapp0 Terminal_cat (Fibre_cat D y) H Terminal_obj)
-            (@tapp0_fapp0
-              (@PathOut_cat (Path_cat A) y)
-              Cat_cart
-              (@Const_catd (@PathOut_cat (Path_cat A) y) Terminal_cat)
-              (@Sigma_proj1_pullback_catd
-                (Path_cat A)
-                (@Rep_catd (Path_cat A) y)
-                D)
-              (@pathout_obj (Path_cat A) y y (@eq_refl A y))
-              (@strict_transfor _ _ _ _ (@fib_cov_transf (Path_cat A) D y v)))
-            (@Obj_func (Fibre_cat D y) v)
-            (@eq_refl
-              (Hom Cat_cart Terminal_cat (Fibre_cat D y))
-              (@tapp0_fapp0
-                (@PathOut_cat (Path_cat A) y)
-                Cat_cart
-                (@Const_catd (@PathOut_cat (Path_cat A) y) Terminal_cat)
-                (@Sigma_proj1_pullback_catd
-                  (Path_cat A)
-                  (@Rep_catd (Path_cat A) y)
-                  D)
-                (@pathout_obj (Path_cat A) y y (@eq_refl A y))
-                (@strict_transfor _ _ _ _ (@fib_cov_transf (Path_cat A) D y v)))))
-          (@eq_sym
-            (Obj (Fibre_cat D y))
-            (@path_cat_structured_transport A D y y v (@eq_refl A y))
-            v
-            (@path_cat_structured_transport_agrees_ind_eqr
-              A D y y v (@eq_refl A y))))
+        @eq_refl (Obj (Fibre_cat D y))
+          (@path_cat_structured_transport A D y y v (@eq_refl A y)))
       x
       p)
     u;

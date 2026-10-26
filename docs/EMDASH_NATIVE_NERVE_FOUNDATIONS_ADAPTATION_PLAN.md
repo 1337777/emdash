@@ -2,13 +2,24 @@
 
 Date: 2026-10-26
 Plan-ID: NATIVE-NERVE-FOUNDATIONS-ADAPTATION-V3.2
-Status: NF-1 results retained; prioritized book/article follow-up complete locally; isolated Pi/Sigma correction awaits production integration before further reconstruction
+Depends-On: qualified strict-default/corrected-duality foundations and the scoped Pi/Sigma profile correction
+Supersedes: no donor proof or source pin; adapts the paused legacy work under receiver authorities
+Side-Task-Ledger: NF stages, source-pinned audit records and the parent follow-up ledger
+Infinity-Codex-Origin: session `01a12a87-a47e-73f1-9351-1159597be30d`
+Infinity-Codex-Decision-Responses: user-authorized consolidated book/article and legacy-nerve continuation, recorded in the parent living plan
+Status: NF-1 results retained; Pi/Sigma native correction installed; affected frontend/final integration and native reconstruction remain open
 Parent: [consolidated foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Receiver: `goal/strict-functor-duality-v3.2`, checkpoint `1fe72617`
 Donor: `goal/native-nerve-legacy-completion-v3.2`, checkpoint `280e7a03`
 Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 
 ## Authorization and current boundary
+
+Native correction installed, 2026-10-26: [the integration record](../emdash2/audits/pi_sigma_section_profile/integration.json)
+qualifies the four active native files and their focused consumers. The
+frontend closures still need the corresponding explicit section construction;
+that bounded prerequisite precedes further reconstruction. No native inverse
+or broader nerve completion follows merely from retiring the classifier folds.
 
 Current scheduling, 2026-10-26: the user reaffirmed book/article priority.
 The limited profile clarification and refreshed local artifacts take

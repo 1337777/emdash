@@ -7,7 +7,6 @@ import hashlib
 import json
 import os
 from pathlib import Path
-import shutil
 import subprocess
 import sys
 import tempfile
@@ -31,6 +30,10 @@ def main() -> int:
                         default="consumers")
     parser.add_argument("--timeout-seconds", type=int, default=90)
     parser.add_argument("--memory-mib", type=int, choices=(2048, 4096), default=2048)
+    parser.add_argument("--source-revision",
+                        help="Explicit Git revision of the pre-correction sources; all source pins still apply")
+    parser.add_argument("--assemble-only", action="store_true",
+                        help="Verify exact source assembly without launching a checker")
     args = parser.parse_args()
     if not 1 <= args.timeout_seconds <= 3600:
         parser.error("timeout must be between 1 and 3600 seconds")
@@ -46,9 +49,21 @@ def main() -> int:
         if name in inputs and inputs[name] != expected:
             raise SystemExit(f"conflicting source pin: {name}")
         inputs[name] = expected
+    source_bytes = {}
+    revision = None
+    if args.source_revision:
+        revision = subprocess.check_output([
+            "git", "rev-parse", "--verify", "--end-of-options",
+            args.source_revision + "^{commit}",
+        ], cwd=REPO, text=True).strip()
     for name, expected in inputs.items():
-        if digest(local_file(ROOT, name)) != expected:
+        path = local_file(ROOT, name)
+        content = (subprocess.check_output(
+            ["git", "show", f"{revision}:emdash2/{name}"], cwd=REPO,
+        ) if revision else path.read_bytes())
+        if hashlib.sha256(content).hexdigest() != expected:
             raise SystemExit(f"receiver source drift: {name}")
+        source_bytes[name] = content
     checker_dir = subprocess.check_output(
         [sys.executable, str(REPO / "scripts/verification-toolchain.py"), "batch-path"],
         cwd=REPO, text=True,
@@ -61,7 +76,7 @@ def main() -> int:
     for name in inputs:
         destination = package / name
         destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(local_file(ROOT, name), destination)
+        destination.write_bytes(source_bytes[name])
     subprocess.run([
         "patch", "--batch", "--forward", "--silent", "-p2", "-d", str(package),
         "-i", str(HERE / "profile_correction.patch"),
@@ -115,6 +130,9 @@ def main() -> int:
     actual = input_hashes([Path(mode["target"])], package)
     if mode.get("expectedInputs") is not None and actual != mode["expectedInputs"]:
         raise SystemExit("assembled source closure differs from the recorded check")
+    if args.assemble_only:
+        print(f"mode={args.mode}; exact assembly verified; checker not run; package={package}")
+        return 0
     env = os.environ.copy()
     env.update({
         "PATH": checker_dir + os.pathsep + env.get("PATH", ""),

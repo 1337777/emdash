@@ -4059,14 +4059,15 @@ the source specializes to Cartesian mapping Homs and the target to the lax
 mapping category. Thus this forward construction does not justify identifying
 the two whole categories or supplying an unrestricted inverse.
 
-Implementation qualification (2026-10-26): production still contains the
-legacy whole-category comparison and object/next-Hom folds. The
+Implementation qualification (2026-10-26): the
 [finite/source audit](../audits/pi_sigma_section_profile/README.md) qualifies
-their removal in an isolated copy, preserving the forward functor and the
-path-induction computations. Production integration remains pending under the
+the removal of the legacy whole-category comparison and object/next-Hom folds.
+The checked correction is now installed in the native files, preserving the
+forward functor and path-induction computations. The
+[integration record](../audits/pi_sigma_section_profile/integration.json)
+keeps affected frontend adaptation and final gates explicit under the
 [correction plan](../../docs/EMDASH_SIGMA_SECTION_PROFILE_CORRECTION_PLAN.md).
-The legacy folds are recorded implementation debt, not a qualified higher
-equivalence in this account.
+No inverse on all higher maps is supplied by this correction.
 
 For a whole displayed transformation `eta : FF => GG`, its generic functor
 action already owns one transformation between the two uncurried sections.
@@ -6808,7 +6809,8 @@ forward projection reduces to `p`.
 
 Structured groupoidal path induction continues to use the existing
 `path_ind_sec`. Its Sigma-pullback motive equation still reduces to
-`fib_cov_transf` in a context carrying groupoidality evidence, without a
+the explicit `sigma_functord_sec` of the ordinary view of `fib_cov_transf`,
+in a context carrying groupoidality evidence, without a
 second eliminator or a raw-fibrancy capability. For a general `C`, carrying a
 groupoidality witness is still specialization by weakening—the action exists
 for every directed source—so this fact alone does not consume `g`.
@@ -6824,12 +6826,12 @@ compares it with primitive J.
 
 Only primitive J definitionally computes to `u` at reflexivity. The displayed
 action and section application deliberately retain their directed runtime
-normal forms. Two narrowly typed proof-time comparisons reconcile the
-identity and component-projection orders in the reflexive proof: one compares
-Cat-valued functor action on `eq_refl` with identity, and the other decomposes
-the exact PathOut/Sigma-pullback component presentation into four residual
-constraints. Neither is an encoder, decoder, new eliminator, runtime
-commuting conversion, or claim that every structured component is constant.
+normal forms. The Cat-valued functor comparison at `eq_refl` remains. The
+former four-constraint comparison for retyping bare fibre covariance as a
+Sigma section is retired: the actual section constructor supplies the
+component, and the transport/J theorem gives the reflexive observation by
+ordinary congruence. This adds no encoder, decoder, eliminator or runtime
+commuting conversion, and does not make every structured component constant.
 
 The direct-univalence boundary is now active but deliberately hybrid. For a
 syntactically abstract category `C`, a proof-time unification rule compares

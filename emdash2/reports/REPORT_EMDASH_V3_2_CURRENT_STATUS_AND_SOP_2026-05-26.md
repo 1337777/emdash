@@ -18,7 +18,9 @@ family coefficients to `Cat_cart`. The forward uncurrying functor remains
 useful, but its full target section category must not be identified with the
 displayed-functor category at all higher cells. The scoped correction passes
 the core, focused/native replays and the complete central/groupoidal gate in
-isolation; production promotion and integration remain pending under
+isolation. The four native files are now installed with fresh core/focused
+checks and exact central-closure correspondence; [integration evidence](../audits/pi_sigma_section_profile/integration.json)
+records the affected frontend adaptation and final gates still pending under
 [its plan](../../docs/EMDASH_SIGMA_SECTION_PROFILE_CORRECTION_PLAN.md).
 The older source/check receipts below do not establish a semantic model of
 that inherited comparison.
@@ -2542,17 +2544,14 @@ displayed rung. It compares directly at proof time with both
 and the `Transfd_cat` next hom. The constant-family comparison with
 `Functor_cat K A` is also direct; do not rely on comparison transitivity.
 
-For sections over `Sigma_proj1_pullback_catd`, the distinct `Pi_cat` and
-`Functord_cat` heads still have a legacy proof-time comparison in production.
-Its object/next-Hom folds are also retained there, but the current `Cat_cart`
-coefficient makes their unrestricted identification too strong. Use the
-existing forward `sigma_functord_sec_func` as the expository contract. The
-[profile correction](../audits/pi_sigma_section_profile/README.md) removes
-those three identifications in isolation and routes `path_ind_sec` through
-`sigma_functord_sec(fib_cov_transf(...))`, preserving its actual Sigma base.
-Its core and complete central/groupoidal checks pass; production integration
-is still pending. Earlier subject-reduction evidence for the bare retyping
-does not establish the missing higher equivalence.
+For sections over `Sigma_proj1_pullback_catd`, use the existing forward
+`sigma_functord_sec_func`. The installed [profile correction](../audits/pi_sigma_section_profile/README.md)
+removes the legacy whole-category comparison and object/next-Hom folds.
+`path_ind_sec` now returns `sigma_functord_sec(fib_cov_transf(...))` through
+the existing strict-to-ordinary view, preserving its actual Sigma base.
+The core, focused consumers and complete central/groupoidal source closure
+are qualified at the recorded scopes. Frontend adaptation and final
+integration remain open; the earlier bare retyping is no longer a contract.
 
 The stable projection-pullback family is now an explicit runtime selection,
 not the automatic reduct of either

@@ -10,6 +10,14 @@ Implementation checkpoint: `f0e22340`
 
 ## Direction and scope
 
+The subsequent native correction is now installed. A status-only follow-up
+updates Appendix G and article §3 to distinguish native installation from the
+remaining frontend/final integration. Local drafts `0.10.2-dev` and
+`0.4.2-dev` pass their owning gates and changed-page inspection, recorded in
+[the artifact review](EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md#native-correction-status-synchronization).
+This preserves the completed comprehensive exposition; it does not reopen
+chapter design or claim that the whole foundation goal is complete.
+
 Priority reaffirmed, 2026-10-26: the comprehensive book/article revision was
 completed at `1fe72617`. A later review, checkpoint `414344cb`, identified a
 retained Pi/Sigma higher-profile mismatch. The current documentation-only

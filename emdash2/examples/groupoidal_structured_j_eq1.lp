@@ -181,8 +181,9 @@ assert [C : Cat]
     x
     (@Sigma_proj1_pullback_catd C (@Rep_catd C x) D)
     u
-  ≡ @strict_transfor C Cat_cart (@FibCov_source_catd C x) D
-      (@fib_cov_transf C D x u);
+  ≡ @sigma_functord_sec C (@Rep_catd C x) D
+      (@strict_transfor C Cat_cart (@FibCov_source_catd C x) D
+        (@fib_cov_transf C D x u));
 
 /*
   At the literal source `Path_cat(A)`, the directed-family action and the
