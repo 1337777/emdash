@@ -64,6 +64,8 @@ const component = (b: Builder, A: Expr, B: Expr, F: Expr, G: Expr, x: Expr, U: E
     call(b, 'tapp0_fapp0', [A, B, F, G, x, U], 4);
 const action = (b: Builder, A: Expr, B: Expr, F: Expr, x: Expr, y: Expr) =>
     b.call(b.global(sym('fapp1_func')), [A,B,F,x,y].map((value,i)=>({value,plicity:i===2?'explicit':'implicit'})));
+const capped = (b: Builder, A: Expr, B: Expr, F: Expr, x: Expr, y: Expr, p: Expr) =>
+    b.call(b.global(sym('fapp1_fapp0')), [A,B,F,x,y,p].map((value,i)=>({value,plicity:i===2||i===5?'explicit':'implicit'})));
 const familyParams: readonly Parameter[] = [['K','implicit',cat], ['D','implicit',(b,s)=>fn(b,s.K,cart(b))],
     ['E','implicit',(b,s)=>fn(b,s.K,cart(b))], ['FF','explicit',(b,s)=>obj(b,transf(b,s.K,cart(b),s.D,s.E))]];
 const xParam: Parameter = ['x','explicit',(b,s)=>obj(b,s.K)];
@@ -142,7 +144,7 @@ const finalDeclarations = [
 const declarations=[...initialDeclarations,...finalDeclarations].map((d,order)=>({...d,order}));
 const externalNames=['Cat','τ','Obj','Functor','Hom_cat','Cat_cat','Cat_cart','Functor_cat','Functor_cart_cat',
     'Catd_cat','Transf_cat','Op_cat','CoAt2_cat','fapp0','fapp1_func','fapp1_fapp0','fapp0_func','tapp0_func','tapp0_fapp0','strict_transfor',
-    'comp_cat_fapp0','id_func','hom_con','hom_','Functor_cart_include','Homd_coeff_cat','Homd_coeff_include',
+    'hom_precomp_along_func','comp_cat_fapp0','id_func','hom_con','hom_','Functor_cart_include','Homd_coeff_cat','Homd_coeff_include',
     'Homd_coeff_diagram','Homd_representable_func','Homd_target_index_func','Homd_target_catd',
     'homd_rel_cart_int','homd_int','Op_func','Functor_catd','Functor_catd_func',
     // Preserve predecessor links used by downstream mixed profiles.
@@ -226,6 +228,23 @@ const runtimeRules=[
             call(b,'Functor_cart_include',[s.A,s.B]), s.F, s.G, s.U
         ].map((value,i)=>({value,plicity:i===2||i===5?'explicit':'implicit'}))),
         (b,s)=>call(b,'strict_transfor',[s.A,s.B,s.F,s.G,s.U],4)),
+    // Native whole/capped opposite action and capped contravariant Hom action.
+    // These retain the ordinary semantic owners used after family pullback.
+    rule('opposite-functor-hom','fapp1_func',[['A',cat],['B',cat],['F',(b,s)=>fn(b,s.A,s.B)],
+        ['x',(b,s)=>obj(b,s.A)],['y',(b,s)=>obj(b,s.A)]],
+        (b,s)=>action(b,b.wildcard(op(b,s.A)),b.wildcard(op(b,s.B)),call(b,'Op_func',[s.A,s.B,s.F],2),s.x,s.y),
+        (b,s)=>action(b,s.A,s.B,s.F,s.y,s.x)),
+    rule('opposite-functor-arrow','fapp1_fapp0',[['A',cat],['B',cat],['F',(b,s)=>fn(b,s.A,s.B)],
+        ['x',(b,s)=>obj(b,s.A)],['y',(b,s)=>obj(b,s.A)],['p',(b,s)=>obj(b,hom(b,s.A,s.y,s.x))]],
+        (b,s)=>capped(b,b.wildcard(op(b,s.A)),b.wildcard(op(b,s.B)),call(b,'Op_func',[s.A,s.B,s.F],2),s.x,s.y,s.p),
+        (b,s)=>capped(b,s.A,s.B,s.F,s.y,s.x,s.p)),
+    rule('contravariant-hom-arrow','fapp1_fapp0',[['A',cat],['B',cat],['F',(b,s)=>fn(b,s.B,s.A)],
+        ['W',(b,s)=>obj(b,s.A)],['x',(b,s)=>obj(b,s.B)],['y',(b,s)=>obj(b,s.B)],
+        ['p',(b,s)=>obj(b,hom(b,s.B,s.y,s.x))]],
+        (b,s)=>capped(b,b.wildcard(op(b,s.B)),cart(b),
+            b.call(b.global(sym('hom_con')),[s.A,s.W,s.B,s.F].map((value,i)=>({value,plicity:i===0||i===2?'implicit':'explicit'}))),s.x,s.y,s.p),
+        (b,s)=>b.call(b.global(sym('hom_precomp_along_func')),
+            [s.B,s.A,s.F,s.W,s.y,s.x,s.p].map((value,i)=>({value,plicity:i===2||i===3||i===6?'explicit':'implicit'})))),
     rule('mixed-functor-first-projection','fapp0',[['K',cat],['A',(b,s)=>fn(b,op(b,s.K),cart(b))]],
         (b,s)=>app(b,b.wildcard(op(b,cc(b,op(b,s.K),cart(b)))),
             b.wildcard(fc(b,call(b,'Catd_cat',[s.K]),call(b,'Catd_cat',[s.K]))),call(b,'Functor_catd_func',[s.K]),s.A),

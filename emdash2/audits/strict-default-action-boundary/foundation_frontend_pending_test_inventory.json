@@ -361,6 +361,340 @@
       "scope": "Fixed-source PathInd and historical predecessor snapshots",
       "review": "foundation_frontend_pathind_fixed_review.md",
       "doesNotQualify": "Whole internalized PathInd or transitivity"
+    },
+    {
+      "scope": "Whole PathInd interfaces, shared Pi inference slots and native variance actions",
+      "review": "foundation_frontend_pathind_internalized_review.md",
+      "doesNotQualify": "Complete TypeScript moving-component/prewhiskering or Homd P-index endpoint computation"
     }
-  ]
+  ],
+  "latestAggregate": {
+    "status": "timeout; incomplete suite",
+    "log": "emdash2/tmp/probes/kernel_boundary_continuation/wave383_ts_integration.out",
+    "timeoutSeconds": 1800,
+    "exitCode": 137,
+    "completedEvents": 2182,
+    "failureEventCount": 50,
+    "eventCountsByFile": {
+      "tests/v3_2_pathout_transitivity_transfer_tests.ts": 7,
+      "tests/v3_2_pathout_library_graduation_proposal_tests.ts": 4,
+      "tests/v3_2_pathout_library_graduation_review_tests.ts": 3,
+      "tests/v3_2_categorical_text_tests.ts": 5,
+      "tests/v3_2_categorical_text_parity_audit_tests.ts": 4,
+      "tests/v3_2_categorical_text_structural_audit_tests.ts": 2,
+      "tests/v3_2_categorical_text_structural_tests.ts": 2,
+      "tests/v3_2_categorical_text_graduation_audit_tests.ts": 3,
+      "tests/v3_2_categorical_text_nested_ordinary_tests.ts": 3,
+      "tests/v3_2_categorical_displayed_bracket_tests.ts": 2,
+      "tests/v3_2_categorical_displayed_nd_1a_tests.ts": 3,
+      "tests/v3_2_categorical_direct_contextual_nd_whiskering_tests.ts": 2,
+      "tests/v3_2_categorical_displayed_nd_higher_foundation_transfer_tests.ts": 5,
+      "tests/v3_2_categorical_direct_mixed_constant_middle_tests.ts": 2,
+      "tests/v3_2_lf_transfer_tests.ts": 3
+    },
+    "failureEvents": [
+      {
+        "name": "compiles five definitions then one subject-checked local support",
+        "file": "tests/v3_2_pathout_transitivity_transfer_tests.ts",
+        "line": 239,
+        "durationMs": 363.0
+      },
+      {
+        "name": "fires the exact complete-parent support at its staged redex",
+        "file": "tests/v3_2_pathout_transitivity_transfer_tests.ts",
+        "line": 264,
+        "durationMs": 352.3
+      },
+      {
+        "name": "computes three observations and proves the Sigma/Pi observation",
+        "file": "tests/v3_2_pathout_transitivity_transfer_tests.ts",
+        "line": 279,
+        "durationMs": 334.0
+      },
+      {
+        "name": "computes the final four observations to stable precomposition",
+        "file": "tests/v3_2_pathout_transitivity_transfer_tests.ts",
+        "line": 306,
+        "durationMs": 346.9
+      },
+      {
+        "name": "types both named transitivity library consumers",
+        "file": "tests/v3_2_pathout_transitivity_transfer_tests.ts",
+        "line": 321,
+        "durationMs": 349.5
+      },
+      {
+        "name": "rejects all eight foreign-base and wrong-endpoint consumers",
+        "file": "tests/v3_2_pathout_transitivity_transfer_tests.ts",
+        "line": 329,
+        "durationMs": 380.8
+      },
+      {
+        "name": "PATHOUT-LIBRARY-TRANSITIVITY-1E transfer",
+        "file": "tests/v3_2_pathout_transitivity_transfer_tests.ts",
+        "line": 187,
+        "durationMs": 2128.2
+      },
+      {
+        "name": "pins every completed semantic and presentation predecessor",
+        "file": "tests/v3_2_pathout_library_graduation_proposal_tests.ts",
+        "line": 20,
+        "durationMs": 0.8
+      },
+      {
+        "name": "separates five mathematical owners from nine sealed supports",
+        "file": "tests/v3_2_pathout_library_graduation_proposal_tests.ts",
+        "line": 47,
+        "durationMs": 7.6
+      },
+      {
+        "name": "rejects prerequisite, classification, and general proposal drift",
+        "file": "tests/v3_2_pathout_library_graduation_proposal_tests.ts",
+        "line": 104,
+        "durationMs": 1.4
+      },
+      {
+        "name": "PATHOUT-TRUSTED-LIBRARY-GRADUATE-0G proposal",
+        "file": "tests/v3_2_pathout_library_graduation_proposal_tests.ts",
+        "line": 19,
+        "durationMs": 11.5
+      },
+      {
+        "name": "approves only checkpoint 85b560e and its exact proposal bytes",
+        "file": "tests/v3_2_pathout_library_graduation_review_tests.ts",
+        "line": 21,
+        "durationMs": 0.5
+      },
+      {
+        "name": "rejects decision, proposal, and authorization drift",
+        "file": "tests/v3_2_pathout_library_graduation_review_tests.ts",
+        "line": 76,
+        "durationMs": 1.4
+      },
+      {
+        "name": "PATHOUT-TRUSTED-LIBRARY-GRADUATE-0G review",
+        "file": "tests/v3_2_pathout_library_graduation_review_tests.ts",
+        "line": 20,
+        "durationMs": 2.9
+      },
+      {
+        "name": "matches direct pointwise bracket lowering exactly",
+        "file": "tests/v3_2_categorical_text_tests.ts",
+        "line": 109,
+        "durationMs": 303.3
+      },
+      {
+        "name": "keeps Unicode and ASCII lambda spellings equivalent",
+        "file": "tests/v3_2_categorical_text_tests.ts",
+        "line": 119,
+        "durationMs": 292.5
+      },
+      {
+        "name": "recurses through fixed inner evaluation without sub-brackets",
+        "file": "tests/v3_2_categorical_text_tests.ts",
+        "line": 133,
+        "durationMs": 287.2
+      },
+      {
+        "name": "retains zero, one, and two binder-use structural evidence",
+        "file": "tests/v3_2_categorical_text_tests.ts",
+        "line": 186,
+        "durationMs": 273.8
+      },
+      {
+        "name": "SYNTAX-1A ordinary categorical text adapter",
+        "file": "tests/v3_2_categorical_text_tests.ts",
+        "line": 108,
+        "durationMs": 3875.7
+      },
+      {
+        "name": "classifies every public categorical program method exactly once",
+        "file": "tests/v3_2_categorical_text_parity_audit_tests.ts",
+        "line": 26,
+        "durationMs": 1.4
+      },
+      {
+        "name": "is deeply frozen, validates, and installs no behavior",
+        "file": "tests/v3_2_categorical_text_parity_audit_tests.ts",
+        "line": 116,
+        "durationMs": 1.0
+      },
+      {
+        "name": "fails closed on prerequisite, coverage, proposal, and boundary drift",
+        "file": "tests/v3_2_categorical_text_parity_audit_tests.ts",
+        "line": 121,
+        "durationMs": 1.2
+      },
+      {
+        "name": "SYNTAX-PARITY-0A executable capability inventory",
+        "file": "tests/v3_2_categorical_text_parity_audit_tests.ts",
+        "line": 25,
+        "durationMs": 7887.6
+      },
+      {
+        "name": "executes the already available direct weakening target",
+        "file": "tests/v3_2_categorical_text_structural_audit_tests.ts",
+        "line": 55,
+        "durationMs": 6421.4
+      },
+      {
+        "name": "SYNTAX-PARITY-1B0 structural text audit",
+        "file": "tests/v3_2_categorical_text_structural_audit_tests.ts",
+        "line": 42,
+        "durationMs": 6422.9
+      },
+      {
+        "name": "matches direct displayed weakening exactly",
+        "file": "tests/v3_2_categorical_text_structural_tests.ts",
+        "line": 61,
+        "durationMs": 6400.9
+      },
+      {
+        "name": "SYNTAX-PARITY-1B1 contextual index",
+        "file": "tests/v3_2_categorical_text_structural_tests.ts",
+        "line": 60,
+        "durationMs": 41913.7
+      },
+      {
+        "name": "retains the 68-method historical partition and accounts for later APIs",
+        "file": "tests/v3_2_categorical_text_graduation_audit_tests.ts",
+        "line": 28,
+        "durationMs": 0.8
+      },
+      {
+        "name": "anchors the measured pre-1D1 gap after its checked promotion",
+        "file": "tests/v3_2_categorical_text_graduation_audit_tests.ts",
+        "line": 51,
+        "durationMs": 0.5
+      },
+      {
+        "name": "SYNTAX-PARITY-GRADUATE-0A audit",
+        "file": "tests/v3_2_categorical_text_graduation_audit_tests.ts",
+        "line": 27,
+        "durationMs": 2.1
+      },
+      {
+        "name": "matches the reviewed exchange/currying construction exactly",
+        "file": "tests/v3_2_categorical_text_nested_ordinary_tests.ts",
+        "line": 79,
+        "durationMs": 245.5
+      },
+      {
+        "name": "recurses only to the finite depth in the expected tree",
+        "file": "tests/v3_2_categorical_text_nested_ordinary_tests.ts",
+        "line": 95,
+        "durationMs": 210.5
+      },
+      {
+        "name": "SYNTAX-PARITY-1D1 nested ordinary text",
+        "file": "tests/v3_2_categorical_text_nested_ordinary_tests.ts",
+        "line": 78,
+        "durationMs": 1016.0
+      },
+      {
+        "name": "preserves one-slot identity, eta, composition, and weakening",
+        "file": "tests/v3_2_categorical_displayed_bracket_tests.ts",
+        "line": 166,
+        "durationMs": 3587.2
+      },
+      {
+        "name": "DISPLAYED-BRACKET-1A displayed contextual compiler",
+        "file": "tests/v3_2_categorical_displayed_bracket_tests.ts",
+        "line": 48,
+        "durationMs": 37460.5
+      },
+      {
+        "name": "computes the object component and typechecks the base-arrow cell",
+        "file": "tests/v3_2_categorical_displayed_nd_1a_tests.ts",
+        "line": 119,
+        "durationMs": 13330.8
+      },
+      {
+        "name": "inherits the D-061 transfer closure without a new owner or browser promotion",
+        "file": "tests/v3_2_categorical_displayed_nd_1a_tests.ts",
+        "line": 192,
+        "durationMs": 5456.9
+      },
+      {
+        "name": "DISPLAYED-ND-1A recursive displayed coherence",
+        "file": "tests/v3_2_categorical_displayed_nd_1a_tests.ts",
+        "line": 69,
+        "durationMs": 73013.6
+      },
+      {
+        "name": "computes both point equations and retains internal higher action",
+        "file": "tests/v3_2_categorical_direct_contextual_nd_whiskering_tests.ts",
+        "line": 103,
+        "durationMs": 228.5
+      },
+      {
+        "name": "D-058/061 direct contextual displayed-natural whiskering",
+        "file": "tests/v3_2_categorical_direct_contextual_nd_whiskering_tests.ts",
+        "line": 68,
+        "durationMs": 446.7
+      },
+      {
+        "name": "pins the active source and exact relocated declaration policy",
+        "file": "tests/v3_2_categorical_displayed_nd_higher_foundation_transfer_tests.ts",
+        "line": 48,
+        "durationMs": 8.6
+      },
+      {
+        "name": "checks all transparent bodies and preserves opaque interfaces",
+        "file": "tests/v3_2_categorical_displayed_nd_higher_foundation_transfer_tests.ts",
+        "line": 102,
+        "durationMs": 1.4
+      },
+      {
+        "name": "inherits involution and checks the native root projection sequence",
+        "file": "tests/v3_2_categorical_displayed_nd_higher_foundation_transfer_tests.ts",
+        "line": 120,
+        "durationMs": 0.5
+      },
+      {
+        "name": "keeps the target package and product surface outside foundation",
+        "file": "tests/v3_2_categorical_displayed_nd_higher_foundation_transfer_tests.ts",
+        "line": 134,
+        "durationMs": 0.5
+      },
+      {
+        "name": "DISPLAYED-ND-HIGHER-FOUNDATION-1A generic transfer",
+        "file": "tests/v3_2_categorical_displayed_nd_higher_foundation_transfer_tests.ts",
+        "line": 24,
+        "durationMs": 12.0
+      },
+      {
+        "name": "composes above recursive source, target and pair structure",
+        "file": "tests/v3_2_categorical_direct_mixed_constant_middle_tests.ts",
+        "line": 88,
+        "durationMs": 847.9
+      },
+      {
+        "name": "DIRECT-MIXED-CONSTANT-MIDDLE-COMPOSITION-1M binder",
+        "file": "tests/v3_2_categorical_direct_mixed_constant_middle_tests.ts",
+        "line": 30,
+        "durationMs": 4937.9
+      },
+      {
+        "name": "represents nonlinear runtime and proof constraints without owner nodes",
+        "file": "tests/v3_2_lf_transfer_tests.ts",
+        "line": 455,
+        "durationMs": 4.9
+      },
+      {
+        "name": "preserves both reviewed profiles and the browser boundary",
+        "file": "tests/v3_2_lf_transfer_tests.ts",
+        "line": 631,
+        "durationMs": 0.3
+      },
+      {
+        "name": "TypeScript v3.2 reviewed SCALE-0B transfer IR",
+        "file": "tests/v3_2_lf_transfer_tests.ts",
+        "line": 356,
+        "durationMs": 8.9
+      }
+    ],
+    "lastHeartbeat": "[progress] parent alive; elapsed=1771.4s; completed_events=2182; last=dequeued \"cancels and reaps a running worker\" (tests/v3_2_algebra_goal_mcp_tests.ts:94); event_age=840.9s",
+    "note": "No final suite summary; completion events include tests and suites. Profiles locate current execution in formal Freyd long-exact checking/encoding, not necessarily the last reporter label."
+  }
 }

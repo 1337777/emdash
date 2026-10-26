@@ -5,6 +5,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { serializeKernelExpression } from '../src/v3_2/lambdapi';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, it } from 'node:test';
@@ -198,15 +199,15 @@ const extensionRuleIds = [
 ] as const;
 
 describe('PATHOUT-LIBRARY-INTERNALIZED-1D transfer', () => {
-    it('seals the reviewed exact 4/13/0/10 root-only boundary', () => {
+    it('seals the reviewed exact 4/9/2/10 root-only boundary', () => {
         const boundary = CORE_PATHIND_INTERNALIZED_1D_TRANSFER_BOUNDARY;
         assert.equal(
             CORE_PATHIND_INTERNALIZED_1D_REVISION,
-            'PATHOUT-LIBRARY-INTERNALIZED-1D-TRANSFER-14'
+            'PATHIND-INTERNALIZED-NATIVE-CART-15'
         );
         assert.equal(
             boundary.reviewedAuthorization,
-            'PATHOUT-LIBRARY-INTERNALIZED-1D-REVIEWED-14'
+            'STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2'
         );
         assert.deepEqual(
             [
@@ -217,7 +218,7 @@ describe('PATHOUT-LIBRARY-INTERNALIZED-1D transfer', () => {
                 boundary.mathematicalRuntimeProjectionCount,
                 boundary.derivedRuntimeSupportRuleCount
             ],
-            [4, 13, 0, 10, 5, 8]
+            [4, 9, 2, 10, 4, 5]
         );
         assert.deepEqual(
             [
@@ -226,7 +227,7 @@ describe('PATHOUT-LIBRARY-INTERNALIZED-1D transfer', () => {
                 boundary.sourceFibreExtensionRuntimeRuleCount,
                 boundary.suffixTransparentDefinitionCount
             ],
-            [9, 3, 4, 4]
+            [5, 3, 4, 4]
         );
         assert.deepEqual(
             boundary.runtimeRuleIds.slice(-4),
@@ -255,19 +256,25 @@ describe('PATHOUT-LIBRARY-INTERNALIZED-1D transfer', () => {
                         .rules.length,
                     compilation.suffixLibraryCompiled.declarations.length
                 ],
-                [1, 3, 3, 9, 3, 4, 4]
+                [1, 3, 3, 5, 2, 4, 4]
             );
+            assert.equal(compilation.motiveCompiled.declarations.length, 1);
+            assert.equal(compilation.whiskeringCompiled.declarations.length, 2);
+            assert.deepEqual(compilation.prefixLibraryCompiled.declarations[0].definitionProofRuleIds,
+                ['categorical.reindex.composition-presentation']);
+            assert.equal(compilation.motiveProof.rules.every(rule =>
+                rule.typingValidation.kind === 'typescript-checked'), true);
             assert.equal(
                 compilation.baseRuntimeFragment.localProgram.rules.every(
                     rule =>
-                        rule.subjectValidation.kind === 'typescript-checked'
+                        ['typescript-checked','typescript-proof-checked'].includes(rule.subjectValidation.kind)
                 ),
                 true
             );
             assert.equal(
                 compilation.sourceFibreRuntimeFragment.localProgram.rules
                     .every(rule =>
-                        rule.subjectValidation.kind === 'typescript-checked'
+                        ['typescript-checked','typescript-proof-checked'].includes(rule.subjectValidation.kind)
                     ),
                 true
             );
@@ -480,175 +487,99 @@ describe('PATHOUT-LIBRARY-INTERNALIZED-1D transfer', () => {
     });
 
     it(
-        'matches all twelve bounded active-Lambdapi assertions',
+        'matches native signatures, bodies and whole PathInd computations',
         {
             skip:
                 process.env.EMDASH_RUN_LAMBDAPI_PATHIND_INTERNALIZED_PROBES
                 !== '1'
         },
         () => {
-            const source = String.raw`require open emdash.emdash3_2;
+            const c = compileCorePathindInternalized1dTransfer();
+            const modules = [c.whiskeringCompiled, c.sigmaCompiled, c.preludeCompiled,
+                c.trustedCompiled, c.motiveCompiled, c.prefixLibraryCompiled, c.suffixLibraryCompiled];
+            const references = Object.assign({}, ...modules.flatMap(module => [
+                module.externalFreeReferences, module.externalTransparentDefinitions,
+                Object.fromEntries(module.linkage.entries.flatMap(link =>
+                    link.kind === 'free-declaration' ? [[link.coreName, link.backendName]] : []))
+            ]));
+            const serialize = (term: KernelExpression) => serializeKernelExpression(term, { externalFreeReferences: references });
+            const declarations = modules.flatMap(module => module.declarations.flatMap(decl => [
+                `assert ⊢ @${decl.symbol.name} : ${serialize(decl.type)};`,
+                ...(decl.body ? [`assert ⊢ @${decl.symbol.name} ≡ ${serialize(decl.body)};`] : [])
+            ]));
+            const source = `require open emdash.emdash3_2;\n${declarations.join('\n')}\n` + String.raw`
+// These names abbreviate the actual restricted endpoints, not new supplied data.
+symbol moving_source [Z : Cat] (x : τ (Obj Z))
+  : τ (Functor (Functor_cart_cat (@PathOut_cat Z x) Cat_cart) Cat_cart)
+≔ @comp_cat_fapp0 (Functor_cart_cat (@PathOut_cat Z x) Cat_cart)
+    (Catd_cat (@PathOut_cat Z x)) Cat_cart (@PathInd_src_catd Z x)
+    (Functor_cart_include (@PathOut_cat Z x) Cat_cart);
+symbol moving_target [Z : Cat] (x : τ (Obj Z))
+  : τ (Functor (Functor_cart_cat (@PathOut_cat Z x) Cat_cart) Cat_cart)
+≔ @comp_cat_fapp0 (Functor_cart_cat (@PathOut_cat Z x) Cat_cart)
+    (Catd_cat (@PathOut_cat Z x)) Cat_cart (@PathInd_tgt_catd Z x)
+    (Functor_cart_include (@PathOut_cat Z x) Cat_cart);
+symbol moving_component [Z : Cat] (x : τ (Obj Z))
+  : τ (@Transf (Functor_cart_cat (@PathOut_cat Z x) Cat_cart) Cat_cart
+      (@moving_source Z x) (@moving_target Z x))
+≔ @strict_transfor (Functor_cart_cat (@PathOut_cat Z x) Cat_cart) Cat_cart
+    (@moving_source Z x) (@moving_target Z x)
+    (@tdapp0_fapp0 Z (@PathOutMotives_catd Z) (@Const_catd Z Cat_cart)
+      (@PathOutReflEval_funcd Z) (@PathOutPi_funcd Z) x (@PathInd_transfd Z));
 
 assert [Z : Cat] (x : τ (Obj Z)) ⊢
-  @tapp0_fapp0
-    Z
-    Cat_cat
-    (@PathOutMotives_catd Z)
-    (@Const_catd Z Cat_cat)
-    x
-    (@PathOutReflEval_funcd Z)
-    ≡ @pathout_refl_eval_func Z x;
-
-assert [Z : Cat] (x : τ (Obj Z)) (E : τ (Catd (@PathOut_cat Z x))) ⊢
-  @tapp0_fapp0
-    (@Catd_cat (@PathOut_cat Z x))
-    Cat_cat
-    (@PathInd_src_catd Z x)
-    (@PathInd_tgt_catd Z x)
-    E
-    (@PathInd_func Z x)
-    ≡ @path_ind_func_fapp0 Z x E;
-
+  @tapp0_fapp0 Z Cat_cart (@PathOutMotives_catd Z) (@Const_catd Z Cat_cart) x (@PathOutReflEval_funcd Z)
+  ≡ @moving_source Z x;
 assert [Z : Cat] (x : τ (Obj Z)) ⊢
-  @tdapp0_fapp0
-    Z
-    (@PathOutMotives_catd Z)
-    (@Const_catd Z Cat_cat)
-    (@PathOutReflEval_funcd Z)
-    (@PathOutPi_funcd Z)
-    x
-    (@PathInd_transfd Z)
-    ≡ @PathInd_func Z x;
-
+  @tapp0_fapp0 Z Cat_cart (@PathOutMotives_catd Z) (@Const_catd Z Cat_cart) x (@PathOutPi_funcd Z)
+  ≡ @moving_target Z x;
+assert [Z : Cat] (x : τ (Obj Z)) ⊢
+  @moving_component Z x
+  ≡ fapp0 (@comp_cat_con_fapp1_func
+       (Functor_cart_cat (@PathOut_cat Z x) Cat_cart) (Catd_cat (@PathOut_cat Z x)) Cat_cart
+       (Functor_cart_include (@PathOut_cat Z x) Cat_cart)
+       (@PathInd_src_catd Z x) (@PathInd_tgt_catd Z x)) (@PathInd_func Z x);
 assert [Z : Cat] (x : τ (Obj Z)) (E : τ (Catd (@PathOut_cat Z x))) ⊢
-  @tapp0_fapp0
-    (@Catd_cat (@PathOut_cat Z x))
-    Cat_cat
-    (@PathInd_src_catd Z x)
-    (@PathInd_tgt_catd Z x)
-    E
-    (@tdapp0_fapp0
-      Z
-      (@PathOutMotives_catd Z)
-      (@Const_catd Z Cat_cat)
-      (@PathOutReflEval_funcd Z)
-      (@PathOutPi_funcd Z)
-      x
-      (@PathInd_transfd Z))
-    ≡ @path_ind_func_fapp0 Z x E;
-
-assert [Z : Cat] (x : τ (Obj Z))
-  (E : τ (Catd (@PathOut_cat Z x)))
-  (u : τ (Obj (Fibre_cat E (@pathout_refl_obj Z x)))) ⊢
-  @fapp0
-    (Fibre_cat E (@pathout_refl_obj Z x))
-    (Pi_cat E)
-    (@tapp0_fapp0
-      (@Catd_cat (@PathOut_cat Z x))
-      Cat_cat
-      (@PathInd_src_catd Z x)
-      (@PathInd_tgt_catd Z x)
-      E
-      (@tdapp0_fapp0
-        Z
-        (@PathOutMotives_catd Z)
-        (@Const_catd Z Cat_cat)
-        (@PathOutReflEval_funcd Z)
-        (@PathOutPi_funcd Z)
-        x
-        (@PathInd_transfd Z)))
-    u
-    ≡ @path_ind_sec Z x E u;
-
-assert [K : Cat] (R : τ (Catd K))
-  (S T : τ (Functord R (@Const_catd K Cat_cat)))
-  (eta : τ (Transfd S T))
-  (k : τ (Obj K))
-  (r : τ (Obj (Fibre_cat R k))) ⊢
-  @tapp0_fapp0
-    (@Sigma_cat K R)
-    Cat_cat
-    (@Sigma_catd_functord_catd K R S)
-    (@Sigma_catd_functord_catd K R T)
-    (Struct_sigma k r)
-    (@Sigma_transfd_funcd K R S T eta)
-    ≡ @tapp0_fapp0
-        (Fibre_cat R k)
-        Cat_cat
-        (@Fibre_func K R (@Const_catd K Cat_cat) S k)
-        (@Fibre_func K R (@Const_catd K Cat_cat) T k)
-        r
-        (@tdapp0_fapp0 K R (@Const_catd K Cat_cat) S T k eta);
-
+  @tapp0_fapp0 (Catd_cat (@PathOut_cat Z x)) Cat_cart (@PathInd_src_catd Z x) (@PathInd_tgt_catd Z x) E (@PathInd_func Z x)
+  ≡ @path_ind_func_fapp0 Z x E;
 assert [Z : Cat] (x : τ (Obj Z)) (E : τ (Catd (@PathOut_cat Z x))) ⊢
-  @tapp0_fapp0
-    (@Sigma_cat Z (@PathOutMotives_catd Z))
-    Cat_cat
-    (@PathIndSrc_catd Z)
-    (@PathIndTgt_catd Z)
-    (Struct_sigma x E)
-    (@PathInd_funcd Z)
-    ≡ @path_ind_func_fapp0 Z x E;
-
-assert [Z : Cat] (x : τ (Obj Z))
-  (E : τ (Catd (@PathOut_cat Z x)))
+  @tapp0_fapp0 (Functor_cart_cat (@PathOut_cat Z x) Cat_cart) Cat_cart (@moving_source Z x) (@moving_target Z x) E (@moving_component Z x)
+  ≡ @path_ind_func_fapp0 Z x E;
+assert [Z : Cat] (x : τ (Obj Z)) (E : τ (Catd (@PathOut_cat Z x)))
   (u : τ (Obj (Fibre_cat E (@pathout_refl_obj Z x)))) ⊢
-  @fapp0
-    (Fibre_cat E (@pathout_refl_obj Z x))
-    (Pi_cat E)
-    (@tapp0_fapp0
-      (@Sigma_cat Z (@PathOutMotives_catd Z))
-      Cat_cat
-      (@PathIndSrc_catd Z)
-      (@PathIndTgt_catd Z)
-      (Struct_sigma x E)
-      (@PathInd_funcd Z))
-    u
-    ≡ @path_ind_sec Z x E u;
-
-assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
-  (E : τ (Catd (@PathOut_cat Z x))) ⊢
-  @PathIndSrc_transport_func Z x y p E
-    ≡ @pathout_refl_eval_base_func Z x y p E;
-
-assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
-  (E : τ (Catd (@PathOut_cat Z x))) ⊢
+  fapp0 (@tapp0_fapp0 (Functor_cart_cat (@PathOut_cat Z x) Cat_cart) Cat_cart (@moving_source Z x) (@moving_target Z x) E (@moving_component Z x)) u
+  ≡ @path_ind_sec Z x E u;
+assert [K : Cat] (R : τ (Catd K)) (S T : τ (Functord R (@Const_catd K Cat_cart)))
+  (eta : τ (Transfd S T)) (k : τ (Obj K)) (r : τ (Obj (Fibre_cat R k))) ⊢
+  @tapp0_fapp0 (@Sigma_cat K R) Cat_cart (@Sigma_catd_functord_catd K R S) (@Sigma_catd_functord_catd K R T) (Struct_sigma k r) (@Sigma_transfd_funcd K R S T eta)
+  ≡ @tapp0_fapp0 (Fibre_cat R k) Cat_cart
+      (@Fibre_func K R (@Const_catd K Cat_cart) S k) (@Fibre_func K R (@Const_catd K Cat_cart) T k) r
+      (@strict_transfor (Fibre_cat R k) Cat_cart
+        (@Fibre_func K R (@Const_catd K Cat_cart) S k) (@Fibre_func K R (@Const_catd K Cat_cart) T k)
+        (@tdapp0_fapp0 K R (@Const_catd K Cat_cart) S T k eta));
+assert [Z : Cat] (x : τ (Obj Z)) (E : τ (Catd (@PathOut_cat Z x))) ⊢
+  @tapp0_fapp0 (@Sigma_cat Z (@PathOutMotives_catd Z)) Cat_cart (@PathIndSrc_catd Z) (@PathIndTgt_catd Z) (Struct_sigma x E) (@PathInd_funcd Z)
+  ≡ @path_ind_func_fapp0 Z x E;
+assert [Z : Cat] (x : τ (Obj Z)) (E : τ (Catd (@PathOut_cat Z x)))
+  (u : τ (Obj (Fibre_cat E (@pathout_refl_obj Z x)))) ⊢
+  fapp0 (@tapp0_fapp0 (@Sigma_cat Z (@PathOutMotives_catd Z)) Cat_cart (@PathIndSrc_catd Z) (@PathIndTgt_catd Z) (Struct_sigma x E) (@PathInd_funcd Z)) u
+  ≡ @path_ind_sec Z x E u;
+assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y)) (E : τ (Catd (@PathOut_cat Z x))) ⊢
+  @PathIndSrc_transport_func Z x y p E ≡ @pathout_refl_eval_base_func Z x y p E;
+assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y)) (E : τ (Catd (@PathOut_cat Z x))) ⊢
   @PathIndTgt_transport_func Z x y p E
-    ≡ @section_pullback_func
-        (@PathOut_cat Z y)
-        (@PathOut_cat Z x)
-        (@PathOut_transport_func Z x y p)
-        E;
-
-assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
-  (E : τ (Catd (@PathOut_cat Z x))) ⊢
-  @fdapp1_int_cell
-    Z
-    (@PathOutMotives_catd Z)
-    (@Const_catd Z Cat_cat)
-    (@PathOutPi_funcd Z)
-    x
-    y
-    p
-    E
-    ≡ @PathIndTgt_transport_func Z x y p E;
-
-assert [Z : Cat] (x : τ (Obj Z)) ⊢
-  @tapp0_fapp0
-    Z
-    Cat_cat
-    (@PathOutMotives_catd Z)
-    (@Const_catd Z Cat_cat)
-    x
-    (@PathOutPi_funcd Z)
-    ≡ @Pi_func (@PathOut_cat Z x);
+  ≡ @section_pullback_func (@PathOut_cat Z y) (@PathOut_cat Z x) (@PathOut_transport_func Z x y p) E;
+assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y)) (E : τ (Catd (@PathOut_cat Z x))) ⊢
+  @fdapp1_int_cell Z (@PathOutMotives_catd Z) (@Const_catd Z Cat_cart) (@PathOutPi_funcd Z) x y p E
+  ≡ @PathIndTgt_transport_func Z x y p E;
 `;
+            assert.doesNotMatch(source, /dttlf_|emdash_v3_2_/u);
             const result = checkLambdapiProbe(
                 { source, sourceMap: [] },
                 {
                     packageRoot: resolve(repositoryRoot, 'emdash2'),
-                    timeoutMs: 20_000,
-                    warningsEnabled: false
+                    timeoutMs: 60_000,
+                    warningsEnabled: true
                 }
             );
             assert.equal(result.accepted, true, result.diagnostics);

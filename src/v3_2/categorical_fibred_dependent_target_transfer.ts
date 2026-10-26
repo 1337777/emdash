@@ -978,7 +978,10 @@ const piComponentRule = (pulled: boolean): CoreLfTransferRuntimeRule => {
                 { name: 'x', type: b.template(objectType(b, K)) }
             ] : [])
         ],
-        left: b.pattern(componentAt(b, base, family, constFamilyAt(b, base, cart), point,
+        // Native inferred family slots are wildcards: their transparent
+        // presentations may already have unfolded before this projection.
+        left: b.pattern(componentAt(b, base, b.wildcard(family),
+            b.wildcard(constFamilyAt(b, base, cart)), point,
             pulled ? pullbackPiAt(b, K, G) : b.global(internalPi))),
         right: b.template(includedPiAt(b, at)),
         provenance: source(pulled

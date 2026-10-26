@@ -61,6 +61,16 @@ retain the old runtime expressions as history, not unresolved requirements.
 
 ## Current production boundary — 2026-10-25
 
+The [whole PathInd frontend continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_pathind_internalized_review.md)
+qualifies the corrected interfaces and all38 native signatures/body/projection
+assertions, with16 focused TypeScript cases. Shared Pi inferred slots and native
+opposite/Hom actions are repaired; obsolete local folds are removed. The actual
+TypeScript moving-component consumer typechecks but still lacks its final
+prewhiskering reduction. That and the full Homd P-index endpoint remain required.
+The full TypeScript gate timed out at1800s after2,182 completion events and50
+failure events; it is stopped. The linked record includes the exact failures
+and short CPU profiles locating expensive Freyd long-exact checking/encoding.
+
 The [fixed-source PathInd frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_pathind_fixed_review.md)
 now uses native Cartesian covariance, its ordinary transformation view and the
 actual Sigma-pullback computation. Eleven signatures, six bodies and ten native

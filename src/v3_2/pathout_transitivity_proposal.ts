@@ -3,10 +3,8 @@
  * library. This is immutable boundary data, not an implementation.
  */
 
-import {
-    CORE_PATHIND_INTERNALIZED_1D_REVISION,
-    CORE_PATHIND_INTERNALIZED_1D_TRANSFER_BOUNDARY
-} from './pathind_internalized_transfer';
+// Frozen b6005b3 predecessor; the current migration has separate qualification.
+const historicalInternalizedRevision = 'PATHOUT-LIBRARY-INTERNALIZED-1D-TRANSFER-14' as const;
 import {
     CORE_PATHOUT_TRUST_BOUNDARY_0A_AUDIT,
     validateCorePathoutTrustBoundary0aAudit
@@ -95,10 +93,9 @@ const rawProposal = {
             CORE_PATHOUT_TRUST_BOUNDARY_0A_AUDIT.authority.source.sha256,
         authorityChecksSha256:
             CORE_PATHOUT_TRUST_BOUNDARY_0A_AUDIT.authority.checks.sha256,
-        internalizedRevision: CORE_PATHIND_INTERNALIZED_1D_REVISION,
+        internalizedRevision: historicalInternalizedRevision,
         internalizedReviewedAuthorization:
-            CORE_PATHIND_INTERNALIZED_1D_TRANSFER_BOUNDARY
-                .reviewedAuthorization,
+            'PATHOUT-LIBRARY-INTERNALIZED-1D-REVIEWED-14',
         internalizedSemanticCheckpoint: 'b6005b3',
         internalizedLedgerCheckpoint: '6225075',
         internalizedBoundary: '4/13/0/10',
@@ -315,7 +312,7 @@ export function validateCorePathoutTransitivity1eProposal(
         proposal.parent.authorityChecksSha256 !==
             CORE_PATHOUT_TRUST_BOUNDARY_0A_AUDIT.authority.checks.sha256 ||
         proposal.parent.internalizedRevision !==
-            CORE_PATHIND_INTERNALIZED_1D_REVISION ||
+            historicalInternalizedRevision ||
         proposal.parent.internalizedReviewedAuthorization !==
             'PATHOUT-LIBRARY-INTERNALIZED-1D-REVIEWED-14' ||
         proposal.parent.internalizedSemanticCheckpoint !== 'b6005b3' ||

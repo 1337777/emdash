@@ -1,14 +1,17 @@
 /**
  * PATHOUT-LIBRARY-INTERNALIZED-1D root-only existing-authority transfer.
  *
- * Exact local boundary: four opaque declarations, five mathematical runtime
- * projections plus eight derived subject-presentation support rules, no proof
- * rule, and ten transparent definitions. The module deliberately retains
+ * Current local boundary: four opaque declarations, four native runtime
+ * projections plus five retained presentation rules, two proof-time comparisons,
+ * and ten transparent definitions; two existing whiskering signatures are reused. The module deliberately retains
  * PathInd_transfd as the primary internally natural theorem and PathInd_funcd
  * as its derived Sigma-total presentation. It stops before transitivity and
  * every public/browser/package presentation.
  */
 
+import { compileCoreLfProofProgram } from './lf_transfer_proof';
+import { CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_MODULE, CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_POLICY } from './categorical_fibred_dependent_target_transfer';
+import { CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_MODULE, CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_POLICY, CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_LINKAGE } from './categorical_compositional_natural_transfer';
 import {
     CORE_CATEGORICAL_DISPLAYED_CHAIN_TRANSFER_LINKAGE
 } from './categorical_displayed_chain_transfer';
@@ -39,6 +42,7 @@ import {
     CoreLfTransferExpression,
     CoreLfTransferPolicyOverlay,
     CoreLfTransferRuntimeRule,
+    CoreLfTransferProofRule,
     CoreLfTransferScopedBuilder,
     coreLfQualifiedSymbol,
     coreLfTransferAbsentBody,
@@ -85,7 +89,7 @@ import {
 const MODULE_ID = 'emdash.emdash3_2';
 
 export const CORE_PATHIND_INTERNALIZED_1D_REVISION =
-    'PATHOUT-LIBRARY-INTERNALIZED-1D-TRANSFER-14' as const;
+    'PATHIND-INTERNALIZED-NATIVE-CART-15' as const;
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
@@ -97,8 +101,8 @@ const homClassifier =
     coreDirectedContinuationTransferSymbol('hom-classifier');
 const functorClassifier =
     coreDirectedContinuationTransferSymbol('functor-classifier');
-const categoryOfCategories =
-    coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol('displayed-category-category');
 const displayedFunctorCategory =
@@ -134,6 +138,11 @@ const {
 const symbol = (name: string): CoreLfQualifiedSymbol =>
     coreLfQualifiedSymbol(MODULE_ID, name);
 
+const cartesianFunctorCategory = symbol('Functor_cart_cat');
+const cartesianInclusion = symbol('Functor_cart_include');
+const strictTransforView = symbol('strict_transfor');
+const functorComposition = symbol('comp_cat_fapp0');
+const prewhiskeringAction = symbol('comp_cat_con_fapp1_func');
 const displayedFamilyClassifier = symbol('Catd');
 const displayedFunctorClassifier = symbol('Functord');
 const oppositeCategory = symbol('Op_cat');
@@ -400,7 +409,7 @@ const fibreAt = (
         { plicity: 'implicit', value: base },
         {
             plicity: 'implicit',
-            value: builder.global(categoryOfCategories)
+            value: builder.global(familyCoefficient)
         },
         { plicity: 'explicit', value: family },
         { plicity: 'explicit', value: point }
@@ -450,7 +459,7 @@ const componentAt = (
         { plicity: 'implicit', value: base },
         {
             plicity: 'implicit',
-            value: builder.global(categoryOfCategories)
+            value: builder.global(familyCoefficient)
         },
         { plicity: 'implicit', value: sourceFamily },
         { plicity: 'implicit', value: targetFamily },
@@ -829,6 +838,42 @@ const modifiers = (
     sourceOpacity
 });
 
+const cartesianFamiliesAt = (b: CoreLfTransferScopedBuilder,
+    K: CoreLfTransferBuilderExpression): CoreLfTransferBuilderExpression =>
+    globalCall(b, cartesianFunctorCategory, [
+        { plicity: 'explicit', value: K },
+        { plicity: 'explicit', value: b.global(familyCoefficient) }
+    ]);
+const inclusionAt = (b: CoreLfTransferScopedBuilder,
+    K: CoreLfTransferBuilderExpression): CoreLfTransferBuilderExpression =>
+    globalCall(b, cartesianInclusion, [
+        { plicity: 'explicit', value: K },
+        { plicity: 'explicit', value: b.global(familyCoefficient) }
+    ]);
+const composeAt = (b: CoreLfTransferScopedBuilder,
+    A: CoreLfTransferBuilderExpression, B: CoreLfTransferBuilderExpression,
+    C: CoreLfTransferBuilderExpression, G: CoreLfTransferBuilderExpression,
+    F: CoreLfTransferBuilderExpression): CoreLfTransferBuilderExpression =>
+    globalCall(b, functorComposition, [
+        { plicity: 'implicit', value: A }, { plicity: 'implicit', value: B },
+        { plicity: 'implicit', value: C }, { plicity: 'explicit', value: G },
+        { plicity: 'explicit', value: F }
+    ]);
+const ordinaryComponentAt = (b: CoreLfTransferScopedBuilder,
+    K: CoreLfTransferBuilderExpression, R: CoreLfTransferBuilderExpression,
+    S: CoreLfTransferBuilderExpression, T: CoreLfTransferBuilderExpression,
+    k: CoreLfTransferBuilderExpression, eta: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression => {
+    const constant = constantFamilyAt(b, K, b.global(familyCoefficient));
+    return globalCall(b, strictTransforView, [
+        { plicity: 'implicit', value: fibreAt(b, K, R, k) },
+        { plicity: 'implicit', value: b.global(familyCoefficient) },
+        { plicity: 'implicit', value: fibreFunctorAt(b, K, R, constant, S, k) },
+        { plicity: 'implicit', value: fibreFunctorAt(b, K, R, constant, T, k) },
+        { plicity: 'explicit', value: displayedComponentAt(b, K, R, constant, S, T, k, eta) }
+    ]);
+};
+
 const sigmaDisplayedTransformationType =
 (): CoreLfTransferExpression => {
     const builder = new CoreLfTransferScopedBuilder();
@@ -842,7 +887,7 @@ const sigmaDisplayedTransformationType =
                 const constantCategories = constantFamilyAt(
                     builder,
                     K,
-                    builder.global(categoryOfCategories)
+                    builder.global(familyCoefficient)
                 );
                 return builder.pi(
                     'S',
@@ -917,12 +962,12 @@ const pathoutMotivesBody = (): CoreLfTransferExpression => {
         Z => pullbackFamilyAt(
             builder,
             Z,
-            oppositeAt(builder, builder.global(categoryOfCategories)),
+            oppositeAt(builder, builder.global(familyCoefficient)),
             builder.global(displayedCategoryFunctor),
             oppositeFunctorAt(
                 builder,
                 oppositeAt(builder, Z),
-                builder.global(categoryOfCategories),
+                builder.global(familyCoefficient),
                 pathoutCategoryFunctorAt(builder, Z)
             )
         ),
@@ -942,7 +987,7 @@ const pathoutPiType = (): CoreLfTransferExpression => {
             constantFamilyAt(
                 builder,
                 Z,
-                builder.global(categoryOfCategories)
+                builder.global(familyCoefficient)
             )
         ),
         implicitMode
@@ -957,12 +1002,12 @@ const pathoutPiBody = (): CoreLfTransferExpression => {
         Z => {
             const opCat = oppositeAt(
                 builder,
-                builder.global(categoryOfCategories)
+                builder.global(familyCoefficient)
             );
             const opPathout = oppositeFunctorAt(
                 builder,
                 oppositeAt(builder, Z),
-                builder.global(categoryOfCategories),
+                builder.global(familyCoefficient),
                 pathoutCategoryFunctorAt(builder, Z)
             );
             return functorHomCappedAt(
@@ -974,7 +1019,7 @@ const pathoutPiBody = (): CoreLfTransferExpression => {
                 constantFamilyAt(
                     builder,
                     opCat,
-                    builder.global(categoryOfCategories)
+                    builder.global(familyCoefficient)
                 ),
                 builder.global(piInternalDisplayedFunctor)
             );
@@ -1026,7 +1071,7 @@ const pathoutReflexiveEvaluationDisplayedType =
             constantFamilyAt(
                 builder,
                 Z,
-                builder.global(categoryOfCategories)
+                builder.global(familyCoefficient)
             )
         ),
         implicitMode
@@ -1091,27 +1136,10 @@ const pathoutMotiveTransportObjectBody =
                             builder,
                             pathoutCategoryAt(builder, Z, x)
                         ),
-                        E => functorObjectAt(
-                            builder,
-                            displayedCategoryAt(
-                                builder,
-                                pathoutCategoryAt(builder, Z, x)
-                            ),
-                            displayedCategoryAt(
-                                builder,
-                                pathoutCategoryAt(builder, Z, y)
-                            ),
-                            functorHomCappedAt(
-                                builder,
-                                Z,
-                                builder.global(categoryOfCategories),
-                                pathoutMotivesAt(builder, Z),
-                                x,
-                                y,
-                                p
-                            ),
-                            E
-                        ),
+                        E => pullbackFamilyAt(builder,
+                            pathoutCategoryAt(builder, Z, y),
+                            pathoutCategoryAt(builder, Z, x),
+                            E, pathoutTransportAt(builder, Z, x, y, p)),
                         explicitMode
                     ),
                     explicitMode
@@ -1266,7 +1294,7 @@ const pathInductionTransformationType =
             constantFamilyAt(
                 builder,
                 Z,
-                builder.global(categoryOfCategories)
+                builder.global(familyCoefficient)
             ),
             pathoutReflexiveEvaluationDisplayedAt(builder, Z),
             pathoutPiAt(builder, Z)
@@ -1853,7 +1881,7 @@ const sigmaObjectComponentRule =
     const constantCategories = constantFamilyAt(
         builder,
         K,
-        builder.global(categoryOfCategories)
+        builder.global(familyCoefficient)
     );
     return {
         order: 0,
@@ -1946,19 +1974,10 @@ const sigmaObjectComponentRule =
                 k
             ),
             r,
-            displayedComponentAt(
-                builder,
-                K,
-                R,
-                constantCategories,
-                S,
-                T,
-                k,
-                eta
-            )
+            ordinaryComponentAt(builder, K, R, S, T, k, eta)
         )),
         provenance: source(
-            'rule @tapp0_fapp0 _ Cat_cat _ _ (Struct_sigma $k $r) ' +
+            'rule @tapp0_fapp0 _ Cat_cart _ _ (Struct_sigma $k $r) ' +
             '(@Sigma_transfd_funcd $K $R $S $T $eta)'
         )
     };
@@ -1972,7 +1991,7 @@ const pathoutReflexiveEvaluationComponentRule =
     const constantCategories = constantFamilyAt(
         builder,
         Z,
-        builder.global(categoryOfCategories)
+        builder.global(familyCoefficient)
     );
     return {
         order: 1,
@@ -1998,13 +2017,14 @@ const pathoutReflexiveEvaluationComponentRule =
             x,
             pathoutReflexiveEvaluationDisplayedAt(builder, Z)
         )),
-        right: builder.template(pathoutReflexiveEvaluationAt(
-            builder,
-            Z,
-            x
-        )),
+        right: builder.template(composeAt(builder,
+            cartesianFamiliesAt(builder, pathoutCategoryAt(builder, Z, x)),
+            displayedCategoryAt(builder, pathoutCategoryAt(builder, Z, x)),
+            builder.global(familyCoefficient),
+            pathoutReflexiveEvaluationAt(builder, Z, x),
+            inclusionAt(builder, pathoutCategoryAt(builder, Z, x)))),
         provenance: source(
-            'rule @tapp0_fapp0 _ Cat_cat _ _ $x ' +
+            'rule @tapp0_fapp0 _ Cat_cart _ _ $x ' +
             '(@PathOutReflEval_funcd $Z)'
         )
     };
@@ -2052,7 +2072,7 @@ const pathInductionFunctorComponentRule =
             E
         )),
         provenance: source(
-            'rule @tapp0_fapp0 _ Cat_cat _ _ $E ' +
+            'rule @tapp0_fapp0 _ Cat_cart _ _ $E ' +
             '(@PathInd_func $Z $x)'
         )
     };
@@ -2128,142 +2148,6 @@ const pathInductionFunctorComponentPostPrefixSubjectFusionRule =
     };
 };
 
-const pathInductionTransformationComponentSubjectFusionRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const Z = builder.capture('Z');
-    const x = builder.capture('x');
-    const pathout = pathoutCategoryAt(builder, Z, x);
-    const sourceFamily = pathInductionSourceFamilyAt(builder, Z, x);
-    const targetFamily = pathInductionTargetFamilyAt(builder, Z, x);
-    return {
-        order: 4,
-        id:
-            'pathind.internalized.' +
-            'path-ind-transfd-component-subject-fusion',
-        groupId: 'pathind.internalized.runtime-projections',
-        clauseOrder: 4,
-        sourceOwner: decodeOwner,
-        variables: [
-            {
-                name: 'Z',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'x',
-                type: builder.template(objectType(builder, Z))
-            }
-        ],
-        left: builder.pattern(objectType(
-            builder,
-            transforCategoryAt(
-                builder,
-                displayedCategoryAt(builder, pathout),
-                builder.global(categoryOfCategories),
-                sourceFamily,
-                targetFamily
-            )
-        )),
-        right: builder.template(objectType(
-            builder,
-            transforCategoryAt(
-                builder,
-                functorCategoryAt(
-                    builder,
-                    pathout,
-                    builder.global(categoryOfCategories)
-                ),
-                builder.global(categoryOfCategories),
-                sourceFamily,
-                targetFamily
-            )
-        )),
-        provenance: source(
-            'derived stable PathInd_transfd component subject fusion ' +
-            'from active Functord and Transf definitions, ' +
-            'Catd/Functor comparison, PathInd_src, and PathInd_tgt ' +
-            'equations'
-        )
-    };
-};
-
-const piPullbackComponentRule = (): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const K = builder.capture('K');
-    const G = builder.capture('G');
-    const x = builder.capture('x');
-    const oppositeCategories = oppositeAt(
-        builder,
-        builder.global(categoryOfCategories)
-    );
-    const sourceFamily = pullbackFamilyAt(
-        builder,
-        K,
-        oppositeCategories,
-        builder.global(displayedCategoryFunctor),
-        G
-    );
-    const targetFamily = constantFamilyAt(
-        builder,
-        K,
-        builder.global(categoryOfCategories)
-    );
-    return {
-        order: 5,
-        id: 'pathind.internalized.pi-pullback-component',
-        groupId: 'pathind.internalized.runtime-projections',
-        clauseOrder: 5,
-        sourceOwner: transforComponentCapped,
-        variables: [
-            {
-                name: 'K',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'G',
-                type: builder.template(functorType(
-                    builder,
-                    K,
-                    oppositeCategories
-                ))
-            },
-            {
-                name: 'x',
-                type: builder.template(objectType(builder, K))
-            }
-        ],
-        left: builder.pattern(componentAt(
-            builder,
-            K,
-            builder.wildcard(sourceFamily),
-            builder.wildcard(targetFamily),
-            x,
-            globalCall(builder, pullbackPi, [
-                { plicity: 'implicit', value: K },
-                { plicity: 'explicit', value: G }
-            ])
-        )),
-        right: builder.template(globalCall(
-            builder,
-            sectionCategoryFunctor,
-            [{
-                plicity: 'explicit',
-                value: functorObjectAt(
-                    builder,
-                    K,
-                    oppositeCategories,
-                    G,
-                    x
-                )
-            }]
-        )),
-        provenance: source(
-            'rule @tapp0_fapp0 $K Cat_cat _ _ $x ' +
-            '(@Pi_pullback_funcd $K $G)'
-        )
-    };
-};
-
 const pathInductionTransformationComponentRule =
 (): CoreLfTransferRuntimeRule => {
     const builder = new CoreLfTransferScopedBuilder();
@@ -2272,14 +2156,14 @@ const pathInductionTransformationComponentRule =
     const constantCategories = constantFamilyAt(
         builder,
         Z,
-        builder.global(categoryOfCategories)
+        builder.global(familyCoefficient)
     );
     return {
         order: 6,
         id: 'pathind.internalized.path-ind-transfd-component',
         groupId: 'pathind.internalized.runtime-projections',
         clauseOrder: 6,
-        sourceOwner: displayedComponent,
+        sourceOwner: strictTransforView,
         variables: [
             {
                 name: 'Z',
@@ -2290,128 +2174,30 @@ const pathInductionTransformationComponentRule =
                 type: builder.template(objectType(builder, Z))
             }
         ],
-        left: builder.pattern(displayedComponentAt(
-            builder,
-            Z,
-            pathoutMotivesAt(builder, Z),
-            constantCategories,
-            pathoutReflexiveEvaluationDisplayedAt(builder, Z),
-            pathoutPiAt(builder, Z),
-            x,
-            pathInductionTransformationAt(builder, Z)
-        )),
-        right: builder.template(pathInductionFunctorAt(builder, Z, x)),
+        left: builder.pattern(ordinaryComponentAt(builder, Z,
+            pathoutMotivesAt(builder, Z), pathoutReflexiveEvaluationDisplayedAt(builder, Z),
+            pathoutPiAt(builder, Z), x, pathInductionTransformationAt(builder, Z))),
+        right: builder.template((() => {
+            const base = pathoutCategoryAt(builder, Z, x), cart = cartesianFamiliesAt(builder, base);
+            const ambient = displayedCategoryAt(builder, base), coefficient = builder.global(familyCoefficient);
+            const source = pathInductionSourceFamilyAt(builder, Z, x);
+            const target = pathInductionTargetFamilyAt(builder, Z, x);
+            const inclusion = inclusionAt(builder, base);
+            const reindex = globalCall(builder, prewhiskeringAction, [
+                { plicity: 'implicit', value: cart }, { plicity: 'implicit', value: ambient },
+                { plicity: 'implicit', value: coefficient }, { plicity: 'explicit', value: inclusion },
+                { plicity: 'implicit', value: source }, { plicity: 'implicit', value: target }
+            ]);
+            return functorObjectAt(builder,
+                transforCategoryAt(builder, ambient, coefficient, source, target),
+                transforCategoryAt(builder, cart, coefficient,
+                    composeAt(builder, cart, ambient, coefficient, source, inclusion),
+                    composeAt(builder, cart, ambient, coefficient, target, inclusion)),
+                reindex, pathInductionFunctorAt(builder, Z, x));
+        })()),
         provenance: source(
             'rule @tdapp0_fapp0 $Z _ _ _ _ $x ' +
             '(@PathInd_transfd $Z)'
-        )
-    };
-};
-
-const motiveTransportFunctorCategoryPresentationFusionRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const K = builder.capture('K');
-    const L = builder.capture('L');
-    const categories = builder.global(categoryOfCategories);
-    return {
-        order: 7,
-        id:
-            'pathind.internalized.' +
-            'motive-transport-functor-category-presentation-fusion',
-        groupId: 'pathind.internalized.runtime-projections',
-        clauseOrder: 7,
-        sourceOwner: decodeOwner,
-        variables: [
-            {
-                name: 'K',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'L',
-                type: builder.template(builder.global(category))
-            }
-        ],
-        left: builder.pattern(objectType(
-            builder,
-            functorCategoryAt(
-                builder,
-                functorCategoryAt(builder, K, categories),
-                functorCategoryAt(builder, L, categories)
-            )
-        )),
-        right: builder.template(objectType(
-            builder,
-            functorCategoryAt(
-                builder,
-                displayedCategoryAt(builder, K),
-                displayedCategoryAt(builder, L)
-            )
-        )),
-        provenance: source(
-            'derived stable two-sided decoded classifier presentation ' +
-            'fusion from active lines 3316-3317, 5457, and 19139-19156'
-        )
-    };
-};
-
-const motiveTransportActionCategoryPresentationFusionRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const K = builder.capture('K');
-    const L = builder.capture('L');
-    const categories = builder.global(categoryOfCategories);
-    const sourceCategory = functorCategoryAt(builder, K, categories);
-    const targetCategory = functorCategoryAt(builder, L, categories);
-    const F = builder.capture('F');
-    const E = builder.capture('E');
-    return {
-        order: 8,
-        id:
-            'pathind.internalized.' +
-            'motive-transport-action-category-presentation-fusion',
-        groupId: 'pathind.internalized.runtime-projections',
-        clauseOrder: 8,
-        sourceOwner: functorObject,
-        variables: [
-            {
-                name: 'K',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'L',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'F',
-                type: builder.template(functorType(
-                    builder,
-                    sourceCategory,
-                    targetCategory
-                ))
-            },
-            {
-                name: 'E',
-                type: builder.template(objectType(builder, sourceCategory))
-            }
-        ],
-        left: builder.pattern(functorObjectAt(
-            builder,
-            sourceCategory,
-            targetCategory,
-            F,
-            E
-        )),
-        right: builder.template(functorObjectAt(
-            builder,
-            displayedCategoryAt(builder, K),
-            displayedCategoryAt(builder, L),
-            F,
-            E
-        )),
-        provenance: source(
-            'derived local functor-object action presentation fusion ' +
-            'from active lines 3316-3317, 5452-5457, and 19139-19178'
         )
     };
 };
@@ -2689,17 +2475,30 @@ const pathInductionTargetFibreStagedParentFusionRule =
     };
 };
 
+// Existing native whole family composition/pullback comparison. The explicit
+// Core facade comp_cat_fapp0 has the native comp_fapp0(Cat_cat,...) body.
+const familyCompositionPullbackRule = (): CoreLfTransferProofRule => {
+    const b = new CoreLfTransferScopedBuilder();
+    const A=b.capture('A'), B=b.capture('B'), E=b.capture('E'), F=b.capture('F');
+    const variable=(name:string,type:CoreLfTransferBuilderExpression)=>({name,role:'matched' as const,type:b.template(type)});
+    return {
+        order:1,id:'categorical.reindex.composition-presentation',sourceOwner:functorComposition,
+        variables:[variable('A',b.global(category)),variable('B',b.global(category)),
+            variable('E',displayedFamilyType(b,B)),variable('F',functorType(b,A,B))],
+        problem:{left:b.pattern(composeAt(b,A,B,b.global(familyCoefficient),E,F)),
+            right:b.pattern(pullbackFamilyAt(b,A,B,E,F))},
+        generatedConstraints:[{left:b.template(A),right:b.template(A)}],
+        provenance:source('unif_rule @comp_fapp0 Cat_cat $A $B Cat_cart $E $F ≡ @Pullback_catd $A $B $E $F ↪ [ tt ≡ tt ];')
+    };
+};
+
 const baseRuntimeRules: readonly CoreLfTransferRuntimeRule[] = Object.freeze([
     sigmaObjectComponentRule(),
     pathoutReflexiveEvaluationComponentRule(),
     pathInductionFunctorComponentPostPrefixSubjectFusionRule(),
     pathInductionFunctorComponentRule(),
-    pathInductionTransformationComponentSubjectFusionRule(),
-    piPullbackComponentRule(),
-    pathInductionTransformationComponentRule(),
-    motiveTransportFunctorCategoryPresentationFusionRule(),
-    motiveTransportActionCategoryPresentationFusionRule()
-]);
+    pathInductionTransformationComponentRule()
+].map((rule, order) => ({ ...rule, order, clauseOrder: order })));
 
 const sourceFibreExtensionRules:
 readonly CoreLfTransferRuntimeRule[] = Object.freeze([
@@ -2707,7 +2506,7 @@ readonly CoreLfTransferRuntimeRule[] = Object.freeze([
     transportedMotiveReflexiveFibreFusionRule(),
     pathoutPiTransportPostDeltaPresentationFusionRule(),
     pathInductionTargetFibreStagedParentFusionRule()
-]);
+].map((rule, index) => ({ ...rule, order: baseRuntimeRules.length + index })));
 
 const runtimeRules: readonly CoreLfTransferRuntimeRule[] = Object.freeze([
     ...baseRuntimeRules,
@@ -2715,13 +2514,14 @@ const runtimeRules: readonly CoreLfTransferRuntimeRule[] = Object.freeze([
 ]);
 
 const commonExternalSymbols = Object.freeze([
+    cartesianFunctorCategory, cartesianInclusion, strictTransforView, functorComposition, prewhiskeringAction,
     category,
     decodeOwner,
     objectClassifier,
     homClassifier,
     functorClassifier,
     functorCategory,
-    categoryOfCategories,
+    familyCoefficient,
     displayedCategoryCategory,
     displayedFunctorCategory,
     displayedFamilyClassifier,
@@ -2834,10 +2634,22 @@ export const CORE_PATHIND_INTERNALIZED_1D_BASE_RUNTIME_MODULE = moduleSpec(
     baseRuntimeRules
 );
 
+export const CORE_PATHIND_INTERNALIZED_1D_MOTIVE_MODULE = moduleSpec(
+    'pathind-internalized-1d-motive',
+    derivedLibraryPrefixDeclarations.slice(0, 1),
+    [
+        ...commonExternalSymbols,
+        ...sigmaTrustedDeclarations.map(entry => entry.symbol),
+        ...preludeDeclarations.map(entry => entry.symbol),
+        ...theoremTrustedDeclarations.map(entry => entry.symbol)
+    ]
+);
+
 export const CORE_PATHIND_INTERNALIZED_1D_PREFIX_LIBRARY_MODULE = moduleSpec(
     'pathind-internalized-1d-library-prefix',
-    derivedLibraryPrefixDeclarations,
+    derivedLibraryPrefixDeclarations.slice(1),
     [
+        pathoutMotiveTransportObject,
         ...commonExternalSymbols,
         ...sigmaTrustedDeclarations.map(entry => entry.symbol),
         ...preludeDeclarations.map(entry => entry.symbol),
@@ -2972,11 +2784,35 @@ export const CORE_PATHIND_INTERNALIZED_1D_BASE_RUNTIME_POLICY =
         baseRuntimeRules
     );
 
+export const CORE_PATHIND_INTERNALIZED_1D_MOTIVE_PROOF_MODULE = createCoreLfModuleSpec({
+    ...moduleSpec('pathind-internalized-1d-motive-proof', [], [
+        ...commonExternalSymbols, ...sigmaTrustedDeclarations.map(d=>d.symbol),
+        ...preludeDeclarations.map(d=>d.symbol), ...theoremTrustedDeclarations.map(d=>d.symbol),
+        pathoutMotiveTransportObject
+    ]),
+    proofRules: [...CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_MODULE.proofRules,
+        familyCompositionPullbackRule()]
+});
+export const CORE_PATHIND_INTERNALIZED_1D_MOTIVE_PROOF_POLICY = createCoreLfTransferPolicyOverlay(
+    CORE_PATHIND_INTERNALIZED_1D_MOTIVE_PROOF_MODULE, {
+        revision: `${CORE_PATHIND_INTERNALIZED_1D_REVISION}-MOTIVE-PROOF-POLICY`,
+        moduleRevision: CORE_PATHIND_INTERNALIZED_1D_MOTIVE_PROOF_MODULE.revision,
+        entries: CORE_PATHIND_INTERNALIZED_1D_MOTIVE_PROOF_MODULE.proofRules.map((rule,order)=>({
+            order,target:{kind:'proof-rule' as const,id:rule.id},policy:'proof-unification' as const,
+            evidence:'Existing native proof-time comparison; operational terms unchanged'
+        }))
+    });
+
+export const CORE_PATHIND_INTERNALIZED_1D_MOTIVE_POLICY = policyForDeclarations(
+    CORE_PATHIND_INTERNALIZED_1D_MOTIVE_MODULE,
+    `${CORE_PATHIND_INTERNALIZED_1D_REVISION}-MOTIVE-POLICY`,
+    derivedLibraryPrefixDeclarations.slice(0, 1), 'checked-transparent-definition');
+
 export const CORE_PATHIND_INTERNALIZED_1D_PREFIX_LIBRARY_POLICY =
     policyForDeclarations(
         CORE_PATHIND_INTERNALIZED_1D_PREFIX_LIBRARY_MODULE,
         `${CORE_PATHIND_INTERNALIZED_1D_REVISION}-PREFIX-LIBRARY-POLICY-1`,
-        derivedLibraryPrefixDeclarations,
+        derivedLibraryPrefixDeclarations.slice(1),
         'checked-transparent-definition'
     );
 
@@ -2997,6 +2833,7 @@ export const CORE_PATHIND_INTERNALIZED_1D_SUFFIX_LIBRARY_POLICY =
     );
 
 const providerLinks = [
+    ...CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_LINKAGE.entries,
     ...CORE_PATHIND_FIXED_SOURCE_1C_FIBRE_TARGET_LINKAGE.entries,
     ...CORE_PATHIND_FIXED_SOURCE_1C_TRUSTED_LINKAGE.entries,
     ...CORE_PATHIND_FIXED_SOURCE_1C_LIBRARY_LINKAGE.entries,
@@ -3111,12 +2948,20 @@ const trustedLinks = [
     ...preludeLinks
 ];
 
+export const CORE_PATHIND_INTERNALIZED_1D_MOTIVE_LINKAGE =
+createLinkage(
+    CORE_PATHIND_INTERNALIZED_1D_MOTIVE_MODULE,
+    `${CORE_PATHIND_INTERNALIZED_1D_REVISION}-MOTIVE-LINKAGE-1`,
+    trustedLinks,
+    derivedLibraryPrefixDeclarations.slice(0, 1)
+);
+
 export const CORE_PATHIND_INTERNALIZED_1D_PREFIX_LIBRARY_LINKAGE =
 createLinkage(
     CORE_PATHIND_INTERNALIZED_1D_PREFIX_LIBRARY_MODULE,
     `${CORE_PATHIND_INTERNALIZED_1D_REVISION}-PREFIX-LIBRARY-LINKAGE-1`,
-    trustedLinks,
-    derivedLibraryPrefixDeclarations
+    [...CORE_PATHIND_INTERNALIZED_1D_MOTIVE_LINKAGE.entries, ...trustedLinks],
+    derivedLibraryPrefixDeclarations.slice(1)
 );
 
 const prefixLibraryLinks = [
@@ -3178,15 +3023,16 @@ export function assertCorePathindInternalizedOrdinaryLibraryCapability(
 
 export const CORE_PATHIND_INTERNALIZED_1D_TRANSFER_BOUNDARY = Object.freeze({
     revision: CORE_PATHIND_INTERNALIZED_1D_REVISION,
-    reviewedAuthorization:
-        'PATHOUT-LIBRARY-INTERNALIZED-1D-REVIEWED-14',
+    reviewedAuthorization: 'STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2',
+    historicalReviewedAuthorization: 'PATHOUT-LIBRARY-INTERNALIZED-1D-REVIEWED-14',
     selectedPredecessor: CORE_PATHIND_FIXED_SOURCE_1C_REVISION,
     trustedDeclarationNames: Object.freeze([
         ...sigmaTrustedDeclarations,
         ...theoremTrustedDeclarations
     ].map(declaration => declaration.symbol.name)),
     runtimeRuleIds: Object.freeze(runtimeRules.map(rule => rule.id)),
-    proofRuleIds: Object.freeze([] as string[]),
+    proofRuleIds: Object.freeze(CORE_PATHIND_INTERNALIZED_1D_MOTIVE_PROOF_MODULE.proofRules.map(r=>r.id)),
+    reusedWhiskeringSignatureCount: 2,
     transparentDefinitionNames: Object.freeze([
         ...preludeDeclarations,
         ...derivedLibraryDeclarations
@@ -3194,19 +3040,20 @@ export const CORE_PATHIND_INTERNALIZED_1D_TRANSFER_BOUNDARY = Object.freeze({
     trustedDeclarationCount:
         sigmaTrustedDeclarations.length + theoremTrustedDeclarations.length,
     runtimeRuleCount: runtimeRules.length,
-    mathematicalRuntimeProjectionCount: 5,
-    derivedRuntimeSupportRuleCount: 8,
+    mathematicalRuntimeProjectionCount: 4,
+    derivedRuntimeSupportRuleCount: 5,
     v2PrePrefixSubjectFusionRetained: false,
     postPrefixSubjectFusionSelected: true,
-    transfdComponentSubjectFusionSelected: true,
-    allEightSupportFusionsAreNonMathematical: true,
-    seventhRuntimeRuleIncluded: true,
+    transfdComponentSubjectFusionSelected: false,
+    currentSupportFusionsFollowNativeComputation: true,
+    nativeMovingComponentProjectionIncluded: true,
     activePiPullbackComponentProjectionSelected: true,
+    piPullbackComponentInherited: true,
     piPullbackInferredFamilySlotsAreTypedWildcards: true,
-    motiveTransportCategoryPresentationFusionSelected: true,
-    motiveTransportFusionIsTwoSidedAndDecoded: true,
-    motiveTransportActionCategoryPresentationFusionSelected: true,
-    motiveTransportActionFusionIsLocalToFunctorObject: true,
+    motiveTransportCategoryPresentationFusionSelected: false,
+    motiveTransportUsesNativePullbackBody: true,
+    motiveTransportActionCategoryPresentationFusionSelected: false,
+    motiveTransportArrowUsesProofOnlyCompositionView: true,
     baseRuntimeRuleCount: baseRuntimeRules.length,
     prefixTransparentDefinitionCount:
         derivedLibraryPrefixDeclarations.length,
@@ -3230,16 +3077,16 @@ export const CORE_PATHIND_INTERNALIZED_1D_TRANSFER_BOUNDARY = Object.freeze({
     v8PrePrefixPathIndSrcGlobalRuleRejected: true,
     v9PostSigmaProjectionRuleRejectedByTrace: true,
     declarationOrderPreservedAcrossStages: true,
-    semanticCountDeltaFromV13: 1,
+    historicalSemanticCountDeltaFromV13: 1,
     genericComparisonNormalFormClosureRequired: true,
     genericCategoryCollapseIncluded: false,
-    proofRuleCount: 0,
+    proofRuleCount: 2,
     transparentDefinitionCount:
         preludeDeclarations.length + derivedLibraryDeclarations.length,
     typedLibraryConsumerCount: 2,
     negativeConsumerCount: 10,
     selectedRuntimeObservationCount: 10,
-    boundedOracleAssertionCount: 12,
+    boundedOracleAssertionCount: 38,
     allEntriesUseGenericTransferEngines: true,
     ordinarySafeLibraryCanAddTransparentDefinitions: true,
     ordinarySafeLibraryCanAddOpaqueOwners: false,
@@ -3264,10 +3111,13 @@ export const CORE_PATHIND_INTERNALIZED_1D_TRANSFER_BOUNDARY = Object.freeze({
 
 export interface CorePathindInternalized1dCompilation {
     readonly predecessor: CorePathindFixedSource1cCompilation;
+    readonly whiskeringCompiled: CoreLfCompiledDeclarationModule;
     readonly sigmaCompiled: CoreLfCompiledDeclarationModule;
     readonly preludeCompiled: CoreLfCompiledDeclarationModule;
     readonly trustedCompiled: CoreLfCompiledDeclarationModule;
     readonly baseRuntimeFragment: CoreLfCompiledRuntimeFragment;
+    readonly motiveCompiled: CoreLfCompiledDeclarationModule;
+    readonly motiveProof: ReturnType<typeof compileCoreLfProofProgram>;
     readonly prefixLibraryCompiled: CoreLfCompiledDeclarationModule;
     readonly sourceFibreRuntimeFragment: CoreLfCompiledRuntimeFragment;
     readonly suffixLibraryCompiled: CoreLfCompiledDeclarationModule;
@@ -3286,12 +3136,19 @@ CorePathindInternalized1dCompilation {
     if (cachedCompilation !== undefined) return cachedCompilation;
     validateCorePathindInternalized1dReviewV14();
     const predecessor = compileCorePathindFixedSource1cTransfer();
+    const whiskeringCompiled = compileCoreLfDeclarations(
+        CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_MODULE,
+        CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_POLICY,
+        CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_LINKAGE,
+        { initialEnvironment: predecessor.compiled.environment,
+          runtimeProgram: predecessor.composedRuntime, comparisonStepLimit: 512 }
+    );
     const sigmaCompiled = compileCoreLfDeclarations(
         CORE_PATHIND_INTERNALIZED_1D_SIGMA_MODULE,
         CORE_PATHIND_INTERNALIZED_1D_SIGMA_POLICY,
         CORE_PATHIND_INTERNALIZED_1D_SIGMA_LINKAGE,
         {
-            initialEnvironment: predecessor.compiled.environment,
+            initialEnvironment: whiskeringCompiled.environment,
             runtimeProgram: predecessor.composedRuntime,
             comparisonStepLimit: 512
         }
@@ -3318,7 +3175,15 @@ CorePathindInternalized1dCompilation {
     );
     const trustedContext = new CoreLfMixedDeclarationContext(
         predecessor.declarationContext,
-        [sigmaCompiled, preludeCompiled, trustedCompiled]
+        [whiskeringCompiled, sigmaCompiled, preludeCompiled, trustedCompiled]
+    );
+    const subjectProof = compileCoreLfProofProgram(
+        CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_MODULE,
+        CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_POLICY,
+        trustedContext,
+        // The whole component expands both restricted endpoint functors.
+        // Its recorded 512-step trace ends in ordinary beta reduction.
+        { runtimeProgram: predecessor.composedRuntime, comparisonStepLimit: 2048 }
     );
     const baseRuntimeFragment = compileCoreLfRuntimeFragment(
         CORE_PATHIND_INTERNALIZED_1D_BASE_RUNTIME_MODULE,
@@ -3329,25 +3194,57 @@ CorePathindInternalized1dCompilation {
                 relation: 'earlier-fragment',
                 fragment: predecessor.runtimeFragment
             }],
-            comparisonStepLimit: 512
+            comparisonStepLimit: 512,
+            subjectReductionProof: {
+                program: subjectProof,
+                rules: [{
+                    runtimeRuleId: 'pathind.internalized.pathout-refl-eval-component',
+                    proofRuleIds: ['categorical.dependent-target.category-presentation'],
+                    allowArgumentConversion: true
+                }, {
+                    runtimeRuleId: 'pathind.internalized.path-ind-transfd-component',
+                    proofRuleIds: ['categorical.dependent-target.category-presentation'],
+                    allowArgumentConversion: true
+                }]
+            }
         }
+    );
+    const motiveCompiled = compileCoreLfDeclarations(
+        CORE_PATHIND_INTERNALIZED_1D_MOTIVE_MODULE,
+        CORE_PATHIND_INTERNALIZED_1D_MOTIVE_POLICY,
+        CORE_PATHIND_INTERNALIZED_1D_MOTIVE_LINKAGE,
+        { initialEnvironment: trustedCompiled.environment,
+          runtimeProgram: baseRuntimeFragment.runtime, comparisonStepLimit: 512 }
+    );
+    const motiveContext = new CoreLfMixedDeclarationContext(trustedContext, [motiveCompiled]);
+    const motiveProof = compileCoreLfProofProgram(
+        CORE_PATHIND_INTERNALIZED_1D_MOTIVE_PROOF_MODULE,
+        CORE_PATHIND_INTERNALIZED_1D_MOTIVE_PROOF_POLICY,
+        motiveContext,
+        { runtimeProgram: baseRuntimeFragment.runtime, comparisonStepLimit: 2048 }
     );
     const prefixLibraryCompiled = compileCoreLfDeclarations(
         CORE_PATHIND_INTERNALIZED_1D_PREFIX_LIBRARY_MODULE,
         CORE_PATHIND_INTERNALIZED_1D_PREFIX_LIBRARY_POLICY,
         CORE_PATHIND_INTERNALIZED_1D_PREFIX_LIBRARY_LINKAGE,
         {
-            initialEnvironment: trustedCompiled.environment,
+            initialEnvironment: motiveCompiled.environment,
             runtimeProgram: baseRuntimeFragment.runtime,
-            comparisonStepLimit: 512
+            comparisonStepLimit: 512,
+            definitionTypeProof: { program: motiveProof, declarations: [{
+                symbol: pathoutMotiveTransportArrow,
+                proofRuleIds: ['categorical.reindex.composition-presentation']
+            }] }
         }
     );
     const prefixContext = new CoreLfMixedDeclarationContext(
         predecessor.declarationContext,
         [
+            whiskeringCompiled,
             sigmaCompiled,
             preludeCompiled,
             trustedCompiled,
+            motiveCompiled,
             prefixLibraryCompiled
         ]
     );
@@ -3376,19 +3273,24 @@ CorePathindInternalized1dCompilation {
     const declarationContext = new CoreLfMixedDeclarationContext(
         predecessor.declarationContext,
         [
+            whiskeringCompiled,
             sigmaCompiled,
             preludeCompiled,
             trustedCompiled,
+            motiveCompiled,
             prefixLibraryCompiled,
             suffixLibraryCompiled
         ]
     );
     cachedCompilation = Object.freeze({
         predecessor,
+        whiskeringCompiled,
         sigmaCompiled,
         preludeCompiled,
         trustedCompiled,
         baseRuntimeFragment,
+        motiveCompiled,
+        motiveProof,
         prefixLibraryCompiled,
         sourceFibreRuntimeFragment,
         suffixLibraryCompiled,

@@ -49,7 +49,7 @@ describe('MIXED-NEST-ACTION-0B', () => {
         assert.equal(
             CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_BOUNDARY
                 .runtimeRuleCount,
-            12
+            15
         );
         assert.equal(
             CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_BOUNDARY
@@ -83,7 +83,7 @@ describe('MIXED-NEST-ACTION-0B', () => {
         assert.equal(
             CORE_CATEGORICAL_MIXED_ACTION_RUNTIME_MODULE
                 .runtimeRules.length,
-            12
+            15
         );
         assertDeepFrozen(
             CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_BOUNDARY
@@ -95,7 +95,7 @@ describe('MIXED-NEST-ACTION-0B', () => {
             compileCoreCategoricalMixedActionTransfer();
         assert.equal(compilation.initialCompiled.declarations.length, 7);
         assert.equal(compilation.compiled.declarations.length, 3);
-        assert.equal(compilation.runtime.rules.length, 12);
+        assert.equal(compilation.runtime.rules.length, 15);
         assert.equal(
             compilation.runtime.rules.every(rule =>
                 rule.subjectValidation.kind === 'typescript-checked'
@@ -103,7 +103,7 @@ describe('MIXED-NEST-ACTION-0B', () => {
             true
         );
         assert.deepEqual(
-            compilation.composedRuntime.ruleIds.slice(-12),
+            compilation.composedRuntime.ruleIds.slice(-15),
             CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_BOUNDARY
                 .runtimeRuleIds
         );

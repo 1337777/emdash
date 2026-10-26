@@ -1,0 +1,264 @@
+{
+  "status": "focused/native interface qualification; required moving-leaf and overall integration incomplete",
+  "previousCheckpoint": "6b41f183",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "currentInputs": {
+    "src/v3_2/categorical_fibred_dependent_target_transfer.ts": "cd12e63b6286876d4e65149a255c11ac7200351109d1013257652eef8bb45a99",
+    "src/v3_2/categorical_mixed_action_transfer.ts": "a79c53012d03915c2aee77bb0e021d7e1e47e70b91d5384554be57ae7f34c1b7",
+    "src/v3_2/pathind_internalized_transfer.ts": "0a91436218fb35dcddf0c1466e4a719f4e16dc47d98ec1fcbead141f06d53868",
+    "src/v3_2/pathout_transitivity_proposal.ts": "e23f0a2d9bada6a7adf9f7d43020f5d435e669d086027a4f7578e6e0e5c32940",
+    "tests/v3_2_categorical_fibred_dependent_target_transfer_tests.ts": "1c7ec970fae68e2a9257eaeb188bf0be9542090aec5b5bf267437a58814f654c",
+    "tests/v3_2_categorical_mixed_action_transfer_tests.ts": "f6bb7b41ba875a9720ee9b044c570d6c10914edb367ce9c1c38dfe073f7db3d9",
+    "tests/v3_2_pathind_internalized_transfer_tests.ts": "627c517d84a1afcd1c61f43e724a1325652cdb1bce8179b62389855b7588605c",
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_variance_actions.lp": "fad06fdcf434ec884854e67c3d56b45a4a8ff66cca3118f40811dc486bfe68bf"
+  },
+  "commentOnlyAfterAggregate": "Updated the internalized-transfer header to its actual counts; mathematical declarations/rules unchanged.",
+  "nativeReceipts": [
+    {
+      "scope": "Pi whole inclusion",
+      "id": "20261026T030740Z-2689070b3b11463c9917d30cefa017f5",
+      "outcome": "passed-fresh",
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "checkerExit": 0,
+      "wallSeconds": 36.61893055215478,
+      "childrenMaxRssKiB": 167980,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "inputs": {
+        "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/elab0-xeBLvE/probe.lp": "49ed1defaf9fe27762098ff18beecce70ba8ef484498473dec2d47a093880846"
+      },
+      "inputSnapshot": "a423f5b4b90db5140994f8c9cbaf8f0811945059ad4e228a7fc11c20a4a7ce7a",
+      "log": "logs/check-runs/20261026T030740Z-2689070b3b11463c9917d30cefa017f5.log",
+      "logSha256": "4a8463c69f1520acf41c0ace856b678be2b465484e6acd5a1b653480e1bd0b99"
+    },
+    {
+      "scope": "Composition/Pullback and noncollapse",
+      "id": "20261026T032013Z-5fd7f9c559a04ea0b65c5c88e9ab1fda",
+      "outcome": "passed-fresh",
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "checkerExit": 0,
+      "wallSeconds": 44.92467496590689,
+      "childrenMaxRssKiB": 168560,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "inputs": {
+        "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/kernel_boundary_continuation/family_composition_pullback.lp": "ff57cfe58fb2bfc6b5ef951655a05b93e64f366611dce38bc384250f908d19b1"
+      },
+      "inputSnapshot": "5af8211eeefc7bcd8e60ecefa4b0250146d88ad725740ce9a71fe8f40fa22bd2",
+      "log": "logs/check-runs/20261026T032013Z-5fd7f9c559a04ea0b65c5c88e9ab1fda.log",
+      "logSha256": "b0008b0ffb483154d1e664864ff8b9194c3b3aeeb4fd941bc5ee7f2a9e8a0c48"
+    },
+    {
+      "scope": "Whole PathInd signatures, bodies and projections",
+      "id": "20261026T033118Z-81849a269a7842f1a4fdd36b30101006",
+      "outcome": "passed-fresh",
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "checkerExit": 0,
+      "wallSeconds": 39.97897562710568,
+      "childrenMaxRssKiB": 168520,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "inputs": {
+        "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/kernel_boundary_continuation/pathind_native_explicit_middle.lp": "8d28bdbfb6d20177581b224b0b58dbd1b3b4567a19a144daa9613dc1a82660a9"
+      },
+      "inputSnapshot": "70f0cb9030d37f9c498eb7e6fdb20cc49e8ed19ab78a5376c44680570273fe6e",
+      "log": "logs/check-runs/20261026T033118Z-81849a269a7842f1a4fdd36b30101006.log",
+      "logSha256": "be3f4c62b6e2c1271a7a5d852fbc71e736a387885344f8cc9054cabd896b4b34"
+    },
+    {
+      "scope": "Whole/capped variance actions",
+      "id": "20261026T034957Z-f49e166a2f8449b68eaf84502dc658a3",
+      "outcome": "passed-fresh",
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "checkerExit": 0,
+      "wallSeconds": 52.221841198857874,
+      "childrenMaxRssKiB": 168412,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "inputs": {
+        "audits/strict-default-action-boundary/foundation_frontend_variance_actions.lp": "fad06fdcf434ec884854e67c3d56b45a4a8ff66cca3118f40811dc486bfe68bf",
+        "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "inputSnapshot": "0829941c822d2e9770149aa165d55328f43cea22ce98c1b6ac8d81a79ca3f865",
+      "log": "logs/check-runs/20261026T034957Z-f49e166a2f8449b68eaf84502dc658a3.log",
+      "logSha256": "c18688503c30fc2994bb6f764d3729b1648ea8b3fd0c54316441c41c1c8ba3ba"
+    }
+  ],
+  "nativeWholeInputIdentity": {
+    "currentGeneratedNativeSourceSha256": "8d28bdbfb6d20177581b224b0b58dbd1b3b4567a19a144daa9613dc1a82660a9",
+    "receiptSourceSha256": "8d28bdbfb6d20177581b224b0b58dbd1b3b4567a19a144daa9613dc1a82660a9",
+    "exactInputMatch": true,
+    "nativeAssertions": 38
+  },
+  "focused": {
+    "log": "wave374_internalized_focus.out",
+    "pass": 16,
+    "fail": 0,
+    "nativeOptInSkipped": 1
+  },
+  "history": {
+    "log": "wave380_transitivity_history.out",
+    "pass": 14,
+    "fail": 0
+  },
+  "typecheck": {
+    "log": "wave377_internalized_typecheck.out",
+    "exitCode": 0
+  },
+  "lint": {
+    "log": "wave378_internalized_lint.out",
+    "exitCode": 0
+  },
+  "aggregate": {
+    "status": "timeout; incomplete suite",
+    "log": "emdash2/tmp/probes/kernel_boundary_continuation/wave383_ts_integration.out",
+    "timeoutSeconds": 1800,
+    "exitCode": 137,
+    "completedEvents": 2182,
+    "failureEventCount": 50,
+    "eventCountsByFile": {
+      "tests/v3_2_pathout_transitivity_transfer_tests.ts": 7,
+      "tests/v3_2_pathout_library_graduation_proposal_tests.ts": 4,
+      "tests/v3_2_pathout_library_graduation_review_tests.ts": 3,
+      "tests/v3_2_categorical_text_tests.ts": 5,
+      "tests/v3_2_categorical_text_parity_audit_tests.ts": 4,
+      "tests/v3_2_categorical_text_structural_audit_tests.ts": 2,
+      "tests/v3_2_categorical_text_structural_tests.ts": 2,
+      "tests/v3_2_categorical_text_graduation_audit_tests.ts": 3,
+      "tests/v3_2_categorical_text_nested_ordinary_tests.ts": 3,
+      "tests/v3_2_categorical_displayed_bracket_tests.ts": 2,
+      "tests/v3_2_categorical_displayed_nd_1a_tests.ts": 3,
+      "tests/v3_2_categorical_direct_contextual_nd_whiskering_tests.ts": 2,
+      "tests/v3_2_categorical_displayed_nd_higher_foundation_transfer_tests.ts": 5,
+      "tests/v3_2_categorical_direct_mixed_constant_middle_tests.ts": 2,
+      "tests/v3_2_lf_transfer_tests.ts": 3
+    },
+    "lastHeartbeat": "[progress] parent alive; elapsed=1771.4s; completed_events=2182; last=dequeued \"cancels and reaps a running worker\" (tests/v3_2_algebra_goal_mcp_tests.ts:94); event_age=840.9s",
+    "processesReaped": true
+  },
+  "remainingComputation": {
+    "movingComponent": {
+      "typing": "passed",
+      "status": "not-equal",
+      "steps": 1030,
+      "artifact": "foundation_frontend_pathind_moving_leaf.json",
+      "replay": "foundation_frontend_pathind_moving_leaf.cjs"
+    },
+    "homdEndpoint": {
+      "status": "not-equal",
+      "steps": 566,
+      "log": "wave384_homd_endpoint.out"
+    }
+  },
+  "performance": {
+    "samplingDidNotChangeSourceOrRunnerDefaults": true,
+    "inspectorClosedAfterEachSample": true,
+    "firstProfile": "wave383_startup.cpuprofile",
+    "firstHeap": "wave383_startup_heap.json",
+    "lateProfile": "wave383_late.cpuprofile",
+    "lateHeap": "wave383_late_heap.json",
+    "lateWindowMicros": 6510477,
+    "lateGcSecondsApprox": 0.655,
+    "lateHeapUsedBefore": 1698040232,
+    "lateHeapUsedAfter": 1623846992,
+    "finding": "Current work includes generic zonking, Freyd long-exact encoding/adoption and canonical serialization. The inspected implementation files have no baseline diff. This identifies a measurement target, not a causal baseline comparison."
+  },
+  "logRoot": "emdash2/tmp/probes/kernel_boundary_continuation",
+  "remaining": [
+    "Native prewhiskering projection transfer and complete TypeScript moving-component reduction",
+    "Full Homd P-index endpoint computation",
+    "Transitivity and remaining authoring/audit integration",
+    "Complete aggregate and production-health validation",
+    "Book/article and adapted legacy nerves"
+  ],
+  "artifactHashes": {
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_pathind_moving_leaf.cjs": "c4945a07d593cc0c302ca895c5d22e49be14b2df3515d9660ea176d45099d658",
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_pathind_moving_leaf.json": "5ec7e228a11064581834d696cdd3483e39cded2489072cb29d35b1da60b39333",
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_pathind_internalized_acquisition.json": "db7147013b9b23d5e7ba73f89533b2d0d5c599b8d2a64a3804ec377af950c2b8"
+  }
+}

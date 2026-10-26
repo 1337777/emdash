@@ -425,6 +425,26 @@ category-presentation fold and a duplicate Hom projection are removed. Historica
 review snapshots remain separate from current authorization. Whole internalized
 PathInd, transitivity and the full Homd P-index endpoint comparison remain open.
 
+## F05 continuation: whole varying-source PathInd
+
+The [whole PathInd frontend continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_pathind_internalized_review.md)
+qualifies the corrected interfaces and all38 native signatures/body/projection
+assertions, with16 focused TypeScript cases. Shared Pi inferred slots and native
+opposite/Hom actions are repaired; obsolete local folds are removed. The actual
+TypeScript moving-component consumer typechecks but still lacks its final
+prewhiskering reduction. That and the full Homd P-index endpoint remain required.
+The full TypeScript gate timed out at1800s after2,182 completion events and50
+failure events; it is stopped. The linked record includes the exact failures
+and short CPU profiles locating expensive Freyd long-exact checking/encoding.
+
+The next computation is the existing native prewhiskering ladder, whose
+frontend fragment currently supplies signatures only. Reuse its Hom-action
+owners and Cartesian-to-ordinary inclusion; do not replace the moving theorem
+by the fixed-source theorem or install a PathInd-specific shortcut. The
+covariance/mate/represented projections for the independent Homd endpoint
+remain in scope. Current native conformance is not complete TypeScript runtime
+qualification. Book/article and nerve dependency gates remain closed.
+
 ## Constraints
 
 - Follow the native source and its existing migration outline. Do not add

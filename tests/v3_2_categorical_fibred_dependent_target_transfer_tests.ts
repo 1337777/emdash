@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { KernelExpression, kernelFree, kernelExpressionEquals, provenance } from '../src/v3_2/kernel';
 import {
     describe,
     it
@@ -271,3 +272,39 @@ describe(
         });
     }
 );
+
+it('projects pulled Pi after its inferred family alias has unfolded', () => {
+    const c = compileCoreCategoricalFibredDependentTargetTransfer();
+    const program = c.consumerRuntimeFragment.localProgram;
+    const rule = program.rule('categorical.dependent-target.pullback-component');
+    assert.ok(rule);
+    const alias = c.compiled.declarations.find(d => d.symbol.name === 'Catd_cat_func');
+    const link = c.compiled.linkage.entries.find(d => d.symbol.name === 'Catd_cat_func');
+    assert.ok(alias?.body);
+    assert.ok(link?.kind === 'free-declaration');
+    const at = provenance('derived', 'unfolded inferred Pi family regression');
+    const bindings = ['K', 'G', 'x'].map(name => kernelFree('pi_unfold_' + name, at));
+    const redex = program.instantiateRuleLeft(rule, bindings, at);
+    const expand = (term: KernelExpression): KernelExpression => {
+        if (term.tag === 'reference' && term.name === link.coreName) return alias.body;
+        if (term.tag === 'application') return { ...term,
+            arguments: term.arguments.map(arg => ({ ...arg, value: expand(arg.value) })) };
+        if (term.tag === 'call') return { ...term, callee: expand(term.callee),
+            arguments: term.arguments.map(arg => ({ ...arg, value: expand(arg.value) })) };
+        return term;
+    };
+    assert.equal(redex.tag, 'application');
+    if (redex.tag !== 'application') return;
+    const expanded = { ...redex, arguments: redex.arguments.map((arg, index) =>
+        index === 2 ? { ...arg, value: expand(arg.value) } : arg) };
+    assert.equal(kernelExpressionEquals(redex, expanded), false);
+    const original = program.rewriteHead(redex), projected = program.rewriteHead(expanded);
+    assert.equal(original.status, 'rewritten');
+    assert.equal(projected.status, 'rewritten');
+    if (original.status === 'rewritten' && projected.status === 'rewritten') {
+        assert.equal(kernelExpressionEquals(original.after, projected.after), true);
+    }
+    const wrongCoefficient = { ...expanded, arguments: expanded.arguments.map((arg, index) =>
+        index === 1 ? { ...arg, value: kernelFree('pi_unfold_wrong_coefficient', at) } : arg) };
+    assert.equal(program.matchRule(wrongCoefficient, rule), undefined);
+});
