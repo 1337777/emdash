@@ -201,6 +201,7 @@ describe('DISPLAYED-ND-0A coherence and higher-action audit', () => {
             checks,
             /@tdapp1_int_fapp1_func_transfd/u
         );
+        assert.deepEqual(CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY.inheritedDeclarationNames,['id']);
         assert.deepEqual(
             CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY
                 .declarationNames,
@@ -208,7 +209,6 @@ describe('DISPLAYED-ND-0A coherence and higher-action audit', () => {
                 'Transfd_cat',
                 'Transfd',
                 'tdapp0_fapp0',
-                'id',
                 'functord_transport_lhs_func',
                 'functord_transport_rhs_func',
                 'tdapp1_int_cell',

@@ -1,0 +1,27 @@
+{
+  "originalProposalCheckpoint": "85b560e",
+  "recoveryBaseline": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "proposalSourceSha256": "fc35b53dd151694069974b4df6ad3c04ee55cd5d8bacad34f9f21c47c8cee572",
+  "canonicalProposalDataSha256": "a3c1f2c99bb53dbcd6d0cf7bdd4ec97fba57b06911749255381fc84aacb7e169",
+  "historicalApprovalScopeUnchanged": true,
+  "activeRepresentationWitness": {
+    "scope": "Data-representation-only fixture; no declaration/rule installation or theorem qualification",
+    "originalSourceSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+    "currentSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+    "unchangedCompleteCommands": [
+      "rule @ind_eqr $a $y _ $u $y (@eq_refl $a $y) \u21aa $u;",
+      "unif_rule Obj (Hom_cat $A $X $Y) \u2261 Obj (Hom_cat $A' $X' $Y') \u21aa [ $A \u2261 $A'; $X \u2261 $X'; $Y \u2261 $Y' ];"
+    ],
+    "canonicalExportSha256": "5fe27c717a83f950431cf61a806a493499f3b03635310c63dcf3c9b751c327cd"
+  },
+  "publicMethodInventory": {
+    "baselineCount": 86,
+    "currentCount": 89,
+    "added": [
+      "cartesianDisplayedFunctor",
+      "totalOppositeDisplayedFamily",
+      "cartesianFunctorCategory"
+    ],
+    "removed": []
+  }
+}

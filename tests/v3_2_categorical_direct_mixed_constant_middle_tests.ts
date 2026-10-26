@@ -192,7 +192,7 @@ describe('DIRECT-MIXED-CONSTANT-MIDDLE-COMPOSITION-1M binder', () => {
             'direct_constant_structured_A_prime',
             opK
         );
-        const L = emdash.displayedFunctor(
+        const L = emdash.cartesianDisplayedFunctor(
             'direct_constant_structured_L',
             APrime,
             A

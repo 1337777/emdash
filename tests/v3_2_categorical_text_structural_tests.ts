@@ -131,12 +131,9 @@ describe('SYNTAX-PARITY-1B1 contextual index', () => {
         );
         assert.match(
             parsedCompilation.explicitCore,
-            /emdash\.categorical\.section-pullback/u
+            /emdash\.categorical\.section-weakening/u
         );
-        assert.match(
-            parsedCompilation.explicitCore,
-            /emdash\.categorical\.sigma-first-projection/u
-        );
+
     });
 
     it('infers the optional family annotation from expectation', () => {

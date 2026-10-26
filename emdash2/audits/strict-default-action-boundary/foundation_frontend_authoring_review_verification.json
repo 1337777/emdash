@@ -1,0 +1,191 @@
+{
+  "status": "frontend tranche accepted under explicit user repeat waiver; production health and overall completion remain open",
+  "previousCheckpoint": "e761c9f3",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "currentInputs": {
+    "src/v3_2/categorical_displayed_nd_higher_foundation_transfer.ts": "4e80e26f49cb42389ce7835348cd5d14352b898e23c2351d83de508e8517de1d",
+    "src/v3_2/categorical_text_parity_audit.ts": "f6f4ca32e96151e53a3569d100ba029fb64b9084f79326101cb203411b351e5e",
+    "src/v3_2/pathout_library_graduation_proposal.ts": "2db3ecb9e94db11d62bff5a0175edf425866f64c17df25350be9df36058052fd",
+    "tests/v3_2_categorical_direct_mixed_constant_middle_tests.ts": "54e93069d4aaab81a7b4716e3866bd264d02d7ebab82f5f00a67134ef3c4adbb",
+    "tests/v3_2_categorical_displayed_bracket_tests.ts": "042c42f2e42c3c5456db5ed525d84e950f292ea5efeef1d85d2a82586db1723a",
+    "tests/v3_2_categorical_displayed_nd_1a_tests.ts": "0e38615b57cd45f90ec1f0584758335ed2eee10dee964bd37283e878ac744091",
+    "tests/v3_2_categorical_displayed_nd_higher_foundation_transfer_tests.ts": "8942319c30d9ef9aff41cc7cab3ccd790ae2725c320e9b0fddc9026fbc2e49ea",
+    "tests/v3_2_categorical_text_graduation_audit_tests.ts": "5ed9ae475f423881e8789b1c58b55a4ba484d243040909a94345af3a58bd5451",
+    "tests/v3_2_categorical_text_nested_ordinary_tests.ts": "7a9f7dc6085358ebd39d544dacabbfb595f146ea543903221809808fb72740f6",
+    "tests/v3_2_categorical_text_parity_audit_tests.ts": "9e8c02f6254fe41b60c1fb21a599d417e260980d9800d78a5836d23b3b11f9a8",
+    "tests/v3_2_categorical_text_structural_audit_tests.ts": "0c4191ed376b96b5a5e687a45e369dd02febbf8182f1e7a1ebb38791eedc3d10",
+    "tests/v3_2_categorical_text_structural_tests.ts": "ee3babbd4fb5542281c44aa0ef4cd1107389ccef19a09da1c0f2c9901ad98efb",
+    "tests/v3_2_categorical_text_tests.ts": "7052c67d5540365654924d03d2ff2ad23e8eb446c00a5e581ee209445efd5f30",
+    "tests/v3_2_lf_transfer_tests.ts": "9ddb1a4360dad55fd8ef3e0a7671b12daf89740ba293b7ea30ed2e4f5a1528d4",
+    "tests/v3_2_pathout_library_graduation_proposal_tests.ts": "6044e848853ba2f5b8289edbbc9d828cc994be7b58b1adbd806559afabdc0e00",
+    "tests/v3_2_categorical_displayed_nd_audit_tests.ts": "9380a4ba832f5b39afb916d8a902981f992893bde76e4c022d8be091dbd59d52",
+    "tests/v3_2_categorical_displayed_nd_higher_audit_tests.ts": "05d889215ce44e4eb96310064465a38456549c24a074b0936f6a28f259881a69"
+  },
+  "focused": [
+    {
+      "log": "wave487_authoring_historical_repair.out",
+      "passed": 39,
+      "failed": 2,
+      "skipped": 0,
+      "disposition": "Text/cartesian and historical approval scopes pass; only two old weakening-spelling assertions remain, repaired in wave489."
+    },
+    {
+      "log": "wave489_authoring_review_replay.out",
+      "passed": 50,
+      "failed": 0,
+      "skipped": 0,
+      "durationMs": 129545.230593,
+      "scope": "Higher Homd metadata/policies, generic LF representation, text audits/weakening, exact historical proposal and review"
+    },
+    {
+      "log": "wave491_cartesian_mixed_consumer.out",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "scope": "Actual recursive source/target/pair mixed consumer using the required Cartesian source map"
+    },
+    {
+      "log": "wave492_displayed_observation_replay.out",
+      "passed": 16,
+      "failed": 1,
+      "skipped": 0,
+      "disposition": "All bracket and other displayed cases pass. The attempted expected closed-cell composite used an unsupported surface API; the original projection obligation is observed through whole normalization in wave493."
+    },
+    {
+      "log": "wave493_displayed_projection_view.out",
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "scope": "Whole displayed projection trace, typed higher cell and exact inherited transfer closure"
+    },
+    {
+      "log": "wave499_audit_owner_replay.out",
+      "passed": 13,
+      "failed": 0,
+      "skipped": 1,
+      "durationMs": 37232.117835,
+      "scope": "Both complete audit scopes after correcting local-versus-inherited id assertions"
+    }
+  ],
+  "typecheck": {
+    "log": "wave494_authoring_typecheck.out",
+    "exitCode": 0,
+    "sha256": "70685b4df7789c854b9e1ceab7d78a6d0f9a0831c11eb0010b7b5fdbe0e50c39"
+  },
+  "lint": {
+    "log": "wave495_authoring_lint.out",
+    "exitCode": 0,
+    "sha256": "f742f989be94e529cde1c75bc31645378f1840908710384b8406b93407d056d9"
+  },
+  "aggregate": {
+    "status": "completed-failed",
+    "command": "timeout --signal=KILL 7200s env NODE_OPTIONS=--max-old-space-size=2048 ./scripts/pnpmw run check:ts",
+    "timeoutSeconds": 7200,
+    "nodeHeapMiB": 2048,
+    "previousCompleteSnapshot": "wave413:1790pass47fail62skip; subsequent repairs do not imply a new aggregate result",
+    "log": "wave496_ts_integration.out",
+    "exitCode": 1,
+    "tests": 1902,
+    "suites": 285,
+    "passed": 1837,
+    "failed": 2,
+    "skipped": 63,
+    "cancelled": 0,
+    "durationMs": 1679375.373152,
+    "frozenInputDrift": [],
+    "logSha256": "0641280e7d62ae3b2238b37bbf94e9c44d811e00132ead614809570e3b88dcb8",
+    "failureEvents": [
+      {
+        "file": "tests/v3_2_categorical_displayed_nd_audit_tests.ts",
+        "line": 101,
+        "name": "pins active next-hom authority beyond the current TS transfer"
+      },
+      {
+        "file": "tests/v3_2_categorical_displayed_nd_higher_audit_tests.ts",
+        "line": 97,
+        "name": "confirms only relocated id is present in the current transfer"
+      }
+    ]
+  },
+  "history": [
+    {
+      "log": "wave486_remaining_authoring_baseline.out",
+      "disposition": "Joint Cartesian evaluation fixtures, fixed-evaluation route observations and live-rebuilt historical PathOut approval data were stale."
+    },
+    {
+      "log": "wave488_source_review_baseline.out",
+      "disposition": "Confirmed89existing methods, stale higher-Homd descriptor fields, representation-witness source/export pins and directed profile counts."
+    },
+    {
+      "log": "wave490_remaining_displayed_baseline.out",
+      "disposition": "Wrong negative-family source profile, obsolete weakening spelling, raw-root-only component observation and stale declaration/rule counts."
+    }
+  ],
+  "remaining": [
+    "Fresh complete TypeScript gate and any newly exposed failures",
+    "Production health and final integration audit",
+    "Book/article and adapted legacy nerve stages"
+  ],
+  "logRoot": "emdash2/tmp/probes/kernel_boundary_continuation",
+  "artifactHashes": {
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_authoring_review_acquisition.json": "71afac3c98a09018f8cce7b652d141b047c4fe948c079419a052178bbcb9e115",
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_authoring_review.md": "a078a4ec2aff547572fc2308ec8a9a6a5cdfa2bebc3b1bdf4f3a6dc1e8b8ecd4"
+  },
+  "logHashes": {
+    "wave487_authoring_historical_repair.out": "503f26ec3763c4009dd44ba0ce90ef9806df8d6a3573390b26949d5c2e85613d",
+    "wave489_authoring_review_replay.out": "af289995e8f2fe5b02364428f09fe290a00874cc2c57facbfd69351fa487cbf8",
+    "wave491_cartesian_mixed_consumer.out": "d3d4717e762e53017efb012ad78615e20287d30887931cc3ce697a33338996b3",
+    "wave492_displayed_observation_replay.out": "0bebb7c1b7a45ecd153e598240a6eea6fc0cf507778930dd3aeee765478a0921",
+    "wave493_displayed_projection_view.out": "8fbc248a5c601f378253e0b397ac02c82f4d84a6d21ebb049615800b516321b6",
+    "wave499_audit_owner_replay.out": "abedec7800281fe705f6c2dce7d101d6798f0d2536dde9c7181ee51da503863c"
+  },
+  "aggregateInputHashes": {
+    "src/v3_2/categorical_displayed_nd_higher_foundation_transfer.ts": "4e80e26f49cb42389ce7835348cd5d14352b898e23c2351d83de508e8517de1d",
+    "src/v3_2/categorical_text_parity_audit.ts": "f6f4ca32e96151e53a3569d100ba029fb64b9084f79326101cb203411b351e5e",
+    "src/v3_2/pathout_library_graduation_proposal.ts": "2db3ecb9e94db11d62bff5a0175edf425866f64c17df25350be9df36058052fd",
+    "tests/v3_2_categorical_direct_mixed_constant_middle_tests.ts": "54e93069d4aaab81a7b4716e3866bd264d02d7ebab82f5f00a67134ef3c4adbb",
+    "tests/v3_2_categorical_displayed_bracket_tests.ts": "042c42f2e42c3c5456db5ed525d84e950f292ea5efeef1d85d2a82586db1723a",
+    "tests/v3_2_categorical_displayed_nd_1a_tests.ts": "0e38615b57cd45f90ec1f0584758335ed2eee10dee964bd37283e878ac744091",
+    "tests/v3_2_categorical_displayed_nd_higher_foundation_transfer_tests.ts": "8942319c30d9ef9aff41cc7cab3ccd790ae2725c320e9b0fddc9026fbc2e49ea",
+    "tests/v3_2_categorical_text_graduation_audit_tests.ts": "5ed9ae475f423881e8789b1c58b55a4ba484d243040909a94345af3a58bd5451",
+    "tests/v3_2_categorical_text_nested_ordinary_tests.ts": "7a9f7dc6085358ebd39d544dacabbfb595f146ea543903221809808fb72740f6",
+    "tests/v3_2_categorical_text_parity_audit_tests.ts": "9e8c02f6254fe41b60c1fb21a599d417e260980d9800d78a5836d23b3b11f9a8",
+    "tests/v3_2_categorical_text_structural_audit_tests.ts": "0c4191ed376b96b5a5e687a45e369dd02febbf8182f1e7a1ebb38791eedc3d10",
+    "tests/v3_2_categorical_text_structural_tests.ts": "ee3babbd4fb5542281c44aa0ef4cd1107389ccef19a09da1c0f2c9901ad98efb",
+    "tests/v3_2_categorical_text_tests.ts": "7052c67d5540365654924d03d2ff2ad23e8eb446c00a5e581ee209445efd5f30",
+    "tests/v3_2_lf_transfer_tests.ts": "9ddb1a4360dad55fd8ef3e0a7671b12daf89740ba293b7ea30ed2e4f5a1528d4",
+    "tests/v3_2_pathout_library_graduation_proposal_tests.ts": "6044e848853ba2f5b8289edbbc9d828cc994be7b58b1adbd806559afabdc0e00",
+    "docs/EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md": "11cd89f4e625ec70b9413c2668306bb7796f4463574416c85d530dbd16291244",
+    "docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md": "a68488f814e2617c4c4db93406e1c311d9b0da294f5d57a744984763b1654b36",
+    "docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER.md": "7acc65026b117efd23b4fc127d3ff3fe84b2f2d74262deb9c90aeb21c115d441",
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_pending_test_inventory.json": "ecbd37e5afd44934d3697c514c71a23fc7d0857e868e1d7b79ac6a77d5ab769e",
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_authoring_review_acquisition.json": "71afac3c98a09018f8cce7b652d141b047c4fe948c079419a052178bbcb9e115",
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_authoring_review.md": "36c876d7a5db4fde1c728f04afbb20f8efc0177d5440cdeabd775e03f70101ef",
+    "emdash2/audits/strict-default-action-boundary/foundation_frontend_authoring_review_verification.json": "97e42eb65815cdb15b57c9c778a2dac6823e9c7f7e0b8146abf09ae65aca7994"
+  },
+  "postAggregateLint": {
+    "log": "wave501_audit_fix_lint.out",
+    "exitCode": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "postAggregateTypecheck": {
+    "log": "wave500_audit_fix_typecheck.out",
+    "exitCode": 0,
+    "sha256": "70685b4df7789c854b9e1ceab7d78a6d0f9a0831c11eb0010b7b5fdbe0e50c39"
+  },
+  "performance": {
+    "earlyProfile": "wave496_profile_summary.json",
+    "lateProfile": "wave496_late_profile_summary.json",
+    "earlyHeap": "wave496_active_heap.json",
+    "lateHeap": "wave496_late_heap.json",
+    "inspectorClosedAfterEachSample": true,
+    "sourceOrRunnerDefaultsChanged": false,
+    "finding": "First sample is displayed-ND review rejection/validation; later sample is formal Freyd long-exact canonical encoding/serialization. GC2.335s/7.423s in later window. Reporter last label is not execution attribution. Inspected generic checker/serialization files have no baseline diff."
+  },
+  "aggregateRepeatDecision": {
+    "authority": "explicit user message,2026-10-26",
+    "decision": "Do not repeat the28-minute aggregate after two test-only ownership fixes; continue to next task.",
+    "acceptedEvidence": "Complete1837pass2fail63skip snapshot plus13pass1skip owning correction replay",
+    "scope": "Immediate repeat only; preserve failed outcome and qualify future substantive changes normally"
+  }
+}

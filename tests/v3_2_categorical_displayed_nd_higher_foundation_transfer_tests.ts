@@ -38,8 +38,8 @@ const activeKernelPath = resolve(
     'emdash3_2.lp'
 );
 
-const expectedDeclarations = ['comp_catd_fapp0', 'Op_func', 'Op_catd_func', 'hom_int', 'Op_catd', 'Op_funcd', 'Functor_catd_func', 'Edge_catd_func', 'Presheaf_catd_func', 'HomPresheaf_catd_func', 'hom_', 'Homd_coeff_cat', 'Homd_coeff_include', 'Homd_coeff_diagram', 'Homd_representable_func', 'Homd_target_catd', 'hom_precomp_along_func', 'Homd_target_index_func', 'Homd_target_con_func', 'Homd_target_map', 'homd_id_int', 'homd_rel_cart_int', 'homd_int'] as const;
-const expectedPolicies = ['checked-transparent-definition', 'opaque-signature', 'opaque-signature', 'opaque-signature', 'opaque-signature', 'opaque-signature', 'opaque-signature', 'checked-transparent-definition', 'checked-transparent-definition', 'checked-transparent-definition', 'opaque-signature', 'opaque-signature', 'opaque-signature', 'checked-transparent-definition', 'opaque-signature', 'checked-transparent-definition', 'opaque-signature', 'checked-transparent-definition', 'opaque-signature', 'checked-transparent-definition', 'opaque-signature', 'checked-transparent-definition', 'checked-transparent-definition'] as const;
+const expectedDeclarations = ['comp_catd_fapp0', 'Op_func', 'Op_catd_func', 'hom_int', 'Op_catd', 'Op_funcd', 'Functor_catd_func', 'Edge_catd_func', 'Presheaf_catd_func', 'HomPresheaf_catd_func', 'hom_', 'Homd_coeff_cat', 'Homd_coeff_include', 'Homd_coeff_diagram', 'Homd_representable_func', 'Homd_target_catd', 'hom_precomp_along_func', 'hom_postcomp_func', 'Homd_target_index_func', 'Homd_target_con_func', 'Homd_target_map', 'homd_id_int', 'homd_rel_cart_int', 'homd_int'] as const;
+const expectedPolicies = ['checked-transparent-definition', 'opaque-signature', 'opaque-signature', 'opaque-signature', 'opaque-signature', 'opaque-signature', 'opaque-signature', 'checked-transparent-definition', 'checked-transparent-definition', 'checked-transparent-definition', 'opaque-signature', 'opaque-signature', 'opaque-signature', 'checked-transparent-definition', 'opaque-signature', 'checked-transparent-definition', 'opaque-signature', 'opaque-signature', 'checked-transparent-definition', 'checked-transparent-definition', 'checked-transparent-definition', 'opaque-signature', 'checked-transparent-definition', 'checked-transparent-definition'] as const;
 
 const assertDeepFrozen = (value: unknown): void => {
     if (value === null || typeof value !== 'object') return;
@@ -223,7 +223,7 @@ describe('DISPLAYED-ND-HIGHER-FOUNDATION-1A generic transfer', () => {
             );
             assert.deepEqual(
                 compilation.runtime.ruleIds,
-                ['categorical.homd-native.hom-int-object','categorical.homd-native.precomp-object','categorical.homd-native.cart-precomp-composition']
+                ['categorical.homd-native.hom-int-object','categorical.homd-native.precomp-object','categorical.homd-native.cart-precomp-composition','categorical.homd-native.postcomp-object','categorical.homd-native.diagram-object']
             );
             assert.equal(
                 compilation.runtime.rules[0]?.subjectValidation.kind,
@@ -257,7 +257,7 @@ describe('DISPLAYED-ND-HIGHER-FOUNDATION-1A generic transfer', () => {
                     boundary.targetOwnersIncluded,
                     boundary.targetProjectionRulesIncluded
                 ],
-                [23, 10, 13, 4, 0, 0, 0, 0, 0, false, false]
+                [24, 11, 13, 6, 0, 0, 0, 0, 0, false, false]
             );
             assert.deepEqual(
                 [

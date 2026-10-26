@@ -417,7 +417,7 @@ describe('DISPLAYED-BRACKET-1A displayed contextual compiler', () => {
         );
         assert.match(
             emdash.compile(weakening).explicitCore,
-            /section-pullback/u
+            /section-weakening/u
         );
     });
 

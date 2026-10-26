@@ -1,6 +1,7 @@
 /** Focused tests for the non-authorizing PathOut library graduation proposal. */
 
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, it } from 'node:test';
@@ -23,6 +24,11 @@ const assertDeepFrozen = (value: unknown): void => {
 };
 
 describe('PATHOUT-TRUSTED-LIBRARY-GRADUATE-0G proposal', () => {
+    it('retains the exact historical proposal data from checkpoint 85b560e', () => {
+        assert.equal(createHash('sha256').update(JSON.stringify(CORE_PATHOUT_LIBRARY_GRADUATION_0G_PROPOSAL)).digest('hex'),
+            'a3c1f2c99bb53dbcd6d0cf7bdd4ec97fba57b06911749255381fc84aacb7e169');
+    });
+
     it('pins every completed semantic and presentation predecessor', () => {
         const proposal = validateCorePathoutLibraryGraduation0gProposal();
         assertDeepFrozen(proposal);

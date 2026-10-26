@@ -42,6 +42,32 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+User decision, 2026-10-26: the complete frontend aggregate and the passing
+focused correction of its two id ownership assertions are sufficient for
+this tranche. Do not rerun the28-minute aggregate now. Checkpoint the reviewed
+tranche and continue with production-health qualification. Preserve the
+actual failed aggregate result and the separate passing replay; this is a
+scoped repeat waiver, not a blanket waiver of later validation.
+
+Complete frontend replay, 2026-10-26: the frozen-input TypeScript gate
+finishes in1,679.375s with1,837 passes,two failures and63 skips. Both failures
+are audit assertions about the relocated identity owner; the corrected scopes
+pass13 tests with one optional native skip. The
+[authoring/review record](../emdash2/audits/strict-default-action-boundary/foundation_frontend_authoring_review.md)
+keeps the aggregate and correction distinct. A final complete green gate,
+production health and later stages remain required; no overall completion
+or aggregate pass is inferred from focused tests.
+
+Authoring/review continuation, 2026-10-26: the
+[scoped frontend repair](../emdash2/audits/strict-default-action-boundary/foundation_frontend_authoring_review.md)
+updates the existing consumers to their qualified coefficients and projection
+views, while preserving ordinary fixed evaluation and negative controls.
+Historical PathOut graduation data is recovered exactly from its original
+source pin and no longer rebuilt from the live migration. The recorded
+aggregate failures have scoped repair evidence; one fresh complete TypeScript
+gate is selected at7200s/2GiB before final integration decisions. Its actual
+terminal result remains required, as do production health and later stages.
+
 Transitivity and displayed-whiskering frontend continuation, 2026-10-26: the
 [native consumer repair](../emdash2/audits/strict-default-action-boundary/foundation_frontend_transitivity_review.md)
 checks the actual displayed identity definition, removes transitivity's old
@@ -153,7 +179,7 @@ older running/failed states and do not override it.
 | Central diagnostics | The actual central target passes all 2,441 assertions on the supported checker, including all five approved terminal comparisons. | Preserve the accepted contracts through production integration. |
 | Production sources | All 1,388 original registered files have qualified source coverage. The 648 changed files have been promoted and checkpointed as `57e627b9`; 740 are unchanged. The initial StrictTransfor relocation is preserved. | Complete production health and owning integration gates. |
 | Production bookkeeping | Registry, strict catalog, core TOC, inferred-slot audit and report lifecycle checks pass; active core also passes. Health's central check passed; the aggregate was stopped after45 observed90s timeouts, preserving receipts. | Measure representative import/consumer cost before restarting with justified profiles. A generated not-run report is not execution evidence. |
-| Frontend/source pins | Shared coefficient/telescope, Cartesian structure/fixed evaluation, family/Sigma views, displayed products and their projections/pairing/binder composition have focused/native qualification, through `612cebd7`; displayed transformations, weakening/reindexing, varying-base Pi, displayed evaluation and both recursive-chain stages and the native Homd root/higher-action interface now pass focused/native qualification too. Only reviewed pins are refreshed. | Continue the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) with remaining generic telescope/text/profile consumers, full P-index endpoint computation and final integration. |
+| Frontend/source pins | Selected current coefficients, direct identity/general-FF Homd computation, PathOut/PathInd/transitivity and authoring consumers have focused/native qualification. The complete TypeScript gate has1,837 passes,two ownership-assertion failures and63 skips; the corrected owning scopes pass13 cases with one native skip. The user explicitly waives the immediate aggregate repeat. | Carry this exact scoped evidence into final integration; review any newly affected boundary normally. Proceed to production health. |
 | Book, article and nerves | Required continuations are recorded in SF-BOOK/SF-ARTICLE/SF-NERVES. | Begin their detailed reviews/subplans only after the preceding stages settle. |
 
 #### Migration evidence chronology (newest entries first)

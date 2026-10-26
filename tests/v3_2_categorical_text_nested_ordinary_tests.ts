@@ -27,10 +27,10 @@ const fixture = () => {
     const B = program.category('nested_text_B');
     const C = program.category('nested_text_C');
     const D = program.category('nested_text_D');
-    const functorsAC = program.functorCategory(A, C);
-    const functorsBC = program.functorCategory(B, C);
-    const functorsCD = program.functorCategory(C, D);
-    const functorsBCD = program.functorCategory(B, functorsCD);
+    const functorsAC = program.cartesianFunctorCategory(A, C);
+    const functorsBC = program.cartesianFunctorCategory(B, C);
+    const functorsCD = program.cartesianFunctorCategory(C, D);
+    const functorsBCD = program.cartesianFunctorCategory(B, functorsCD);
     const E = program.functor('nested_text_E', B, functorsAC);
     const Q = program.functor('nested_text_Q', B, D);
     const R = program.functor('nested_text_R', A, functorsBCD);

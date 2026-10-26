@@ -760,7 +760,7 @@ const rawAudit = {
     },
     capabilities,
     measuredCoverage: {
-        publicProgramMethods: 87,
+        publicProgramMethods: 89,
         capabilityRows: 15,
         classificationRows: {
             alreadyTextComplete: 1,

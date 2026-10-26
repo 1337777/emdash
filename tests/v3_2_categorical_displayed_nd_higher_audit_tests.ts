@@ -175,8 +175,8 @@ describe('DISPLAYED-ND-HIGHER-1B dependency-first audit', () => {
                 );
                 assert.equal(
                     (
-                        CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY
-                            .declarationNames as readonly string[]
+                        [...CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY.declarationNames,
+                            ...CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY.inheritedDeclarationNames] as readonly string[]
                     ).includes(name),
                     name === 'id'
                 );

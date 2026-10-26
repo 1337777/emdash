@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { coreLfCombinedNormalize } from '../src/v3_2/lf_conversion';
 import {
     readFileSync
 } from 'node:fs';
@@ -239,20 +240,14 @@ describe('DISPLAYED-ND-1A recursive displayed coherence', () => {
             );
             const projected =
                 emdash.displayedTransforComponent(abstraction, x);
-            const rewrite =
-                compileCoreCategoricalFibredTransfdTransfer()
-                    .composedRuntime
-                    .rewriteHead(
-                        emdash.compile(projected).explicitTerm
-                    );
-            assert.equal(rewrite.status, 'rewritten');
-            if (rewrite.status !== 'rewritten') {
-                assert.fail('Displayed composite component did not reduce');
-            }
-            assert.equal(
-                rewrite.ruleId,
-                'categorical.transfd.component-composition.direct'
-            );
+            const transfer=compileCoreCategoricalFibredTransfdTransfer();
+            // Observe the whole ordinary view, including the native projection
+            // inside strict_transfor; a raw root-only rewrite cannot reach it.
+            const normalized=coreLfCombinedNormalize(transfer.compiled.environment,
+                emdash.compile(projected).explicitTerm,8192,undefined,transfer.composedRuntime);
+            assert.equal(normalized.status,'normal');
+            assert.ok(normalized.trace.some(entry=>entry.reduction.kind==='runtime' &&
+                entry.reduction.ruleId==='categorical.transfd.component-composition.direct'));
             const baseArrowCell =
                 emdash.displayedTransforNaturality(
                     abstraction,
@@ -490,9 +485,10 @@ describe('DISPLAYED-ND-1A recursive displayed coherence', () => {
         assert.equal(
             CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY
                 .declarationCount,
-            8
+            7
         );
-        assert.equal(transfer.runtime.rules.length, 17);
+        assert.equal(transfer.runtime.rules.length, 21);
+        assert.deepEqual(CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY.inheritedDeclarationNames,['id']);
         assert.equal(
             CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY
                 .newMathematicalOwnerCount,

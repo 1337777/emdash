@@ -1517,9 +1517,11 @@ Object.freeze({
         ...foundationRuntimeRules.map(rule => rule.id),
         'categorical.homd-native.hom-int-object',
         'categorical.homd-native.precomp-object',
-        'categorical.homd-native.cart-precomp-composition'
+        'categorical.homd-native.cart-precomp-composition',
+        'categorical.homd-native.postcomp-object',
+        'categorical.homd-native.diagram-object'
     ]),
-    runtimeRuleCount: foundationRuntimeRules.length + 3,
+    runtimeRuleCount: foundationRuntimeRules.length + 5,
     proofRuleCount: 0,
     reusedIdentityCoreName:
         CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_AUDIT

@@ -101,12 +101,9 @@ describe('SYNTAX-PARITY-1B0 structural text audit', () => {
         );
         assert.match(
             compiled.explicitCore,
-            /emdash\.categorical\.section-pullback/u
+            /emdash\.categorical\.section-weakening/u
         );
-        assert.match(
-            compiled.explicitCore,
-            /emdash\.categorical\.sigma-first-projection/u
-        );
+
     });
 
     it('freezes the narrow 1B split and indexOf-first proposal', () => {

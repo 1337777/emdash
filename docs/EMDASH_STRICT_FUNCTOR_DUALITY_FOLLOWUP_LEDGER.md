@@ -4,6 +4,30 @@ Date: 2026-10-25 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: active integration; complete source/reviewer/central scopes qualified and promoted; production health, frontend/source pins and final integration remain open
 
+User decision, 2026-10-26: waive another immediate full TypeScript aggregate
+after the two test-only id ownership fixes. Carry the complete aggregate and
+passing13-case owning replay as this tranche's accepted evidence. Continue
+to production health; do not describe the failed aggregate as green or treat
+the waiver as permission to omit checks after future substantive changes.
+
+Complete frontend replay, 2026-10-26:1,837 passes,two failed identity-ownership
+assertions and63 skips in1,679.375s, with no frozen-input drift. Both assertions
+are corrected and the owning13-case scope passes (one native opt-in skipped).
+The [record](../emdash2/audits/strict-default-action-boundary/foundation_frontend_authoring_review.md)
+does not relabel that aggregate as passing. Final frontend and production
+health gates remain open. Read-only health review identifies46 timeout
+receipts, including the final child after the parent's45-count stop; no
+resource profile or validation script has changed.
+
+Authoring/review continuation, 2026-10-26: the
+[focused repair record](../emdash2/audits/strict-default-action-boundary/foundation_frontend_authoring_review.md)
+covers the remaining recorded text/displayed fixture and audit failures.
+Ordinary fixed evaluation, qualified joint evaluation, native weakening and
+whole component observations are retained. The old PathOut approval's exact
+data/hash is preserved independently of current source qualification. The
+next complete frontend aggregate is required; scoped passes do not give a
+new residual failure count or close production health/book/article/nerves.
+
 Transitivity/whiskering continuation, 2026-10-26: the
 [focused migration](../emdash2/audits/strict-default-action-boundary/foundation_frontend_transitivity_review.md)
 closes the recorded transitivity computation and direct displayed-whiskering

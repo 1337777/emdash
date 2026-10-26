@@ -6,6 +6,13 @@ Owner: R14 of the [foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_P
 Scope: migrate existing TypeScript consumers to the qualified native source;
 no new mathematical profile, generic-checker redesign or resumed bulk transfer.
 
+User continuation decision, 2026-10-26: do not repeat the28-minute aggregate
+after the two test-only id ownership corrections. Accept the complete
+1,837-pass/two-failure/63-skip snapshot together with the13-pass/one-skip
+owning replay for this frontend tranche, then proceed to production health.
+This waives the immediate repeat only; it does not relabel the aggregate as
+green or waive checks required by later substantive changes.
+
 ## Starting evidence
 
 The native source promotion is checkpoint `57e627b9`. All 1,388 original
@@ -488,6 +495,21 @@ Transfer the existing native owners and qualify a constructed typed consumer.
 The full Homd P-index endpoint and broader integration remain required.
 
 ## Constraints
+
+The [authoring/review continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_authoring_review.md)
+repairs the remaining recorded fixtures and review mismatches: Cartesian
+joint inputs, ordinary fixed evaluation, the native weakening owner, whole
+displayed-component observation and its classified source-map consumer.
+The old PathOut approval data is recovered exactly from85b560e/the unchanged
+baseline and frozen separately from current qualification. The reviewed
+representation-only witness retains its two unchanged native commands with
+current source/export metadata. The complete7200s/2GiB TypeScript gate
+finishes in1,679.375s with1,837 passes,two failures and63 skips. Both failures
+are id ownership assertions and are corrected in a13-pass/one-skip focused
+replay. Inputs did not drift. The verification preserves the failed aggregate
+and subsequent correction separately; a complete green final gate remains
+required. The sampled slow work is declaration validation and formal
+long-exact serialization, not the last queued reporter label.
 
 The [transitivity/whiskering continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_transitivity_review.md)
 migrates the five native definitions and qualifies their actual composition

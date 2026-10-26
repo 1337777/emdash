@@ -82,8 +82,9 @@ const fixture = (): TextFixture => {
     const B = program.category('text_B', { line: 2 });
     const C = program.category('text_C', { line: 3 });
     const functorsBC = program.functorCategory(B, C, { line: 4 });
-    const functorsAC = program.functorCategory(A, C, { line: 5 });
-    const H = program.functor('text_H', A, functorsBC, { line: 6 });
+    const functorsAC = program.cartesianFunctorCategory(A, C, { line: 5 });
+    const cartesianBC = program.cartesianFunctorCategory(B, C);
+    const H = program.functor('text_H', A, cartesianBC, { line: 6 });
     const K = program.functor('text_K', A, B, { line: 7 });
     const F = program.functor('text_F', A, functorsBC, { line: 8 });
     const G = program.functor('text_G', A, B, { line: 9 });
@@ -263,7 +264,7 @@ describe('SYNTAX-1A ordinary categorical text adapter', () => {
         );
         assert.equal(
             compiled.structuralPrerequisites.includes(
-                'constant-functor-abstraction'
+                'fixed-evaluation-functor'
             ),
             true
         );
@@ -271,8 +272,13 @@ describe('SYNTAX-1A ordinary categorical text adapter', () => {
             compiled.structuralPrerequisites.includes(
                 'evaluation-functor'
             ),
-            true
+            false
         );
+    });
+
+    it('rejects joint evaluation through the ordinary lax mapping category', () => {
+        const data=fixture();
+        captureTextError(()=>textLambda(data,'λ^f x. F x (G x)'), 'CATEGORICAL_REJECTION');
     });
 
     it('selects whole-Hom action from one neutral application node', () => {

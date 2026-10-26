@@ -38,8 +38,8 @@ const program = new CoreCategoricalProgram({ sourceFile });
 const A = program.category('graduate_A');
 const B = program.category('graduate_B');
 const C = program.category('graduate_C');
-const functorsBC = program.functorCategory(B, C);
-const functorsAC = program.functorCategory(A, C);
+const functorsBC = program.cartesianFunctorCategory(B, C);
+const functorsAC = program.cartesianFunctorCategory(A, C);
 const E = program.functor('graduate_E', B, functorsAC);
 
 describe('SYNTAX-PARITY-GRADUATE-0A audit', () => {
@@ -55,8 +55,8 @@ describe('SYNTAX-PARITY-GRADUATE-0A audit', () => {
         ).flat();
         const currentSet = new Set<string>(currentMethods);
         const hostSet = new Set<string>(host);
-        assert.equal(currentMethods.length, 86);
-        assert.equal(currentSet.size, 86);
+        assert.equal(currentMethods.length, 89);
+        assert.equal(currentSet.size, 89);
         assert.equal(
             audit.publicMethodClassification.originalAuditMethodCount,
             68
@@ -82,7 +82,7 @@ describe('SYNTAX-PARITY-GRADUATE-0A audit', () => {
             currentMethods.filter(method => !hostSet.has(method)).length -
                 audit.publicMethodClassification
                     .mathematicalExpressionMethodCount,
-            18
+            21
         );
         assert.equal(
             audit.currentTextEnvelope.operationHeads.length,

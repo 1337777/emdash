@@ -1,28 +1,17 @@
 /**
  * Non-authorizing PATHOUT-TRUSTED-LIBRARY-GRADUATE-0G proposal.
  *
- * This record classifies the completed root-only profile. It installs no
+ * This record classifies the historical root-only profile at85b560e. It is
+ * not current migration or release qualification. It installs no
  * declaration, rule, parser, export, package entry, or release effect.
  */
 
-import {
-    CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
-} from './pathind_fixed_source_transfer';
-import {
-    CORE_PATHIND_INTERNALIZED_1D_TRANSFER_BOUNDARY
-} from './pathind_internalized_transfer';
-import {
-    CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY
-} from './pathout_foundation_transfer';
 import {
     CORE_PATHOUT_PRESENTATION_1F_MANIFEST
 } from './pathout_presentation';
 import {
     CORE_PATHOUT_PRESENTATION_1F_CLI_PROFILE
 } from './pathout_presentation_cli';
-import {
-    CORE_PATHOUT_TRANSITIVITY_1E_BOUNDARY
-} from './pathout_transitivity_transfer';
 import {
     CORE_PATHOUT_TRUST_BOUNDARY_0A_AUDIT,
     validateCorePathoutTrustBoundary0aAudit
@@ -47,37 +36,101 @@ const mathematicalOpaqueOwners = Object.freeze(
         .map(entry => entry.name)
 );
 
+// These are the exact historical values approved at85b560e. The proposal
+// source at that checkpoint and the unchanged main baseline has SHA-256
+// fc35b53dd151694069974b4df6ad3c04ee55cd5d8bacad34f9f21c47c8cee572.
+// Current migration qualification belongs to the living foundations plan;
+// live transfer changes must not silently rewrite this old approval record.
 const sealedSupportingOwners = Object.freeze([
-    ...CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY
-        .prerequisiteDeclarationNames,
-    ...CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
-        .trustedDeclarationNames,
-    ...CORE_PATHIND_INTERNALIZED_1D_TRANSFER_BOUNDARY
-        .trustedDeclarationNames
-].filter(name => !mathematicalOpaqueOwners.includes(name)));
+    "hom_int_precomp_tele_func",
+    "hom_int_precomp_func",
+    "Sigma_func",
+    "hom_postcomp_func",
+    "hom_precomp_along_func",
+    "fib_cov_int",
+    "fib_cov_src_func",
+    "fib_cov_transf",
+    "Sigma_transfd_funcd"
+]);
 
 const transparentDefinitions = Object.freeze([
-    ...CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY
-        .transparentLibraryDefinitionNames,
-    ...CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY
-        .transparentDefinitionNames,
-    ...CORE_PATHIND_INTERNALIZED_1D_TRANSFER_BOUNDARY
-        .transparentDefinitionNames,
-    ...CORE_PATHOUT_TRANSITIVITY_1E_BOUNDARY.transparentDefinitionNames
+    "Rep_catd_func",
+    "Rep_catd",
+    "Rep_transport_func",
+    "PathOut_cat",
+    "PathOut_cat_func",
+    "PathOut_transport_func",
+    "pathout_obj",
+    "pathout_refl_obj",
+    "pathout_refl_arrow",
+    "FibCov_target_catd",
+    "pathout_refl_eval_func",
+    "pathout_refl_eval_base_func",
+    "pathout_refl_arrow_sec",
+    "PathInd_src_catd",
+    "PathInd_tgt_catd",
+    "PathOutMotives_catd",
+    "PathOutPi_funcd",
+    "PathIndTgt_catd",
+    "pathout_motive_transport_obj",
+    "pathout_motive_transport_arrow",
+    "PathIndSrc_catd",
+    "PathIndSrc_transport_func",
+    "PathInd_funcd",
+    "pathout_pi_transport_func",
+    "PathIndTgt_transport_func",
+    "CompTarget_catd",
+    "CompTarget_fapp1_func",
+    "CompMotive_catd",
+    "path_comp_sec",
+    "path_comp_func"
 ]);
 
 const runtimeRuleIds = Object.freeze([
-    ...CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY.runtimeRuleIds,
-    ...CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY.runtimeRuleIds,
-    ...CORE_PATHIND_INTERNALIZED_1D_TRANSFER_BOUNDARY.runtimeRuleIds,
-    ...CORE_PATHOUT_TRANSITIVITY_1E_BOUNDARY.runtimeRuleIds
+    "pathout.foundation.represented-hom-capped-action",
+    "pathout.foundation.postcomposition-object-action",
+    "pathout.foundation.represented-hom-object-action-fusion",
+    "pathout.foundation.postcomposition-identity-source-unit",
+    "pathout.foundation.precomposition-object-action",
+    "pathout.foundation.precomposition-identity-incoming",
+    "pathout.foundation.hom-int-precomp-component",
+    "pathout.foundation.hom-int-precomp-component-object-fusion",
+    "pathout.foundation.hom-int-precomp-full-action",
+    "pathout.foundation.hom-int-precomp-capped-action",
+    "pathout.foundation.hom-int-precomp-tele-application",
+    "pathout.foundation.sigma-func-object",
+    "pathout.foundation.sigma-func-capped-action",
+    "pathind.fixed-source.contravariant-representable-object",
+    "pathind.fixed-source.displayed-functor-object",
+    "pathind.fixed-source.displayed-hom-object-fusion",
+    "pathind.fixed-source.transfor-classifier-delta",
+    "pathind.fixed-source.fib-cov-target-section-fusion",
+    "pathind.fixed-source.fixed-evaluation-post-delta-presentation-fusion",
+    "pathind.fixed-source.fib-cov-package-component",
+    "pathind.fixed-source.fib-cov-component-object",
+    "pathind.fixed-source.fib-cov-section-point",
+    "pathind.fixed-source.path-ind-section-object-action",
+    "pathind.fixed-source.path-ind-point-computation",
+    "pathind.fixed-source.path-ind-sigma-pullback-computation",
+    "pathind.internalized.sigma-transfd-object-component",
+    "pathind.internalized.pathout-refl-eval-component",
+    "pathind.internalized.path-ind-functor-component-post-prefix-subject-fusion",
+    "pathind.internalized.path-ind-functor-component",
+    "pathind.internalized.path-ind-transfd-component-subject-fusion",
+    "pathind.internalized.pi-pullback-component",
+    "pathind.internalized.path-ind-transfd-component",
+    "pathind.internalized.motive-transport-functor-category-presentation-fusion",
+    "pathind.internalized.motive-transport-action-category-presentation-fusion",
+    "pathind.internalized.path-ind-source-fibre-at-sigma-pair-presentation-fusion",
+    "pathind.internalized.transported-motive-reflexive-fibre-presentation-fusion",
+    "pathind.internalized.pathout-pi-transport-post-delta-presentation-fusion",
+    "pathind.internalized.path-ind-target-fibre-at-sigma-pair-presentation-fusion",
+    "pathout.transitivity.fixed-source-selected-component-consumer-parent-fusion"
 ]);
 
 const proofRuleIds = Object.freeze([
-    ...CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY.proofRuleIds,
-    ...CORE_PATHIND_FIXED_SOURCE_1C_TRANSFER_BOUNDARY.proofRuleIds,
-    ...CORE_PATHIND_INTERNALIZED_1D_TRANSFER_BOUNDARY.proofRuleIds,
-    ...CORE_PATHOUT_TRANSITIVITY_1E_BOUNDARY.proofRuleIds
+    "pathout.foundation.precomposition-identity-family",
+    "pathout.foundation.hom-int-precomp-projection-order"
 ]);
 
 const rawProposal = {
