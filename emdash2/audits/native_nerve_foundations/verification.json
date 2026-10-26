@@ -1,0 +1,204 @@
+{
+  "schema": "emdash-native-nerve-foundations-walking-observer-v1",
+  "date": "2026-10-26",
+  "status": "non-library whole observer and tensor coordinate family qualified; NF-1 inverse and remaining NF stages incomplete",
+  "receiverBaseline": "e8ffc4d0",
+  "legacyDonor": "280e7a03",
+  "source": "walking_observer.lp",
+  "sourceSha256": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+  "newTheory": {
+    "transparentDefinitions": 11,
+    "newAxioms": 0,
+    "runtimeRules": 0,
+    "unificationRules": 0,
+    "positiveAssertions": 4,
+    "negativeAssertions": 2
+  },
+  "checked": [
+    "Canonical default-lax property derived from the existing pre/right whole identity.",
+    "Whole observer from current oplax walking diagrams to the corrected native edge total, for arbitrary C.",
+    "Original diagram generator through the existing proof-only admission-carrier theorem.",
+    "Complete native square with its existing typed post/left internal-action cell; the same observer supplies next-Hom action.",
+    "Whole walking-first coevaluation and native tensor coordinate family; both original outer-coordinate Gray-square edges recovered.",
+    "Default admission does not grant strict-transfor status or collapse a general post/left naturality square."
+  ],
+  "notEstablished": [
+    "General realization and both whole walking inverses.",
+    "Direct agreement of the observed tensor filler with the named gray_interchanger.",
+    "Full reverse closure and arbitrary-dimension decoder/encoder inverse/coherence laws.",
+    "Degree-zero, same-index, degeneracy and independent higher-simplex results.",
+    "Arbitrary inline normalization of the expanded square-cell body."
+  ],
+  "inheritedBoundary": "Uses receiver graph, right-closure, mixed evaluation and corrected Homd/Sigma interfaces. No independent semantic model or global confluence claim.",
+  "checker": {
+    "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+    "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+    "version": "dev-3.0.0-90-gdb4f7809-dirty"
+  },
+  "settings": {
+    "camlrunparam": "",
+    "fileMiB": 64,
+    "flags": [
+      "--no-colors"
+    ],
+    "memoryMiB": 2048,
+    "ocamlrunparam": "o=20,v=1024",
+    "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+    "profile": "default",
+    "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "resourceBackend": "auto",
+    "runtimeEnvironment": {
+      "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+      "LD_LIBRARY_PATH": "",
+      "LD_PRELOAD": ""
+    },
+    "timeoutMs": 90000
+  },
+  "retainedInputs": {
+    "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+    "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+    "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+    "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+    "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+    "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+    "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+    "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+    "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+    "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+    "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+    "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+    "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+    "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+    "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+    "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+    "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+    "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+    "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+    "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+    "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+    "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+    "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+    "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+    "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "warningComparison": {
+    "referenceReceipt": "20261026T133152Z-b3bafed6ccbb4ecfbc8da9a460cf53cf",
+    "candidateReceipt": "20261026T132557Z-86026747cd2d4121b48c831d43ceefd2",
+    "equalInventories": {
+      "categories": true,
+      "locations": true,
+      "term_heads": true,
+      "rule_families": true,
+      "parser_issues": true
+    },
+    "categories": {
+      "replaceable pattern variable": 181,
+      "unjoinable critical pair": 2122
+    },
+    "candidateLocalWarnings": {},
+    "initialReviewerDifference": "The diagram-only baseline has 2113 unjoinable pairs; the combined import closure has 2122. Exact same-import baseline matches the candidate in every inventory field."
+  },
+  "runs": [
+    {
+      "purpose": "diagram baseline",
+      "receipt": "20261026T125503Z-3c49de68d626426690703035d64fd688",
+      "outcome": "passed-fresh",
+      "wallSeconds": 49.47079777601175,
+      "childrenMaxRssKiB": 262036,
+      "inputSnapshot": "927cd1d3794b868268cad60e475621dae0bc810a5a43ac563629801c22b3131b",
+      "inputCount": 13,
+      "logSha256": "8aa18676caa38996452fb072aa50fb1977382c4d691592af8279b48a58422f18",
+      "checkerExit": 0
+    },
+    {
+      "purpose": "raw generator assertion",
+      "receipt": "20261026T125735Z-9d46c061bb624d3c9aa9c0c5b3decdab",
+      "outcome": "failed",
+      "wallSeconds": 53.23111636796966,
+      "childrenMaxRssKiB": 267588,
+      "inputSnapshot": "5ce13b58953cc1dbd472fe9e19e0a89617eebc0810e1eae25f3acb04614e31ea",
+      "inputCount": 26,
+      "logSha256": "20d784f2f89bec52eaa4b66d4010a148d847cbba864bd1b326738bb890947e32",
+      "checkerExit": 1
+    },
+    {
+      "purpose": "typed reflexivity alone",
+      "receipt": "20261026T130204Z-b12f3c576a58463993e16375eae68aff",
+      "outcome": "failed",
+      "wallSeconds": 50.794380293926224,
+      "childrenMaxRssKiB": 267268,
+      "inputSnapshot": "99d60cfe467a32f6eded7925a2777ce6292d9193f278f63aa158316c3014b740",
+      "inputCount": 26,
+      "logSha256": "5b1eced39277aad9d0b8f65a60664d2c1dc3317d64efe3b259447113f14c2923",
+      "checkerExit": 1
+    },
+    {
+      "purpose": "existing carrier theorem",
+      "receipt": "20261026T130643Z-c08c9e5b72334f959bd75e9c43ca3e12",
+      "outcome": "passed-fresh",
+      "wallSeconds": 51.15008857892826,
+      "childrenMaxRssKiB": 267860,
+      "inputSnapshot": "bfbdb51923645b87c9decfc818708b907fc9eb5c68ddf986d4bfa7e0a5f0ecc4",
+      "inputCount": 26,
+      "logSha256": "47bce1e8d096065c08b72df4a87f43cd2703cb2f71b2f940a8a880b24196976a",
+      "checkerExit": 0
+    },
+    {
+      "purpose": "expanded inline square cell",
+      "receipt": "20261026T131041Z-1d60f073c11d43cba103793f8bf1c9af",
+      "outcome": "failed",
+      "wallSeconds": 52.693037156015635,
+      "childrenMaxRssKiB": 269412,
+      "inputSnapshot": "0312b9e45e057092fc6210d78f1c2969c8ffc5bf9c5ba1c81602a31f13329526",
+      "inputCount": 26,
+      "logSha256": "f500bc3a04eb87b3e8ea0459801d70477ead60254f9750fabd05bf293e0d4bfa",
+      "checkerExit": 1
+    },
+    {
+      "purpose": "typed existing square owner",
+      "receipt": "20261026T131346Z-271f9a41e8cc464e8dee4ca5093878ac",
+      "outcome": "passed-fresh",
+      "wallSeconds": 54.87144716898911,
+      "childrenMaxRssKiB": 283288,
+      "inputSnapshot": "f9d21846035578261eedc6cf2d55042828e13fe57037d7105f92978149f590a4",
+      "inputCount": 26,
+      "logSha256": "2951c9ead82410d7b877ce814b442967fe536580d7d998857a7f96577c8786a4",
+      "checkerExit": 0
+    },
+    {
+      "purpose": "whole tensor coordinate consumer",
+      "receipt": "20261026T131901Z-c8fe37164be64d0c86a341fb4e5bba78",
+      "outcome": "passed-fresh",
+      "wallSeconds": 51.599323300179094,
+      "childrenMaxRssKiB": 283520,
+      "inputSnapshot": "475cd5864c32055f50c447a27a11668b3d911736dab40454caff7db45fb12848",
+      "inputCount": 26,
+      "logSha256": "9c6f922f38b0eab696c3409953cf90ab99193c456ec3e94c4d02687836c72e22",
+      "checkerExit": 0
+    },
+    {
+      "purpose": "retained audit replay",
+      "receipt": "20261026T132557Z-86026747cd2d4121b48c831d43ceefd2",
+      "outcome": "passed-fresh",
+      "wallSeconds": 50.78856963501312,
+      "childrenMaxRssKiB": 281684,
+      "inputSnapshot": "1294d20b7681c895d6ae4a828bf2eb65a7ed37555b2f5d83394028110afbba6c",
+      "inputCount": 26,
+      "logSha256": "795c27ddfc5e4e65a89694ff3222a16cf72641cd8d1807694d77b64ef507b3da",
+      "checkerExit": 0
+    },
+    {
+      "purpose": "same-import warning baseline",
+      "receipt": "20261026T133152Z-b3bafed6ccbb4ecfbc8da9a460cf53cf",
+      "outcome": "passed-fresh",
+      "wallSeconds": 51.912694422062486,
+      "childrenMaxRssKiB": 266712,
+      "inputSnapshot": "e5558e10304a07b3409360d2b557e0a082214f7fed099994a61843b5aa4b9621",
+      "inputCount": 26,
+      "logSha256": "44769dab0f664a626b0ea6a95cf335c6d5c1955c5df39ff7fd5f9370fc4d2279",
+      "checkerExit": 0
+    }
+  ],
+  "validationScope": "Fresh subject-reduction checks at 90s/2GiB using the supported serial/no-swap guard. No production changes or aggregate reruns. Failed hypotheses retain immutable input snapshots; their results are not relabeled as passing."
+}

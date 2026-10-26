@@ -4,6 +4,14 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: local book/article continuation complete; legacy-nerve review next; production health/final integration remain deferred obligations
 
+SF-NERVES / NF-1: the [receiver observer/tensor candidate](../emdash2/audits/native_nerve_foundations/README.md)
+qualifies whole forward construction and its original generator/square
+observations under current profiles, plus a whole tensor coordinate family.
+Existing carrier and cell owners replace failed inline conversions. It adds
+no axiom/rule and remains non-library. Next: general native realization and
+both whole inverses; retain the named interchanger comparison as an explicit
+consumer obligation rather than claiming it from the two edge observations.
+
 SF-NERVES / NF-0: [donor adaptation review](EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md)
 now pins `280e7a03` and inventories all 119 donor deltas. The 106 audit files
 are historical candidate evidence; ten tooling/SOP/DevOps files are excluded.

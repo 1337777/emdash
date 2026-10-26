@@ -42,6 +42,15 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+NF-1 receiver construction, 2026-10-26: the [whole observer candidate](../emdash2/audits/native_nerve_foundations/README.md)
+now derives its lax admission from the default leg and constructs the whole
+walking observer, native square/next action, walking-first coevaluation and
+actual tensor coordinate family. Both original Gray-square outer edges are
+recovered. The retained 90s/2 GiB replay passes in 50.789s / 281,684 KiB with
+unchanged same-import warning inventory; no new axiom or rule was added.
+This remains non-library evidence. General realization, whole inverse laws,
+direct named-interchanger agreement and subsequent NF stages remain required.
+
 Nerve adaptation review, 2026-10-26: the [new continuation plan](EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md)
 and [119-file pinned donor inventory](EMDASH_NATIVE_NERVE_DONOR_INVENTORY.json)
 complete NF-0. Donor `280e7a03` is clean and has no production-LP changes;

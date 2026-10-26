@@ -2,7 +2,7 @@
 
 Date: 2026-10-26
 Plan-ID: NATIVE-NERVE-FOUNDATIONS-ADAPTATION-V3.2
-Status: donor/source review complete; first adapted whole walking slice next
+Status: NF-1 whole observer and tensor coordinate candidate qualified; realization and whole inverses next
 Parent: [consolidated foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Receiver: `goal/strict-functor-duality-v3.2`, checkpoint `1fe72617`
 Donor: `goal/native-nerve-legacy-completion-v3.2`, checkpoint `280e7a03`
@@ -218,3 +218,43 @@ JSON/link hygiene and exact diff review. No donor code, checker lane, supplied
 inverse or native production rule was imported, and no Lambdapi aggregate was
 launched. The first implementation tranche must create its own measured
 receiver evidence under the current SOP.
+
+## NF-1 first receiver construction, 2026-10-26
+
+The [retained candidate](../emdash2/audits/native_nerve_foundations/README.md)
+and [verification](../emdash2/audits/native_nerve_foundations/verification.json)
+construct the whole observer for arbitrary C using the current opposite-profile
+evaluator and native graph. The default-lax admission is derived internally
+from the existing pre/right identity. The original diagram generator is
+recovered by the existing whole admission-carrier theorem and equality action;
+no proof argument is added to the operational map.
+
+The complete square action uses the existing typed internal-action cell and
+retains its two side maps. A next-Hom functor is constructed from the same
+observer. The actual walking-first coevaluation
+`B → Functor_oplax_cat(I,I⊗ᴿB)` now follows from current mixed exchange with no
+new supplied admission property. Composing the observer yields a whole native
+coordinate family; at B=I, both original outer-coordinate edges of the Gray
+square are recovered. This exercises a genuine tensor consumer before a long
+walking-inverse refinement.
+
+The candidate has eleven transparent definitions, four positive assertions
+and two negative controls, with no new axiom, rewrite or unification rule.
+The retained replay passes with subject reduction in 50.789s / 281,684 KiB
+under the default 90s / 2 GiB serial guard. Its complete warning inventory
+matches the same-import baseline. The smaller original diagram reviewer also
+passes unchanged; its different import closure is not used as a false
+zero-warning-delta comparison.
+
+Three failed hypotheses remain in immutable receipts: direct raw generator
+conversion, typed reflexivity alone through the admission, and an expanded
+inline square-cell endpoint presentation. The accepted versions use existing
+whole carrier/cell owners. No new fold or arbitrary naturality equality was
+added. The expanded inline form is not claimed qualified.
+
+NF-1 is not complete. Next construct/adapt the general native universal-arrow
+realization through the current Sigma/section and `transf_arrow_diagram_func`
+owners, then tackle both whole walking inverses. Direct agreement of this
+observed tensor filler with the named `gray_interchanger` remains explicit,
+as do the general reverse closure and all subsequent NF stages. This audit
+is not yet a production library import or a whole nerve equivalence.
