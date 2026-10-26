@@ -42,6 +42,15 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+NF-1 represented-Sigma consumer, 2026-10-26: [the current constructor at J=id](../emdash2/audits/native_nerve_foundations/README.md#existing-represented-sigma-graph-consumer)
+checks as a general B→N(C) graph and recovers its original component. The
+native U specialization is a whole N(C) endofunctor, with no new admission
+premise, rule or unifier. Its 52-input snapshot failed allocation at 2 GiB
+and passed unchanged at 3 GiB in 235.567s / 2,209,972 KiB. The separate
+whole-Hom implementation candidate stopped in imports at 300s and is being
+retried at 450s / 3 GiB. That candidate and native reconstruction remain
+unqualified; resource defaults and production sources are unchanged.
+
 NF-1 native composite, 2026-10-26: [the new whole derivation](../emdash2/audits/native_nerve_foundations/README.md#native-composite-as-the-original-universal-graph)
 compares `Observe ∘ Realize` with `Graph(U)` for the original U. It uses a
 structural graph-reindex law and generic staged evaluation proofs; unrelated

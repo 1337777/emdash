@@ -293,3 +293,33 @@ That avoids a new admission premise. Its connection to the public graph and
 the actual native reconstruction still need qualification. Prepared Sigma
 source-generation fragments remain unqualified scratch work; they do not
 supply the missing nerve inverse or change production code.
+
+## Existing represented-Sigma graph consumer
+
+[`native_sigma_graph.lpfragment`](native_sigma_graph.lpfragment) now checks
+the existing `represented_comma_family_func` at J=id as a whole map
+`B → N(C)` for a general ordinary-lax eta:F⇒G. Its source-variable admission
+is the existing `tapp1_int_cart`; no new profile premise is supplied. The
+component is the original `(F[x],G[x],eta[x])`, and the native U specialization
+has type `N(C)→N(C)`.
+
+This adds two definitions and one component observation, with no rule or
+unifier. It does not yet compare that whole map with the public graph or
+reconstruct the native total. The [record](sigma_graph_verification.json)
+pins the complete 52-input check, including inherited isolated prerequisites.
+At 2 GiB it failed during imported transformation-profile allocation; the
+identical snapshot passed at 3 GiB in 235.567s / 2,209,972 KiB. Available host
+memory was 16,581 MiB before the explicit increase. Defaults, serial execution,
+subject reduction and the per-process no-swap guard were preserved.
+
+```bash
+python3 emdash2/audits/native_nerve_foundations/replay_graph.py \
+  --record sigma_graph_verification.json --timeout-seconds 300 --memory-mib 3072
+```
+
+The next owner-position candidate connects the public graph's whole Hom to
+this represented construction and checks its action directly, so the public
+square shortcut cannot hide the alternative projection order. Its 300-second
+attempt stopped in unchanged imports before the new clause was loaded; the
+same frozen candidate is being checked at 450s / 3 GiB. That candidate is
+not qualified by the passing definition-only consumer above.

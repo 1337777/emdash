@@ -4,6 +4,14 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: local book/article continuation complete; native nerve adaptation active; production health/final integration remain deferred obligations
 
+SF-NERVES / existing Sigma graph: [the definition-only consumer](../emdash2/audits/native_nerve_foundations/README.md#existing-represented-sigma-graph-consumer)
+passes using the existing represented-comma constructor and `tapp1_int_cart`.
+Its 3 GiB replay qualifies the whole map's type and original point computation,
+not its comparison with the public graph or the second inverse. The new
+whole-Hom implementation is still being checked separately; a 300s import
+timeout is retained, with a frozen 450s / 3 GiB retry in progress. Keep the
+prepared Sigma-generation proposals unqualified and all promotion gates open.
+
 SF-NERVES / NF-1 native composite: [the checked comparison](../emdash2/audits/native_nerve_foundations/README.md#native-composite-as-the-original-universal-graph)
 now gives `Observe ∘ Realize ≐ Graph(U)`, preserving the original whole U.
 Graph reindexing is one structural constructor comparison, with carrier and

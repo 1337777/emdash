@@ -19,6 +19,8 @@ HERE = Path(__file__).resolve().parent
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--timeout-seconds", type=int, default=90)
+    parser.add_argument("--memory-mib", type=int, choices=(2048, 3072), default=2048,
+                        help="explicit reviewed memory profile; default remains 2 GiB")
     parser.add_argument("--record", default="graph_verification.json",
                         help="pinned verification record in this audit directory")
     args = parser.parse_args()
@@ -71,7 +73,7 @@ def main() -> int:
         "OCAMLRUNPARAM": "o=20,v=1024",
         "EMDASH_LAMBDAPI_WARNINGS": "1",
         "EMDASH_LAMBDAPI_FLAGS": "--too-long=0.5",
-        "EMDASH_LP_MEMORY_MIB": "2048",
+        "EMDASH_LP_MEMORY_MIB": str(args.memory_mib),
         "EMDASH_LP_FILE_MIB": "64",
         "EMDASH_LP_RESOURCE_BACKEND": "auto",
     })

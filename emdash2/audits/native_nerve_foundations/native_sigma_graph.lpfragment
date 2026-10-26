@@ -1,0 +1,21 @@
+require open emdash.native_nerve_graph_whole_review;
+require open emdash.emdash3_2_represented_comma_families;
+
+// Existing represented-comma construction at J=id. Its x-profile comes
+// from tapp1_int_cart; the original ordinary transformation stays lax.
+symbol nerve_represented_graph_func [B C : Cat] [F G : τ (Functor B C)]
+  (eta : τ (@Transf B C F G)) : τ (Functor B (@LaxArrow_cat C))
+≔ @represented_comma_family_func B C C (@id_func C) F G eta;
+
+symbol nerve_native_sigma_graph_func (C : Cat)
+  : τ (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+≔ @nerve_represented_graph_func (@LaxArrow_cat C) C
+    (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C);
+
+// Check the existing implementation's components before any whole
+// construction comparison is introduced. This is not a whole inverse.
+assert [B C : Cat] [F G : τ (Functor B C)]
+  (eta : τ (@Transf B C F G)) (x : τ (Obj B)) ⊢
+  @fapp0 B (@LaxArrow_cat C) (@nerve_represented_graph_func B C F G eta) x
+  ≡ @lax_edge C (@fapp0 B C F x) (@fapp0 B C G x)
+      (@tapp0_fapp0 B C F G x eta);

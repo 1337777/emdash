@@ -33,7 +33,7 @@
     "graph_endpoint_controls.lpfragment": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9",
     "graph_endpoint_projections.lpfragment": "976f48c86c4d3141d875342067610404d45f6c021d63d194a1c0a25a08f3889c",
     "graph_whole_generator.lpfragment": "7a7b3da47955bf29f9e39ba63ab4ae69079a7208c4817d23c2958cc62bd5ac09",
-    "replay_graph.py": "c5ee0ff93966d7809c2f5d618df7408f59f39aed5ed0d8976d7930fc53cd63ae",
+    "replay_graph.py": "4c7d78d18565c9596284817b700a5deb9c9a4fce2defe231b8a2bf79c40a50c1",
     "replay_realization.py": "148caac26a2e542cac0a05768635a5ca64aaaf11ae9da3b69739f5ad661d40f7",
     "total_dual_postcomp_units.lpfragment": "d72ed818cd623c380d2651bdb9e4a7123ef2417ab29c3b3dc060c9e83ae068c5",
     "walking_first_inverse.lpfragment": "4c4bff0c0b134b364d44d18285c8dad913839c209bc8abfd80bac51d0f40414f",
@@ -220,5 +220,6 @@
     "The existing tapp1_int_cart and represented_comma_family_func at J=id supply a candidate Sigma implementation without a new admission premise; that new consumer is being checked separately.",
     "The prepared Sigma pairing/source-generation fragments are unqualified scratch proposals, not an installed native inverse.",
     "All inherited core-unit, graph higher-action and production qualification obligations remain open."
-  ]
+  ],
+  "replayProfileNote": "Later explicit --memory-mib selection leaves the default at 2048 MiB and source assembly unchanged; the 3072 MiB profile is for the separately measured represented-Sigma consumer."
 }

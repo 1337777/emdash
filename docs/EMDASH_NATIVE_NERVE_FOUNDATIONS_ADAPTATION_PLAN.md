@@ -152,6 +152,15 @@ required comparisons.
 
 ## First bounded implementation slice
 
+Represented-Sigma consumer, 2026-10-26: the [current public constructor at J=id](../emdash2/audits/native_nerve_foundations/README.md#existing-represented-sigma-graph-consumer)
+checks as a general graph B→N(C), using existing `tapp1_int_cart`, and recovers
+the original component. This is a definition-only consumer, not native
+reconstruction. Its 52-input closure failed allocation at 2 GiB and passed
+the same snapshot at 3 GiB in 235.567s / 2,209,972 KiB, with host headroom
+reviewed. The subsequent whole-Hom implementation candidate timed out in
+unchanged imports at 300s; its frozen 450s / 3 GiB replay remains pending.
+Do not infer that candidate's qualification from the earlier component check.
+
 Native composite continuation, 2026-10-26: the [whole comparison](../emdash2/audits/native_nerve_foundations/README.md#native-composite-as-the-original-universal-graph)
 now derives `Observe ∘ Realize ≐ Graph(U)` using the original whole universal
 transformation. One structural graph-reindex comparison retains both endpoints
