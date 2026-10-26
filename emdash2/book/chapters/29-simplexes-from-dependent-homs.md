@@ -55,9 +55,15 @@ p_{02}:x_0\to x_2,
 \tag{29.2}
 $$
 
-and whatever comparison is selected by the functorial profile between
-$p_{12}\circ p_{01}$ and $p_{02}$. At dimension three, the four restrictions
-of $H$ to three vertices are its triangular faces.
+with $p_{12}\circ p_{01}=p_{02}$ under the ordinary ordinal interpretation: a
+public strict functor preserves that composite exactly. At dimension three,
+the four restrictions of $H$ to three vertices are its triangular faces.
+
+A general dependent triangle can instead retain a nonidentity filler. Such a
+filler is not the compositor of a non-strict public functor. The native
+join-built shapes below retain their selected cross action; their full
+identification with ordinary ordinals or another chosen simplex doctrine
+requires its own mapping/universality qualification.
 
 There are already three distinct notions in this paragraph.
 
@@ -538,7 +544,10 @@ $$
 \tag{29.21}
 $$
 
-Equation (29.21) is not yet a theorem. Its right side is intentionally written
+Equation (29.21) is not yet a theorem. Its shape and transformation profile
+must also be specified: strict functors from an ordinary ordinal cannot
+classify arbitrary nonidentity dependent-triangle fillers merely by a change
+of notation. Its right side is intentionally written
 with a future name. The active `DependentSimplexObservation(C,n)` in (29.20)
 is a groupoid-valued object total; it is not a whole category with the arrows
 and higher cells required by (29.21).

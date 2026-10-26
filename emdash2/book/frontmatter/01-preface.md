@@ -19,9 +19,11 @@ The resulting theory has two kinds of motion. Equality supplies groupoidal
 paths: they can be reversed, transported along, and compared through
 equivalence and univalence. Categories supply directed arrows: an arrow may
 have no inverse, and that failure is mathematical information. Functors act on
-both objects and higher arrows. Cat-valued families turn dependent
-substitution into directed reindexing. Transformations and their higher
-components express the coherence of those actions.
+both objects and higher arrows, preserving identities and composition
+strictly. Admitted category-valued families turn dependent substitution into
+directed reindexing. Transformations and their higher components retain
+coherent, potentially noninvertible comparisons. Chapter 2 makes the family
+coefficient and the lax transformation convention explicit.
 
 This edition is organized around a single calculation because a foundation is
 best learned while it is doing something. Consider an opaque category

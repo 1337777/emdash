@@ -106,7 +106,7 @@ objects and their structural arrows visible.
 | --- | --- | --- |
 | $A\oplus B$, $0$ | the selected biproduct and zero object | `AdditiveCategory` |
 | $\sum_{u:T\to Z}(k\circ u=h)$ | the internal factor fibre of $h$ through $k$ | `HomPostcompFactor` |
-| $\mathcal D_C=\operatorname{Functor}(\mathbf 2,C)$ | the category of walking-arrow diagrams | `Functor_cat WalkingArrow_cat C` |
+| $\mathcal D_C=\operatorname{Functor}_{\mathrm{oplax}}(\mathbf 2,C)$ | the native oplax walking-arrow diagram category used by homology | `Functor_oplax_cat WalkingArrow_cat C` |
 | $J\dashv K$, $Q\dashv I$ | coherent kernel and cokernel presentations over the original selections | `KernelPresentation`; `CokernelPresentation` |
 | $\mathcal Z_C=(J\downarrow\operatorname{id}_{\mathcal D_C})$ | the native category of one-degree zero-composition diagrams | `ZeroArrowCone_cat` |
 | $\beta=K(h)\circ\eta_A$ | the whole boundary transformation of a coherent family | `kernel_family_boundary_transf` |
@@ -183,7 +183,7 @@ of $H_x$ are arrows of $W$, whereas arrows of $H_x$ are directed
 ## Homological Notation
 
 In [Chapter 31](#chapter-31), D(C) denotes the native walking-arrow diagram
-category. J(A)=(A→0) and I(A)=(0→A), while K and Q are the whole adjoints
+category with its oplax mapping profile. J(A)=(A→0) and I(A)=(0→A), while K and Q are the whole adjoints
 J ⊣ K and Q ⊣ I. H is the resulting whole homology; Hᴹ names its instance
 in a supplied model M. The symbol δ denotes the direct LES connecting
 transformation and ∂ the general snake connecting transformation. ΩAlong

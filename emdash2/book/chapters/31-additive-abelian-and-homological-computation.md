@@ -91,8 +91,11 @@ operations already available in any additive category.
 
 ## 31.2 Universality As A Whole Adjunction
 
-Let C be the ordinary additive target and let D(C) be its native category
-of diagrams on the walking arrow. Evaluation at the two vertices gives
+Let C be the ordinary additive target and let D(C) be its native **oplax**
+walking-arrow diagram category, `Functor_oplax_cat WalkingArrow_cat C`.
+Its objects represent strict walking-arrow functors; the mapping profile
+keeps the orientation needed to turn a whole transformation into an arrow
+family. Evaluation at the two vertices gives
 functors e₀,e₁:D(C)→C. The zero object determines two further whole functors:
 
 J(A) = (A→0), I(A) = (0→A).
@@ -144,8 +147,9 @@ source, a target and an arrow together, and is useful for observing a result.
 Let E evaluate a diagram to its complete arrow, and let D introduce a diagram
 from such an arrow.
 
-In the ordinary-target presentation, the development supplies a natural
-DefIso D∘E≅id. Both directions have identity components at the two walking-arrow
+For ordinary functor diagrams, the development supplies a natural
+DefIso D∘E≅id. The native oplax-family reconstruction is derived from this
+ordinary source comparison by whole exchange, retaining the actual family. Both directions have identity components at the two walking-arrow
 vertices. Applying K or Q to the actual reconstruction maps therefore retains
 their categorical action and exposes the endpoint computation. The inverse
 comes from the same DefIso package.
@@ -330,8 +334,9 @@ identity-image extraction in Chapter 12.
 > **Formal status — checked ordinary consumer.** Evidence
 > `NATIVE-COMMA-FAMILY-CLASSIFICATION`. Γ, its whole projections and their
 > inverse data are public operations. The native zero-arrow specialization
-> retains the whole triangle comparison. The higher Op/profile qualification
-> remains separate.
+> retains the whole triangle comparison. The Cartesian family coefficient
+> and oplax diagram profile remain part of the types; no unrestricted
+> higher comma-classification theorem is inferred from this ordinary consumer.
 
 Transposing h through K gives β:A⇒K∘D and then H_family=Q∘Arr(β). The global
 native construction applies the same operations to p,q,τ. The actual
@@ -880,9 +885,9 @@ Several boundaries remain explicit:
   successful matrix tests. The supplied semantic contracts remain visible.
 - General categorical terminality and higher coherence require their own
   refinement beyond the current ordinary-target presentation.
-- Action-profile integration preserves the whole ordinary constructions and
-  their actual OneCat, model and interpretation contracts. Higher Op/duality
-  repair remains a separate development.
+- The migrated dualities and Homd foundation preserve the whole ordinary
+  constructions with their actual OneCat, model and interpretation contracts.
+  They do not remove these hypotheses or supply a general higher model.
 - Categories of unbounded or derived complexes and further derived or stable
   constructions are outside the implemented boundary of this chapter.
 

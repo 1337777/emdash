@@ -131,7 +131,9 @@ extra fields to append to the current interchanger example.
 
 The dependent-simplex construction supplies the next exact strengthening.
 Its present `DependentSimplexObservation(C,n)` packages objects only. A
-whole comparison with $\operatorname{Functor}(\Delta[n],C)$ first requires an
+whole comparison with $\operatorname{Functor}(\Delta[n],C)$ requires a
+matching shape/profile: ordinary ordinal maps preserve composites strictly,
+whereas general dependent triangles retain fillers. It also requires an
 internal category whose objects recover that package, whose homs express
 compatible transformations of every dependent frame, and whose higher action
 agrees with the existing internal-action tower. Comparison functors, whole

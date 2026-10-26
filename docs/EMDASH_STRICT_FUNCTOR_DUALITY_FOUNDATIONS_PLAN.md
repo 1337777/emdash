@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active book/article revision; migrated native sources promoted and frontend tranche accepted with the recorded aggregate-repeat waiver; production health and final integration deferred
+Status: active consolidated goal; local book/article revision complete; native sources promoted and frontend tranche accepted; legacy-nerve review next, production health/final integration still deferred
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,16 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Book/article completion, 2026-10-26: the [update plan](EMDASH_FOUNDATIONS_BOOK_ARTICLE_UPDATE_PLAN.md)
+and [46-source review](EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md) qualify local
+book 0.10.0-dev and overview 0.4.0-dev. Their source/evidence, bounded browser,
+PDF metadata/font/text checks and recorded visual review pass; owning tools
+updated the four local distribution copies. No publication or push occurred.
+SF-BOOK/SF-ARTICLE are complete at this draft snapshot. The next authorized
+substantial continuation is the donor inventory and dedicated proposed plan
+for SF-NERVES, retaining native scope/assumptions and importing deliberately.
+Production-health and final integration are not marked complete.
 
 User priority change, 2026-10-26: focus now on the book and shorter overview
 article. The implementation and accepted frontend checkpoint are sufficient
@@ -144,8 +154,8 @@ continue to describe its status until the dependency gates below are met.
 | Stage | Required continuation | Start condition and planning boundary |
 | --- | --- | --- |
 | SF-CLOSE | Finish and qualify the foundations migration, including the five approved whole terminal Homd comparisons and the normalization/validation ledger. | Retain runtime leaf, higher-action and inverse computations; include all five whole comparisons in the complete diagnostics without exclusions. |
-| SF-BOOK | Update the Emdash book comprehensively for the settled foundations and all migration changes. | Active now under the user's 2026-10-26 priority change and the dedicated book/article plan. Remaining production health does not block the source/claim review or chapter updates. Follow source ownership and regenerate artifacts through their tools. |
-| SF-ARTICLE | Update the shorter overview research article consistently with the settled foundations and revised book. | Plan with the book review, preserve the article's shorter overview role, and validate its sources and generated artifacts. The existing publication/article plan is historical ownership guidance, not authorization to publish. |
+| SF-BOOK | Update the Emdash book comprehensively for the settled foundations and all migration changes. | Complete local draft 0.10.0-dev under the dedicated source/claim review and artifact gates; no publication. Further foundation changes must update the owning passages and evidence. |
+| SF-ARTICLE | Update the shorter overview research article consistently with the settled foundations and revised book. | Complete local overview 0.4.0-dev with the book, final render/PDF checks and local distribution copies; no publication. |
 | SF-NERVES | Review, import, adapt, integrate and finish the partial simplicial/cubical nerve work from `/home/user1/emdash1-native-nerves-legacy-v1/` in the new foundations. | Begin after foundations and book/article updates settle. First review the donor's current code, plans, scope and evidence and write a dedicated proposed subplan. Adapt the actual mathematics and code; do not automatically merge the legacy branch or inherit its qualification. |
 
 The five terminal Homd cases remain SF-CLOSE requirements under the explicitly
@@ -206,7 +216,7 @@ older running/failed states and do not override it.
 | Production sources | All 1,388 original registered files have qualified source coverage. The 648 changed files have been promoted and checkpointed as `57e627b9`; 740 are unchanged. The initial StrictTransfor relocation is preserved. | Complete production health and owning integration gates. |
 | Production bookkeeping | Registry, strict catalog, core TOC, inferred-slot audit and report lifecycle checks pass; active core also passes. Health's central check passed; the aggregate was stopped after45 observed90s timeouts, preserving receipts. | Measure representative import/consumer cost before restarting with justified profiles. A generated not-run report is not execution evidence. |
 | Frontend/source pins | Selected current coefficients, direct identity/general-FF Homd computation, PathOut/PathInd/transitivity and authoring consumers have focused/native qualification. The complete TypeScript gate has1,837 passes,two ownership-assertion failures and63 skips; the corrected owning scopes pass13 cases with one native skip. The user explicitly waives the immediate aggregate repeat. | Carry this exact scoped evidence into final integration; review any newly affected boundary normally. Proceed with the prioritized book/article revision. |
-| Book, article and nerves | Book/article source review is active under the user's priority change; the dedicated update plan records its source/evidence contract. Legacy nerve completion remains the later mathematical continuation. | Prioritize the book/article revision now. Keep deferred health/final-integration obligations explicit and review legacy nerve adaptation after documentation settles. |
+| Book, article and nerves | Book/article source review and local draft artifacts are complete at the recorded snapshot. Legacy nerve adaptation/completion remains the next substantial mathematical continuation. | Review the legacy donor and write its dedicated adaptation subplan. Keep deferred health/final-integration obligations explicit. |
 
 #### Migration evidence chronology (newest entries first)
 

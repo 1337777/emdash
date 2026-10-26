@@ -193,7 +193,7 @@ evidence. A directed native version should expose them. One plausible
 architecture begins with:
 
 - a native carrier category $K$;
-- a directed family $S:K\to\mathsf{Cat}$ of structures;
+- an admitted directed family $S:K\to\mathsf{Cat}_{\mathrm{cart}}$ of structures;
 - for each base arrow $f:x\to y$ and structures
   $\alpha:S(x)$, $\beta:S(y)$, a category
   $H_f(\alpha,\beta)$ of structure-preserving lifts;

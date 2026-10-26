@@ -2,7 +2,14 @@
 
 Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active book/article revision; native source scopes promoted and frontend tranche accepted; production health/final integration remain deferred obligations
+Status: local book/article continuation complete; legacy-nerve review next; production health/final integration remain deferred obligations
+
+Book/article closure: the [complete source/artifact review](EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md)
+records book 0.10.0-dev (425 pages) and overview 0.4.0-dev (20 pages), their
+hashes, owning gates, visual inspection and local distribution copies.
+SF-BOOK/SF-ARTICLE are complete as draft updates. No publication is implied.
+The next substantial continuation is the legacy donor review and adaptation
+subplan; source-health/final-integration obligations remain unsatisfied.
 
 Current priority, user direction, 2026-10-26: proceed with the comprehensive
 [book/article revision](EMDASH_FOUNDATIONS_BOOK_ARTICLE_UPDATE_PLAN.md).
@@ -19,6 +26,13 @@ full manuscript/claim review and final PDF artifacts remain under the
 No kernel rules, renderer code or resource defaults changed. The last health
 measurement ended at its 300-second bound and is recorded in the parent plan;
 no new health work follows it during this priority.
+
+Documentation follow-up found during source review: the browser reviewer's
+pointwise-application and nested-exchange preset assumption captions still
+print ordinary `Functor_cat`, while the transferred joint operators and tests
+use `Functor_cart_cat`. Correct those captions in a later focused frontend
+slice; fixed-inner evaluation must keep the ordinary mapping category. This
+is not permission to resume a broad frontend or performance investigation.
 
 User decision, 2026-10-26: waive another immediate full TypeScript aggregate
 after the two test-only id ownership fixes. Carry the complete aggregate and

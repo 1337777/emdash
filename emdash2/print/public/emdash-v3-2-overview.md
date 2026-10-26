@@ -3,7 +3,7 @@ title: Functorial Type Theory: An Executable Architecture for Directed Dependenc
 authors: The emdash contributors
 edition: overview research article
 status: research draft
-date: 2026-09-11
+date: 2026-10-26
 ---
 
 > **Research-draft status.** This article describes the checked emdash v3.2
@@ -450,12 +450,14 @@ $\operatorname{Hom}_{E[y]}(E[f](u),\Phi[y](v))$. General lax $\Phi$ remains
 allowed; the construction retains its comparison cells instead of declaring
 its naturality to be an equality.
 
-The full category of total arrows has the corrected normal form
+Put $I=\operatorname{Hom}_K(x,y)$ and $H=H_{E,x,u,y,v}$. The full
+category of total arrows has the corrected normal form
 
 $$
-\operatorname{Hom}_{\Sigma_K E}((x,u),(y,v))
-=O\!\left(\Sigma_{O(I)}O_{\mathrm{fib}}(H_{E,x,u,y,v})\right),
-\qquad I=\operatorname{Hom}_K(x,y).
+\begin{aligned}
+&\operatorname{Hom}_{\Sigma_K E}((x,u),(y,v))\\
+&\qquad=O\!\left(\Sigma_{O(I)}O_{\mathrm{fib}}(H)\right).
+\end{aligned}
 $$
 
 Total fibre duality changes the base of $H:T(I)\to\mathsf{Cat}_{\mathrm{cart}}$
@@ -513,7 +515,7 @@ corresponding family and transformation uncurrying. Further `Sigma_cat` and
 
 Independent displayed variables over one base use fibrewise products without
 postulating a new primitive product-family head. For
-$B,C:K\\vdash\\mathbf{Cat}$, write
+$B,C:K\to\mathsf{Cat}_{\mathrm{cart}}$, write
 
 $$
 P(B,C)[k]=B[k]\\times C[k].
@@ -1429,8 +1431,11 @@ through four, the five faces of the four-simplex, noncollapse, and one next
 action are checked.
 
 The active `DependentSimplexObservation(C,n)` is an object package, not
-yet a whole category. The corresponding mapping-category equivalence,
-degeneracies, and general Kan, Segal, or Rezk theorems remain open.
+yet a whole category. A mapping-category equivalence also needs a matching
+shape/profile: strict maps from ordinary ordinals preserve composites
+exactly, whereas dependent triangles can retain nonidentity fillers. The
+required equivalences, degeneracies, and general Kan, Segal, or Rezk theorems
+remain open.
 
 # 9. Research Boundaries
 

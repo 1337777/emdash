@@ -45,7 +45,7 @@ Five reading paths make the dependencies explicit:
 | category theorist | Prologue; Chapters 2, 5, and 8–30 | Chapters 1, 3, 4, and 7 for equality, propositions, univalence, and height |
 | algebraic geometer | Chapters 13, 16, 18–24, and 30 | Chapters 2, 3, 5, 6, and 12 for the directed, logical, inductive, universal, and adjoint foundations |
 | implementer | Chapters 1, 2, 6, 8, 9, and 25–30; Appendices A, B, E, F, and G | the theorem chapters whose evidence route is being inspected |
-| external reviewer | Chapters 2.6, 8, and 25–30; then the integrated reviewer, live or local | Appendices A, B, F, and G for notation, evidence, status, and architecture |
+| external reviewer | Chapters 2.6–2.7.1, 8, 14, and 25–30; then the integrated reviewer, live or local | Appendices A, B, F, and G for notation, evidence, status, and architecture |
 
 These are paths through one dependency graph, not separate foundations. In
 particular, the category-theory route still uses equality-local reasoning, and
@@ -61,6 +61,14 @@ runs the three-part research report and opens this book. Its text notation is
 a bounded executable subset. The mathematical notation used throughout the
 book is intentionally broader and should not be read as a complete parser
 grammar.
+
+The present source revision uses strict public functors and conventional lax
+transformations. The admitted family coefficient has Cartesian mapping Homs;
+it is distinct from the public universe. For the dependent-Hom story, read
+[Section 2.7.1](#chapter-2-7-1) together with the dualities in
+[Chapter 14](#chapter-14), then consult the projection-owner table in
+[Appendix G](#appendix-formal-presentation). The current source draft is not
+necessarily the edition served by the public reviewer or DOI record.
 
 Composition is written in categorical order:
 

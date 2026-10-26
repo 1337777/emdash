@@ -408,8 +408,9 @@ $$
 
 where $R$ is a sieve on $U$ and $c$ says that $R$ covers. These questions
 themselves form a category. For a fixed presheaf $X$, matching categories and
-section categories then vary as Cat-valued families over the whole question
-category, and restriction becomes one displayed functor between them.
+section categories then vary as admitted families into the Cartesian
+coefficient of Chapter 2 over the whole question category. Restriction is one
+displayed functor between them; its base comparison remains lax.
 
 An arrow between questions includes a change of base $p:V\to U$ and the
 pulled-back covering question over $V$. The topology's stability law supplies

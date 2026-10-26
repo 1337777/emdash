@@ -2,7 +2,7 @@
 
 Date: 2026-10-26
 Plan-ID: EMDASH-FOUNDATIONS-BOOK-ARTICLE-UPDATE
-Status: active; foundational book/article source revision underway; broader review and final artifacts remain
+Status: complete local draft revision; source review, artifact inspection and local distribution promotion qualified
 Parent: [strict-functor/duality foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Worktree: `/home/user1/emdash1-strict-functor-duality-v1`
 Branch: `goal/strict-functor-duality-v3.2`
@@ -191,3 +191,53 @@ Preface/reader guide and backmatter need the final edition audit. Finish the
 complete 46-source disposition before metadata/PDF/distribution promotion.
 Then generate and visually inspect the final artifacts under the owning tools.
 This keeps the active work on documentation; it does not reopen the migration.
+
+## Complete manuscript disposition and draft artifacts
+
+The [46-source review](EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md) records each
+manifest source, the 15 changed and two new evidence entries, the 172 retained
+claim contracts, the article/frontend profile review, and unchanged attribution.
+It is an exposition audit against current owners, not a new consistency or
+model theorem. The book's native homology category is now explicitly oplax,
+and the source ordinary reconstruction premise is distinguished from its
+whole derived oplax-family image.
+
+Visual inspection of the first PDF found a remaining simplex paragraph that
+still allowed an arbitrary functor compositor. The manuscript now distinguishes
+ordinary strict ordinal maps from nonidentity dependent fillers and from the
+separately qualified native join-built shapes. This changes neither native
+nerve code nor its deferred completion task. The final export replaces that
+intermediate artifact; no intermediate hash is used for promotion.
+
+The local draft versions are book `0.10.0-dev` and overview `0.4.0-dev`, both
+dated 2026-10-26. Metadata changes distinguish the revised foundation from the
+previous draft. Existing owning exporters perform generation, checks and local
+distribution copies; no publication, tag, merge or push is performed.
+
+The PDF skill is used for image-based artifact inspection, with repository
+exporters taking precedence over generic PDF authoring advice. The artifact
+operation marker ran successfully once for the two requested outputs. Poppler
+and the existing pdf-lib checks provide rendering/text/metadata inspection;
+no dependency installation or renderer modification is needed.
+
+Two browser-reviewer assumption captions still name the old ordinary mapping
+category for joint evaluation/exchange; the actual transfer uses Cartesian
+mapping categories. This small frontend-caption follow-up is recorded in the
+review and parent ledger. It does not alter the corrected manuscript examples
+or reopen the waived frontend aggregate during this documentation stage.
+
+## Completion boundary
+
+B0–B4 are accounted for by the [source/claim review](EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md),
+covering all 46 manifest sources and the overview. B5 passes the final owning
+book/article release pipelines and the recorded visual review. B6 records the
+actual hashes, local promotion, unchanged native source boundary, retained
+semantic hypotheses and deferred parent-goal obligations in that review.
+The current tracked artifacts are [book](emdash-book.pdf) and
+[overview](emdash3_2.pdf), with their generated/authored Markdown copies.
+
+This completes SF-BOOK/SF-ARTICLE as **local draft updates**, not publication
+or the entire persistent goal. The next authorized substantial continuation
+is the separate review and proposed subplan for adapting the legacy nerve
+work. Do not substitute a new miscellaneous health/performance sequence for
+that review; retain the unsatisfied final-integration obligations explicitly.
