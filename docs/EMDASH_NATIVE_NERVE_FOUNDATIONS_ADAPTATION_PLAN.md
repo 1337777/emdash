@@ -2,7 +2,7 @@
 
 Date: 2026-10-26
 Plan-ID: NATIVE-NERVE-FOUNDATIONS-ADAPTATION-V3.2
-Status: NF-1 observer, isolated realization and whole oplax-family reconstruction retained; graph reconstruction and whole inverses open
+Status: NF-1 first whole walking inverse derived in isolation; native-total reconstruction and production qualification open
 Parent: [consolidated foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Receiver: `goal/strict-functor-duality-v3.2`, checkpoint `1fe72617`
 Donor: `goal/native-nerve-legacy-completion-v3.2`, checkpoint `280e7a03`
@@ -151,6 +151,28 @@ remain outside this continuation. None is an automatic prerequisite for the
 required comparisons.
 
 ## First bounded implementation slice
+
+Graph projection continuation, 2026-10-26: two whole endpoint comparisons
+at the graph owner pass on the corrected total-dual source, with all warning
+inventory fields unchanged from their import baseline. The next combined
+candidate uses fixed prewhiskering for the universal transformation; the
+donor's joint Cartesian composition expression is not copied. Its first
+attempt failed while forming the omission control's type because stable
+precomposition endpoints did not chain through raw-composition comparisons.
+That is a typing failure, not a qualified negative control. A transparent
+typed identity view now resolves that boundary without an additional endpoint
+normalization rule. The whole graph generator, generic oplax-family
+reindexing and actual first inverse `Realize ∘ Observe ≐ id_G` all pass in the
+[retained derivation](../emdash2/audits/native_nerve_foundations/README.md#first-whole-walking-inverse).
+It uses three structural graph beta comparisons, existing mixed exchange and
+walking source generation, not an inverse axiom. The corrected omission and
+distinct-input controls pass. The combined 180s run timed out in imports;
+the final candidate passes in 284.394s / 554,804 KiB under 300s / 2 GiB, with
+subject reduction and all five warning fields unchanged from the complete
+import baseline. Next is `Observe ∘ Realize ≐ id_N`, through the original
+native total's whole reconstruction. Its graph/Sigma higher implementation
+and the inherited core-unit overlap review remain explicit qualification
+obligations. Keep these candidates isolated until owning promotion gates pass.
 
 Whole family reconstruction, 2026-10-26: the [new derivation](../emdash2/audits/native_nerve_foundations/README.md#whole-reconstruction-of-oplax-walking-families)
 reconstructs arbitrary `D:K→Functor_oplax_cat(I,C)` by its two endpoint

@@ -186,3 +186,60 @@ are unchanged. The next missing input to the walking inverse derivation is
 the native graph's **whole** source, target and universal-transformation
 projections. Its currently checked point/square projections do not alone
 supply those comparisons; retain that distinction when adapting the donor.
+
+## First whole walking inverse
+
+The [whole generator construction](graph_whole_generator.lpfragment) and
+[inverse proof](walking_first_inverse.lpfragment) now derive
+
+```text
+Realize_C ∘ Observe_C ≐ id_G(C),
+where G(C) = Functor_oplax_cat(I,C).
+```
+
+The actual maps are the observer and realization already retained above.
+The proof reconstructs the whole realized graph, specializes it to the whole
+oplax-diagram evaluator, and uses its existing admission-carrier comparison.
+The conclusion is equality of entire functors on G(C), not only their object
+values. It uses no OneCat restriction, inverted filler or inverse axiom.
+
+Three structural graph beta comparisons are added: the whole source and
+target recover F and G, and prewhiskering the native universal transformation
+by `Graph(L)` recovers the original whole `lax_transfor(L)`. The endpoint
+clauses are in [their owner-position fragment](graph_endpoint_projections.lpfragment);
+their [typed consumers](graph_endpoint_controls.lpfragment) distinguish whole
+comparison from the earlier point/square computation. These complete the
+selected graph interface; they are not claimed to follow from its old
+point-only rules or to derive its represented-Sigma implementation.
+
+The transformation projection uses **fixed precomposition**, retaining
+ordinary lax transformations. The donor's joint Cartesian composition formula
+is not copied. A protected typed identity view compares its stable endpoint
+heads with raw composition using an existing generic comparison. It adds no
+runtime rule, endpoint unifier or equality-proof argument. The initial raw
+omission control failed while forming its type; the corrected, well-typed
+omission control rejects the whole beta before that comparison is introduced.
+Further controls keep distinct input transformations and source/target
+functors distinct. All inherited original-filler and unit checks still pass.
+
+The [verification record](graph_verification.json) pins the source closure,
+three isolated owner patches, four assembled programs and five run receipts.
+The retained combined candidate passes in 284.394s / 554,804 KiB under the
+explicit 300s / 2 GiB profile. Its first import takes 265.32s, the realization
+import 13.44s, and the whole universal-cell comparison 4.69s. A prior 180s
+run stopped in imports; the subsequent repaired proof was not timed out.
+All five warning inventory fields equal the completed-import baseline.
+The inherited 31 core-unit overlap warnings remain an unpromoted prerequisite.
+No production source or resource default changes in this checkpoint.
+
+```bash
+python3 emdash2/audits/native_nerve_foundations/replay_graph.py \
+  --timeout-seconds 300
+```
+
+The replay's assembly has also been checked byte-for-byte against the passing
+receipt without rerunning the expensive checker. The **other** composite,
+`Observe_C ∘ Realize_C ≐ id_N(C)`, remains open. It requires reconstruction of
+the original native total and the universal graph's whole higher action;
+the first inverse does not imply it. NF-1, its production qualification and
+all subsequent cube/simplex stages remain incomplete.

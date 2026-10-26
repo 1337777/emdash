@@ -1,0 +1,19 @@
+require open emdash.audits.native_nerve_foundations.walking_observer;
+
+symbol nerve_graph_source_path [B C : Cat] [F G : τ (Functor B C)]
+  (L : τ (@LaxTransfor B C F G))
+  : τ (@= (Functor B C)
+      (@comp_cat_fapp0 B (@LaxArrow_cat C) C (@cubical_src_func C)
+        (@gray_transf_graph_func B C F G L)) F)
+≔ @eq_refl (Functor B C)
+    (@comp_cat_fapp0 B (@LaxArrow_cat C) C (@cubical_src_func C)
+      (@gray_transf_graph_func B C F G L));
+
+symbol nerve_graph_target_path [B C : Cat] [F G : τ (Functor B C)]
+  (L : τ (@LaxTransfor B C F G))
+  : τ (@= (Functor B C)
+      (@comp_cat_fapp0 B (@LaxArrow_cat C) C (@cubical_tgt_func C)
+        (@gray_transf_graph_func B C F G L)) G)
+≔ @eq_refl (Functor B C)
+    (@comp_cat_fapp0 B (@LaxArrow_cat C) C (@cubical_tgt_func C)
+      (@gray_transf_graph_func B C F G L));

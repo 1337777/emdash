@@ -42,6 +42,17 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+NF-1 first whole inverse, 2026-10-26: the [retained graph/inverse construction](../emdash2/audits/native_nerve_foundations/README.md#first-whole-walking-inverse)
+derives `Realize_C ∘ Observe_C ≐ id` on the entire opposite-profile walking
+mapping category. Three structural graph beta comparisons, the source-generation
+law and existing mixed exchange supply the proof; no inverse is postulated.
+A typed identity view resolves stable precomposition endpoints without a new
+endpoint normalization rule. The combined candidate passes in 284.394s /
+554,804 KiB under 300s / 2 GiB, with unchanged complete-import warning inventory.
+The native-total composite, whole graph/Sigma higher implementation, inherited
+core-unit qualification and later NF stages remain open. This is non-library
+evidence; it neither completes NF-1 nor resumes deferred health/performance work.
+
 NF-1 whole family reconstruction, 2026-10-26: the [retained derivation](../emdash2/audits/native_nerve_foundations/README.md#whole-reconstruction-of-oplax-walking-families)
 now reconstructs arbitrary whole oplax walking families through ordinary-lax
 generator action and mixed exchange. It uses one explicit structural walking

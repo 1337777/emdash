@@ -4,6 +4,15 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: local book/article continuation complete; native nerve adaptation active; production health/final integration remain deferred obligations
 
+SF-NERVES / NF-1 first inverse: [the whole graph projection and reconstruction](../emdash2/audits/native_nerve_foundations/README.md#first-whole-walking-inverse)
+derive `Realize ∘ Observe ≐ id` in the original oplax walking mapping category.
+The graph endpoint/generator laws are structural beta comparisons, not an
+inverse axiom or a pointwise substitute. The retained combined check passes,
+including distinct-input controls, with unchanged import warnings. Next:
+native-total reconstruction for `Observe ∘ Realize`, whole graph/Sigma higher
+qualification, the unpromoted core-unit overlap review and the remaining NF
+stages. Production code and book/article artifacts remain unchanged.
+
 SF-NERVES / NF-1 family reconstruction: the [whole oplax-family derivation](../emdash2/audits/native_nerve_foundations/README.md#whole-reconstruction-of-oplax-walking-families)
 passes for arbitrary parameter and target categories. It needs one structural
 source-generation comparison; current strict postcomposition and mixed

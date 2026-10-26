@@ -1,0 +1,97 @@
+// Typed identity view of the existing fixed-precomposition boundary.
+// Generic H,F,G remain visible while the two ordinary presentations are
+// compared. There is no equality argument or new normalization clause.
+protected symbol nerve_prewhisker_transf_view [A B C : Cat]
+  (H : τ (Functor A B)) [F G : τ (Functor B C)]
+  (eta : τ (@Transf A C
+    (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) C A B H F)
+    (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) C A B H G)))
+  : τ (@Transf A C (@comp_cat_fapp0 A B C F H) (@comp_cat_fapp0 A B C G H))
+≔ eta;
+
+symbol nerve_graph_universal_cell [B C : Cat] [F G : τ (Functor B C)]
+  (L : τ (@LaxTransfor B C F G)) : τ (@Transf B C F G)
+≔ @nerve_prewhisker_transf_view B (@LaxArrow_cat C) C
+    (@gray_transf_graph_func B C F G L) (@cubical_src_func C) (@cubical_tgt_func C)
+    (@hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id_func Cat_cat)
+      C B (@LaxArrow_cat C) (@gray_transf_graph_func B C F G L)
+      (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C));
+
+// Before the whole graph beta, the original point/square laws do not
+// supply this whole transfor comparison. The assertion type is already valid.
+assertnot [B C : Cat] [F G : τ (Functor B C)]
+  (L : τ (@LaxTransfor B C F G)) ⊢
+  @eq_refl (@Transf B C F G) (@nerve_graph_universal_cell B C F G L)
+  : τ (@= (@Transf B C F G) (@nerve_graph_universal_cell B C F G L)
+      (@lax_transfor B C F G L));
+
+// Whole projection of the existing graph through the native universal cell.
+// Fixed prewhiskering is the ordinary mapping action, not Cartesian joint
+// composition of two arbitrary lax transformations.
+unif_rule
+  @hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+    _ _ _ (@gray_transf_graph_func $B $C $F $G $L) _ _
+    (@nerve_native_universal_transf $C)
+  ≡ $observed ↪ [ @lax_transfor $B $C $F $G $L ≡ $observed ];
+
+symbol nerve_graph_universal_path [B C : Cat] [F G : τ (Functor B C)]
+  (L : τ (@LaxTransfor B C F G))
+  : τ (@= (@Transf B C F G)
+      (@nerve_graph_universal_cell B C F G L) (@lax_transfor B C F G L))
+≔ @eq_refl (@Transf B C F G) (@nerve_graph_universal_cell B C F G L);
+
+// General opposite-profile reindexing uses only the existing fixed
+// prewhiskering action. Keep both original D and F in the whole term.
+symbol nerve_oplax_reindex_generator_path [A B I C : Cat]
+  (D : τ (Functor B (Functor_oplax_cat I C))) (F : τ (Functor A B))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (@= (@Transf A C
+      (@comp_cat_fapp0 A B C (@diagram_oplax_family_at_func B I C D i) F)
+      (@comp_cat_fapp0 A B C (@diagram_oplax_family_at_func B I C D j) F))
+      (@diagram_oplax_family_transf A I C
+        (@comp_cat_fapp0 A B (Functor_oplax_cat I C) D F) i j u)
+      (@hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id_func Cat_cat)
+        C A B F (@diagram_oplax_family_at_func B I C D i)
+        (@diagram_oplax_family_at_func B I C D j)
+        (@diagram_oplax_family_transf B I C D i j u)))
+≔ @eq_refl (@Transf A C
+    (@comp_cat_fapp0 A B C (@diagram_oplax_family_at_func B I C D i) F)
+    (@comp_cat_fapp0 A B C (@diagram_oplax_family_at_func B I C D j) F))
+    (@diagram_oplax_family_transf A I C
+      (@comp_cat_fapp0 A B (Functor_oplax_cat I C) D F) i j u);
+
+symbol nerve_realize_graph_generator_path [B C : Cat] [F G : τ (Functor B C)]
+  (L : τ (@LaxTransfor B C F G))
+  : τ (@= (@Transf B C F G)
+      (@diagram_oplax_family_transf B WalkingArrow_cat C
+        (@comp_cat_fapp0 B (@LaxArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+          (nerve_walking_realize_func C) (@gray_transf_graph_func B C F G L))
+        walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+      (@lax_transfor B C F G L))
+≔ @eq_trans (@Transf B C F G)
+    (@diagram_oplax_family_transf B WalkingArrow_cat C
+      (@comp_cat_fapp0 B (@LaxArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+        (nerve_walking_realize_func C) (@gray_transf_graph_func B C F G L))
+      walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+    (@nerve_graph_universal_cell B C F G L) (@lax_transfor B C F G L)
+    (@nerve_oplax_reindex_generator_path B (@LaxArrow_cat C) WalkingArrow_cat C
+      (nerve_walking_realize_func C) (@gray_transf_graph_func B C F G L)
+      walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+    (@nerve_graph_universal_path B C F G L);
+
+// Whole graph projections must not identify distinct input transformations.
+assertnot [B C : Cat] [F G : τ (Functor B C)]
+  (L M : τ (@LaxTransfor B C F G)) ⊢
+  @eq_refl (@Transf B C F G) (@nerve_graph_universal_cell B C F G L)
+  : τ (@= (@Transf B C F G) (@nerve_graph_universal_cell B C F G L)
+      (@lax_transfor B C F G M));
+
+// The source projection retains F, independently of the target G.
+assertnot [B C : Cat] [F G : τ (Functor B C)]
+  (L : τ (@LaxTransfor B C F G)) ⊢
+  @eq_refl (Functor B C)
+    (@comp_cat_fapp0 B (@LaxArrow_cat C) C (@cubical_src_func C)
+      (@gray_transf_graph_func B C F G L))
+  : τ (@= (Functor B C)
+      (@comp_cat_fapp0 B (@LaxArrow_cat C) C (@cubical_src_func C)
+        (@gray_transf_graph_func B C F G L)) G);

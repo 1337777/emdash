@@ -1,0 +1,18 @@
+// Whole endpoint projections of the existing graph constructor. These are
+// structural graph beta comparisons, not consequences of point agreement.
+// Total opposite uses its actual stable R/T heads after normalization.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ (@Sigma_proj1_func _ _)))
+    (@gray_transf_graph_func _ _ $F _ _)
+  ≡ $observed ↪ [ $F ≡ $observed ];
+
+// Keep the actual displayed target projection and its strict coefficient
+// duality. The input graph transformation L itself remains default lax.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _
+      (@CoAbove2_func _ _ (@Op_func _ _ (@Product_projR_func _ _)))
+      (@CoAbove2_func _ _ (@Op_func _ _ (@sigma_map_func _ _ _
+        (@strict_transfor _ _ _ _
+          (@TotalOp_funcd _ _ _ (@sigma_proj1_family_funcd _ _ _)))))))
+    (@gray_transf_graph_func _ _ _ $G _)
+  ≡ $observed ↪ [ $G ≡ $observed ];
