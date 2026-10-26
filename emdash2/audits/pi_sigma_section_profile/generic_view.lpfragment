@@ -1,0 +1,9 @@
+require open emdash.emdash3_2;
+
+// These are two presentations of the SAME whole pullback family.
+// With the section classifier retained, no carrier/base change is involved.
+symbol profile_projection_section_identity [K : Cat] (R D : τ (Catd K))
+  (s : τ (Obj (@Pi_cat (@Sigma_cat K R)
+    (@Pullback_catd (@Sigma_cat K R) K D (@Sigma_proj1_func K R)))))
+  : τ (Obj (@Pi_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D)))
+≔ s;

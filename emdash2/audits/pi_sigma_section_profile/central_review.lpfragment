@@ -1,0 +1,2 @@
+require open emdash.emdash3_2_checks;
+require open emdash.examples.groupoidal_structured_j_eq1;

@@ -1,0 +1,28 @@
+require open emdash.emdash3_2;
+require open emdash.examples.sigma_section_projection_views;
+require open emdash.examples.sigma_recursive_hom_action;
+require open emdash.examples.path_induction_transitivity;
+
+// The forward map remains a whole functor with section-valued Hom action.
+assert [K : Cat] (R D : τ (Catd K)) ⊢
+  @sigma_functord_sec_func K R D
+  : τ (Functor (@Functord_cat K R D)
+      (@Pi_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D)));
+
+assert [K : Cat] (R D : τ (Catd K)) [F G : τ (@Functord K R D)] ⊢
+  @fapp1_func _ _ (@sigma_functord_sec_func K R D) F G
+  : τ (Functor (@Transfd_cat K R D F G)
+      (@Transfd_cat (@Sigma_cat K R) (@Const_catd (@Sigma_cat K R) Terminal_cat)
+        (@Sigma_proj1_pullback_catd K R D)
+        (@sigma_functord_sec K R D F) (@sigma_functord_sec K R D G)));
+
+// A section is not silently retyped as a displayed map over a different base.
+assertnot [K : Cat] (R D : τ (Catd K)) (F : τ (@Functord K R D)) ⊢
+  @sigma_functord_sec K R D F : τ (@Functord K R D);
+
+// The section category keeps its full higher mapping profile.
+assertnot [K : Cat] (R D : τ (Catd K)) ⊢
+  @eq_refl (Obj Cat_cat) (@Pi_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D))
+  : τ (@= (Obj Cat_cat)
+      (@Pi_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D))
+      (@Functord_cat K R D));

@@ -12,6 +12,17 @@ with their source links and decisions. Their “next” statements are historica
 
 ## Current foundations profile — 2026-10-25
 
+Qualification update, 2026-10-26: the [Pi/Sigma higher-profile audit](../audits/pi_sigma_section_profile/README.md)
+identifies an overstrong legacy uncurrying comparison retained after changing
+family coefficients to `Cat_cart`. The forward uncurrying functor remains
+useful, but its full target section category must not be identified with the
+displayed-functor category at all higher cells. The scoped correction passes
+the core, focused/native replays and the complete central/groupoidal gate in
+isolation; production promotion and integration remain pending under
+[its plan](../../docs/EMDASH_SIGMA_SECTION_PROFILE_CORRECTION_PLAN.md).
+The older source/check receipts below do not establish a semantic model of
+that inherited comparison.
+
 The strict-functor/corrected-duality migration is now installed in this
 worktree's active Lambdapi sources. The [living plan](../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 and [follow-up ledger](../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER.md)

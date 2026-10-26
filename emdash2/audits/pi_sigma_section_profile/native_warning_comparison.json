@@ -1,0 +1,31 @@
+{
+  "baseline": "20261026T203233Z-ed6c22ea10c8465f9ac1b6648451485b",
+  "candidate": "20261026T212056Z-1fb4843d733f4c02a9b66dba29b63af0",
+  "baselineCategories": {
+    "replaceable pattern variable": 181,
+    "unjoinable critical pair": 2155
+  },
+  "candidateCategories": {
+    "replaceable pattern variable": 181,
+    "unjoinable critical pair": 2151
+  },
+  "addedRuleFamilies": [],
+  "removedRuleFamilies": [
+    {
+      "heads": [
+        "Obj",
+        "Sigma_cat"
+      ],
+      "count": 2
+    },
+    {
+      "heads": [
+        "Sigma_cat",
+        "Transfd_cat"
+      ],
+      "count": 2
+    }
+  ],
+  "parserIssues": {},
+  "note": "Source/profile correction and omission of the now-unneeded section-identity view; no confluence claim."
+}

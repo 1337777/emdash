@@ -1,0 +1,79 @@
+{
+  "model": "free directed diamond with one 2-cell chi: va => bu",
+  "strict_2_category_laws": "all finite unit, associativity and interchange cases verified",
+  "objects": 4,
+  "arrows": 10,
+  "two_cells": 11,
+  "walking_arrow_functor_objects": 10,
+  "strict_natural_transformations": 38,
+  "lax_natural_transformations": 47,
+  "witness": {
+    "F": "u",
+    "G": "v",
+    "components": [
+      "a",
+      "b"
+    ],
+    "lax_cell": "chi: va => bu",
+    "strict": false,
+    "lax": true
+  },
+  "added_lax_squares": [
+    [
+      "id0",
+      "id3",
+      "va",
+      "bu"
+    ],
+    [
+      "id0",
+      "v",
+      "a",
+      "bu"
+    ],
+    [
+      "id0",
+      "va",
+      "id0",
+      "bu"
+    ],
+    [
+      "u",
+      "id3",
+      "va",
+      "b"
+    ],
+    [
+      "u",
+      "v",
+      "a",
+      "b"
+    ],
+    [
+      "u",
+      "va",
+      "id0",
+      "b"
+    ],
+    [
+      "bu",
+      "id3",
+      "va",
+      "id3"
+    ],
+    [
+      "bu",
+      "v",
+      "a",
+      "id3"
+    ],
+    [
+      "bu",
+      "va",
+      "id0",
+      "id3"
+    ]
+  ],
+  "representable_family_witness": "triangle functors and all lax coherence checked; restriction to vertical V has the same non-strict chi",
+  "boundary": "semantic profile audit; not a Lambdapi theorem or a native nerve inverse"
+}

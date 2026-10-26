@@ -1,0 +1,37 @@
+{
+  "baseline": "20261026T194156Z-a0da571be95348d38f43aee65f9f608d",
+  "candidate": "20261026T211304Z-79897f58e1e647e3aa36998c4dcd077c",
+  "baselineCategories": {
+    "replaceable pattern variable": 176,
+    "unjoinable critical pair": 1704
+  },
+  "candidateCategories": {
+    "replaceable pattern variable": 176,
+    "unjoinable critical pair": 1700
+  },
+  "addedRuleFamilies": [],
+  "removedRuleFamilies": [
+    {
+      "heads": [
+        "Obj",
+        "Sigma_cat"
+      ],
+      "count": 2
+    },
+    {
+      "heads": [
+        "Sigma_cat",
+        "Transfd_cat"
+      ],
+      "count": 2
+    }
+  ],
+  "unmappedChangedLocations": {},
+  "locationsRemovedAfterMapping": {
+    "emdash3_2.lp:15122": 2,
+    "emdash3_2.lp:15132": 2
+  },
+  "locationsAddedAfterMapping": {},
+  "parserIssues": {},
+  "note": "Baseline target fails only after the complete unmodified core import; warning inventory is complete. Source locations are mapped only across exact unchanged lines."
+}

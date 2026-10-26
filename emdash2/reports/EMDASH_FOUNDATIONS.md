@@ -4046,6 +4046,14 @@ arbitrary Sigma-arrow eta or path cast is introduced.
 For the Sigma first projection, this stable head makes section uncurrying a
 direct proof-time comparison:
 
+Qualification update (2026-10-26): the following whole-category comparison
+is still implemented in production but is too strong for the current
+`Cat_cart` higher profile. The [finite/source audit](../audits/pi_sigma_section_profile/README.md)
+and [correction plan](../../docs/EMDASH_SIGMA_SECTION_PROFILE_CORRECTION_PLAN.md)
+retain the explicit forward functor below and are removing the unrestricted
+category/object/next-Hom identification. Read the displayed equality as a
+legacy contract awaiting that correction, not as a qualified higher equivalence.
+
 ```text
 Π_(k,r) D[k] = (k :^n K ; R[k] ⊢ D[k]).
 ```

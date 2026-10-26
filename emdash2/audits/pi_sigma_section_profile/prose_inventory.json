@@ -1,0 +1,35 @@
+{
+  "scope": "Targeted follow-up review; the earlier complete book/article snapshot is preserved. No manuscript edits or renders are performed in this audit.",
+  "files": [
+    {
+      "file": "emdash2/reports/EMDASH_FOUNDATIONS.md",
+      "sha256AtReview": "7f8117f68c7c1c7d48220ef357cd6805db477deb3046fbdba144a99eac04e6b4",
+      "disposition": "The implemented whole Pi/Sigma equality is explicitly qualified by the new audit. Replace its legacy account with the forward-map contract when source promotion settles."
+    },
+    {
+      "file": "emdash2/reports/REPORT_EMDASH_V3_2_CURRENT_STATUS_AND_SOP_2026-05-26.md",
+      "sha256AtReview": "d9fa9f758b1beb22df200b58930ee2e47b05a0e4b8b2efaf2c6b0169c2be4575",
+      "disposition": "Qualification update is present. Update production status only after the correction is installed and gated."
+    },
+    {
+      "file": "emdash2/book/chapters/05-induction-and-universal-properties.md",
+      "sha256AtReview": "6bb4c59426da9bc1df43ea4a4cd4cb952fc31427eb69e1da8b24ed31288edc11",
+      "disposition": "The section-valued path-induction account remains correct. Review its formal-status reference against the explicit forward constructor; no broad chapter rewrite is indicated."
+    },
+    {
+      "file": "emdash2/book/appendices/g-formal-presentation.md",
+      "sha256AtReview": "46ef17a853a37d425e60605b74be04206a0979fd41cdcf3e966ee25490e7a8dd",
+      "disposition": "Its ordinary/displayed presentation comparisons concern Catd and Transf, not the retired Pi/Sigma category identification. Preserve those valid comparisons."
+    },
+    {
+      "file": "emdash2/print/public/emdash-v3-2-overview.md",
+      "sha256AtReview": "aabecae5df3493401d83b3af01637e4fad0d5fe2e7528d0ee862c503db410c37",
+      "disposition": "The normalization route already evaluates the section at (y,p). Add a focused higher-profile/forward-constructor clarification after source stabilization; family uncurrying and Gray closure are separate contracts."
+    },
+    {
+      "file": "emdash2/book/chapters/28-laxity-interchange-and-gray-direction.md",
+      "sha256AtReview": "b05b8e39f8e261541bfd5e4c7dca33e214dd736a37c4c88a8984e1cb904af944",
+      "disposition": "The selected Gray closure is separate from the Pi/Sigma identification; no change is justified solely by the word uncurrying."
+    }
+  ]
+}

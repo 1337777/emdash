@@ -2,7 +2,7 @@
 
 Date: 2026-10-26
 Plan-ID: NATIVE-NERVE-FOUNDATIONS-ADAPTATION-V3.2
-Status: NF-1 first whole inverse and second-composite-to-graph comparison derived; native Sigma reconstruction and production qualification open
+Status: NF-1 results retained; isolated Pi/Sigma profile correction and central gate pass, promotion review pending before further reconstruction
 Parent: [consolidated foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Receiver: `goal/strict-functor-duality-v3.2`, checkpoint `1fe72617`
 Donor: `goal/native-nerve-legacy-completion-v3.2`, checkpoint `280e7a03`
@@ -151,6 +151,18 @@ remain outside this continuation. None is an automatic prerequisite for the
 required comparisons.
 
 ## First bounded implementation slice
+
+Profile boundary, 2026-10-26: the [Pi/Sigma correction](EMDASH_SIGMA_SECTION_PROFILE_CORRECTION_PLAN.md)
+is now a prerequisite to further native reconstruction. The old full section/
+displayed-functor identification suppresses legitimate lax fibre morphisms
+under the selected Cartesian coefficient. Preserve its forward functor and
+the broader section category. The finite audit, corrected core and focused
+consumers pass; the native totalization prefix also passes with the simpler
+identity view and without the earlier section-identity unifier. The complete
+central/groupoidal gate now passes; production promotion and integration
+remain open. Do not use the old classifier folds
+to close the native inverse, and do not discard the already constructed maps
+or original higher-cell requirements.
 
 Common whole totalization, 2026-10-26: the [owner-local construction](../emdash2/audits/native_nerve_foundations/README.md#common-whole-section-totalization)
 now proves `Observe ∘ Realize ≐ Graph(U) ≐ Tot(s_U)` and `Tot(τ) ≐ id_N`

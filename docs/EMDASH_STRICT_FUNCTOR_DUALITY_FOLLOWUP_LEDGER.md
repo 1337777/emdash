@@ -2,7 +2,23 @@
 
 Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: local book/article continuation complete; native nerve adaptation active; production health/final integration remain deferred obligations
+Status: Pi/Sigma profile correction active; native nerve work retained; book/article snapshot needs a targeted profile update; production health/final integration remain deferred
+
+Required profile correction: the [Pi/Sigma audit](../emdash2/audits/pi_sigma_section_profile/README.md)
+finds that the inherited whole uncurrying identification does not preserve
+the selected higher profiles. The [scoped plan](EMDASH_SIGMA_SECTION_PROFILE_CORRECTION_PLAN.md)
+keeps the forward functor, retires three broad classifier folds in isolation,
+and makes path induction use the actual section constructor. Core, focused
+reviewers and native totalization pass; no default rollback or new admission
+premise is needed. The first central run failed at an additional old diagnostic
+cast after completing 138 production imports. Its focused correction and nine
+changed profile cases pass. The nested PathInd consumers exposed by the second
+run now use `piapp0`, preserving composition. The third complete central/groupoidal
+gate passes all 2,441 central assertions; core/native warning reviews remove
+four overlaps without adding a rule family. Production promotion and source
+integration remain open. The affected prose
+must be corrected after implementation settles. Earlier receipts remain valid
+only for their exact snapshots, not as qualification of the revised profile.
 
 SF-NERVES / common section totalization: [the checked context](../emdash2/audits/native_nerve_foundations/README.md#common-whole-section-totalization)
 now expresses the actual second composite as Tot(s_U) and proves Tot(τ)=id.

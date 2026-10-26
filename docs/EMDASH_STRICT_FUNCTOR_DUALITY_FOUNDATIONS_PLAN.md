@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active consolidated goal; local book/article revision complete; native nerve adaptation in progress; production health/final integration still deferred
+Status: active consolidated goal; isolated Pi/Sigma profile correction passes its owning gates, promotion review next; native nerve continuation retained; targeted prose update and final integration pending
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,35 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Pi/Sigma profile correction, 2026-10-26: the [new scoped correction plan](EMDASH_SIGMA_SECTION_PROFILE_CORRECTION_PLAN.md)
+and [finite/source audit](../emdash2/audits/pi_sigma_section_profile/README.md)
+identify a retained legacy mismatch. With `Cat_cart` coefficients, displayed
+modifications have strict fibre components, whereas the full Sigma section
+category admits a broader higher profile. The finite witness has 38 strict
+and 47 lax transformations and includes a representable-family extension.
+Retire the unrestricted whole-category/object/next-Hom identifications in the
+isolated candidate while preserving the explicit forward uncurrying functor.
+The full core, focused consumers, generic section identity view and current
+native totalization prefix pass; the earlier section-identity workaround is
+unnecessary in that replay. Production source remains unchanged pending gates.
+
+The first central gate completed 138 production imports, then exposed another
+diagnostic using bare fibre covariance as a Sigma section. Its corrected
+forward-section/reflexive observations and all nine changed profile cases pass
+in focused checks. The two nested PathInd observations exposed by the second
+run now pass through `piapp0` at the actual total object, retaining the same
+q∘p result. The third complete central/groupoidal replay now passes in
+537.190s / 2,550,112 KiB under 900s/4 GiB, with all 2,441 central assertions
+(2,158 positive/283 negative). Four overlap warnings are removed and no new
+rule family is reported. Promotion review and required source integration are
+next; production is still unchanged. Preserve
+the actual positive transport/J comparison; do not label the failed aggregate
+green. This correction keeps strict functors, lax base FF and the selected
+duality/Homd design. Continue the native inverse only on a qualified profile;
+do not add a stronger generation law to hide this mismatch. The affected
+book/article uncurrying account receives a targeted update after the source
+correction settles.
 
 NF-1 common totalization, 2026-10-26: [the actual second composite and canonical identity](../emdash2/audits/native_nerve_foundations/README.md#common-whole-section-totalization)
 now appear as `Tot(s_U)` and `Tot(τ)` in one whole section construction.
