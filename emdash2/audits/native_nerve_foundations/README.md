@@ -243,3 +243,53 @@ receipt without rerunning the expensive checker. The **other** composite,
 the original native total and the universal graph's whole higher action;
 the first inverse does not imply it. NF-1, its production qualification and
 all subsequent cube/simplex stages remain incomplete.
+
+## Native composite as the original universal graph
+
+The [native-composite derivation](native_composite_graph.lpfragment) now proves
+
+```text
+Observe_C ∘ Realize_C ≐ Graph(U_C).
+```
+
+U_C is the same whole native universal transformation used to construct
+Realize. Its original post/left filler is retained. This comparison does not
+identify Graph(U_C) with the native identity; a negative control still rejects
+that identification.
+
+The [new owner comparison](graph_reindex_owner.lpfragment) supplies structural
+graph reindexing: `Graph(L) ∘ H ≐ Graph(H*L)`. H is strict by the public default;
+L remains a general classified lax transformation. The comparison retains
+both endpoint functors and the full reindexed carrier as residual obligations.
+An unrelated transformation cannot replace L. This is a whole graph
+constructor law, not an inverse axiom or a conclusion from point agreement.
+
+Two generic proof definitions compare oplax-family evaluation with fixed
+prewhiskering and forget the evaluator's admission before the parameter map
+is specialized. The native evaluator proof then composes that result with
+the retained whole-generator theorem. Direct reflexivity at the expanded
+realization failed, as did a chain that still performed admission-forgetting
+only after specialization. Staging that equality action at the generic family
+owner resolves both failures without new runtime rules or endpoint unifiers.
+
+The [verification](native_composite_verification.json) records those two
+failures and the passing candidate: 123.314s / 536,172 KiB under 300s / 2 GiB.
+All five warning inventory fields match the complete-import baseline. The
+first inverse and the inherited directed-filler, unit and distinct-input
+controls remain checked. The replay extends the existing graph replayer;
+assembly of both its old default record and the new record is byte-identical
+to their passing inputs, without rerunning either expensive check.
+
+```bash
+python3 emdash2/audits/native_nerve_foundations/replay_graph.py \
+  --record native_composite_verification.json --timeout-seconds 300
+```
+
+The remaining step is a whole comparison of this original graph with the
+tautological Sigma reconstruction. Current source already provides
+`tapp1_int_cart` for the source-variable profile and
+`represented_comma_family_func` at J=id as a candidate Sigma implementation.
+That avoids a new admission premise. Its connection to the public graph and
+the actual native reconstruction still need qualification. Prepared Sigma
+source-generation fragments remain unqualified scratch work; they do not
+supply the missing nerve inverse or change production code.

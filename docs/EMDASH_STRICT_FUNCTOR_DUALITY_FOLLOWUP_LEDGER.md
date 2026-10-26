@@ -4,6 +4,16 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: local book/article continuation complete; native nerve adaptation active; production health/final integration remain deferred obligations
 
+SF-NERVES / NF-1 native composite: [the checked comparison](../emdash2/audits/native_nerve_foundations/README.md#native-composite-as-the-original-universal-graph)
+now gives `Observe ∘ Realize ≐ Graph(U)`, preserving the original whole U.
+Graph reindexing is one structural constructor comparison, with carrier and
+endpoint constraints retained. Generic staged evaluation proofs replace two
+failed expanded comparisons. The native identity remains a negative control.
+Next is the graph/Sigma whole-section reconstruction, using current canonical
+`tapp1_int_cart` and represented-comma owners; no new admission layer is needed.
+Prepared Sigma-generation probes remain unqualified. All inherited promotion,
+core-unit and later NF requirements remain open.
+
 SF-NERVES / NF-1 first inverse: [the whole graph projection and reconstruction](../emdash2/audits/native_nerve_foundations/README.md#first-whole-walking-inverse)
 derive `Realize ∘ Observe ≐ id` in the original oplax walking mapping category.
 The graph endpoint/generator laws are structural beta comparisons, not an

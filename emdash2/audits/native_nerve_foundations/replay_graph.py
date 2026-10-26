@@ -19,10 +19,12 @@ HERE = Path(__file__).resolve().parent
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--timeout-seconds", type=int, default=90)
+    parser.add_argument("--record", default="graph_verification.json",
+                        help="pinned verification record in this audit directory")
     args = parser.parse_args()
     if not 1 <= args.timeout_seconds <= 3600:
         parser.error("timeout must be between 1 and 3600 seconds")
-    record = json.loads((HERE / "graph_verification.json").read_text())
+    record = json.loads(pinned_file(HERE, args.record).read_text())
     for name, expected in record["receiverInputs"].items():
         if digest(pinned_file(ROOT, name)) != expected:
             raise SystemExit(f"receiver source drift: {name}")

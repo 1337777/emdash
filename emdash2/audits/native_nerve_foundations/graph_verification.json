@@ -36,7 +36,7 @@
     "graph_endpoint_controls.lpfragment": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9",
     "graph_endpoint_projections.lpfragment": "976f48c86c4d3141d875342067610404d45f6c021d63d194a1c0a25a08f3889c",
     "graph_whole_generator.lpfragment": "7a7b3da47955bf29f9e39ba63ab4ae69079a7208c4817d23c2958cc62bd5ac09",
-    "replay_graph.py": "d41b324b45a6befacec98b0404159860e5fae7a10869f160531491fe9e09c590",
+    "replay_graph.py": "c5ee0ff93966d7809c2f5d618df7408f59f39aed5ed0d8976d7930fc53cd63ae",
     "replay_realization.py": "148caac26a2e542cac0a05768635a5ca64aaaf11ae9da3b69739f5ad661d40f7",
     "total_dual_postcomp_units.lpfragment": "d72ed818cd623c380d2651bdb9e4a7123ef2417ab29c3b3dc060c9e83ae068c5",
     "walking_first_inverse.lpfragment": "4c4bff0c0b134b364d44d18285c8dad913839c209bc8abfd80bac51d0f40414f",
@@ -253,5 +253,5 @@
     "Complete the unpromoted core-unit overlap review and production owner/reviewer gates.",
     "Finish the named interchanger, cube/simplex, same-index, degree-zero and degeneracy obligations."
   ],
-  "replayQualification": "Assembly-only execution of the retained replay validates every generated program and patched owner against the passing receipt. It did not launch another checker. Logs, input blobs, source pins and checker bytes were verified."
+  "replayQualification": "Assembly-only execution of the retained replay validates every generated program and patched owner against the passing receipt. It did not launch another checker. Logs, input blobs, source pins and checker bytes were verified. The later optional --record argument preserves the default record and assembled source bytes."
 }

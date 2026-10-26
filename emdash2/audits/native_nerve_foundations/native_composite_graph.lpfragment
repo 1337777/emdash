@@ -1,0 +1,148 @@
+require open emdash.native_nerve_graph_whole_review;
+
+// The selected default graph uses the existing canonical lax admission.
+symbol nerve_default_graph_func [B C : Cat] [F G : τ (Functor B C)]
+  (eta : τ (@Transf B C F G)) : τ (Functor B (@LaxArrow_cat C))
+≔ @gray_transf_graph_func B C F G
+    (@make_lax_transfor B C F G eta (@nerve_default_lax_profile B C F G eta));
+
+// The original admitted transfor reindexed by an arbitrary strict H.
+symbol nerve_reindexed_transf [A B C : Cat] (H : τ (Functor A B))
+  [F G : τ (Functor B C)] (L : τ (@LaxTransfor B C F G))
+  : τ (@Transf A C (@comp_cat_fapp0 A B C F H) (@comp_cat_fapp0 A B C G H))
+≔ @fapp0 _ _ (@comp_cat_con_fapp1_func A B C H F G) (@lax_transfor B C F G L);
+
+symbol nerve_graph_reindex_path [A B C : Cat] (H : τ (Functor A B))
+  [F G : τ (Functor B C)] (L : τ (@LaxTransfor B C F G))
+  : τ (@= (Functor A (@LaxArrow_cat C))
+      (@comp_cat_fapp0 A B (@LaxArrow_cat C) (@gray_transf_graph_func B C F G L) H)
+      (@nerve_default_graph_func A C (@comp_cat_fapp0 A B C F H)
+        (@comp_cat_fapp0 A B C G H) (@nerve_reindexed_transf A B C H F G L)))
+≔ @eq_refl (Functor A (@LaxArrow_cat C))
+    (@comp_cat_fapp0 A B (@LaxArrow_cat C) (@gray_transf_graph_func B C F G L) H);
+
+// Compare the two whole evaluation presentations while D and I remain
+// generic. Instantiation then reuses this proof instead of matching a large
+// already-normalized realization expression against the evaluator.
+symbol nerve_oplax_family_whisker_path [K I C : Cat]
+  (D : τ (Functor K (Functor_oplax_cat I C)))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (@= (@Transf K C
+      (@comp_cat_fapp0 K (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C i) D)
+      (@comp_cat_fapp0 K (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C j) D))
+      (@diagram_oplax_family_transf K I C D i j u)
+      (@fapp0 _ _ (@comp_cat_con_fapp1_func K (Functor_oplax_cat I C) C D
+        (@diagram_oplax_evaluation_at_func I C i) (@diagram_oplax_evaluation_at_func I C j))
+        (@diagram_oplax_evaluation_transf I C i j u)))
+≔ @eq_refl (@Transf K C
+    (@comp_cat_fapp0 K (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C i) D)
+    (@comp_cat_fapp0 K (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C j) D))
+    (@diagram_oplax_family_transf K I C D i j u);
+
+// Forget the evaluator's admission before specializing the parameter map.
+// The comparison is proved for variable D, preserving its typed endpoints.
+symbol nerve_oplax_evaluator_reindex_path [K I C : Cat]
+  (D : τ (Functor K (Functor_oplax_cat I C)))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (@= (@Transf K C
+      (@comp_cat_fapp0 K (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C i) D)
+      (@comp_cat_fapp0 K (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C j) D))
+      (@nerve_reindexed_transf K (Functor_oplax_cat I C) C D
+        (@diagram_oplax_evaluation_at_func I C i) (@diagram_oplax_evaluation_at_func I C j)
+        (@make_lax_transfor _ _ _ _ (@diagram_oplax_evaluation_transf I C i j u)
+          (@nerve_default_lax_profile _ _ _ _ (@diagram_oplax_evaluation_transf I C i j u))))
+      (@diagram_oplax_family_transf K I C D i j u))
+≔ @eq_trans (@Transf K C
+    (@comp_cat_fapp0 K (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C i) D)
+    (@comp_cat_fapp0 K (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C j) D))
+    (@nerve_reindexed_transf K (Functor_oplax_cat I C) C D
+      (@diagram_oplax_evaluation_at_func I C i) (@diagram_oplax_evaluation_at_func I C j)
+      (@make_lax_transfor _ _ _ _ (@diagram_oplax_evaluation_transf I C i j u)
+        (@nerve_default_lax_profile _ _ _ _ (@diagram_oplax_evaluation_transf I C i j u))))
+    (@fapp0 _ _ (@comp_cat_con_fapp1_func K (Functor_oplax_cat I C) C D
+      (@diagram_oplax_evaluation_at_func I C i) (@diagram_oplax_evaluation_at_func I C j))
+      (@diagram_oplax_evaluation_transf I C i j u))
+    (@diagram_oplax_family_transf K I C D i j u)
+    (@eq_ap (@Transf (Functor_oplax_cat I C) C
+        (@diagram_oplax_evaluation_at_func I C i) (@diagram_oplax_evaluation_at_func I C j))
+      (@Transf K C
+        (@comp_cat_fapp0 K (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C i) D)
+        (@comp_cat_fapp0 K (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C j) D))
+      (λ eta : τ (@Transf (Functor_oplax_cat I C) C
+          (@diagram_oplax_evaluation_at_func I C i) (@diagram_oplax_evaluation_at_func I C j)),
+        @fapp0 _ _ (@comp_cat_con_fapp1_func K (Functor_oplax_cat I C) C D
+          (@diagram_oplax_evaluation_at_func I C i) (@diagram_oplax_evaluation_at_func I C j)) eta)
+      _ _ (@make_lax_transfor_carrier_path _ _ _ _ (@diagram_oplax_evaluation_transf I C i j u)
+        (@nerve_default_lax_profile _ _ _ _ (@diagram_oplax_evaluation_transf I C i j u))))
+    (@eq_sym (@Transf K C
+      (@comp_cat_fapp0 K (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C i) D)
+      (@comp_cat_fapp0 K (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C j) D))
+      _ _ (@nerve_oplax_family_whisker_path K I C D i j u));
+
+// Typed fixed whiskering has the expected raw evaluator after forgetting
+// the original profile. Equality acts on the whole transfor, not its points.
+symbol nerve_realized_evaluator (C : Cat)
+  : τ (@Transf (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C))
+≔ @nerve_reindexed_transf (@LaxArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C) C
+    (nerve_walking_realize_func C)
+    (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src)
+    (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt)
+    (nerve_walking_eval_lax C);
+
+symbol nerve_realized_evaluator_path (C : Cat)
+  : τ (@= (@Transf (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C))
+      (nerve_realized_evaluator C) (nerve_native_universal_transf C))
+≔ @eq_trans (@Transf (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C))
+    (nerve_realized_evaluator C)
+    (@diagram_oplax_family_transf (@LaxArrow_cat C) WalkingArrow_cat C
+      (nerve_walking_realize_func C) walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+    (nerve_native_universal_transf C)
+    (@nerve_oplax_evaluator_reindex_path (@LaxArrow_cat C) WalkingArrow_cat C
+      (nerve_walking_realize_func C) walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+    (nerve_realize_whole_generator_path C);
+
+// The actual second composite is the graph of the original whole U.
+symbol nerve_observe_realize_graph_path (C : Cat)
+  : τ (@= (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+      (@comp_cat_fapp0 (@LaxArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+        (@LaxArrow_cat C) (nerve_walking_observe_func C) (nerve_walking_realize_func C))
+      (@nerve_default_graph_func (@LaxArrow_cat C) C
+        (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C)))
+≔ @eq_trans (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+    (@comp_cat_fapp0 (@LaxArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+      (@LaxArrow_cat C) (nerve_walking_observe_func C) (nerve_walking_realize_func C))
+    (@nerve_default_graph_func (@LaxArrow_cat C) C
+      (@cubical_src_func C) (@cubical_tgt_func C) (nerve_realized_evaluator C))
+    (@nerve_default_graph_func (@LaxArrow_cat C) C
+      (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C))
+    (@nerve_graph_reindex_path (@LaxArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C) C
+      (nerve_walking_realize_func C)
+      (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src)
+      (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt)
+      (nerve_walking_eval_lax C))
+    (@eq_ap (@Transf (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C))
+      (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+      (λ eta : τ (@Transf (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C)),
+        @nerve_default_graph_func (@LaxArrow_cat C) C
+          (@cubical_src_func C) (@cubical_tgt_func C) eta)
+      _ _ (nerve_realized_evaluator_path C));
+
+// The source graph's actual carrier cannot be replaced by unrelated M.
+assertnot [A B C : Cat] (H : τ (Functor A B)) [F G : τ (Functor B C)]
+  (L M : τ (@LaxTransfor B C F G)) ⊢
+  @eq_refl (Functor A (@LaxArrow_cat C))
+    (@comp_cat_fapp0 A B (@LaxArrow_cat C) (@gray_transf_graph_func B C F G L) H)
+  : τ (@= (Functor A (@LaxArrow_cat C))
+      (@comp_cat_fapp0 A B (@LaxArrow_cat C) (@gray_transf_graph_func B C F G L) H)
+      (@nerve_default_graph_func A C (@comp_cat_fapp0 A B C F H)
+        (@comp_cat_fapp0 A B C G H) (@nerve_reindexed_transf A B C H F G M)));
+
+// This construction does not yet reconstruct the original native total.
+assertnot [C : Cat] ⊢
+  @eq_refl (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+    (@nerve_default_graph_func (@LaxArrow_cat C) C
+      (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C))
+  : τ (@= (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+      (@nerve_default_graph_func (@LaxArrow_cat C) C
+        (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C))
+      (@id_func (@LaxArrow_cat C)));

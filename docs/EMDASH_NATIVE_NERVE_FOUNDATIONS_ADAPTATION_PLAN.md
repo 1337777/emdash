@@ -2,7 +2,7 @@
 
 Date: 2026-10-26
 Plan-ID: NATIVE-NERVE-FOUNDATIONS-ADAPTATION-V3.2
-Status: NF-1 first whole walking inverse derived in isolation; native-total reconstruction and production qualification open
+Status: NF-1 first whole inverse and second-composite-to-graph comparison derived; native Sigma reconstruction and production qualification open
 Parent: [consolidated foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Receiver: `goal/strict-functor-duality-v3.2`, checkpoint `1fe72617`
 Donor: `goal/native-nerve-legacy-completion-v3.2`, checkpoint `280e7a03`
@@ -151,6 +151,19 @@ remain outside this continuation. None is an automatic prerequisite for the
 required comparisons.
 
 ## First bounded implementation slice
+
+Native composite continuation, 2026-10-26: the [whole comparison](../emdash2/audits/native_nerve_foundations/README.md#native-composite-as-the-original-universal-graph)
+now derives `Observe ∘ Realize ≐ Graph(U)` using the original whole universal
+transformation. One structural graph-reindex comparison retains both endpoints
+and the complete reindexed lax carrier. Generic evaluation/prewhiskering and
+admission-carrier proofs resolve the failed expanded reflexivity attempt;
+no runtime rule or endpoint unifier is added. The candidate passes in
+123.314s / 536,172 KiB with all five warning fields unchanged. Its negative
+controls still reject an unrelated carrier and `Graph(U) ≐ id`.
+Next: connect the public graph to the existing represented-Sigma construction
+and reconstruct its actual whole section. `tapp1_int_cart` already supplies
+the needed source-variable profile. Do not invent another admission layer or
+count the prepared, unqualified Sigma-generation fragments as a result.
 
 Graph projection continuation, 2026-10-26: two whole endpoint comparisons
 at the graph owner pass on the corrected total-dual source, with all warning

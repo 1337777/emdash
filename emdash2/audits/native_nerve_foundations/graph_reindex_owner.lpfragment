@@ -1,0 +1,12 @@
+// Whole graph construction commutes with strict parameter reindexing.
+// Both classified carriers and both endpoint maps remain residual obligations;
+// this does not equate arbitrary graph inputs or assert native reconstruction.
+unif_rule @comp_fapp0 Cat_cat $A $B _
+    (@gray_transf_graph_func $B $C $F $G $L) $H
+  ≡ @gray_transf_graph_func $A0 $C0 $F0 $G0 $L0
+  ↪ [ $A0 ≡ $A; $C0 ≡ $C;
+      $F0 ≡ @comp_cat_fapp0 $A $B $C $F $H;
+      $G0 ≡ @comp_cat_fapp0 $A $B $C $G $H;
+      @lax_transfor $A0 $C0 $F0 $G0 $L0
+        ≡ @fapp0 _ _ (@comp_cat_con_fapp1_func $A $B $C $H $F $G)
+            (@lax_transfor $B $C $F $G $L) ];

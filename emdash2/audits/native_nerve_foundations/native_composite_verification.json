@@ -1,0 +1,224 @@
+{
+  "receiverInputs": {
+    "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+    "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+    "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+    "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+    "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+    "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+    "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+    "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+    "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+    "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+    "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+    "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+    "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+    "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+    "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+    "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+    "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+    "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+    "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+    "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+    "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+    "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+    "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+    "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+    "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+    "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+    "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "artifactHashes": {
+    "graph_endpoint_controls.lpfragment": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9",
+    "graph_endpoint_projections.lpfragment": "976f48c86c4d3141d875342067610404d45f6c021d63d194a1c0a25a08f3889c",
+    "graph_whole_generator.lpfragment": "7a7b3da47955bf29f9e39ba63ab4ae69079a7208c4817d23c2958cc62bd5ac09",
+    "replay_graph.py": "c5ee0ff93966d7809c2f5d618df7408f59f39aed5ed0d8976d7930fc53cd63ae",
+    "replay_realization.py": "148caac26a2e542cac0a05768635a5ca64aaaf11ae9da3b69739f5ad661d40f7",
+    "total_dual_postcomp_units.lpfragment": "d72ed818cd623c380d2651bdb9e4a7123ef2417ab29c3b3dc060c9e83ae068c5",
+    "walking_first_inverse.lpfragment": "4c4bff0c0b134b364d44d18285c8dad913839c209bc8abfd80bac51d0f40414f",
+    "walking_generation.lpfragment": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323",
+    "walking_generation_self.lpfragment": "1aa65f234ee9d67b6dde8e945aac1975dece244d445da7e6cd46bc83093c0b06",
+    "walking_realization.lpfragment": "2a6b7e974261f3a65c64d18ea61a5f4e06e8848be2777be3f48abcded0584d5a",
+    "graph_reindex_owner.lpfragment": "1742f9f0f41fc757747884933d27636c267c2741d8eaef56023a5a694b8bcd47",
+    "native_composite_graph.lpfragment": "a9d7512af42a23a2eba38e3d67da390cea6297a2f571820ccd3e2a89614c1abd"
+  },
+  "checker": {
+    "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+    "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+    "version": "dev-3.0.0-90-gdb4f7809-dirty"
+  },
+  "ownerPatches": [
+    {
+      "owner": "emdash3_2.lp",
+      "fragment": "total_dual_postcomp_units.lpfragment",
+      "anchor": "// Strict default maps preserve represented postcomposition. Whole functors\n",
+      "resultSha256": "8eb4ccba6a07e318e989981fcdbe067d7d9c8c046b84818632d4644dc480d8be"
+    },
+    {
+      "owner": "emdash3_2_walking_arrow_introduction.lp",
+      "fragment": "walking_generation_self.lpfragment",
+      "anchor": "// Postcomposition of the free walking-arrow introduction. A strict functor\n",
+      "resultSha256": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d"
+    },
+    {
+      "owner": "emdash3_2_gray_transformation_graph.lp",
+      "fragment": "graph_endpoint_projections.lpfragment",
+      "anchor": "// Public object observation, retained as the graph functor's ordinary action.\n",
+      "resultSha256": "ce67e1a3223d50273f2fb554c90b130443e322edc3f1726628dffa49184804a0"
+    },
+    {
+      "owner": "emdash3_2_gray_transformation_graph.lp",
+      "fragment": "graph_reindex_owner.lpfragment",
+      "anchor": "// Public object observation, retained as the graph functor's ordinary action.\n",
+      "resultSha256": "db87cf675f63982930023ec8b397315111dadb0800a1c1d5ec2e82aaed9cd68a"
+    }
+  ],
+  "programs": {
+    "native_nerve_graph_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "graph_endpoint_controls.lpfragment"
+      ],
+      "sha256": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9"
+    },
+    "native_nerve_realization_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "walking_realization.lpfragment"
+      ],
+      "sha256": "2a6b7e974261f3a65c64d18ea61a5f4e06e8848be2777be3f48abcded0584d5a"
+    },
+    "native_nerve_generation_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "walking_generation.lpfragment"
+      ],
+      "sha256": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323"
+    },
+    "native_nerve_graph_whole_review.lp": {
+      "prefix": "require open emdash.native_nerve_graph_review;\nrequire open emdash.native_nerve_realization_review;\nrequire open emdash.native_nerve_generation_review;\n\n",
+      "separator": "\n",
+      "fragments": [
+        "graph_whole_generator.lpfragment",
+        "walking_first_inverse.lpfragment"
+      ],
+      "sha256": "6a69911880e10a4332a14582444d5ed45b146ea9e969975ede3e96c8fea47b4e"
+    },
+    "native_nerve_composite_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "native_composite_graph.lpfragment"
+      ],
+      "sha256": "a9d7512af42a23a2eba38e3d67da390cea6297a2f571820ccd3e2a89614c1abd"
+    }
+  },
+  "schema": "emdash-native-nerve-composite-v1",
+  "status": "second whole composite compared to Graph(U); native graph reconstruction remains open",
+  "receiverBaseline": "e44b1810",
+  "target": "native_nerve_composite_review.lp",
+  "scope": {
+    "newStructuralComparisons": 1,
+    "newRuntimeRules": 0,
+    "newPrimitiveSymbols": 0,
+    "derivedWholeComparison": "Observe_C composed with Realize_C equals Graph(U_C)",
+    "operationalEqualityProofArguments": false,
+    "productionFilesChanged": false,
+    "typedProofs": [
+      "nerve_graph_reindex_path",
+      "nerve_oplax_family_whisker_path",
+      "nerve_oplax_evaluator_reindex_path",
+      "nerve_realized_evaluator_path",
+      "nerve_observe_realize_graph_path"
+    ]
+  },
+  "runs": [
+    {
+      "id": "20261026T184847Z-ef57761e12fd4a67b817a7c964b35d6c",
+      "outcome": "failed",
+      "wallSeconds": 123.7207948169671,
+      "childrenMaxRssKiB": 546732,
+      "inputSnapshot": "39b29dbf7f44159c2b770bef2ab5d27f6c9ef3d64e4ad500b4e76d1b1f29c76f",
+      "logSha256": "278c1fd84ac229ebde4c407ce809c4c0d39083cf08da14a348fb0db047d17b5a",
+      "target": "native_nerve_composite_review.lp",
+      "timeoutMs": 300000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T185234Z-ca527cdad33a4fd49e8a1162ba26b595",
+      "outcome": "failed",
+      "wallSeconds": 123.19438892090693,
+      "childrenMaxRssKiB": 555752,
+      "inputSnapshot": "73ea0ff715f01aa50633a03b1aeebea2760200382bc1fe9be773c81ea7739fac",
+      "logSha256": "fcc66ff0f7097a3aa263b98e111edaefc9986b11bc3b1be998a0e741d4b52044",
+      "target": "native_nerve_composite_review.lp",
+      "timeoutMs": 300000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T185604Z-252af0c05fa3467daca87a5f1c8a7dd5",
+      "outcome": "passed-fresh",
+      "wallSeconds": 123.31361017120071,
+      "childrenMaxRssKiB": 536172,
+      "inputSnapshot": "60dca121164c9e9a5f4e0f9013dc3f2e583b526b8948e6516b53b2fe81c8939f",
+      "logSha256": "d262c8a71fb60e760864580bc798edd48e797b63358f49bcd67052463604ea01",
+      "target": "native_nerve_composite_review.lp",
+      "timeoutMs": 300000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    }
+  ],
+  "warningComparison": {
+    "completeImportBaseline": "20261026T184847Z-ef57761e12fd4a67b817a7c964b35d6c",
+    "candidate": "20261026T185604Z-252af0c05fa3467daca87a5f1c8a7dd5",
+    "equalFields": {
+      "categories": true,
+      "locations": true,
+      "term_heads": true,
+      "rule_families": true,
+      "parser_issues": true
+    },
+    "categories": {
+      "replaceable pattern variable": 181,
+      "unjoinable critical pair": 2155
+    },
+    "qualification": "The baseline fails after all imports and after the generic graph-reindex proof, at the specialized evaluator comparison. The inherited core-unit overlap warnings remain unpromoted."
+  },
+  "failedHypotheses": [
+    {
+      "receipt": "20261026T184847Z-ef57761e12fd4a67b817a7c964b35d6c",
+      "finding": "Direct reflexivity cannot compare the expanded realized evaluator with the original whole U."
+    },
+    {
+      "receipt": "20261026T185234Z-ca527cdad33a4fd49e8a1162ba26b595",
+      "finding": "A generic evaluation/prewhiskering comparison alone still leaves the admission-carrier equality action specialized to the expanded realization. The staged proof still fails."
+    }
+  ],
+  "correction": "Prove the admission-carrier comparison for a variable diagram family, then instantiate it and compose with the already checked whole generator theorem. No evaluator normalization shortcut or new endpoint unifier is added.",
+  "controls": [
+    "Unrelated original lax transformation M cannot replace L under graph reindexing.",
+    "Graph(U) is not identified with the native identity by this comparison.",
+    "The first whole inverse and inherited original filler and distinct-input checks remain in the checked import closure."
+  ],
+  "remaining": [
+    "Identify Graph(U) with the original native Sigma total through its whole section reconstruction.",
+    "The existing tapp1_int_cart and represented_comma_family_func at J=id supply a candidate Sigma implementation without a new admission premise; that new consumer is being checked separately.",
+    "The prepared Sigma pairing/source-generation fragments are unqualified scratch proposals, not an installed native inverse.",
+    "All inherited core-unit, graph higher-action and production qualification obligations remain open."
+  ]
+}

@@ -42,6 +42,16 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+NF-1 native composite, 2026-10-26: [the new whole derivation](../emdash2/audits/native_nerve_foundations/README.md#native-composite-as-the-original-universal-graph)
+compares `Observe ∘ Realize` with `Graph(U)` for the original U. It uses a
+structural graph-reindex law and generic staged evaluation proofs; unrelated
+input carriers and the still-missing native identity are rejected by controls.
+The isolated replay passes in 123.314s / 536,172 KiB with unchanged warning
+inventory. The next concrete target is the existing represented-Sigma graph
+at J=id and its whole section reconstruction, using the already-present
+`tapp1_int_cart` profile. No new admission premise, runtime rule, native
+inverse axiom or production edit is introduced by this tranche.
+
 NF-1 first whole inverse, 2026-10-26: the [retained graph/inverse construction](../emdash2/audits/native_nerve_foundations/README.md#first-whole-walking-inverse)
 derives `Realize_C ∘ Observe_C ≐ id` on the entire opposite-profile walking
 mapping category. Three structural graph beta comparisons, the source-generation
