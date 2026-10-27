@@ -1,0 +1,61 @@
+/* A concrete shape consumer: collapse the first coordinate, retaining the
+   entire second-coordinate diagram. These are endomorphisms, not yet a
+   factorization into the required separate face and degeneracy maps. */
+require open emdash.native_right_closure_naturality_controls;
+require open emdash.emdash3_2_walking_arrow;
+
+// Whole variation of the selected first-coordinate point.
+symbol nerve_tensor_first_collapse_func (A B : Cat)
+  : τ (Functor A (Functor_cat (GrayTensor_R A B) (GrayTensor_R A B)))
+≔ @comp_cat_fapp0 _ _ _ (nerve_tensor_left_action_func A A B)
+    (@comp_cat_fapp0 _ _ _ (Functor_cart_include A A) (@Const_func_func A A));
+
+symbol nerve_tensor_first_collapse [A B : Cat] (a : τ (Obj A))
+  : τ (Functor (GrayTensor_R A B) (GrayTensor_R A B))
+≔ fapp0 (nerve_tensor_first_collapse_func A B) a;
+
+assert [A B : Cat] (a : τ (Obj A)) ⊢
+  @nerve_tensor_first_collapse A B a ≡ @nerve_tensor_left_map A A B (@Const_func A A a);
+
+// The outer selected endpoint wins under composition. Idempotence is the
+// repeated-endpoint instance, obtained from the same derived tensor law.
+symbol nerve_tensor_first_collapse_absorb [A B : Cat] (a b : τ (Obj A))
+  : τ (@= (Functor (GrayTensor_R A B) (GrayTensor_R A B))
+      (@comp_cat_fapp0 _ _ _ (@nerve_tensor_first_collapse A B a) (@nerve_tensor_first_collapse A B b))
+      (@nerve_tensor_first_collapse A B a))
+≔ @nerve_tensor_left_composition A A A B (@Const_func A A b) (@Const_func A A a);
+
+symbol nerve_tensor_first_collapse_idempotent [A B : Cat] (a : τ (Obj A))
+  : τ (@= (Functor (GrayTensor_R A B) (GrayTensor_R A B))
+      (@comp_cat_fapp0 _ _ _ (@nerve_tensor_first_collapse A B a) (@nerve_tensor_first_collapse A B a))
+      (@nerve_tensor_first_collapse A B a))
+≔ @nerve_tensor_first_collapse_absorb A B a a;
+
+// Right curry shows exactly which complete B-diagram remains.
+symbol nerve_tensor_first_collapse_readback [A B : Cat] (a : τ (Obj A))
+  : τ (@= (Functor A (GrayHom_lax B (GrayTensor_R A B)))
+      (@gray_curry_R A B (GrayTensor_R A B) (@nerve_tensor_first_collapse A B a))
+      (@Const_func A (GrayHom_lax B (GrayTensor_R A B))
+        (fapp0 (gray_coevaluation_R_func A B) a)))
+≔ @nerve_tensor_left_curried A A B (@Const_func A A a);
+
+// The outer endpoint is retained, even though the inner coordinate collapses.
+assertnot [A B : Cat] (a b : τ (Obj A)) ⊢
+  @nerve_tensor_first_collapse_absorb A B a b
+  : τ (@= (Functor (GrayTensor_R A B) (GrayTensor_R A B))
+      (@comp_cat_fapp0 _ _ _ (@nerve_tensor_first_collapse A B a) (@nerve_tensor_first_collapse A B b))
+      (@nerve_tensor_first_collapse A B b));
+
+// Actual two endpoint collapses on every walking-first tensor shape.
+symbol nerve_tensor_first_src_collapse (B : Cat)
+  : τ (Functor (GrayTensor_R WalkingArrow_cat B) (GrayTensor_R WalkingArrow_cat B))
+≔ @nerve_tensor_first_collapse WalkingArrow_cat B walking_arrow_src;
+symbol nerve_tensor_first_tgt_collapse (B : Cat)
+  : τ (Functor (GrayTensor_R WalkingArrow_cat B) (GrayTensor_R WalkingArrow_cat B))
+≔ @nerve_tensor_first_collapse WalkingArrow_cat B walking_arrow_tgt;
+
+symbol nerve_tensor_first_src_absorbs_tgt (B : Cat)
+  : τ (@= (Functor (GrayTensor_R WalkingArrow_cat B) (GrayTensor_R WalkingArrow_cat B))
+      (@comp_cat_fapp0 _ _ _ (nerve_tensor_first_src_collapse B) (nerve_tensor_first_tgt_collapse B))
+      (nerve_tensor_first_src_collapse B))
+≔ @nerve_tensor_first_collapse_absorb WalkingArrow_cat B walking_arrow_src walking_arrow_tgt;

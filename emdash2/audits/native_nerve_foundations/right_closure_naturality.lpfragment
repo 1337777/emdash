@@ -1,0 +1,39 @@
+/* Target naturality of the selected right closure, with the ordinary
+   views kept explicit. The fixed-parameter beta/eta paths alone do not
+   specify this structural compatibility. */
+require open emdash.native_tensor_left_action;
+
+// Fixed target map on the explicit conventional-lax profile.
+symbol nerve_profile_postcompose [B C D : Cat] (H : τ (Functor C D))
+  : τ (Functor (GrayHom_lax B C) (GrayHom_lax B D))
+≔ @comp_cat_fapp0 _ _ _ (nerve_lax_profile_admit_func B D)
+    (@comp_cat_fapp0 _ _ _ (@comp_cat_cov_func B C D H)
+      (@grayhom_lax_include_func B C));
+
+// Ordinary view of whole right curry; the profile conversion is explicit.
+symbol nerve_right_curry_view (A B C : Cat)
+  : τ (Functor (Functor_cat (GrayTensor_R A B) C)
+      (Functor_cat A (GrayHom_lax B C)))
+≔ @comp_cat_fapp0 _ _ _ (@grayhom_lax_include_func A (GrayHom_lax B C))
+    (@comp_cat_fapp0 _ _ _ (gray_curry_R_func A B C)
+      (nerve_lax_profile_admit_func (GrayTensor_R A B) C));
+
+symbol nerve_right_curry_view_value [A B C : Cat]
+  (J : τ (Functor (GrayTensor_R A B) C))
+  : τ (@= (Functor A (GrayHom_lax B C))
+      (fapp0 (nerve_right_curry_view A B C) J) (@gray_curry_R A B C J))
+≔ @eq_refl _ _;
+
+// Structural target naturality of the selected canonical right closure.
+// This extends the fixed-parameter beta/eta contract; it is not derived from
+// the earlier point projections. No operational map accepts this path.
+constant symbol nerve_right_curry_target_naturality [A B C D : Cat]
+  (H : τ (Functor C D))
+  : τ (@= (Functor (Functor_cat (GrayTensor_R A B) C)
+                    (Functor_cat A (GrayHom_lax B D)))
+      (@comp_cat_fapp0 _ _ _ (nerve_right_curry_view A B D)
+        (@comp_cat_cov_func (GrayTensor_R A B) C D H))
+      (@comp_cat_fapp0 _ _ _
+        (@comp_cat_cov_func A (GrayHom_lax B C) (GrayHom_lax B D)
+          (@nerve_profile_postcompose B C D H))
+        (nerve_right_curry_view A B C)));

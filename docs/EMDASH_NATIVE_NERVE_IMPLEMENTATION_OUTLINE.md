@@ -277,18 +277,27 @@ tensor_left(F) = uncurry_R(coevaluation(D,B) ∘ F).
 ```
 
 Its body is postcomposition, canonical profile admission, right uncurry and
-inclusion. The existing right-closure inverse paths prove its identity law
-and whole curried readback, after staging the represented composition proof.
-The 16-input scope passes in 95.445s / 309,836 KiB; no new primitive or rule
-is added. This advances the needed shape operations independently of mixed
-cancellation. Composition, the other tensor factor and selected face/degeneracy
-coherence are not yet qualified and remain part of the same-index work.
-The next shape boundary is the generic source/target naturality of the right
-closure: its present beta/eta paths concern fixed A,B,C and do not by
-themselves establish naturality between different shapes. Qualify that
-interface at its owner before using it to derive tensor composition or
-face laws. Keep this bounded shape task alongside the whole mixed-evaluator
-proof, rather than repeating diagram-component readbacks.
+inclusion. The original 16-input scope qualifies identity and whole curried
+readback without a new primitive or rule.
+
+The [right-closure naturality extension](../emdash2/audits/native_nerve_foundations/right_closure_naturality_review.md)
+now explicitly supplies the generic whole target-naturality path for the
+canonical curry interface. This is a structural contract beyond the prior
+fixed-parameter beta/eta; it is not mislabelled as a derived theorem.
+Coevaluation naturality, source naturality for each complete input diagram
+and first-factor tensor composition are derived from that contract.
+
+A whole A-parameter family of first-coordinate collapses now consumes the
+composition theorem, retaining the complete B-row. Absorption, idempotence
+and source/target walking endpoint instances pass. The final 21-input scope
+takes 94.662s / 312,820 KiB, with unchanged warning inventories and no new
+rewrite/unification rule. No operational map receives a proof argument.
+
+Whole source-naturality assembly, the other tensor factor, and the separated
+face/degeneracy maps and their common-index laws remain required. Continue
+these concrete shape operations alongside the internal mixed-evaluator and
+native whole-section reconstruction. Do not relabel the collapse
+endomorphisms as the missing complete index action.
 
 ## Independent simplicial branch
 

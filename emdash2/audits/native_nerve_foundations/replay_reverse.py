@@ -28,7 +28,7 @@ def main() -> int:
              'reflection', 'evaluation-pending', 'zero', 'all-degrees', 'zero-eta-pending',
              'unit-owners', 'unit-normality', 'terminal-contraction',
              'constant-precomposition-pending', 'terminal-inverse', 'mixed-diagram',
-             'tensor-left')
+             'tensor-left', 'curry-naturality-pending', 'tensor-composition', 'tensor-collapse')
     parser.add_argument('--mode', choices=modes, default='qualification')
     parser.add_argument('--assemble-only', action='store_true')
     args = parser.parse_args()
@@ -60,7 +60,8 @@ def main() -> int:
         fragment = insertion['fragment']
         body = (HERE / fragment).read_text() + record.get('fragmentSuffixes', {}).get(fragment, '')
         owner.write_text(text.replace(anchor, body + anchor, 1))
-    for name, fragment in record['programs'].items():
+    programs = {**record['programs'], **mode.get('programOverrides', {})}
+    for name, fragment in programs.items():
         (package / name).write_bytes((HERE / fragment).read_bytes()
             + record.get('fragmentSuffixes', {}).get(fragment, '').encode())
     if input_hashes([Path(mode['target'])], package) != mode['expectedInputs']:

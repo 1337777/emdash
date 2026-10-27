@@ -4,6 +4,18 @@ Status: non-library NF-1 reconstruction and NF-2C cube construction on the corre
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
+## Closure naturality and coordinate collapses
+
+The [naturality continuation](right_closure_naturality_review.md) adds an
+explicit structural whole target-naturality path for the selected right
+closure. It derives first-factor tensor composition and a whole family of
+coordinate collapses, with absorption/idempotence and retained B-row readback.
+The final 21-input scope passes in 94.662s / 312,820 KiB with unchanged warning
+inventories. No rewrite/unification rule or operational proof argument is
+added. The structural naturality contract is distinguished from its derived
+consequences; whole source naturality and full common-index coherence remain
+open.
+
 ## Complete-diagram reconstruction and first-factor tensor action
 
 The [mixed-diagram proofs](mixed_diagram_reconstruction_review.md) now recover
@@ -11,8 +23,9 @@ each complete diagram in both directions. The whole internal mapping-functor
 inverse remains open. The [derived tensor action](tensor_left_action_review.md)
 also has a whole first-factor parameter map, identity law and curried
 readback. Both extensions add definitions/proofs only; `mixed-diagram` and
-`tensor-left` replay their exact owning scopes. No native inverse, tensor
-composition or common-index coherence is inferred from these results.
+`tensor-left` replay their exact owning scopes. No native inverse or common-index coherence is inferred from these results.
+Tensor composition is qualified separately by the subsequent naturality
+contract above.
 
 ## Whole geometric degree-zero equivalence
 

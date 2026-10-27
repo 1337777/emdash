@@ -1,9 +1,14 @@
 # Derived first-factor tensor action
 
 Date: 2026-10-27
-Status: qualified non-library whole action and identity/readback paths; composition and common-index coherence remain open
+Status: qualified non-library whole action; later target-naturality extension derives composition; common-index coherence remains open
 Owner: [native implementation outline](../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
 Evidence: [tensor-left replay mode](reverse_verification.json)
+
+The [naturality continuation](right_closure_naturality_review.md) now derives
+composition from an explicit structural target-naturality contract and
+exercises it on whole coordinate-collapse maps. The original action and its
+qualification below are unchanged.
 
 ## Actual construction
 
@@ -69,8 +74,9 @@ checked scope. The other replay modes keep their exact earlier snapshots.
 
 ## Remaining work
 
-Composition of successive first-factor maps, the other tensor factor,
-selected face/degeneracy maps and their common-index laws remain required.
+Composition of successive first-factor maps is now derived by the linked
+continuation. The other tensor factor, selected face/degeneracy maps and their
+common-index laws remain required.
 The existing right-closure inverse paths alone are not silently treated as a
 complete naturality/monoidal interface. This action does not prove the
 [internal mixed-exchange inverse](mixed_diagram_reconstruction_review.md) or

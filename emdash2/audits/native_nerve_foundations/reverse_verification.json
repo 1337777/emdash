@@ -36,7 +36,11 @@
     "native_geometric_zero_inverse.lp": "geometric_zero_inverse.lpfragment",
     "native_terminal_inverse_controls.lp": "terminal_inverse_controls.lpfragment",
     "native_mixed_diagram_roundtrip.lp": "mixed_diagram_roundtrip.lpfragment",
-    "native_tensor_left_action.lp": "tensor_left_action.lpfragment"
+    "native_tensor_left_action.lp": "tensor_left_action.lpfragment",
+    "native_right_closure_naturality.lp": "right_closure_naturality.lpfragment",
+    "native_tensor_left_composition.lp": "tensor_left_composition.lpfragment",
+    "native_right_closure_naturality_controls.lp": "right_closure_naturality_controls.lpfragment",
+    "native_tensor_coordinate_collapse.lp": "tensor_coordinate_collapse.lpfragment"
   },
   "fragmentSuffixes": {
     "reverse_profile_admission.lpfragment": "\n",
@@ -1628,6 +1632,336 @@
       "expectedOutcome": "passed-fresh",
       "coverageReceipt": "20261027T192219Z-9191ef37eda344a2a15764ade0626247",
       "coverageKind": "fresh exact-input check"
+    },
+    "curry-naturality-pending": {
+      "extraSourceCopies": [
+        {
+          "source": "emdash3_2_nat_arithmetic.lp",
+          "target": "emdash3_2_nat_arithmetic.lp",
+          "sha256": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31"
+        }
+      ],
+      "extraOwnerInsertions": [
+        {
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "parentSha256": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+          "before": "symbol diagram_family_transf [K I C : Cat]",
+          "fragment": "evaluation_shape_naturality.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "0a4740fc052a425e2b258708f513dde94f56f75ca7a10c0493cbea985121ea95",
+          "before": "// Pairing telescope for products.\n",
+          "fragment": "constant_evaluation_beta.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "bd86ec5e1dae90d74ec2565c6a76c5f87f5c51b1b95219738e2849d26d8cadb0",
+          "before": "/* Identity and the existing weakened constant section, at whole and point",
+          "fragment": "intrinsic_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "d6cd5b51753a3fa291e6d5862330f91499b67135aff6fdd61e2be730d886fe3c",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_whole_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "0c8a3b066ab2738fde9890d2567b9a7b95b6c981d00cb510830dec02edce2948",
+          "before": "// Strict default maps preserve represented postcomposition.",
+          "fragment": "terminal_postcomp_identity.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "cc95184653c19e327348ce90e3871d376633d74d22355ce633405f5d1892440b",
+          "before": "// Cartesian-coefficient instances of the existing strict vertical-action laws.",
+          "fragment": "terminal_transfor_identity.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "6c00663a34202d3fddba011c63c4f8772954b9e2f79de1563ddb0668a2ed930b",
+          "before": "/* Identity and the existing weakened constant section, at whole and point",
+          "fragment": "intrinsic_terminal_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "7e7adc22df1fe6a28d9ee8be55edc5c17df70fbfb19f89567cc4272da83f0aea",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_whole_terminal_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "e5dcd5e6196391a4b199a4d2fd53cf8f5da849cb728948a455a1543f5192b442",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_identity_unit_join.lpfragment"
+        },
+        {
+          "owner": "native_postcomposition_laxity.lp",
+          "parentSha256": "0a6ee22389c8fa2b88569bdb972db8eb535bb3650cfbcbb91b86f388ff2460a3",
+          "before": "// Each component is the original alpha comparison",
+          "fragment": "postcomposition_intrinsic_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "constant_precomposition_beta.lpfragment",
+          "before": "// Pairing telescope for products.\n",
+          "parentSha256": "e006b0a309953b5c213fc014821152bb275c951b1078551996a5e5ebdfccf940"
+        },
+        {
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "fragment": "alternating_constant_beta.lpfragment",
+          "before": "rule @OddDual_func _ _ (@OddDual_func _ _ $F)",
+          "parentSha256": "9e73807f92e1914f837ffb868bb28ed02cc1f9ac9150624ff0826fedb2187d2f"
+        }
+      ],
+      "target": "native_right_closure_naturality.lp",
+      "timeoutMs": 180000,
+      "expectedInputs": {
+        "emdash3_2.lp": "cadeec3e6a12b509ab251c986a95db4a6b2f0e66f23ec22be68ee27c0946f281",
+        "emdash3_2_diagram_evaluation.lp": "25f4f3d11bfac417a2c7392e32daa0f91702c1027eb8366aeec5b795e2c84b53",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_profiles.lp": "46537eec0adb3138844b094e712fbc13a6302b151949cd8763e354e49ed9758b",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_postcomposition_owner.lp": "b1e507486f452daa856734acf161bf1f95e54d46c7d29ea5ab62b995863aa2b4",
+        "native_reverse_closure_objects.lp": "804833db19f22801c36b1d3de13eee4a5aac2e66538a6258d13c39092962110b",
+        "native_right_closure_naturality.lp": "725206ccc4e328b44b91dee443a3eb0810585c63c6afc20eb8c909fbbe052e1e",
+        "native_tensor_left_action.lp": "c71eb65f18abf2e79b54d28106c18caa23d318d21053bba717c74f0a15897703"
+      },
+      "expectedOutcome": "failed",
+      "coverageReceipt": "20261027T193105Z-6972a908f3914dec9d979cd4b38e9f6e",
+      "coverageKind": "fresh exact-input check",
+      "programOverrides": {
+        "native_right_closure_naturality.lp": "right_closure_naturality_pending.lpfragment"
+      }
+    },
+    "tensor-composition": {
+      "extraSourceCopies": [
+        {
+          "source": "emdash3_2_nat_arithmetic.lp",
+          "target": "emdash3_2_nat_arithmetic.lp",
+          "sha256": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31"
+        }
+      ],
+      "extraOwnerInsertions": [
+        {
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "parentSha256": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+          "before": "symbol diagram_family_transf [K I C : Cat]",
+          "fragment": "evaluation_shape_naturality.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "0a4740fc052a425e2b258708f513dde94f56f75ca7a10c0493cbea985121ea95",
+          "before": "// Pairing telescope for products.\n",
+          "fragment": "constant_evaluation_beta.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "bd86ec5e1dae90d74ec2565c6a76c5f87f5c51b1b95219738e2849d26d8cadb0",
+          "before": "/* Identity and the existing weakened constant section, at whole and point",
+          "fragment": "intrinsic_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "d6cd5b51753a3fa291e6d5862330f91499b67135aff6fdd61e2be730d886fe3c",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_whole_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "0c8a3b066ab2738fde9890d2567b9a7b95b6c981d00cb510830dec02edce2948",
+          "before": "// Strict default maps preserve represented postcomposition.",
+          "fragment": "terminal_postcomp_identity.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "cc95184653c19e327348ce90e3871d376633d74d22355ce633405f5d1892440b",
+          "before": "// Cartesian-coefficient instances of the existing strict vertical-action laws.",
+          "fragment": "terminal_transfor_identity.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "6c00663a34202d3fddba011c63c4f8772954b9e2f79de1563ddb0668a2ed930b",
+          "before": "/* Identity and the existing weakened constant section, at whole and point",
+          "fragment": "intrinsic_terminal_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "7e7adc22df1fe6a28d9ee8be55edc5c17df70fbfb19f89567cc4272da83f0aea",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_whole_terminal_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "e5dcd5e6196391a4b199a4d2fd53cf8f5da849cb728948a455a1543f5192b442",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_identity_unit_join.lpfragment"
+        },
+        {
+          "owner": "native_postcomposition_laxity.lp",
+          "parentSha256": "0a6ee22389c8fa2b88569bdb972db8eb535bb3650cfbcbb91b86f388ff2460a3",
+          "before": "// Each component is the original alpha comparison",
+          "fragment": "postcomposition_intrinsic_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "constant_precomposition_beta.lpfragment",
+          "before": "// Pairing telescope for products.\n",
+          "parentSha256": "e006b0a309953b5c213fc014821152bb275c951b1078551996a5e5ebdfccf940"
+        },
+        {
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "fragment": "alternating_constant_beta.lpfragment",
+          "before": "rule @OddDual_func _ _ (@OddDual_func _ _ $F)",
+          "parentSha256": "9e73807f92e1914f837ffb868bb28ed02cc1f9ac9150624ff0826fedb2187d2f"
+        }
+      ],
+      "target": "native_right_closure_naturality_controls.lp",
+      "timeoutMs": 180000,
+      "expectedInputs": {
+        "emdash3_2.lp": "cadeec3e6a12b509ab251c986a95db4a6b2f0e66f23ec22be68ee27c0946f281",
+        "emdash3_2_diagram_evaluation.lp": "25f4f3d11bfac417a2c7392e32daa0f91702c1027eb8366aeec5b795e2c84b53",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_profiles.lp": "46537eec0adb3138844b094e712fbc13a6302b151949cd8763e354e49ed9758b",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_postcomposition_owner.lp": "b1e507486f452daa856734acf161bf1f95e54d46c7d29ea5ab62b995863aa2b4",
+        "native_reverse_closure_objects.lp": "804833db19f22801c36b1d3de13eee4a5aac2e66538a6258d13c39092962110b",
+        "native_right_closure_naturality.lp": "3939684526a0258fd518fb86dd542cd623fb353d0fe2f29dae69652ca6f2bcb4",
+        "native_right_closure_naturality_controls.lp": "2a15dfc8a57ad9464f537638cf3b333f07a3f5f878c31ce69019be15b3199580",
+        "native_tensor_left_action.lp": "c71eb65f18abf2e79b54d28106c18caa23d318d21053bba717c74f0a15897703",
+        "native_tensor_left_composition.lp": "46bf9fa036049a3c9c666634df799cc5429ebb92abd975fd2f2367e931c293d0"
+      },
+      "expectedOutcome": "passed-fresh",
+      "coverageReceipt": "20261027T193346Z-b226e68528ad459b986128570d9dcdff",
+      "coverageKind": "fresh exact-input check"
+    },
+    "tensor-collapse": {
+      "extraSourceCopies": [
+        {
+          "source": "emdash3_2_nat_arithmetic.lp",
+          "target": "emdash3_2_nat_arithmetic.lp",
+          "sha256": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31"
+        }
+      ],
+      "extraOwnerInsertions": [
+        {
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "parentSha256": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+          "before": "symbol diagram_family_transf [K I C : Cat]",
+          "fragment": "evaluation_shape_naturality.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "0a4740fc052a425e2b258708f513dde94f56f75ca7a10c0493cbea985121ea95",
+          "before": "// Pairing telescope for products.\n",
+          "fragment": "constant_evaluation_beta.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "bd86ec5e1dae90d74ec2565c6a76c5f87f5c51b1b95219738e2849d26d8cadb0",
+          "before": "/* Identity and the existing weakened constant section, at whole and point",
+          "fragment": "intrinsic_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "d6cd5b51753a3fa291e6d5862330f91499b67135aff6fdd61e2be730d886fe3c",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_whole_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "0c8a3b066ab2738fde9890d2567b9a7b95b6c981d00cb510830dec02edce2948",
+          "before": "// Strict default maps preserve represented postcomposition.",
+          "fragment": "terminal_postcomp_identity.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "cc95184653c19e327348ce90e3871d376633d74d22355ce633405f5d1892440b",
+          "before": "// Cartesian-coefficient instances of the existing strict vertical-action laws.",
+          "fragment": "terminal_transfor_identity.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "6c00663a34202d3fddba011c63c4f8772954b9e2f79de1563ddb0668a2ed930b",
+          "before": "/* Identity and the existing weakened constant section, at whole and point",
+          "fragment": "intrinsic_terminal_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "7e7adc22df1fe6a28d9ee8be55edc5c17df70fbfb19f89567cc4272da83f0aea",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_whole_terminal_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "e5dcd5e6196391a4b199a4d2fd53cf8f5da849cb728948a455a1543f5192b442",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_identity_unit_join.lpfragment"
+        },
+        {
+          "owner": "native_postcomposition_laxity.lp",
+          "parentSha256": "0a6ee22389c8fa2b88569bdb972db8eb535bb3650cfbcbb91b86f388ff2460a3",
+          "before": "// Each component is the original alpha comparison",
+          "fragment": "postcomposition_intrinsic_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "constant_precomposition_beta.lpfragment",
+          "before": "// Pairing telescope for products.\n",
+          "parentSha256": "e006b0a309953b5c213fc014821152bb275c951b1078551996a5e5ebdfccf940"
+        },
+        {
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "fragment": "alternating_constant_beta.lpfragment",
+          "before": "rule @OddDual_func _ _ (@OddDual_func _ _ $F)",
+          "parentSha256": "9e73807f92e1914f837ffb868bb28ed02cc1f9ac9150624ff0826fedb2187d2f"
+        }
+      ],
+      "target": "native_tensor_coordinate_collapse.lp",
+      "timeoutMs": 180000,
+      "expectedInputs": {
+        "emdash3_2.lp": "cadeec3e6a12b509ab251c986a95db4a6b2f0e66f23ec22be68ee27c0946f281",
+        "emdash3_2_diagram_evaluation.lp": "25f4f3d11bfac417a2c7392e32daa0f91702c1027eb8366aeec5b795e2c84b53",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_profiles.lp": "46537eec0adb3138844b094e712fbc13a6302b151949cd8763e354e49ed9758b",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_postcomposition_owner.lp": "b1e507486f452daa856734acf161bf1f95e54d46c7d29ea5ab62b995863aa2b4",
+        "native_reverse_closure_objects.lp": "804833db19f22801c36b1d3de13eee4a5aac2e66538a6258d13c39092962110b",
+        "native_right_closure_naturality.lp": "3939684526a0258fd518fb86dd542cd623fb353d0fe2f29dae69652ca6f2bcb4",
+        "native_right_closure_naturality_controls.lp": "2a15dfc8a57ad9464f537638cf3b333f07a3f5f878c31ce69019be15b3199580",
+        "native_tensor_coordinate_collapse.lp": "c797af2e0cb0fde8dbd428c1758eea4f4790582bf67957ff4b1555c8bdeb3aa6",
+        "native_tensor_left_action.lp": "c71eb65f18abf2e79b54d28106c18caa23d318d21053bba717c74f0a15897703",
+        "native_tensor_left_composition.lp": "46bf9fa036049a3c9c666634df799cc5429ebb92abd975fd2f2367e931c293d0"
+      },
+      "expectedOutcome": "passed-fresh",
+      "coverageReceipt": "20261027T193655Z-4ffb57cd9cd7481dbce2cf6b98c635de",
+      "coverageKind": "fresh exact-input check"
     }
   },
   "historicalAttempts": [
@@ -1909,6 +2243,15 @@
       "wallSeconds": 77.78303659101948,
       "childrenMaxRssKiB": 310664,
       "inputSnapshot": "4336e475e47776348aa20e78d5227d83a112a98a52914fe41809939bae791843"
+    },
+    {
+      "receipt": "20261027T193105Z-6972a908f3914dec9d979cd4b38e9f6e",
+      "label": "whole target-naturality type forms; reflexivity is not provided by the prior fixed-parameter closure",
+      "target": "native_right_closure_naturality.lp",
+      "outcome": "failed",
+      "wallSeconds": 83.90965922502801,
+      "childrenMaxRssKiB": 308372,
+      "inputSnapshot": "2b16e83cfca76ddad176d889df938b047331c63f095bef7759a17c1f352093b5"
     }
   ],
   "openBoundaries": [
@@ -2002,7 +2345,7 @@
     "mixed_exchange_inverse_pending.lpfragment": "097500d2e68a57d826143b2abe6e7556f5bc67a94ff42120dd33570a2e3f270e",
     "mixed_exchange_readback.lpfragment": "8e867750ec0c26ac1074c0e840375feab469bb31222f1ff29eb9b44d9ae6acf0",
     "postcomposition_whole_evaluation.lpfragment": "0adbcd5cbf7dffb2e3504b56f206c72a30da6e242049d4b90b0f98e43f358569",
-    "replay_reverse.py": "f60a6ac55538272cc2297640a4758bfb2874f4b46fcab6b25c943d7d903f4b33",
+    "replay_reverse.py": "94124a0a4ea259583a3c223db3c9443072a8cc8df898796ffb4bd3154d18e638",
     "reverse_family_readback.lpfragment": "aaf23df73598f08b53e2d85ed469b99fd4b35d428c49e1f2c02f7cc10fcaed6b",
     "reverse_final.lpfragment": "d0b977df6cbec3bf315fc76cca596623740523bdb89be325435089ad6ee4ace7",
     "reverse_geometric_controls.lpfragment": "5b17635a4e0fa2ee0097245acd6c1dcaba0e559052e8a7e035db1ba09dd18b45",
@@ -2041,7 +2384,12 @@
     "constant_precomposition_beta.lpfragment": "e50a79e9054ada267370cf0aac1516cde82a7351ef0da10fa2a0d056020204c7",
     "alternating_constant_beta.lpfragment": "78353b5769df7f7d65cb912ba340a902a75a0e6274e9be3a365817a7c8b8d4b2",
     "mixed_diagram_roundtrip.lpfragment": "78479a360358a7f21908aad132a76b8f72b15af81d1eb37db72823bc612890fb",
-    "tensor_left_action.lpfragment": "c71eb65f18abf2e79b54d28106c18caa23d318d21053bba717c74f0a15897703"
+    "tensor_left_action.lpfragment": "c71eb65f18abf2e79b54d28106c18caa23d318d21053bba717c74f0a15897703",
+    "right_closure_naturality.lpfragment": "3939684526a0258fd518fb86dd542cd623fb353d0fe2f29dae69652ca6f2bcb4",
+    "right_closure_naturality_pending.lpfragment": "725206ccc4e328b44b91dee443a3eb0810585c63c6afc20eb8c909fbbe052e1e",
+    "tensor_left_composition.lpfragment": "46bf9fa036049a3c9c666634df799cc5429ebb92abd975fd2f2367e931c293d0",
+    "right_closure_naturality_controls.lpfragment": "2a15dfc8a57ad9464f537638cf3b333f07a3f5f878c31ce69019be15b3199580",
+    "tensor_coordinate_collapse.lpfragment": "c797af2e0cb0fde8dbd428c1758eea4f4790582bf67957ff4b1555c8bdeb3aa6"
   },
   "extensions": [
     {
@@ -2566,6 +2914,91 @@
         "the identity and whole curried readback use the previously supplied right-closure paths; parameter transformation action is the generic Hom of the actual composite",
         "two failed inline proofs are superseded by a staged represented-composition proof with explicit endpoints",
         "no aggregate repeated after proof-only staging; actual owning scopes and exact input snapshots are retained separately"
+      ]
+    },
+    {
+      "baseline": "ce31cd11",
+      "status": "explicit structural whole target-naturality for the right closure; derived first-factor tensor composition and coordinate-collapse consumers; no native/mixed inverse is supplied",
+      "qualificationScopes": [
+        {
+          "receipt": "20261027T193346Z-b226e68528ad459b986128570d9dcdff",
+          "outcome": "passed-fresh",
+          "wallSeconds": 78.89884174102917,
+          "childrenMaxRssKiB": 309896,
+          "settings": {
+            "camlrunparam": "",
+            "fileMiB": 64,
+            "flags": [
+              "--too-long=0.5",
+              "--no-colors"
+            ],
+            "memoryMiB": 2048,
+            "ocamlrunparam": "o=20,v=1024",
+            "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+            "profile": "default",
+            "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+            "resourceBackend": "auto",
+            "runtimeEnvironment": {
+              "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+              "LD_LIBRARY_PATH": "",
+              "LD_PRELOAD": ""
+            },
+            "timeoutMs": 180000
+          },
+          "inputSnapshot": "5d5cf7aa58c6d6f05207916c3888b17129e76d425e5eec400397d25f9a19fba6",
+          "inputCount": 19,
+          "warningCategories": {
+            "replaceable pattern variable": 181,
+            "unjoinable critical pair": 2282
+          },
+          "parserIssues": {}
+        },
+        {
+          "receipt": "20261027T193655Z-4ffb57cd9cd7481dbce2cf6b98c635de",
+          "outcome": "passed-fresh",
+          "wallSeconds": 94.66157040582038,
+          "childrenMaxRssKiB": 312820,
+          "settings": {
+            "camlrunparam": "",
+            "fileMiB": 64,
+            "flags": [
+              "--too-long=0.5",
+              "--no-colors"
+            ],
+            "memoryMiB": 2048,
+            "ocamlrunparam": "o=20,v=1024",
+            "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+            "profile": "default",
+            "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+            "resourceBackend": "auto",
+            "runtimeEnvironment": {
+              "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+              "LD_LIBRARY_PATH": "",
+              "LD_PRELOAD": ""
+            },
+            "timeoutMs": 180000
+          },
+          "inputSnapshot": "424d9855c6f715a3e90f9ff6edb36ca087d420cac5ec6e621e06197f6af31756",
+          "inputCount": 21,
+          "warningCategories": {
+            "replaceable pattern variable": 181,
+            "unjoinable critical pair": 2282
+          },
+          "parserIssues": {}
+        }
+      ],
+      "structuralBoundary": "nerve_right_curry_target_naturality is a newly declared structural path for the selected canonical closure. It is not proved from the prior fixed-parameter beta/eta paths. Operational maps remain defined without a caller proof.",
+      "warningComparison": {
+        "baselineReceipt": "20261027T192219Z-9191ef37eda344a2a15764ade0626247",
+        "candidateReceipt": "20261027T193655Z-4ffb57cd9cd7481dbce2cf6b98c635de",
+        "allFiveFieldsEqual": true
+      },
+      "notes": [
+        "whole target naturality retains higher input-diagram action at fixed H",
+        "source naturality for each complete H, coevaluation naturality, curry reflection and tensor-left composition are derived",
+        "coordinate collapse varies by a whole functor in the chosen point; absorption/idempotence/readback retain the original second-factor diagram",
+        "no rewrite or unification rule is added; no operational map accepts an equality or coherence argument",
+        "whole source-naturality assembly, right-factor action, separated face/degeneracy maps and common-index coherence remain open"
       ]
     }
   ]

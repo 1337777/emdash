@@ -47,8 +47,11 @@ now recover each complete K/I diagram in both directions, without new rules.
 Their compatibility as diagrams vary still needs the whole internal inverse
 proof. Independently, [first-factor tensor action](../emdash2/audits/native_nerve_foundations/tensor_left_action_review.md)
 is derived from the existing right closure, with its identity law and whole
-curried readback. Tensor composition, the other factor and common-index
-coherence remain open. These advances do not replace either native inverse.
+curried readback. The [target-naturality extension](../emdash2/audits/native_nerve_foundations/right_closure_naturality_review.md)
+now makes one structural closure contract explicit and derives first-factor
+tensor composition and coordinate-collapse laws from it. Whole source
+naturality, the other factor and common-index coherence remain open. These
+advances do not replace either native inverse.
 
 The [actual moving-action recovery](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
 preserves its focused progress and pending overlap/full-integration boundary.

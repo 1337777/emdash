@@ -1,0 +1,96 @@
+/* Derived shape laws relative to the explicitly stated structural target
+   naturality of the existing right closure. No tensor law is supplied. */
+require open emdash.native_right_closure_naturality;
+
+// Object projection of the whole structural square, before raw composition.
+symbol nerve_right_curry_target_projected [A B C D : Cat]
+  (H : τ (Functor C D)) (J : τ (Functor (GrayTensor_R A B) C))
+  : τ (@= (Functor A (GrayHom_lax B D))
+      (fapp0 (nerve_right_curry_view A B D)
+        (fapp0 (@comp_cat_cov_func (GrayTensor_R A B) C D H) J))
+      (fapp0 (@comp_cat_cov_func A (GrayHom_lax B C) (GrayHom_lax B D)
+          (@nerve_profile_postcompose B C D H))
+        (fapp0 (nerve_right_curry_view A B C) J)))
+≔ @eq_ap (Functor (Functor_cat (GrayTensor_R A B) C) (Functor_cat A (GrayHom_lax B D)))
+    (Functor A (GrayHom_lax B D))
+    (λ Q : τ (Functor (Functor_cat (GrayTensor_R A B) C) (Functor_cat A (GrayHom_lax B D))), fapp0 Q J)
+    _ _ (@nerve_right_curry_target_naturality A B C D H);
+
+// Read the same square at an entire strict tensor diagram J.
+symbol nerve_right_curry_target_at [A B C D : Cat]
+  (H : τ (Functor C D)) (J : τ (Functor (GrayTensor_R A B) C))
+  : τ (@= (Functor A (GrayHom_lax B D))
+      (@gray_curry_R A B D (@comp_cat_fapp0 (GrayTensor_R A B) C D H J))
+      (@comp_cat_fapp0 A (GrayHom_lax B C) (GrayHom_lax B D)
+        (@nerve_profile_postcompose B C D H) (@gray_curry_R A B C J)))
+≔ @eq_trans _ _ _ _
+    (@eq_ap (Functor (GrayTensor_R A B) D) (Functor A (GrayHom_lax B D))
+      (λ U : τ (Functor (GrayTensor_R A B) D), @gray_curry_R A B D U)
+      _ _ (@eq_sym _ _ _ (@nerve_postcomposition_value_path (GrayTensor_R A B) C D H J)))
+    (@eq_trans _ _ _ _ (@nerve_right_curry_target_projected A B C D H J)
+      (@nerve_postcomposition_value_path A (GrayHom_lax B C) (GrayHom_lax B D)
+        (@nerve_profile_postcompose B C D H) (@gray_curry_R A B C J)));
+
+// Coevaluation naturality is a consequence, by the actual tensor identity.
+symbol nerve_right_coevaluation_target [A B C : Cat]
+  (H : τ (Functor (GrayTensor_R A B) C))
+  : τ (@= (Functor A (GrayHom_lax B C))
+      (@gray_curry_R A B C H)
+      (@comp_cat_fapp0 A (GrayHom_lax B (GrayTensor_R A B)) (GrayHom_lax B C)
+        (@nerve_profile_postcompose B (GrayTensor_R A B) C H) (gray_coevaluation_R_func A B)))
+≔ @nerve_right_curry_target_at A B (GrayTensor_R A B) C H (@id_func (GrayTensor_R A B));
+
+// Source naturality for the already defined first-factor map, derived from
+// target naturality and its coevaluation instance.
+symbol nerve_right_curry_source_at [A D B C : Cat]
+  (F : τ (Functor A D)) (H : τ (Functor (GrayTensor_R D B) C))
+  : τ (@= (Functor A (GrayHom_lax B C))
+      (@gray_curry_R A B C
+        (@comp_cat_fapp0 (GrayTensor_R A B) (GrayTensor_R D B) C H (@nerve_tensor_left_map A D B F)))
+      (@comp_cat_fapp0 A D (GrayHom_lax B C) (@gray_curry_R D B C H) F))
+≔ @eq_trans _ _ _ _
+    (@nerve_right_curry_target_at A B (GrayTensor_R D B) C H (@nerve_tensor_left_map A D B F))
+    (@eq_trans _ _ _ _
+      (@eq_ap (Functor A (GrayHom_lax B (GrayTensor_R D B)))
+        (Functor A (GrayHom_lax B C))
+        (λ J : τ (Functor A (GrayHom_lax B (GrayTensor_R D B))),
+          @comp_cat_fapp0 A (GrayHom_lax B (GrayTensor_R D B)) (GrayHom_lax B C)
+            (@nerve_profile_postcompose B (GrayTensor_R D B) C H) J)
+        _ _ (@nerve_tensor_left_curried A D B F))
+      (@eq_ap (Functor D (GrayHom_lax B C)) (Functor A (GrayHom_lax B C))
+        (λ J : τ (Functor D (GrayHom_lax B C)), @comp_cat_fapp0 A D (GrayHom_lax B C) J F)
+        _ _ (@eq_sym _ _ _ (@nerve_right_coevaluation_target D B C H))));
+
+// Proof reflection through the actual right-closure inverse operations.
+// The equality input is proof-only, not an operational parameter.
+symbol nerve_right_curry_reflect [A B C : Cat]
+  (H J : τ (Functor (GrayTensor_R A B) C))
+  (p : τ (@= (Functor A (GrayHom_lax B C)) (@gray_curry_R A B C H) (@gray_curry_R A B C J)))
+  : τ (@= (Functor (GrayTensor_R A B) C) H J)
+≔ @eq_trans _ _ _ _ (@eq_sym _ _ _ (@gray_uncurry_curry_R_at A B C H))
+    (@eq_trans _ _ _ _
+      (@eq_ap (Functor A (GrayHom_lax B C)) (Functor (GrayTensor_R A B) C)
+        (λ U : τ (Functor A (GrayHom_lax B C)), @gray_uncurry_R A B C U) _ _ p)
+      (@gray_uncurry_curry_R_at A B C J));
+
+// Derived composition of first-factor shape maps. Both original F and G
+// survive; this is not an added computation rule on the tensor owner.
+symbol nerve_tensor_left_composition [A D E B : Cat]
+  (F : τ (Functor A D)) (G : τ (Functor D E))
+  : τ (@= (Functor (GrayTensor_R A B) (GrayTensor_R E B))
+      (@comp_cat_fapp0 (GrayTensor_R A B) (GrayTensor_R D B) (GrayTensor_R E B)
+        (@nerve_tensor_left_map D E B G) (@nerve_tensor_left_map A D B F))
+      (@nerve_tensor_left_map A E B (@comp_cat_fapp0 A D E G F)))
+≔ @nerve_right_curry_reflect A B (GrayTensor_R E B)
+    (@comp_cat_fapp0 (GrayTensor_R A B) (GrayTensor_R D B) (GrayTensor_R E B)
+      (@nerve_tensor_left_map D E B G) (@nerve_tensor_left_map A D B F))
+    (@nerve_tensor_left_map A E B (@comp_cat_fapp0 A D E G F))
+    (@eq_trans _ _ _ _
+      (@nerve_right_curry_source_at A D B (GrayTensor_R E B) F (@nerve_tensor_left_map D E B G))
+      (@eq_trans _ _ _ _
+        (@eq_ap (Functor D (GrayHom_lax B (GrayTensor_R E B)))
+          (Functor A (GrayHom_lax B (GrayTensor_R E B)))
+          (λ U : τ (Functor D (GrayHom_lax B (GrayTensor_R E B))),
+            @comp_cat_fapp0 A D (GrayHom_lax B (GrayTensor_R E B)) U F)
+          _ _ (@nerve_tensor_left_curried D E B G))
+        (@eq_sym _ _ _ (@nerve_tensor_left_curried A E B (@comp_cat_fapp0 A D E G F)))));

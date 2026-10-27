@@ -1,0 +1,38 @@
+require open emdash.native_tensor_left_composition;
+
+// The whole structural law retains the selected target functor H.
+assertnot [A B C D : Cat] (H J : τ (Functor C D)) ⊢
+  @nerve_right_curry_target_naturality A B C D H
+  : τ (@= (Functor (Functor_cat (GrayTensor_R A B) C) (Functor_cat A (GrayHom_lax B D)))
+      (@comp_cat_fapp0 _ _ _ (nerve_right_curry_view A B D)
+        (@comp_cat_cov_func (GrayTensor_R A B) C D H))
+      (@comp_cat_fapp0 _ _ _
+        (@comp_cat_cov_func A (GrayHom_lax B C) (GrayHom_lax B D)
+          (@nerve_profile_postcompose B C D J))
+        (nerve_right_curry_view A B C)));
+
+// The fixed profile action retains the original transformed lax cell.
+assert [B C D : Cat] (H : τ (Functor C D)) (F G : τ (Functor B C))
+  (a : τ (@LaxTransfor B C F G)) ⊢
+  @lax_transfor B D _ _
+    (@fapp1_fapp0 (GrayHom_lax B C) (GrayHom_lax B D)
+      (@nerve_profile_postcompose B C D H) F G a)
+  ≡ @fapp1_fapp0 (Functor_cat B C) (Functor_cat B D) (@comp_cat_cov_func B C D H)
+      F G (@lax_transfor B C F G a);
+
+// An unrelated transformed cell is not erased into the supplied comparison.
+assertnot [B C D : Cat] (H : τ (Functor C D)) (F G : τ (Functor B C))
+  (a b : τ (@LaxTransfor B C F G)) ⊢
+  @lax_transfor B D _ _
+    (@fapp1_fapp0 (GrayHom_lax B C) (GrayHom_lax B D)
+      (@nerve_profile_postcompose B C D H) F G a)
+  ≡ @fapp1_fapp0 (Functor_cat B C) (Functor_cat B D) (@comp_cat_cov_func B C D H)
+      F G (@lax_transfor B C F G b);
+
+// The resulting composition comparison specializes without a new identity axiom.
+assert [A D B : Cat] (F : τ (Functor A D)) ⊢
+  @nerve_tensor_left_composition A D D B F (@id_func D)
+  : τ (@= (Functor (GrayTensor_R A B) (GrayTensor_R D B))
+      (@comp_cat_fapp0 _ _ _ (@nerve_tensor_left_map D D B (@id_func D))
+        (@nerve_tensor_left_map A D B F))
+      (@nerve_tensor_left_map A D B F));
