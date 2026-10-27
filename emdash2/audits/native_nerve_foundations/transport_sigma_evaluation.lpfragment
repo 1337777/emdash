@@ -1,0 +1,20 @@
+// Evaluate a Cartesian Sigma-map family at an actual total pair.
+// This is the whole counterpart of Sigma(U)[(k,u)] = (k,U[k](u)).
+rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _
+      (@fapp0_func _ _ (Struct_sigma $k $u)) (Functor_cart_include _ _))
+    (@fapp1_func _ _ (Sigma_coeff_func $K) $E $D)
+  ↪ @comp_cat_fapp0
+      (Hom_cat (Functor_cart_cat $K Cat_cart) $E $D)
+      (@Fibre_cat $K $D $k) (@Sigma_cat $K $D)
+      (@sigma_intro_tapp0_func $K $D $k)
+      (@comp_cat_fapp0
+        (Hom_cat (Functor_cart_cat $K Cat_cart) $E $D)
+        (Functor_cart_cat (@Fibre_cat $K $E $k) (@Fibre_cat $K $D $k))
+        (@Fibre_cat $K $D $k)
+        (@comp_cat_fapp0
+          (Functor_cart_cat (@Fibre_cat $K $E $k) (@Fibre_cat $K $D $k))
+          (Functor_cat (@Fibre_cat $K $E $k) (@Fibre_cat $K $D $k)) (@Fibre_cat $K $D $k)
+          (@fapp0_func (@Fibre_cat $K $E $k) (@Fibre_cat $K $D $k) $u)
+          (Functor_cart_include (@Fibre_cat $K $E $k) (@Fibre_cat $K $D $k)))
+        (@Functor_cart_component_func $K Cat_cart $E $D $k));

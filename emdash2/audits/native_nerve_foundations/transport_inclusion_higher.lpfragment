@@ -1,0 +1,22 @@
+require open emdash.native_sigma_inclusion_controls;
+
+// Iterate the whole inclusion Hom once more; retain an arbitrary 2-cell.
+assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u v : τ (Obj (@Fibre_cat K E k))) (h h1 : τ (Hom (@Fibre_cat K E k) u v))
+  (Gamma : τ (Hom (Hom_cat (@Fibre_cat K E k) u v) h h1)) ⊢
+  @fapp1_fapp0 _ _
+    (@fapp1_func (@Fibre_cat K E k) (@Sigma_cat K E) (@sigma_intro_tapp0_func K E k) u v)
+    h h1 Gamma
+  ≡ @sigma_arrow (TotalOp_cat (Hom_cat K k k))
+      (@TotalOp_catd (Op_cat (Hom_cat K k k)) (@homd_ K E E (@id_funcd K E) k u k v))
+      (@id K k) (@id K k) h1 h (@id (TotalOp_cat (Hom_cat K k k)) (@id K k)) Gamma;
+
+assertnot [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u v : τ (Obj (@Fibre_cat K E k))) (h h1 : τ (Hom (@Fibre_cat K E k) u v))
+  (Gamma Delta : τ (Hom (Hom_cat (@Fibre_cat K E k) u v) h h1)) ⊢
+  @fapp1_fapp0 _ _
+    (@fapp1_func (@Fibre_cat K E k) (@Sigma_cat K E) (@sigma_intro_tapp0_func K E k) u v)
+    h h1 Gamma
+  ≡ @sigma_arrow (TotalOp_cat (Hom_cat K k k))
+      (@TotalOp_catd (Op_cat (Hom_cat K k k)) (@homd_ K E E (@id_funcd K E) k u k v))
+      (@id K k) (@id K k) h1 h (@id (TotalOp_cat (Hom_cat K k k)) (@id K k)) Delta;

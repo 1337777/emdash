@@ -15,6 +15,17 @@ Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 
 ## Authorization and current boundary
 
+NF-1 represented boundary transport, 2026-10-27 UTC: [the whole extracted map](../emdash2/audits/native_nerve_foundations/README.md#represented-boundary-transport-and-sigma-inclusion)
+now agrees with `a ↦ (y′,v∘a)` through a staged functor comparison. The existing
+Sigma fibre inclusion has whole/capped and next-Hom computation. The 58-input
+native prefix passes in 127.501s / 598,308 KiB; nine added identity-overlap
+reports have classified, checked canonical typed comparisons, while the
+generic runtime identity head is preserved. The fully annotated constructor
+with both boundary 2-cells varying still fails the Homd/negative-Sigma family
+comparison. Continue there using the qualified transport and inclusion maps;
+do not replace this obligation with fixed-filler tests or a supplied inverse.
+The second inverse and full-module/production qualification remain open.
+
 NF-1 Sigma factorization, 2026-10-27 UTC: [the derived whole comparison](../emdash2/audits/native_nerve_foundations/README.md#sigma-factorization-and-whole-filler-readback)
 moves section postcomposition through totalization and exposes the graph's
 actual Sigma-map factors. One generic structural view connects the existing

@@ -1,0 +1,7 @@
+// Fixed-input evaluation of represented precomposition is postcomposition.
+// Keep both runtime heads; this compares complete functors, not their points.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _ (@fapp0_func _ _ $g) (Functor_cart_include _ _))
+    (@hom_precomp_along_tele_func $A $A (@id Cat_cat $A) $Z $X $Y)
+  ≡ @hom_postcomp_func $A0 $A0 (@id Cat_cat $A0) $X0 $Y0 $Z0 $g0
+  ↪ [ $A0 ≡ $A; $X0 ≡ $X; $Y0 ≡ $Y; $Z0 ≡ $Z; $g0 ≡ $g ];

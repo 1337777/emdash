@@ -1,0 +1,16 @@
+require open emdash.native_target_transport;
+
+assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u v : τ (Obj (@Fibre_cat K E k))) (h : τ (Hom (@Fibre_cat K E k) u v)) ⊢
+  @fapp1_fapp0 (@Fibre_cat K E k) (@Sigma_cat K E) (@sigma_intro_tapp0_func K E k) u v h
+  ≡ @sigma_arrow K E k k u v (@id K k) h;
+
+assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u v : τ (Obj (@Fibre_cat K E k))) (h : τ (Hom (@Fibre_cat K E k) u v)) ⊢
+  @fapp0 _ _ (@fapp1_func (@Fibre_cat K E k) (@Sigma_cat K E) (@sigma_intro_tapp0_func K E k) u v) h
+  ≡ @sigma_arrow K E k k u v (@id K k) h;
+
+assertnot [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u v : τ (Obj (@Fibre_cat K E k))) (h g : τ (Hom (@Fibre_cat K E k) u v)) ⊢
+  @fapp1_fapp0 (@Fibre_cat K E k) (@Sigma_cat K E) (@sigma_intro_tapp0_func K E k) u v h
+  ≡ @sigma_arrow K E k k u v (@id K k) g;

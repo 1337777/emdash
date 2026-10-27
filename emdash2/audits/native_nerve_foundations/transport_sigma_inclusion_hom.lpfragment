@@ -1,0 +1,15 @@
+// The existing fibre inclusion exposes its full Hom action through the
+// same inclusion in the negative Sigma-Hom family. No base arrow is supplied.
+rule @fapp1_func _ _ (@sigma_intro_tapp0_func $K $E $k) $u $v
+  ↪ @TotalOp_func
+      (TotalOp_cat (Hom_cat (@Fibre_cat $K $E $k) $u $v))
+      (@Sigma_cat (TotalOp_cat (Hom_cat $K $k $k))
+        (@TotalOp_catd (Op_cat (Hom_cat $K $k $k))
+          (@homd_ $K $E $E (@id_funcd $K $E) $k $u $k $v)))
+      (@sigma_intro_tapp0_func (TotalOp_cat (Hom_cat $K $k $k))
+        (@TotalOp_catd (Op_cat (Hom_cat $K $k $k))
+          (@homd_ $K $E $E (@id_funcd $K $E) $k $u $k $v)) (@id $K $k));
+
+// Capping the same whole map gives the canonical vertical Sigma arrow.
+rule @fapp1_fapp0 _ _ (@sigma_intro_tapp0_func $K $E $k) $u $v $h
+  ↪ @sigma_arrow $K $E $k $k $u $v (@id $K $k) $h;

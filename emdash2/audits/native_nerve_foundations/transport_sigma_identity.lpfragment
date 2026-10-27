@@ -1,0 +1,6 @@
+// A visible Sigma identity has the canonical pair of identities.
+// Keep the runtime identity head for generic functor-unit matching. The
+// inferred pair carrier is supplied by the typed equality; retain both entries.
+unif_rule @id (@Sigma_cat $K $E) (Struct_sigma $k $u)
+  ≡ Struct_sigma $p $alpha
+  ↪ [ $p ≡ @id $K $k; $alpha ≡ @id (@Fibre_cat $K $E $k) $u ];

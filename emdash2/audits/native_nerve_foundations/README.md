@@ -4,6 +4,77 @@ Status: non-library NF-1 candidate on the corrected foundations.
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
+## Represented boundary transport and Sigma inclusion
+
+[`transport_native_proof.lpfragment`](transport_native_proof.lpfragment)
+compares the **whole extracted** transport in the native Hom family with
+its explicit represented form:
+
+```text
+T(x,x′,y′,v) : Hom_C(x,x′) → PathOut_C(x)
+T(x,x′,y′,v) ≐ inclusion(y′) ∘ postcompose(v).
+```
+
+Its object is `(y′,v∘a)`. The input map is the total dual of the existing
+fibre-covariance map for the actual `homdc_op_edge_catd` family. This is a
+comparison of complete functors, retaining higher variation of a. It does
+not replace the native family or take an equality proof as operational input.
+
+The proof uses small [generic comparisons](transport_generic_proofs.lpfragment)
+for fixed-object Cartesian evaluation, Cartesian Sigma-map evaluation at a total pair,
+and the component of represented precomposition. Primitive duality evaluation
+and its other distribution order compute; the represented-component and
+precomposition comparisons preserve their runtime heads. Explicit source,
+middle and target categories avoid an observed inference failure. The staged
+proof avoids the failed attempt to compare one expanded composite by reflexivity.
+
+The [existing Sigma fibre inclusion](transport_sigma_inclusion_hom.lpfragment)
+now exposes its whole Hom through the same inclusion in the negative
+Sigma-Hom family. Its capped action is `(id_k,h)`. Both projection orders and
+the next Hom retain the original h and higher cell Γ; distinct replacements
+are rejected. No additional operational primitive is declared.
+
+The identity overlap revealed a missing [Sigma identity comparison](transport_sigma_identity.lpfragment).
+The selected proof-time view relates the visible total identity to the pair
+of identities while retaining the runtime identity head for generic functor
+unit matching. Base and fibre nonidentity substitutions are rejected. The
+first, more elaborate inferred-carrier constraint triggered a checker
+assertion and is not retained. The successful view uses the typed equality's
+inferred carrier and compares both actual entries.
+
+Qualification: the 58-input native prefix passes in **127.501s / 598,308 KiB**
+under 180s / 2 GiB, retaining the first inverse, graph factorization and whole
+fixed-boundary filler results. The strict LHS audit has zero unreviewed
+clauses. Nine additional identity-overlap reports are classified: ordinary,
+T, R, O, dimension-two, Catd, terminal, odd and even source presentations.
+Their canonical typed comparisons pass, including the separate parity check.
+Generic runtime identity/pair equality is deliberately not asserted, and no
+global confluence or production-promotion claim follows.
+
+**Remaining boundary:** the [intended moving-boundary constructor](transport_moving_boundary_candidate.lpfragment)
+still fails with both Sigma carrier families explicitly annotated. Its last
+constraint compares the actual Homd/negative-Sigma fibre with the proposed
+ordinary higher-cell family. Thus the failure is not resolved merely by
+supplying tuple metadata. This remains an unfinished construction, not a
+negative acceptance test or a mathematical nonexistence result. Continue at
+that whole family comparison; do not add an inverse or strengthen arbitrary
+lax naturality to close it.
+
+The [verification record](transport_verification.json) retains the exact
+successful and failed source closures. It also records the discarded eager
+total-Hom rules, their unnecessary incoming-unit extension, and the uninstalled
+larger boundary-extraction draft. These are not part of the selected source.
+`replay_transport.py` supports `generic`, `parity`, `integration` and `moving`
+modes, each with `--assemble-only`. The `moving` mode reproduces the failed
+constructor and returns failure; it is not a green gate. Production sources,
+the completed book work and the separate frontend integration task are untouched.
+
+The semantic review consulted the recursive Hom description of cylinders in
+[Ara–Guetta, §§22–26](https://arxiv.org/html/2503.08832v1#S2), which retains both
+boundary-cell coordinates. This motivates checking boundary variation beyond
+fixed fillers; it supplies no proof of the repository's Sigma presentation or
+the missing native inverse.
+
 ## Sigma factorization and whole filler readback
 
 The [section postcomposition view](section_postcomp_owner.lpfragment) adds

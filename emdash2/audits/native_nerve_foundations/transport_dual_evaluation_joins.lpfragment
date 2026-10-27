@@ -1,0 +1,17 @@
+// Join duality distribution performed before the evaluation/duality cut.
+// This is the other reduction order of the two whole rules above, using
+// involution. The original point and primitive mapping-action owner remain.
+rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _
+      (@Op_func _ _ (@fapp0_func _ _ $a))
+      (@Op_func _ _ (Functor_cart_include _ _)))
+    (@Op_func _ _ (Op_func_func $A $B))
+  ↪ @comp_cat_fapp0 (Functor_cart_cat $A $B) (Functor_cat $A $B) $B
+      (@fapp0_func $A $B $a) (Functor_cart_include $A $B);
+rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _
+      (@CoAbove2_func _ _ (@fapp0_func _ _ $a))
+      (@CoAbove2_func _ _ (Functor_cart_include _ _)))
+    (@CoAbove2_func _ _ (CoAbove2_func_func $A $B))
+  ↪ @comp_cat_fapp0 (Functor_cart_cat $A $B) (Functor_cat $A $B) $B
+      (@fapp0_func $A $B $a) (Functor_cart_include $A $B);

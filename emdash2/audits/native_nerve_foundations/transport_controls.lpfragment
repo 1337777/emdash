@@ -1,0 +1,49 @@
+require open emdash.native_sigma_inclusion_higher;
+
+// Whole-first and duality-first Cartesian evaluation agree for Op_cat.
+assert [A B : Cat] (a : τ (Obj A)) ⊢
+  @comp_cat_fapp0 (Op_cat (Functor_cart_cat A B))
+    (Functor_cart_cat (Op_cat A) (Op_cat B)) (Op_cat B)
+    (@nerve_cart_evaluate (Op_cat A) (Op_cat B) a) (Op_func_func A B)
+  ≡ @Op_func (Functor_cart_cat A B) B (@nerve_cart_evaluate A B a);
+
+assert [A B : Cat] (a : τ (Obj A)) ⊢
+  @comp_cat_fapp0 (Functor_cart_cat A B)
+    (Op_cat (Functor_cart_cat (Op_cat A) (Op_cat B))) B
+    (@Op_func (Functor_cart_cat (Op_cat A) (Op_cat B)) (Op_cat B)
+      (@nerve_cart_evaluate (Op_cat A) (Op_cat B) a))
+    (@Op_func (Op_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (Op_cat A) (Op_cat B)) (Op_func_func A B))
+  ≡ @nerve_cart_evaluate A B a;
+
+// Whole-first and duality-first Cartesian evaluation agree for CoAbove2_cat.
+assert [A B : Cat] (a : τ (Obj A)) ⊢
+  @comp_cat_fapp0 (CoAbove2_cat (Functor_cart_cat A B))
+    (Functor_cart_cat (CoAbove2_cat A) (CoAbove2_cat B)) (CoAbove2_cat B)
+    (@nerve_cart_evaluate (CoAbove2_cat A) (CoAbove2_cat B) a) (CoAbove2_func_func A B)
+  ≡ @CoAbove2_func (Functor_cart_cat A B) B (@nerve_cart_evaluate A B a);
+
+assert [A B : Cat] (a : τ (Obj A)) ⊢
+  @comp_cat_fapp0 (Functor_cart_cat A B)
+    (CoAbove2_cat (Functor_cart_cat (CoAbove2_cat A) (CoAbove2_cat B))) B
+    (@CoAbove2_func (Functor_cart_cat (CoAbove2_cat A) (CoAbove2_cat B)) (CoAbove2_cat B)
+      (@nerve_cart_evaluate (CoAbove2_cat A) (CoAbove2_cat B) a))
+    (@CoAbove2_func (CoAbove2_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (CoAbove2_cat A) (CoAbove2_cat B)) (CoAbove2_func_func A B))
+  ≡ @nerve_cart_evaluate A B a;
+
+// Evaluation does not forget the selected object.
+assertnot [A B : Cat] (a a1 : τ (Obj A)) ⊢
+  @comp_cat_fapp0 (Op_cat (Functor_cart_cat A B))
+    (Functor_cart_cat (Op_cat A) (Op_cat B)) (Op_cat B)
+    (@nerve_cart_evaluate (Op_cat A) (Op_cat B) a) (Op_func_func A B)
+  ≡ @Op_func (Functor_cart_cat A B) B (@nerve_cart_evaluate A B a1);
+
+// The native whole transport retains the original target arrow v.
+assertnot [C : Cat] (x x1 y1 : τ (Obj C)) (v w : τ (Hom C x1 y1)) ⊢
+  @nerve_native_target_transport_path C x x1 y1 v
+  : τ (@= (Functor (Hom_cat C x x1) (@PathOut_cat C x))
+      (@nerve_native_target_transport_func C x x1 y1 v)
+      (@comp_cat_fapp0 (Hom_cat C x x1) (Hom_cat C x y1) (@PathOut_cat C x)
+        (@sigma_intro_tapp0_func C (@hom_ C C (@id_func C) x) y1)
+        (@hom_postcomp_func C C (@id_func C) x x1 y1 w)));

@@ -42,6 +42,16 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Native represented transport, 2026-10-27 UTC: [the current candidate](../emdash2/audits/native_nerve_foundations/README.md#represented-boundary-transport-and-sigma-inclusion)
+qualifies the whole native Hom-family transport and the existing Sigma fibre
+inclusion's higher action. The 58-input prefix passes; the nine new unit
+overlap reports are classified with canonical typed comparisons. The actual
+moving-boundary constructor still has an unresolved Homd/Sigma family-type
+comparison even with explicit tuple carriers. That and the second inverse
+remain required. No new boundary-extraction primitive, inverse axiom or
+operational equality argument is adopted; production and later integration
+gates remain open.
+
 Native Sigma factorization, 2026-10-27 UTC: [the current candidate](../emdash2/audits/native_nerve_foundations/README.md#sigma-factorization-and-whole-filler-readback)
 derives totalization compatibility with section postcomposition and factors
 the actual graph into its existing Sigma maps. Whole fixed-boundary filler

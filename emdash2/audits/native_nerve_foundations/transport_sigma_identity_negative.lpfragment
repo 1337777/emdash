@@ -1,0 +1,19 @@
+require open emdash.native_sigma_inclusion_units;
+
+// A Sigma identity view cannot discard either a nonidentity base loop
+// or a nonidentity fibre endomorphism.
+assertnot [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E k))) (p : τ (Hom K k k))
+  (alpha : τ (Hom (@Fibre_cat K E k)
+    (@fapp0 (@Fibre_cat K E k) (@Fibre_cat K E k) (@catd_transport_func K E k k p) u) u)) ⊢
+  @eq_refl (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+    (@id (@Sigma_cat K E) (Struct_sigma k u))
+  : τ (@= (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+      (@id (@Sigma_cat K E) (Struct_sigma k u)) (@sigma_arrow K E k k u u p alpha));
+
+assertnot [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E k))) (alpha : τ (Hom (@Fibre_cat K E k) u u)) ⊢
+  @eq_refl (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+    (@id (@Sigma_cat K E) (Struct_sigma k u))
+  : τ (@= (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+      (@id (@Sigma_cat K E) (Struct_sigma k u)) (@sigma_arrow K E k k u u (@id K k) alpha));

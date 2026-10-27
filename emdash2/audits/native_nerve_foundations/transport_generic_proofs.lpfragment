@@ -1,0 +1,42 @@
+require open emdash.native_precomp_evaluation;
+
+symbol nerve_cart_evaluate [A B : Cat] (a : τ (Obj A))
+  : τ (Functor (Functor_cart_cat A B) B)
+≔ @comp_cat_fapp0 (Functor_cart_cat A B) (Functor_cat A B) B
+    (@fapp0_func A B a) (Functor_cart_include A B);
+
+symbol nerve_sigma_cart_evaluate [K : Cat] (E D : τ (Catd K))
+  (k : τ (Obj K)) (u : τ (Obj (@Fibre_cat K E k)))
+  : τ (Functor (Hom_cat (Functor_cart_cat K Cat_cart) E D) (@Sigma_cat K D))
+≔ @comp_cat_fapp0 (Hom_cat (Functor_cart_cat K Cat_cart) E D)
+    (Functor_cart_cat (@Sigma_cat K E) (@Sigma_cat K D)) (@Sigma_cat K D)
+    (@nerve_cart_evaluate (@Sigma_cat K E) (@Sigma_cat K D) (Struct_sigma k u))
+    (@fapp1_func (Functor_cart_cat K Cat_cart) Cat_cart (@Sigma_coeff_func K) E D);
+
+symbol nerve_sigma_cart_evaluate_path [K : Cat] (E D : τ (Catd K))
+  (k : τ (Obj K)) (u : τ (Obj (@Fibre_cat K E k)))
+  : τ (@= (Functor (Hom_cat (Functor_cart_cat K Cat_cart) E D) (@Sigma_cat K D))
+      (@nerve_sigma_cart_evaluate K E D k u)
+      (@comp_cat_fapp0 _ _ _ (@sigma_intro_tapp0_func K D k)
+        (@comp_cat_fapp0 _ _ _ (@nerve_cart_evaluate (@Fibre_cat K E k) (@Fibre_cat K D k) u)
+          (@Functor_cart_component_func K Cat_cart E D k))))
+≔ @eq_refl (Functor (Hom_cat (Functor_cart_cat K Cat_cart) E D) (@Sigma_cat K D))
+    (@nerve_sigma_cart_evaluate K E D k u);
+
+symbol nerve_hom_int_component_path [A B : Cat] (F : τ (Functor B A))
+  (Y X : τ (Obj A)) (b : τ (Obj B))
+  : τ (@= (Functor (Hom_cat A X Y)
+      (Functor_cart_cat (Hom_cat A Y (@fapp0 B A F b)) (Hom_cat A X (@fapp0 B A F b))))
+      (@comp_cat_fapp0 (Hom_cat A X Y)
+        (Hom_cat (Functor_cart_cat B Cat_cart) (@hom_ A B F Y) (@hom_ A B F X))
+        (Functor_cart_cat (Hom_cat A Y (@fapp0 B A F b)) (Hom_cat A X (@fapp0 B A F b)))
+        (@Functor_cart_component_func B Cat_cart (@hom_ A B F Y) (@hom_ A B F X) b)
+        (@hom_int_precomp_tele_func A B F Y X))
+      (@hom_precomp_along_tele_func A A (@id_func A) (@fapp0 B A F b) X Y))
+≔ @eq_refl (Functor (Hom_cat A X Y)
+    (Functor_cart_cat (Hom_cat A Y (@fapp0 B A F b)) (Hom_cat A X (@fapp0 B A F b))))
+    (@comp_cat_fapp0 (Hom_cat A X Y)
+      (Hom_cat (Functor_cart_cat B Cat_cart) (@hom_ A B F Y) (@hom_ A B F X))
+      (Functor_cart_cat (Hom_cat A Y (@fapp0 B A F b)) (Hom_cat A X (@fapp0 B A F b)))
+      (@Functor_cart_component_func B Cat_cart (@hom_ A B F Y) (@hom_ A B F X) b)
+      (@hom_int_precomp_tele_func A B F Y X));

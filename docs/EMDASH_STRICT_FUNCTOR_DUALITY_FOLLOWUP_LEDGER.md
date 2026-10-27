@@ -4,6 +4,16 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: book/article complete; native Pi/Sigma correction installed; NF-1 reconstruction active; affected frontend candidate preserved separately; broad health/final integration remain deferred
 
+NF-1 represented transport: [the source-pinned record](../emdash2/audits/native_nerve_foundations/transport_verification.json)
+qualifies the whole `a ↦ (y′,v∘a)` transport extracted from the actual native
+family, plus the Sigma fibre inclusion's complete Hom and next action. The
+58-input native prefix passes in 127.501s. Nine added identity-overlap reports
+have checked canonical typed comparisons, without a generic runtime identity
+expansion. The fully annotated moving-boundary constructor remains a failed
+diagnostic at its family/type comparison; it is not accepted as a negative
+test or declared mathematically impossible. Preserve that obligation, the
+second inverse and the existing full-module/promotion gates.
+
 NF-1 graph factorization and whole filler recovery: [the new record](../emdash2/audits/native_nerve_foundations/factorization_verification.json)
 qualifies the complete Sigma-map factorization of the actual graph and the
 identity of the fixed-boundary filler endofunctor. General FF retains its

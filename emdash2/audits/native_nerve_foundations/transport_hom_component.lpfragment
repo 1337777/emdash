@@ -1,0 +1,10 @@
+// Whole Cartesian component of represented precomposition. Keep the
+// original composite at runtime so prefix composition does not erase the
+// left endpoint before a proof applies functorial congruence.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _
+      (@tapp0_func _ Cat_cart _ _ $b)
+      (@fapp1_func _ _ (Functor_cart_include _ Cat_cart) _ _))
+    (@hom_int_precomp_tele_func $A $B $F $Y $X)
+  ≡ @hom_precomp_along_tele_func $A0 $A0 (@id Cat_cat $A0) $Z0 $X0 $Y0
+  ↪ [ $A0 ≡ $A; $Z0 ≡ @fapp0 $B $A $F $b; $X0 ≡ $X; $Y0 ≡ $Y ];

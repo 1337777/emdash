@@ -1,0 +1,513 @@
+{
+  "schema": "emdash-native-represented-transport-v1",
+  "receiverBaseline": "d12c1f87",
+  "status": "whole native represented boundary transport, Sigma fibre-inclusion Hom/action and retained native prefix qualified; the fully annotated moving-boundary constructor and second inverse remain open",
+  "baseReplay": "replay_factorization.py",
+  "checker": {
+    "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+    "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+    "version": "dev-3.0.0-90-gdb4f7809-dirty"
+  },
+  "ownerInsertions": [
+    {
+      "fragment": "transport_dual_evaluation.lpfragment",
+      "anchor": "// The higher action of internalized precomposition is the two-endpoint Hom\n",
+      "separator": "\n"
+    },
+    {
+      "fragment": "transport_dual_evaluation_joins.lpfragment",
+      "anchor": "// The higher action of internalized precomposition is the two-endpoint Hom\n",
+      "separator": "\n"
+    },
+    {
+      "fragment": "transport_precomp_evaluation.lpfragment",
+      "anchor": "// Whole u-parameter of transport at a fixed y. Cartesian E_1 admits this\n",
+      "separator": "\n"
+    },
+    {
+      "fragment": "transport_hom_component.lpfragment",
+      "anchor": "// Whole u-parameter of transport at a fixed y. Cartesian E_1 admits this\n",
+      "separator": "\n"
+    },
+    {
+      "fragment": "transport_sigma_inclusion_hom.lpfragment",
+      "anchor": "// Whole evaluation in section-first order. Pi is already the category of\n",
+      "separator": "\n"
+    },
+    {
+      "fragment": "transport_sigma_evaluation.lpfragment",
+      "anchor": "// Whole evaluation in section-first order. Pi is already the category of\n",
+      "separator": "\n"
+    },
+    {
+      "fragment": "transport_sigma_identity.lpfragment",
+      "anchor": "/*\n  Stable arbitrary-endpoint Sigma arrow.",
+      "separator": "\n"
+    }
+  ],
+  "programs": {
+    "native_precomp_evaluation.lp": "transport_precomp_proof.lpfragment",
+    "native_transport_lemmas.lp": "transport_generic_proofs.lpfragment",
+    "native_target_transport.lp": "transport_native_proof.lpfragment",
+    "native_sigma_inclusion_controls.lp": "transport_inclusion_controls.lpfragment",
+    "native_sigma_inclusion_higher.lp": "transport_inclusion_higher.lpfragment",
+    "native_transport_controls.lp": "transport_controls.lpfragment",
+    "native_sigma_inclusion_units.lp": "transport_inclusion_units.lpfragment",
+    "native_transport_integration.lp": "transport_integration.lpfragment",
+    "native_sigma_identity_negative.lp": "transport_sigma_identity_negative.lpfragment",
+    "native_moving_boundary_typed.lp": "transport_moving_boundary_candidate.lpfragment",
+    "native_sigma_inclusion_parity_units.lp": "transport_inclusion_parity_units.lpfragment"
+  },
+  "changes": {
+    "runtimeRules": 7,
+    "proofTimeComparisons": 3,
+    "newOperationalPrimitives": 0,
+    "operationalEqualityArguments": 0,
+    "newInverseAxioms": 0,
+    "description": "Whole Cartesian evaluation across T/R, both distribution orders, Cartesian Sigma-map evaluation at a pair, represented component/precomposition comparisons, recursive Hom and capped action of the existing Sigma inclusion, and a typed Sigma identity presentation."
+  },
+  "qualified": [
+    "whole extracted native target transport agrees with a -> (y1,v composed with a)",
+    "original target arrow v and evaluation object are retained",
+    "Sigma inclusion whole/capped projection orders and its next-Hom action retain the original fibre arrow and higher cell",
+    "nine identity-source presentations have typed comparisons; generic Sigma identity retains its runtime head",
+    "first inverse, graph factorization and whole fixed-boundary filler recovery still pass in the 58-input prefix"
+  ],
+  "runs": [
+    {
+      "role": "initial_moving_boundary",
+      "id": "20261027T034428Z-2979f6829dc048b48b80138c9bcf958c",
+      "target": "native_moving_boundary_cell.lp",
+      "outcome": "failed",
+      "wallSeconds": 50.291333311004564,
+      "childrenMaxRssKiB": 174660,
+      "inputSnapshot": "33d10da5afa3c4d100b53fca7fbd66f2e80a174355f260d250136b7dfabdfbc5",
+      "logSha256": "d6f3277f282bd17a7e1a31967a1d3ff9336467eb2e382f929f3ea87e55491ae4"
+    },
+    {
+      "role": "total_hom_dual_view_without_rule",
+      "id": "20261027T034920Z-565adc0a23bf44df8b1643ca0ee12f91",
+      "target": "native_total_hom_dual.lp",
+      "outcome": "failed",
+      "wallSeconds": 49.0828996070195,
+      "childrenMaxRssKiB": 175316,
+      "inputSnapshot": "2ac8db39f0cac2fd3ce9e66998aa1908eb2ad00fa51fdb72e170276ffe93c7f4",
+      "logSha256": "0e8a2d5937d8e531f5995256d2c0dd390a21fd62fe83792a4d610ce2e24c1ea2"
+    },
+    {
+      "role": "unselected_dual_hom_core_unit_gap",
+      "id": "20261027T035139Z-9e3a4c499fbc48f0be742951448259da",
+      "target": "native_moving_boundary_cell.lp",
+      "outcome": "failed",
+      "wallSeconds": 67.4419147321023,
+      "childrenMaxRssKiB": 176716,
+      "inputSnapshot": "e44e7031752b3cd0d044d94e295c7cdd5d39703ddae2aca20e65110cd95b8406",
+      "logSha256": "e54dd1e09d1e4dfe00d1f5c46cf5b9b94496ad2b2a05b7b75c6aa8855789dcb8"
+    },
+    {
+      "role": "unselected_dual_hom_incoming_unit_moving",
+      "id": "20261027T035459Z-82b283755d864fad8136187f98da3b12",
+      "target": "native_moving_boundary_cell.lp",
+      "outcome": "failed",
+      "wallSeconds": 38.202955999877304,
+      "childrenMaxRssKiB": 181000,
+      "inputSnapshot": "4e6d67c89906679835036005f72ea4b76c39da015f2bcc710e1a480b1b71ddc3",
+      "logSha256": "89779c36e38cce1e4e049959ef7ac9867479720a61b1706d41376507ef728d54"
+    },
+    {
+      "role": "whole_transport_without_evaluation",
+      "id": "20261027T035707Z-89f39e8bbef749c787c5674dd0704424",
+      "target": "native_target_transport.lp",
+      "outcome": "failed",
+      "wallSeconds": 38.405607857974246,
+      "childrenMaxRssKiB": 177908,
+      "inputSnapshot": "370fd23c79c0aa7d823cb8656ee4dce633b3a2ebdf0e4dbb3127d7b335673515",
+      "logSha256": "b730320d4bc2b6668f6091071112270855bfe552c102e42d2e1d7d59a8dd49b0"
+    },
+    {
+      "role": "primitive_dual_evaluation_without_join",
+      "id": "20261027T040049Z-2a52ac92b5ac4b899a639439ae80eea8",
+      "target": "native_target_transport.lp",
+      "outcome": "failed",
+      "wallSeconds": 51.05318222101778,
+      "childrenMaxRssKiB": 177132,
+      "inputSnapshot": "5f56edb3f078a6a06c14abc56bdca3b24e6d5fb6b7e2d8b5599308cb3ccd2991",
+      "logSha256": "2d516294f2598f1087b35267eb317a73231d5c46bd6cf3958085a9d28ec2a78b"
+    },
+    {
+      "role": "dual_evaluation_join_exposes_sigma",
+      "id": "20261027T040521Z-f02843ac72984147adea76ed7be8c18b",
+      "target": "native_target_transport.lp",
+      "outcome": "failed",
+      "wallSeconds": 47.70286116213538,
+      "childrenMaxRssKiB": 177436,
+      "inputSnapshot": "8f81e26a3d10c8f2b4c2ca26797581683857944c3fd7811973a2a696f12c61be",
+      "logSha256": "484264071a6282696c49d1ee603f19bad893c882e2c3594e756866e7af2fa67a"
+    },
+    {
+      "role": "runtime_component_with_prefix",
+      "id": "20261027T041116Z-15ea2f449547450b956f90248f092e88",
+      "target": "native_target_transport.lp",
+      "outcome": "failed",
+      "wallSeconds": 31.70638849399984,
+      "childrenMaxRssKiB": 178040,
+      "inputSnapshot": "5365e9291b53d6a3923b0b584b453a27b45462bca3ccd87ee6b3165898b66661",
+      "logSha256": "18737a31bc77da685f7c2db5259057cad47fb83bea3ca7c5e034a4f3e2def26d"
+    },
+    {
+      "role": "component_inferred_endpoints",
+      "id": "20261027T041547Z-c6da43a16fa748b69968540d64c53db2",
+      "target": "native_transport_lemmas.lp",
+      "outcome": "failed",
+      "wallSeconds": 31.566229762975127,
+      "childrenMaxRssKiB": 177728,
+      "inputSnapshot": "925ff251b38a380541d5d4d5388854ecc274d51e5ecb6a1668dc42f4b5d5cdf1",
+      "logSha256": "5a5d1def3b20e3a47f2cd8b4d576b68f20dfb0bb28da1b112f1e8becfca56951"
+    },
+    {
+      "role": "component_explicit_endpoints",
+      "id": "20261027T041840Z-011be2bf415e42529cfda2b332758ffd",
+      "target": "native_hom_int_component_diagnostic.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 35.03675918397494,
+      "childrenMaxRssKiB": 176524,
+      "inputSnapshot": "67c5da05f6f9ddf3fab57c24572cd62fc0dbb756406c5307dc22cff81efc98b1",
+      "logSha256": "0df71d74ced7f9cfc75709e6678a43e0ce0d8556366431be761783e4af90c8b4"
+    },
+    {
+      "role": "staged_proof_with_runtime_component",
+      "id": "20261027T042024Z-3fb1c2763e744375846b8c7549a55f58",
+      "target": "native_target_transport.lp",
+      "outcome": "failed",
+      "wallSeconds": 48.368801741162315,
+      "childrenMaxRssKiB": 176552,
+      "inputSnapshot": "a90481aabfdb56d8e540cf8b1d9823ab32f4dcd4a19cda5290cf05d2667a54e0",
+      "logSha256": "a4c46cc7685cab5069200177e823e490c2ec239b7ddebb34681abd1f70bf4404"
+    },
+    {
+      "role": "whole_native_transport",
+      "id": "20261027T042323Z-d6c5a8f8441746d8918d7104f6cd4647",
+      "target": "native_target_transport.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 54.31825453299098,
+      "childrenMaxRssKiB": 174224,
+      "inputSnapshot": "9ceb2d9f9bd0b627b47cd8ff9bb564a3602da76615952356ace38a2ab1277fc3",
+      "logSha256": "e48c331d11a52c22f757aeefd5f943f2759a760378985dffda0b4b646fa3ffdd"
+    },
+    {
+      "role": "sigma_inclusion_hom",
+      "id": "20261027T042847Z-4d1667666cc94a5bb7b483d279ba39d2",
+      "target": "native_sigma_inclusion_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 41.30488923587836,
+      "childrenMaxRssKiB": 175620,
+      "inputSnapshot": "324787f76834b5d34fb6c02978a53aba68aff4c09bfc2f7a3c6f465191455a7f",
+      "logSha256": "25f7ae194f80af5871588043bf672bd3245ce47fdb2a6eb178a4ecf8d2adcaef"
+    },
+    {
+      "role": "higher_bare_tuple_inference",
+      "id": "20261027T043221Z-b9a8811c2f794f779ce217903868b79a",
+      "target": "native_transport_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 64.2478987458162,
+      "childrenMaxRssKiB": 175024,
+      "inputSnapshot": "e6ee2791d2ac79948ff07aa5e6ef4d282413b0133a9fe856bac41c1f9a935a54",
+      "logSha256": "ec24238c9d8283468e3ea39bb0a2d9403d67a53a1c65519f6ab9510c1f74fdd9"
+    },
+    {
+      "role": "typed_higher_and_transport_controls",
+      "id": "20261027T043653Z-56c371ddd8894fac905a7c0aa9463464",
+      "target": "native_transport_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 42.95314440596849,
+      "childrenMaxRssKiB": 176248,
+      "inputSnapshot": "ea51fad595e95b928db48e7b3628af274682eddf1732f200de7b7f3a0bab4150",
+      "logSha256": "a64fa54b60396c2822697b5c217867c676cf8602a9b410e06f1d7537e41c52b3"
+    },
+    {
+      "role": "sigma_identity_runtime_gap",
+      "id": "20261027T044148Z-b5a02be5806a474bb8faf56e285f6c65",
+      "target": "native_transport_integration.lp",
+      "outcome": "failed",
+      "wallSeconds": 44.74536880780943,
+      "childrenMaxRssKiB": 177416,
+      "inputSnapshot": "b48ea68f91c933e9de97ef888d8e1b7f3012adf47bbc2ba80aa5f0e213fd4dc8",
+      "logSha256": "161cd6e68af6253ae050191145f638eb1242bc0f1d030da9198d300e5cbc6fc3"
+    },
+    {
+      "role": "unselected_carrier_constraint_checker_assertion",
+      "id": "20261027T044846Z-7ffe6260eb664b46a5907e9277726bce",
+      "target": "native_sigma_inclusion_units.lp",
+      "outcome": "failed",
+      "wallSeconds": 54.70647539407946,
+      "childrenMaxRssKiB": 175756,
+      "inputSnapshot": "88c7a341343a0eed7830ff0b6d7eaf7d0fe9ffdceedb8028608f42873144c23a",
+      "logSha256": "cf0c0a0407168661b50936fdd7f4ea7269eead8134363f5b4f931ff137a7a773"
+    },
+    {
+      "role": "typed_sigma_unit_views",
+      "id": "20261027T045113Z-a96e1c31c690490b9c5b13dba6022548",
+      "target": "native_sigma_inclusion_units.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 42.18160512414761,
+      "childrenMaxRssKiB": 179568,
+      "inputSnapshot": "ab8a0ac08bc2aa478fe30681b6e6313180fb5196a0ba481a53c915abef6d109c",
+      "logSha256": "019b85962801f2307cbd45c73c07470a0e9c7cec7c93d53e8a6ac8eb37712368"
+    },
+    {
+      "role": "native_integration",
+      "id": "20261027T045335Z-519478a3021949419f0219ceeeadc8c4",
+      "target": "native_transport_integration.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 127.50145636801608,
+      "childrenMaxRssKiB": 598308,
+      "inputSnapshot": "ab7d106ab39e0d1f78bf331d1fff5dc2236131e14f4053aa08083fa44ce1073c",
+      "logSha256": "f511be0e641ae2ba9171250c299e4d33158fbaee12f183d090e480002a2288ad"
+    },
+    {
+      "role": "typed_moving_boundary_still_open",
+      "id": "20261027T045835Z-977d253fe4aa4794850f72d411deb487",
+      "target": "native_moving_boundary_typed.lp",
+      "outcome": "failed",
+      "wallSeconds": 43.922351668123156,
+      "childrenMaxRssKiB": 175524,
+      "inputSnapshot": "f075b2762c0c174344df18edffd2d163570311cd92edb188f9c7161ccc22489a",
+      "logSha256": "2e8522e21423e040d9f119c9e8dbd36bd58362457eca8d63cd21e1b92389a44a"
+    },
+    {
+      "role": "alternating_dual_unit_views",
+      "id": "20261027T050029Z-ae3747d47b2f4f6594ebcb609809c6ec",
+      "target": "native_sigma_inclusion_parity_units.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 68.39540895097889,
+      "childrenMaxRssKiB": 273348,
+      "inputSnapshot": "ff6608fa40cb89d967d77ddb4540e92fce5a3e1ae9f536931582c7a0508f36a5",
+      "logSha256": "f902ecd5f07fdd952d5b98175dd88cd354815966c9f647d294e4e31f92643fe8"
+    }
+  ],
+  "warnings": {
+    "baseline": "20261027T032241Z-0da7505d41d5453398948ab58d9b3709",
+    "candidate": "20261027T045335Z-519478a3021949419f0219ceeeadc8c4",
+    "categories": {
+      "replaceable pattern variable": 181,
+      "unjoinable critical pair": 2169
+    },
+    "addedRuleFamilies": [
+      {
+        "heads": [
+          "fapp1_fapp0",
+          "fapp1_fapp0"
+        ],
+        "count": 9
+      }
+    ],
+    "originalMappedLocationsRetained": true,
+    "newMappedLocationCount": 9,
+    "parserIssues": {},
+    "classification": {
+      "kind": "Sigma fibre-inclusion capped action versus generic identity action",
+      "sourcePresentations": [
+        "ordinary",
+        "Op",
+        "CoAbove2",
+        "TotalOp",
+        "CoAt2",
+        "Catd",
+        "Terminal",
+        "OddDual",
+        "EvenDual"
+      ],
+      "canonicalTypedChecks": [
+        "typed_sigma_unit_views",
+        "alternating_dual_unit_views"
+      ],
+      "runtimeBoundary": "The generic identity and the pair of identities remain different runtime heads; their proof-time comparison is checked. No global confluence claim is made."
+    },
+    "boundary": "The nine reports are classified, with canonical typed comparisons checked; broad promotion and inherited overlap obligations remain open."
+  },
+  "lhsAudit": {
+    "unreviewedClauses": 0,
+    "annotatedSlots": 79,
+    "intentionalClauses": 53,
+    "manualReview": "New rules target stable duality, mapping-action and Sigma-inclusion owners; inferred endpoints are open. Defined Cartesian-component/precomposition views are compared at their actual expanded whole heads."
+  },
+  "notAdopted": [
+    "A larger boundary-arrow extraction primitive was drafted but never installed or qualified; the concrete transport was investigated first.",
+    "Eager total-Hom duality and a general incoming postcomposition identity rule were unnecessary for the selected transport proof and were removed.",
+    "Runtime Hom-component rewriting erased a proof endpoint under prefix composition; the selected whole comparison is proof-time.",
+    "The first Sigma-identity unifier reconstructed inferred carrier lambdas and triggered a checker assertion; the selected typed comparison uses the inferred carrier and retains both actual entries."
+  ],
+  "elaborationFindings": [
+    "Give the complete source, intermediate and target categories in the generic Hom-component proof; underspecified endpoints produced an X/Y clash.",
+    "Use the existing typed sigma_arrow constructor for the inclusion higher-action observation; a bare nested tuple leaves its dependent carrier unsolved."
+  ],
+  "movingBoundaryBoundary": "The intended 2-cell with both boundary 2-cells varying still fails even with both Sigma carrier families written explicitly. Its remaining constraint is the Homd/negative-Sigma fibre-type comparison. This is an unfinished constructor, not a negative acceptance test or a mathematical nonexistence result.",
+  "next": "Compare the entire native Hom family using the qualified whole transport and fibre-inclusion action, preserving both moving boundary arrows and the original higher filler. Do not add a native inverse/reconstruction axiom.",
+  "remaining": [
+    "the fully varying-boundary native Hom/constructor comparison",
+    "the second whole native inverse and subsequent NF stages",
+    "full-module/production promotion and inherited warning obligations",
+    "the separately deferred frontend and final integration gates"
+  ],
+  "modes": {
+    "generic": {
+      "target": "native_sigma_inclusion_units.lp",
+      "timeoutMs": 90000,
+      "expectedInputs": {
+        "emdash3_2.lp": "cdf4a86a50f97c696bd779fe98d149a4107a77207ae69a60c3be526dd6ee19fd",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_precomp_evaluation.lp": "f760c58133370ceeacda9c7929241a0d83729434c3400a342de1e4527aeaad3d",
+        "native_sigma_inclusion_controls.lp": "2afcba40ab59f204973aee6f13767032763a72a99147dfddab23c8d872226006",
+        "native_sigma_inclusion_higher.lp": "b99f7dd7b9947e413bde806b14ffc0c4076c425f0cd0d3e57f65155af5dabe48",
+        "native_sigma_inclusion_units.lp": "c00ef4c48000484ab83aa343c9d0895aa4661c0fded177b292a21d21ba365c7a",
+        "native_target_transport.lp": "8a9e79de36be109a827325ede43a49942c3fd0cb551bfa6907591584b8747e81",
+        "native_transport_controls.lp": "4088a4cbd21bf3181a12bc49f901629329d5bcbc85bf601f9da064297885d726",
+        "native_transport_lemmas.lp": "acadc0aac26fa10bcce14e8072ce85bfaaff13bc4eb67710881a12aae4082c44"
+      },
+      "expectedOutcome": "passed-fresh"
+    },
+    "parity": {
+      "target": "native_sigma_inclusion_parity_units.lp",
+      "timeoutMs": 90000,
+      "expectedInputs": {
+        "emdash3_2.lp": "cdf4a86a50f97c696bd779fe98d149a4107a77207ae69a60c3be526dd6ee19fd",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_precomp_evaluation.lp": "f760c58133370ceeacda9c7929241a0d83729434c3400a342de1e4527aeaad3d",
+        "native_sigma_identity_negative.lp": "387d87df5b4c3a8945f40db121db5a99d8a06c18ceaada04904421d042633f65",
+        "native_sigma_inclusion_controls.lp": "2afcba40ab59f204973aee6f13767032763a72a99147dfddab23c8d872226006",
+        "native_sigma_inclusion_higher.lp": "b99f7dd7b9947e413bde806b14ffc0c4076c425f0cd0d3e57f65155af5dabe48",
+        "native_sigma_inclusion_parity_units.lp": "85e346e2bd23208eb070b0da91e85af9cb83f3d3da7337e27a2c364e98393fe7",
+        "native_sigma_inclusion_units.lp": "c00ef4c48000484ab83aa343c9d0895aa4661c0fded177b292a21d21ba365c7a",
+        "native_target_transport.lp": "8a9e79de36be109a827325ede43a49942c3fd0cb551bfa6907591584b8747e81",
+        "native_transport_controls.lp": "4088a4cbd21bf3181a12bc49f901629329d5bcbc85bf601f9da064297885d726",
+        "native_transport_lemmas.lp": "acadc0aac26fa10bcce14e8072ce85bfaaff13bc4eb67710881a12aae4082c44"
+      },
+      "expectedOutcome": "passed-fresh"
+    },
+    "integration": {
+      "target": "native_transport_integration.lp",
+      "timeoutMs": 180000,
+      "expectedInputs": {
+        "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+        "emdash3_2.lp": "cdf4a86a50f97c696bd779fe98d149a4107a77207ae69a60c3be526dd6ee19fd",
+        "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_gray_transformation_graph.lp": "db87cf675f63982930023ec8b397315111dadb0800a1c1d5ec2e82aaed9cd68a",
+        "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_represented_comma_families.lp": "6057e10dfa0892e17c0d5c4120722e5d3c84097ecb5cddae0f82a91d7465bae1",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_dual_pair_controls.lp": "d68b8fbd1dd267ee168de383402e94cbfbd917c791fb34f3666b27e551698b65",
+        "native_general_higher_typed.lp": "6b9fb5fa1aebc8f4a64d87126f5d79c9a03160e836251cc185c28c86f782ea85",
+        "native_general_source_controls.lp": "fcc58f0ef5e5c5176cf5f69a0d3f99e303ba560aa67b013daeca1807bbabf460",
+        "native_generic_square_whisker_whole.lp": "f7f8fc3c32bbab0abb0cd66f0f1384cc163f92814eef776dc8e7583588b69744",
+        "native_graph_factorization_review.lp": "c13beac20f15fda2f7603dd45954bd48fbf9b4dadea0a910fe0ca787f9eefbfa",
+        "native_higher_staged_unit.lp": "189c28e3dbee89b4184ab415059e896fa71462266bd4ca805d009b9729b3e023",
+        "native_nerve_composite_review.lp": "a9d7512af42a23a2eba38e3d67da390cea6297a2f571820ccd3e2a89614c1abd",
+        "native_nerve_generation_review.lp": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323",
+        "native_nerve_graph_review.lp": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9",
+        "native_nerve_graph_whole_review.lp": "6a69911880e10a4332a14582444d5ed45b146ea9e969975ede3e96c8fea47b4e",
+        "native_nerve_realization_review.lp": "d627e730cd7f1b4486fbe6320774e940617fc3ecb5c6e83715bec3b6b82fb605",
+        "native_nerve_section_review.lp": "1a92d11f0497b00ae1b84926d8a74d414a285ef93a0ed0df10dc48e4655d77df",
+        "native_nerve_sigma_generation_review.lp": "cd0542f0a92de40d7bd132705b2281540cf7c182cca788dddb6f1e41eddfe20e",
+        "native_nerve_sigma_graph_review.lp": "52f9f0cbe357a442c425a23064742a70a29c4f41a6e26cf840034970670e4fc5",
+        "native_precomp_evaluation.lp": "f760c58133370ceeacda9c7929241a0d83729434c3400a342de1e4527aeaad3d",
+        "native_section_postcomp.lp": "e2666d1a8d2b39f4af2a43052eab0ca2efeca927187d77ae1573c435f347f8aa",
+        "native_section_postcomp_total.lp": "1ee687069831e050be7389b59bdac45529553f44f451b27eaaa8040633d57288",
+        "native_section_sigma_action.lp": "d96f6f652d9c58d5c3fb54fc37cf6d61035dab7d30294a1fe30e7391f320e1e0",
+        "native_section_sigma_consumer.lp": "4582ea2df838c7a8970c6fda1984329f49ba547ac6fb318232e8cdc0606e9f6d",
+        "native_sigma_identity_negative.lp": "387d87df5b4c3a8945f40db121db5a99d8a06c18ceaada04904421d042633f65",
+        "native_sigma_inclusion_controls.lp": "2afcba40ab59f204973aee6f13767032763a72a99147dfddab23c8d872226006",
+        "native_sigma_inclusion_higher.lp": "b99f7dd7b9947e413bde806b14ffc0c4076c425f0cd0d3e57f65155af5dabe48",
+        "native_sigma_inclusion_units.lp": "c00ef4c48000484ab83aa343c9d0895aa4661c0fded177b292a21d21ba365c7a",
+        "native_target_transport.lp": "8a9e79de36be109a827325ede43a49942c3fd0cb551bfa6907591584b8747e81",
+        "native_transport_controls.lp": "4088a4cbd21bf3181a12bc49f901629329d5bcbc85bf601f9da064297885d726",
+        "native_transport_integration.lp": "1845e9526aa6171e586bc7051da232ce2e7f37320dc792f723c0894ce8cf9fae",
+        "native_transport_lemmas.lp": "acadc0aac26fa10bcce14e8072ce85bfaaff13bc4eb67710881a12aae4082c44",
+        "native_whisker_qualified_controls.lp": "b220423818024ab8c4b62327a23a1b3a260b9f53fc8bbbda16203f025f6d7924",
+        "native_whole_filler_readback.lp": "f9006fd0dfe3f6324839b7574e4555e1f062cece8e45071cb2468d6a69d3f745"
+      },
+      "expectedOutcome": "passed-fresh"
+    },
+    "moving": {
+      "target": "native_moving_boundary_typed.lp",
+      "timeoutMs": 90000,
+      "expectedInputs": {
+        "emdash3_2.lp": "cdf4a86a50f97c696bd779fe98d149a4107a77207ae69a60c3be526dd6ee19fd",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_moving_boundary_typed.lp": "8e6dc9da314452f2c520a0ddc349862051ea7ac530475b504869730db5995789",
+        "native_precomp_evaluation.lp": "f760c58133370ceeacda9c7929241a0d83729434c3400a342de1e4527aeaad3d",
+        "native_target_transport.lp": "8a9e79de36be109a827325ede43a49942c3fd0cb551bfa6907591584b8747e81",
+        "native_transport_lemmas.lp": "acadc0aac26fa10bcce14e8072ce85bfaaff13bc4eb67710881a12aae4082c44"
+      },
+      "expectedOutcome": "failed"
+    }
+  },
+  "artifacts": {
+    "transport_precomp_proof.lpfragment": "f760c58133370ceeacda9c7929241a0d83729434c3400a342de1e4527aeaad3d",
+    "transport_generic_proofs.lpfragment": "acadc0aac26fa10bcce14e8072ce85bfaaff13bc4eb67710881a12aae4082c44",
+    "transport_native_proof.lpfragment": "8a9e79de36be109a827325ede43a49942c3fd0cb551bfa6907591584b8747e81",
+    "transport_inclusion_controls.lpfragment": "2afcba40ab59f204973aee6f13767032763a72a99147dfddab23c8d872226006",
+    "transport_inclusion_higher.lpfragment": "b99f7dd7b9947e413bde806b14ffc0c4076c425f0cd0d3e57f65155af5dabe48",
+    "transport_controls.lpfragment": "4088a4cbd21bf3181a12bc49f901629329d5bcbc85bf601f9da064297885d726",
+    "transport_inclusion_units.lpfragment": "1e1eaae8f24c6668dcd241f66055679f945116180ba72f42ca8ac741b96d44b7",
+    "transport_integration.lpfragment": "1845e9526aa6171e586bc7051da232ce2e7f37320dc792f723c0894ce8cf9fae",
+    "transport_sigma_identity_negative.lpfragment": "387d87df5b4c3a8945f40db121db5a99d8a06c18ceaada04904421d042633f65",
+    "transport_moving_boundary_candidate.lpfragment": "8e6dc9da314452f2c520a0ddc349862051ea7ac530475b504869730db5995789",
+    "transport_inclusion_parity_units.lpfragment": "9e59a7c7de9eb94d41e16a54113302360aa146d2782c5484a5a7a1cc88e80406",
+    "transport_dual_evaluation.lpfragment": "18dc16f515411355a27a6cc35ee5ea1944a8616c1a652f0dd6c7380cdca2c6f5",
+    "transport_dual_evaluation_joins.lpfragment": "50f1ba34f637534cb88cb173c6ce8db0bcd6d8928a328facbfa7cba510a014f0",
+    "transport_precomp_evaluation.lpfragment": "f471c3871d65af8f9630ab40ad1f0399e052f58d71f330b575ba15d981e921a8",
+    "transport_hom_component.lpfragment": "ee0d71aa900c37b57e9aba62e7ea5afcd43c563b41771f4c4d7b7c3241300e31",
+    "transport_sigma_inclusion_hom.lpfragment": "e9981bf7a87edeb5a56dd6710840acf0314825b5b0dac67818bfdb23dfc5c2a1",
+    "transport_sigma_evaluation.lpfragment": "4b537bdcbc84bc3cf59bb8bed778c98cfb2ba8aec15367f72f3776fe0d3bc3c8",
+    "transport_sigma_identity.lpfragment": "f9edc24d18bb138034cd22ace5f5ea651d2ebf0e646ba7d6cb6d00af9903235f",
+    "replay_transport.py": "5e2f9da0a0ac2f71c1c5ab51924662728d06d09aa85beef31e0bf3ffd4a9ea95"
+  },
+  "programSuffixes": {
+    "native_sigma_inclusion_units.lp": "\n",
+    "native_sigma_inclusion_parity_units.lp": "\n"
+  }
+}

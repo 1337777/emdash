@@ -1,0 +1,55 @@
+require open emdash.native_transport_lemmas;
+require open emdash.emdash3_2_cubical_arrow;
+
+// The entire varying-a transport, before specializing its Hom action.
+symbol nerve_dual_transport_func [K : Cat] (E : τ (Catd K))
+  (x y : τ (Obj K)) (u : τ (Obj (@Fibre_cat K E x)))
+  : τ (Functor (TotalOp_cat (Hom_cat K x y)) (TotalOp_cat (@Fibre_cat K E y)))
+≔ @TotalOp_func _ _ (@fib_cov_tapp0_func K E x y u);
+
+symbol nerve_native_target_transport_func [C : Cat]
+  (x x1 y1 : τ (Obj C)) (v : τ (Hom C x1 y1))
+  : τ (Functor (Hom_cat C x x1) (@PathOut_cat C x))
+≔ @nerve_dual_transport_func (TotalOp_cat C)
+    (@homdc_op_edge_catd C C (@hom_int C C (@id_func C)))
+    x1 x (@pathout_obj C x1 y1 v);
+
+symbol nerve_native_target_transport_raw_path [C : Cat]
+  (x x1 y1 : τ (Obj C)) (v : τ (Hom C x1 y1))
+  : τ (@= (Functor (Hom_cat C x x1) (@PathOut_cat C x))
+      (@nerve_native_target_transport_func C x x1 y1 v)
+      (@comp_cat_fapp0 (Hom_cat C x x1) (Hom_cat (Functor_cart_cat C Cat_cart) (@hom_ C C (@id_func C) x1) (@hom_ C C (@id_func C) x)) (@PathOut_cat C x)
+        (@nerve_sigma_cart_evaluate C (@hom_ C C (@id_func C) x1) (@hom_ C C (@id_func C) x) y1 v)
+        (@hom_int_precomp_tele_func C C (@id_func C) x1 x)))
+≔ @eq_refl (Functor (Hom_cat C x x1) (@PathOut_cat C x))
+    (@nerve_native_target_transport_func C x x1 y1 v);
+
+symbol nerve_native_target_transport_path [C : Cat]
+  (x x1 y1 : τ (Obj C)) (v : τ (Hom C x1 y1))
+  : τ (@= (Functor (Hom_cat C x x1) (@PathOut_cat C x))
+      (@nerve_native_target_transport_func C x x1 y1 v)
+      (@comp_cat_fapp0 (Hom_cat C x x1) (Hom_cat C x y1) (@PathOut_cat C x)
+        (@sigma_intro_tapp0_func C (@hom_ C C (@id_func C) x) y1)
+        (@hom_postcomp_func C C (@id_func C) x x1 y1 v)))
+≔ @eq_trans (Functor (Hom_cat C x x1) (@PathOut_cat C x)) _ _ _
+    (@nerve_native_target_transport_raw_path C x x1 y1 v)
+    (@eq_trans (Functor (Hom_cat C x x1) (@PathOut_cat C x)) _ _ _
+      (@eq_ap
+        (Functor (Hom_cat (Functor_cart_cat C Cat_cart) (@hom_ C C (@id_func C) x1) (@hom_ C C (@id_func C) x)) (@PathOut_cat C x))
+        (Functor (Hom_cat C x x1) (@PathOut_cat C x))
+        (λ H : τ (Functor (Hom_cat (Functor_cart_cat C Cat_cart) (@hom_ C C (@id_func C) x1) (@hom_ C C (@id_func C) x)) (@PathOut_cat C x)),
+          @comp_cat_fapp0 (Hom_cat C x x1) (Hom_cat (Functor_cart_cat C Cat_cart) (@hom_ C C (@id_func C) x1) (@hom_ C C (@id_func C) x)) (@PathOut_cat C x) H (@hom_int_precomp_tele_func C C (@id_func C) x1 x))
+        _ _ (@nerve_sigma_cart_evaluate_path C (@hom_ C C (@id_func C) x1) (@hom_ C C (@id_func C) x) y1 v))
+      (@eq_trans (Functor (Hom_cat C x x1) (@PathOut_cat C x)) _ _ _
+        (@eq_ap
+          (Functor (Hom_cat C x x1) (Functor_cart_cat (Hom_cat C x1 y1) (Hom_cat C x y1)))
+          (Functor (Hom_cat C x x1) (@PathOut_cat C x))
+          (λ H : τ (Functor (Hom_cat C x x1) (Functor_cart_cat (Hom_cat C x1 y1) (Hom_cat C x y1))),
+            @comp_cat_fapp0 (Hom_cat C x x1) (Hom_cat C x y1) (@PathOut_cat C x) (@sigma_intro_tapp0_func C (@hom_ C C (@id_func C) x) y1)
+              (@comp_cat_fapp0 (Hom_cat C x x1) (Functor_cart_cat (Hom_cat C x1 y1) (Hom_cat C x y1)) (Hom_cat C x y1) (@nerve_cart_evaluate (Hom_cat C x1 y1) (Hom_cat C x y1) v) H))
+          _ _ (@nerve_hom_int_component_path C C (@id_func C) x1 x y1))
+        (@eq_ap (Functor (Hom_cat C x x1) (Hom_cat C x y1))
+          (Functor (Hom_cat C x x1) (@PathOut_cat C x))
+          (λ H : τ (Functor (Hom_cat C x x1) (Hom_cat C x y1)),
+            @comp_cat_fapp0 (Hom_cat C x x1) (Hom_cat C x y1) (@PathOut_cat C x) (@sigma_intro_tapp0_func C (@hom_ C C (@id_func C) x) y1) H)
+          _ _ (@nerve_precomp_evaluation_path C x x1 y1 v))));

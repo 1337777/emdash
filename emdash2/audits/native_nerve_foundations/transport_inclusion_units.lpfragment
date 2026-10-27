@@ -1,0 +1,38 @@
+require open emdash.native_transport_controls;
+
+// Compare the expanded branches of the identity overlap in their actual types.
+assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K)) (u : τ (Obj (@Fibre_cat K E k))) ⊢
+  @eq_refl (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+    (@id (@Sigma_cat K E) (Struct_sigma k u))
+  : τ (@= (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+      (@id (@Sigma_cat K E) (Struct_sigma k u))
+      (@sigma_arrow K E k k u u (@id K k) (@id (@Fibre_cat K E k) u)));
+
+// Runtime identity is deliberately retained.
+assertnot [K : Cat] (E : τ (Catd K)) (k : τ (Obj K)) (u : τ (Obj (@Fibre_cat K E k))) ⊢
+  @sigma_arrow K E k k u u (@id K k) (@id (@Fibre_cat K E k) u)
+  ≡ @id (@Sigma_cat K E) (Struct_sigma k u);
+
+assert [K A : Cat] (k : τ (Obj K)) (u : τ (Obj (Op_cat A))) ⊢
+  @sigma_arrow K (@Const_catd K (Op_cat A)) k k u u (@id K k) (@id (Op_cat A) u)
+  ≡ @id (@Sigma_cat K (@Const_catd K (Op_cat A))) (Struct_sigma k u);
+
+assert [K A : Cat] (k : τ (Obj K)) (u : τ (Obj (CoAbove2_cat A))) ⊢
+  @sigma_arrow K (@Const_catd K (CoAbove2_cat A)) k k u u (@id K k) (@id (CoAbove2_cat A) u)
+  ≡ @id (@Sigma_cat K (@Const_catd K (CoAbove2_cat A))) (Struct_sigma k u);
+
+assert [K A : Cat] (k : τ (Obj K)) (u : τ (Obj (TotalOp_cat A))) ⊢
+  @sigma_arrow K (@Const_catd K (TotalOp_cat A)) k k u u (@id K k) (@id (TotalOp_cat A) u)
+  ≡ @id (@Sigma_cat K (@Const_catd K (TotalOp_cat A))) (Struct_sigma k u);
+
+assert [K A : Cat] (k : τ (Obj K)) (u : τ (Obj (CoAt2_cat A))) ⊢
+  @sigma_arrow K (@Const_catd K (CoAt2_cat A)) k k u u (@id K k) (@id (CoAt2_cat A) u)
+  ≡ @id (@Sigma_cat K (@Const_catd K (CoAt2_cat A))) (Struct_sigma k u);
+
+assert [K A : Cat] (k : τ (Obj K)) (u : τ (Obj (Catd_cat A))) ⊢
+  @sigma_arrow K (@Const_catd K (Catd_cat A)) k k u u (@id K k) (@id (Catd_cat A) u)
+  ≡ @id (@Sigma_cat K (@Const_catd K (Catd_cat A))) (Struct_sigma k u);
+
+assert [K A : Cat] (k : τ (Obj K)) (u : τ (Obj (Terminal_cat))) ⊢
+  @sigma_arrow K (@Const_catd K (Terminal_cat)) k k u u (@id K k) (@id (Terminal_cat) u)
+  ≡ @id (@Sigma_cat K (@Const_catd K (Terminal_cat))) (Struct_sigma k u);

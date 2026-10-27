@@ -1,0 +1,15 @@
+// Fixed-object Cartesian evaluation commutes with primitive duality.
+// Both are whole functor comparisons; no varying-object Cartesian closure
+// of the ambient lax transformation category is used.
+rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _ (@fapp0_func _ _ $a) (Functor_cart_include _ _))
+    (Op_func_func $A $B)
+  ↪ @Op_func (Functor_cart_cat $A $B) $B
+      (@comp_cat_fapp0 (Functor_cart_cat $A $B) (Functor_cat $A $B) $B
+        (@fapp0_func $A $B $a) (Functor_cart_include $A $B));
+rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _ (@fapp0_func _ _ $a) (Functor_cart_include _ _))
+    (CoAbove2_func_func $A $B)
+  ↪ @CoAbove2_func (Functor_cart_cat $A $B) $B
+      (@comp_cat_fapp0 (Functor_cart_cat $A $B) (Functor_cat $A $B) $B
+        (@fapp0_func $A $B $a) (Functor_cart_include $A $B));

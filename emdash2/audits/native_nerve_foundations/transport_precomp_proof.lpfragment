@@ -1,0 +1,19 @@
+require open emdash.emdash3_2;
+
+symbol nerve_precomp_evaluation_func [A : Cat] (X Y Z : τ (Obj A))
+  (g : τ (Hom A Y Z)) : τ (Functor (Hom_cat A X Y) (Hom_cat A X Z))
+≔ @comp_cat_fapp0 (Hom_cat A X Y)
+    (Functor_cart_cat (Hom_cat A Y Z) (Hom_cat A X Z)) (Hom_cat A X Z)
+    (@comp_cat_fapp0 (Functor_cart_cat (Hom_cat A Y Z) (Hom_cat A X Z))
+      (Functor_cat (Hom_cat A Y Z) (Hom_cat A X Z)) (Hom_cat A X Z)
+      (@fapp0_func (Hom_cat A Y Z) (Hom_cat A X Z) g)
+      (Functor_cart_include (Hom_cat A Y Z) (Hom_cat A X Z)))
+    (@hom_precomp_along_tele_func A A (@id_func A) Z X Y);
+
+symbol nerve_precomp_evaluation_path [A : Cat] (X Y Z : τ (Obj A))
+  (g : τ (Hom A Y Z))
+  : τ (@= (Functor (Hom_cat A X Y) (Hom_cat A X Z))
+      (@nerve_precomp_evaluation_func A X Y Z g)
+      (@hom_postcomp_func A A (@id_func A) X Y Z g))
+≔ @eq_refl (Functor (Hom_cat A X Y) (Hom_cat A X Z))
+    (@nerve_precomp_evaluation_func A X Y Z g);

@@ -1,0 +1,42 @@
+require open emdash.native_target_transport;
+require open emdash.emdash3_2_cubical_arrow;
+
+// Both boundary 2-cells vary. The final comparison is a genuine 3-cell.
+symbol nerve_moving_boundary_cell_typed [C : Cat]
+  (x y x1 y1 : τ (Obj C)) (u : τ (Hom C x y)) (v : τ (Hom C x1 y1))
+  (a a1 : τ (Hom C x x1)) (b b1 : τ (Hom C y y1))
+  (alpha : τ (Hom (Hom_cat C x y1)
+    (@comp_fapp0 C x y y1 b u) (@comp_fapp0 C x x1 y1 v a)))
+  (beta : τ (Hom (Hom_cat C x y1)
+    (@comp_fapp0 C x y y1 b1 u) (@comp_fapp0 C x x1 y1 v a1)))
+  (A : τ (Hom (Hom_cat C x x1) a a1))
+  (B : τ (Hom (Hom_cat C y y1) b b1))
+  (Gamma : τ (Hom
+    (Hom_cat (Hom_cat C x y1) (@comp_fapp0 C x y y1 b u) (@comp_fapp0 C x x1 y1 v a1))
+    (@comp_fapp0 (Hom_cat C x y1) _ _ _
+      (@fapp1_fapp0 (Hom_cat C x x1) (Hom_cat C x y1)
+        (@hom_postcomp_func C C (@id_func C) x x1 y1 v) a a1 A) alpha)
+    (@comp_fapp0 (Hom_cat C x y1) _ _ _ beta
+      (@fapp1_fapp0 (Hom_cat C y y1) (Hom_cat C x y1)
+        (@hom_precomp_along_func C C (@id_func C) y1 x y u) b b1 B))))
+  : τ (Hom
+      (Hom_cat (@LaxArrow_cat C) (@lax_edge C x y u) (@lax_edge C x1 y1 v))
+      (@lax_square C x x1 y y1 u v a b alpha)
+      (@lax_square C x x1 y y1 u v a1 b1 beta))
+≔ @Struct_sigma (Hom (Hom_cat C x x1) a a1)
+    (λ A0 : τ (Hom (Hom_cat C x x1) a a1), @Σ_ (Hom (Hom_cat C y y1) b b1) (λ B0 : τ (Hom (Hom_cat C y y1) b b1), (Hom
+    (Hom_cat (Hom_cat C x y1) (@comp_fapp0 C x y y1 b u) (@comp_fapp0 C x x1 y1 v a1))
+    (@comp_fapp0 (Hom_cat C x y1) _ _ _
+      (@fapp1_fapp0 (Hom_cat C x x1) (Hom_cat C x y1)
+        (@hom_postcomp_func C C (@id_func C) x x1 y1 v) a a1 A0) alpha)
+    (@comp_fapp0 (Hom_cat C x y1) _ _ _ beta
+      (@fapp1_fapp0 (Hom_cat C y y1) (Hom_cat C x y1)
+        (@hom_precomp_along_func C C (@id_func C) y1 x y u) b b1 B0)))))
+    A (@Struct_sigma (Hom (Hom_cat C y y1) b b1) (λ B0 : τ (Hom (Hom_cat C y y1) b b1), (Hom
+    (Hom_cat (Hom_cat C x y1) (@comp_fapp0 C x y y1 b u) (@comp_fapp0 C x x1 y1 v a1))
+    (@comp_fapp0 (Hom_cat C x y1) _ _ _
+      (@fapp1_fapp0 (Hom_cat C x x1) (Hom_cat C x y1)
+        (@hom_postcomp_func C C (@id_func C) x x1 y1 v) a a1 A) alpha)
+    (@comp_fapp0 (Hom_cat C x y1) _ _ _ beta
+      (@fapp1_fapp0 (Hom_cat C y y1) (Hom_cat C x y1)
+        (@hom_precomp_along_func C C (@id_func C) y1 x y u) b b1 B0)))) B Gamma);

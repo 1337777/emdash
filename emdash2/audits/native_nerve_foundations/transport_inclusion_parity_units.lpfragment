@@ -1,0 +1,10 @@
+require open emdash.native_sigma_identity_negative;
+require open emdash.emdash3_2_diagram_evaluation;
+
+assert [K A : Cat] (k : τ (Obj K)) (u : τ (Obj (OddDual_cat A))) ⊢
+  @sigma_arrow K (@Const_catd K (OddDual_cat A)) k k u u (@id K k) (@id (OddDual_cat A) u)
+  ≡ @id (@Sigma_cat K (@Const_catd K (OddDual_cat A))) (Struct_sigma k u);
+
+assert [K A : Cat] (k : τ (Obj K)) (u : τ (Obj (EvenDual_cat A))) ⊢
+  @sigma_arrow K (@Const_catd K (EvenDual_cat A)) k k u u (@id K k) (@id (EvenDual_cat A) u)
+  ≡ @id (@Sigma_cat K (@Const_catd K (EvenDual_cat A))) (Struct_sigma k u);
