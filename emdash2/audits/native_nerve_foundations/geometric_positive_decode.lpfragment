@@ -1,0 +1,51 @@
+/* Positive geometric decoder relative to the candidate structural
+   postcomposition interface. No reverse closure or inverse is supplied. */
+require open emdash.native_postcomposition_consumers;
+require open emdash.native_walking_shift;
+require open emdash.emdash3_2_gray_cubes;
+
+symbol nerve_geometric_positive_to_walking (n : τ Nat_grpd)
+  : τ (@Pi_grpd (Obj Cat_cat)
+      (λ C : Cat, Functor (Functor_oplax_cat (@GrayCubePos_R n) C)
+        (@nerve_walking_cube_cat C (succ n))))
+≔ @nat_elim
+    (λ k : τ Nat_grpd, @Pi_grpd (Obj Cat_cat)
+      (λ C : Cat, Functor (Functor_oplax_cat (@GrayCubePos_R k) C)
+        (@nerve_walking_cube_cat C (succ k))))
+    (λ C : Cat, @id_func (Functor_oplax_cat WalkingArrow_cat C))
+    (λ k : τ Nat_grpd,
+      λ R : τ (@Pi_grpd (Obj Cat_cat)
+        (λ C : Cat, Functor (Functor_oplax_cat (@GrayCubePos_R k) C)
+          (@nerve_walking_cube_cat C (succ k)))),
+      λ C : Cat,
+        @comp_cat_fapp0
+          (Functor_oplax_cat (@GrayCubePos_R (succ k)) C)
+          (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) (succ k))
+          (@nerve_walking_cube_cat C (succ (succ k)))
+          (nerve_walking_shift_func C (succ k))
+          (@comp_cat_fapp0
+            (Functor_oplax_cat (@GrayCubePos_R (succ k)) C)
+            (Functor_oplax_cat (@GrayCubePos_R k) (Functor_oplax_cat WalkingArrow_cat C))
+            (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) (succ k))
+            (R (Functor_oplax_cat WalkingArrow_cat C))
+            (nerve_walking_left_curry_func (@GrayCubePos_R k) C))) n;
+
+symbol nerve_geometric_positive_decode (C : Cat) (n : τ Nat_grpd)
+  : τ (Functor (Functor_oplax_cat (@GrayCubePos_R n) C) (@CubicalLevel_cat C (succ n)))
+≔ @comp_cat_fapp0 _ _ _ (@nerve_walking_cube_decode C (succ n))
+    (nerve_geometric_positive_to_walking n C);
+
+assert [C : Cat] ⊢ nerve_geometric_positive_to_walking zero C
+  ≡ @id_func (Functor_oplax_cat WalkingArrow_cat C);
+assert [C : Cat] ⊢ nerve_geometric_positive_decode C zero ≡ nerve_walking_observe_func C;
+assert [C : Cat] ⊢ nerve_geometric_positive_to_walking (succ zero) C
+  ≡ nerve_walking_left_curry_func WalkingArrow_cat C;
+assert [C : Cat] ⊢ nerve_geometric_positive_decode C (succ zero) ≡ nerve_geometric_square_decode C;
+
+symbol nerve_geometric_positive_decode_hom [C : Cat] (n : τ Nat_grpd)
+  (F G : τ (Obj (Functor_oplax_cat (@GrayCubePos_R n) C)))
+  : τ (Functor (Hom_cat (Functor_oplax_cat (@GrayCubePos_R n) C) F G)
+      (Hom_cat (@CubicalLevel_cat C (succ n))
+        (fapp0 (nerve_geometric_positive_decode C n) F)
+        (fapp0 (nerve_geometric_positive_decode C n) G)))
+≔ @fapp1_func _ _ (nerve_geometric_positive_decode C n) F G;

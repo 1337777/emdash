@@ -1,0 +1,37 @@
+require open emdash.native_walking_cube_maps;
+
+// Actual reindexing maps for the two bracketings of repeated walking Hom.
+// They are recursively defined functors, not equality casts.
+symbol nerve_walking_shift_func (C : Cat) (n : τ Nat_grpd)
+  : τ (Functor (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) n)
+      (@nerve_walking_cube_cat C (succ n)))
+≔ @nat_elim
+    (λ k : τ Nat_grpd, Functor
+      (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k)
+      (@nerve_walking_cube_cat C (succ k)))
+    (@id_func (Functor_oplax_cat WalkingArrow_cat C))
+    (λ k : τ Nat_grpd,
+      λ H : τ (Functor (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k)
+        (@nerve_walking_cube_cat C (succ k))),
+      @nerve_oplax_postcomp_func WalkingArrow_cat
+        (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k)
+        (@nerve_walking_cube_cat C (succ k)) H) n;
+
+symbol nerve_walking_unshift_func (C : Cat) (n : τ Nat_grpd)
+  : τ (Functor (@nerve_walking_cube_cat C (succ n))
+      (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) n))
+≔ @nat_elim
+    (λ k : τ Nat_grpd, Functor (@nerve_walking_cube_cat C (succ k))
+      (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k))
+    (@id_func (Functor_oplax_cat WalkingArrow_cat C))
+    (λ k : τ Nat_grpd,
+      λ H : τ (Functor (@nerve_walking_cube_cat C (succ k))
+        (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k)),
+      @nerve_oplax_postcomp_func WalkingArrow_cat
+        (@nerve_walking_cube_cat C (succ k))
+        (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k) H) n;
+
+assert [C : Cat] ⊢ nerve_walking_shift_func C zero ≡ @id_func (Functor_oplax_cat WalkingArrow_cat C);
+assert [C : Cat] ⊢ nerve_walking_unshift_func C zero ≡ @id_func (Functor_oplax_cat WalkingArrow_cat C);
+assert [C : Cat] ⊢ nerve_walking_shift_func C (succ zero) ≡ @id_func (nerve_curried_square_cat C);
+assert [C : Cat] ⊢ nerve_walking_unshift_func C (succ zero) ≡ @id_func (nerve_curried_square_cat C);

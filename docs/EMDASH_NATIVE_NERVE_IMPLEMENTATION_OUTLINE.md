@@ -95,9 +95,9 @@ actual whole closure establishes a necessary correction.
 
 | Piece | Required interface and body | Open obligation |
 | --- | --- | --- |
-| Walking-first closure | `λₙ:GCₙ₊₁(C) ⇄ G(Qₙ,G_I(C)):ρₙ` | Construct the whole maps with the correct argument order. Current right Gray closure cannot simply be relabelled, and legacy Cartesian composition/admission assumptions are not imported. |
-| Repeated currying | `cₙ:GCₙ(C) ⇄ Wₙ(C):uₙ` | Iterate the actual λ/ρ maps and qualify the needed iteration/shift comparisons. Preserve noninvertible cells and higher mapping action. |
-| Geometric/native maps | `Dₙ=dₙ∘cₙ`, `Eₙ=uₙ∘eₙ` | These expressions supply the architecture, not missing c/u bodies or inverse proofs. No primitive equivalence is introduced. |
+| Walking-first closure | `λₙ:GCₙ₊₁(C) ⇄ G(Qₙ,G_I(C)):ρₙ` | Forward λ is constructed using the new structural parameter owner. Reverse ρ and both closure laws remain open. Preserve argument order; the existing right closure cannot simply be relabelled. |
+| Repeated currying | `cₙ:GCₙ(C) ⇄ Wₙ(C):uₙ` | Forward c checks at every positive dimension. Both actual iteration-shift inverses are derived. Reverse u and the c/u inverse laws remain open. |
+| Geometric/native maps | `Dₙ=dₙ∘cₙ`, `Eₙ=uₙ∘eₙ` | Forward D is implemented for positive n, with whole Hom action. E still requires u. No primitive equivalence is introduced. |
 | Geometric degree zero | `Functor_oplax_cat(Terminal,C) ⇄ C` | Actual evaluation/constant maps and whole reconstruction at the selected profile. |
 | Common face index | Both nerves over the existing selected augmented cube index | Establish whole restriction/shape action and natural comparison, with original coordinate order. |
 | Degeneracies | Extend the same two diagrams by identity insertion | Face-degeneracy and degeneracy-degeneracy laws, and compatibility of D/E with them. |
@@ -108,11 +108,12 @@ is not imported into the receiver. The receiver needs the actual mixed-profile
 exchange/closure, with the declared right tensor's order retained.
 
 The first tensor consumer is the existing walking-square coevaluation. The
-whole W₂/NC₂ maps can consume its curried diagram before a general λ is
-finished. Recover its original boundary edges and interchanger in the
-selected direction; do not infer tensor symmetry or invert a filler.
+whole W₂/NC₂ maps consume its curried diagram. The new parameter owner also
+retains the named nonidentity interchanger. Recover all required boundary/shape
+comparisons in the selected direction; do not infer tensor symmetry or invert
+a filler.
 
-## Next geometric interface
+## Geometric parameter action and forward decoder
 
 The fixed functor G_I(F) and its composition law do not by themselves provide
 its whole action on oplax transformations in F. The current
@@ -120,38 +121,56 @@ its whole action on oplax transformations in F. The current
 it is not the required general parameter action. The checked interface
 consumer explicitly rejects that substitution.
 
-The next candidate is the strict functor
+The new structural ordinary-lax postcomposition owner defines, by OddDual
+action, the strict functor
 
 ```text
-P(I,A,B) : G(A,B) → G(G(I,A),G(I,B)),
+P(I,A,B) : G(A,B) → G(G(I,A),G(I,B)).
 ```
 
-whose object at an encoded F is the encoded fixed postcomposition G_I(F).
-At a fixed D:I→A, its Hom component in alpha is the existing whole
-precomposition action by D. This component and the observation alpha[D[i]]
-are already checked. Assembling them into P must retain the original directed
-naturality data as D varies; it must not strictify that comparison or request
-it as a caller-supplied cell. In the encoded ordinary-lax view, the decisive
-next consumer is the extracted post/left cell at delta: its i-component must
-be the original alpha-comparison at delta[i]. That law is not yet checked;
-an object projection alone will not qualify P. No new lax-functor/weak-category
-universe is required by this proposed type.
+Its object at an encoded F is the encoded fixed postcomposition G_I(F).
+At D:I→A, its Hom component in alpha is the existing whole precomposition
+by D. In the encoded ordinary-lax view, the extracted post/left cell at delta
+now projects to the original alpha-comparison at delta[i]. Its canonical
+higher-component ladder, image units/composition and noncollapse controls
+also pass. No comparison is requested as caller-supplied data.
+
+The raw nested composite projection and Cat_cart specialization retain the
+[precise limits in the review](../emdash2/audits/native_nerve_foundations/postcomposition_review.md).
+This structural owner has not been promoted to production or claimed as a
+theorem derived from the old fixed-F interface.
 
 For Q=GrayTensor_R(I,B) and the already constructed coevaluation
-q_B:B→G(I,Q), the forward closure would be the concrete composite
+q_B:B→G(I,Q), the implemented forward closure is the concrete composite
 
 ```text
 λ(B,C) = precompose_oplax(q_B) ∘ P(I,Q,C)
        : G(Q,C) → G(B,G(I,C)).
 ```
 
-The [conditional consumer](../emdash2/audits/native_nerve_foundations/oplax_postcomp_interface.lpfragment)
-checks this exact type. It does not declare P or lambda as completed maps.
-Next implement the whole parameter interface with projections to the checked
-fixed actions, test its retained comparison/higher action, then construct
-lambda. The reverse closure and both closure round trips remain independent
-requirements. Do not substitute the Cartesian joint-composition/admission
-route retained in the legacy donor.
+The [former conditional consumer](../emdash2/audits/native_nerve_foundations/oplax_postcomp_interface.lpfragment)
+is now instantiated by the actual P. With Qₖ=GrayCubePos_R(k), of geometric
+dimension k+1, the internal recursion is:
+
+```text
+sₙ : Wₙ(G_I(C)) ⇄ Wₙ₊₁(C) : tₙ
+c₀(C) = id_G_I(C)
+cₖ₊₁(C) = sₖ₊₁(C) ∘ cₖ(G_I(C)) ∘ λ(Qₖ,C)
+Dₖ(C) = dₖ₊₁(C) ∘ cₖ(C) : G(Qₖ,C) → NCₖ₊₁(C).
+```
+
+Both s/t inverse laws are derived by Nat induction independently of the
+walking inverses. The whole decoder, line/square computations, variable-k
+Hom action and parameter-owner interactions pass together in 97.488s /
+595,020 KiB, with subject reduction at 180s / 2 GiB.
+[Exact replay and evidence](../emdash2/audits/native_nerve_foundations/postcomposition_verification.json)
+retain the new rules, failed alternatives and warning boundaries.
+
+Next construct the reverse closure and encoder through their actual geometric
+consumer. Both closure round trips, geometric degree zero and the native
+second inverse remain required. Do not substitute the Cartesian
+joint-composition/admission route retained in the legacy donor or let either
+local normalization limit become the sole continuation.
 
 Semantic cross-check: Ara–Guetta v1, §21 describes mixed lax/oplax exchange;
 Proposition 36 and Remark 38 relate it to odd/even duality, which reverses
@@ -191,9 +210,10 @@ claiming independent all-flags totals at arbitrary dimension.
 
 The Wₙ/NCₙ map formation and degree-two consumer are checked using qualified
 `85b30c5e`, independently of the unfinished normalization experiment. The G_I
-composition comparison and first recursive round trip are also derived. Next
-implement the geometric parameter interface above and test its whole tensor
-consumer. The exact whole-section reconstruction equation remains required;
+composition comparison and first recursive round trip are also derived.
+The geometric forward decoder and both iteration-shift inverses now check
+relative to the new structural parameter owner. Continue with reverse
+geometric construction. The exact whole-section reconstruction equation remains required;
 scalar readbacks do not replace it.
 
 The actual native moving-cell/map investigation has positive focused evidence,

@@ -1,0 +1,11 @@
+// Conventional pre/right action in its stable postcomposition presentation.
+// Preserve both runtime heads and constrain the original component and F[p].
+unif_rule
+  @hom_postcomp_fapp0 _ _ (@id Cat_cat $B) $u $v $Z
+    (@tapp0_fapp0 $A $B $F $G $Y $epsilon) $q
+  ≡ @tapp1_fapp0 $A0 $B0 $F0 $G0 $X0 $Y0 $epsilon0 $p0
+  ↪ [ $A0 ≡ $A; $B0 ≡ $B; $F0 ≡ $F; $G0 ≡ $G;
+      $Y0 ≡ $Y; $epsilon0 ≡ $epsilon;
+      $u ≡ @fapp0 $A $B $F $X0; $v ≡ @fapp0 $A $B $F $Y;
+      $Z ≡ @fapp0 $A $B $G $Y;
+      $q ≡ @fapp1_fapp0 $A $B $F $X0 $Y $p0 ];

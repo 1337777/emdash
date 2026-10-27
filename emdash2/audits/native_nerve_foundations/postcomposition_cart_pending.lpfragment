@@ -1,0 +1,19 @@
+require open emdash.native_postcomposition_interactions;
+
+// Specializing the retained intrinsic cell must still work after the
+// generic component owner has become the displayed tdapp0 projection.
+symbol nerve_postcomp_cart_observe [I A : Cat] (F G : τ (Functor A Cat_cart)) (alpha : τ (@Transf A Cat_cart F G))
+  (D E : τ (Functor I A)) (delta : τ (@Transf I A D E)) (i : τ (Obj I))
+  : τ (Hom (Hom_cat Cat_cart (fapp0 F (@fapp0 I A D i)) (fapp0 G (@fapp0 I A E i))) (fapp0 (@functord_transport_lhs_func A (@hom_ A A (@id_func A) (@fapp0 I A D i)) (@hom_ Cat_cart A G (@fapp0 A Cat_cart F (@fapp0 I A D i))) (@tapp1_at_transf A Cat_cart F G (@fapp0 I A D i) alpha) (@fapp0 I A D i) (@fapp0 I A E i) (@tapp0_fapp0 I A D E i delta)) (@id A (@fapp0 I A D i))) (fapp0 (@functord_transport_rhs_func A (@hom_ A A (@id_func A) (@fapp0 I A D i)) (@hom_ Cat_cart A G (@fapp0 A Cat_cart F (@fapp0 I A D i))) (@tapp1_at_transf A Cat_cart F G (@fapp0 I A D i) alpha) (@fapp0 I A D i) (@fapp0 I A E i) (@tapp0_fapp0 I A D E i delta)) (@id A (@fapp0 I A D i))))
+≔ @tapp0_hom_fapp0 I Cat_cart
+    (fapp0 (@comp_cat_cov_func I A Cat_cart F) D) (fapp0 (@comp_cat_cov_func I A Cat_cart G) E) _ _ i
+    (@tapp1_post_laxity_cell (Functor_cat I A) (Functor_cat I Cat_cart) (@comp_cat_cov_func I A Cat_cart F) (@comp_cat_cov_func I A Cat_cart G) (@nerve_lax_postcomposition_transf I A Cat_cart F G alpha)
+      D D E delta (@id (Functor_cat I A) D));
+
+
+assert [I A : Cat] (F G : τ (Functor A Cat_cart)) (a : τ (@Transf A Cat_cart F G))
+ (D E : τ (Functor I A)) (d : τ (@Transf I A D E)) (i : τ (Obj I)) ⊢
+ @nerve_postcomp_cart_observe I A F G a D E d i
+ ≡ @tapp1_post_laxity_cell A Cat_cart F G a
+      (@fapp0 I A D i) (@fapp0 I A D i) (@fapp0 I A E i)
+      (@tapp0_fapp0 I A D E i d) (@id A (@fapp0 I A D i));

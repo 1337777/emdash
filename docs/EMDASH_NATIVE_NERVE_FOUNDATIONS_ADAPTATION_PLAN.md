@@ -7,7 +7,7 @@ Supersedes: no donor proof or source pin; adapts the paused legacy work under re
 Side-Task-Ledger: NF stages, source-pinned audit records and the parent follow-up ledger
 Infinity-Codex-Origin: session `01a12a87-a47e-73f1-9351-1159597be30d`
 Infinity-Codex-Decision-Responses: user-authorized consolidated book/article and legacy-nerve continuation, recorded in the parent living plan
-Status: native NF-1 reconstruction is the active continuation; Pi/Sigma native correction installed; frontend/final integration remain separate obligations
+Status: native NF-1 reconstruction and NF-2C geometric construction active; Pi/Sigma native correction installed; frontend/final integration remain separate obligations
 Parent: [consolidated foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Receiver: `goal/strict-functor-duality-v3.2`, checkpoint `1fe72617`
 Donor: `goal/native-nerve-legacy-completion-v3.2`, checkpoint `280e7a03`
@@ -17,16 +17,20 @@ Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 
 User strategy amendment, 2026-10-27: use the [end-to-end implementation outline](EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
 and develop the maps/consumers independent of the unresolved walking inverse.
-The immediate concrete slice is the whole iterated-walking cube recursion and
+The initial concrete slice was the whole iterated-walking cube recursion and
 its degree-two maps. The geometric tensor closure and whole native section
 reconstruction remain separate required obligations; no missing inverse is
 supplied to make the skeleton check.
 
 Current resumption, 2026-10-27: the [whole iterated-walking maps and tensor consumer](../emdash2/audits/native_nerve_foundations/README.md#whole-iterated-walking-cube-maps-and-implementation-outline)
 now check on qualified `85b30c5e`. The first whole round trip at variable n
-and its parameter-family/tensor consumers are also derived. Follow the
-outline's geometric parameter-action/closure route while retaining the native
-second inverse and reverse recursive round trip as required.
+and its parameter-family/tensor consumers are also derived. The [structural
+parameter action and derived positive geometric decoder](../emdash2/audits/native_nerve_foundations/postcomposition_review.md)
+now pass a 54-input check, including both iteration-shift inverses. Follow the
+outline's reverse closure/encoder route while retaining the native second
+inverse, reverse recursive round trip and geometric degree zero as required.
+The raw nested higher-projection and Cat_cart specialization limits are
+recorded promotion obligations, not reasons to stop the broader construction.
 The actual moving-action experiment is preserved separately with its unfinished
 overlap qualification; it is not used by the new recursive maps. The standing
 references, plan consolidation and book/article stage remain complete; later

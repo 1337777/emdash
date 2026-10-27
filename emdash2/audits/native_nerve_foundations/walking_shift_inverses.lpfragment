@@ -1,0 +1,34 @@
+require open emdash.native_walking_shift;
+require open emdash.native_cube_retraction;
+
+// Lifting an existing inverse equation; operational maps carry no proof input.
+symbol nerve_oplax_inverse_lift [A B : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B A))
+  (p : τ (@= (Functor A A) (@comp_cat_fapp0 A B A G F) (@id_func A)))
+  : τ (@= (Functor (Functor_oplax_cat WalkingArrow_cat A) (Functor_oplax_cat WalkingArrow_cat A))
+      (@comp_cat_fapp0 _ _ _ (@nerve_oplax_postcomp_func WalkingArrow_cat B A G)
+        (@nerve_oplax_postcomp_func WalkingArrow_cat A B F))
+      (@id_func (Functor_oplax_cat WalkingArrow_cat A)))
+≔ @eq_trans _ _ _ _ (@nerve_oplax_postcomp_comp_path WalkingArrow_cat A B A F G)
+    (@eq_ap (Functor A A)
+      (Functor (Functor_oplax_cat WalkingArrow_cat A) (Functor_oplax_cat WalkingArrow_cat A))
+      (λ H : τ (Functor A A), @nerve_oplax_postcomp_func WalkingArrow_cat A A H)
+      _ _ p);
+
+symbol nerve_walking_unshift_shift_path (C : Cat) (n : τ Nat_grpd)
+  : τ (@= (Functor (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) n) (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) n)) (@comp_cat_fapp0 (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) n) (@nerve_walking_cube_cat C (succ n)) (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) n) (nerve_walking_unshift_func C n) (nerve_walking_shift_func C n)) (@id_func (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) n)))
+≔ @nat_elim (λ k : τ Nat_grpd, @= (Functor (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k) (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k)) (@comp_cat_fapp0 (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k) (@nerve_walking_cube_cat C (succ k)) (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k) (nerve_walking_unshift_func C k) (nerve_walking_shift_func C k)) (@id_func (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k)))
+    (@eq_refl (Functor (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C))
+      (@id_func (Functor_oplax_cat WalkingArrow_cat C)))
+    (λ k : τ Nat_grpd, λ p : τ (@= (Functor (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k) (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k)) (@comp_cat_fapp0 (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k) (@nerve_walking_cube_cat C (succ k)) (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k) (nerve_walking_unshift_func C k) (nerve_walking_shift_func C k)) (@id_func (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k))),
+      @nerve_oplax_inverse_lift (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k) (@nerve_walking_cube_cat C (succ k))
+        (nerve_walking_shift_func C k) (nerve_walking_unshift_func C k) p) n;
+
+symbol nerve_walking_shift_unshift_path (C : Cat) (n : τ Nat_grpd)
+  : τ (@= (Functor (@nerve_walking_cube_cat C (succ n)) (@nerve_walking_cube_cat C (succ n))) (@comp_cat_fapp0 (@nerve_walking_cube_cat C (succ n)) (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) n) (@nerve_walking_cube_cat C (succ n)) (nerve_walking_shift_func C n) (nerve_walking_unshift_func C n)) (@id_func (@nerve_walking_cube_cat C (succ n))))
+≔ @nat_elim (λ k : τ Nat_grpd, @= (Functor (@nerve_walking_cube_cat C (succ k)) (@nerve_walking_cube_cat C (succ k))) (@comp_cat_fapp0 (@nerve_walking_cube_cat C (succ k)) (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k) (@nerve_walking_cube_cat C (succ k)) (nerve_walking_shift_func C k) (nerve_walking_unshift_func C k)) (@id_func (@nerve_walking_cube_cat C (succ k))))
+    (@eq_refl (Functor (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C))
+      (@id_func (Functor_oplax_cat WalkingArrow_cat C)))
+    (λ k : τ Nat_grpd, λ p : τ (@= (Functor (@nerve_walking_cube_cat C (succ k)) (@nerve_walking_cube_cat C (succ k))) (@comp_cat_fapp0 (@nerve_walking_cube_cat C (succ k)) (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k) (@nerve_walking_cube_cat C (succ k)) (nerve_walking_shift_func C k) (nerve_walking_unshift_func C k)) (@id_func (@nerve_walking_cube_cat C (succ k)))),
+      @nerve_oplax_inverse_lift (@nerve_walking_cube_cat C (succ k)) (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) k)
+        (nerve_walking_unshift_func C k) (nerve_walking_shift_func C k) p) n;

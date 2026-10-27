@@ -1,0 +1,26 @@
+require open emdash.native_postcomposition_owner;
+
+// Stable projection of the original intrinsic action on the new whole image.
+// There is no separately supplied comparison cell or equality argument.
+injective symbol nerve_lax_postcomposition_cell [I A B : Cat]
+  [F G : τ (Functor A B)] (alpha : τ (@Transf A B F G))
+  (D E : τ (Functor I A)) (delta : τ (@Transf I A D E))
+  : τ (Hom (@Fibre_cat (Functor_cat I A) (@hom_ (Functor_cat I B) (Functor_cat I A) (@comp_cat_cov_func I A B G) (@fapp0 (Functor_cat I A) (Functor_cat I B) (@comp_cat_cov_func I A B F) D)) E)
+      (fapp0 (@functord_transport_lhs_func (Functor_cat I A) (@hom_ (Functor_cat I A) (Functor_cat I A) (@id_func (Functor_cat I A)) D) (@hom_ (Functor_cat I B) (Functor_cat I A) (@comp_cat_cov_func I A B G) (@fapp0 (Functor_cat I A) (Functor_cat I B) (@comp_cat_cov_func I A B F) D)) (@tapp1_at_transf (Functor_cat I A) (Functor_cat I B) (@comp_cat_cov_func I A B F) (@comp_cat_cov_func I A B G) D (@nerve_lax_postcomposition_transf I A B F G alpha)) D E delta) (@id (Functor_cat I A) D))
+      (fapp0 (@functord_transport_rhs_func (Functor_cat I A) (@hom_ (Functor_cat I A) (Functor_cat I A) (@id_func (Functor_cat I A)) D) (@hom_ (Functor_cat I B) (Functor_cat I A) (@comp_cat_cov_func I A B G) (@fapp0 (Functor_cat I A) (Functor_cat I B) (@comp_cat_cov_func I A B F) D)) (@tapp1_at_transf (Functor_cat I A) (Functor_cat I B) (@comp_cat_cov_func I A B F) (@comp_cat_cov_func I A B G) D (@nerve_lax_postcomposition_transf I A B F G alpha)) D E delta) (@id (Functor_cat I A) D)));
+
+// lhs-audit: keep 8 -- measured SR guard retains the incoming identity carrier.
+rule @fdapp1_int_cell _ _ _
+    (@tapp1_at_transf _ _ _ _ $D
+      (@nerve_lax_postcomposition_transf $I $A $B $F $G $alpha))
+    $D $E $delta (@id (Functor_cat $I $A) $D)
+  ↪ @nerve_lax_postcomposition_cell $I $A $B $F $G $alpha $D $E $delta;
+
+// Each component is the original alpha comparison at delta[i], extracted
+// by the existing post/left owner. Higher input data are not replaced.
+rule @tapp0_hom_fapp0 _ _ _ _ _ _ $i
+    (@nerve_lax_postcomposition_cell $I $A $B $F $G $alpha $D $E $delta)
+  ↪ @tapp1_post_laxity_cell $A $B $F $G $alpha
+      (@fapp0 $I $A $D $i) (@fapp0 $I $A $D $i) (@fapp0 $I $A $E $i)
+      (@tapp0_fapp0 $I $A $D $E $i $delta)
+      (@id $A (@fapp0 $I $A $D $i));

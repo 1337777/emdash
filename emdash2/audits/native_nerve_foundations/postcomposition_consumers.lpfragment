@@ -1,0 +1,54 @@
+require open emdash.native_postcomposition_controls;
+require open emdash.native_oplax_postcomp_interface;
+
+// The actual opposite-profile whole owner supplies the previously missing
+// argument. This is a derived forward map, not an inverse declaration.
+symbol nerve_walking_left_curry_func (B C : Cat)
+  : τ (Functor (Functor_oplax_cat (@GrayTensor_R WalkingArrow_cat B) C)
+      (Functor_oplax_cat B (Functor_oplax_cat WalkingArrow_cat C)))
+≔ @nerve_left_curry_from_oplax_postcomp B C
+    (nerve_oplax_postcomposition_func WalkingArrow_cat (@GrayTensor_R WalkingArrow_cat B) C);
+
+symbol nerve_geometric_square_decode (C : Cat)
+  : τ (Functor (nerve_geometric_square_cat C) (@CubicalLevel_cat C (succ (succ zero))))
+≔ @comp_cat_fapp0 _ _ _ (nerve_curried_square_decode C)
+    (nerve_walking_left_curry_func WalkingArrow_cat C);
+
+assert [I A B : Cat] (F : τ (Functor A B)) ⊢
+  fapp0 (nerve_oplax_postcomposition_func I A B) (@OddDual_func A B F)
+  ≡ @OddDual_func (Functor_oplax_cat I A) (Functor_oplax_cat I B)
+      (@nerve_oplax_postcomp_func I A B F);
+
+// The root Hom projection has exactly the previously checked component.
+assert [I A B : Cat] (F G : τ (Functor A B)) (D : τ (Functor I A))
+  (alpha : τ (@Transf_oplax A B F G)) ⊢
+  @tapp0_fapp0 (OddDual_cat (Functor_oplax_cat I A)) (OddDual_cat (Functor_oplax_cat I B))
+    (fapp0 (nerve_oplax_postcomposition_func I A B) (@OddDual_func A B G))
+    (fapp0 (nerve_oplax_postcomposition_func I A B) (@OddDual_func A B F))
+    (@OddDual_func I A D)
+    (@fapp1_fapp0 _ _ (nerve_oplax_postcomposition_func I A B)
+      (@OddDual_func A B F) (@OddDual_func A B G) alpha)
+  ≡ fapp0 (@nerve_oplax_postcomp_component I A B F G D) alpha;
+
+// Every original tensor diagram remains an actual argument of the closure.
+assert [B C : Cat] (H : τ (Functor (@GrayTensor_R WalkingArrow_cat B) C))
+  (b : τ (Obj B)) (i : τ (Obj WalkingArrow_cat)) ⊢
+  fapp0 (@diagram_oplax_evaluation_at_func WalkingArrow_cat C i)
+    (fapp0 (@diagram_oplax_evaluation_at_func B (Functor_oplax_cat WalkingArrow_cat C) b)
+      (fapp0 (nerve_walking_left_curry_func B C)
+        (@OddDual_func (@GrayTensor_R WalkingArrow_cat B) C H)))
+  ≡ fapp0 H (fapp0 (@nerve_tensor_coordinate_diagram B b) i);
+
+// A concrete nonidentity post/left cell is retained by the new image.
+assert ⊢
+  @nerve_lax_postcomposition_observe Terminal_cat WalkingArrow_cat GrayWalkingSquare_cat
+    gray_square_inner_src_func gray_square_inner_tgt_func gray_square_outer_transf
+    (@Const_func Terminal_cat WalkingArrow_cat walking_arrow_src)
+    (@Const_func Terminal_cat WalkingArrow_cat walking_arrow_tgt)
+    (@strict_transfor Terminal_cat WalkingArrow_cat
+      (@Const_func Terminal_cat WalkingArrow_cat walking_arrow_src)
+      (@Const_func Terminal_cat WalkingArrow_cat walking_arrow_tgt)
+      (@fapp1_fapp0 WalkingArrow_cat (Functor_cart_cat Terminal_cat WalkingArrow_cat)
+        (@Const_func_func Terminal_cat WalkingArrow_cat)
+        walking_arrow_src walking_arrow_tgt walking_arrow_generator)) Terminal_obj
+  ≡ gray_interchanger;

@@ -1,0 +1,31 @@
+require open emdash.native_postcomposition_laxity;
+
+// Observe the cell through the original internal-action extraction, never
+// by supplying an independent comparison to the new whole map.
+symbol nerve_lax_postcomposition_observe [I A B : Cat] (F G : τ (Functor A B)) (alpha : τ (@Transf A B F G))
+  (D E : τ (Functor I A)) (delta : τ (@Transf I A D E)) (i : τ (Obj I))
+  : τ (Hom (Hom_cat B (fapp0 F (@fapp0 I A D i)) (fapp0 G (@fapp0 I A E i))) (fapp0 (@functord_transport_lhs_func A (@hom_ A A (@id_func A) (@fapp0 I A D i)) (@hom_ B A G (@fapp0 A B F (@fapp0 I A D i))) (@tapp1_at_transf A B F G (@fapp0 I A D i) alpha) (@fapp0 I A D i) (@fapp0 I A E i) (@tapp0_fapp0 I A D E i delta)) (@id A (@fapp0 I A D i))) (fapp0 (@functord_transport_rhs_func A (@hom_ A A (@id_func A) (@fapp0 I A D i)) (@hom_ B A G (@fapp0 A B F (@fapp0 I A D i))) (@tapp1_at_transf A B F G (@fapp0 I A D i) alpha) (@fapp0 I A D i) (@fapp0 I A E i) (@tapp0_fapp0 I A D E i delta)) (@id A (@fapp0 I A D i))))
+≔ @tapp0_hom_fapp0 I B
+    (fapp0 (@comp_cat_cov_func I A B F) D) (fapp0 (@comp_cat_cov_func I A B G) E) _ _ i
+    (@tapp1_post_laxity_cell (Functor_cat I A) (Functor_cat I B) (@comp_cat_cov_func I A B F) (@comp_cat_cov_func I A B G) (@nerve_lax_postcomposition_transf I A B F G alpha)
+      D D E delta (@id (Functor_cat I A) D));
+
+assert [I A B : Cat] (F G : τ (Functor A B)) (alpha : τ (@Transf A B F G))
+  (D E : τ (Functor I A)) (delta : τ (@Transf I A D E)) (i : τ (Obj I)) ⊢ @nerve_lax_postcomposition_observe I A B F G alpha D E delta i ≡ @tapp1_post_laxity_cell A B F G alpha (@fapp0 I A D i) (@fapp0 I A D i) (@fapp0 I A E i) (@tapp0_fapp0 I A D E i delta) (@id A (@fapp0 I A D i));
+
+assertnot [I A B : Cat] (F G : τ (Functor A B)) (alpha : τ (@Transf A B F G))
+  (D E : τ (Functor I A)) (delta : τ (@Transf I A D E)) (i : τ (Obj I)) (theta : τ (Hom (Hom_cat B (fapp0 F (@fapp0 I A D i)) (fapp0 G (@fapp0 I A E i))) (fapp0 (@functord_transport_lhs_func A (@hom_ A A (@id_func A) (@fapp0 I A D i)) (@hom_ B A G (@fapp0 A B F (@fapp0 I A D i))) (@tapp1_at_transf A B F G (@fapp0 I A D i) alpha) (@fapp0 I A D i) (@fapp0 I A E i) (@tapp0_fapp0 I A D E i delta)) (@id A (@fapp0 I A D i))) (fapp0 (@functord_transport_rhs_func A (@hom_ A A (@id_func A) (@fapp0 I A D i)) (@hom_ B A G (@fapp0 A B F (@fapp0 I A D i))) (@tapp1_at_transf A B F G (@fapp0 I A D i) alpha) (@fapp0 I A D i) (@fapp0 I A E i) (@tapp0_fapp0 I A D E i delta)) (@id A (@fapp0 I A D i))))) ⊢ @nerve_lax_postcomposition_observe I A B F G alpha D E delta i ≡ theta;
+
+// The whole component functor retains modifications of alpha.
+assert [I A B : Cat] (F G : τ (Functor A B)) (D : τ (Functor I A)) ⊢
+  @comp_cat_fapp0 _ _ _
+    (@tapp0_func (Functor_cat I A) (Functor_cat I B)
+      (@comp_cat_cov_func I A B F) (@comp_cat_cov_func I A B G) D)
+    (@nerve_lax_postcomposition_hom I A B F G)
+  ≡ @comp_cat_con_fapp1_func I A B D F G;
+
+// Ordinary lax parameters have not been silently promoted to strict ones.
+assertnot [I A B : Cat] (F G : τ (Functor A B)) (alpha : τ (@Transf A B F G)) ⊢
+  @nerve_lax_postcomposition_transf I A B F G alpha
+  : τ (@StrictTransfor (Functor_cat I A) (Functor_cat I B)
+      (@comp_cat_cov_func I A B F) (@comp_cat_cov_func I A B G));

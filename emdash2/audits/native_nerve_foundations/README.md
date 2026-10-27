@@ -1,8 +1,33 @@
 # Native nerve adaptation: receiver evidence
 
-Status: non-library NF-1 candidate on the corrected foundations.
+Status: non-library NF-1 reconstruction and NF-2C cube construction on the corrected foundations.
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
+
+## Forward geometric decoder at every positive dimension
+
+The [new construction and review](postcomposition_review.md) supplies a
+structural whole postcomposition owner with ordinary lax parameters. Its
+opposite-profile version, walking-first forward curry and positive-dimensional
+geometric decoder are defined composites and internal Nat recursion. They
+preserve the original tensor order and directed interchanger. The two actual
+iteration-shift maps have derived whole inverse laws independent of the
+unfinished second walking inverse.
+
+The 54-input combined check passes in **97.488s / 595,020 KiB**, with subject
+reduction, whole/capped projections, unit/composition, the explicit next-Hom
+component and noncollapse controls. Typed proof-time pre/right controls pass
+separately in **71.555s**. [Exact evidence and failed attempts](postcomposition_verification.json)
+are recorded separately. `replay_postcomposition.py` reconstructs the checked
+sources; `--assemble-only` checks source identity without another checker run.
+
+This is a forward construction relative to the new structural owner, not a
+derived closure equivalence. Raw nested next-Hom normalization and the
+Cat_cart specialization remain explicit computational limits. Reverse closure,
+geometric degree zero, the second native inverse, common-index comparisons,
+degeneracies and production promotion remain required. Continue the reverse
+geometric construction without making either local normalization issue the
+sole next task. The sections below retain the preceding checkpoints.
 
 ## Whole first round trip at every dimension
 
@@ -46,9 +71,10 @@ also typechecks, while the existing Cartesian parameter map is rejected in
 that slot. The 39-input interface check passes in **122.223s**, with unchanged
 warning inventory relative to the preceding square consumer.
 
-P itself is not declared or assumed. Its whole assembly, variation in D,
-extracted directed comparison and coherence still require implementation;
-the conditional curry consumer does not close the geometric-closure milestone.
+At this preceding checkpoint P itself was not declared or assumed. The new
+[structural owner and forward construction](postcomposition_review.md)
+supersede that formation boundary while retaining their listed computational
+limits. Neither checkpoint closes the geometric-closure equivalence milestone.
 The [outline](../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
 records the exact next construction and source-profile boundary.
 

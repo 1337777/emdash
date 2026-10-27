@@ -1,0 +1,26 @@
+// Whole component evaluation of represented vertical composition.
+// This definition shares one body between whole and capped observations.
+symbol transf_postcomp_component_func [I B K : Cat]
+  (F : τ (Functor K (Functor_cat I B))) (W : τ (Functor I B))
+  [X Y : τ (Obj K)] (p : τ (Hom K X Y)) (i : τ (Obj I))
+  : τ (Functor (@Transf_cat I B W (fapp0 F X))
+      (Hom_cat B (fapp0 W i) (fapp0 (fapp0 F Y) i)))
+≔ @comp_cat_fapp0 (@Transf_cat I B W (fapp0 F X))
+    (Hom_cat B (fapp0 W i) (fapp0 (fapp0 F X) i))
+    (Hom_cat B (fapp0 W i) (fapp0 (fapp0 F Y) i))
+    (@hom_postcomp_func B B (@id_func B) (fapp0 W i)
+      (fapp0 (fapp0 F X) i) (fapp0 (fapp0 F Y) i)
+      (@tapp0_fapp0 I B (fapp0 F X) (fapp0 F Y) i
+        (@fapp1_fapp0 K (Functor_cat I B) F X Y p)))
+    (@tapp0_func I B W (fapp0 F X) i);
+
+rule @comp_fapp0 Cat_cat _ _ _ (@tapp0_func _ _ _ _ $i)
+    (@hom_postcomp_func (Functor_cat $I $B) $K $F $W $X $Y $p)
+  ↪ @transf_postcomp_component_func $I $B $K $F $W $X $Y $p $i;
+
+// Projection-first companion of the same whole evaluator law. The actual
+// Functor_cat codomain is the transfor-profile discriminator; both orders
+// retain represented postcomposition, not a second raw-composition form.
+rule @tapp0_fapp0 _ _ _ _ $i
+    (@hom_postcomp_fapp0 (Functor_cat $I $B) $K $F $W $X $Y $p $alpha)
+  ↪ @fapp0 _ _ (@transf_postcomp_component_func $I $B $K $F $W $X $Y $p $i) $alpha;

@@ -1,0 +1,511 @@
+{
+  "schema": 1,
+  "receiverBaseline": "6791ff17",
+  "status": "non-library structural postcomposition candidate; derived forward positive geometric decoder and both iteration-shift inverses; specialised promotion boundaries remain open",
+  "baseReplay": "replay_retraction.py",
+  "checker": {
+    "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+    "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+    "version": "dev-3.0.0-90-gdb4f7809-dirty"
+  },
+  "parentCoreSha256": "1c10b88923a7fd68d05000c74ea83fb76ce64eda711002aa23b661dde658c711",
+  "coreInsertions": [
+    {
+      "before": "// Component of a postcomposition-telescope action uses the original",
+      "fragment": "postcomp_component_owner.lpfragment"
+    },
+    {
+      "before": "// Conventional lax is the default Transf profile.",
+      "fragment": "postcomp_pre_action_view.lpfragment"
+    }
+  ],
+  "additionalSources": {
+    "emdash3_2_gray_cubes.lp": "49728a469917bc1b48426b8e52f3c7f9494a63e1154bc28f2227b5120cf6035d"
+  },
+  "programs": {
+    "native_postcomposition_owner.lp": "postcomposition_owner.lpfragment",
+    "native_postcomposition_laxity.lp": "postcomposition_laxity.lpfragment",
+    "native_postcomposition_controls.lp": "postcomposition_controls.lpfragment",
+    "native_postcomposition_interactions.lp": "postcomposition_interactions.lpfragment",
+    "native_postcomposition_consumers.lp": "postcomposition_consumers.lpfragment",
+    "native_walking_shift.lp": "walking_shift.lpfragment",
+    "native_walking_shift_inverses.lp": "walking_shift_inverses.lpfragment",
+    "native_geometric_positive_decode.lp": "geometric_positive_decode.lpfragment",
+    "native_positive_cube_qualification.lp": "positive_cube_qualification.lpfragment",
+    "native_postcomposition_pre_view_controls.lp": "postcomposition_pre_view_controls.lpfragment"
+  },
+  "modes": {
+    "interactions": {
+      "target": "native_postcomposition_interactions.lp",
+      "timeoutMs": 180000,
+      "expectedInputs": {
+        "emdash3_2.lp": "0a4740fc052a425e2b258708f513dde94f56f75ca7a10c0493cbea985121ea95",
+        "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_postcomposition_controls.lp": "03372f9202d5061ce5a7de7bf870f949634678e7663bceebd049eb4b9c4f7306",
+        "native_postcomposition_interactions.lp": "ff29d3651270a8de05e5e9f7889ce83ee5d6df18828bfc692caf9287f24ae22e",
+        "native_postcomposition_laxity.lp": "0a6ee22389c8fa2b88569bdb972db8eb535bb3650cfbcbb91b86f388ff2460a3",
+        "native_postcomposition_owner.lp": "3bebc97980ac29de09c7e8677d22f66e2e1daafca18d10015bb6c39e283fc6e6"
+      },
+      "expectedOutcome": "passed-fresh",
+      "coverageReceipt": "20261027T132706Z-3064b12c4d1847fd867d7c9da02f373c",
+      "coverageKind": "checked import of the whole-target run"
+    },
+    "decoder": {
+      "target": "native_geometric_positive_decode.lp",
+      "timeoutMs": 180000,
+      "expectedInputs": {
+        "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+        "emdash3_2.lp": "0a4740fc052a425e2b258708f513dde94f56f75ca7a10c0493cbea985121ea95",
+        "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_arrow_composition.lp": "6f7f20fd141de7478cbd028b6ee257506ae0149128e35a629c4822ebc4708fb1",
+        "emdash3_2_cubical_arrow_functor.lp": "833091cc2e17b7089c7bf9caf59c090232752165c1c48b1e4dda36a1a2d57ddc",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_levels.lp": "956003355c38ae379a81dca2ae458c6c559c399332e5e11394307ea3f5e30242",
+        "emdash3_2_cubical_square_level.lp": "b6ad8254211f6913a81d7e88b39a57f16db73cd4bb219d241f0de16ff945ce11",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_cubes.lp": "49728a469917bc1b48426b8e52f3c7f9494a63e1154bc28f2227b5120cf6035d",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_gray_transformation_graph.lp": "db87cf675f63982930023ec8b397315111dadb0800a1c1d5ec2e82aaed9cd68a",
+        "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_readable_pseudofunctors.lp": "da27c3beabd50404b04dcdec9003b29e5e9aea960c49f6e1949ee15bab96b5b8",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_cube_skeleton_consumer.lp": "dcb5feb0e13128c370724e86df443392deb46bbcfff87919ce4560229e3ce5eb",
+        "native_curried_square_maps.lp": "5fa66f1ab2d873a9f327be2a9f8f65bd2470827333b86742c009e3d5996a3e13",
+        "native_generic_square_whisker_whole.lp": "f7f8fc3c32bbab0abb0cd66f0f1384cc163f92814eef776dc8e7583588b69744",
+        "native_geometric_positive_decode.lp": "fd3e7451ae9506fae1060dc235fd9f6028d4ac8d3da23943621ba2a2848c9cb8",
+        "native_nerve_realization_review.lp": "d627e730cd7f1b4486fbe6320774e940617fc3ecb5c6e83715bec3b6b82fb605",
+        "native_oplax_postcomp_interface.lp": "10a82cd0b0cc568fee14757ed54f25fc126dc1c4fc8dbd3a173555c81b6b4edd",
+        "native_postcomposition_consumers.lp": "6cf84f0748f85d63f751bc85e9ba6956d807673b4f57d9d4308974f64857d00b",
+        "native_postcomposition_controls.lp": "03372f9202d5061ce5a7de7bf870f949634678e7663bceebd049eb4b9c4f7306",
+        "native_postcomposition_laxity.lp": "0a6ee22389c8fa2b88569bdb972db8eb535bb3650cfbcbb91b86f388ff2460a3",
+        "native_postcomposition_owner.lp": "3bebc97980ac29de09c7e8677d22f66e2e1daafca18d10015bb6c39e283fc6e6",
+        "native_walking_cube_maps.lp": "f3d64471bd307c21d5573cfe07ef8af403a243fd63aaac5d3716ce32e811ba43",
+        "native_walking_shift.lp": "79f4f1ed558b2ae0a62f1f9960f7b3ba763d1521072fd879cfdb49466c442ec7"
+      },
+      "expectedOutcome": "passed-fresh",
+      "coverageReceipt": "20261027T132706Z-3064b12c4d1847fd867d7c9da02f373c",
+      "coverageKind": "checked import of the whole-target run"
+    },
+    "shift": {
+      "target": "native_walking_shift_inverses.lp",
+      "timeoutMs": 180000,
+      "expectedInputs": {
+        "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+        "emdash3_2.lp": "0a4740fc052a425e2b258708f513dde94f56f75ca7a10c0493cbea985121ea95",
+        "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_arrow_composition.lp": "6f7f20fd141de7478cbd028b6ee257506ae0149128e35a629c4822ebc4708fb1",
+        "emdash3_2_cubical_arrow_functor.lp": "833091cc2e17b7089c7bf9caf59c090232752165c1c48b1e4dda36a1a2d57ddc",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_levels.lp": "956003355c38ae379a81dca2ae458c6c559c399332e5e11394307ea3f5e30242",
+        "emdash3_2_cubical_square_level.lp": "b6ad8254211f6913a81d7e88b39a57f16db73cd4bb219d241f0de16ff945ce11",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_gray_transformation_graph.lp": "db87cf675f63982930023ec8b397315111dadb0800a1c1d5ec2e82aaed9cd68a",
+        "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_readable_pseudofunctors.lp": "da27c3beabd50404b04dcdec9003b29e5e9aea960c49f6e1949ee15bab96b5b8",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_cube_retraction.lp": "a855a14595819ca62494dca6a914cd955a7f85c0bd53ce10a18c2abe1b0b30ab",
+        "native_curried_square_maps.lp": "5fa66f1ab2d873a9f327be2a9f8f65bd2470827333b86742c009e3d5996a3e13",
+        "native_generic_square_whisker_whole.lp": "f7f8fc3c32bbab0abb0cd66f0f1384cc163f92814eef776dc8e7583588b69744",
+        "native_lift_composition_staged.lp": "3611ba218051e7f884f83c9b5da5b6a3c96ec989f2873dea9d955321fe8db964",
+        "native_nerve_generation_review.lp": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323",
+        "native_nerve_graph_review.lp": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9",
+        "native_nerve_graph_whole_review.lp": "6a69911880e10a4332a14582444d5ed45b146ea9e969975ede3e96c8fea47b4e",
+        "native_nerve_realization_review.lp": "d627e730cd7f1b4486fbe6320774e940617fc3ecb5c6e83715bec3b6b82fb605",
+        "native_walking_cube_maps.lp": "f3d64471bd307c21d5573cfe07ef8af403a243fd63aaac5d3716ce32e811ba43",
+        "native_walking_shift.lp": "79f4f1ed558b2ae0a62f1f9960f7b3ba763d1521072fd879cfdb49466c442ec7",
+        "native_walking_shift_inverses.lp": "86ce19a400928635fa72fcb74eb41a3a99c7296e2f2fd6b44ffeb77f1ede5d72"
+      },
+      "expectedOutcome": "passed-fresh",
+      "coverageReceipt": "20261027T132706Z-3064b12c4d1847fd867d7c9da02f373c",
+      "coverageKind": "checked import of the whole-target run"
+    },
+    "qualification": {
+      "target": "native_positive_cube_qualification.lp",
+      "timeoutMs": 180000,
+      "expectedInputs": {
+        "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+        "emdash3_2.lp": "0a4740fc052a425e2b258708f513dde94f56f75ca7a10c0493cbea985121ea95",
+        "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_arrow_composition.lp": "6f7f20fd141de7478cbd028b6ee257506ae0149128e35a629c4822ebc4708fb1",
+        "emdash3_2_cubical_arrow_functor.lp": "833091cc2e17b7089c7bf9caf59c090232752165c1c48b1e4dda36a1a2d57ddc",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_levels.lp": "956003355c38ae379a81dca2ae458c6c559c399332e5e11394307ea3f5e30242",
+        "emdash3_2_cubical_square_level.lp": "b6ad8254211f6913a81d7e88b39a57f16db73cd4bb219d241f0de16ff945ce11",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_cubes.lp": "49728a469917bc1b48426b8e52f3c7f9494a63e1154bc28f2227b5120cf6035d",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_gray_transformation_graph.lp": "db87cf675f63982930023ec8b397315111dadb0800a1c1d5ec2e82aaed9cd68a",
+        "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_readable_pseudofunctors.lp": "da27c3beabd50404b04dcdec9003b29e5e9aea960c49f6e1949ee15bab96b5b8",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_cube_retraction.lp": "a855a14595819ca62494dca6a914cd955a7f85c0bd53ce10a18c2abe1b0b30ab",
+        "native_cube_skeleton_consumer.lp": "dcb5feb0e13128c370724e86df443392deb46bbcfff87919ce4560229e3ce5eb",
+        "native_curried_square_maps.lp": "5fa66f1ab2d873a9f327be2a9f8f65bd2470827333b86742c009e3d5996a3e13",
+        "native_generic_square_whisker_whole.lp": "f7f8fc3c32bbab0abb0cd66f0f1384cc163f92814eef776dc8e7583588b69744",
+        "native_geometric_positive_decode.lp": "fd3e7451ae9506fae1060dc235fd9f6028d4ac8d3da23943621ba2a2848c9cb8",
+        "native_lift_composition_staged.lp": "3611ba218051e7f884f83c9b5da5b6a3c96ec989f2873dea9d955321fe8db964",
+        "native_nerve_generation_review.lp": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323",
+        "native_nerve_graph_review.lp": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9",
+        "native_nerve_graph_whole_review.lp": "6a69911880e10a4332a14582444d5ed45b146ea9e969975ede3e96c8fea47b4e",
+        "native_nerve_realization_review.lp": "d627e730cd7f1b4486fbe6320774e940617fc3ecb5c6e83715bec3b6b82fb605",
+        "native_oplax_postcomp_interface.lp": "10a82cd0b0cc568fee14757ed54f25fc126dc1c4fc8dbd3a173555c81b6b4edd",
+        "native_positive_cube_qualification.lp": "1b8d3f94bf2b00f502bcf64ebe531f3d003d7ee1bd610072046e2d2d72c15709",
+        "native_postcomposition_consumers.lp": "6cf84f0748f85d63f751bc85e9ba6956d807673b4f57d9d4308974f64857d00b",
+        "native_postcomposition_controls.lp": "03372f9202d5061ce5a7de7bf870f949634678e7663bceebd049eb4b9c4f7306",
+        "native_postcomposition_interactions.lp": "ff29d3651270a8de05e5e9f7889ce83ee5d6df18828bfc692caf9287f24ae22e",
+        "native_postcomposition_laxity.lp": "0a6ee22389c8fa2b88569bdb972db8eb535bb3650cfbcbb91b86f388ff2460a3",
+        "native_postcomposition_owner.lp": "3bebc97980ac29de09c7e8677d22f66e2e1daafca18d10015bb6c39e283fc6e6",
+        "native_walking_cube_maps.lp": "f3d64471bd307c21d5573cfe07ef8af403a243fd63aaac5d3716ce32e811ba43",
+        "native_walking_shift.lp": "79f4f1ed558b2ae0a62f1f9960f7b3ba763d1521072fd879cfdb49466c442ec7",
+        "native_walking_shift_inverses.lp": "86ce19a400928635fa72fcb74eb41a3a99c7296e2f2fd6b44ffeb77f1ede5d72"
+      },
+      "expectedOutcome": "passed-fresh",
+      "coverageReceipt": "20261027T132706Z-3064b12c4d1847fd867d7c9da02f373c",
+      "coverageKind": "fresh whole-target run"
+    },
+    "pre-view": {
+      "target": "native_postcomposition_pre_view_controls.lp",
+      "timeoutMs": 180000,
+      "expectedInputs": {
+        "emdash3_2.lp": "0a4740fc052a425e2b258708f513dde94f56f75ca7a10c0493cbea985121ea95",
+        "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_postcomposition_controls.lp": "03372f9202d5061ce5a7de7bf870f949634678e7663bceebd049eb4b9c4f7306",
+        "native_postcomposition_interactions.lp": "ff29d3651270a8de05e5e9f7889ce83ee5d6df18828bfc692caf9287f24ae22e",
+        "native_postcomposition_laxity.lp": "0a6ee22389c8fa2b88569bdb972db8eb535bb3650cfbcbb91b86f388ff2460a3",
+        "native_postcomposition_owner.lp": "3bebc97980ac29de09c7e8677d22f66e2e1daafca18d10015bb6c39e283fc6e6",
+        "native_postcomposition_pre_view_controls.lp": "1b0724476a167b3a06fe38997bad2cf01e22c3e81d958e901afd4e27fc0ec8ef"
+      },
+      "expectedOutcome": "passed-fresh",
+      "receipt": "20261027T132914Z-7d3be4a4cf1d4bbd8f93f48861ae98ae"
+    }
+  },
+  "qualification": {
+    "receipt": "20261027T132706Z-3064b12c4d1847fd867d7c9da02f373c",
+    "outcome": "passed-fresh",
+    "wallSeconds": 97.48780667898245,
+    "childrenMaxRssKiB": 595020,
+    "inputCount": 54,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 180000
+    },
+    "inputSnapshot": "4229ea7b2a245f0b5227aba70d1c8cb28f065d31c5f8879ca3f3f1e2523b70a0"
+  },
+  "openBoundaries": [
+    "raw fapp1 application to the complete component composite does not runtime-normalize to the named prewhiskering Hom action; direct canonical component ladder and whole comparison pass",
+    "Cat_cart specialization of the concrete extracted-cell observer fails endpoint normalization; original failed source scope retained by exact receipt",
+    "reverse tensor closure and both geometric round trips",
+    "geometric degree zero",
+    "second native walking inverse and native reverse round trip",
+    "same-index nerve action and degeneracies",
+    "full production warning/interaction qualification and promotion"
+  ],
+  "historicalAttempts": [
+    {
+      "receipt": "20261027T114136Z-31d9f07cd9c0400898637340560d7815",
+      "label": "90s timeout in unchanged import before new owner",
+      "target": "native_postcomposition_owner.lp",
+      "outcome": "timeout",
+      "wallSeconds": 90.0343444540631,
+      "childrenMaxRssKiB": 129620,
+      "inputSnapshot": "631086472508928b350f4553e9001ac59652b9f61cceab8c12d126e68626f8d9"
+    },
+    {
+      "receipt": "20261027T114830Z-138fed8a9a304a04898e7d59bab587e1",
+      "label": "image composition SR before explicit carrier guard",
+      "target": "native_postcomposition_owner.lp",
+      "outcome": "failed",
+      "wallSeconds": 67.1009824569337,
+      "childrenMaxRssKiB": 269764,
+      "inputSnapshot": "631086472508928b350f4553e9001ac59652b9f61cceab8c12d126e68626f8d9"
+    },
+    {
+      "receipt": "20261027T115316Z-c9d68078f5414f84b66070aa08150fa0",
+      "label": "guarded structural owner",
+      "target": "native_postcomposition_owner.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 67.0039155529812,
+      "childrenMaxRssKiB": 286752,
+      "inputSnapshot": "5750f6e9f4117b228d49be55f4bd30ee0b94cc4ae77428ca5328615bcc69151e"
+    },
+    {
+      "receipt": "20261027T120045Z-2a1b952b2c8d4132b020d3bd62aaef10",
+      "label": "extracted identity carrier guard missing",
+      "target": "native_postcomposition_laxity.lp",
+      "outcome": "failed",
+      "wallSeconds": 71.53730853297748,
+      "childrenMaxRssKiB": 291776,
+      "inputSnapshot": "1a1a2d77c93481de313c5a917d8150841eb621ec1fe6cdc47d475548318365ad"
+    },
+    {
+      "receipt": "20261027T120659Z-e7b27aaa40d54be49b7ea887d717af76",
+      "label": "component evaluator missing",
+      "target": "native_postcomposition_laxity.lp",
+      "outcome": "failed",
+      "wallSeconds": 69.82687931507826,
+      "childrenMaxRssKiB": 285352,
+      "inputSnapshot": "2ed5a0b4812bda186abf65035eb51bc83ed3644bbd3ff42e152d19a98f97a121"
+    },
+    {
+      "receipt": "20261027T122426Z-f86855776f7a4357afe05d3c50a80025",
+      "label": "intrinsic laxity module",
+      "target": "native_postcomposition_laxity.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 66.93644340196624,
+      "childrenMaxRssKiB": 291736,
+      "inputSnapshot": "f94261ef7820696045e6be32e745aacbe0cbf9cbce2bde87e2ea39ea50339cb0"
+    },
+    {
+      "receipt": "20261027T123740Z-84c3bf0e3652496e9128b2000568aeca",
+      "label": "intrinsic/noncollapse controls",
+      "target": "native_postcomposition_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 67.05111517198384,
+      "childrenMaxRssKiB": 289556,
+      "inputSnapshot": "8abae6c2bfe09a2aff5e2d0c4665bd3a7c25acee23093776c9917bae5f4882d1"
+    },
+    {
+      "receipt": "20261027T125604Z-43f6c627962747859580ea8ffb66e7f2",
+      "label": "interchanger consumer used ordinary instead of Cartesian constant-diagram carrier",
+      "target": "native_postcomposition_consumers.lp",
+      "outcome": "failed",
+      "wallSeconds": 132.53077585203573,
+      "childrenMaxRssKiB": 577340,
+      "inputSnapshot": "049959962e927e25763d7d47cff28ad0b61a537ae985b636617eddde9fb75a39"
+    },
+    {
+      "receipt": "20261027T131022Z-19506692ada44bbeb30e9af608a96d39",
+      "label": "first all-positive geometric decoder check",
+      "target": "native_geometric_positive_decode.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 108.10390299907885,
+      "childrenMaxRssKiB": 563352,
+      "inputSnapshot": "13a6aac485684a726e2e636d3df1219a5fb9913131610bf037aae674cfe3f3f0"
+    },
+    {
+      "receipt": "20261027T131621Z-2118eb2d1d944249bc13daec2213555b",
+      "label": "raw composite next-Hom conversion",
+      "target": "native_postcomposition_interactions.lp",
+      "outcome": "failed",
+      "wallSeconds": 68.32211587205529,
+      "childrenMaxRssKiB": 285832,
+      "inputSnapshot": "765233ceb9c480cf69ef5603bc881970c41578bb8818210d2f0c8c56a12587bb"
+    },
+    {
+      "receipt": "20261027T131815Z-7a64fcaaac5643d193c36234fd9d573a",
+      "label": "nondependent eq_ap does not handle varying Hom endpoints",
+      "target": "native_postcomposition_interactions.lp",
+      "outcome": "failed",
+      "wallSeconds": 100.69499562005512,
+      "childrenMaxRssKiB": 282460,
+      "inputSnapshot": "d3aa745bd9d2f011cb3e57f8766b3eb4c6a48aa62ca7776a45d7ee48b9b6f354"
+    },
+    {
+      "receipt": "20261027T132112Z-0a702a44d96d4395b77a22d63e80d6a6",
+      "label": "Cat_cart specialization endpoint normalization",
+      "target": "native_postcomposition_interactions.lp",
+      "outcome": "failed",
+      "wallSeconds": 67.17965496587567,
+      "childrenMaxRssKiB": 286312,
+      "inputSnapshot": "3ea5a0c42b9ce7faeeddfab0e11eca93147235f8db84f96c20f94d2b7e0b9af8"
+    },
+    {
+      "receipt": "20261027T132406Z-7f6f72dc49324fa18561f6cb75924c86",
+      "label": "canonical higher projection does not normalize every surrounding raw composite",
+      "target": "native_positive_cube_qualification.lp",
+      "outcome": "failed",
+      "wallSeconds": 86.04106927011162,
+      "childrenMaxRssKiB": 289816,
+      "inputSnapshot": "073068562a3fa368fa2afd9e4d2e6e8d5a26f7997054a25212416fe32e6e58b5"
+    }
+  ],
+  "warnings": {
+    "baselineReceipt": "20261027T111016Z-bfc39f3b88da44a886c5decb59935f98",
+    "candidateReceipt": "20261027T132706Z-3064b12c4d1847fd867d7c9da02f373c",
+    "baselineCategories": {
+      "replaceable pattern variable": 181,
+      "unjoinable critical pair": 2164
+    },
+    "candidateCategories": {
+      "replaceable pattern variable": 181,
+      "unjoinable critical pair": 2180
+    },
+    "addedFamilies": [
+      {
+        "heads": [
+          "fapp1_fapp0",
+          "fapp1_fapp0"
+        ],
+        "count": 9
+      },
+      {
+        "heads": [
+          "Functor_cat",
+          "tapp0_fapp0"
+        ],
+        "count": 1
+      },
+      {
+        "heads": [
+          "sigma_Fst",
+          "tapp0_fapp0"
+        ],
+        "count": 1
+      },
+      {
+        "heads": [
+          "sigma_Snd",
+          "tapp0_fapp0"
+        ],
+        "count": 1
+      },
+      {
+        "heads": [
+          "tapp0_hom_fapp0",
+          "tapp0_hom_fapp0"
+        ],
+        "count": 1
+      },
+      {
+        "heads": [
+          "id",
+          "nerve_lax_postcomposition_transf"
+        ],
+        "count": 4
+      }
+    ],
+    "removedFamilies": [
+      {
+        "heads": [
+          "comp_fapp0",
+          "tapp0_fapp0"
+        ],
+        "count": 1
+      }
+    ],
+    "parserIssues": {},
+    "qualification": "different closure sizes; review per-family and typed consumers, not a global confluence claim"
+  },
+  "artifacts": {
+    "geometric_positive_decode.lpfragment": "fd3e7451ae9506fae1060dc235fd9f6028d4ac8d3da23943621ba2a2848c9cb8",
+    "positive_cube_qualification.lpfragment": "1b8d3f94bf2b00f502bcf64ebe531f3d003d7ee1bd610072046e2d2d72c15709",
+    "postcomp_component_owner.lpfragment": "9f23f9d9ae4e3c868f758063e2e807c653a8eb7b28f6deef68ab6627bac35370",
+    "postcomp_pre_action_view.lpfragment": "b65590c37df8c83872c5b1cc0067a6980aa4b30849d03b1a8dc049508432e072",
+    "postcomposition_cart_pending.lpfragment": "b2d8c374c4adb37e092135fa83da716fdc539eb84ce62394b6ead926801e8d1f",
+    "postcomposition_consumers.lpfragment": "6cf84f0748f85d63f751bc85e9ba6956d807673b4f57d9d4308974f64857d00b",
+    "postcomposition_controls.lpfragment": "03372f9202d5061ce5a7de7bf870f949634678e7663bceebd049eb4b9c4f7306",
+    "postcomposition_interactions.lpfragment": "ff29d3651270a8de05e5e9f7889ce83ee5d6df18828bfc692caf9287f24ae22e",
+    "postcomposition_laxity.lpfragment": "0a6ee22389c8fa2b88569bdb972db8eb535bb3650cfbcbb91b86f388ff2460a3",
+    "postcomposition_owner.lpfragment": "3bebc97980ac29de09c7e8677d22f66e2e1daafca18d10015bb6c39e283fc6e6",
+    "postcomposition_pre_view_controls.lpfragment": "1b0724476a167b3a06fe38997bad2cf01e22c3e81d958e901afd4e27fc0ec8ef",
+    "replay_postcomposition.py": "d3b5e64bd2d0db6902f6d9538a374c7bfd078bc43b72b90e753958e875937f31",
+    "walking_shift.lpfragment": "79f4f1ed558b2ae0a62f1f9960f7b3ba763d1521072fd879cfdb49466c442ec7",
+    "walking_shift_inverses.lpfragment": "8b92c3d2e0cca9f3c5b7b8ad77c396e44ab7e0bad4f3d3beb17b1a1abacef9dd"
+  },
+  "preViewQualification": {
+    "outcome": "passed-fresh",
+    "wallSeconds": 71.55549430008978,
+    "childrenMaxRssKiB": 289224,
+    "inputSnapshot": "bd6bc32424717dbc866121720919d55d28f247dd59455ff2329bcf61a1e8101b",
+    "receipt": "20261027T132914Z-7d3be4a4cf1d4bbd8f93f48861ae98ae"
+  },
+  "fragmentSuffixes": {
+    "postcomp_component_owner.lpfragment": "\n",
+    "postcomp_pre_action_view.lpfragment": "\n",
+    "walking_shift_inverses.lpfragment": "\n"
+  }
+}

@@ -1,0 +1,21 @@
+require open emdash.native_postcomposition_interactions;
+
+// Typed reflexivity exercises the proof-time pre/right comparison.
+symbol nerve_postcomposition_pre_view [A B : Cat] [F G : τ (Functor A B)]
+  (e : τ (@Transf A B F G)) [X Y : τ (Obj A)] (p : τ (Hom A X Y))
+  : τ (@= (Hom B (fapp0 F X) (fapp0 G Y))
+      (@hom_postcomp_fapp0 B B (@id_func B) (fapp0 F X) (fapp0 F Y) (fapp0 G Y)
+        (@tapp0_fapp0 A B F G Y e) (@fapp1_fapp0 A B F X Y p))
+      (@tapp1_fapp0 A B F G X Y e p))
+≔ @eq_refl _ _;
+
+// A different input arrow cannot be substituted through that comparison.
+assertnot [A B : Cat] (F G : τ (Functor A B)) (e : τ (@Transf A B F G))
+  (X Y : τ (Obj A)) (p q : τ (Hom A X Y)) ⊢
+  @eq_refl (Hom B (fapp0 F X) (fapp0 G Y))
+    (@hom_postcomp_fapp0 B B (@id_func B) (fapp0 F X) (fapp0 F Y) (fapp0 G Y)
+      (@tapp0_fapp0 A B F G Y e) (@fapp1_fapp0 A B F X Y p))
+  : τ (@= (Hom B (fapp0 F X) (fapp0 G Y))
+      (@hom_postcomp_fapp0 B B (@id_func B) (fapp0 F X) (fapp0 F Y) (fapp0 G Y)
+        (@tapp0_fapp0 A B F G Y e) (@fapp1_fapp0 A B F X Y p))
+      (@tapp1_fapp0 A B F G X Y e q));

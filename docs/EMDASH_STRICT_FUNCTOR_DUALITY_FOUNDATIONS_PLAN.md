@@ -2,7 +2,7 @@
 
 Date: 2026-10-27
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active consolidated goal; foundations installed, original frontend and local book/article revisions accepted; native NF-1 reconstruction active; later integration gates remain open
+Status: active consolidated goal; foundations installed, original frontend and local book/article revisions accepted; native NF-1/NF-2C construction active; later integration gates remain open
 Depends-On: active v3.2 source, root/nested AGENTS, source-pinned qualification
 Supersedes: accumulated execution narrative, not its evidence or required outcomes; earlier default-lax and unshifted-duality contracts
 Side-Task-Ledger: [current obligations and dispositions](EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER.md)
@@ -14,11 +14,16 @@ Infinity-Codex-Decision-Responses: prior-thread 0099/0105 design and launch deci
 Follow the [implementation outline](EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
 for the user-requested broader construction pass. The whole Nat-recursive
 iterated-walking cube maps and concrete degree-two tensor consumer now check.
-The composition comparison and first whole round trip are now derived at
-every dimension, with whole parameter-family and tensor consumers. Next
-implement the correctly profiled geometric parameter action/closure, while
-retaining whole-section reconstruction and the reverse inverse as required
-proof obligations. Formation of the recursive maps assumes no missing inverse.
+The composition comparison and first whole round trip are derived at every
+dimension. The [structural postcomposition candidate and derived forward geometric decoder](../emdash2/audits/native_nerve_foundations/postcomposition_review.md)
+now check at every positive dimension, with both iteration-shift inverses.
+The 54-input scope passes in 97.488s / 595,020 KiB at 180s / 2 GiB.
+Next construct the reverse geometric closure/encoder and their consumers,
+while retaining whole-section reconstruction and the native reverse inverse
+as required proof obligations. Raw nested higher projection and Cat_cart
+specialization limits remain documented promotion obligations; they must not
+become the sole next task. The new whole postcomposition is structural;
+no missing inverse or closure equivalence is supplied by the recursion.
 All inverse laws, same-index action and degeneracies remain required.
 
 The [actual moving-cell/map experiment](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)

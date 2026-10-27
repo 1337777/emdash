@@ -2,7 +2,7 @@
 
 Date: 2026-10-27
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active; native NF-1 reconstruction is the mathematical priority; later frontend and final integration gates remain open
+Status: active; native NF-1 reconstruction and NF-2C geometric construction; later frontend and final integration gates remain open
 Parent: [current execution plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 History: [complete earlier ledger](EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER_HISTORY_THROUGH_2026-10-27.md)
 
@@ -18,9 +18,15 @@ The user requested a broader construction pass. The [implementation outline](EMD
 now has checked whole Nat-recursive maps Wₙ(C)⇄NCₙ(C) and a concrete tensor
 square consumer, using qualified `85b30c5e`. The lifting-composition comparison
 and first whole round trip are now derived at variable n, including whole
-parameter families. The reverse inverse, geometric bridge, same-index action
-and degeneracies remain explicit next dependencies. The native whole-section equation remains
-required and is not replaced by these independent map definitions.
+parameter families. The [forward positive-dimensional geometric decoder](../emdash2/audits/native_nerve_foundations/postcomposition_review.md)
+and both iteration-shift inverses now check in a 54-input scope. Its whole
+postcomposition owner is structural; the geometric maps are derived from it.
+Reverse closure/encoding, geometric degree zero, same-index action and
+degeneracies remain required. Raw nested higher-projection normalization and
+the Cat_cart extracted-cell specialization have explicit failed observations;
+resolve their needed contracts before promotion without making them the sole
+continuation. The native whole-section equation and second inverse remain
+required and are not replaced by these independent map definitions.
 
 The [actual moving-action recovery](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
 preserves its focused progress and pending overlap/full-integration boundary.
