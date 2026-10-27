@@ -1,0 +1,61 @@
+/* Fixed second-factor tensor maps through profile precomposition. Whole
+   action on varying lax transformations in F is not assumed by this interface. */
+require open emdash.native_profile_restore;
+
+symbol nerve_profile_precompose [B D C : Cat] (F : τ (Functor B D))
+  : τ (Functor (GrayHom_lax D C) (GrayHom_lax B C))
+≔ @comp_cat_fapp0 _ _ _ (nerve_lax_profile_admit_func B C)
+    (@comp_cat_fapp0 _ _ _ (@comp_cat_con_func B D C F) (@grayhom_lax_include_func D C));
+
+// Its identity is the derived whole profile reconstruction, not an axiom.
+symbol nerve_profile_precompose_identity (B C : Cat)
+  : τ (@= (Functor (GrayHom_lax B C) (GrayHom_lax B C))
+      (@nerve_profile_precompose B B C (@id_func B)) (@id_func (GrayHom_lax B C)))
+≔ nerve_profile_restore_path B C;
+
+symbol nerve_tensor_right_map [A B D : Cat] (F : τ (Functor B D))
+  : τ (Functor (GrayTensor_R A B) (GrayTensor_R A D))
+≔ @gray_uncurry_R A B (GrayTensor_R A D)
+    (@comp_cat_fapp0 A (GrayHom_lax D (GrayTensor_R A D)) (GrayHom_lax B (GrayTensor_R A D))
+      (@nerve_profile_precompose B D (GrayTensor_R A D) F)
+      (gray_coevaluation_R_func A D));
+
+// Whole right-curried specification keeps the original map F.
+symbol nerve_tensor_right_curried [A B D : Cat] (F : τ (Functor B D))
+  : τ (@= (Functor A (GrayHom_lax B (GrayTensor_R A D)))
+      (@gray_curry_R A B (GrayTensor_R A D) (@nerve_tensor_right_map A B D F))
+      (@comp_cat_fapp0 A (GrayHom_lax D (GrayTensor_R A D)) (GrayHom_lax B (GrayTensor_R A D))
+        (@nerve_profile_precompose B D (GrayTensor_R A D) F) (gray_coevaluation_R_func A D)))
+≔ @gray_curry_uncurry_R_at A B (GrayTensor_R A D)
+    (@comp_cat_fapp0 A (GrayHom_lax D (GrayTensor_R A D)) (GrayHom_lax B (GrayTensor_R A D))
+      (@nerve_profile_precompose B D (GrayTensor_R A D) F) (gray_coevaluation_R_func A D));
+
+symbol nerve_tensor_right_identity (A B : Cat)
+  : τ (@= (Functor (GrayTensor_R A B) (GrayTensor_R A B))
+      (@nerve_tensor_right_map A B B (@id_func B)) (@id_func (GrayTensor_R A B)))
+≔ @eq_trans _ _ _ _
+    (@eq_ap (Functor A (GrayHom_lax B (GrayTensor_R A B)))
+      (Functor (GrayTensor_R A B) (GrayTensor_R A B))
+      (λ J : τ (Functor A (GrayHom_lax B (GrayTensor_R A B))),
+        @gray_uncurry_R A B (GrayTensor_R A B) J)
+      _ _ (@eq_ap (Functor (GrayHom_lax B (GrayTensor_R A B)) (GrayHom_lax B (GrayTensor_R A B)))
+        (Functor A (GrayHom_lax B (GrayTensor_R A B)))
+        (λ U : τ (Functor (GrayHom_lax B (GrayTensor_R A B)) (GrayHom_lax B (GrayTensor_R A B))),
+          @comp_cat_fapp0 A (GrayHom_lax B (GrayTensor_R A B)) (GrayHom_lax B (GrayTensor_R A B))
+            U (gray_coevaluation_R_func A B))
+        _ _ (nerve_profile_precompose_identity B (GrayTensor_R A B))))
+    (@gray_uncurry_curry_R_at A B (GrayTensor_R A B) (@id_func (GrayTensor_R A B)));
+
+// Ordinary fixed pre/postcomposition commute by the two existing whole Hom
+// factorizations. This is not unrestricted interchange of two lax transfors.
+symbol nerve_fixed_prepost_path [B D C E : Cat]
+  (F : τ (Functor B D)) (H : τ (Functor C E))
+  : τ (@= (Functor (Functor_cat D C) (Functor_cat B E))
+      (@comp_cat_fapp0 _ _ _ (@comp_cat_cov_func B C E H) (@comp_cat_con_func B D C F))
+      (@comp_cat_fapp0 _ _ _ (@comp_cat_con_func B D E F) (@comp_cat_cov_func D C E H)))
+≔ @eq_trans (Functor (Functor_cat D C) (Functor_cat B E))
+    (@comp_cat_fapp0 _ _ _ (@comp_cat_cov_func B C E H) (@comp_cat_con_func B D C F))
+    (@Hom_func Cat_cat D B C E F H)
+    (@comp_cat_fapp0 _ _ _ (@comp_cat_con_func B D E F) (@comp_cat_cov_func D C E H))
+    (@eq_refl _ (@Hom_func Cat_cat D B C E F H))
+    (@eq_refl _ (@Hom_func Cat_cat D B C E F H));

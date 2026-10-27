@@ -11,76 +11,62 @@ Infinity-Codex-Decision-Responses: prior-thread 0099/0105 design and launch deci
 
 ## Current execution contract
 
-Follow the [implementation outline](EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
-for the user-requested broader construction pass. The whole Nat-recursive
-iterated-walking cube maps and concrete degree-two tensor consumer now check.
-The composition comparison and first whole round trip are derived at every
-dimension. The [structural postcomposition candidate and derived forward geometric decoder](../emdash2/audits/native_nerve_foundations/postcomposition_review.md)
-now check at every positive dimension, with both iteration-shift inverses.
-The 54-input scope passes in 97.488s / 595,020 KiB at 180s / 2 GiB.
-The [derived whole reverse map and encoder](../emdash2/audits/native_nerve_foundations/reverse_review.md)
-now also check through internal mixed exchange and existing right uncurry,
-with whole-family readbacks. The final 61-input scope passes in 85.162s /
-583,624 KiB at the same profile. Whole evaluator/family reindexing and a
-[checked reduction of the first exchange inverse](../emdash2/audits/native_nerve_foundations/exchange_cancellation_review.md)
-now pass in a 65-input scope (84.410s / 603,372 KiB). The remaining universal
-evaluation equation is explicit and still unproved; it is not a new premise
-of the operational maps. Next prove that compatibility and the geometric
-closure inverse laws, retaining whole-section reconstruction
-and the native reverse inverse as required proof obligations. Raw nested higher projection and Cat_cart
-specialization limits remain documented promotion obligations; they must not
-become the sole next task. The new whole postcomposition is structural;
-no missing inverse or closure equivalence is supplied by the recursion.
-The remaining inverse laws, same-index action and degeneracies remain required.
+User priority clarification, 2026-10-27: the immediate purpose is to assess
+whether the cubical and simplicial nerve core constructions are expressible
+and computationally usable in these foundations. **Bring both core outlines
+and nontrivial consumers to a comparable level before extending face and
+degeneracy theory.** The [implementation outline](EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
+owns the decisive feasibility slices and their current ordering.
 
-The [all-degree construction](../emdash2/audits/native_nerve_foundations/geometric_degree_zero_review.md)
-supplies actual encoder/decoder maps at every dimension. Intrinsic
-identity-base computation is qualified through the existing Homd ladder;
-it preserves nonidentity laxity and introduces no normality classifier.
-The [whole degree-zero equivalence](../emdash2/audits/native_nerve_foundations/terminal_inverse_review.md)
-is now derived with both inverse paths and the original encoder retained as
-inverse data. Its 78-input scope passes in 110.775s / 618,504 KiB. The proof
-uses existing terminal-valued equivalence/object-path structure and a generic
-constant-precomposition beta; no terminal eta or native inverse axiom is
-added. Production/warning qualification remains separate. Continue the
-positive-dimensional mixed-evaluator and native reconstruction obligations.
+The foundations source migration, original frontend qualification and local
+book/article revision remain complete at their recorded boundaries. The later
+Pi/Sigma correction still has a separate frontend/integration obligation.
+Do not reopen these completed stages or strict-versus-lax design brainstorming
+without a concrete core consumer exposing a new problem.
 
-The [mixed-diagram proofs](../emdash2/audits/native_nerve_foundations/mixed_diagram_reconstruction_review.md)
-now recover each complete K/I diagram in both directions, without new rules.
-Their compatibility as diagrams vary still needs the whole internal inverse
-proof. Independently, [first-factor tensor action](../emdash2/audits/native_nerve_foundations/tensor_left_action_review.md)
-is derived from the existing right closure, with its identity law and whole
-curried readback. The [target-naturality extension](../emdash2/audits/native_nerve_foundations/right_closure_naturality_review.md)
-now makes one structural closure contract explicit and derives first-factor
-tensor composition and coordinate-collapse laws from it. Whole source
-naturality, the other factor and common-index coherence remain open. These
-advances do not replace either native inverse.
+Cubical construction has substantial positive evidence: whole maps exist in
+both directions at every dimension; the iterated-walking first round trip and
+both geometric zero inverse laws are derived. [Geometric reverse maps](../emdash2/audits/native_nerve_foundations/reverse_review.md)
+and [terminal reconstruction](../emdash2/audits/native_nerve_foundations/terminal_inverse_review.md)
+retain their exact boundaries. The decisive core gaps are still the native
+walking second inverse and the whole mixed-evaluation/positive closure
+reconstruction. [Complete-diagram round trips](../emdash2/audits/native_nerve_foundations/mixed_diagram_reconstruction_review.md)
+do not replace the missing equality of the internal mapping functors.
 
-The [first-coordinate face/degeneracy construction](../emdash2/audits/native_nerve_foundations/geometric_first_faces_review.md)
-now separates insertion and projection and derives the whole geometric law
-`dₐⁿ ∘ sⁿ ≐ id` at every dimension, including zero. Endpoint variation,
-arbitrary whole parameter-family recovery and the opposite collapse
-comparison are checked. Other coordinates, cross-coordinate relations and
-native comparison compatibility remain open.
+**The next implementation slice is the independent all-flags simplicial
+triangle**, with its whole varying-vertex family, retained directed filler
+and actual comparison maps to the selected higher simplex shape. Reuse the
+qualified flagged/simplex and Homd owners. A record of object data, a pointwise
+family or a native total defined as its geometric mapping category does not
+meet this slice. Then assess the uniform recursion and return to the exact
+cubical reconstruction gaps in bounded attempts.
 
-The [actual moving-cell/map experiment](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
-has positive focused evidence, but its constant-family overlap and final
-integration are unfinished. Its candidate is preserved separately; the checked
-broader construction uses qualified `85b30c5e`.
-Do not let this individual overlap become the sole next task. The standing
-reference refresh and plan consolidation remain complete.
+Preserve the [first-coordinate face/degeneracy work](../emdash2/audits/native_nerve_foundations/geometric_first_faces_review.md)
+and [second-factor support](../emdash2/audits/native_nerve_foundations/profile_restore_review.md).
+The latter derives whole raw-profile restoration and fixed second-factor
+maps/identity without a new contract. Further face/degeneracy expansion is
+not the immediate next task. The [face-order experiment](../emdash2/audits/native_nerve_foundations/pending_face_order/README.md)
+is unadopted: typing and its own local projections do not establish alignment
+with the decoder/native index. No coordinate permutation or tensor symmetry
+has been selected to bypass that review.
 
-Do not restart completed book/article work, the original frontend migration,
-or strict-versus-lax design brainstorming. The later Pi/Sigma frontend repair
-and production-health/final-integration gates remain required, but are not
-prerequisites of this native construction. A new source change must still
-update its affected consumers and documentation at its own boundary.
+Generic structural interfaces, such as the explicitly supplied
+[right-closure target naturality](../emdash2/audits/native_nerve_foundations/right_closure_naturality_review.md),
+must remain distinguished from derived nerve results. Do not supply a desired
+native inverse or call a type-only skeleton a completed equivalence.
+The actual moving-action work retains its [separate pending boundary](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md).
 
-This plan is the current resumption contract. The [complete previous plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN_HISTORY_THROUGH_2026-10-27.md)
-and [previous ledger](EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER_HISTORY_THROUGH_2026-10-27.md)
-preserve every earlier decision and receipt link. Their dated instructions
-are history. Do not prepend successive full status narratives here; update
-these current sections and keep experiment detail at the owning audit.
+The larger NF table remains the recorded follow-through; its comprehensive
+index/degeneracy and production gates are not prerequisites for the immediate
+core-feasibility assessment. This reprioritization does not mark the overall
+goal complete or silently discharge those outcomes. Connections/permutations,
+Kan/Segal/Rezk and general monoidal coherence stay outside the current scope.
+
+The [earlier plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN_HISTORY_THROUGH_2026-10-27.md)
+and [earlier ledger](EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER_HISTORY_THROUGH_2026-10-27.md)
+retain prior decisions. The current [follow-up ledger](EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER.md)
+owns unresolved integration and regression work; old “next” paragraphs must
+not override this execution contract.
 
 ## Pins and active workspace
 
@@ -209,8 +195,10 @@ in scope until actually achieved or explicitly reassigned by the user.
 | SP-5F | Frontend adaptation to the later Pi/Sigma correction | Resume preserved 18-file candidate, semantic review, actual PathInd/chain consumers, conformance and affected aggregate |
 | R14 / NF-CLOSE | Production integration and final qualification | Remaining warning/normalization/health gates, source-pin review, registration, owning CI and updated book/article claims for new nerve results |
 
-Proceed cubical-first after common prerequisites. Exercise the cube-step
-consumer early; do not spend repeated tranches only on scalar graph controls.
+Current priority is core feasibility on both branches: the cubical maps are
+already substantially developed, so the independent simplicial triangle is
+next. Return to shared/cubical reconstruction before broader index expansion.
+Do not spend repeated tranches only on scalar graph controls.
 Independent higher simplex totals must not be defined as the geometric mapping
 category or as Path of an object package. Same-index comparisons require
 actual whole maps, inverse data and coherent index action.

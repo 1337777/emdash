@@ -8,6 +8,15 @@ History: [complete earlier ledger](EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER
 
 ## Current boundary
 
+User priority clarification, 2026-10-27: assess the core cubical and simplicial
+constructions before further face/degeneracy expansion. The immediate next
+slice is the independent all-flags simplicial triangle with whole parameter
+action and mapping comparisons. Follow the [core-feasibility working order](EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md#working-order--core-feasibility-first).
+Existing face work is preserved; the [face-order attempt](../emdash2/audits/native_nerve_foundations/pending_face_order/README.md)
+is not adopted as a common-index interpretation. The wider obligations below
+remain tracked; they are not all prerequisites for the immediate feasibility
+assessment.
+
 The foundations source migration is installed. The original TypeScript
 migration was accepted before book/article completion and native adaptation.
 The later Pi/Sigma native correction creates a separate frontend obligation.

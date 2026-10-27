@@ -4,6 +4,16 @@ Status: non-library NF-1 reconstruction and NF-2C cube construction on the corre
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
+## Current priority and retained latest experiment
+
+The user has prioritized the cubical/simplicial core feasibility assessment
+before further face and degeneracy expansion. The next construction is the
+independent all-flags simplicial triangle; see the [working order](../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md#working-order--core-feasibility-first).
+The latest [whole profile restoration and second-factor maps](profile_restore_review.md)
+are derived and checked. The larger [face-order experiment](pending_face_order/README.md)
+passes its local typing checks but is unadopted pending actual decoder/index
+alignment. Do not infer common-index compatibility from those local tests.
+
 ## Whole first-coordinate geometric face/degeneracy law
 
 The [split-map continuation](geometric_first_faces_review.md) now constructs

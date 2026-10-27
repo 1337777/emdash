@@ -15,6 +15,15 @@ Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 
 ## Authorization and current boundary
 
+User priority clarification, 2026-10-27: assess the core cubical and simplicial
+constructions before further face/degeneracy expansion. The immediate next
+slice is the independent all-flags simplicial triangle with whole parameter
+action and mapping comparisons. Follow the [core-feasibility working order](EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md#working-order--core-feasibility-first).
+Existing face work is preserved; the [face-order attempt](../emdash2/audits/native_nerve_foundations/pending_face_order/README.md)
+is not adopted as a common-index interpretation. The wider obligations below
+remain tracked; they are not all prerequisites for the immediate feasibility
+assessment.
+
 User strategy amendment, 2026-10-27: use the [end-to-end implementation outline](EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
 and develop the maps/consumers independent of the unresolved walking inverse.
 The initial concrete slice was the whole iterated-walking cube recursion and

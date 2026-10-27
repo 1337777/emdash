@@ -5,25 +5,59 @@ Status: active construction outline; checked pieces and open obligations are dis
 Owner: [native adaptation plan](EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md)
 Scope: the full NF-1–NF-CLOSE goal, without assuming its missing inverse or closure laws
 
-## Working order
+## Working order — core feasibility first
 
-The user requested broader construction progress while a local reconstruction
-comparison remains unresolved. Build and test the maps that do not depend on
-that comparison, then return to the exact proof obligations they expose.
-Keep one local normalization question bounded by its actual consumer; do not
-make the entire implementation wait on an individual scalar comparison.
+User clarification, 2026-10-27: the motivating question is whether both nerve
+ideas are expressible in principle in the foundations, not whether a
+comprehensive nerve library can be built immediately. The recent cubical
+face/degeneracy work is retained, but further expansion waits behind the core
+constructions below. No unfinished inverse is supplied to make a skeleton pass.
 
-The walking maps already support a concrete intermediate cubical construction.
-It separates two tasks that were previously discussed together:
+| Core | Present evidence | Decisive remaining feasibility slice |
+| --- | --- | --- |
+| Cubical | Whole native/geometric maps at every dimension; both zero inverses; variable-dimensional iterated-walking retraction; nonidentity higher-cell consumers. | Whole native walking reconstruction and mixed-evaluation/positive closure cancellation with the actual maps. |
+| Simplicial | Qualified earlier flagged low-dimensional simplex/PathOut machinery and selected geometric shapes. | Independent all-flags triangle total with a whole varying-vertex family, directed filler and actual mapping comparisons; then test the uniform recursion/higher step. |
+| Computational foundation | Installed corrected-duality Homd ladder and strict defaults; bounded whole-functor proof consumers. | Keep new core operations internal and usable; identify actual owner/profile gaps rather than count point checks. |
+
+Next implementation order:
+
+1. Form the whole family for the independent simplicial triangle and its
+   Sigma total, using current T/R/O bases and the admitted coefficient. Expose
+   the existing Homd/Sigma projections and a nonidentity triangle
+   filler. Do not define the total as a geometric mapping category or Path of
+   an object package.
+2. Construct the corresponding whole mapping/universality interface in both
+   directions. Use the first real reconstruction/beta consumer to decide what
+   is missing. Sketch the dimension-three and Nat-recursive continuation with
+   assumptions and unresolved interfaces labelled.
+3. Return to the exact cubical walking/mixed-evaluator gaps, using their
+   already constructed maps and whole diagram readbacks. Keep attempts
+   bounded and require a result that changes the remaining core interface.
+4. Compare the two core constructions against the feasibility gate below.
+   Resume common-index, other-coordinate and degeneracy work afterward, in
+   the amount needed for the agreed follow-through. Book/frontend/promotion
+   work remains at its separate recorded integration boundary.
+
+A credible feasibility result needs more than attractive signatures: whole
+parameterization, actual maps in both directions, a nontrivial higher-cell
+consumer, the minimal boundary/face compatibility needed to identify the
+nerve-shaped construction, relevant reconstruction computation/comparison,
+and a clear remaining proof boundary. Generic supplied structural laws must
+be named as such. Neither a newly postulated nerve inverse nor object-only readbacks
+prove the intended equivalence.
+
+The core still factors geometrically as
 
 ```text
 geometric tensor diagrams ⇄ iterated oplax walking diagrams ⇄ native cubes.
 ```
 
-The middle category is not a redefinition of either endpoint. The geometric
-bridge still requires the correctly ordered tensor closure and its inverses.
-This factorization does not weaken any same-index, degeneracy or higher-cell
-requirement in the parent plan.
+The full NF outcomes remain recorded in the parent plan; this is a priority
+and assessment boundary, not a claim that the unfinished full goal is achieved.
+The [pending face-order experiment](../emdash2/audits/native_nerve_foundations/pending_face_order/README.md)
+must not be promoted from its self-selected local order. Native address
+numbering versus the decoder's curry order needs a concrete square-boundary
+comparison before selecting a common-index interpretation.
 
 ## Concrete map construction through iterated walking diagrams
 

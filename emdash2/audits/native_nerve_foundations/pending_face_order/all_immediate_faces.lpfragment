@@ -1,0 +1,69 @@
+/* Interpret the existing immediate-face addresses as actual geometric
+   shape maps. This is map formation, not the complete face-relation theorem. */
+require open emdash.native_tensor_right_action;
+require open emdash.native_geometric_first_face_controls;
+require open emdash.emdash3_2_cubical_face_addresses;
+
+// The second-coordinate endpoint axis, needed when the retained first
+// coordinate is WalkingArrow itself rather than WalkingArrow tensor 1.
+symbol nerve_tensor_second_face [A B : Cat] (b : τ (Obj B))
+  : τ (Functor A (GrayTensor_R A B))
+≔ @comp_cat_fapp0 A (GrayHom_lax B (GrayTensor_R A B)) (GrayTensor_R A B)
+    (@comp_cat_fapp0 (GrayHom_lax B (GrayTensor_R A B))
+      (Functor_cat B (GrayTensor_R A B)) (GrayTensor_R A B)
+      (@fapp0_func B (GrayTensor_R A B) b)
+      (@grayhom_lax_include_func B (GrayTensor_R A B)))
+    (gray_coevaluation_R_func A B);
+
+// Whole shape action on the repository's existing recursive face addresses.
+injective symbol nerve_geometric_face_shape [n : τ Nat_grpd]
+  (face : τ (@CubeImmediateFaceAddress (succ n)))
+  : τ (Functor (nerve_geometric_shape_cat n) (nerve_geometric_shape_cat (succ n)));
+
+rule @nerve_geometric_face_shape _ (@raw_cube_face_new_left $n)
+  ↪ nerve_geometric_first_face_shape $n walking_arrow_src
+with @nerve_geometric_face_shape _ (@raw_cube_face_new_right $n)
+  ↪ nerve_geometric_first_face_shape $n walking_arrow_tgt
+// The first inherited pair uses the actual coevaluation axis, without a
+// tensor-unit category cast or an arbitrary terminal-source eta rewrite.
+with @nerve_geometric_face_shape _ (@raw_cube_face_older zero $face)
+  ↪ @nerve_tensor_second_face WalkingArrow_cat WalkingArrow_cat
+      (@fapp0 Terminal_cat WalkingArrow_cat (@nerve_geometric_face_shape zero $face) Terminal_obj)
+// At positive lower dimension, both shapes have the selected tensor form.
+with @nerve_geometric_face_shape _ (@raw_cube_face_older (succ $n) $face)
+  ↪ @nerve_tensor_right_map WalkingArrow_cat (GrayCubePos_R $n) (GrayCubePos_R (succ $n))
+      (@nerve_geometric_face_shape (succ $n) $face);
+
+// Each address now has a whole opposite-profile restriction functor.
+symbol nerve_geometric_face_func [C : Cat] [n : τ Nat_grpd]
+  (face : τ (@CubeImmediateFaceAddress (succ n)))
+  : τ (Functor (nerve_geometric_cube_cat C (succ n)) (nerve_geometric_cube_cat C n))
+≔ @oplax_precomp_func (nerve_geometric_shape_cat n) (nerve_geometric_shape_cat (succ n)) C
+    (@nerve_geometric_face_shape n face);
+
+// All four actual square faces retain the repository's coordinate order.
+assert ⊢ @nerve_geometric_face_shape (succ zero) cube2_face_address_u
+  ≡ @nerve_tensor_first_face WalkingArrow_cat WalkingArrow_cat walking_arrow_src;
+assert ⊢ @nerve_geometric_face_shape (succ zero) cube2_face_address_v
+  ≡ @nerve_tensor_first_face WalkingArrow_cat WalkingArrow_cat walking_arrow_tgt;
+assert ⊢ @nerve_geometric_face_shape (succ zero) cube2_face_address_a
+  ≡ @nerve_tensor_second_face WalkingArrow_cat WalkingArrow_cat walking_arrow_src;
+assert ⊢ @nerve_geometric_face_shape (succ zero) cube2_face_address_b
+  ≡ @nerve_tensor_second_face WalkingArrow_cat WalkingArrow_cat walking_arrow_tgt;
+
+// The two tensor directions and selected endpoint remain distinct at runtime.
+assertnot ⊢ @nerve_geometric_face_shape (succ zero) cube2_face_address_u
+  ≡ @nerve_geometric_face_shape (succ zero) cube2_face_address_a;
+assertnot (a b : τ (Obj WalkingArrow_cat)) ⊢
+  @nerve_tensor_second_face WalkingArrow_cat WalkingArrow_cat a
+  ≡ @nerve_tensor_second_face WalkingArrow_cat WalkingArrow_cat b;
+
+// The resulting face functor retains ordinary whole Hom action in diagrams.
+symbol nerve_geometric_face_hom [C : Cat] [n : τ Nat_grpd]
+  (face : τ (@CubeImmediateFaceAddress (succ n)))
+  (D E : τ (Obj (nerve_geometric_cube_cat C (succ n))))
+  : τ (Functor (Hom_cat (nerve_geometric_cube_cat C (succ n)) D E)
+      (Hom_cat (nerve_geometric_cube_cat C n)
+        (fapp0 (@nerve_geometric_face_func C n face) D)
+        (fapp0 (@nerve_geometric_face_func C n face) E)))
+≔ @fapp1_func _ _ (@nerve_geometric_face_func C n face) D E;

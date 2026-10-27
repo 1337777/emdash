@@ -1,0 +1,38 @@
+/* Whole restoration of the old explicit lax profile, derived from the
+   already selected closure target-naturality and inverse paths. */
+require open emdash.native_tensor_left_composition;
+
+// Every whole profile-valued family is fixed by include then readmission.
+symbol nerve_profile_restore_family [A B C : Cat]
+  (K : τ (Functor A (GrayHom_lax B C)))
+  : τ (@= (Functor A (GrayHom_lax B C))
+      (@comp_cat_fapp0 A (GrayHom_lax B C) (GrayHom_lax B C)
+        (@nerve_profile_postcompose B C C (@id_func C)) K) K)
+≔ @eq_trans _ _ _ _
+    (@eq_ap (Functor A (GrayHom_lax B C)) (Functor A (GrayHom_lax B C))
+      (λ U : τ (Functor A (GrayHom_lax B C)),
+        @comp_cat_fapp0 A (GrayHom_lax B C) (GrayHom_lax B C)
+          (@nerve_profile_postcompose B C C (@id_func C)) U)
+      _ _ (@eq_sym _ _ _ (@gray_curry_uncurry_R_at A B C K)))
+    (@eq_trans _ _ _ _
+      (@eq_sym _ _ _ (@nerve_right_curry_target_at A B C C (@id_func C) (@gray_uncurry_R A B C K)))
+      (@gray_curry_uncurry_R_at A B C K));
+
+// Specializing the entire family to its identity proves a whole endofunctor
+// comparison, not only an object or component readback.
+symbol nerve_profile_restore_path (B C : Cat)
+  : τ (@= (Functor (GrayHom_lax B C) (GrayHom_lax B C))
+      (@comp_cat_fapp0 (GrayHom_lax B C) (Functor_cat B C) (GrayHom_lax B C)
+        (nerve_lax_profile_admit_func B C) (@grayhom_lax_include_func B C))
+      (@id_func (GrayHom_lax B C)))
+≔ @nerve_profile_restore_family (GrayHom_lax B C) B C (@id_func (GrayHom_lax B C));
+
+// A raw profiled transformation is retained through the ordinary view.
+assert [B C : Cat] (F G : τ (Functor B C)) (L : τ (@LaxTransfor B C F G)) ⊢
+  @lax_transfor B C F G
+    (@fapp1_fapp0 _ _ (@nerve_profile_postcompose B C C (@id_func C)) F G L)
+  ≡ @lax_transfor B C F G L;
+
+// The whole comparison does not install a runtime erasure of a raw profile.
+assertnot [B C : Cat] (F G : τ (Functor B C)) (L : τ (@LaxTransfor B C F G)) ⊢
+  @fapp1_fapp0 _ _ (@nerve_profile_postcompose B C C (@id_func C)) F G L ≡ L;
