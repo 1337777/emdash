@@ -1,0 +1,12 @@
+// Canonical terminal-base views of the same intrinsic unit computation.
+// The visible unit arrow has lost its id constructor; endpoints still agree.
+rule @fdapp1_int_cell Terminal_cat $E $D $FF $x $x Terminal_obj $u
+  ↪ @id (@Fibre_cat Terminal_cat $D $x)
+      (@fapp0 (@Fibre_cat Terminal_cat $E $x) (@Fibre_cat Terminal_cat $D $x)
+        (@Fibre_func Terminal_cat $E $D $FF $x) $u);
+rule @fdapp1_int_hom_func Terminal_cat $E $D $FF $x $x Terminal_obj $u $v
+  ↪ @fapp1_func (@Fibre_cat Terminal_cat $E $x) (@Fibre_cat Terminal_cat $D $x)
+      (@Fibre_func Terminal_cat $E $D $FF $x) $u $v;
+rule @fdapp1_int_hom_fapp0 Terminal_cat $E $D $FF $x $x Terminal_obj $u $v $a
+  ↪ @fapp1_fapp0 (@Fibre_cat Terminal_cat $E $x) (@Fibre_cat Terminal_cat $D $x)
+      (@Fibre_func Terminal_cat $E $D $FF $x) $u $v $a;

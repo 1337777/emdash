@@ -1,0 +1,25 @@
+require open emdash.native_intrinsic_unit_overlap_review;
+
+// The ordinary identity functor, viewed between constant families, retains
+// the actual base arrow. It is not the identity displayed map of one family.
+assert [K : Cat] (x y : τ (Obj K)) (p : τ (Hom K x y)) ⊢
+  @fdapp1_int_cell K (@Const_catd K Terminal_cat) (@Const_catd K K)
+    (@id_func K) x y p Terminal_obj ≡ p;
+assertnot [K : Cat] (x : τ (Obj K)) (p : τ (Hom K x x)) ⊢
+  @fdapp1_int_cell K (@Const_catd K Terminal_cat) (@Const_catd K K)
+    (@id_func K) x x p Terminal_obj ≡ @id K x;
+
+// Only the actual intrinsic modification receives the whole unit law.
+assertnot [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
+  (x : τ (Obj K)) ⊢
+  @fdapp1_comma_projection_transf K E D FF eta x x (@id K x)
+  ≡ @id (Functor_cat (Fibre_cat E x) (Fibre_cat D x)) (@Fibre_func K E D FF x);
+
+// A neutral terminal point is retained. No object eta x=Terminal_obj is used.
+assert [C : Cat] (F G : τ (Functor Terminal_cat C))
+  (e : τ (@Transf Terminal_cat C F G)) (x : τ (Obj Terminal_cat)) ⊢
+  @tapp1_post_laxity_cell Terminal_cat C F G e x x x Terminal_obj Terminal_obj
+  ≡ @id (Hom_cat C (fapp0 F x) (fapp0 G x)) (@tapp0_fapp0 Terminal_cat C F G x e);

@@ -1,0 +1,3 @@
+// The same off-diagonal unit after its terminal identity tag has erased.
+rule @tapp1_fapp0 Terminal_cat $B $F $G $x $x $e Terminal_obj
+  ↪ @tapp0_fapp0 Terminal_cat $B $F $G $x $e;

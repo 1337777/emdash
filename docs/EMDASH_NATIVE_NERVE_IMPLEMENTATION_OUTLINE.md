@@ -248,6 +248,16 @@ mapping-category identification is assumed. Review the retained unit action
 and whole generic reconstruction interfaces before strengthening any eta
 contract; preserve the independent mixed-evaluator and native inverse goals.
 
+The [intrinsic unit-normality continuation](../emdash2/audits/native_nerve_foundations/intrinsic_unit_normality_review.md)
+now qualifies identity-base computation through the original displayed-action
+ladder, including the extracted whole comparison. Its 73-input scope passes
+in 158.920s / 621,372 KiB at 300s / 2 GiB, with subject reduction and controls
+preserving nonidentity laxity. This is the conventional transformation unit
+law, not strict naturality or a new normality classifier. Production promotion
+and other erased-identity overlaps remain open. Next test terminal
+reconstruction through existing native equivalence/object-path structure and
+represented precomposition; no inverse or eta law is assumed.
+
 ## Independent simplicial branch
 
 Keep the user-selected higher simplex shapes. Strict maps from ordinary

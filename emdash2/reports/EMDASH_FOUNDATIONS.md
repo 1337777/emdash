@@ -17,6 +17,18 @@ Their transports are strict functors; their coefficient-level higher maps
 have the Cartesian profile. A displayed map `FF : Functord(E,D)` can still
 have nonidentity directed comparison cells across K.
 
+The intended conventional transformation profile includes coherent units.
+For ε:F⇒G, its off-diagonal action satisfies ε[idₓ]=εₓ, while its extracted
+naturality comparison satisfies λ_ε(idₓ)=id_εₓ. These are different dimensions:
+εₓ itself need not be identity. Choosing the lax/oplax direction does not
+replace the unit axioms, and units do not make comparisons along nonidentity
+arrows strict. No separate default normal-transformation classifier is needed.
+The older source already has identity-component computation; the additional
+intrinsic comparison-unit reductions are a
+[qualified isolated candidate](../audits/native_nerve_foundations/intrinsic_unit_normality_review.md)
+awaiting production qualification, not a blanket claim about every current
+runtime projection order.
+
 Write `T = Op_cat` for dimension-one reversal, `R = CoAbove2_cat` for reversal
 of dimensions 2 and above, `O = TotalOp_cat = R ∘ T` for total reversal, and
 `C₂ = CoAt2_cat` for dimension-two reversal. Family duality changes its base:

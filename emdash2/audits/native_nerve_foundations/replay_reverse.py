@@ -25,7 +25,8 @@ def digest(path: Path) -> str:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     modes = ('maps', 'readback', 'qualification', 'inverse-review', 'reindex',
-             'reflection', 'evaluation-pending', 'zero', 'all-degrees', 'zero-eta-pending')
+             'reflection', 'evaluation-pending', 'zero', 'all-degrees', 'zero-eta-pending',
+             'unit-owners', 'unit-normality')
     parser.add_argument('--mode', choices=modes, default='qualification')
     parser.add_argument('--assemble-only', action='store_true')
     args = parser.parse_args()

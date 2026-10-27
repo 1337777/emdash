@@ -10,6 +10,14 @@ and a retained post/left comparison. `Hom_cat Cat_cat A B` is `Functor_cat A B`.
 Write `Cart(A,B)` for `Functor_cart_cat A B`, whose transformation profile is
 strict. Admitted `Catd(K)` families have coefficient `Cat_cart`.
 
+Distinguish the action notation ε[idₓ]=εₓ from the comparison-unit law
+λ_ε(idₓ)=id_εₓ. Here λ abbreviates the existing extracted naturality cell,
+not a separately supplied witness. The conventional profile includes this
+unit law; it does not require εₓ or nonidentity-arrow comparisons to be
+identities. The current [intrinsic unit computation audit](../audits/native_nerve_foundations/intrinsic_unit_normality_review.md)
+records the implementation boundary. “Normal” in this sense must not be
+used as a synonym for `StrictTransfor`.
+
 Use explicit duality notation whenever higher dimensions matter:
 
 | Notation | Kernel owner | Reversal |

@@ -42,6 +42,16 @@ whole unit/reconstruction contracts at their generic owners, alongside the
 mixed-evaluator equation. Do not substitute more pointwise readbacks or an
 assumed native inverse for these remaining whole requirements.
 
+The [intrinsic unit-normality continuation](../emdash2/audits/native_nerve_foundations/intrinsic_unit_normality_review.md)
+now qualifies identity-base computation through the original displayed-action
+ladder, including the extracted whole comparison. Its 73-input scope passes
+in 158.920s / 621,372 KiB at 300s / 2 GiB, with subject reduction and controls
+preserving nonidentity laxity. This is the conventional transformation unit
+law, not strict naturality or a new normality classifier. Production promotion
+and other erased-identity overlaps remain open. Next test terminal
+reconstruction through existing native equivalence/object-path structure and
+represented precomposition; no inverse or eta law is assumed.
+
 The [actual moving-cell/map experiment](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
 has positive focused evidence, but its constant-family overlap and final
 integration are unfinished. Its candidate is preserved separately; the checked

@@ -1,0 +1,15 @@
+// Projection-order unit when the actual intrinsic identity has already
+// become the identity modification of homd_id_int. Keep that constructor:
+// an arbitrary independently supplied eta is still not a unit certificate.
+// lhs-audit: keep 1 -- actual displayed identity, distinguished from an ordinary functor identity.
+rule @fdapp1_comma_projection_transf $K $E $E (@id (Catd_cat $K) $E)
+    (@id (@Functord_cat $K $E _) (@strict_transfor _ _ _ _ (@homd_id_int $K $E)))
+    $x $x (@id $K $x)
+  ↪ @id (Functor_cat (@Fibre_cat $K $E $x) (@Fibre_cat $K $E $x))
+      (@id_func (@Fibre_cat $K $E $x));
+// lhs-audit: keep 1 -- actual displayed identity, distinguished from an ordinary functor identity.
+rule @fdapp1_comma_projection_transf Terminal_cat $E $E (@id (Catd_cat Terminal_cat) $E)
+    (@id (@Functord_cat Terminal_cat $E _) (@strict_transfor _ _ _ _ (@homd_id_int Terminal_cat $E)))
+    $x $x Terminal_obj
+  ↪ @id (Functor_cat (@Fibre_cat Terminal_cat $E $x) (@Fibre_cat Terminal_cat $E $x))
+      (@id_func (@Fibre_cat Terminal_cat $E $x));

@@ -1,0 +1,16 @@
+require open emdash.native_intrinsic_unit_controls;
+
+// Whole extraction when the identity displayed map has already projected.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) ⊢
+  @functord_laxity_transf K E E (@id_funcd K E) x x (@id K x)
+  ≡ @id (Functor_cat (Fibre_cat E x) (Fibre_cat E x)) (@id_func (Fibre_cat E x));
+
+// The private postcomposition cell is the same intrinsic unit after its
+// named projection has been selected before the generic base-unit rule.
+assert [I A B : Cat] (F G : τ (Functor A B)) (a : τ (@Transf A B F G))
+  (D : τ (Functor I A)) ⊢
+  @nerve_lax_postcomposition_cell I A B F G a D D (@id (Functor_cat I A) D)
+  ≡ @id (@Transf_cat I B
+      (@fapp0 _ _ (@comp_cat_cov_func I A B F) D)
+      (@fapp0 _ _ (@comp_cat_cov_func I A B G) D))
+      (@hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) B I A D F G a);

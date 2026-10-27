@@ -1,0 +1,25 @@
+require open emdash.native_geometric_zero;
+
+// General identity-component computation already belongs to tapp1.
+symbol nerve_transfor_identity_component [A C : Cat] [F G : τ (Functor A C)]
+  (e : τ (@Transf A C F G)) (x : τ (Obj A))
+  : τ (@= (Hom C (fapp0 F x) (fapp0 G x))
+      (@tapp1_fapp0 A C F G x x e (@id A x)) (@tapp0_fapp0 A C F G x e))
+≔ @eq_refl _ _;
+
+// Its terminal instance must survive after the source identity is erased.
+symbol nerve_terminal_transfor_component [C : Cat] [F G : τ (Functor Terminal_cat C)]
+  (e : τ (@Transf Terminal_cat C F G))
+  : τ (@= (Hom C (fapp0 F Terminal_obj) (fapp0 G Terminal_obj))
+      (@tapp1_fapp0 Terminal_cat C F G Terminal_obj Terminal_obj e Terminal_obj)
+      (@tapp0_fapp0 Terminal_cat C F G Terminal_obj e))
+≔ @nerve_transfor_identity_component Terminal_cat C F G e Terminal_obj;
+
+// Unit comparison of the retained post/left cell, still at arbitrary f.
+symbol nerve_transfor_post_unit [A C : Cat] [F G : τ (Functor A C)]
+  (e : τ (@Transf A C F G)) [x y : τ (Obj A)] (f : τ (Hom A x y))
+  : τ (@= (Hom (Hom_cat C (fapp0 F x) (fapp0 G y))
+      (@tapp1_fapp0 A C F G x y e f) (@tapp1_fapp0 A C F G x y e f))
+      (@tapp1_post_laxity_cell A C F G e x y y (@id A y) f)
+      (@id (Hom_cat C (fapp0 F x) (fapp0 G y)) (@tapp1_fapp0 A C F G x y e f)))
+≔ @eq_refl _ _;

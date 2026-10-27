@@ -1,0 +1,5 @@
+// Whole terminal-base unit, still guarded by the actual intrinsic data.
+rule @fdapp1_comma_projection_transf Terminal_cat $E $D $FF
+    (@fdapp1_int_transfd Terminal_cat $E $D $FF) $x $x Terminal_obj
+  ↪ @id (Functor_cat (@Fibre_cat Terminal_cat $E $x) (@Fibre_cat Terminal_cat $D $x))
+      (@Fibre_func Terminal_cat $E $D $FF $x);

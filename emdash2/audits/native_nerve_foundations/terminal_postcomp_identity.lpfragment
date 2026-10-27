@@ -1,0 +1,5 @@
+// Unit joins after the terminal source identity becomes Terminal_obj.
+// Repeated endpoints retain the actual source point; no Unit-object eta.
+rule @hom_postcomp_func $A Terminal_cat $F $W $x $x Terminal_obj
+  ↪ @id_func (Hom_cat $A $W (@fapp0 Terminal_cat $A $F $x));
+rule @hom_postcomp_fapp0 _ Terminal_cat _ _ $x $x Terminal_obj $g ↪ $g;

@@ -1,0 +1,6 @@
+// Whole normality is projected only from FF's actual intrinsic action.
+// An independently supplied modification eta is not replaced by identity.
+rule @fdapp1_comma_projection_transf $K $E $D $FF
+    (@fdapp1_int_transfd $K $E $D $FF) $x $x (@id $K $x)
+  ↪ @id (Functor_cat (@Fibre_cat $K $E $x) (@Fibre_cat $K $D $x))
+      (@Fibre_func $K $E $D $FF $x);

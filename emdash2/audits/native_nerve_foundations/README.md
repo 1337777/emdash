@@ -4,6 +4,16 @@ Status: non-library NF-1 reconstruction and NF-2C cube construction on the corre
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
+## Intrinsic unit computation
+
+The [unit-normality review](intrinsic_unit_normality_review.md) qualifies the
+identity-base projection ladder and whole extracted comparison while retaining
+nonidentity laxity. The 73-input scope passes in 158.920s / 621,372 KiB with
+subject reduction at 300s / 2 GiB. `unit-owners` and `unit-normality` replay
+modes retain the exact sources. Broader erased-identity overlap qualification
+and production promotion remain open; terminal reconstruction and the other
+inverse laws are not consequences of this unit check alone.
+
 ## Geometric maps in every dimension
 
 The [degree-zero continuation](geometric_degree_zero_review.md) now combines

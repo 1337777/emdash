@@ -41,6 +41,16 @@ constant/evaluation beta; whole terminal reconstruction still fails its
 ordinary eta check. Thus map formation covers every degree, while zero and
 positive inverse qualification remain separate open requirements.
 
+The [intrinsic unit-normality continuation](../emdash2/audits/native_nerve_foundations/intrinsic_unit_normality_review.md)
+now qualifies identity-base computation through the original displayed-action
+ladder, including the extracted whole comparison. Its 73-input scope passes
+in 158.920s / 621,372 KiB at 300s / 2 GiB, with subject reduction and controls
+preserving nonidentity laxity. This is the conventional transformation unit
+law, not strict naturality or a new normality classifier. Production promotion
+and other erased-identity overlaps remain open. Next test terminal
+reconstruction through existing native equivalence/object-path structure and
+represented precomposition; no inverse or eta law is assumed.
+
 The [actual moving-action recovery](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
 preserves its focused progress and pending overlap/full-integration boundary.
 Production promotion remains separate. Do not restart completed stages or

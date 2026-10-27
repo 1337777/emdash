@@ -46,6 +46,16 @@ overlap qualification; it is not used by the new recursive maps. The standing
 references, plan consolidation and book/article stage remain complete; later
 frontend/health integration stays separate.
 
+The [intrinsic unit-normality continuation](../emdash2/audits/native_nerve_foundations/intrinsic_unit_normality_review.md)
+now qualifies identity-base computation through the original displayed-action
+ladder, including the extracted whole comparison. Its 73-input scope passes
+in 158.920s / 621,372 KiB at 300s / 2 GiB, with subject reduction and controls
+preserving nonidentity laxity. This is the conventional transformation unit
+law, not strict naturality or a new normality classifier. Production promotion
+and other erased-identity overlaps remain open. Next test terminal
+reconstruction through existing native equivalence/object-path structure and
+represented precomposition; no inverse or eta law is assumed.
+
 The dated entries below are evidence chronology, newest first. An older
 “next,” “open” or “not yet” statement is superseded by the current parent and
 later evidence; it must not restart an already completed step.

@@ -1,0 +1,36 @@
+require open emdash.native_transfor_unit_review;
+require open emdash.native_geometric_zero_qualification;
+
+// The original whole intrinsic comparison is unit only at an identity base.
+assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D)) (x : τ (Obj K)) ⊢
+  @functord_laxity_transf K E D FF x x (@id K x)
+  ≡ @id (Functor_cat (Fibre_cat E x) (Fibre_cat D x)) (@Fibre_func K E D FF x);
+
+// Whole and capped Hom projections both retain an arbitrary fibre arrow.
+assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D)) (x : τ (Obj K))
+  (u v : τ (Obj (Fibre_cat E x))) (a : τ (Hom (Fibre_cat E x) u v)) ⊢
+  fapp0 (@fdapp1_int_hom_func K E D FF x x (@id K x) u v) a
+  ≡ @fdapp1_int_hom_fapp0 K E D FF x x (@id K x) u v a;
+assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D)) (x : τ (Obj K))
+  (u v : τ (Obj (Fibre_cat E x))) (a : τ (Hom (Fibre_cat E x) u v)) ⊢
+  @fdapp1_int_hom_fapp0 K E D FF x x (@id K x) u v a
+  ≡ @fapp1_fapp0 (Fibre_cat E x) (Fibre_cat D x) (@Fibre_func K E D FF x) u v a;
+
+// Unit overlap with the existing identity displayed-map action.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) ⊢
+  @fdapp1_int_cell K E E (@id_funcd K E) x x (@id K x) u
+  ≡ @id (Fibre_cat E x) u;
+
+// Next-Hom data still pass through the same fibre functor.
+assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D)) (x : τ (Obj K))
+  (u v : τ (Obj (Fibre_cat E x))) (a b : τ (Hom (Fibre_cat E x) u v))
+  (m : τ (Hom (Hom_cat (Fibre_cat E x) u v) a b)) ⊢
+  @fapp1_fapp0 _ _ (@fdapp1_int_hom_func K E D FF x x (@id K x) u v) a b m
+  ≡ @fapp1_fapp0 _ _ (@fapp1_func (Fibre_cat E x) (Fibre_cat D x)
+      (@Fibre_func K E D FF x) u v) a b m;
+
+// The actual terminal specialization also needs its erased-identity join.
+assert [C : Cat] (F G : τ (Functor Terminal_cat C)) (e : τ (@Transf Terminal_cat C F G)) ⊢
+  @tapp1_post_laxity_cell Terminal_cat C F G e Terminal_obj Terminal_obj Terminal_obj Terminal_obj Terminal_obj
+  ≡ @id (Hom_cat C (fapp0 F Terminal_obj) (fapp0 G Terminal_obj))
+      (@tapp0_fapp0 Terminal_cat C F G Terminal_obj e);

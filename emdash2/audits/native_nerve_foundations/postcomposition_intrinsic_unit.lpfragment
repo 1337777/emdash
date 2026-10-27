@@ -1,0 +1,8 @@
+// Unit of this same projected intrinsic cell, when projection happens
+// before the generic identity-base computation. The original alpha remains.
+// lhs-audit: keep 1 -- the nested id category is the measured source-carrier guard.
+rule @nerve_lax_postcomposition_cell $I $A $B $F $G $a $D $D (@id (Functor_cat $I $A) $D)
+  ↪ @id (@Transf_cat $I $B
+      (@fapp0 _ _ (@comp_cat_cov_func $I $A $B $F) $D)
+      (@fapp0 _ _ (@comp_cat_cov_func $I $A $B $G) $D))
+      (@hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) $B $I $A $D $F $G $a);

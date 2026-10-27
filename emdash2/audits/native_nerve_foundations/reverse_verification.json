@@ -26,7 +26,11 @@
     "native_geometric_cube_all_degrees.lp": "geometric_cube_all_degrees.lpfragment",
     "native_geometric_zero_interactions.lp": "geometric_zero_interactions.lpfragment",
     "native_geometric_zero_qualification.lp": "geometric_zero_qualification.lpfragment",
-    "native_geometric_zero_eta_pending.lp": "geometric_zero_eta_pending.lpfragment"
+    "native_geometric_zero_eta_pending.lp": "geometric_zero_eta_pending.lpfragment",
+    "native_transfor_unit_review.lp": "transfor_unit_review.lpfragment",
+    "native_intrinsic_unit_controls.lp": "intrinsic_unit_controls.lpfragment",
+    "native_intrinsic_unit_overlap_review.lp": "intrinsic_unit_overlap_controls.lpfragment",
+    "native_intrinsic_unit_noncollapse.lp": "intrinsic_unit_noncollapse.lpfragment"
   },
   "fragmentSuffixes": {
     "reverse_profile_admission.lpfragment": "\n",
@@ -36,7 +40,15 @@
     "evaluation_reindex_paths.lpfragment": "\n",
     "exchange_reflection.lpfragment": "\n",
     "evaluation_shape_naturality.lpfragment": "\n",
-    "constant_evaluation_beta.lpfragment": "\n"
+    "constant_evaluation_beta.lpfragment": "\n",
+    "intrinsic_base_unit.lpfragment": "\n",
+    "intrinsic_whole_base_unit.lpfragment": "\n",
+    "terminal_postcomp_identity.lpfragment": "\n",
+    "terminal_transfor_identity.lpfragment": "\n",
+    "intrinsic_terminal_base_unit.lpfragment": "\n",
+    "intrinsic_whole_terminal_unit.lpfragment": "\n",
+    "intrinsic_identity_unit_join.lpfragment": "\n",
+    "postcomposition_intrinsic_unit.lpfragment": "\n"
   },
   "ownerInsertions": [
     {
@@ -757,6 +769,236 @@
       "expectedOutcome": "failed",
       "receipt": "20261027T162741Z-06c4d05d49b842b1b578573408929de2",
       "qualification": "ordinary terminal-mapping eta fails; the following opposite-profile eta declaration was not reached in this run"
+    },
+    "unit-owners": {
+      "target": "native_transfor_unit_review.lp",
+      "timeoutMs": 180000,
+      "extraOwnerInsertions": [
+        {
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "parentSha256": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+          "before": "symbol diagram_family_transf [K I C : Cat]",
+          "fragment": "evaluation_shape_naturality.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "0a4740fc052a425e2b258708f513dde94f56f75ca7a10c0493cbea985121ea95",
+          "before": "// Pairing telescope for products.\n",
+          "fragment": "constant_evaluation_beta.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "bd86ec5e1dae90d74ec2565c6a76c5f87f5c51b1b95219738e2849d26d8cadb0",
+          "before": "/* Identity and the existing weakened constant section, at whole and point",
+          "fragment": "intrinsic_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "d6cd5b51753a3fa291e6d5862330f91499b67135aff6fdd61e2be730d886fe3c",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_whole_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "0c8a3b066ab2738fde9890d2567b9a7b95b6c981d00cb510830dec02edce2948",
+          "before": "// Strict default maps preserve represented postcomposition.",
+          "fragment": "terminal_postcomp_identity.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "cc95184653c19e327348ce90e3871d376633d74d22355ce633405f5d1892440b",
+          "before": "// Cartesian-coefficient instances of the existing strict vertical-action laws.",
+          "fragment": "terminal_transfor_identity.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "6c00663a34202d3fddba011c63c4f8772954b9e2f79de1563ddb0668a2ed930b",
+          "before": "/* Identity and the existing weakened constant section, at whole and point",
+          "fragment": "intrinsic_terminal_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "7e7adc22df1fe6a28d9ee8be55edc5c17df70fbfb19f89567cc4272da83f0aea",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_whole_terminal_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "e5dcd5e6196391a4b199a4d2fd53cf8f5da849cb728948a455a1543f5192b442",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_identity_unit_join.lpfragment"
+        },
+        {
+          "owner": "native_postcomposition_laxity.lp",
+          "parentSha256": "0a6ee22389c8fa2b88569bdb972db8eb535bb3650cfbcbb91b86f388ff2460a3",
+          "before": "// Each component is the original alpha comparison",
+          "fragment": "postcomposition_intrinsic_unit.lpfragment"
+        }
+      ],
+      "expectedInputs": {
+        "emdash3_2.lp": "e006b0a309953b5c213fc014821152bb275c951b1078551996a5e5ebdfccf940",
+        "emdash3_2_diagram_evaluation.lp": "9e73807f92e1914f837ffb868bb28ed02cc1f9ac9150624ff0826fedb2187d2f",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_profiles.lp": "46537eec0adb3138844b094e712fbc13a6302b151949cd8763e354e49ed9758b",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_geometric_zero.lp": "aded583c25a408264e684916f2250188405ba5a14700fe035fd2ea3bc3f79bee",
+        "native_lift_composition_staged.lp": "3611ba218051e7f884f83c9b5da5b6a3c96ec989f2873dea9d955321fe8db964",
+        "native_transfor_unit_review.lp": "eec81314e09199ea8cd03b9af4bd3f5b22062e1486e78887b3515de7aebc61b6"
+      },
+      "expectedOutcome": "passed-fresh",
+      "coverageReceipt": "20261027T175714Z-168948e925eb4fdf870cb4d75e7df49d",
+      "coverageKind": "checked first import of fresh whole target"
+    },
+    "unit-normality": {
+      "target": "native_intrinsic_unit_noncollapse.lp",
+      "timeoutMs": 300000,
+      "extraOwnerInsertions": [
+        {
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "parentSha256": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+          "before": "symbol diagram_family_transf [K I C : Cat]",
+          "fragment": "evaluation_shape_naturality.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "0a4740fc052a425e2b258708f513dde94f56f75ca7a10c0493cbea985121ea95",
+          "before": "// Pairing telescope for products.\n",
+          "fragment": "constant_evaluation_beta.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "bd86ec5e1dae90d74ec2565c6a76c5f87f5c51b1b95219738e2849d26d8cadb0",
+          "before": "/* Identity and the existing weakened constant section, at whole and point",
+          "fragment": "intrinsic_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "d6cd5b51753a3fa291e6d5862330f91499b67135aff6fdd61e2be730d886fe3c",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_whole_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "0c8a3b066ab2738fde9890d2567b9a7b95b6c981d00cb510830dec02edce2948",
+          "before": "// Strict default maps preserve represented postcomposition.",
+          "fragment": "terminal_postcomp_identity.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "cc95184653c19e327348ce90e3871d376633d74d22355ce633405f5d1892440b",
+          "before": "// Cartesian-coefficient instances of the existing strict vertical-action laws.",
+          "fragment": "terminal_transfor_identity.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "6c00663a34202d3fddba011c63c4f8772954b9e2f79de1563ddb0668a2ed930b",
+          "before": "/* Identity and the existing weakened constant section, at whole and point",
+          "fragment": "intrinsic_terminal_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "7e7adc22df1fe6a28d9ee8be55edc5c17df70fbfb19f89567cc4272da83f0aea",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_whole_terminal_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "e5dcd5e6196391a4b199a4d2fd53cf8f5da849cb728948a455a1543f5192b442",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_identity_unit_join.lpfragment"
+        },
+        {
+          "owner": "native_postcomposition_laxity.lp",
+          "parentSha256": "0a6ee22389c8fa2b88569bdb972db8eb535bb3650cfbcbb91b86f388ff2460a3",
+          "before": "// Each component is the original alpha comparison",
+          "fragment": "postcomposition_intrinsic_unit.lpfragment"
+        }
+      ],
+      "expectedInputs": {
+        "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+        "emdash3_2.lp": "e006b0a309953b5c213fc014821152bb275c951b1078551996a5e5ebdfccf940",
+        "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_arrow_composition.lp": "6f7f20fd141de7478cbd028b6ee257506ae0149128e35a629c4822ebc4708fb1",
+        "emdash3_2_cubical_arrow_functor.lp": "833091cc2e17b7089c7bf9caf59c090232752165c1c48b1e4dda36a1a2d57ddc",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_levels.lp": "956003355c38ae379a81dca2ae458c6c559c399332e5e11394307ea3f5e30242",
+        "emdash3_2_cubical_square_level.lp": "b6ad8254211f6913a81d7e88b39a57f16db73cd4bb219d241f0de16ff945ce11",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_diagram_evaluation.lp": "9e73807f92e1914f837ffb868bb28ed02cc1f9ac9150624ff0826fedb2187d2f",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_cubes.lp": "49728a469917bc1b48426b8e52f3c7f9494a63e1154bc28f2227b5120cf6035d",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "46537eec0adb3138844b094e712fbc13a6302b151949cd8763e354e49ed9758b",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_gray_transformation_graph.lp": "db87cf675f63982930023ec8b397315111dadb0800a1c1d5ec2e82aaed9cd68a",
+        "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_readable_pseudofunctors.lp": "da27c3beabd50404b04dcdec9003b29e5e9aea960c49f6e1949ee15bab96b5b8",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_cube_retraction.lp": "a855a14595819ca62494dca6a914cd955a7f85c0bd53ce10a18c2abe1b0b30ab",
+        "native_cube_skeleton_consumer.lp": "dcb5feb0e13128c370724e86df443392deb46bbcfff87919ce4560229e3ce5eb",
+        "native_curried_square_maps.lp": "5fa66f1ab2d873a9f327be2a9f8f65bd2470827333b86742c009e3d5996a3e13",
+        "native_evaluation_reindex_review.lp": "70ef99ee25e0537e0847b085d6b58a6f6fd11d611536dff1d8eb99fbb8aeb4de",
+        "native_exchange_reflection.lp": "c5ccaff1207b0d23bf95774fc386a0428a8c4a9010ebbaa6d16e0aaeae2254db",
+        "native_generic_square_whisker_whole.lp": "f7f8fc3c32bbab0abb0cd66f0f1384cc163f92814eef776dc8e7583588b69744",
+        "native_geometric_cube_all_degrees.lp": "8062fef64b1f2ac8b80c6fd7d8ec6723afba04eb6d8be3457e02930a6c59a88b",
+        "native_geometric_positive_decode.lp": "fd3e7451ae9506fae1060dc235fd9f6028d4ac8d3da23943621ba2a2848c9cb8",
+        "native_geometric_zero.lp": "aded583c25a408264e684916f2250188405ba5a14700fe035fd2ea3bc3f79bee",
+        "native_geometric_zero_interactions.lp": "663476b76ae4a151be85c055f37a2d5c2cd4200d74e881f92268fa131097ab85",
+        "native_geometric_zero_qualification.lp": "197815d669128a5cb73b3134a3e4f86dd86845a67cbe573f2b7937e3dbf5b013",
+        "native_intrinsic_unit_controls.lp": "4387661c6a93b537471e533a0a294b996a96a516b2e65fe84c8fd182b84edb4d",
+        "native_intrinsic_unit_noncollapse.lp": "ed66baab4b8e5c56a6f10762a5572aa45f0407a0cde111f9611a14e449ca118f",
+        "native_intrinsic_unit_overlap_review.lp": "45f004c8dff5c9e52ca6264d9e4c7c3c66b17b46536c12b5f5a15fc1c97e5477",
+        "native_lift_composition_staged.lp": "3611ba218051e7f884f83c9b5da5b6a3c96ec989f2873dea9d955321fe8db964",
+        "native_mixed_cancel_reduction.lp": "0000bde9185c5342d150a56257104d4df79222757557d67941647998eaa77d4b",
+        "native_mixed_exchange_readback.lp": "1e975089959eccb4c005be5de264d8c16d64deb4a86f0eb536e3e982448ba24b",
+        "native_nerve_generation_review.lp": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323",
+        "native_nerve_graph_review.lp": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9",
+        "native_nerve_graph_whole_review.lp": "6a69911880e10a4332a14582444d5ed45b146ea9e969975ede3e96c8fea47b4e",
+        "native_nerve_realization_review.lp": "d627e730cd7f1b4486fbe6320774e940617fc3ecb5c6e83715bec3b6b82fb605",
+        "native_oplax_postcomp_interface.lp": "10a82cd0b0cc568fee14757ed54f25fc126dc1c4fc8dbd3a173555c81b6b4edd",
+        "native_positive_cube_qualification.lp": "1b8d3f94bf2b00f502bcf64ebe531f3d003d7ee1bd610072046e2d2d72c15709",
+        "native_postcomposition_consumers.lp": "6cf84f0748f85d63f751bc85e9ba6956d807673b4f57d9d4308974f64857d00b",
+        "native_postcomposition_controls.lp": "03372f9202d5061ce5a7de7bf870f949634678e7663bceebd049eb4b9c4f7306",
+        "native_postcomposition_interactions.lp": "ff29d3651270a8de05e5e9f7889ce83ee5d6df18828bfc692caf9287f24ae22e",
+        "native_postcomposition_laxity.lp": "f41207e008ae26d063555d22fe95626f6e218f88612b30b01047d932bf786785",
+        "native_postcomposition_owner.lp": "b1e507486f452daa856734acf161bf1f95e54d46c7d29ea5ab62b995863aa2b4",
+        "native_reverse_closure_objects.lp": "804833db19f22801c36b1d3de13eee4a5aac2e66538a6258d13c39092962110b",
+        "native_reverse_family_readback.lp": "aaf23df73598f08b53e2d85ed469b99fd4b35d428c49e1f2c02f7cc10fcaed6b",
+        "native_reverse_final.lp": "d0b977df6cbec3bf315fc76cca596623740523bdb89be325435089ad6ee4ace7",
+        "native_reverse_geometric_controls.lp": "5b17635a4e0fa2ee0097245acd6c1dcaba0e559052e8a7e035db1ba09dd18b45",
+        "native_reverse_geometric_maps.lp": "425b526157d43bc276e86ad25740f369867fa76e89bc33a02d110139a599d125",
+        "native_reverse_qualification.lp": "aeb3bd4c6a027d922147bf4fed5a00c1d515c9913583433e3c4828ec94c9dbf7",
+        "native_shape_reindex_paths.lp": "bd35fea5805e3c76cdaca2d1fd47b0a0413eae5d99dca11a4e22618471423ac4",
+        "native_transfor_unit_review.lp": "eec81314e09199ea8cd03b9af4bd3f5b22062e1486e78887b3515de7aebc61b6",
+        "native_walking_cube_maps.lp": "f3d64471bd307c21d5573cfe07ef8af403a243fd63aaac5d3716ce32e811ba43",
+        "native_walking_shift.lp": "79f4f1ed558b2ae0a62f1f9960f7b3ba763d1521072fd879cfdb49466c442ec7",
+        "native_walking_shift_inverses.lp": "86ce19a400928635fa72fcb74eb41a3a99c7296e2f2fd6b44ffeb77f1ede5d72"
+      },
+      "expectedOutcome": "passed-fresh",
+      "coverageReceipt": "20261027T175714Z-168948e925eb4fdf870cb4d75e7df49d",
+      "coverageKind": "fresh whole target"
     }
   },
   "historicalAttempts": [
@@ -921,6 +1163,87 @@
       "wallSeconds": 104.9163554131519,
       "childrenMaxRssKiB": 300468,
       "inputSnapshot": "fc09680154cabd72d198ba60aa14b56a677c6d08960657abcc5441e53b6572f1"
+    },
+    {
+      "receipt": "20261027T164720Z-061e06ee3beb480788778e2e81371b31",
+      "label": "component units pass; extracted post/left unit is unreduced",
+      "target": "native_transfor_unit_review.lp",
+      "outcome": "failed",
+      "wallSeconds": 75.94117842614651,
+      "childrenMaxRssKiB": 278548,
+      "inputSnapshot": "fcfed7d38b2abff49d38740cc16ea170f6d96350ff53debc697dbc6e3e616b3f"
+    },
+    {
+      "receipt": "20261027T170323Z-bf6d15a5c71d445a8f36aa2a339d3c6a",
+      "label": "generic intrinsic whole/Hom/capped normality checks",
+      "target": "native_transfor_unit_review.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 73.87399502494372,
+      "childrenMaxRssKiB": 280020,
+      "inputSnapshot": "ba84d266fb696b4e0f190f1c3d504027fdf3e0a339447fd5482bcdcb1943d2d1"
+    },
+    {
+      "receipt": "20261027T170754Z-07b73048653d4c22bafdf84f43f6a73b",
+      "label": "terminal identity erasure exposed endpoint/projection joins",
+      "target": "native_intrinsic_unit_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 110.87825094698928,
+      "childrenMaxRssKiB": 615556,
+      "inputSnapshot": "d7a22fe142d1c67489701a93fd68eb8523fc69806a0e38c3a1a8b4bf9c7db558"
+    },
+    {
+      "receipt": "20261027T171319Z-d830545a6971456e8f92f6ebc14df29a",
+      "label": "terminal and whole/capped/higher controls",
+      "target": "native_intrinsic_unit_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 110.67853382299654,
+      "childrenMaxRssKiB": 620400,
+      "inputSnapshot": "377c0a8a4896a8640efbe1ef3f7b3fdab15024e022005e2c02f3c263d39f39d7"
+    },
+    {
+      "receipt": "20261027T172057Z-cf763b27c5774f1594bc4bbbcee0d6f5",
+      "label": "identity displayed map projects intrinsic data before whole unit match",
+      "target": "native_intrinsic_unit_overlap_review.lp",
+      "outcome": "failed",
+      "wallSeconds": 110.72371445898898,
+      "childrenMaxRssKiB": 617532,
+      "inputSnapshot": "47b2958700a1f8ef7088f9d80df7e48baebb2e155de62ddd7f0720c8d6e32c77"
+    },
+    {
+      "receipt": "20261027T173021Z-da0a310f045349548a8edb728996a24a",
+      "label": "canonical identity join passes; named postcomposition cell unit missing",
+      "target": "native_intrinsic_unit_overlap_review.lp",
+      "outcome": "failed",
+      "wallSeconds": 132.29600677499548,
+      "childrenMaxRssKiB": 624504,
+      "inputSnapshot": "ac341144e34236e6bd41d47d28bc8618d2b891341a37c92ccad2f957d8cff23e"
+    },
+    {
+      "receipt": "20261027T173349Z-d8995ce9b39f412fb0a9602d5cbf55e5",
+      "label": "postcomposition unit SR needs actual identity carrier",
+      "target": "native_intrinsic_unit_noncollapse.lp",
+      "outcome": "failed",
+      "wallSeconds": 83.15560189611278,
+      "childrenMaxRssKiB": 310016,
+      "inputSnapshot": "4257b402da4fc3d69922750a675f5e6a830bd38c83bed224cf60d411b45b9f6f"
+    },
+    {
+      "receipt": "20261027T173742Z-374806f9fab74f178d8dbf141d1c71e5",
+      "label": "unit and noncollapse controls pass",
+      "target": "native_intrinsic_unit_noncollapse.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 112.52668724907562,
+      "childrenMaxRssKiB": 621908,
+      "inputSnapshot": "52205c4dd23cd8d01e9eb0df337e5075a4793dca8ecfe43aef1e3f615cc41b33"
+    },
+    {
+      "receipt": "20261027T174435Z-edc2ea27b7d54f59ad8ded9e9de78f1c",
+      "label": "neutral terminal-point control passes before final guard narrowing",
+      "target": "native_intrinsic_unit_noncollapse.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 112.37249371712096,
+      "childrenMaxRssKiB": 623732,
+      "inputSnapshot": "543bdbfdc73d0354159268de8db14ee7ac971bbf3b549bd1e2cc6448c1d2c9a8"
     }
   ],
   "openBoundaries": [
@@ -1014,7 +1337,7 @@
     "mixed_exchange_inverse_pending.lpfragment": "097500d2e68a57d826143b2abe6e7556f5bc67a94ff42120dd33570a2e3f270e",
     "mixed_exchange_readback.lpfragment": "8e867750ec0c26ac1074c0e840375feab469bb31222f1ff29eb9b44d9ae6acf0",
     "postcomposition_whole_evaluation.lpfragment": "0adbcd5cbf7dffb2e3504b56f206c72a30da6e242049d4b90b0f98e43f358569",
-    "replay_reverse.py": "3c5fe8f0ff1d0561969e71b40f7490ed069b791016adac8c5d8078af866a7f81",
+    "replay_reverse.py": "bfd36090ff00b9349bade30bc5a2701d4fe2726010becc7e121a667af1646cdc",
     "reverse_family_readback.lpfragment": "aaf23df73598f08b53e2d85ed469b99fd4b35d428c49e1f2c02f7cc10fcaed6b",
     "reverse_final.lpfragment": "d0b977df6cbec3bf315fc76cca596623740523bdb89be325435089ad6ee4ace7",
     "reverse_geometric_controls.lpfragment": "5b17635a4e0fa2ee0097245acd6c1dcaba0e559052e8a7e035db1ba09dd18b45",
@@ -1033,7 +1356,19 @@
     "geometric_zero_interactions.lpfragment": "663476b76ae4a151be85c055f37a2d5c2cd4200d74e881f92268fa131097ab85",
     "geometric_zero_qualification.lpfragment": "197815d669128a5cb73b3134a3e4f86dd86845a67cbe573f2b7937e3dbf5b013",
     "geometric_zero_eta_pending.lpfragment": "3d999fd6f83e55f53f15e2baad46ab5cedf182ded0a21d3b45da1bfe9d22a185",
-    "constant_evaluation_beta.lpfragment": "9833d1ce0d94d3b28cf7360bb417c5d4de887cdab5832f45f5fb2f2b37047c4d"
+    "constant_evaluation_beta.lpfragment": "9833d1ce0d94d3b28cf7360bb417c5d4de887cdab5832f45f5fb2f2b37047c4d",
+    "transfor_unit_review.lpfragment": "eec81314e09199ea8cd03b9af4bd3f5b22062e1486e78887b3515de7aebc61b6",
+    "intrinsic_unit_controls.lpfragment": "4387661c6a93b537471e533a0a294b996a96a516b2e65fe84c8fd182b84edb4d",
+    "intrinsic_unit_overlap_controls.lpfragment": "45f004c8dff5c9e52ca6264d9e4c7c3c66b17b46536c12b5f5a15fc1c97e5477",
+    "intrinsic_unit_noncollapse.lpfragment": "ed66baab4b8e5c56a6f10762a5572aa45f0407a0cde111f9611a14e449ca118f",
+    "intrinsic_base_unit.lpfragment": "6b50c97329e1f3f85c91831ee170be9ae678df73086c9faffb106e2cdbb6d7e5",
+    "intrinsic_whole_base_unit.lpfragment": "b0e10dd9cdea71b7a8848c8a1f02c78ef0c2a439fea58d98484c209305e7f885",
+    "terminal_postcomp_identity.lpfragment": "063288a5b79d9eeba8333c0970b0edc5d5373d2b7468d0e51900240c42569938",
+    "terminal_transfor_identity.lpfragment": "fab79e0e6cd59f58c82ed396b17c087faf7bf84c17f7067de3be3bf46eef939e",
+    "intrinsic_terminal_base_unit.lpfragment": "0cce67d4ddc49a46b002a7cb8c54bf3e89be806313177ca131bebe84bc7db1a6",
+    "intrinsic_whole_terminal_unit.lpfragment": "d6b12fa54b0c241acd340c8a0f7672131b70d7fe75a6936d173674ad8fc7d184",
+    "intrinsic_identity_unit_join.lpfragment": "33da2a6a6d8a789493700f44b0506418d318197ec75569a589e261ae9f6a3e92",
+    "postcomposition_intrinsic_unit.lpfragment": "e7c70771917aae0c9b97658cf9d1d2815a4cb2b2ab02226599c002e31abbdbce"
   },
   "extensions": [
     {
@@ -1152,6 +1487,192 @@
       ],
       "pendingEtaReceipt": "20261027T162741Z-06c4d05d49b842b1b578573408929de2",
       "setupObservation": "An initially ambiguous insertion anchor was rejected before mutation; a consequent missing-target setup attempt ran no mathematical check. The final replay uses the unique newline-terminated owner anchor."
+    },
+    {
+      "baseline": "9f92f247",
+      "status": "qualified isolated identity-base normality at intrinsic Homd owners; no stronger nonidentity naturality or terminal eta supplied",
+      "qualification": {
+        "receipt": "20261027T175714Z-168948e925eb4fdf870cb4d75e7df49d",
+        "outcome": "passed-fresh",
+        "wallSeconds": 158.91977919708006,
+        "childrenMaxRssKiB": 621372,
+        "settings": {
+          "camlrunparam": "",
+          "fileMiB": 64,
+          "flags": [
+            "--too-long=0.5",
+            "--no-colors"
+          ],
+          "memoryMiB": 2048,
+          "ocamlrunparam": "o=20,v=1024",
+          "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+          "profile": "default",
+          "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+          "resourceBackend": "auto",
+          "runtimeEnvironment": {
+            "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+            "LD_LIBRARY_PATH": "",
+            "LD_PRELOAD": ""
+          },
+          "timeoutMs": 300000
+        },
+        "inputSnapshot": "56eabd041049c53ccffd5532f4aaec2fc9f58a8dff9bbd2c86b3c61c0fa7f5d2",
+        "inputCount": 73
+      },
+      "warnings": {
+        "baselineReceipt": "20261027T162524Z-f5e2b028486b4154bdd9a79a906241a0",
+        "candidateReceipt": "20261027T175714Z-168948e925eb4fdf870cb4d75e7df49d",
+        "baselineCategories": {
+          "replaceable pattern variable": 181,
+          "unjoinable critical pair": 2230
+        },
+        "candidateCategories": {
+          "replaceable pattern variable": 181,
+          "unjoinable critical pair": 2292
+        },
+        "addedFamilies": [
+          {
+            "heads": [
+              "comp_fapp0",
+              "hom_postcomp_fapp0"
+            ],
+            "count": 1
+          },
+          {
+            "heads": [
+              "hom_postcomp_fapp0",
+              "hom_postcomp_fapp0"
+            ],
+            "count": 2
+          },
+          {
+            "heads": [
+              "fapp1_func",
+              "hom_postcomp_func"
+            ],
+            "count": 1
+          },
+          {
+            "heads": [
+              "fapp1_fapp0",
+              "hom_postcomp_func"
+            ],
+            "count": 1
+          },
+          {
+            "heads": [
+              "tapp1_fapp0",
+              "tapp1_fapp0"
+            ],
+            "count": 1
+          },
+          {
+            "heads": [
+              "fapp0",
+              "fdapp1_int_hom_func"
+            ],
+            "count": 1
+          },
+          {
+            "heads": [
+              "fdapp1_int_hom_fapp0",
+              "id"
+            ],
+            "count": 8
+          },
+          {
+            "heads": [
+              "fdapp1_int_cell",
+              "fdapp1_int_cell"
+            ],
+            "count": 8
+          },
+          {
+            "heads": [
+              "fdapp1_int_hom_func",
+              "fdapp1_int_hom_func"
+            ],
+            "count": 4
+          },
+          {
+            "heads": [
+              "fdapp1_int_hom_fapp0",
+              "fdapp1_int_hom_fapp0"
+            ],
+            "count": 7
+          },
+          {
+            "heads": [
+              "fdapp1_int_cell",
+              "id"
+            ],
+            "count": 8
+          },
+          {
+            "heads": [
+              "fdapp1_int_hom_func",
+              "id"
+            ],
+            "count": 8
+          },
+          {
+            "heads": [
+              "fdapp1_comma_projection_transf",
+              "id"
+            ],
+            "count": 8
+          },
+          {
+            "heads": [
+              "fdapp1_comma_projection_transf",
+              "fdapp1_int_transfd"
+            ],
+            "count": 3
+          },
+          {
+            "heads": [
+              "Functor_cat",
+              "nerve_lax_postcomposition_cell"
+            ],
+            "count": 1
+          },
+          {
+            "heads": [
+              "nerve_lax_postcomposition_cell",
+              "tapp0_hom_fapp0"
+            ],
+            "count": 1
+          }
+        ],
+        "removedFamilies": [
+          {
+            "heads": [
+              "hom_postcomp_fapp0",
+              "id"
+            ],
+            "count": 1
+          }
+        ],
+        "parserIssues": {},
+        "qualification": "generic/terminal, identity-displayed-map, whole/capped/higher, and projected postcomposition unit joins checked; broader erased-duality identity overlaps remain promotion review"
+      },
+      "semanticReference": {
+        "url": "https://webusers.imj-prg.fr/~georges.maltsiniotis/ps/joint.pdf",
+        "sections": [
+          "1.9 identity/composition axioms",
+          "1.12 lax duality"
+        ],
+        "role": "primary semantic check; not a transferred formal proof"
+      },
+      "userClarification": "normal functor identity action and transformation unit comparison are different levels; conventional transformations between strict functors already obey the unit law; no additional default normality classifier",
+      "notes": [
+        "new rules compute existing extracted intrinsic cells, not separately supplied witnesses",
+        "whole unit extraction matches the actual intrinsic modification, including its canonical identity projection",
+        "terminal joins retain the original source point; no object eta is used",
+        "a general ordinary-functor producer retains its actual nonidentity base arrow",
+        "arbitrary supplied modifications are not collapsed",
+        "whole terminal reconstruction, mixed-evaluator coherence, and native inverses remain open"
+      ]
     }
   ]
 }
