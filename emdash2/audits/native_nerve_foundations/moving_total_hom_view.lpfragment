@@ -1,0 +1,6 @@
+// Whole total-dual represented-Hom view. Retain runtime family owners;
+// the fixed endpoint and whole original functor remain explicit constraints.
+unif_rule @TotalOp_catd _ (@hom_con $B $b $A $F)
+  ≡ @hom_ $B0 $A0 $G $b0
+  ↪ [ $B0 ≡ TotalOp_cat $B; $A0 ≡ TotalOp_cat $A;
+      $G ≡ @TotalOp_func $A $B $F; $b0 ≡ $b ];

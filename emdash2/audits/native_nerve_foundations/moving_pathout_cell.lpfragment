@@ -1,0 +1,17 @@
+require open emdash.native_hom_family_view;
+
+// A 2-cell between triangles in one outgoing-path Hom, with the actual
+// reversed Sigma presentation made explicit in its constructor body.
+symbol nerve_pathout_2cell_stable [C : Cat]
+  (x y z : τ (Obj C)) (u : τ (Hom C x y)) (t : τ (Hom C x z))
+  (b b1 : τ (Hom C y z))
+  (alpha : τ (Hom (Hom_cat C x z) (@comp_fapp0 C x y z b u) t))
+  (beta : τ (Hom (Hom_cat C x z) (@comp_fapp0 C x y z b1 u) t))
+  (B : τ (Hom (Hom_cat C y z) b b1))
+  (Gamma : τ (Hom
+    (Hom_cat (Hom_cat C x z) (@comp_fapp0 C x y z b u) t)
+    alpha (@hom_precomp_along_fapp0 (Hom_cat C y z) (Hom_cat C x z)
+      (@hom_precomp_along_func C C (@id_func C) z x y u) t b b1 B beta)))
+  : τ (Hom (Hom_cat (@PathOut_cat C x) (@pathout_obj C x y u) (@pathout_obj C x z t))
+      (Struct_sigma b alpha) (Struct_sigma b1 beta))
+≔ Struct_sigma B Gamma;

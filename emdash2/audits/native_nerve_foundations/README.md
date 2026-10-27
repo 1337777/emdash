@@ -4,6 +4,76 @@ Status: non-library NF-1 candidate on the corrected foundations.
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
+## Canonical moving-boundary cells and whole filler inclusion
+
+The [whole family comparison](moving_family_proofs.lpfragment) now identifies
+the actual native Hom's a-index family with its represented presentation:
+
+```text
+Hom_N(C)((x,y,u),(x′,y′,v)) ≐ Σ(a : Hom_C(x,x′)),
+  Hom_PathOut_C(x)((y,u),(y′,v∘a)).
+```
+
+This is a proof-time comparison of the entire family, followed by Sigma. It
+retains the original functor and fixed endpoint; three controls reject a
+different functor, endpoint, or dimension-one replacement of total duality.
+It does not add an operational equality cast or erase the actual native owner.
+
+In that canonical presentation, the [moving cell](moving_cell.lpfragment)
+accepts independent A:a⇒a′, B:b⇒b′ and the genuine higher filler
+
+```text
+Γ : (v▹A) ∘ α ⇒ β ∘ (B◃u).
+```
+
+The target uses the existing stable precomposition head. The staged
+[raw-composition reading](moving_precomp_raw.lpfragment) explains its ordinary
+formula without a global runtime expansion. Earlier direct raw endpoints
+failed unification even though the computed fibre has this orientation.
+The constructor is the existing nested Sigma pair; no new cell primitive,
+strictness premise, inverse, or separately supplied comparison is introduced.
+
+The [whole filler functor](moving_filler_func.lpfragment) is a composite of
+[existing Sigma fibre inclusions](moving_fibre_inclusions.lpfragment), with
+their actual total dualities. Its value agrees at proof time with the moving
+constructor. Both boundary projections compute, and a different Γ is rejected
+by the [controls](moving_controls.lpfragment). Literal full-tuple runtime
+conversion did not pass. A bare nested Γ-projection comparison stopped during
+type inference, so the appended next-Θ observation was not reached. Do not
+claim those stronger runtime readbacks from the whole value comparison.
+
+The only new runtime clauses are the two
+[constructor-scoped postcomposition rules](moving_sigma_postcomp.lpfragment):
+postcomposing a visible total arrow `(p,alpha)` by a vertical fibre inclusion
+computes its fibre composite; the same holds after an actual strict functor
+into that fibre. Generic pre/postcomposition owners remain stable. The
+[whole total-Hom family view](moving_total_hom_view.lpfragment) is proof-time.
+Removing the two constructor clauses makes the required canonical moving
+consumer fail at its transport comparison.
+
+The complete **68-input** native prefix passes in **128.850s / 597,312 KiB**
+at 180s / 2 GiB, preserving the earlier first inverse, totalization, original
+filler and graph-factorization checks. [Verification](moving_verification.json)
+records all selected source hashes and fifteen exploratory/qualification
+outcomes. Exactly four warning bodies are added after line mapping, all at
+the vertical-postcomposition owner; ordinary/total-dual units and raw/stable
+composition reducts have [typed joins](moving_postcomp_joins.lpfragment).
+The [warning review](moving_warning_review.json) retains their scope; it is
+not a global confluence proof. The strict LHS audit reports no unreviewed clause.
+
+**Remaining boundary:** the [direct actual-native constructor](moving_actual_candidate.lpfragment)
+still fails at its expanded whole transport/Hom comparison. The canonical
+construction and family equality do not silently convert that operational
+interface or prove the second inverse. Continue that actual higher comparison,
+then whole native reconstruction; full-module and production promotion remain
+open. All work here is non-library.
+
+`replay_moving.py` supports `family`, `canonical`, `integration`, `without-beta`
+and `actual`, each with `--assemble-only`. The latter two reproduce the recorded
+failures and return failure; `actual` is an unresolved required construction,
+not a green negative gate. The replay uses the previous exact transport
+assembly, verifies source/checker hashes, and changes no production source.
+
 ## Represented boundary transport and Sigma inclusion
 
 [`transport_native_proof.lpfragment`](transport_native_proof.lpfragment)

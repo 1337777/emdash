@@ -1,0 +1,18 @@
+require open emdash.native_hom_family_view;
+
+assertnot [A B : Cat] (F G : τ (Functor A B)) (b : τ (Obj B)) ⊢
+  @eq_refl (Catd (TotalOp_cat A)) (@TotalOp_catd (Op_cat A) (@hom_con B b A F))
+  : τ (@= (Catd (TotalOp_cat A)) (@TotalOp_catd (Op_cat A) (@hom_con B b A F))
+      (@hom_ (TotalOp_cat B) (TotalOp_cat A) (@TotalOp_func A B G) b));
+
+assertnot [A B : Cat] (F : τ (Functor A B)) (b c : τ (Obj B)) ⊢
+  @eq_refl (Catd (TotalOp_cat A)) (@TotalOp_catd (Op_cat A) (@hom_con B b A F))
+  : τ (@= (Catd (TotalOp_cat A)) (@TotalOp_catd (Op_cat A) (@hom_con B b A F))
+      (@hom_ (TotalOp_cat B) (TotalOp_cat A) (@TotalOp_func A B F) c));
+
+// Total reversal cannot silently become dimension-one transpose.
+assertnot [A B : Cat] (F : τ (Functor A B)) (H : τ (Functor (TotalOp_cat A) (Op_cat B)))
+  (b : τ (Obj B)) ⊢
+  @eq_refl (Catd (TotalOp_cat A)) (@TotalOp_catd (Op_cat A) (@hom_con B b A F))
+  : τ (@= (Catd (TotalOp_cat A)) (@TotalOp_catd (Op_cat A) (@hom_con B b A F))
+      (@hom_ (Op_cat B) (TotalOp_cat A) H b));

@@ -15,9 +15,10 @@ The standing-reference refresh is checkpointed as `f74e14f6`; current plan
 consolidation preserves the previous documents verbatim in historical files.
 
 Next mathematical work is NF-1's moving-boundary reconstruction and native
-second inverse. Its 58-input checkpoint and later uncheckpointed experiments
-are recorded in the [resumption section](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md#native-resumption-at-the-present-checkpoint).
-No native candidate is promoted by this documentation checkpoint. Do not
+second inverse. The 68-input canonical moving-boundary candidate and failed
+direct
+actual-native comparison are recorded in the [resumption section](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md#native-resumption-at-the-present-checkpoint).
+Production promotion remains a separate qualification boundary. Do not
 restart completed stages or revive dated “next” instructions from audits.
 
 ## Authorized continuations after the foundations migration
@@ -72,8 +73,11 @@ These dated reviews do not override the current status above.
 
 Use the [native audit](../emdash2/audits/native_nerve_foundations/README.md)
 and [NF acceptance table](EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md#construction-architecture-and-required-outcomes)
-for exact definitions, controls and source pins. The remaining NF-1 boundary is
-whole action with both boundary arrows varying, not more fixed-filler tests.
+for exact definitions, controls and source pins. The canonical moving-boundary
+cell and whole filler inclusion are now
+qualified in the isolated 68-input prefix. The remaining NF-1 boundary is
+connecting that presentation to the actual native whole higher action, then
+whole reconstruction; more fixed-filler tests do not close it.
 The whole second inverse, original next-cell retention, full-module checking,
 inherited warning qualification and production promotion remain open.
 

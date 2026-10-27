@@ -1,0 +1,48 @@
+require open emdash.native_canonical_moving_controls;
+
+assert [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) (v : τ (Obj (@Fibre_cat K E y)))
+  (p : τ (Hom K x y))
+  (alpha : τ (Hom (@Fibre_cat K E y) (fapp0 (@catd_transport_func K E x y p) u) v)) ⊢
+  @hom_postcomp_fapp0 (@Sigma_cat K E) (@Fibre_cat K E y)
+    (@sigma_intro_tapp0_func K E y) (Struct_sigma x u) v v
+    (@id (@Fibre_cat K E y) v) (Struct_sigma p alpha)
+  ≡ @sigma_arrow K E x y u v p alpha;
+
+// The inherited total-dual identity branch, specialized at a legal fibre.
+assert [K B : Cat] (x y : τ (Obj K)) (u v : τ (Obj B))
+  (p : τ (Hom K x y)) (alpha : τ (Hom (TotalOp_cat B) u v)) ⊢
+  @hom_postcomp_fapp0 (@Sigma_cat K (@Const_catd K (TotalOp_cat B))) (TotalOp_cat B)
+    (@sigma_intro_tapp0_func K (@Const_catd K (TotalOp_cat B)) y)
+    (Struct_sigma x u) v v (@id B v) (Struct_sigma p alpha)
+  ≡ @sigma_arrow K (@Const_catd K (TotalOp_cat B)) x y u v p alpha;
+
+symbol nerve_vertical_postcomp_composite_path [K : Cat] (E : τ (Catd K))
+  (x y : τ (Obj K)) (u : τ (Obj (@Fibre_cat K E x)))
+  (v w z : τ (Obj (@Fibre_cat K E y))) (p : τ (Hom K x y))
+  (alpha : τ (Hom (@Fibre_cat K E y) (fapp0 (@catd_transport_func K E x y p) u) v))
+  (h : τ (Hom (@Fibre_cat K E y) v w)) (j : τ (Hom (@Fibre_cat K E y) w z))
+  : τ (@= (Hom (@Sigma_cat K E) (Struct_sigma x u) (Struct_sigma y z))
+      (@sigma_arrow K E x y u z p
+        (@comp_fapp0 (@Fibre_cat K E y) _ v z (@comp_fapp0 (@Fibre_cat K E y) v w z j h) alpha))
+      (@sigma_arrow K E x y u z p
+        (@comp_fapp0 (@Fibre_cat K E y) _ w z j (@comp_fapp0 (@Fibre_cat K E y) _ v w h alpha))))
+≔ @eq_refl (Hom (@Sigma_cat K E) (Struct_sigma x u) (Struct_sigma y z))
+      (@sigma_arrow K E x y u z p
+        (@comp_fapp0 (@Fibre_cat K E y) _ v z (@comp_fapp0 (@Fibre_cat K E y) v w z j h) alpha));
+
+symbol nerve_vertical_postcomp_stable_composite_path [K : Cat] (E : τ (Catd K))
+  (x y : τ (Obj K)) (u : τ (Obj (@Fibre_cat K E x)))
+  (v w z : τ (Obj (@Fibre_cat K E y))) (p : τ (Hom K x y))
+  (alpha : τ (Hom (@Fibre_cat K E y) (fapp0 (@catd_transport_func K E x y p) u) v))
+  (h : τ (Hom (@Fibre_cat K E y) v w)) (j : τ (Hom (@Fibre_cat K E y) w z))
+  : τ (@= (Hom (@Sigma_cat K E) (Struct_sigma x u) (Struct_sigma y z))
+      (@sigma_arrow K E x y u z p
+        (@comp_fapp0 (@Fibre_cat K E y) _ v z
+          (@hom_postcomp_fapp0 (@Fibre_cat K E y) (@Fibre_cat K E y) (@id_func (@Fibre_cat K E y)) v w z j h) alpha))
+      (@sigma_arrow K E x y u z p
+        (@comp_fapp0 (@Fibre_cat K E y) _ w z j (@comp_fapp0 (@Fibre_cat K E y) _ v w h alpha))))
+≔ @eq_refl (Hom (@Sigma_cat K E) (Struct_sigma x u) (Struct_sigma y z))
+      (@sigma_arrow K E x y u z p
+        (@comp_fapp0 (@Fibre_cat K E y) _ v z
+          (@hom_postcomp_fapp0 (@Fibre_cat K E y) (@Fibre_cat K E y) (@id_func (@Fibre_cat K E y)) v w z j h) alpha));

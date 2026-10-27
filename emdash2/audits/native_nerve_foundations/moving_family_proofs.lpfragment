@@ -1,0 +1,64 @@
+require open emdash.native_target_transport;
+
+symbol nerve_total_hom_family_path [A B : Cat] (F : τ (Functor A B)) (b : τ (Obj B))
+  : τ (@= (Catd (TotalOp_cat A))
+      (@TotalOp_catd (Op_cat A) (@hom_con B b A F))
+      (@hom_ (TotalOp_cat B) (TotalOp_cat A) (@TotalOp_func A B F) b))
+≔ @eq_refl (Catd (TotalOp_cat A)) (@TotalOp_catd (Op_cat A) (@hom_con B b A F));
+
+// The actual whole a-family whose Sigma is the native Hom.
+symbol nerve_native_hom_family [C : Cat]
+  (x y x1 y1 : τ (Obj C)) (u : τ (Hom C x y)) (v : τ (Hom C x1 y1))
+  : τ (Catd (Hom_cat C x x1))
+≔ @TotalOp_catd (Op_cat (Hom_cat (TotalOp_cat C) x1 x))
+    (@homd_ (TotalOp_cat C)
+      (@homdc_op_edge_catd C C (@hom_int C C (@id_func C)))
+      (@homdc_op_edge_catd C C (@hom_int C C (@id_func C)))
+      (@id_funcd (TotalOp_cat C) (@homdc_op_edge_catd C C (@hom_int C C (@id_func C))))
+      x1 (@pathout_obj C x1 y1 v) x (@pathout_obj C x y u));
+
+symbol nerve_native_hom_family_raw_path [C : Cat]
+  (x y x1 y1 : τ (Obj C)) (u : τ (Hom C x y)) (v : τ (Hom C x1 y1))
+  : τ (@= (Catd (Hom_cat C x x1))
+      (@nerve_native_hom_family C x y x1 y1 u v)
+      (@hom_ (@PathOut_cat C x) (Hom_cat C x x1)
+        (@nerve_native_target_transport_func C x x1 y1 v) (@pathout_obj C x y u)))
+≔ @nerve_total_hom_family_path
+    (Hom_cat (TotalOp_cat C) x1 x)
+    (TotalOp_cat (@PathOut_cat C x))
+    (@fib_cov_tapp0_func (TotalOp_cat C)
+      (@homdc_op_edge_catd C C (@hom_int C C (@id_func C))) x1 x (@pathout_obj C x1 y1 v))
+    (@pathout_obj C x y u);
+
+symbol nerve_native_hom_family_path [C : Cat]
+  (x y x1 y1 : τ (Obj C)) (u : τ (Hom C x y)) (v : τ (Hom C x1 y1))
+  : τ (@= (Catd (Hom_cat C x x1))
+      (@nerve_native_hom_family C x y x1 y1 u v)
+      (@hom_ (@PathOut_cat C x) (Hom_cat C x x1)
+        (@comp_cat_fapp0 (Hom_cat C x x1) (Hom_cat C x y1) (@PathOut_cat C x)
+          (@sigma_intro_tapp0_func C (@hom_ C C (@id_func C) x) y1)
+          (@hom_postcomp_func C C (@id_func C) x x1 y1 v)) (@pathout_obj C x y u)))
+≔ @eq_trans (Catd (Hom_cat C x x1)) _ _ _
+    (@nerve_native_hom_family_raw_path C x y x1 y1 u v)
+    (@eq_ap (Functor (Hom_cat C x x1) (@PathOut_cat C x))
+      (Catd (Hom_cat C x x1))
+      (λ F : τ (Functor (Hom_cat C x x1) (@PathOut_cat C x)),
+        @hom_ (@PathOut_cat C x) (Hom_cat C x x1) F (@pathout_obj C x y u))
+      _ _ (@nerve_native_target_transport_path C x x1 y1 v));
+
+symbol nerve_native_hom_canonical_cat [C : Cat]
+  (x y x1 y1 : τ (Obj C)) (u : τ (Hom C x y)) (v : τ (Hom C x1 y1)) : Cat
+≔ @Sigma_cat (Hom_cat C x x1)
+    (@hom_ (@PathOut_cat C x) (Hom_cat C x x1)
+      (@comp_cat_fapp0 (Hom_cat C x x1) (Hom_cat C x y1) (@PathOut_cat C x)
+        (@sigma_intro_tapp0_func C (@hom_ C C (@id_func C) x) y1)
+        (@hom_postcomp_func C C (@id_func C) x x1 y1 v)) (@pathout_obj C x y u));
+
+symbol nerve_native_hom_category_path [C : Cat]
+  (x y x1 y1 : τ (Obj C)) (u : τ (Hom C x y)) (v : τ (Hom C x1 y1))
+  : τ (@= (Obj Cat_cat)
+      (Hom_cat (@LaxArrow_cat C) (@lax_edge C x y u) (@lax_edge C x1 y1 v))
+      (@nerve_native_hom_canonical_cat C x y x1 y1 u v))
+≔ @eq_ap (Catd (Hom_cat C x x1)) (Obj Cat_cat)
+    (λ H : τ (Catd (Hom_cat C x x1)), @Sigma_cat (Hom_cat C x x1) H)
+    _ _ (@nerve_native_hom_family_path C x y x1 y1 u v);

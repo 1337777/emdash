@@ -11,8 +11,9 @@ Infinity-Codex-Decision-Responses: prior-thread 0099/0105 design and launch deci
 
 ## Current execution contract
 
-Resume native walking-arrow reconstruction after the standing-reference and
-plan consolidation checkpoint. The mathematical priority is the whole native
+Resume native walking-arrow reconstruction from the canonical moving-boundary
+checkpoint below. The standing-reference refresh and plan consolidation are
+complete. The mathematical priority is the whole native
 second inverse, including simultaneous variation of both boundary arrows.
 The first inverse, whole transport and fixed-boundary filler recovery already
 have isolated checks. None supplies the remaining whole inverse automatically.
@@ -34,8 +35,9 @@ these current sections and keep experiment detail at the owning audit.
 - Worktree: `/home/user1/emdash1-strict-functor-duality-v1`.
 - Branch: `goal/strict-functor-duality-v3.2`.
 - Original main baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`.
-- Latest mathematical audit checkpoint: `84f0539e`.
-- Standing-reference update: `f74e14f6`.
+- Previous mathematical audit checkpoint: `84f0539e`; current selected
+  [moving-boundary candidate](../emdash2/audits/native_nerve_foundations/moving_verification.json).
+- Standing-reference update: `f74e14f6`; plan consolidation: `fba40ae2`.
 - Installed core SHA-256:
   `fe85009da18343b8e5a0d70f7661a385af5b8f66cbdfb8d6d453a2cf59bee21e`.
 - Supported batch checker SHA-256:
@@ -48,7 +50,7 @@ these current sections and keep experiment detail at the owning audit.
 Inspect current Git state and baseline ancestry on continuation. The baseline
 is comparison evidence, never permission to reset the descendant worktree.
 Preserve unrelated health-report changes and historical untracked audit files.
-The latest native WIP below is ignored experimental source, not production.
+The selected native audit below is non-library source, not production.
 
 ## Installed contracts
 
@@ -194,27 +196,31 @@ Nine added identity-overlap reports have canonical typed comparisons;
 generic runtime identities remain distinct. Full-module/promotion gates and
 inherited warning dispositions remain open.
 
-### Uncheckpointed native experiment retained during document work
+### Current canonical moving-boundary result
 
-Ignored package:
-`emdash2/tmp/probes/native_nerve_foundations/pi-sigma-native-90kjqy9s`.
-It extends `replay_transport.py --mode integration --assemble-only` with one
-proof-time family comparison at the TotalOp_catd owner. No runtime total-Hom
-rewrite or native inverse is adopted.
+The [selected candidate](../emdash2/audits/native_nerve_foundations/README.md#canonical-moving-boundary-cells-and-whole-filler-inclusion)
+proves a whole family/category comparison with the represented native Hom
+presentation. In that canonical category, independently varying A and B plus
+Γ:(v▹A)∘alpha⇒beta∘(B◃u) form a typed cell. A whole filler functor derives
+from existing Sigma inclusions and total duality; its value comparison and
+both boundary projections pass, with a distinct-Γ rejection control.
 
-| Evidence | Result and limits |
-| --- | --- |
-| `native_hom_family_view.lp`, receipt `20261027T051744Z-4cb0bd5650574578b07f217390b24c85` | Whole canonical a-index family comparison passes in 42.577s. A later imported version also contains its Sigma-category comparison. |
-| `native_canonical_moving_boundary.lp`, receipt `20261027T053232Z-eb7dffae45ce4c1c937ec160802c7217` | Fully typed constructor with both boundary 2-cells still fails after 59.724s. This is an unresolved required consumer, not an accepted negative control or impossibility theorem. |
-| `native_canonical_transport_value.lp`, receipt `20261027T053942Z-de77dbd043634d269334df04dc5586d6` | Staged generic raw-postcomposition proof gives the canonical transported value in 44.337s. Direct specialized reflexivity failed in receipt `20261027T053510Z-aece363998dc48d685df191699d767ca`. |
-| `native_hom_family_controls.lp` | Wrong F, fixed endpoint and duality controls are written but not run. No new full-prefix replay or warning qualification yet. |
+Two constructor-scoped Sigma postcomposition beta rules and one proof-time
+total-Hom family view are added only to the isolated candidate. Removing the
+beta rules breaks the required consumer. The 68-input prefix passes in
+128.850s / 597,312 KiB at 180s / 2 GiB. Four new warning bodies have typed
+unit/composition reduct comparisons; no global confluence claim follows.
+[Source pins, receipts and replay modes](../emdash2/audits/native_nerve_foundations/moving_verification.json)
+replace reliance on the earlier ignored WIP path.
 
-Receipts and exact inputs remain in `emdash2/logs/check-runs/` and
-`emdash2/logs/check-inputs/`. Inspect them before building on this WIP. Next
-resolve the whole transport/Hom comparison at its actual owner; a scoped
-constructor computation or staged existing comparison is preferable to an
-outer-eliminator/inner-cut rule, arbitrary Sigma eta or operational equality
-cast. Qualify the required whole consumer before promoting new rules.
+The direct constructor in the **actual native Hom** still fails at expanded
+transport/Hom conversion. The proof-time canonical-category comparison is
+not an operational cast or a completed native inverse. Full-tuple runtime
+conversion and bare Γ-projection inference also retain their recorded limits;
+the appended next-Θ readback was not reached. Next reconcile the actual whole
+higher action with this canonical presentation, preserving A, B and Γ, then
+complete the second inverse. Do not add a boundary-extraction primitive or
+native inverse axiom. Production/full-module and later integration gates remain.
 
 ## Validation, permissions and checkpoint discipline
 

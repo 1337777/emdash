@@ -16,11 +16,12 @@ Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 ## Authorization and current boundary
 
 Current resumption, 2026-10-27: the [consolidated parent](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md#native-resumption-at-the-present-checkpoint)
-records checkpoint `84f0539e`, the later uncheckpointed whole-family/transport
-comparisons, and the still-failing simultaneous moving-boundary consumer.
-Finish that whole comparison and the native second inverse. The standing
-foundational references are refreshed at `f74e14f6`; book/article work remains
-complete, and later frontend/health integration remains separate.
+records the qualified 68-input canonical moving-boundary construction and
+whole filler inclusion, with both boundary projections and retained Γ. The
+direct actual-native Hom comparison still fails at expanded transport; that
+whole comparison and the second inverse remain next. The standing references
+and plan consolidation are complete at `f74e14f6` / `fba40ae2`; book/article work
+remains complete, and later frontend/health integration remains separate.
 
 The dated entries below are evidence chronology, newest first. An older
 “next,” “open” or “not yet” statement is superseded by the current parent and

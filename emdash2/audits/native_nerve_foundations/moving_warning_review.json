@@ -1,0 +1,66 @@
+{
+  "baseline": "20261027T073902Z-234e8cac74c5413887f4b94dc6ec54f4",
+  "candidate": "20261027T080530Z-951a8f66f7e6436381a4e4f229ae6ab9",
+  "scope": "same core/cubical import closure, added local proof/consumer modules contain no rules",
+  "addedCategories": {
+    "unjoinable critical pair": 4
+  },
+  "removedCategories": {},
+  "addedRuleFamilies": [
+    [
+      [
+        "hom_postcomp_fapp0",
+        "hom_postcomp_fapp0"
+      ],
+      4
+    ]
+  ],
+  "removedRuleFamilies": [],
+  "parserIssues": {},
+  "dispositions": [
+    {
+      "overlap": "ordinary incoming identity versus vertical inclusion beta",
+      "check": "first assert in native_vertical_postcomp_joins.lp",
+      "outcome": "runtime equality"
+    },
+    {
+      "overlap": "total-dual incoming identity versus vertical inclusion beta",
+      "check": "second assert; constant TotalOp fibre makes the symbolic branch typed",
+      "outcome": "runtime equality"
+    },
+    {
+      "overlap": "raw incoming composition versus vertical inclusion beta",
+      "check": "nerve_vertical_postcomp_composite_path",
+      "outcome": "typed comparison of both reducts; ordinary associativity, not runtime association claim"
+    },
+    {
+      "overlap": "stable represented incoming composition versus vertical inclusion beta",
+      "check": "nerve_vertical_postcomp_stable_composite_path",
+      "outcome": "typed comparison of both reducts retaining actual arrows"
+    }
+  ],
+  "qualification": "four symbolic branches have typed checks; not a global confluence or production qualification",
+  "integration": {
+    "baseline": "20261027T045335Z-519478a3021949419f0219ceeeadc8c4",
+    "candidate": "20261027T080947Z-9861ffa308d34f54aa57071c2e3e4bd0",
+    "baselineInputs": 58,
+    "candidateInputs": 68,
+    "addedCategories": {
+      "unjoinable critical pair": 4
+    },
+    "removedCategories": {},
+    "addedMappedLocations": {
+      "emdash3_2.lp:added-19159": 4
+    },
+    "removedMappedLocations": {},
+    "addedRuleFamilies": [
+      [
+        [
+          "hom_postcomp_fapp0",
+          "hom_postcomp_fapp0"
+        ],
+        4
+      ]
+    ]
+  }
+}

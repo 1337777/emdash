@@ -1,0 +1,8 @@
+require open emdash.emdash3_2;
+symbol nerve_precomp_raw_value_path [A B : Cat]
+  (F : τ (Functor A B)) (Z : τ (Obj B)) (W X : τ (Obj A))
+  (h : τ (Hom A W X)) (g : τ (Hom B (fapp0 F X) Z))
+  : τ (@= (Hom B (fapp0 F W) Z)
+      (@hom_precomp_along_fapp0 A B F Z W X h g)
+      (@comp_fapp0 B (fapp0 F W) (fapp0 F X) Z g (@fapp1_fapp0 A B F W X h)))
+≔ @eq_refl (Hom B (fapp0 F W) Z) (@hom_precomp_along_fapp0 A B F Z W X h g);
