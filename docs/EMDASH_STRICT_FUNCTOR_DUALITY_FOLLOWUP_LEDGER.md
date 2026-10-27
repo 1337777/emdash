@@ -4,6 +4,14 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: book/article complete; native Pi/Sigma correction installed; NF-1 reconstruction active; affected frontend candidate preserved separately; broad health/final integration remain deferred
 
+NF-1 post-comparison: [the retained candidate](../emdash2/audits/native_nerve_foundations/whisker_verification.json)
+has a whole functor in the stored filler and a native intrinsic projection
+computing its whiskered comparison. The integrated early-prefix check passes
+in 122.548s with unchanged warning inventory. Original α readback and its
+noncollapse control pass. The stronger γ readback fails in both runtime and
+proof-time forms and remains an explicit obligation, alongside whole section
+reconstruction and the second inverse. No production law is promoted here.
+
 Chronology: frontend acceptance `f0e22340` preceded book/article completion
 `1fe72617`, which preceded native adaptation `e8ffc4d0`. The frontend candidate
 below addresses the subsequent nerve-driven correction `bc37e5fc`; it does

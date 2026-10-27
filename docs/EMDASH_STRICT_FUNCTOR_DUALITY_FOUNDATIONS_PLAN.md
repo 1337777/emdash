@@ -42,6 +42,15 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Native NF-1 progress, 2026-10-27 UTC: [the whole post-comparison candidate](../emdash2/audits/native_nerve_foundations/README.md#whole-native-post-comparison)
+now derives the comparison from the stored native filler via an existing Hom
+telescope and fixed precomposition, as a whole functor in the filler. Its
+intrinsic projection rule and 122.548s integrated prefix check preserve the
+first inverse and common totalization, with unchanged warning families.
+The next-cell observation is typed but does not yet compute to the original
+γ; no second inverse or new section-generation axiom is claimed. Keep this
+native continuation active and the frontend follow-up separate.
+
 Checkpoint chronology clarified, 2026-10-26: the original frontend migration
 was accepted at `f0e22340` under the explicit aggregate-repeat waiver; the
 book/article revision completed at `1fe72617`; native nerve adaptation began

@@ -1,0 +1,63 @@
+--- a/native_nerve_realization_review.lp
++++ b/native_nerve_realization_review.lp
+@@ -0,0 +1 @@
++require open emdash.native_generic_square_whisker_whole;
+@@ -59,0 +61,58 @@
++
++
++
++// Typed identity view of raw composition, before projecting concrete images.
++// This introduces no equality argument and uses the existing stable/raw joins.
++symbol nerve_square_cell_raw_view [A B : Cat]
++  (F G : τ (Functor A B)) (X Y : τ (Obj A)) (p : τ (Hom A X Y))
++  (u : τ (Hom B (@fapp0 A B F X) (@fapp0 A B G X)))
++  (v : τ (Hom B (@fapp0 A B F Y) (@fapp0 A B G Y)))
++  (alpha : τ (Hom (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Y))
++    (@comp_fapp0 B _ _ _ (@fapp1_fapp0 A B G X Y p) u)
++    (@comp_fapp0 B _ _ _ v (@fapp1_fapp0 A B F X Y p))))
++  : τ (Hom (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Y))
++    (@hom_postcomp_fapp0 B A G (@fapp0 A B F X) X Y p u)
++    (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Y) X Y p v))
++≔ alpha;
++
++// Whole whiskering of the original stored filler; no inverse or equality input.
++symbol nerve_native_post_comparison [C : Cat]
++  (z t x y x1 y1 : τ (Obj C))
++  (w : τ (Hom C z t)) (u : τ (Hom C x y)) (v : τ (Hom C x1 y1))
++  (a : τ (Hom C x x1)) (b : τ (Hom C y y1))
++  (alpha : τ (Obj (@homdc_square_fibre C x x1 y y1 u v a b)))
++  : τ (@Transf
++      (Hom_cat (@LaxArrow_cat C) (@lax_edge C z t w) (@lax_edge C x y u))
++      (Hom_cat C z y1)
++      (@functord_transport_lhs_func (@LaxArrow_cat C)
++        (@hom_ (@LaxArrow_cat C) (@LaxArrow_cat C) (@id_func (@LaxArrow_cat C)) (@lax_edge C z t w))
++        (@hom_ C (@LaxArrow_cat C) (@cubical_tgt_func C) z)
++        (@tapp1_at_transf (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C)
++          (@lax_edge C z t w) (nerve_native_universal_transf C))
++        (@lax_edge C x y u) (@lax_edge C x1 y1 v) (@lax_square C x x1 y y1 u v a b alpha))
++      (@functord_transport_rhs_func (@LaxArrow_cat C)
++        (@hom_ (@LaxArrow_cat C) (@LaxArrow_cat C) (@id_func (@LaxArrow_cat C)) (@lax_edge C z t w))
++        (@hom_ C (@LaxArrow_cat C) (@cubical_tgt_func C) z)
++        (@tapp1_at_transf (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C)
++          (@lax_edge C z t w) (nerve_native_universal_transf C))
++        (@lax_edge C x y u) (@lax_edge C x1 y1 v) (@lax_square C x x1 y y1 u v a b alpha)))
++≔ @nerve_generic_square_whisker (@LaxArrow_cat C) C
++    (@cubical_src_func C) (@cubical_tgt_func C)
++    (@lax_edge C z t w) (@lax_edge C x y u) (@lax_edge C x1 y1 v)
++    (@lax_square C x x1 y y1 u v a b alpha) u v
++    (@nerve_square_cell_raw_view (@LaxArrow_cat C) C
++      (@cubical_src_func C) (@cubical_tgt_func C)
++      (@lax_edge C x y u) (@lax_edge C x1 y1 v)
++      (@lax_square C x x1 y y1 u v a b alpha) u v alpha);
++
++// Whole intrinsic post-cell, using the actual stored native filler.
++rule @fdapp1_comma_projection_transf _ _ _
++    (@tapp1_at_transf _ _ _ _ (Struct_sigma $z (Struct_sigma $t $w))
++      (@nerve_native_universal_transf $C))
++    (@fdapp1_int_transfd _ _ _
++      (@tapp1_at_transf _ _ _ _ (Struct_sigma $z (Struct_sigma $t $w))
++        (@nerve_native_universal_transf $C)))
++    (Struct_sigma $x (Struct_sigma $y $u))
++    (Struct_sigma $x1 (Struct_sigma $y1 $v))
++    (Struct_sigma $a (Struct_sigma $b $alpha))
++  ↪ @nerve_native_post_comparison $C $z $t $x $y $x1 $y1 $w $u $v $a $b $alpha;

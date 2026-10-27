@@ -15,6 +15,16 @@ Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 
 ## Authorization and current boundary
 
+NF-1 whole post-cell continuation, 2026-10-27 UTC: the [native refinement](../emdash2/audits/native_nerve_foundations/README.md#whole-native-post-comparison)
+constructs the extracted post-comparison by whiskering the original stored
+filler, with a whole functor in that filler. Two owner-level proof comparisons
+and one native intrinsic projection rule typecheck in the retained prefix.
+The integrated check preserves the first inverse and common totalization,
+with unchanged warning families. Identity evaluation recovers α; next action
+is internal, but its recovery of γ remains unqualified. The candidate is
+non-library and supplies no second inverse. Continue the complete higher
+action/section comparison; the failed stronger controls remain recorded.
+
 Current native experiment, 2026-10-26: [the corrected-profile comparison review](../emdash2/audits/native_nerve_foundations/current_section_review.json)
 rechecks both whole section equality and the actual implementation's whole
 Hom identity without the retired Pi/Sigma folds. Both typed-reflexivity

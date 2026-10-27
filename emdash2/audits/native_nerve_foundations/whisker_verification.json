@@ -1,0 +1,202 @@
+{
+  "schema": "emdash-native-whole-post-cell-v1",
+  "status": "isolated whole post-cell and filler-functor construction pass with native prefix; higher readback and second inverse remain open",
+  "receiverBaseline": "d84910d0",
+  "baseReplay": {
+    "script": "../pi_sigma_section_profile/replay.py",
+    "mode": "native",
+    "sourceRevision": "81157237"
+  },
+  "coreAnchor": "// Same reading in a dimension-one-opposite codomain, where comp has reduced.\n",
+  "target": "native_nerve_section_review.lp",
+  "addedProgram": "native_generic_square_whisker_whole.lp",
+  "addedControls": "native_whisker_qualified_controls.lp",
+  "targetSuffix": "\nrequire open emdash.native_whisker_qualified_controls;\n",
+  "checker": {
+    "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+    "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+    "version": "dev-3.0.0-90-gdb4f7809-dirty"
+  },
+  "expectedInputs": {
+    "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+    "emdash3_2.lp": "4fd30ad2da59b785a30b90241fc65422f6412b596eb769cd7bee4906476aee9d",
+    "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+    "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+    "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+    "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+    "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+    "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+    "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+    "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+    "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+    "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+    "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+    "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+    "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+    "emdash3_2_gray_transformation_graph.lp": "db87cf675f63982930023ec8b397315111dadb0800a1c1d5ec2e82aaed9cd68a",
+    "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+    "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+    "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+    "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+    "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+    "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+    "emdash3_2_represented_comma_families.lp": "741ac9a3801492acc31a6763628788f40b21b07a00037fdd6eafa0b14e82257f",
+    "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+    "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+    "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+    "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+    "emdash3_2_walking_arrow_introduction.lp": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "native_generic_square_whisker_whole.lp": "f7f8fc3c32bbab0abb0cd66f0f1384cc163f92814eef776dc8e7583588b69744",
+    "native_nerve_composite_review.lp": "a9d7512af42a23a2eba38e3d67da390cea6297a2f571820ccd3e2a89614c1abd",
+    "native_nerve_generation_review.lp": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323",
+    "native_nerve_graph_review.lp": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9",
+    "native_nerve_graph_whole_review.lp": "6a69911880e10a4332a14582444d5ed45b146ea9e969975ede3e96c8fea47b4e",
+    "native_nerve_realization_review.lp": "d627e730cd7f1b4486fbe6320774e940617fc3ecb5c6e83715bec3b6b82fb605",
+    "native_nerve_section_review.lp": "ed2be2c677b3696fe8dd1b3f0f1e3c95bd01a1fc01d503d01be848322df48138",
+    "native_nerve_sigma_generation_review.lp": "cd0542f0a92de40d7bd132705b2281540cf7c182cca788dddb6f1e41eddfe20e",
+    "native_nerve_sigma_graph_review.lp": "52f9f0cbe357a442c425a23064742a70a29c4f41a6e26cf840034970670e4fc5",
+    "native_whisker_qualified_controls.lp": "b220423818024ab8c4b62327a23a1b3a260b9f53fc8bbbda16203f025f6d7924"
+  },
+  "runs": [
+    {
+      "role": "generic_without_comparisons",
+      "id": "20261026T235129Z-bdd41fc74d1e4eda9b558ea64636d25c",
+      "target": "tmp/probes/native_nerve_foundations/native_generic_square_whisker.lp",
+      "outcome": "failed",
+      "wallSeconds": 40.81130148097873,
+      "childrenMaxRssKiB": 168548,
+      "inputSnapshot": "e076ccde1a81c7ac196329a96845586358c4cb0d53efa3eb531b53483653f770",
+      "logSha256": "538ea6ea989a95aafe7bb70a464cd5298d18c0e36a6df4d03f13c928cc3ce00d"
+    },
+    {
+      "role": "generic_whisker",
+      "id": "20261026T235416Z-222a71d1f70742be87313120ba99d017",
+      "target": "native_generic_square_whisker.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 53.625100336037576,
+      "childrenMaxRssKiB": 172204,
+      "inputSnapshot": "d6b66bb7b2cc488fa13527abe0698f42c07321a2ccdbfd5388096ce8444b1e13",
+      "logSha256": "e0407a60b4b6e305022fea554631b71428d0d888bee19f00d36e01116f87e41c"
+    },
+    {
+      "role": "native_scalar_image_mismatch",
+      "id": "20261026T235614Z-931e45b0a7734b01a3c882099a9ad777",
+      "target": "native_nerve_realization_review.lp",
+      "outcome": "failed",
+      "wallSeconds": 159.4262865660712,
+      "childrenMaxRssKiB": 567876,
+      "inputSnapshot": "8162d6aae8ad1df33291922ca9bdcb2bbf2a2a70b8fab087d6aac3af3855a9a7",
+      "logSha256": "f0ab5ed83b6f58b0c0d63842c80cab7365fd535d260f8ef871fd51cf4418ab83"
+    },
+    {
+      "role": "native_whole_post_cell",
+      "id": "20261027T000128Z-784f790d81784c459ed66bbf479b59b0",
+      "target": "native_nerve_realization_review.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 131.03676426317543,
+      "childrenMaxRssKiB": 594076,
+      "inputSnapshot": "c2c27ad077b230543efe80ec5111796f39d4f0ab99b18685a122f1063aa82ead",
+      "logSha256": "8bf6448de99b56f616002b8cffa1afb7071e1a69c348d74fc2803e5d75848a48"
+    },
+    {
+      "role": "whole_filler_functor",
+      "id": "20261027T000446Z-5f678c57d28f447cbbb2291586180ce2",
+      "target": "native_generic_square_whisker_whole.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 45.98911591200158,
+      "childrenMaxRssKiB": 173280,
+      "inputSnapshot": "325da4ef91103c44e3d1a9766f2f1c3eae53b7d0a10db3ed498b082d67a345cb",
+      "logSha256": "35d5015a952c7aa452f0d114cab5c10401c9f27856b7ed137e7ea6cae84999dc"
+    },
+    {
+      "role": "higher_runtime_readback",
+      "id": "20261027T000651Z-641fa71eb7fb4984b5ba30f74237ea2a",
+      "target": "native_whisker_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 43.36605407088064,
+      "childrenMaxRssKiB": 171480,
+      "inputSnapshot": "cc885db9639be4e9bd207ae5dce02c54431c1a5d687e5e6d594168aa6d14c876",
+      "logSha256": "044a77871755c22b51b4fd145e737ad6615d021eb0b4bb1bbc7b394587350a28"
+    },
+    {
+      "role": "higher_proof_time_readback",
+      "id": "20261027T001120Z-6d706cd67c224f14adc73f3be8ae559a",
+      "target": "native_whisker_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 41.562768897973,
+      "childrenMaxRssKiB": 172980,
+      "inputSnapshot": "44a042bbbafdaa5300ab57049ffa42c44d7aa5ef06592f30cf9b73ee5bd68e14",
+      "logSha256": "5c2b3e0d7976c58cb5c9df1dfce8c24c661b832442721fb626d74e625bb1751f"
+    },
+    {
+      "role": "unhelpful_precomp_unit",
+      "id": "20261027T001511Z-4e190f9dac934ec5bed1b6c79c4f5ef2",
+      "target": "native_whisker_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 42.313483462901786,
+      "childrenMaxRssKiB": 173288,
+      "inputSnapshot": "e6d37160324ac0e405f1a2369bff65ce202eb82ff14e7f8cc52957911b6f570a",
+      "logSha256": "091f483f0b06a28f9b47bb2bbb9f03c07193a1e25bb58d00938c680bfde8d713"
+    },
+    {
+      "role": "higher_normal_form_trace",
+      "id": "20261027T001706Z-87759138b0cb496aa35f804f4168ab7a",
+      "target": "native_whisker_trace.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 37.664710159180686,
+      "childrenMaxRssKiB": 171284,
+      "inputSnapshot": "4be448ddb9d4c4e70d49b247f1f6405ec2e735950a2db64205037cd2b629c968",
+      "logSha256": "b9781398d9be3d1e386663ae05674669ffa4f07a0ec55499901279e24c72dcac"
+    },
+    {
+      "role": "native_integration",
+      "id": "20261027T002117Z-39a1406fe66b466ab4f6614a4364f307",
+      "target": "native_nerve_section_review.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 122.54784511495382,
+      "childrenMaxRssKiB": 586072,
+      "inputSnapshot": "35c0b3b02215ea1ab3c2e2007e50309424ab42e8813fef3811bb96be6d893149",
+      "logSha256": "3b08f2b81f867b08948bafa613a950e2e5bd51b3d63cee2f9e0660e2feccc576"
+    }
+  ],
+  "warnings": {
+    "baseline": "20261026T212056Z-1fb4843d733f4c02a9b66dba29b63af0",
+    "candidate": "20261027T002117Z-39a1406fe66b466ab4f6614a4364f307",
+    "baselineCategories": {
+      "replaceable pattern variable": 181,
+      "unjoinable critical pair": 2151
+    },
+    "candidateCategories": {
+      "replaceable pattern variable": 181,
+      "unjoinable critical pair": 2151
+    },
+    "addedRuleFamilies": [],
+    "removedRuleFamilies": [],
+    "parserIssues": {}
+  },
+  "selectedChanges": {
+    "coreProofComparisons": 2,
+    "coreRuntimeRules": 0,
+    "nativeIntrinsicWholeProjectionRules": 1,
+    "newOperationalEqualityArguments": 0,
+    "nativeInverseAxioms": 0,
+    "runtimeFillerReadback": "recovers the original noninvertible alpha at the represented identity",
+    "higherObservation": "internal morphism retained; neither runtime nor proof-time recovery of gamma is qualified"
+  },
+  "unselectedPrecompUnit": "A whole hom_precomp_along_fapp1_func identity cut did not close the higher readback; it is excluded from the selected candidate.",
+  "scope": "Same early represented-comma prefix as the parent, including the first inverse and the second-composite totalization; full-module, inherited core-unit and production-promotion gates remain open.",
+  "remaining": [
+    "Resolve the retained higher component through the Cartesian inclusion and postcomposition telescope, without supplying the desired gamma equality.",
+    "Compare the original graph section with the tautological section, or derive a justified inverse comparison of their whole totals.",
+    "Complete full module/reviewer and production promotion qualification."
+  ],
+  "artifacts": {
+    "whisker_owner.lpfragment": "da3026cdd3bd0d011a78840ffe09d500007f929185e10535ccf235a6b92e9880",
+    "whisker_functor.lpfragment": "f7f8fc3c32bbab0abb0cd66f0f1384cc163f92814eef776dc8e7583588b69744",
+    "whisker_controls.lpfragment": "b220423818024ab8c4b62327a23a1b3a260b9f53fc8bbbda16203f025f6d7924",
+    "whisker_higher_boundary.lpfragment": "d8aa1a8c54a83be66ff97bf83fdc9c6f4c01367c0b2bad22671add70e4fc6f09",
+    "whisker_native_owner.patch": "5a60f081bf20fc0c2678a07a45a9cba2758c5b78845efa9d7bbae593a3d2ff86",
+    "replay_whisker.py": "839a3c878564688e95964fe529ecee1bc871e463b602bb0717a6fa9a0025cb89"
+  }
+}

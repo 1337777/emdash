@@ -1,0 +1,41 @@
+require open emdash.native_generic_square_whisker_whole;
+
+symbol nerve_whisker_identity_filler_func [C : Cat]
+  (x y : τ (Obj C)) (p : τ (Hom C x y))
+  : τ (Functor (Hom_cat (Hom_cat C x y) p p)
+      (@Transf_cat (Hom_cat C x x) (Hom_cat C x y)
+        (@hom_postcomp_func C C (@id_func C) x x y p)
+        (@hom_postcomp_func C C (@id_func C) x x y p)))
+≔ @nerve_generic_square_whisker_func C C (@id_func C) (@id_func C) x x y p
+    (@id C x) (@id C y);
+
+// Evaluating the whole mapped comparison at the represented identity
+// recovers the original possibly noninvertible filler.
+assert [C : Cat] (x y : τ (Obj C)) (p : τ (Hom C x y))
+  (alpha : τ (Hom (Hom_cat C x y) p p)) ⊢
+  @tapp0_fapp0 (Hom_cat C x x) (Hom_cat C x y)
+    (@hom_postcomp_func C C (@id_func C) x x y p)
+    (@hom_postcomp_func C C (@id_func C) x x y p) (@id C x)
+    (@fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) alpha)
+  ≡ alpha;
+
+// The next action is retained by the same whole functor in alpha.
+assert [C : Cat] (x y : τ (Obj C)) (p : τ (Hom C x y))
+  (alpha beta : τ (Hom (Hom_cat C x y) p p))
+  (gamma : τ (Hom (Hom_cat (Hom_cat C x y) p p) alpha beta)) ⊢
+  @tapp0_hom_fapp0 (Hom_cat C x x) (Hom_cat C x y)
+    (@hom_postcomp_func C C (@id_func C) x x y p)
+    (@hom_postcomp_func C C (@id_func C) x x y p)
+    (@fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) alpha)
+    (@fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) beta)
+    (@id C x)
+    (@fapp1_fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) alpha beta gamma)
+  ≡ gamma;
+
+assertnot [C : Cat] (x y : τ (Obj C)) (p : τ (Hom C x y))
+  (alpha beta : τ (Hom (Hom_cat C x y) p p)) ⊢
+  @tapp0_fapp0 (Hom_cat C x x) (Hom_cat C x y)
+    (@hom_postcomp_func C C (@id_func C) x x y p)
+    (@hom_postcomp_func C C (@id_func C) x x y p) (@id C x)
+    (@fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) alpha)
+  ≡ beta;

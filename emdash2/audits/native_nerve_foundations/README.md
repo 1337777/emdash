@@ -411,6 +411,54 @@ normalization or native section-generation law has been added for that gap.
 
 ## Common whole section totalization
 
+### Whole native post-comparison
+
+The [new construction and verification](whisker_verification.json) computes
+the native universal transformation's whole intrinsic post-cell on visible
+Sigma squares. For a square with stored filler α, it uses the ordinary Hom
+postcomposition telescope followed by precomposition with the source Hom
+action. The [whole functor in α](whisker_functor.lpfragment) is a defined
+composite of existing functors; its capped helper is its object projection.
+No comparison cell or equality proof is supplied by the caller.
+
+Two [whole proof-time comparisons](whisker_owner.lpfragment) join the mixed
+postcomposition and strict-source-map presentations needed to type that
+composite. They keep the existing runtime cuts and retain all maps and arrows.
+A generic typed identity view of the existing raw/stable composition joins
+then handles the concrete native projection images. The [native owner patch](whisker_native_owner.patch)
+adds one structural computation at `fdapp1_comma_projection_transf` for the
+already-declared universal transformation. This is a refinement of that
+structural owner's computation, not an inverse theorem.
+
+The integrated early-prefix check passes in **122.548s** under 180s/2 GiB,
+including the retained first walking inverse, square/filler and identity
+controls, and common whole-section totalization. Warning counts and rule
+families match the corrected-profile baseline: 181 pattern warnings, 2,151
+critical-pair warnings, no newly reported family or parser issue. The strict
+LHS audit reports no unreviewed clause; this does not establish confluence or
+qualify the omitted module suffix.
+
+The [accepted observations](whisker_controls.lpfragment) recover α at the
+represented identity, reject replacement by an unrelated filler, and retain
+the next action as an internal morphism. The stronger assertion that its
+higher component computes back to γ is **not** established: both runtime and
+proof-time attempts fail. The [original failing assertion](whisker_higher_boundary.lpfragment)
+is retained. A trial whole precomposition identity cut did not close that
+assertion and is excluded from this candidate. Normalization locates the
+remaining expression at the Cartesian inclusion and postcomposition-telescope
+higher action. Do not describe the well-typed next action as a recovered γ or
+as a second walking inverse.
+
+```bash
+python3 emdash2/audits/native_nerve_foundations/replay_whisker.py
+python3 emdash2/audits/native_nerve_foundations/replay_whisker.py --assemble-only
+```
+
+The replay checks the exact 39-input closure, including the prior audit
+construction and its corrected Pi/Sigma profile. It changes no production
+source. Whole native section reconstruction, the second inverse, full-module
+qualification and inherited promotion gates remain open.
+
 Current-profile continuation: [two fresh comparison attempts](current_section_review.json)
 use the installed Pi/Sigma correction, so the generic section view is a typed
 identity and the former extra section-identity unifier is absent. The direct

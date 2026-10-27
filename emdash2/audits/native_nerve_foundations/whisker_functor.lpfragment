@@ -1,0 +1,33 @@
+require open emdash.emdash3_2;
+
+// Generic whiskering, typed before native Sigma projection functors expand.
+symbol nerve_generic_square_whisker_func [A B : Cat]
+  (F G : τ (Functor A B)) (X Y Z : τ (Obj A)) (p : τ (Hom A Y Z))
+  (u : τ (Hom B (@fapp0 A B F Y) (@fapp0 A B G Y)))
+  (v : τ (Hom B (@fapp0 A B F Z) (@fapp0 A B G Z)))
+  : τ (Functor (Hom_cat (Hom_cat B (@fapp0 A B F Y) (@fapp0 A B G Z)) (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u) (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v))
+      (@Transf_cat (Hom_cat A X Y) (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Z)) (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func B A G (@fapp0 A B F X) Y Z p) (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B G Y) u) (@fapp1_func A B F X Y))) (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Z) (@fapp0 A B G Z) v) (@comp_cat_fapp0 _ _ _ (@fapp1_func A B F X Z) (@hom_postcomp_func A A (@id_func A) X Y Z p)))))
+≔ @comp_cat_fapp0 (Hom_cat (Hom_cat B (@fapp0 A B F Y) (@fapp0 A B G Z)) (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u) (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v)) (Hom_cat (Functor_cart_cat (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Y)) (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Z))) (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B G Z) (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)) (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B G Z) (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v))) (@Transf_cat (Hom_cat A X Y) (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Z)) (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func B A G (@fapp0 A B F X) Y Z p) (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B G Y) u) (@fapp1_func A B F X Y))) (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Z) (@fapp0 A B G Z) v) (@comp_cat_fapp0 _ _ _ (@fapp1_func A B F X Z) (@hom_postcomp_func A A (@id_func A) X Y Z p))))
+    (@comp_cat_fapp0 (Hom_cat (Functor_cart_cat (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Y)) (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Z))) (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B G Z) (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)) (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B G Z) (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v))) (@Transf_cat (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Y)) (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Z)) (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B G Z) (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)) (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B G Z) (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v))) (@Transf_cat (Hom_cat A X Y) (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Z)) (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func B A G (@fapp0 A B F X) Y Z p) (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B G Y) u) (@fapp1_func A B F X Y))) (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Z) (@fapp0 A B G Z) v) (@comp_cat_fapp0 _ _ _ (@fapp1_func A B F X Z) (@hom_postcomp_func A A (@id_func A) X Y Z p))))
+      (@comp_cat_con_fapp1_func (Hom_cat A X Y) (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Y)) (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Z)) (@fapp1_func A B F X Y) (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B G Z) (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)) (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B G Z) (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v)))
+      (@fapp1_func (Functor_cart_cat (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Y)) (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Z))) (Functor_cat (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Y)) (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Z))) (Functor_cart_include (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Y)) (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Z))) (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B G Z) (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)) (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B G Z) (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v))))
+    (@hom_postcomp_tele_fapp1_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B G Z) (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u) (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v));
+
+symbol nerve_generic_square_whisker [A B : Cat]
+  (F G : τ (Functor A B)) (X Y Z : τ (Obj A)) (p : τ (Hom A Y Z))
+  (u : τ (Hom B (@fapp0 A B F Y) (@fapp0 A B G Y)))
+  (v : τ (Hom B (@fapp0 A B F Z) (@fapp0 A B G Z)))
+  (alpha : τ (Hom (Hom_cat B (@fapp0 A B F Y) (@fapp0 A B G Z))
+    (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)
+    (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v)))
+  : τ (@Transf (Hom_cat A X Y) (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Z))
+    (@comp_cat_fapp0 _ _ _
+      (@hom_postcomp_func B A G (@fapp0 A B F X) Y Z p)
+      (@comp_cat_fapp0 _ _ _
+        (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B G Y) u)
+        (@fapp1_func A B F X Y)))
+    (@comp_cat_fapp0 _ _ _
+      (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X) (@fapp0 A B F Z) (@fapp0 A B G Z) v)
+      (@comp_cat_fapp0 _ _ _ (@fapp1_func A B F X Z)
+        (@hom_postcomp_func A A (@id_func A) X Y Z p))))
+≔ @fapp0 _ _ (@nerve_generic_square_whisker_func A B F G X Y Z p u v) alpha;
