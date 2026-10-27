@@ -1,0 +1,33 @@
+require open emdash.emdash3_2;
+
+// A section is a displayed map from the terminal family. Totalizing it
+// therefore has this existing Sigma-map / product-unit presentation.
+symbol nerve_section_total_via_sigma [K : Cat] (E : τ (Catd K))
+  (s : τ (Obj (@Pi_cat K E))) : τ (Functor K (@Sigma_cat K E))
+≔ @comp_cat_fapp0 K (@Sigma_cat K (@Const_catd K Terminal_cat)) (@Sigma_cat K E)
+    (@sigma_map_func K (@Const_catd K Terminal_cat) E s)
+    (@Product_pair (Functor_cat K K) (Functor_cat K Terminal_cat)
+      (@id_func K) (@Const_func K Terminal_cat Terminal_obj));
+
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (@Pi_cat K E)))
+  (x : τ (Obj K)) ⊢
+  @fapp0 K (@Sigma_cat K E) (@nerve_section_total_via_sigma K E s) x
+  ≡ @fapp0 K (@Sigma_cat K E) (@section_total_func K E s) x;
+
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (@Pi_cat K E)))
+  (x y : τ (Obj K)) (p : τ (Hom K x y)) ⊢
+  @fapp1_fapp0 K (@Sigma_cat K E) (@nerve_section_total_via_sigma K E s) x y p
+  ≡ @fapp1_fapp0 K (@Sigma_cat K E) (@section_total_func K E s) x y p;
+
+// Compare the entire Hom functor, not only its arrow-object projection.
+symbol nerve_section_sigma_hom_path [K : Cat] (E : τ (Catd K))
+  (s : τ (Obj (@Pi_cat K E))) (x y : τ (Obj K))
+  : τ (@= (Functor (Hom_cat K x y)
+      (Hom_cat (@Sigma_cat K E) (Struct_sigma x (@piapp0 K E s x))
+        (Struct_sigma y (@piapp0 K E s y))))
+      (@fapp1_func K (@Sigma_cat K E) (@nerve_section_total_via_sigma K E s) x y)
+      (@fapp1_func K (@Sigma_cat K E) (@section_total_func K E s) x y))
+≔ @eq_refl (Functor (Hom_cat K x y)
+    (Hom_cat (@Sigma_cat K E) (Struct_sigma x (@piapp0 K E s x))
+      (Struct_sigma y (@piapp0 K E s y))))
+    (@fapp1_func K (@Sigma_cat K E) (@nerve_section_total_via_sigma K E s) x y);

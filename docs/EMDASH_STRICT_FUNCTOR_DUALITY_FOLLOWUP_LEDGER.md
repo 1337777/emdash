@@ -4,6 +4,14 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: book/article complete; native Pi/Sigma correction installed; NF-1 reconstruction active; affected frontend candidate preserved separately; broad health/final integration remain deferred
 
+NF-1 general-source higher readback: [the new proof and native instance](../emdash2/audits/native_nerve_foundations/general_source_verification.json)
+close the earlier arbitrary-F/G restriction using fixed prewhiskering and a
+direct scalar image comparison. The 42-input native prefix passes with
+unchanged warning inventory; distinct higher cells and outer scalar arrows
+remain rejected. Whole section reconstruction still fails at the actual
+section constructors. Preserve that remaining obligation and the second
+inverse; no native identity law or production edit is supplied here.
+
 NF-1 identity-filler higher recovery: [the staged proof](../emdash2/audits/native_nerve_foundations/higher_component_verification.json)
 recovers γ at proof time and rejects a distinct δ. Full-prefix and typed
 Op/Cartesian consumers pass; the removed-bridge control fails. This supersedes

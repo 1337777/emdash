@@ -1,0 +1,12 @@
+require open emdash.native_general_higher_typed;
+
+// The scalar comparison must retain its outer arrow, not just its endpoints.
+assertnot [A B : Cat] (F : τ (Functor A B)) (X Y : τ (Obj A))
+  (Z : τ (Obj B)) (p : τ (Hom A X Y))
+  (v w : τ (Hom B (@fapp0 A B F Y) Z)) ⊢
+  @eq_refl (Hom B (@fapp0 A B F X) Z)
+    (@hom_precomp_along_fapp0 A B F Z X Y p v)
+  : τ (@= (Hom B (@fapp0 A B F X) Z)
+      (@hom_precomp_along_fapp0 A B F Z X Y p v)
+      (@hom_postcomp_fapp0 B B (@id_func B) (@fapp0 A B F X)
+        (@fapp0 A B F Y) Z w (@fapp1_fapp0 A B F X Y p)));

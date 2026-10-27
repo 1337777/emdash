@@ -15,6 +15,14 @@ Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 
 ## Authorization and current boundary
 
+NF-1 general source recovery, 2026-10-27 UTC: the [new higher-readback proof](../emdash2/audits/native_nerve_foundations/README.md#general-source-higher-recovery)
+accepts arbitrary strict F,G and passes for the actual native source/target
+projections and arbitrary native p. The original Γ is retained; wrong Γ and
+scalar-arrow replacements are rejected. The integrated prefix passes with no
+new warning family relative to its parent. The whole graph-section equality
+still fails at the two section constructors, so the second inverse remains
+open. Continue that whole reconstruction; do not reopen frontend/book work.
+
 NF-1 higher recovery, 2026-10-27 UTC: the [staged comparison](../emdash2/audits/native_nerve_foundations/README.md#staged-higher-component-recovery)
 proves γ recovery for the recorded identity-filler observation, preserving a
 negative runtime-equality control and rejecting an unrelated δ. The full

@@ -42,6 +42,15 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Native general-source continuation, 2026-10-27 UTC: [the retained construction](../emdash2/audits/native_nerve_foundations/README.md#general-source-higher-recovery)
+extends higher readback to arbitrary strict source/target maps and checks the
+actual native projections, with original-cell retention controls. Its full
+retained prefix passes in 143.479s with unchanged warning families. This
+closes the previously recorded arbitrary-source restriction, not the whole
+inverse: graph-section reconstruction still leaves a constructor comparison.
+The active task remains that whole native reconstruction, with production
+promotion, inherited warning peaks and later nerve stages still required.
+
 Native higher recovery, 2026-10-27 UTC: the [latest candidate](../emdash2/audits/native_nerve_foundations/README.md#staged-higher-component-recovery)
 closes the recorded identity-filler γ observation by a staged proof-time
 comparison. The retained native prefix and typed Op/Cartesian clients pass,

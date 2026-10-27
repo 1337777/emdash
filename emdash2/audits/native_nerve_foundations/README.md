@@ -466,6 +466,9 @@ qualification and inherited promotion gates remain open.
 
 ### Staged higher-component recovery
 
+The later [general-source continuation](#general-source-higher-recovery) removes
+the identity-source restriction of the selected higher-readback consumer.
+
 The [selected continuation](higher_component_verification.json) adds a whole
 comparison between evaluating the postcomposition Hom action and the existing
 precomposition Hom action. An identity-input component-first comparison covers
@@ -516,6 +519,57 @@ python3 emdash2/audits/native_nerve_foundations/replay_higher.py --mode without-
 All modes also support `--assemble-only`, which verifies the exact recorded
 source closure without another checker run. Production sources and the parked
 frontend candidate are unchanged.
+
+### General-source higher recovery
+
+The [general-source candidate](general_source_verification.json) now proves
+the higher-readback comparison for arbitrary default-strict functors F and G,
+an arbitrary base arrow p, and possibly unequal filler endpoints. Its
+[defined observation and proof](general_source_readback.lpfragment) reuse the
+staged postcomposition unit comparison; no equality proof is an operational
+input and no inverse is postulated.
+
+Two [fixed-prewhiskering projections](general_source_prewhisker.lpfragment)
+compute whole component evaluation and its component-first next action.
+They fix H and preserve the original modification; they do not identify two
+jointly varying lax interchange routes. The [scalar image comparison](general_source_image.lpfragment)
+joins precomposition along F,p with postcomposition using F[p]. This is the
+contravariant counterpart of the existing postcomposition image view, and
+retains F, p and the outer arrow rather than inferring p from its image.
+
+The [actual native instance](general_source_controls.lpfragment) uses
+`cubical_src_func` and `cubical_tgt_func`, arbitrary native edges q,r and an
+arbitrary arrow p:q→r. The original Γ is retained and replacement by an
+unrelated Δ is rejected. The integrated prefix passes in **143.479s** under
+180s/2 GiB; its warning inventory matches the higher-component parent, with
+no new rule family or parser issue. The parent's nine identity-normalization
+peaks remain a promotion boundary. The independently assembled no-image
+control rehashes to the existing failed receipt, so it was not rerun merely
+to obtain the same failure.
+
+The whole section comparison was then rechecked on this improved candidate.
+It still fails between `sigma_functord_sec(id)` and the composite mapped
+identity section. The scalar retention control completed before that failed
+proof and rejects a different outer arrow. The improved local action is
+therefore not a whole section reconstruction or the second native inverse.
+
+```bash
+python3 emdash2/audits/native_nerve_foundations/replay_general_source.py
+python3 emdash2/audits/native_nerve_foundations/replay_general_source.py --assemble-only
+```
+
+The replay verifies the exact 42-input closure and leaves production and the
+frontend unchanged. Continue at the actual whole section/totalization
+constructors; do not add the desired native identity as a rule.
+
+A [definition-only totalization alternative](section_sigma_presentation_candidate.lpfragment)
+uses Sigma of the terminal-source displayed map, precomposed with the
+constant-`Terminal_obj` product-unit insertion. It typechecks and matches the
+existing object and arrow projections. Its [whole Hom comparison](section_sigma_hom_boundary.lpfragment)
+still fails, so it is not installed as the semantics of `section_total_func`
+or used to infer the native inverse. The earlier opaque `Terminal_func`
+insertion failed even the object comparison. All outcomes remain in the
+verification record; the actual whole constructor calculation is still open.
 
 Current-profile continuation: [two fresh comparison attempts](current_section_review.json)
 use the installed Pi/Sigma correction, so the generic section view is a typed

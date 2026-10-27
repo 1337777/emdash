@@ -1,0 +1,28 @@
+require open emdash.native_general_higher_typed;
+require open emdash.native_nerve_realization_review;
+
+// The actual native source/target functors, with arbitrary native edges
+// and arrow p. No OneCat or invertibility condition is used.
+assert [C : Cat] (q r : τ (Obj (@LaxArrow_cat C))) (p : τ (Hom (@LaxArrow_cat C) q r))
+  (u : τ (Hom C (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q) (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) q))) (v : τ (Hom C (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) r) (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) r)))
+  (alpha beta : τ (Obj (Hom_cat (Hom_cat C (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q) (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) r)) (@hom_postcomp_fapp0 C (@LaxArrow_cat C) (@cubical_tgt_func C) (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q) q r p u) (@hom_precomp_along_fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) r) q r p v)))) (Gamma : τ (Hom (Hom_cat (Hom_cat C (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q) (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) r)) (@hom_postcomp_fapp0 C (@LaxArrow_cat C) (@cubical_tgt_func C) (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q) q r p u) (@hom_precomp_along_fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) r) q r p v)) alpha beta)) ⊢
+  @nerve_generic_whisker_higher_readback (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C) q r p u v alpha beta Gamma
+  : τ (@= (Hom (Hom_cat (Hom_cat C (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q) (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) r)) (@hom_postcomp_fapp0 C (@LaxArrow_cat C) (@cubical_tgt_func C) (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q) q r p u) (@hom_precomp_along_fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) r) q r p v)) alpha beta)
+      (@nerve_generic_whisker_higher_value (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C) q r p u v alpha beta Gamma)
+      Gamma);
+
+assertnot [A B : Cat] (F G : τ (Functor A B)) (Y Z : τ (Obj A))
+  (p : τ (Hom A Y Z))
+  (u : τ (Hom B (@fapp0 A B F Y) (@fapp0 A B G Y)))
+  (v : τ (Hom B (@fapp0 A B F Z) (@fapp0 A B G Z)))
+  (alpha beta : τ (Hom (Hom_cat B (@fapp0 A B F Y) (@fapp0 A B G Z))
+      (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)
+      (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v)))
+  (Gamma Delta : τ (Hom (Hom_cat (Hom_cat B (@fapp0 A B F Y) (@fapp0 A B G Z))
+      (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)
+      (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v)) alpha beta)) ⊢
+  @nerve_generic_whisker_higher_readback A B F G Y Z p u v alpha beta Gamma
+  : τ (@= (Hom (Hom_cat (Hom_cat B (@fapp0 A B F Y) (@fapp0 A B G Z))
+      (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)
+      (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v)) alpha beta)
+      (@nerve_generic_whisker_higher_value A B F G Y Z p u v alpha beta Gamma) Delta);

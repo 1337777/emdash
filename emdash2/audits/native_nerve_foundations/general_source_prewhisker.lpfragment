@@ -1,0 +1,14 @@
+// Fixed prewhiskering commutes with the whole component evaluator.
+// Only H is fixed; no joint interchange of two lax transformations is imposed.
+// lhs-audit: keep 1 -- ordinary functor composition is the actual owner.
+rule @comp_fapp0 Cat_cat _ _ _
+    (@tapp0_func _ _ _ _ $x)
+    (@hom_precomp_along_fapp1_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) $C $A $B $H $F $G)
+  ↪ @tapp0_func $B $C $F $G (@fapp0 $A $B $H $x);
+
+// The component-first next-Hom projection of that same fixed action.
+rule @tapp0_hom_fapp0 _ _ _ _ _ _ $x
+    (@fapp1_fapp0 _ _
+      (@hom_precomp_along_fapp1_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) $C $A $B $H $F $G)
+      $eta $theta $Gamma)
+  ↪ @tapp0_hom_fapp0 $B $C $F $G $eta $theta (@fapp0 $A $B $H $x) $Gamma;
