@@ -26,8 +26,10 @@ Current resumption, 2026-10-27: the [whole iterated-walking maps and tensor cons
 now check on qualified `85b30c5e`. The first whole round trip at variable n
 and its parameter-family/tensor consumers are also derived. The [structural
 parameter action and derived positive geometric decoder](../emdash2/audits/native_nerve_foundations/postcomposition_review.md)
-now pass a 54-input check, including both iteration-shift inverses. Follow the
-outline's reverse closure/encoder route while retaining the native second
+now pass a 54-input check, including both iteration-shift inverses. The
+[derived reverse map and encoder](../emdash2/audits/native_nerve_foundations/reverse_review.md)
+also pass a 61-input check, with whole-family readbacks. Follow the outline's
+whole exchange/closure inverse proofs while retaining the native second
 inverse, reverse recursive round trip and geometric degree zero as required.
 The raw nested higher-projection and Cat_cart specialization limits are
 recorded promotion obligations, not reasons to stop the broader construction.

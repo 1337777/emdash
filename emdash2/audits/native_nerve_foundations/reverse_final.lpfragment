@@ -1,0 +1,23 @@
+require open emdash.native_mixed_exchange_readback;
+
+// Both image-unit observation orders have the same original carrier.
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @nerve_lax_profile_transf A B F F (@id (Functor_cat A B) F)
+  ≡ @id (GrayHom_lax A B) F;
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @lax_transfor A B F F (@nerve_lax_profile_transf A B F F (@id (Functor_cat A B) F))
+  ≡ @id (Functor_cat A B) F;
+assert [A B : Cat] (F G H : τ (Functor A B))
+  (a : τ (@Transf A B F G)) (b : τ (@Transf A B G H)) ⊢
+  @lax_transfor A B F H (@comp_fapp0 (GrayHom_lax A B) F G H
+    (@nerve_lax_profile_transf A B G H b) (@nerve_lax_profile_transf A B F G a))
+  ≡ @comp_fapp0 (Functor_cat A B) F G H b a;
+
+// The whole evaluation comparison preserves its fixed argument D.
+assertnot [K A B : Cat] (D E : τ (Functor K A)) ⊢
+  @eq_refl (Functor (Functor_cat A B) (Functor_cat K B))
+    (@comp_cat_fapp0 _ _ _ (@fapp0_func (Functor_cat K A) (Functor_cat K B) D)
+      (nerve_lax_postcomposition_func K A B))
+  : τ (@= (Functor (Functor_cat A B) (Functor_cat K B))
+    (@comp_cat_fapp0 _ _ _ (@fapp0_func (Functor_cat K A) (Functor_cat K B) D)
+      (nerve_lax_postcomposition_func K A B)) (@comp_cat_con_func K A B E));

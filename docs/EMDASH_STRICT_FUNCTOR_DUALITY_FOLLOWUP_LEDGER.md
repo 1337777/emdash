@@ -21,8 +21,11 @@ and first whole round trip are now derived at variable n, including whole
 parameter families. The [forward positive-dimensional geometric decoder](../emdash2/audits/native_nerve_foundations/postcomposition_review.md)
 and both iteration-shift inverses now check in a 54-input scope. Its whole
 postcomposition owner is structural; the geometric maps are derived from it.
-Reverse closure/encoding, geometric degree zero, same-index action and
-degeneracies remain required. Raw nested higher-projection normalization and
+The [reverse whole maps and recursive encoder](../emdash2/audits/native_nerve_foundations/reverse_review.md)
+now check with whole-family readbacks in a 61-input scope. No reverse map or
+inverse law is postulated. Whole mixed-exchange cancellation and geometric
+inverse laws, geometric degree zero, same-index action and degeneracies remain
+required. Raw nested higher-projection normalization and
 the Cat_cart extracted-cell specialization have explicit failed observations;
 resolve their needed contracts before promotion without making them the sole
 continuation. The native whole-section equation and second inverse remain

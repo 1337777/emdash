@@ -1,0 +1,32 @@
+require open emdash.native_reverse_geometric_maps;
+
+// Right curry recovers the entire admitted shape used by the actual reverse
+// tensor-family body. This uses the existing right-closure comparison only.
+symbol nerve_left_uncurry_tensor_curry_path [K I B C : Cat]
+  (D : τ (Functor K (Functor_oplax_cat B (Functor_oplax_cat I C))))
+  : τ (@= (Functor I (@GrayHom_lax B (Functor_cat K C)))
+      (@gray_curry_R I B (Functor_cat K C)
+        (@nerve_left_uncurry_tensor_family K I B C D))
+      (@comp_cat_fapp0 I (Functor_cat B (Functor_cat K C))
+        (@GrayHom_lax B (Functor_cat K C))
+        (nerve_lax_profile_admit_func B (Functor_cat K C))
+        (@nerve_left_uncurry_shape K I B C D)))
+≔ @gray_curry_uncurry_R_at I B (Functor_cat K C)
+    (@comp_cat_fapp0 I (Functor_cat B (Functor_cat K C))
+      (@GrayHom_lax B (Functor_cat K C))
+      (nerve_lax_profile_admit_func B (Functor_cat K C))
+      (@nerve_left_uncurry_shape K I B C D));
+
+// Whole specialization at the universal curried diagram.
+symbol nerve_left_uncurry_universal_tensor_curry_path (I B C : Cat)
+  : τ (@= (Functor I (@GrayHom_lax B
+      (Functor_cat (Functor_oplax_cat B (Functor_oplax_cat I C)) C)))
+      (@gray_curry_R I B (Functor_cat (Functor_oplax_cat B (Functor_oplax_cat I C)) C)
+        (@nerve_left_uncurry_tensor_family (Functor_oplax_cat B (Functor_oplax_cat I C)) I B C
+          (@id_func (Functor_oplax_cat B (Functor_oplax_cat I C)))))
+      (@comp_cat_fapp0 _ _ _
+        (nerve_lax_profile_admit_func B (Functor_cat (Functor_oplax_cat B (Functor_oplax_cat I C)) C))
+        (@nerve_left_uncurry_shape (Functor_oplax_cat B (Functor_oplax_cat I C)) I B C
+          (@id_func (Functor_oplax_cat B (Functor_oplax_cat I C))))))
+≔ @nerve_left_uncurry_tensor_curry_path (Functor_oplax_cat B (Functor_oplax_cat I C)) I B C
+    (@id_func (Functor_oplax_cat B (Functor_oplax_cat I C)));

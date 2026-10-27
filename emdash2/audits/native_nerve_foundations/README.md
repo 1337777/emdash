@@ -4,6 +4,27 @@ Status: non-library NF-1 reconstruction and NF-2C cube construction on the corre
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
+## Whole reverse geometric maps
+
+The [reverse construction](reverse_review.md) now supplies whole maps from
+native cubes to geometric cubes in every positive dimension. Two uses of
+mixed exchange put the universal curried diagram into the existing right
+uncurry interface. No tensor-action or reverse-closure primitive is needed.
+The explicit older lax classifier has a canonical admission from the current
+default; ordinary transformations and their higher cells are retained.
+
+The final **61-input** check passes in **85.162s / 583,624 KiB** with subject
+reduction. It includes the earlier forward construction, whole-family
+readbacks, and profile unit/composition controls. Staging the existing OddDual
+composition theorem proves the entire mixed-exchange object readback.
+
+Whole cancellation of mixed exchange still fails its direct proof. Both
+geometric inverse laws remain required; maps in two directions are not yet an
+equivalence. Follow the current [outline](../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
+and [exact replay record](reverse_verification.json). The earlier sections
+below retain their checkpoint boundaries; their old next-step instructions
+do not override the current inverse-proof work.
+
 ## Forward geometric decoder at every positive dimension
 
 The [new construction and review](postcomposition_review.md) supplies a

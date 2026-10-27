@@ -95,9 +95,9 @@ actual whole closure establishes a necessary correction.
 
 | Piece | Required interface and body | Open obligation |
 | --- | --- | --- |
-| Walking-first closure | `λₙ:GCₙ₊₁(C) ⇄ G(Qₙ,G_I(C)):ρₙ` | Forward λ is constructed using the new structural parameter owner. Reverse ρ and both closure laws remain open. Preserve argument order; the existing right closure cannot simply be relabelled. |
-| Repeated currying | `cₙ:GCₙ(C) ⇄ Wₙ(C):uₙ` | Forward c checks at every positive dimension. Both actual iteration-shift inverses are derived. Reverse u and the c/u inverse laws remain open. |
-| Geometric/native maps | `Dₙ=dₙ∘cₙ`, `Eₙ=uₙ∘eₙ` | Forward D is implemented for positive n, with whole Hom action. E still requires u. No primitive equivalence is introduced. |
+| Walking-first closure | `λₙ:GCₙ₊₁(C) ⇄ G(Qₙ,G_I(C)):ρₙ` | Both maps are constructed. Reverse ρ uses mixed exchange and existing right uncurry; neither inverse law is assumed. Whole exchange cancellation and closure laws remain open. |
+| Repeated currying | `cₙ:GCₙ(C) ⇄ Wₙ(C):uₙ` | Both recursions check at every positive dimension. The iteration-shift inverses are derived; c/u inverse laws still depend on closure. |
+| Geometric/native maps | `Dₙ=dₙ∘cₙ`, `Eₙ=uₙ∘eₙ` | Both maps are implemented for positive n, with whole Hom action. Their inverse laws remain required. No primitive equivalence is introduced. |
 | Geometric degree zero | `Functor_oplax_cat(Terminal,C) ⇄ C` | Actual evaluation/constant maps and whole reconstruction at the selected profile. |
 | Common face index | Both nerves over the existing selected augmented cube index | Establish whole restriction/shape action and natural comparison, with original coordinate order. |
 | Degeneracies | Extend the same two diagrams by identity insertion | Face-degeneracy and degeneracy-degeneracy laws, and compatibility of D/E with them. |
@@ -166,9 +166,9 @@ Hom action and parameter-owner interactions pass together in 97.488s /
 [Exact replay and evidence](../emdash2/audits/native_nerve_foundations/postcomposition_verification.json)
 retain the new rules, failed alternatives and warning boundaries.
 
-Next construct the reverse closure and encoder through their actual geometric
-consumer. Both closure round trips, geometric degree zero and the native
-second inverse remain required. Do not substitute the Cartesian
+The reverse closure map and encoder are now constructed as described below.
+Both closure round trips, geometric degree zero and the native second inverse
+remain required. Do not substitute the Cartesian
 joint-composition/admission route retained in the legacy donor or let either
 local normalization limit become the sole continuation.
 
@@ -178,6 +178,41 @@ tensor-factor order. These facts support investigating the stated profiles,
 not identifying different kernel mapping categories or assuming the missing
 maps. The precise argument order must follow the receiver's declared right
 closure. [Primary reference](https://arxiv.org/html/2503.08832v1#S2).
+
+## Reverse through whole mixed exchange
+
+Write L(A,B)=Functor_cat(A,B), while G retains the opposite transformation
+profile above. The [derived mixed exchange](../emdash2/audits/native_nerve_foundations/reverse_review.md)
+has type `M(K,I,C):L(K,G(I,C))→G(I,L(K,C))`. For a whole
+D:K→G(B,G(I,C)), two shape exchanges and M give I→L(B,L(K,C)). Canonical
+admission into the older explicit lax profile allows existing right uncurry
+to produce GrayTensor_R(I,B)→L(K,C). One final shape exchange produces
+K→G(GrayTensor_R(I,B),C).
+
+Apply that whole operation to the identity on G(B,G(I,C)). This constructs
+ρ(I,B,C) with its parameter action, without a new tensor-action or reverse-map
+primitive. Internal Nat recursion now gives:
+
+```text
+u₀(C) = id_G_I(C)
+uₖ₊₁(C) = ρ(I,Qₖ,C) ∘ uₖ(G_I(C)) ∘ tₖ₊₁(C)
+Eₖ(C) = uₖ(C) ∘ eₖ₊₁(C) : NCₖ₊₁(C) → G(Qₖ,C).
+```
+
+The final 61-input check passes in 85.162s / 583,624 KiB, including the
+preceding forward construction, whole-family readbacks and profile projections.
+The complete mixed-exchange object readback is proved by staging existing
+OddDual functoriality; no new rule is needed for that proof. A whole fixed-D
+evaluation comparison is part of the structural postcomposition interface,
+with typed-reflexivity and wrong-D controls.
+
+The first whole cancellation of M with its reciprocal candidate still fails
+direct reflexivity. Next derive those cancellations and the closure inverse
+laws, then use them in the two cube recursions. The existing walking first
+round trip can support one geometric inverse independently of the second
+walking inverse. Preserve the latter, degree zero, same-index action and
+degeneracies as requirements. The [replay record](../emdash2/audits/native_nerve_foundations/reverse_verification.json)
+separates the passing constructions from the pending inverse attempt.
 
 ## Independent simplicial branch
 
@@ -211,9 +246,9 @@ claiming independent all-flags totals at arbitrary dimension.
 The Wₙ/NCₙ map formation and degree-two consumer are checked using qualified
 `85b30c5e`, independently of the unfinished normalization experiment. The G_I
 composition comparison and first recursive round trip are also derived.
-The geometric forward decoder and both iteration-shift inverses now check
-relative to the new structural parameter owner. Continue with reverse
-geometric construction. The exact whole-section reconstruction equation remains required;
+Both positive-dimensional geometric maps and both iteration-shift inverses
+now check relative to the structural parameter owner. Continue with whole
+exchange and geometric inverse proofs. The exact whole-section reconstruction equation remains required;
 scalar readbacks do not replace it.
 
 The actual native moving-cell/map investigation has positive focused evidence,

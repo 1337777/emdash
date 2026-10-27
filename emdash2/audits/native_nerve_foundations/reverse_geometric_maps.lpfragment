@@ -1,0 +1,99 @@
+/* Whole reverse closure by mixed exchange and existing right uncurry.
+   No tensor-action owner, reverse-closure primitive or inverse law is added. */
+require open emdash.native_reverse_closure_objects;
+require open emdash.native_geometric_positive_decode;
+
+// L(K,G(I,C)) -> G(I,L(K,C)), using the whole lax postcomposition owner.
+symbol nerve_mixed_exchange_func (K I C : Cat)
+  : τ (Functor (Functor_cat K (Functor_oplax_cat I C))
+      (Functor_oplax_cat I (Functor_cat K C)))
+≔ @diagram_family_shape_func I (Functor_cat K (Functor_oplax_cat I C)) (Functor_cat K C)
+    (@comp_cat_fapp0 I (Functor_cat (Functor_oplax_cat I C) C)
+      (Functor_cat (Functor_cat K (Functor_oplax_cat I C)) (Functor_cat K C))
+      (nerve_lax_postcomposition_func K (Functor_oplax_cat I C) C)
+      (@diagram_oplax_evaluation_func I C));
+
+// Universal parameter family D:K->G(B,G(I,C)), rearranged internally.
+symbol nerve_left_uncurry_shape [K I B C : Cat]
+  (D : τ (Functor K (Functor_oplax_cat B (Functor_oplax_cat I C))))
+  : τ (Functor I (Functor_cat B (Functor_cat K C)))
+≔ @diagram_oplax_family_shape_func B I (Functor_cat K C)
+    (@comp_cat_fapp0 B (Functor_cat K (Functor_oplax_cat I C))
+      (Functor_oplax_cat I (Functor_cat K C))
+      (nerve_mixed_exchange_func K I C)
+      (@diagram_oplax_family_shape_func K B (Functor_oplax_cat I C) D));
+
+symbol nerve_left_uncurry_tensor_family [K I B C : Cat]
+  (D : τ (Functor K (Functor_oplax_cat B (Functor_oplax_cat I C))))
+  : τ (Functor (@GrayTensor_R I B) (Functor_cat K C))
+≔ @gray_uncurry_R I B (Functor_cat K C)
+    (@comp_cat_fapp0 I (Functor_cat B (Functor_cat K C))
+      (@GrayHom_lax B (Functor_cat K C))
+      (nerve_lax_profile_admit_func B (Functor_cat K C))
+      (@nerve_left_uncurry_shape K I B C D));
+
+symbol nerve_left_uncurry_family [K I B C : Cat]
+  (D : τ (Functor K (Functor_oplax_cat B (Functor_oplax_cat I C))))
+  : τ (Functor K (Functor_oplax_cat (@GrayTensor_R I B) C))
+≔ @diagram_family_shape_func (@GrayTensor_R I B) K C
+    (@nerve_left_uncurry_tensor_family K I B C D);
+
+// The actual whole reverse map is the image of the identity parameter family.
+symbol nerve_left_uncurry_func (I B C : Cat)
+  : τ (Functor (Functor_oplax_cat B (Functor_oplax_cat I C))
+      (Functor_oplax_cat (@GrayTensor_R I B) C))
+≔ @nerve_left_uncurry_family (Functor_oplax_cat B (Functor_oplax_cat I C)) I B C
+    (@id_func (Functor_oplax_cat B (Functor_oplax_cat I C)));
+
+// The reciprocal mixed-exchange map is the alternating dual of the same body.
+symbol nerve_mixed_unexchange_func (K I C : Cat)
+  : τ (Functor (Functor_oplax_cat I (Functor_cat K C))
+      (Functor_cat K (Functor_oplax_cat I C)))
+≔ @OddDual_func _ _
+    (nerve_mixed_exchange_func (OddDual_cat I) (OddDual_cat K) (OddDual_cat C));
+
+// Reverse recursion retains the original positive cube and its bracketing.
+symbol nerve_walking_to_geometric_positive (n : τ Nat_grpd)
+  : τ (@Pi_grpd (Obj Cat_cat) (λ C : Cat,
+      Functor (@nerve_walking_cube_cat C (succ n))
+        (Functor_oplax_cat (@GrayCubePos_R n) C)))
+≔ @nat_elim
+    (λ k : τ Nat_grpd, @Pi_grpd (Obj Cat_cat) (λ C : Cat,
+      Functor (@nerve_walking_cube_cat C (succ k))
+        (Functor_oplax_cat (@GrayCubePos_R k) C)))
+    (λ C : Cat, @id_func (Functor_oplax_cat WalkingArrow_cat C))
+    (λ k : τ Nat_grpd,
+      λ R : τ (@Pi_grpd (Obj Cat_cat) (λ C : Cat,
+        Functor (@nerve_walking_cube_cat C (succ k))
+          (Functor_oplax_cat (@GrayCubePos_R k) C))),
+      λ C : Cat,
+        @comp_cat_fapp0
+          (@nerve_walking_cube_cat C (succ (succ k)))
+          (Functor_oplax_cat (@GrayCubePos_R k) (Functor_oplax_cat WalkingArrow_cat C))
+          (Functor_oplax_cat (@GrayCubePos_R (succ k)) C)
+          (nerve_left_uncurry_func WalkingArrow_cat (@GrayCubePos_R k) C)
+          (@comp_cat_fapp0
+            (@nerve_walking_cube_cat C (succ (succ k)))
+            (@nerve_walking_cube_cat (Functor_oplax_cat WalkingArrow_cat C) (succ k))
+            (Functor_oplax_cat (@GrayCubePos_R k) (Functor_oplax_cat WalkingArrow_cat C))
+            (R (Functor_oplax_cat WalkingArrow_cat C))
+            (nerve_walking_unshift_func C (succ k)))) n;
+
+symbol nerve_geometric_positive_encode (C : Cat) (n : τ Nat_grpd)
+  : τ (Functor (@CubicalLevel_cat C (succ n)) (Functor_oplax_cat (@GrayCubePos_R n) C))
+≔ @comp_cat_fapp0 _ _ _ (nerve_walking_to_geometric_positive n C)
+    (@nerve_walking_cube_encode C (succ n));
+
+assert [C : Cat] ⊢ nerve_walking_to_geometric_positive zero C
+  ≡ @id_func (Functor_oplax_cat WalkingArrow_cat C);
+assert [C : Cat] ⊢ nerve_geometric_positive_encode C zero ≡ nerve_walking_realize_func C;
+assert [C : Cat] ⊢ nerve_walking_to_geometric_positive (succ zero) C
+  ≡ nerve_left_uncurry_func WalkingArrow_cat WalkingArrow_cat C;
+
+symbol nerve_geometric_positive_encode_hom [C : Cat] (n : τ Nat_grpd)
+  (a b : τ (Obj (@CubicalLevel_cat C (succ n))))
+  : τ (Functor (Hom_cat (@CubicalLevel_cat C (succ n)) a b)
+      (Hom_cat (Functor_oplax_cat (@GrayCubePos_R n) C)
+        (fapp0 (nerve_geometric_positive_encode C n) a)
+        (fapp0 (nerve_geometric_positive_encode C n) b)))
+≔ @fapp1_func _ _ (nerve_geometric_positive_encode C n) a b;

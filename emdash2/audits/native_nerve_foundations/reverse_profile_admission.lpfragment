@@ -1,0 +1,87 @@
+/* Canonical admission of the current conventional-lax default into the
+   older explicit mapping profile. No caller-supplied strictness or cell. */
+require open emdash.emdash3_2_gray_right_closure;
+require open emdash.native_postcomposition_owner;
+
+symbol nerve_default_transfor_is_lax
+  [A B : Cat]
+  [F G : τ (Functor A B)]
+  (epsilon : τ (@Transf A B F G))
+  : τ (@IsLaxTransfor A B F G epsilon)
+≔ λ Y : τ (Obj A),
+  λ W : τ (Obj A),
+  λ X : τ (Obj A),
+  λ h : τ (Hom A W X),
+    Struct_sigma
+      (@eq_refl
+        (Functor
+          (Hom_cat A X Y)
+          (Hom_cat B (@fapp0 A B F W) (@fapp0 A B G Y)))
+        (@strict_transfor_pre_naturality_lhs_func
+          A B F G epsilon Y W X h))
+      (@eq_refl
+        (Hom
+          (@Functor_cat
+            (Hom_cat A X Y)
+            (Hom_cat B (@fapp0 A B F W) (@fapp0 A B G Y)))
+          (@strict_transfor_pre_naturality_lhs_func
+            A B F G epsilon Y W X h)
+          (@strict_transfor_pre_naturality_rhs_func
+            A B F G epsilon Y W X h))
+        (@strict_transfor_pre_naturality_transf
+          A B F G epsilon Y W X h));
+
+// Canonical introduction into the old full-image profile. Its raw view is
+// the original default-lax transformation; the theorem above establishes the
+// profile without adding an operational certificate argument.
+injective symbol nerve_lax_profile_transf [A B : Cat] [F G : τ (Functor A B)]
+  (e : τ (@Transf A B F G)) : τ (@LaxTransfor A B F G);
+rule @lax_transfor _ _ _ _ (@nerve_lax_profile_transf _ _ _ _ $e) ↪ $e;
+rule @lax_transfor_underlying _ _ _ _ (@nerve_lax_profile_transf _ _ _ _ $e) ↪ $e;
+
+injective symbol nerve_lax_profile_hom_func [A B : Cat] (F G : τ (Functor A B))
+  : τ (Functor (@Transf_cat A B F G) (@LaxTransfor_cat A B F G));
+rule @fapp0 _ _ (@nerve_lax_profile_hom_func $A $B $F $G) $e
+  ↪ @nerve_lax_profile_transf $A $B $F $G $e;
+rule @fapp1_func _ _ (@nerve_lax_profile_hom_func $A $B $F $G) $e $d
+  ↪ @id_func (Hom_cat (@Transf_cat $A $B $F $G) $e $d);
+rule @fapp1_fapp0 _ _ (@nerve_lax_profile_hom_func _ _ _ _) _ _ $m ↪ $m;
+
+injective symbol nerve_lax_profile_admit_func (A B : Cat)
+  : τ (Functor (Functor_cat A B) (@GrayHom_lax A B));
+rule @fapp0 _ _ (nerve_lax_profile_admit_func _ _) $F ↪ $F;
+rule @fapp1_func _ _ (nerve_lax_profile_admit_func $A $B) $F $G
+  ↪ @nerve_lax_profile_hom_func $A $B $F $G;
+rule @fapp1_fapp0 _ _ (nerve_lax_profile_admit_func $A $B) $F $G $e
+  ↪ @nerve_lax_profile_transf $A $B $F $G $e;
+
+// Canonical image unit and vertical composition, retaining the target
+// profile and the same underlying ordinary transformations.
+rule @nerve_lax_profile_transf $A $B $F $F (@id _ $F)
+  ↪ @id (GrayHom_lax $A $B) $F;
+// lhs-audit: keep 1 -- GrayHom is the target profile of this represented composite.
+rule @comp_fapp0 (GrayHom_lax $A $B) _ _ _
+    (@nerve_lax_profile_transf $A $B $G $H $b)
+    (@nerve_lax_profile_transf $A $B $F $G $a)
+  ↪ @nerve_lax_profile_transf $A $B $F $H
+      (@comp_fapp0 (Functor_cat $A $B) $F $G $H $b $a);
+
+// The admitted carrier retains its original directed comparison.
+symbol nerve_lax_profile_carrier_path [A B : Cat] [F G : τ (Functor A B)]
+  (e : τ (@Transf A B F G))
+  : τ (@= (@Transf A B F G)
+    (@lax_transfor A B F G (fapp0 (@nerve_lax_profile_hom_func A B F G) e)) e)
+≔ @eq_refl _ _;
+
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  fapp0 (@grayhom_lax_include_func A B) (fapp0 (nerve_lax_profile_admit_func A B) F) ≡ F;
+
+// Whole left evaluation is the existing right uncurry applied to the mixed
+// evaluator. This is a derived map, not a new left-closure axiom.
+symbol nerve_left_evaluation_func (I C : Cat)
+  : τ (Functor (@GrayTensor_R I (Functor_oplax_cat I C)) C)
+≔ @gray_uncurry_R I (Functor_oplax_cat I C) C
+    (@comp_cat_fapp0 I (Functor_cat (Functor_oplax_cat I C) C)
+      (@GrayHom_lax (Functor_oplax_cat I C) C)
+      (nerve_lax_profile_admit_func (Functor_oplax_cat I C) C)
+      (@diagram_oplax_evaluation_func I C));

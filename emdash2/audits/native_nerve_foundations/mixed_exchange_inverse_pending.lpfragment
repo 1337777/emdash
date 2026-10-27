@@ -1,0 +1,50 @@
+require open emdash.native_reverse_qualification;
+
+// Stage OddDual functoriality before specializing the whole evaluation
+// comparison; direct nested reflexivity failed at this exact boundary.
+symbol nerve_odd_postcomposition_evaluation_path [K A B : Cat] (D : τ (Functor K A))
+  : τ (@= (Functor (OddDual_cat (Functor_cat A B)) (OddDual_cat (Functor_cat K B)))
+      (@comp_cat_fapp0 _ _ _
+        (@OddDual_func _ _ (@fapp0_func (Functor_cat K A) (Functor_cat K B) D))
+        (@OddDual_func _ _ (nerve_lax_postcomposition_func K A B)))
+      (@OddDual_func _ _ (@comp_cat_con_func K A B D)))
+≔ @eq_trans _ _ _ _
+    (@eq_sym _ _ _ (@nerve_odd_comp_path _ _ _
+      (nerve_lax_postcomposition_func K A B)
+      (@fapp0_func (Functor_cat K A) (Functor_cat K B) D)))
+    (@eq_ap _ _ (λ H : τ (Functor (Functor_cat A B) (Functor_cat K B)), @OddDual_func _ _ H)
+      _ _ (@nerve_postcomposition_whole_evaluation K A B D));
+
+// Complete object-level mixed exchange, retaining the entire I-family.
+symbol nerve_mixed_exchange_object_path [K I C : Cat]
+  (D : τ (Functor K (Functor_oplax_cat I C)))
+  : τ (@= (Obj (Functor_oplax_cat I (Functor_cat K C)))
+    (fapp0 (nerve_mixed_exchange_func K I C) D)
+    (@OddDual_func I (Functor_cat K C) (@diagram_oplax_family_shape_func K I C D)))
+≔ @eq_trans _ _ _ _
+    (@eq_ap
+      (Functor (OddDual_cat (Functor_cat (Functor_oplax_cat I C) C)) (OddDual_cat (Functor_cat K C)))
+      (Functor (OddDual_cat I) (OddDual_cat (Functor_cat K C)))
+      (λ H : τ (Functor (OddDual_cat (Functor_cat (Functor_oplax_cat I C) C))
+        (OddDual_cat (Functor_cat K C))),
+        @comp_cat_fapp0 _ _ _ H (@OddDual_func _ _ (@diagram_oplax_evaluation_func I C)))
+      _ _ (@nerve_odd_postcomposition_evaluation_path K (Functor_oplax_cat I C) C D))
+    (@eq_sym _ _ _ (@nerve_odd_comp_path _ _ _ (@diagram_oplax_evaluation_func I C)
+      (@comp_cat_con_func K (Functor_oplax_cat I C) C D)));
+
+// No inverse is postulated: try the actual complete composites.
+symbol nerve_mixed_unexchange_exchange_path (K I C : Cat)
+  : τ (@= (Functor (Functor_cat K (Functor_oplax_cat I C))
+      (Functor_cat K (Functor_oplax_cat I C)))
+    (@comp_cat_fapp0 _ _ _ (nerve_mixed_unexchange_func K I C)
+      (nerve_mixed_exchange_func K I C))
+    (@id_func (Functor_cat K (Functor_oplax_cat I C))))
+≔ @eq_refl _ _;
+
+symbol nerve_mixed_exchange_unexchange_path (K I C : Cat)
+  : τ (@= (Functor (Functor_oplax_cat I (Functor_cat K C))
+      (Functor_oplax_cat I (Functor_cat K C)))
+    (@comp_cat_fapp0 _ _ _ (nerve_mixed_exchange_func K I C)
+      (nerve_mixed_unexchange_func K I C))
+    (@id_func (Functor_oplax_cat I (Functor_cat K C))))
+≔ @eq_refl _ _;

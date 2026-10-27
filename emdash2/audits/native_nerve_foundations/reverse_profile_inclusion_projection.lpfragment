@@ -1,0 +1,8 @@
+// Identity/composition projections of the existing whole Gray-Hom
+// inclusion, at its stable raw transformation view.
+rule @lax_transfor $A $B $F $F (@id (GrayHom_lax $A $B) $F)
+  ↪ @id (Functor_cat $A $B) $F;
+rule @lax_transfor $A $B $F $H
+    (@comp_fapp0 (GrayHom_lax $A $B) $F $G $H $M $L)
+  ↪ @comp_fapp0 (Functor_cat $A $B) $F $G $H
+      (@lax_transfor $A $B $G $H $M) (@lax_transfor $A $B $F $G $L);

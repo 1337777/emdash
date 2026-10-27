@@ -18,9 +18,12 @@ The composition comparison and first whole round trip are derived at every
 dimension. The [structural postcomposition candidate and derived forward geometric decoder](../emdash2/audits/native_nerve_foundations/postcomposition_review.md)
 now check at every positive dimension, with both iteration-shift inverses.
 The 54-input scope passes in 97.488s / 595,020 KiB at 180s / 2 GiB.
-Next construct the reverse geometric closure/encoder and their consumers,
-while retaining whole-section reconstruction and the native reverse inverse
-as required proof obligations. Raw nested higher projection and Cat_cart
+The [derived whole reverse map and encoder](../emdash2/audits/native_nerve_foundations/reverse_review.md)
+now also check through internal mixed exchange and existing right uncurry,
+with whole-family readbacks. The final 61-input scope passes in 85.162s /
+583,624 KiB at the same profile. Next derive whole mixed-exchange cancellation
+and the geometric closure inverse laws, retaining whole-section reconstruction
+and the native reverse inverse as required proof obligations. Raw nested higher projection and Cat_cart
 specialization limits remain documented promotion obligations; they must not
 become the sole next task. The new whole postcomposition is structural;
 no missing inverse or closure equivalence is supplied by the recursion.
