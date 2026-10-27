@@ -293,11 +293,24 @@ and source/target walking endpoint instances pass. The final 21-input scope
 takes 94.662s / 312,820 KiB, with unchanged warning inventories and no new
 rewrite/unification rule. No operational map receives a proof argument.
 
-Whole source-naturality assembly, the other tensor factor, and the separated
-face/degeneracy maps and their common-index laws remain required. Continue
-these concrete shape operations alongside the internal mixed-evaluator and
-native whole-section reconstruction. Do not relabel the collapse
-endomorphisms as the missing complete index action.
+The [split first-coordinate maps](../emdash2/audits/native_nerve_foundations/geometric_first_faces_review.md)
+now use coevaluation and uncurry of the constant identity to define actual
+δₐ:B→A⊗ᴿB and π:A⊗ᴿB→B. They satisfy π∘δₐ≐id and δₐ∘π≐Cₐ by derived
+proofs. Internal Nat elimination extends them over every current geometric
+shape, with literal endpoint/terminal maps at zero.
+
+Fixed oplax precomposition gives whole geometric faces dₐⁿ and degeneracies
+sⁿ, with dₐⁿ∘sⁿ≐id on G(Qₙ,C) at variable n. This also recovers whole
+K-parameter families. The opposite composite has its independent collapse
+reading at positive tensor steps. The final 78-input check passes in
+99.461s / 629,996 KiB, with no new rules and unchanged warning inventories.
+The zero category remains G(Terminal,C), not a runtime alias of C.
+
+Whole source-naturality assembly, the other tensor factor/coordinates,
+cross-coordinate face/degeneracy relations, common augmentation/index and
+native encoder/decoder compatibility remain required. Continue those actual
+shape and comparison operations alongside mixed-evaluation and native
+whole-section reconstruction; the first-coordinate law is not the full index.
 
 ## Independent simplicial branch
 

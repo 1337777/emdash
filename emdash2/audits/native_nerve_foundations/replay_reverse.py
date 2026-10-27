@@ -28,7 +28,8 @@ def main() -> int:
              'reflection', 'evaluation-pending', 'zero', 'all-degrees', 'zero-eta-pending',
              'unit-owners', 'unit-normality', 'terminal-contraction',
              'constant-precomposition-pending', 'terminal-inverse', 'mixed-diagram',
-             'tensor-left', 'curry-naturality-pending', 'tensor-composition', 'tensor-collapse')
+             'tensor-left', 'curry-naturality-pending', 'tensor-composition', 'tensor-collapse',
+             'tensor-split', 'first-faces', 'first-face-controls')
     parser.add_argument('--mode', choices=modes, default='qualification')
     parser.add_argument('--assemble-only', action='store_true')
     args = parser.parse_args()

@@ -64,6 +64,13 @@ tensor composition and coordinate-collapse laws from it. Whole source
 naturality, the other factor and common-index coherence remain open. These
 advances do not replace either native inverse.
 
+The [first-coordinate face/degeneracy construction](../emdash2/audits/native_nerve_foundations/geometric_first_faces_review.md)
+now separates insertion and projection and derives the whole geometric law
+`dₐⁿ ∘ sⁿ ≐ id` at every dimension, including zero. Endpoint variation,
+arbitrary whole parameter-family recovery and the opposite collapse
+comparison are checked. Other coordinates, cross-coordinate relations and
+native comparison compatibility remain open.
+
 The dated entries below are evidence chronology, newest first. An older
 “next,” “open” or “not yet” statement is superseded by the current parent and
 later evidence; it must not restart an already completed step.

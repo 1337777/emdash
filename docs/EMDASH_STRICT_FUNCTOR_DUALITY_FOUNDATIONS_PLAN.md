@@ -56,6 +56,13 @@ tensor composition and coordinate-collapse laws from it. Whole source
 naturality, the other factor and common-index coherence remain open. These
 advances do not replace either native inverse.
 
+The [first-coordinate face/degeneracy construction](../emdash2/audits/native_nerve_foundations/geometric_first_faces_review.md)
+now separates insertion and projection and derives the whole geometric law
+`dₐⁿ ∘ sⁿ ≐ id` at every dimension, including zero. Endpoint variation,
+arbitrary whole parameter-family recovery and the opposite collapse
+comparison are checked. Other coordinates, cross-coordinate relations and
+native comparison compatibility remain open.
+
 The [actual moving-cell/map experiment](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
 has positive focused evidence, but its constant-family overlap and final
 integration are unfinished. Its candidate is preserved separately; the checked
@@ -195,7 +202,7 @@ in scope until actually achieved or explicitly reassigned by the user.
 | NF-1 | Whole walking Observe/Realize with both actual inverses, original noninvertible filler and next-Hom action | Simultaneous moving-boundary comparison; native second inverse; owning qualification/promotion |
 | NF-2C | Whole variable-dimensional cube decoder and encoder, including degree zero | Wₙ/NCₙ whole maps and encode-after-decode check at variable n; both geometric zero inverse laws now check. Positive geometric closure, reverse round trip and face coherence remain. Retain bracketing and coordinate order. |
 | NF-3C | Native/geometric semicubical nerves on one face index | Whole inverse transformations and coherent face action |
-| NF-4C | Cubical degeneracies | Native/geometric identity insertion and all face/degeneracy relations |
+| NF-4C | Cubical degeneracies | Geometric first-coordinate insertion and its whole face-degeneracy law now check at every dimension; native/other-coordinate operations and all cross-coordinate relations remain. |
 | NF-2S | Independent all-flags native simplexes and selected higher shapes | Moving vertices/flags, actual triangle/tetrahedron data, whole terminal-join/cone universality and inverses |
 | NF-3S | Same-index semisimplicial equivalence | Common augmented index and vertex convention, whole inverse transformations and face coherence |
 | NF-4S | Simplicial degeneracies | Higher-shape identity insertion and required index/unit laws |

@@ -1,0 +1,102 @@
+/* All-degree first-coordinate geometric faces and degeneracies. Other
+   coordinates and the complete common-index relations remain separate. */
+require open emdash.native_tensor_split_coordinate;
+require open emdash.native_geometric_cube_all_degrees;
+require open emdash.native_terminal_contraction;
+
+// The selected endpoint varies through a whole walking-arrow functor.
+symbol nerve_geometric_first_face_shape_func (n : τ Nat_grpd)
+  : τ (Functor WalkingArrow_cat
+      (Functor_cat (nerve_geometric_shape_cat n) (nerve_geometric_shape_cat (succ n))))
+≔ @nat_elim
+    (λ k : τ Nat_grpd, Functor WalkingArrow_cat
+      (Functor_cat (nerve_geometric_shape_cat k) (nerve_geometric_shape_cat (succ k))))
+    (@comp_cat_fapp0 WalkingArrow_cat (Functor_cart_cat Terminal_cat WalkingArrow_cat)
+      (Functor_cat Terminal_cat WalkingArrow_cat)
+      (Functor_cart_include Terminal_cat WalkingArrow_cat) (@Const_func_func Terminal_cat WalkingArrow_cat))
+    (λ k : τ Nat_grpd,
+      λ _ : τ (Functor WalkingArrow_cat
+        (Functor_cat (nerve_geometric_shape_cat k) (nerve_geometric_shape_cat (succ k)))),
+      @comp_cat_fapp0 WalkingArrow_cat (GrayHom_lax (GrayCubePos_R k) (GrayCubePos_R (succ k)))
+        (Functor_cat (GrayCubePos_R k) (GrayCubePos_R (succ k)))
+        (@grayhom_lax_include_func (GrayCubePos_R k) (GrayCubePos_R (succ k)))
+        (gray_coevaluation_R_func WalkingArrow_cat (GrayCubePos_R k))) n;
+
+symbol nerve_geometric_first_face_shape (n : τ Nat_grpd) (a : τ (Obj WalkingArrow_cat))
+  : τ (Functor (nerve_geometric_shape_cat n) (nerve_geometric_shape_cat (succ n)))
+≔ fapp0 (nerve_geometric_first_face_shape_func n) a;
+
+// Forget the first coordinate, including the literal line-to-point case.
+symbol nerve_geometric_first_projection_shape (n : τ Nat_grpd)
+  : τ (Functor (nerve_geometric_shape_cat (succ n)) (nerve_geometric_shape_cat n))
+≔ @nat_elim
+    (λ k : τ Nat_grpd, Functor (nerve_geometric_shape_cat (succ k)) (nerve_geometric_shape_cat k))
+    (@Const_func WalkingArrow_cat Terminal_cat Terminal_obj)
+    (λ k : τ Nat_grpd,
+      λ _ : τ (Functor (nerve_geometric_shape_cat (succ k)) (nerve_geometric_shape_cat k)),
+      nerve_tensor_first_projection WalkingArrow_cat (GrayCubePos_R k)) n;
+
+// Uniform whole shape retraction, with the already proved terminal contraction.
+symbol nerve_geometric_first_shape_retraction (n : τ Nat_grpd) (a : τ (Obj WalkingArrow_cat))
+  : τ (@= (Functor (nerve_geometric_shape_cat n) (nerve_geometric_shape_cat n))
+      (@comp_cat_fapp0 _ _ _ (nerve_geometric_first_projection_shape n) (nerve_geometric_first_face_shape n a))
+      (@id_func (nerve_geometric_shape_cat n)))
+≔ @nat_elim
+    (λ k : τ Nat_grpd, @= (Functor (nerve_geometric_shape_cat k) (nerve_geometric_shape_cat k))
+      (@comp_cat_fapp0 _ _ _ (nerve_geometric_first_projection_shape k) (nerve_geometric_first_face_shape k a))
+      (@id_func (nerve_geometric_shape_cat k)))
+    nerve_terminal_contraction
+    (λ k : τ Nat_grpd,
+      λ _ : τ (@= (Functor (nerve_geometric_shape_cat k) (nerve_geometric_shape_cat k))
+        (@comp_cat_fapp0 _ _ _ (nerve_geometric_first_projection_shape k) (nerve_geometric_first_face_shape k a))
+        (@id_func (nerve_geometric_shape_cat k))),
+      @nerve_tensor_projection_face WalkingArrow_cat (GrayCubePos_R k) a) n;
+
+// Whole geometric restriction/degeneracy, preserving the opposite profile.
+symbol nerve_geometric_first_face (C : Cat) (n : τ Nat_grpd) (a : τ (Obj WalkingArrow_cat))
+  : τ (Functor (nerve_geometric_cube_cat C (succ n)) (nerve_geometric_cube_cat C n))
+≔ @oplax_precomp_func (nerve_geometric_shape_cat n) (nerve_geometric_shape_cat (succ n)) C
+    (nerve_geometric_first_face_shape n a);
+
+symbol nerve_geometric_first_degeneracy (C : Cat) (n : τ Nat_grpd)
+  : τ (Functor (nerve_geometric_cube_cat C n) (nerve_geometric_cube_cat C (succ n)))
+≔ @oplax_precomp_func (nerve_geometric_shape_cat (succ n)) (nerve_geometric_shape_cat n) C
+    (nerve_geometric_first_projection_shape n);
+
+// This is a path of whole functors on diagram categories at arbitrary n.
+symbol nerve_geometric_first_face_degeneracy (C : Cat) (n : τ Nat_grpd) (a : τ (Obj WalkingArrow_cat))
+  : τ (@= (Functor (nerve_geometric_cube_cat C n) (nerve_geometric_cube_cat C n))
+      (@comp_cat_fapp0 _ _ _ (nerve_geometric_first_face C n a) (nerve_geometric_first_degeneracy C n))
+      (@id_func (nerve_geometric_cube_cat C n)))
+≔ @eq_trans _ _ _ _
+    (@nerve_oplax_precomp_comp_path (nerve_geometric_shape_cat n)
+      (nerve_geometric_shape_cat (succ n)) (nerve_geometric_shape_cat n) C
+      (nerve_geometric_first_face_shape n a) (nerve_geometric_first_projection_shape n))
+    (@eq_ap (Functor (nerve_geometric_shape_cat n) (nerve_geometric_shape_cat n))
+      (Functor (nerve_geometric_cube_cat C n) (nerve_geometric_cube_cat C n))
+      (λ H : τ (Functor (nerve_geometric_shape_cat n) (nerve_geometric_shape_cat n)),
+        @oplax_precomp_func (nerve_geometric_shape_cat n) (nerve_geometric_shape_cat n) C H)
+      _ _ (nerve_geometric_first_shape_retraction n a));
+
+// Whole parameter families survive the new geometric degeneracy and either face.
+symbol nerve_geometric_first_family_retraction [K C : Cat] (n : τ Nat_grpd)
+  (a : τ (Obj WalkingArrow_cat)) (D : τ (Functor K (nerve_geometric_cube_cat C n)))
+  : τ (@= (Functor K (nerve_geometric_cube_cat C n))
+      (@comp_cat_fapp0 K (nerve_geometric_cube_cat C n) (nerve_geometric_cube_cat C n)
+        (@comp_cat_fapp0 _ _ _ (nerve_geometric_first_face C n a) (nerve_geometric_first_degeneracy C n)) D) D)
+≔ @eq_ap (Functor (nerve_geometric_cube_cat C n) (nerve_geometric_cube_cat C n))
+    (Functor K (nerve_geometric_cube_cat C n))
+    (λ H : τ (Functor (nerve_geometric_cube_cat C n) (nerve_geometric_cube_cat C n)),
+      @comp_cat_fapp0 K (nerve_geometric_cube_cat C n) (nerve_geometric_cube_cat C n) H D)
+    _ _ (nerve_geometric_first_face_degeneracy C n a);
+
+// Actual zero/successor constructors, not a change of indexing convention.
+assert (a : τ (Obj WalkingArrow_cat)) ⊢
+  nerve_geometric_first_face_shape zero a ≡ @Const_func Terminal_cat WalkingArrow_cat a;
+assert (a : τ (Obj WalkingArrow_cat)) (n : τ Nat_grpd) ⊢
+  nerve_geometric_first_face_shape (succ n) a ≡ @nerve_tensor_first_face WalkingArrow_cat (GrayCubePos_R n) a;
+assert ⊢ nerve_geometric_first_projection_shape zero ≡ @Const_func WalkingArrow_cat Terminal_cat Terminal_obj;
+assert (n : τ Nat_grpd) ⊢
+  nerve_geometric_first_projection_shape (succ n) ≡ nerve_tensor_first_projection WalkingArrow_cat (GrayCubePos_R n);
+assertnot (a b : τ (Obj WalkingArrow_cat)) ⊢
+  nerve_geometric_first_face_shape zero a ≡ nerve_geometric_first_face_shape zero b;

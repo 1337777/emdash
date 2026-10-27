@@ -4,6 +4,17 @@ Status: non-library NF-1 reconstruction and NF-2C cube construction on the corre
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
+## Whole first-coordinate geometric face/degeneracy law
+
+The [split-map continuation](geometric_first_faces_review.md) now constructs
+separate face insertion and projection, then whole geometric restriction and
+degeneracy maps at every dimension. It proves dₐⁿ∘sⁿ≐id as a whole mapping
+functor equality, recovers whole K-families and retains the genuine terminal
+zero shape. The opposite composite has the independent collapse reading.
+The 78-input scope passes in 99.461s / 629,996 KiB with unchanged warnings;
+no new structural contract or rule is added. Other coordinates, full index
+relations, native compatibility and production promotion remain open.
+
 ## Closure naturality and coordinate collapses
 
 The [naturality continuation](right_closure_naturality_review.md) adds an

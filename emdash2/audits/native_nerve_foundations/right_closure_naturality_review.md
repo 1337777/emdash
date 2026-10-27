@@ -5,6 +5,12 @@ Status: qualified non-library structural target-naturality contract and derived 
 Owner: [native implementation outline](../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
 Evidence: [exact naturality/composition/collapse replay modes](reverse_verification.json)
 
+The [later split-map construction](geometric_first_faces_review.md) now
+separates the first-coordinate face and projection, and derives the uniform
+whole geometric face-degeneracy identity. The collapse-only boundary below
+records this checkpoint; the full common-index and native compatibility
+requirements remain open.
+
 ## What is structural and what is derived
 
 The pre-existing right closure provides curry/uncurry and inverse paths at

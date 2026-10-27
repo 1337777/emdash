@@ -1,0 +1,45 @@
+require open emdash.native_geometric_first_faces;
+
+// The opposite face/degeneracy composite is the independently constructed
+// coordinate-collapse restriction, not a second identity law.
+symbol nerve_geometric_positive_first_collapse (C : Cat) (n : τ Nat_grpd)
+  (a : τ (Obj WalkingArrow_cat))
+  : τ (@= (Functor (nerve_geometric_cube_cat C (succ (succ n)))
+                    (nerve_geometric_cube_cat C (succ (succ n))))
+      (@comp_cat_fapp0 _ _ _ (nerve_geometric_first_degeneracy C (succ n))
+        (nerve_geometric_first_face C (succ n) a))
+      (@oplax_precomp_func (GrayCubePos_R (succ n)) (GrayCubePos_R (succ n)) C
+        (@nerve_tensor_first_collapse WalkingArrow_cat (GrayCubePos_R n) a)))
+≔ @eq_trans _ _ _ _
+    (@nerve_oplax_precomp_comp_path (GrayCubePos_R (succ n)) (GrayCubePos_R n)
+      (GrayCubePos_R (succ n)) C
+      (nerve_tensor_first_projection WalkingArrow_cat (GrayCubePos_R n))
+      (@nerve_tensor_first_face WalkingArrow_cat (GrayCubePos_R n) a))
+    (@eq_ap (Functor (GrayCubePos_R (succ n)) (GrayCubePos_R (succ n)))
+      (Functor (nerve_geometric_cube_cat C (succ (succ n)))
+        (nerve_geometric_cube_cat C (succ (succ n))))
+      (λ H : τ (Functor (GrayCubePos_R (succ n)) (GrayCubePos_R (succ n))),
+        @oplax_precomp_func (GrayCubePos_R (succ n)) (GrayCubePos_R (succ n)) C H)
+      _ _ (@nerve_tensor_face_projection WalkingArrow_cat (GrayCubePos_R n) a));
+
+// Actual source/target faces both split the same degeneracy in every degree.
+assert [C : Cat] (n : τ Nat_grpd) ⊢
+  nerve_geometric_first_face_degeneracy C n walking_arrow_src
+  : τ (@= (Functor (nerve_geometric_cube_cat C n) (nerve_geometric_cube_cat C n))
+      (@comp_cat_fapp0 _ _ _ (nerve_geometric_first_face C n walking_arrow_src)
+        (nerve_geometric_first_degeneracy C n)) (@id_func (nerve_geometric_cube_cat C n)));
+assert [C : Cat] (n : τ Nat_grpd) ⊢
+  nerve_geometric_first_face_degeneracy C n walking_arrow_tgt
+  : τ (@= (Functor (nerve_geometric_cube_cat C n) (nerve_geometric_cube_cat C n))
+      (@comp_cat_fapp0 _ _ _ (nerve_geometric_first_face C n walking_arrow_tgt)
+        (nerve_geometric_first_degeneracy C n)) (@id_func (nerve_geometric_cube_cat C n)));
+
+// The zero-dimensional instance also checks at its actual encoded source.
+assert [C : Cat] ⊢
+  nerve_geometric_first_face_degeneracy C zero walking_arrow_src
+  : τ (@= (Functor (Functor_oplax_cat Terminal_cat C) (Functor_oplax_cat Terminal_cat C))
+      (@comp_cat_fapp0 _ _ _ (nerve_geometric_first_face C zero walking_arrow_src)
+        (nerve_geometric_first_degeneracy C zero)) (@id_func (Functor_oplax_cat Terminal_cat C)));
+
+// Retain the genuine terminal-diagram category at zero; no G(1,C)=C rewrite.
+assertnot [C : Cat] ⊢ nerve_geometric_cube_cat C zero ≡ C;

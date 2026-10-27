@@ -1,0 +1,84 @@
+/* Separate first-coordinate insertion and projection, using the existing
+   right closure and its recorded target-naturality contract. */
+require open emdash.native_tensor_coordinate_collapse;
+
+// Insert a selected first-coordinate point while retaining the whole B-row.
+symbol nerve_tensor_first_face [A B : Cat] (a : τ (Obj A))
+  : τ (Functor B (GrayTensor_R A B))
+≔ fapp0 (gray_coevaluation_R_func A B) a;
+
+// Forget the first coordinate by uncurrying the constant identity B-diagram.
+symbol nerve_tensor_first_projection (A B : Cat)
+  : τ (Functor (GrayTensor_R A B) B)
+≔ @gray_uncurry_R A B B (@Const_func A (GrayHom_lax B B) (@id_func B));
+
+symbol nerve_tensor_first_projection_curried (A B : Cat)
+  : τ (@= (Functor A (GrayHom_lax B B))
+      (@gray_curry_R A B B (nerve_tensor_first_projection A B))
+      (@Const_func A (GrayHom_lax B B) (@id_func B)))
+≔ @gray_curry_uncurry_R_at A B B (@Const_func A (GrayHom_lax B B) (@id_func B));
+
+// Read the existing fixed profile map as actual composition.
+symbol nerve_profile_postcompose_value [B C D : Cat]
+  (H : τ (Functor C D)) (J : τ (Functor B C))
+  : τ (@= (Functor B D)
+      (fapp0 (@nerve_profile_postcompose B C D H) J) (@comp_cat_fapp0 B C D H J))
+≔ @nerve_postcomposition_value_path B C D H J;
+
+// The coevaluation square at a retains an entire B-functor.
+symbol nerve_tensor_face_target_path [A B C : Cat]
+  (a : τ (Obj A)) (H : τ (Functor (GrayTensor_R A B) C))
+  : τ (@= (Functor B C)
+      (@comp_cat_fapp0 B (GrayTensor_R A B) C H (@nerve_tensor_first_face A B a))
+      (fapp0 (@gray_curry_R A B C H) a))
+≔ @eq_trans _ _ _ _
+    (@eq_sym _ _ _ (@nerve_profile_postcompose_value B (GrayTensor_R A B) C H (@nerve_tensor_first_face A B a)))
+    (@eq_sym _ _ _
+      (@eq_ap (Functor A (GrayHom_lax B C)) (Functor B C)
+        (λ J : τ (Functor A (GrayHom_lax B C)), fapp0 J a)
+        _ _ (@nerve_right_coevaluation_target A B C H)));
+
+// Projection after either selected face is the whole identity on B.
+symbol nerve_tensor_projection_face [A B : Cat] (a : τ (Obj A))
+  : τ (@= (Functor B B)
+      (@comp_cat_fapp0 B (GrayTensor_R A B) B
+        (nerve_tensor_first_projection A B) (@nerve_tensor_first_face A B a))
+      (@id_func B))
+≔ @eq_trans _ _ _ _
+    (@nerve_tensor_face_target_path A B B a (nerve_tensor_first_projection A B))
+    (@eq_ap (Functor A (GrayHom_lax B B)) (Functor B B)
+      (λ J : τ (Functor A (GrayHom_lax B B)), fapp0 J a)
+      _ _ (nerve_tensor_first_projection_curried A B));
+
+// Curry the opposite composite, retaining the same chosen row a.
+symbol nerve_tensor_face_projection_curried [A B : Cat] (a : τ (Obj A))
+  : τ (@= (Functor A (GrayHom_lax B (GrayTensor_R A B)))
+      (@gray_curry_R A B (GrayTensor_R A B)
+        (@comp_cat_fapp0 (GrayTensor_R A B) B (GrayTensor_R A B)
+          (@nerve_tensor_first_face A B a) (nerve_tensor_first_projection A B)))
+      (@Const_func A (GrayHom_lax B (GrayTensor_R A B)) (@nerve_tensor_first_face A B a)))
+≔ @eq_trans _ _ _ _
+    (@nerve_right_curry_target_at A B B (GrayTensor_R A B)
+      (@nerve_tensor_first_face A B a) (nerve_tensor_first_projection A B))
+    (@eq_trans _ _ _ _
+      (@eq_ap (Functor A (GrayHom_lax B B)) (Functor A (GrayHom_lax B (GrayTensor_R A B)))
+        (λ J : τ (Functor A (GrayHom_lax B B)),
+          @comp_cat_fapp0 A (GrayHom_lax B B) (GrayHom_lax B (GrayTensor_R A B))
+            (@nerve_profile_postcompose B B (GrayTensor_R A B) (@nerve_tensor_first_face A B a)) J)
+        _ _ (nerve_tensor_first_projection_curried A B))
+      (@eq_ap (Functor B (GrayTensor_R A B)) (Functor A (GrayHom_lax B (GrayTensor_R A B)))
+        (λ J : τ (Functor B (GrayTensor_R A B)), @Const_func A (GrayHom_lax B (GrayTensor_R A B)) J)
+        _ _ (@nerve_profile_postcompose_value B B (GrayTensor_R A B) (@nerve_tensor_first_face A B a) (@id_func B))));
+
+// The separated maps recover the already constructed collapse endomorphism.
+symbol nerve_tensor_face_projection [A B : Cat] (a : τ (Obj A))
+  : τ (@= (Functor (GrayTensor_R A B) (GrayTensor_R A B))
+      (@comp_cat_fapp0 (GrayTensor_R A B) B (GrayTensor_R A B)
+        (@nerve_tensor_first_face A B a) (nerve_tensor_first_projection A B))
+      (@nerve_tensor_first_collapse A B a))
+≔ @nerve_right_curry_reflect A B (GrayTensor_R A B)
+    (@comp_cat_fapp0 (GrayTensor_R A B) B (GrayTensor_R A B)
+      (@nerve_tensor_first_face A B a) (nerve_tensor_first_projection A B))
+    (@nerve_tensor_first_collapse A B a)
+    (@eq_trans _ _ _ _ (@nerve_tensor_face_projection_curried A B a)
+      (@eq_sym _ _ _ (@nerve_tensor_first_collapse_readback A B a)));
