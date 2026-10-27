@@ -5,6 +5,11 @@ Status: checked non-library reindexing/reflection; the remaining evaluation equa
 Owner: [native implementation outline](../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
 Evidence: [reverse replay extension](reverse_verification.json)
 
+The [subsequent diagram reconstruction](mixed_diagram_reconstruction_review.md)
+now proves both round trips on each complete diagram. The whole internal
+inverse and the evaluation equation below remain open; the new paths are
+not promoted through arbitrary objectwise extensionality.
+
 ## General evaluator contract
 
 For a strict F:A→B, the two whole functors below have the same type:

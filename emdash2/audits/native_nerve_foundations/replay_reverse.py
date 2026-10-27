@@ -27,7 +27,8 @@ def main() -> int:
     modes = ('maps', 'readback', 'qualification', 'inverse-review', 'reindex',
              'reflection', 'evaluation-pending', 'zero', 'all-degrees', 'zero-eta-pending',
              'unit-owners', 'unit-normality', 'terminal-contraction',
-             'constant-precomposition-pending', 'terminal-inverse')
+             'constant-precomposition-pending', 'terminal-inverse', 'mixed-diagram',
+             'tensor-left')
     parser.add_argument('--mode', choices=modes, default='qualification')
     parser.add_argument('--assemble-only', action='store_true')
     args = parser.parse_args()

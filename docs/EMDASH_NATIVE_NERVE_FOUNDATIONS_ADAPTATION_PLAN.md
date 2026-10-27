@@ -53,6 +53,14 @@ The [intrinsic unit-normality continuation](../emdash2/audits/native_nerve_found
 qualifies identity-base computation while preserving nonidentity laxity.
 Broader erased-identity overlaps and production qualification remain open.
 
+The [mixed-diagram proofs](../emdash2/audits/native_nerve_foundations/mixed_diagram_reconstruction_review.md)
+now recover each complete K/I diagram in both directions, without new rules.
+Their compatibility as diagrams vary still needs the whole internal inverse
+proof. Independently, [first-factor tensor action](../emdash2/audits/native_nerve_foundations/tensor_left_action_review.md)
+is derived from the existing right closure, with its identity law and whole
+curried readback. Tensor composition, the other factor and common-index
+coherence remain open. These advances do not replace either native inverse.
+
 The dated entries below are evidence chronology, newest first. An older
 “next,” “open” or “not yet” statement is superseded by the current parent and
 later evidence; it must not restart an already completed step.

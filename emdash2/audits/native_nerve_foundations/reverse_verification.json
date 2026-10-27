@@ -34,7 +34,9 @@
     "native_terminal_contraction.lp": "terminal_contraction.lpfragment",
     "native_constant_precomposition.lp": "constant_precomposition.lpfragment",
     "native_geometric_zero_inverse.lp": "geometric_zero_inverse.lpfragment",
-    "native_terminal_inverse_controls.lp": "terminal_inverse_controls.lpfragment"
+    "native_terminal_inverse_controls.lp": "terminal_inverse_controls.lpfragment",
+    "native_mixed_diagram_roundtrip.lp": "mixed_diagram_roundtrip.lpfragment",
+    "native_tensor_left_action.lp": "tensor_left_action.lpfragment"
   },
   "fragmentSuffixes": {
     "reverse_profile_admission.lpfragment": "\n",
@@ -1364,6 +1366,268 @@
       "expectedOutcome": "passed-fresh",
       "coverageReceipt": "20261027T185730Z-31126b3d6fc44e36ae340205f37637a4",
       "coverageKind": "fresh exact-input check"
+    },
+    "mixed-diagram": {
+      "extraSourceCopies": [
+        {
+          "source": "emdash3_2_nat_arithmetic.lp",
+          "target": "emdash3_2_nat_arithmetic.lp",
+          "sha256": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31"
+        }
+      ],
+      "extraOwnerInsertions": [
+        {
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "parentSha256": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+          "before": "symbol diagram_family_transf [K I C : Cat]",
+          "fragment": "evaluation_shape_naturality.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "0a4740fc052a425e2b258708f513dde94f56f75ca7a10c0493cbea985121ea95",
+          "before": "// Pairing telescope for products.\n",
+          "fragment": "constant_evaluation_beta.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "bd86ec5e1dae90d74ec2565c6a76c5f87f5c51b1b95219738e2849d26d8cadb0",
+          "before": "/* Identity and the existing weakened constant section, at whole and point",
+          "fragment": "intrinsic_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "d6cd5b51753a3fa291e6d5862330f91499b67135aff6fdd61e2be730d886fe3c",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_whole_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "0c8a3b066ab2738fde9890d2567b9a7b95b6c981d00cb510830dec02edce2948",
+          "before": "// Strict default maps preserve represented postcomposition.",
+          "fragment": "terminal_postcomp_identity.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "cc95184653c19e327348ce90e3871d376633d74d22355ce633405f5d1892440b",
+          "before": "// Cartesian-coefficient instances of the existing strict vertical-action laws.",
+          "fragment": "terminal_transfor_identity.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "6c00663a34202d3fddba011c63c4f8772954b9e2f79de1563ddb0668a2ed930b",
+          "before": "/* Identity and the existing weakened constant section, at whole and point",
+          "fragment": "intrinsic_terminal_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "7e7adc22df1fe6a28d9ee8be55edc5c17df70fbfb19f89567cc4272da83f0aea",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_whole_terminal_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "e5dcd5e6196391a4b199a4d2fd53cf8f5da849cb728948a455a1543f5192b442",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_identity_unit_join.lpfragment"
+        },
+        {
+          "owner": "native_postcomposition_laxity.lp",
+          "parentSha256": "0a6ee22389c8fa2b88569bdb972db8eb535bb3650cfbcbb91b86f388ff2460a3",
+          "before": "// Each component is the original alpha comparison",
+          "fragment": "postcomposition_intrinsic_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "constant_precomposition_beta.lpfragment",
+          "before": "// Pairing telescope for products.\n",
+          "parentSha256": "e006b0a309953b5c213fc014821152bb275c951b1078551996a5e5ebdfccf940"
+        },
+        {
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "fragment": "alternating_constant_beta.lpfragment",
+          "before": "rule @OddDual_func _ _ (@OddDual_func _ _ $F)",
+          "parentSha256": "9e73807f92e1914f837ffb868bb28ed02cc1f9ac9150624ff0826fedb2187d2f"
+        }
+      ],
+      "target": "native_mixed_diagram_roundtrip.lp",
+      "timeoutMs": 300000,
+      "expectedInputs": {
+        "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+        "emdash3_2.lp": "cadeec3e6a12b509ab251c986a95db4a6b2f0e66f23ec22be68ee27c0946f281",
+        "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_arrow_composition.lp": "6f7f20fd141de7478cbd028b6ee257506ae0149128e35a629c4822ebc4708fb1",
+        "emdash3_2_cubical_arrow_functor.lp": "833091cc2e17b7089c7bf9caf59c090232752165c1c48b1e4dda36a1a2d57ddc",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_levels.lp": "956003355c38ae379a81dca2ae458c6c559c399332e5e11394307ea3f5e30242",
+        "emdash3_2_cubical_square_level.lp": "b6ad8254211f6913a81d7e88b39a57f16db73cd4bb219d241f0de16ff945ce11",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_diagram_evaluation.lp": "25f4f3d11bfac417a2c7392e32daa0f91702c1027eb8366aeec5b795e2c84b53",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_cubes.lp": "49728a469917bc1b48426b8e52f3c7f9494a63e1154bc28f2227b5120cf6035d",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "46537eec0adb3138844b094e712fbc13a6302b151949cd8763e354e49ed9758b",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_gray_transformation_graph.lp": "db87cf675f63982930023ec8b397315111dadb0800a1c1d5ec2e82aaed9cd68a",
+        "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_readable_pseudofunctors.lp": "da27c3beabd50404b04dcdec9003b29e5e9aea960c49f6e1949ee15bab96b5b8",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_cube_retraction.lp": "a855a14595819ca62494dca6a914cd955a7f85c0bd53ce10a18c2abe1b0b30ab",
+        "native_cube_skeleton_consumer.lp": "dcb5feb0e13128c370724e86df443392deb46bbcfff87919ce4560229e3ce5eb",
+        "native_curried_square_maps.lp": "5fa66f1ab2d873a9f327be2a9f8f65bd2470827333b86742c009e3d5996a3e13",
+        "native_evaluation_reindex_review.lp": "70ef99ee25e0537e0847b085d6b58a6f6fd11d611536dff1d8eb99fbb8aeb4de",
+        "native_exchange_reflection.lp": "c5ccaff1207b0d23bf95774fc386a0428a8c4a9010ebbaa6d16e0aaeae2254db",
+        "native_generic_square_whisker_whole.lp": "f7f8fc3c32bbab0abb0cd66f0f1384cc163f92814eef776dc8e7583588b69744",
+        "native_geometric_positive_decode.lp": "fd3e7451ae9506fae1060dc235fd9f6028d4ac8d3da23943621ba2a2848c9cb8",
+        "native_lift_composition_staged.lp": "3611ba218051e7f884f83c9b5da5b6a3c96ec989f2873dea9d955321fe8db964",
+        "native_mixed_cancel_reduction.lp": "0000bde9185c5342d150a56257104d4df79222757557d67941647998eaa77d4b",
+        "native_mixed_diagram_roundtrip.lp": "78479a360358a7f21908aad132a76b8f72b15af81d1eb37db72823bc612890fb",
+        "native_mixed_exchange_readback.lp": "1e975089959eccb4c005be5de264d8c16d64deb4a86f0eb536e3e982448ba24b",
+        "native_nerve_generation_review.lp": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323",
+        "native_nerve_graph_review.lp": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9",
+        "native_nerve_graph_whole_review.lp": "6a69911880e10a4332a14582444d5ed45b146ea9e969975ede3e96c8fea47b4e",
+        "native_nerve_realization_review.lp": "d627e730cd7f1b4486fbe6320774e940617fc3ecb5c6e83715bec3b6b82fb605",
+        "native_oplax_postcomp_interface.lp": "10a82cd0b0cc568fee14757ed54f25fc126dc1c4fc8dbd3a173555c81b6b4edd",
+        "native_positive_cube_qualification.lp": "1b8d3f94bf2b00f502bcf64ebe531f3d003d7ee1bd610072046e2d2d72c15709",
+        "native_postcomposition_consumers.lp": "6cf84f0748f85d63f751bc85e9ba6956d807673b4f57d9d4308974f64857d00b",
+        "native_postcomposition_controls.lp": "03372f9202d5061ce5a7de7bf870f949634678e7663bceebd049eb4b9c4f7306",
+        "native_postcomposition_interactions.lp": "ff29d3651270a8de05e5e9f7889ce83ee5d6df18828bfc692caf9287f24ae22e",
+        "native_postcomposition_laxity.lp": "f41207e008ae26d063555d22fe95626f6e218f88612b30b01047d932bf786785",
+        "native_postcomposition_owner.lp": "b1e507486f452daa856734acf161bf1f95e54d46c7d29ea5ab62b995863aa2b4",
+        "native_reverse_closure_objects.lp": "804833db19f22801c36b1d3de13eee4a5aac2e66538a6258d13c39092962110b",
+        "native_reverse_family_readback.lp": "aaf23df73598f08b53e2d85ed469b99fd4b35d428c49e1f2c02f7cc10fcaed6b",
+        "native_reverse_final.lp": "d0b977df6cbec3bf315fc76cca596623740523bdb89be325435089ad6ee4ace7",
+        "native_reverse_geometric_controls.lp": "5b17635a4e0fa2ee0097245acd6c1dcaba0e559052e8a7e035db1ba09dd18b45",
+        "native_reverse_geometric_maps.lp": "425b526157d43bc276e86ad25740f369867fa76e89bc33a02d110139a599d125",
+        "native_reverse_qualification.lp": "aeb3bd4c6a027d922147bf4fed5a00c1d515c9913583433e3c4828ec94c9dbf7",
+        "native_shape_reindex_paths.lp": "bd35fea5805e3c76cdaca2d1fd47b0a0413eae5d99dca11a4e22618471423ac4",
+        "native_walking_cube_maps.lp": "f3d64471bd307c21d5573cfe07ef8af403a243fd63aaac5d3716ce32e811ba43",
+        "native_walking_shift.lp": "79f4f1ed558b2ae0a62f1f9960f7b3ba763d1521072fd879cfdb49466c442ec7",
+        "native_walking_shift_inverses.lp": "86ce19a400928635fa72fcb74eb41a3a99c7296e2f2fd6b44ffeb77f1ede5d72"
+      },
+      "expectedOutcome": "passed-fresh",
+      "coverageReceipt": "20261027T191145Z-a49efea463894801a84d3947f44cedfe",
+      "coverageKind": "fresh exact-input check"
+    },
+    "tensor-left": {
+      "extraSourceCopies": [
+        {
+          "source": "emdash3_2_nat_arithmetic.lp",
+          "target": "emdash3_2_nat_arithmetic.lp",
+          "sha256": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31"
+        }
+      ],
+      "extraOwnerInsertions": [
+        {
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "parentSha256": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+          "before": "symbol diagram_family_transf [K I C : Cat]",
+          "fragment": "evaluation_shape_naturality.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "0a4740fc052a425e2b258708f513dde94f56f75ca7a10c0493cbea985121ea95",
+          "before": "// Pairing telescope for products.\n",
+          "fragment": "constant_evaluation_beta.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "bd86ec5e1dae90d74ec2565c6a76c5f87f5c51b1b95219738e2849d26d8cadb0",
+          "before": "/* Identity and the existing weakened constant section, at whole and point",
+          "fragment": "intrinsic_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "d6cd5b51753a3fa291e6d5862330f91499b67135aff6fdd61e2be730d886fe3c",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_whole_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "0c8a3b066ab2738fde9890d2567b9a7b95b6c981d00cb510830dec02edce2948",
+          "before": "// Strict default maps preserve represented postcomposition.",
+          "fragment": "terminal_postcomp_identity.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "cc95184653c19e327348ce90e3871d376633d74d22355ce633405f5d1892440b",
+          "before": "// Cartesian-coefficient instances of the existing strict vertical-action laws.",
+          "fragment": "terminal_transfor_identity.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "6c00663a34202d3fddba011c63c4f8772954b9e2f79de1563ddb0668a2ed930b",
+          "before": "/* Identity and the existing weakened constant section, at whole and point",
+          "fragment": "intrinsic_terminal_base_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "7e7adc22df1fe6a28d9ee8be55edc5c17df70fbfb19f89567cc4272da83f0aea",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_whole_terminal_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "parentSha256": "e5dcd5e6196391a4b199a4d2fd53cf8f5da849cb728948a455a1543f5192b442",
+          "before": "// Computation at the existing intrinsic owner. The default lax",
+          "fragment": "intrinsic_identity_unit_join.lpfragment"
+        },
+        {
+          "owner": "native_postcomposition_laxity.lp",
+          "parentSha256": "0a6ee22389c8fa2b88569bdb972db8eb535bb3650cfbcbb91b86f388ff2460a3",
+          "before": "// Each component is the original alpha comparison",
+          "fragment": "postcomposition_intrinsic_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "constant_precomposition_beta.lpfragment",
+          "before": "// Pairing telescope for products.\n",
+          "parentSha256": "e006b0a309953b5c213fc014821152bb275c951b1078551996a5e5ebdfccf940"
+        },
+        {
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "fragment": "alternating_constant_beta.lpfragment",
+          "before": "rule @OddDual_func _ _ (@OddDual_func _ _ $F)",
+          "parentSha256": "9e73807f92e1914f837ffb868bb28ed02cc1f9ac9150624ff0826fedb2187d2f"
+        }
+      ],
+      "target": "native_tensor_left_action.lp",
+      "timeoutMs": 180000,
+      "expectedInputs": {
+        "emdash3_2.lp": "cadeec3e6a12b509ab251c986a95db4a6b2f0e66f23ec22be68ee27c0946f281",
+        "emdash3_2_diagram_evaluation.lp": "25f4f3d11bfac417a2c7392e32daa0f91702c1027eb8366aeec5b795e2c84b53",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_profiles.lp": "46537eec0adb3138844b094e712fbc13a6302b151949cd8763e354e49ed9758b",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_postcomposition_owner.lp": "b1e507486f452daa856734acf161bf1f95e54d46c7d29ea5ab62b995863aa2b4",
+        "native_reverse_closure_objects.lp": "804833db19f22801c36b1d3de13eee4a5aac2e66538a6258d13c39092962110b",
+        "native_tensor_left_action.lp": "c71eb65f18abf2e79b54d28106c18caa23d318d21053bba717c74f0a15897703"
+      },
+      "expectedOutcome": "passed-fresh",
+      "coverageReceipt": "20261027T192219Z-9191ef37eda344a2a15764ade0626247",
+      "coverageKind": "fresh exact-input check"
     }
   },
   "historicalAttempts": [
@@ -1627,6 +1891,24 @@
       "wallSeconds": 68.60350361000746,
       "childrenMaxRssKiB": 284300,
       "inputSnapshot": "4627234d92b07c63e7f947088087c3da5a747d429fa2422522be22e62f327990"
+    },
+    {
+      "receipt": "20261027T191506Z-6c09bd0078ed425a8ad4e6825a99a54b",
+      "label": "whole tensor map forms; inline projection proof does not join the nested admission/composition",
+      "target": "native_tensor_left_action.lp",
+      "outcome": "failed",
+      "wallSeconds": 226.18834447395056,
+      "childrenMaxRssKiB": 630084,
+      "inputSnapshot": "18fcc0ab163f492d24c964ccb31526ccbff58429f1610104f4ea1e4333040bdb"
+    },
+    {
+      "receipt": "20261027T191931Z-35d20f2d16e443d1a6228f0680f86f6f",
+      "label": "reduced owning scope; congruence still needs explicitly staged endpoints",
+      "target": "native_tensor_left_action.lp",
+      "outcome": "failed",
+      "wallSeconds": 77.78303659101948,
+      "childrenMaxRssKiB": 310664,
+      "inputSnapshot": "4336e475e47776348aa20e78d5227d83a112a98a52914fe41809939bae791843"
     }
   ],
   "openBoundaries": [
@@ -1720,7 +2002,7 @@
     "mixed_exchange_inverse_pending.lpfragment": "097500d2e68a57d826143b2abe6e7556f5bc67a94ff42120dd33570a2e3f270e",
     "mixed_exchange_readback.lpfragment": "8e867750ec0c26ac1074c0e840375feab469bb31222f1ff29eb9b44d9ae6acf0",
     "postcomposition_whole_evaluation.lpfragment": "0adbcd5cbf7dffb2e3504b56f206c72a30da6e242049d4b90b0f98e43f358569",
-    "replay_reverse.py": "9894a1b928061caeeddee326620c1a4e2f1454fddebd81f5622016e5feb6ae9c",
+    "replay_reverse.py": "f60a6ac55538272cc2297640a4758bfb2874f4b46fcab6b25c943d7d903f4b33",
     "reverse_family_readback.lpfragment": "aaf23df73598f08b53e2d85ed469b99fd4b35d428c49e1f2c02f7cc10fcaed6b",
     "reverse_final.lpfragment": "d0b977df6cbec3bf315fc76cca596623740523bdb89be325435089ad6ee4ace7",
     "reverse_geometric_controls.lpfragment": "5b17635a4e0fa2ee0097245acd6c1dcaba0e559052e8a7e035db1ba09dd18b45",
@@ -1757,7 +2039,9 @@
     "geometric_zero_inverse.lpfragment": "4b86cabd79e983933a17c176724bad750ad3cab1d27e277e664bf0b0f725380f",
     "terminal_inverse_controls.lpfragment": "14743dadb1cc2e79d937238610116247c89ec1559fd2315bcbc850a8cff1018a",
     "constant_precomposition_beta.lpfragment": "e50a79e9054ada267370cf0aac1516cde82a7351ef0da10fa2a0d056020204c7",
-    "alternating_constant_beta.lpfragment": "78353b5769df7f7d65cb912ba340a902a75a0e6274e9be3a365817a7c8b8d4b2"
+    "alternating_constant_beta.lpfragment": "78353b5769df7f7d65cb912ba340a902a75a0e6274e9be3a365817a7c8b8d4b2",
+    "mixed_diagram_roundtrip.lpfragment": "78479a360358a7f21908aad132a76b8f72b15af81d1eb37db72823bc612890fb",
+    "tensor_left_action.lpfragment": "c71eb65f18abf2e79b54d28106c18caa23d318d21053bba717c74f0a15897703"
   },
   "extensions": [
     {
@@ -2202,6 +2486,86 @@
         "actual OddDual terminal source is retained; it is not identified with Terminal",
         "both zero inverse laws and whole K-family reconstruction are derived; no operational equality-proof arguments",
         "the 78-input scope includes previous cube-map, unit, nonidentity interchanger and arbitrary-modification controls"
+      ]
+    },
+    {
+      "baseline": "bc7c01bf",
+      "status": "derived both complete-diagram exchange round trips and whole first-factor tensor action; internal mapping-functor inverses, tensor composition and same-index coherence remain open",
+      "qualificationScopes": [
+        {
+          "receipt": "20261027T191145Z-a49efea463894801a84d3947f44cedfe",
+          "outcome": "passed-fresh",
+          "wallSeconds": 143.27357878605835,
+          "childrenMaxRssKiB": 619500,
+          "settings": {
+            "camlrunparam": "",
+            "fileMiB": 64,
+            "flags": [
+              "--too-long=0.5",
+              "--no-colors"
+            ],
+            "memoryMiB": 2048,
+            "ocamlrunparam": "o=20,v=1024",
+            "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+            "profile": "default",
+            "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+            "resourceBackend": "auto",
+            "runtimeEnvironment": {
+              "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+              "LD_LIBRARY_PATH": "",
+              "LD_PRELOAD": ""
+            },
+            "timeoutMs": 300000
+          },
+          "inputSnapshot": "ddca353cd41564cea409d5d1bc6294aa0df4dbd121d87da4a329233877acae24",
+          "inputCount": 66,
+          "warningCategories": {
+            "replaceable pattern variable": 181,
+            "unjoinable critical pair": 2296
+          },
+          "parserIssues": {}
+        },
+        {
+          "receipt": "20261027T192219Z-9191ef37eda344a2a15764ade0626247",
+          "outcome": "passed-fresh",
+          "wallSeconds": 95.44456109404564,
+          "childrenMaxRssKiB": 309836,
+          "settings": {
+            "camlrunparam": "",
+            "fileMiB": 64,
+            "flags": [
+              "--too-long=0.5",
+              "--no-colors"
+            ],
+            "memoryMiB": 2048,
+            "ocamlrunparam": "o=20,v=1024",
+            "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+            "profile": "default",
+            "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+            "resourceBackend": "auto",
+            "runtimeEnvironment": {
+              "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+              "LD_LIBRARY_PATH": "",
+              "LD_PRELOAD": ""
+            },
+            "timeoutMs": 180000
+          },
+          "inputSnapshot": "25086891f4bb5abf79b0c01fbc09b518bf2447c6fb1cdb5d97a3bd802c36e029",
+          "inputCount": 16,
+          "warningCategories": {
+            "replaceable pattern variable": 181,
+            "unjoinable critical pair": 2282
+          },
+          "parserIssues": {}
+        }
+      ],
+      "notes": [
+        "no new primitive, rewrite or unification rule; all proofs use existing whole exchange and right-closure interfaces",
+        "complete-diagram paths are not promoted to equalities of internal mapping functors",
+        "first-factor tensor action is a defined composite through coevaluation, postcomposition, canonical profile admission, right uncurry and inclusion",
+        "the identity and whole curried readback use the previously supplied right-closure paths; parameter transformation action is the generic Hom of the actual composite",
+        "two failed inline proofs are superseded by a staged represented-composition proof with explicit endpoints",
+        "no aggregate repeated after proof-only staging; actual owning scopes and exact input snapshots are retained separately"
       ]
     }
   ]

@@ -42,6 +42,14 @@ constant-precomposition beta; no terminal eta or native inverse axiom is
 added. Production/warning qualification remains separate. Continue the
 positive-dimensional mixed-evaluator and native reconstruction obligations.
 
+The [mixed-diagram proofs](../emdash2/audits/native_nerve_foundations/mixed_diagram_reconstruction_review.md)
+now recover each complete K/I diagram in both directions, without new rules.
+Their compatibility as diagrams vary still needs the whole internal inverse
+proof. Independently, [first-factor tensor action](../emdash2/audits/native_nerve_foundations/tensor_left_action_review.md)
+is derived from the existing right closure, with its identity law and whole
+curried readback. Tensor composition, the other factor and common-index
+coherence remain open. These advances do not replace either native inverse.
+
 The [actual moving-action recovery](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
 preserves its focused progress and pending overlap/full-integration boundary.
 Production promotion remains separate. Do not restart completed stages or

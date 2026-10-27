@@ -224,6 +224,13 @@ walking inverse. Preserve the latter, the checked degree-zero maps/inverses,
 and the remaining same-index action and degeneracy requirements. The [replay record](../emdash2/audits/native_nerve_foundations/reverse_verification.json)
 separates the passing constructions from the pending inverse attempt.
 
+The [new diagram round trips](../emdash2/audits/native_nerve_foundations/mixed_diagram_reconstruction_review.md)
+prove Y[M[D]]≐D and M[Y[E]]≐E for every complete K/I diagram. They use the
+existing whole double exchange and staged duality, with no new rule. These
+are paths at objects of the mapping category; assembling the corresponding
+whole endofunctor equalities remains required. Do not invoke objectwise
+functor extensionality to turn this result into the missing internal inverse.
+
 ## Degree zero and the uniform dimension interface
 
 The [zero construction](../emdash2/audits/native_nerve_foundations/geometric_degree_zero_review.md)
@@ -258,6 +265,30 @@ preserving nonidentity laxity. Broader erased-identity overlap qualification
 and production promotion remain open. The zero inverse proof is now checked;
 next return to positive-dimensional mixed-evaluator compatibility and native
 whole-section reconstruction, keeping the independent branch below in scope.
+
+## Shape action through the existing right closure
+
+The [first-factor action](../emdash2/audits/native_nerve_foundations/tensor_left_action_review.md)
+now supplies the whole functor
+
+```text
+T_left(A,D,B) : L(A,D) → L(A⊗ᴿB,D⊗ᴿB),
+tensor_left(F) = uncurry_R(coevaluation(D,B) ∘ F).
+```
+
+Its body is postcomposition, canonical profile admission, right uncurry and
+inclusion. The existing right-closure inverse paths prove its identity law
+and whole curried readback, after staging the represented composition proof.
+The 16-input scope passes in 95.445s / 309,836 KiB; no new primitive or rule
+is added. This advances the needed shape operations independently of mixed
+cancellation. Composition, the other tensor factor and selected face/degeneracy
+coherence are not yet qualified and remain part of the same-index work.
+The next shape boundary is the generic source/target naturality of the right
+closure: its present beta/eta paths concern fixed A,B,C and do not by
+themselves establish naturality between different shapes. Qualify that
+interface at its owner before using it to derive tensor composition or
+face laws. Keep this bounded shape task alongside the whole mixed-evaluator
+proof, rather than repeating diagram-component readbacks.
 
 ## Independent simplicial branch
 

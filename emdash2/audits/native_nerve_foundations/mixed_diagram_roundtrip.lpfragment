@@ -1,0 +1,58 @@
+require open emdash.native_mixed_cancel_reduction;
+
+// The reciprocal map recovers the whole exchanged family, not only its
+// values at k and i. E is an actual encoded opposite-profile diagram.
+symbol nerve_mixed_unexchange_object_path [K I C : Cat]
+  (E : τ (Obj (Functor_oplax_cat I (Functor_cat K C))))
+  : τ (@= (Functor K (Functor_oplax_cat I C))
+      (fapp0 (nerve_mixed_unexchange_func K I C) E)
+      (@diagram_family_shape_func I K C
+        (@OddDual_func (OddDual_cat I) (OddDual_cat (Functor_cat K C)) E)))
+≔ @eq_trans _ _ _ _
+    (@nerve_mixed_exchange_object_path (OddDual_cat I) (OddDual_cat K) (OddDual_cat C) E)
+    (@eq_sym _ _ _
+      (@eq_ap
+        (Functor (OddDual_cat K) (Functor_cat (OddDual_cat I) (OddDual_cat C)))
+        (Functor K (Functor_oplax_cat I C))
+        (λ H : τ (Functor (OddDual_cat K) (Functor_cat (OddDual_cat I) (OddDual_cat C))),
+          @OddDual_func _ _ H)
+        _ _ (@nerve_odd_shape_path I K C
+          (@OddDual_func (OddDual_cat I) (OddDual_cat (Functor_cat K C)) E))));
+
+// First round trip for an arbitrary complete K-family. This does not yet
+// claim equality of the endofunctor on the category of all such families.
+symbol nerve_mixed_diagram_first_path [K I C : Cat]
+  (D : τ (Functor K (Functor_oplax_cat I C)))
+  : τ (@= (Functor K (Functor_oplax_cat I C))
+      (fapp0 (nerve_mixed_unexchange_func K I C)
+        (fapp0 (nerve_mixed_exchange_func K I C) D)) D)
+≔ @eq_trans _ _ _ _
+    (@eq_ap _ _
+      (λ E : τ (Obj (Functor_oplax_cat I (Functor_cat K C))),
+        fapp0 (nerve_mixed_unexchange_func K I C) E)
+      _ _ (@nerve_mixed_exchange_object_path K I C D))
+    (@eq_trans _ _ _ _
+      (@nerve_mixed_unexchange_object_path K I C
+        (@OddDual_func I (Functor_cat K C) (@diagram_oplax_family_shape_func K I C D)))
+      (@nerve_shape_double_oplax_path K I C D));
+
+// The reciprocal round trip retains the complete encoded I-family too.
+symbol nerve_mixed_diagram_second_path [K I C : Cat]
+  (E : τ (Obj (Functor_oplax_cat I (Functor_cat K C))))
+  : τ (@= (Obj (Functor_oplax_cat I (Functor_cat K C)))
+      (fapp0 (nerve_mixed_exchange_func K I C)
+        (fapp0 (nerve_mixed_unexchange_func K I C) E)) E)
+≔ @eq_trans _ _ _ _
+    (@eq_ap _ _
+      (λ D : τ (Functor K (Functor_oplax_cat I C)),
+        fapp0 (nerve_mixed_exchange_func K I C) D)
+      _ _ (@nerve_mixed_unexchange_object_path K I C E))
+    (@eq_trans _ _ _ _
+      (@nerve_mixed_exchange_object_path K I C
+        (@diagram_family_shape_func I K C
+          (@OddDual_func (OddDual_cat I) (OddDual_cat (Functor_cat K C)) E)))
+      (@eq_ap (Functor I (Functor_cat K C))
+        (Obj (Functor_oplax_cat I (Functor_cat K C)))
+        (λ H : τ (Functor I (Functor_cat K C)), @OddDual_func _ _ H)
+        _ _ (@nerve_shape_double_lax_path I K C
+          (@OddDual_func (OddDual_cat I) (OddDual_cat (Functor_cat K C)) E))));
