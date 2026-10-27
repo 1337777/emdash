@@ -15,13 +15,20 @@ Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 
 ## Authorization and current boundary
 
-Current resumption, 2026-10-27: the [consolidated parent](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md#native-resumption-at-the-present-checkpoint)
-records the qualified 68-input canonical moving-boundary construction and
-whole filler inclusion, with both boundary projections and retained Γ. The
-direct actual-native Hom comparison still fails at expanded transport; that
-whole comparison and the second inverse remain next. The standing references
-and plan consolidation are complete at `f74e14f6` / `fba40ae2`; book/article work
-remains complete, and later frontend/health integration remains separate.
+User strategy amendment, 2026-10-27: use the [end-to-end implementation outline](EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
+and develop the maps/consumers independent of the unresolved walking inverse.
+The immediate concrete slice is the whole iterated-walking cube recursion and
+its degree-two maps. The geometric tensor closure and whole native section
+reconstruction remain separate required obligations; no missing inverse is
+supplied to make the skeleton check.
+
+Current resumption, 2026-10-27: the [whole iterated-walking maps and tensor consumer](../emdash2/audits/native_nerve_foundations/README.md#whole-iterated-walking-cube-maps-and-implementation-outline)
+now check on qualified `85b30c5e`. Follow the outline's geometric-closure and
+round-trip dependencies while retaining the native second inverse as required.
+The actual moving-action experiment is preserved separately with its unfinished
+overlap qualification; it is not used by the new recursive maps. The standing
+references, plan consolidation and book/article stage remain complete; later
+frontend/health integration stays separate.
 
 The dated entries below are evidence chronology, newest first. An older
 “next,” “open” or “not yet” statement is superseded by the current parent and

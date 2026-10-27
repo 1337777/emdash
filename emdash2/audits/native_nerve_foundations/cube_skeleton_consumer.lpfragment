@@ -1,0 +1,61 @@
+require open emdash.native_walking_cube_maps;
+
+// The actual geometric source stays distinct from the curried intermediate.
+symbol nerve_geometric_square_cat (C : Cat) : Cat
+≔ Functor_oplax_cat GrayWalkingSquare_cat C;
+
+// Temporary skeleton consumers of the precise missing closure maps.
+// No map or inverse is postulated; the final public construction must build them.
+symbol nerve_square_decode_with_curry [C : Cat]
+  (curry : τ (Functor (nerve_geometric_square_cat C) (nerve_curried_square_cat C)))
+  : τ (Functor (nerve_geometric_square_cat C) (@CubicalLevel_cat C (succ (succ zero))))
+≔ @comp_cat_fapp0 _ _ _ (nerve_curried_square_decode C) curry;
+
+symbol nerve_square_encode_with_uncurry [C : Cat]
+  (uncurry : τ (Functor (nerve_curried_square_cat C) (nerve_geometric_square_cat C)))
+  : τ (Functor (@CubicalLevel_cat C (succ (succ zero))) (nerve_geometric_square_cat C))
+≔ @comp_cat_fapp0 _ _ _ uncurry (nerve_curried_square_encode C);
+
+// The supplied right-closure map has a different profile/order.
+assertnot [C : Cat] ⊢ @gray_curry_R_func WalkingArrow_cat WalkingArrow_cat C
+  : τ (Functor (nerve_geometric_square_cat C) (nerve_curried_square_cat C));
+
+symbol nerve_oplax_postcomp_object_path [I A B : Cat]
+  (F : τ (Functor A B)) (D : τ (Functor I A))
+  : τ (@= (Obj (Functor_oplax_cat I B))
+      (fapp0 (@nerve_oplax_postcomp_func I A B F) (@OddDual_func I A D))
+      (@OddDual_func I B (@comp_cat_fapp0 I A B F D)))
+≔ @eq_refl (Obj (Functor_oplax_cat I B))
+    (fapp0 (@nerve_oplax_postcomp_func I A B F) (@OddDual_func I A D));
+
+// A concrete tensor consumer exists before the general closure is completed.
+symbol nerve_tensor_square_curried
+  : τ (Obj (nerve_curried_square_cat GrayWalkingSquare_cat))
+≔ @OddDual_func WalkingArrow_cat (Functor_oplax_cat WalkingArrow_cat GrayWalkingSquare_cat)
+    (nerve_walking_left_coevaluation WalkingArrow_cat);
+
+symbol nerve_tensor_square_decoded
+  : τ (Obj (@CubicalLevel_cat GrayWalkingSquare_cat (succ (succ zero))))
+≔ fapp0 (nerve_curried_square_decode GrayWalkingSquare_cat) nerve_tensor_square_curried;
+
+// Its original whole coordinate family supplies both edges and the filler.
+symbol nerve_tensor_square_coordinate_path
+  : τ (@= (Obj (@CubicalLevel_cat GrayWalkingSquare_cat (succ (succ zero))))
+      nerve_tensor_square_decoded
+      (@lax_edge (@LaxArrow_cat GrayWalkingSquare_cat)
+        (fapp0 (nerve_tensor_coordinate_family WalkingArrow_cat) walking_arrow_src)
+        (fapp0 (nerve_tensor_coordinate_family WalkingArrow_cat) walking_arrow_tgt)
+        (@fapp1_fapp0 WalkingArrow_cat (@LaxArrow_cat GrayWalkingSquare_cat)
+          (nerve_tensor_coordinate_family WalkingArrow_cat)
+          walking_arrow_src walking_arrow_tgt walking_arrow_generator)))
+≔ @eq_trans (Obj (@CubicalLevel_cat GrayWalkingSquare_cat (succ (succ zero)))) _ _ _
+    (@eq_ap (Obj (Functor_oplax_cat WalkingArrow_cat (@LaxArrow_cat GrayWalkingSquare_cat)))
+      (Obj (@CubicalLevel_cat GrayWalkingSquare_cat (succ (succ zero))))
+      (λ D : τ (Obj (Functor_oplax_cat WalkingArrow_cat (@LaxArrow_cat GrayWalkingSquare_cat))),
+        fapp0 (nerve_walking_observe_func (@LaxArrow_cat GrayWalkingSquare_cat)) D)
+      _ _ (@nerve_oplax_postcomp_object_path WalkingArrow_cat
+        (Functor_oplax_cat WalkingArrow_cat GrayWalkingSquare_cat)
+        (@LaxArrow_cat GrayWalkingSquare_cat) (nerve_walking_observe_func GrayWalkingSquare_cat)
+        (nerve_walking_left_coevaluation WalkingArrow_cat)))
+    (@nerve_walking_observe_object_path (@LaxArrow_cat GrayWalkingSquare_cat)
+      (nerve_tensor_coordinate_family WalkingArrow_cat));

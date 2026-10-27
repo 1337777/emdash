@@ -1,0 +1,69 @@
+--- emdash3_2.lp
++++ emdash3_2.lp
+@@ -12108,0 +12109,13 @@
++// Conventional pre/right action in its stable postcomposition presentation.
++// Preserve both runtime heads. The original component and actual F[p]
++// constrain the comparison; this never equates the post/left lax leg.
++unif_rule
++  @hom_postcomp_fapp0 _ _ (@id Cat_cat $B) $u $v $Z
++    (@tapp0_fapp0 $A $B $F $G $Y $epsilon) $q
++  ≡ @tapp1_fapp0 $A0 $B0 $F0 $G0 $X0 $Y0 $epsilon0 $p0
++  ↪ [ $A0 ≡ $A; $B0 ≡ $B; $F0 ≡ $F; $G0 ≡ $G;
++      $Y0 ≡ $Y; $epsilon0 ≡ $epsilon;
++      $u ≡ @fapp0 $A $B $F $X0; $v ≡ @fapp0 $A $B $F $Y;
++      $Z ≡ @fapp0 $A $B $G $Y;
++      $q ≡ @fapp1_fapp0 $A $B $F $X0 $Y $p0 ];
++
+@@ -16498,3 +16511,2 @@
+-// Fixed-input evaluation of represented precomposition is postcomposition.
+-// Keep both runtime heads; this compares complete functors, not their points.
+-unif_rule @comp_fapp0 Cat_cat _ _ _
++// Candidate runtime fixed-input precomposition evaluation.
++rule @comp_fapp0 Cat_cat _ _ _
+@@ -16503,7 +16515,11 @@
+-  ≡ @hom_postcomp_func $A0 $A0 (@id Cat_cat $A0) $X0 $Y0 $Z0 $g0
+-  ↪ [ $A0 ≡ $A; $X0 ≡ $X; $Y0 ≡ $Y; $Z0 ≡ $Z; $g0 ≡ $g ];
+-
+-// Whole Cartesian component of represented precomposition. Keep the
+-// original composite at runtime so prefix composition does not erase the
+-// left endpoint before a proof applies functorial congruence.
+-unif_rule @comp_fapp0 Cat_cat _ _ _
++  ↪ @hom_postcomp_func $A $A (@id_func $A) $X $Y $Z $g;
++// The same fixed-input evaluation after left association with a prefix.
++rule @comp_fapp0 Cat_cat _ _ $D
++    (@comp_fapp0 Cat_cat _ _ _
++      (@comp_fapp0 Cat_cat _ _ _ $J (@fapp0_func _ _ $g)) (Functor_cart_include _ _))
++    (@hom_precomp_along_tele_func $A $A (@id Cat_cat $A) $Z $X $Y)
++  ↪ @comp_cat_fapp0 (Hom_cat $A $X $Y) (Hom_cat $A $X $Z) $D $J
++      (@hom_postcomp_func $A $A (@id_func $A) $X $Y $Z $g);
++
++// Candidate runtime orientation of the existing whole represented component.
++rule @comp_fapp0 Cat_cat _ _ _
+@@ -16514,2 +16530,13 @@
+-  ≡ @hom_precomp_along_tele_func $A0 $A0 (@id Cat_cat $A0) $Z0 $X0 $Y0
+-  ↪ [ $A0 ≡ $A; $Z0 ≡ @fapp0 $B $A $F $b; $X0 ≡ $X; $Y0 ≡ $Y ];
++  ↪ @hom_precomp_along_tele_func $A $A (@id_func $A)
++      (@fapp0 $B $A $F $b) $X $Y;
++// Join the measured left-association order with an actual outer prefix.
++rule @comp_fapp0 Cat_cat _ _ $D
++    (@comp_fapp0 Cat_cat _ _ _
++      (@comp_fapp0 Cat_cat _ _ _ $J (@tapp0_func _ Cat_cart _ _ $b))
++      (@fapp1_func _ _ (Functor_cart_include _ Cat_cart) _ _))
++    (@hom_int_precomp_tele_func $A $B $F $Y $X)
++  ↪ @comp_cat_fapp0 (Hom_cat $A $X $Y)
++      (Functor_cart_cat (Hom_cat $A $Y (@fapp0 $B $A $F $b))
++        (Hom_cat $A $X (@fapp0 $B $A $F $b))) $D $J
++      (@hom_precomp_along_tele_func $A $A (@id_func $A)
++        (@fapp0 $B $A $F $b) $X $Y);
+@@ -19171,0 +19199,11 @@
++
++// Constructor-qualified total-dual Sigma cut. Preserve the original pair
++// metadata on the RHS; it cannot be re-inferred from neutral endpoints.
++// Only the target total is discriminated; the source may be any category.
++// lhs-audit: keep 2 -- actual total-dual Sigma target recovers K/E.
++rule @hom_precomp_along_fapp0
++    $A (CoAbove2_cat (Op_cat (@Sigma_cat $K $E)))
++    $F $Z $W $X $h (@Struct_sigma $I $P $p $alpha)
++  ↪ @hom_postcomp_fapp0 (@Sigma_cat $K $E) (TotalOp_cat $A)
++      (@TotalOp_func $A (TotalOp_cat (@Sigma_cat $K $E)) $F)
++      $Z $X $W $h (@Struct_sigma $I $P $p $alpha);

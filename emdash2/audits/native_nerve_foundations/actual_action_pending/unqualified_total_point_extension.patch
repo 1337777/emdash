@@ -1,0 +1,12 @@
+--- emdash3_2.lp
++++ emdash3_2.lp
+@@ -8684,0 +8685,9 @@
++// Total-dual point reading is separate from dimension-one transpose.
++// The actual primitive composite R(T(F)) discriminates the profile; every
++// original endpoint/map/arrow remains a constraint.
++unif_rule @hom_postcomp_fapp0 _ _
++      (@CoAbove2_func _ _ (@Op_func $A $B $F)) $Z $X $W $h $g
++  ≡ @hom_precomp_along_fapp0 $A0 $B0 $F0 $Z0 $W0 $X0 $h0 $g0
++  ↪ [ $A0 ≡ $A; $B0 ≡ $B; $F0 ≡ $F;
++      $Z0 ≡ $Z; $W0 ≡ $W; $X0 ≡ $X; $h0 ≡ $h; $g0 ≡ $g ];
++

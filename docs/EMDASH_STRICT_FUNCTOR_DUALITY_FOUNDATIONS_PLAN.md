@@ -11,12 +11,20 @@ Infinity-Codex-Decision-Responses: prior-thread 0099/0105 design and launch deci
 
 ## Current execution contract
 
-Resume native walking-arrow reconstruction from the canonical moving-boundary
-checkpoint below. The standing-reference refresh and plan consolidation are
-complete. The mathematical priority is the whole native
-second inverse, including simultaneous variation of both boundary arrows.
-The first inverse, whole transport and fixed-boundary filler recovery already
-have isolated checks. None supplies the remaining whole inverse automatically.
+Follow the [implementation outline](EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
+for the user-requested broader construction pass. The whole Nat-recursive
+iterated-walking cube maps and concrete degree-two tensor consumer now check.
+Next qualify their reusable composition/inverse comparisons and the geometric
+tensor bridge, while retaining whole-section reconstruction as a required
+proof obligation. Formation of the recursive maps assumes no missing inverse.
+All inverse laws, same-index action and degeneracies remain required.
+
+The [actual moving-cell/map experiment](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
+has positive focused evidence, but its constant-family overlap and final
+integration are unfinished. Its candidate is preserved separately; the checked
+broader construction uses qualified `85b30c5e`.
+Do not let this individual overlap become the sole next task. The standing
+reference refresh and plan consolidation remain complete.
 
 Do not restart completed book/article work, the original frontend migration,
 or strict-versus-lax design brainstorming. The later Pi/Sigma frontend repair
@@ -148,7 +156,7 @@ in scope until actually achieved or explicitly reassigned by the user.
 | Stage | Required outcome | Current next boundary |
 | --- | --- | --- |
 | NF-1 | Whole walking Observe/Realize with both actual inverses, original noninvertible filler and next-Hom action | Simultaneous moving-boundary comparison; native second inverse; owning qualification/promotion |
-| NF-2C | Whole variable-dimensional cube decoder and encoder, including degree zero | Correct walking-first reverse closure, round trips, shift/lift coherence; retain fixed bracketing and coordinate order |
+| NF-2C | Whole variable-dimensional cube decoder and encoder, including degree zero | Wₙ/NCₙ whole maps are checked; geometric closure, round trips, geometric degree zero and shift/face coherence remain. Retain bracketing and coordinate order. |
 | NF-3C | Native/geometric semicubical nerves on one face index | Whole inverse transformations and coherent face action |
 | NF-4C | Cubical degeneracies | Native/geometric identity insertion and all face/degeneracy relations |
 | NF-2S | Independent all-flags native simplexes and selected higher shapes | Moving vertices/flags, actual triangle/tetrahedron data, whole terminal-join/cone universality and inverses |
@@ -196,7 +204,7 @@ Nine added identity-overlap reports have canonical typed comparisons;
 generic runtime identities remain distinct. Full-module/promotion gates and
 inherited warning dispositions remain open.
 
-### Current canonical moving-boundary result
+### Qualified moving-boundary baseline and pending extension
 
 The [selected candidate](../emdash2/audits/native_nerve_foundations/README.md#canonical-moving-boundary-cells-and-whole-filler-inclusion)
 proves a whole family/category comparison with the represented native Hom
@@ -213,14 +221,16 @@ unit/composition reduct comparisons; no global confluence claim follows.
 [Source pins, receipts and replay modes](../emdash2/audits/native_nerve_foundations/moving_verification.json)
 replace reliance on the earlier ignored WIP path.
 
-The direct constructor in the **actual native Hom** still fails at expanded
-transport/Hom conversion. The proof-time canonical-category comparison is
-not an operational cast or a completed native inverse. Full-tuple runtime
-conversion and bare Γ-projection inference also retain their recorded limits;
-the appended next-Θ readback was not reached. Next reconcile the actual whole
-higher action with this canonical presentation, preserving A, B and Γ, then
-complete the second inverse. Do not add a boundary-extraction primitive or
-native inverse axiom. Production/full-module and later integration gates remain.
+At qualified `85b30c5e`, the direct actual-native constructor still fails at
+expanded transport/Hom conversion. The [pending extension](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
+subsequently checks that constructor and its whole filler inclusion, but its
+constant-family overlap and full qualification remain open. Whole-section
+reconstruction still fails. The canonical-category comparison is not an
+operational cast or a completed inverse. Full-tuple runtime conversion and
+bare Γ-projection inference retain their recorded limits; next-Θ readback was
+not reached. Preserve these obligations while the independent cube skeleton
+advances. No boundary-extraction primitive or native inverse axiom is adopted;
+production/full-module and later integration gates remain.
 
 ## Validation, permissions and checkpoint discipline
 

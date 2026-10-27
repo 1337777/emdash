@@ -1,0 +1,36 @@
+require open emdash.native_precomp_raw_staged;
+require open emdash.emdash3_2_path_pseudo_laxity;
+
+debug +u;
+
+// Generic typed comparison of the two actual total-dual point readings.
+// The proof stages their existing raw-composition laws; no new unifier.
+symbol nerve_total_prepost_value_path [A B : Cat] (F : τ (Functor A B))
+  (Z : τ (Obj B)) (W X : τ (Obj A)) (h : τ (Hom A W X))
+  (g : τ (Hom B (fapp0 F X) Z))
+  : τ (@= (Hom B (fapp0 F W) Z)
+      (@hom_precomp_along_fapp0 A B F Z W X h g)
+      (@hom_postcomp_fapp0 (TotalOp_cat B) (TotalOp_cat A)
+        (@TotalOp_func A B F) Z X W h g))
+≔ @eq_refl (Hom B (fapp0 F W) Z)
+    (@hom_precomp_along_fapp0 A B F Z W X h g);
+
+// This specializes the sole new symbolic peak: Sigma(const(B)) -> K×B.
+symbol nerve_dual_sigma_product_join [A K B : Cat]
+  (F : τ (Functor A (TotalOp_cat (Product_cat K B))))
+  (Z : τ (Obj (Product_cat K B))) (W X : τ (Obj A)) (h : τ (Hom A W X))
+  (g : τ (Hom (TotalOp_cat (Product_cat K B)) (fapp0 F X) Z))
+  : τ (@= (Hom (TotalOp_cat (Product_cat K B)) (fapp0 F W) Z)
+      (@hom_precomp_along_fapp0 A (TotalOp_cat (Product_cat K B)) F Z W X h g)
+      (@hom_postcomp_fapp0 (Product_cat K B) (TotalOp_cat A)
+        (@TotalOp_func A (TotalOp_cat (Product_cat K B)) F) Z X W h g))
+≔ @nerve_total_prepost_value_path A (TotalOp_cat (Product_cat K B)) F Z W X h g;
+
+// Both directions refer to the same original h; an unrelated k is rejected.
+assertnot [A B : Cat] (F : τ (Functor A B))
+  (Z : τ (Obj B)) (W X : τ (Obj A)) (h k : τ (Hom A W X))
+  (g : τ (Hom B (fapp0 F X) Z)) ⊢
+  @eq_refl (Hom B (fapp0 F W) Z) (@hom_precomp_along_fapp0 A B F Z W X h g)
+  : τ (@= (Hom B (fapp0 F W) Z)
+    (@hom_precomp_along_fapp0 A B F Z W X h g)
+    (@hom_postcomp_fapp0 (TotalOp_cat B) (TotalOp_cat A) (@TotalOp_func A B F) Z X W k g));

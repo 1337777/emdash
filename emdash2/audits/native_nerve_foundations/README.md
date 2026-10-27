@@ -4,6 +4,62 @@ Status: non-library NF-1 candidate on the corrected foundations.
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
+## Whole iterated-walking cube maps and implementation outline
+
+The user requested an end-to-end construction pass while the local native
+reconstruction comparison remains open. The [implementation outline](../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
+now separates the geometric tensor bridge from an executable intermediate:
+
+```text
+G_I(C) = Functor_oplax_cat(WalkingArrow,C)
+W₀(C)=C,       Wₙ₊₁(C)=G_I(Wₙ(C))
+NC₀(C)=C,      NCₙ₊₁(C)=N(NCₙ(C))
+
+d₀=e₀=id_C
+dₙ₊₁=Observe_NCₙ(C) ∘ G_I(dₙ)
+eₙ₊₁=G_I(eₙ) ∘ Realize_NCₙ(C).
+```
+
+The [whole recursive maps](cube_walking_iterates.lpfragment) are genuine
+internal Nat eliminations. They have no closure-map, strictness-proof or
+inverse-law parameters. [Fixed oplax postcomposition and the degree-two maps](cube_curried_maps.lpfragment)
+use existing Odd-dual action and ordinary fixed postcomposition. No Cartesian
+joint composition of general lax transformations is assumed, and these
+particular composites do not require a new native-arrow lifting profile.
+
+The 38-input [square consumer](cube_skeleton_consumer.lpfragment) passes in
+**116.183s / 583,852 KiB** under 180s / 2 GiB with subject reduction. Its imported
+recursion checks all six degree-zero/one/two equations and has whole first and
+next-Hom owners at variable n. The original tensor walking-square coevaluation
+is an actual input: its decoded square compares with the native square built
+from the existing whole coordinate family, retaining its two edges and arrow.
+This does not separately prove equality with the named interchanger constant.
+
+The generic tensor-to-curried map and reverse map remain explicit missing
+interfaces. Two conditional composition helpers check their exact consumer
+types; neither helper postulates those maps or their inverses. A control rejects
+substitution of the differently profiled right Gray curry map. Wₙ is an
+independent intermediate, not a redefinition of the geometric mapping category.
+Its zero case does not prove geometric terminal-diagram reconstruction.
+
+No primitive, rewrite, unification rule or inverse axiom is added in this
+slice. All five warning-inventory fields match the preceding maps-only check.
+[Exact evidence](cube_verification.json) pins the added existing library sources,
+all new definitions and the import closures. `replay_cube.py` supports `maps`,
+`square` and `composition`, each with `--assemble-only`. The last mode preserves
+the failed earlier composition proof and returns failure; it is not a green
+gate. The first two reconstruct their checked sources exactly.
+
+**Next dependencies:** prove fixed oplax postcomposition's whole composition
+comparison at its generic owner, use the first walking inverse for the first
+recursive round trip, and construct the correctly ordered geometric closure.
+The second walking inverse, complete round trips, same-index action, independent
+native simplex totals and both degeneracy extensions remain required. The
+[actual-Hom action investigation](actual_action_pending/README.md) is preserved
+separately, including its focused progress, unqualified overlap and still-failing
+whole-section comparison. It is not a prerequisite of these map definitions
+and its pending normalization rules were not used in this check.
+
 ## Canonical moving-boundary cells and whole filler inclusion
 
 The [whole family comparison](moving_family_proofs.lpfragment) now identifies

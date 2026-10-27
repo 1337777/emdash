@@ -1,0 +1,86 @@
+require open emdash.native_actual_moving_func;
+
+symbol nerve_actual_moving_value_path [C : Cat]
+  (x y x1 y1 : τ (Obj C)) (u : τ (Hom C x y)) (v : τ (Hom C x1 y1))
+  (a a1 : τ (Hom C x x1)) (b b1 : τ (Hom C y y1))
+  (alpha : τ (Hom (Hom_cat C x y1)
+    (@comp_fapp0 C x y y1 b u) (@comp_fapp0 C x x1 y1 v a)))
+  (beta : τ (Hom (Hom_cat C x y1)
+    (@comp_fapp0 C x y y1 b1 u) (@comp_fapp0 C x x1 y1 v a1)))
+  (A : τ (Hom (Hom_cat C x x1) a a1))
+  (B : τ (Hom (Hom_cat C y y1) b b1))
+  (Gamma : τ (Hom
+    (Hom_cat (Hom_cat C x y1) (@comp_fapp0 C x y y1 b u) (@comp_fapp0 C x x1 y1 v a1))
+    (@comp_fapp0 (Hom_cat C x y1) _ _ _
+      (@fapp1_fapp0 (Hom_cat C x x1) (Hom_cat C x y1)
+        (@hom_postcomp_func C C (@id_func C) x x1 y1 v) a a1 A) alpha)
+    (@hom_precomp_along_fapp0 (Hom_cat C y y1) (Hom_cat C x y1)
+      (@hom_precomp_along_func C C (@id_func C) y1 x y u)
+      (@comp_fapp0 C x x1 y1 v a1) b b1 B beta)))
+ : τ (@= (Hom (Hom_cat (@LaxArrow_cat C) (@lax_edge C x y u) (@lax_edge C x1 y1 v))
+      (Struct_sigma a (Struct_sigma b alpha)) (Struct_sigma a1 (Struct_sigma b1 beta))) (fapp0 (@nerve_actual_moving_filler_func C x y x1 y1 u v a a1 b b1 alpha beta A B) Gamma)
+      (@nerve_native_moving_boundary_stable C x y x1 y1 u v a a1 b b1 alpha beta A B Gamma))
+≔ @eq_refl (Hom (Hom_cat (@LaxArrow_cat C) (@lax_edge C x y u) (@lax_edge C x1 y1 v))
+      (Struct_sigma a (Struct_sigma b alpha)) (Struct_sigma a1 (Struct_sigma b1 beta))) (fapp0 (@nerve_actual_moving_filler_func C x y x1 y1 u v a a1 b b1 alpha beta A B) Gamma);
+assert [C : Cat]
+  (x y x1 y1 : τ (Obj C)) (u : τ (Hom C x y)) (v : τ (Hom C x1 y1))
+  (a a1 : τ (Hom C x x1)) (b b1 : τ (Hom C y y1))
+  (alpha : τ (Hom (Hom_cat C x y1)
+    (@comp_fapp0 C x y y1 b u) (@comp_fapp0 C x x1 y1 v a)))
+  (beta : τ (Hom (Hom_cat C x y1)
+    (@comp_fapp0 C x y y1 b1 u) (@comp_fapp0 C x x1 y1 v a1)))
+  (A : τ (Hom (Hom_cat C x x1) a a1))
+  (B : τ (Hom (Hom_cat C y y1) b b1))
+  (Gamma : τ (Hom
+    (Hom_cat (Hom_cat C x y1) (@comp_fapp0 C x y y1 b u) (@comp_fapp0 C x x1 y1 v a1))
+    (@comp_fapp0 (Hom_cat C x y1) _ _ _
+      (@fapp1_fapp0 (Hom_cat C x x1) (Hom_cat C x y1)
+        (@hom_postcomp_func C C (@id_func C) x x1 y1 v) a a1 A) alpha)
+    (@hom_precomp_along_fapp0 (Hom_cat C y y1) (Hom_cat C x y1)
+      (@hom_precomp_along_func C C (@id_func C) y1 x y u)
+      (@comp_fapp0 C x x1 y1 v a1) b b1 B beta)))
+ ⊢ sigma_Fst (fapp0 (@nerve_actual_moving_filler_func C x y x1 y1 u v a a1 b b1 alpha beta A B) Gamma) ≡ A;
+assert [C : Cat]
+  (x y x1 y1 : τ (Obj C)) (u : τ (Hom C x y)) (v : τ (Hom C x1 y1))
+  (a a1 : τ (Hom C x x1)) (b b1 : τ (Hom C y y1))
+  (alpha : τ (Hom (Hom_cat C x y1)
+    (@comp_fapp0 C x y y1 b u) (@comp_fapp0 C x x1 y1 v a)))
+  (beta : τ (Hom (Hom_cat C x y1)
+    (@comp_fapp0 C x y y1 b1 u) (@comp_fapp0 C x x1 y1 v a1)))
+  (A : τ (Hom (Hom_cat C x x1) a a1))
+  (B : τ (Hom (Hom_cat C y y1) b b1))
+  (Gamma : τ (Hom
+    (Hom_cat (Hom_cat C x y1) (@comp_fapp0 C x y y1 b u) (@comp_fapp0 C x x1 y1 v a1))
+    (@comp_fapp0 (Hom_cat C x y1) _ _ _
+      (@fapp1_fapp0 (Hom_cat C x x1) (Hom_cat C x y1)
+        (@hom_postcomp_func C C (@id_func C) x x1 y1 v) a a1 A) alpha)
+    (@hom_precomp_along_fapp0 (Hom_cat C y y1) (Hom_cat C x y1)
+      (@hom_precomp_along_func C C (@id_func C) y1 x y u)
+      (@comp_fapp0 C x x1 y1 v a1) b b1 B beta)))
+ ⊢ sigma_Fst (sigma_Snd (fapp0 (@nerve_actual_moving_filler_func C x y x1 y1 u v a a1 b b1 alpha beta A B) Gamma)) ≡ B;
+assertnot [C : Cat]
+  (x y x1 y1 : τ (Obj C)) (u : τ (Hom C x y)) (v : τ (Hom C x1 y1))
+  (a a1 : τ (Hom C x x1)) (b b1 : τ (Hom C y y1))
+  (alpha : τ (Hom (Hom_cat C x y1)
+    (@comp_fapp0 C x y y1 b u) (@comp_fapp0 C x x1 y1 v a)))
+  (beta : τ (Hom (Hom_cat C x y1)
+    (@comp_fapp0 C x y y1 b1 u) (@comp_fapp0 C x x1 y1 v a1)))
+  (A : τ (Hom (Hom_cat C x x1) a a1))
+  (B : τ (Hom (Hom_cat C y y1) b b1))
+  (Gamma : τ (Hom
+    (Hom_cat (Hom_cat C x y1) (@comp_fapp0 C x y y1 b u) (@comp_fapp0 C x x1 y1 v a1))
+    (@comp_fapp0 (Hom_cat C x y1) _ _ _
+      (@fapp1_fapp0 (Hom_cat C x x1) (Hom_cat C x y1)
+        (@hom_postcomp_func C C (@id_func C) x x1 y1 v) a a1 A) alpha)
+    (@hom_precomp_along_fapp0 (Hom_cat C y y1) (Hom_cat C x y1)
+      (@hom_precomp_along_func C C (@id_func C) y1 x y u)
+      (@comp_fapp0 C x x1 y1 v a1) b b1 B beta)))
+  (Delta : τ (Hom
+    (Hom_cat (Hom_cat C x y1) (@comp_fapp0 C x y y1 b u) (@comp_fapp0 C x x1 y1 v a1))
+    (@comp_fapp0 (Hom_cat C x y1) _ _ _
+      (@fapp1_fapp0 (Hom_cat C x x1) (Hom_cat C x y1)
+        (@hom_postcomp_func C C (@id_func C) x x1 y1 v) a a1 A) alpha)
+    (@hom_precomp_along_fapp0 (Hom_cat C y y1) (Hom_cat C x y1)
+      (@hom_precomp_along_func C C (@id_func C) y1 x y u)
+      (@comp_fapp0 C x x1 y1 v a1) b b1 B beta)))
+ ⊢ fapp0 (@nerve_actual_moving_filler_func C x y x1 y1 u v a a1 b b1 alpha beta A B) Gamma ≡ fapp0 (@nerve_actual_moving_filler_func C x y x1 y1 u v a a1 b b1 alpha beta A B) Delta;

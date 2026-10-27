@@ -14,12 +14,17 @@ The later Pi/Sigma native correction creates a separate frontend obligation.
 The standing-reference refresh is checkpointed as `f74e14f6`; current plan
 consolidation preserves the previous documents verbatim in historical files.
 
-Next mathematical work is NF-1's moving-boundary reconstruction and native
-second inverse. The 68-input canonical moving-boundary candidate and failed
-direct
-actual-native comparison are recorded in the [resumption section](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md#native-resumption-at-the-present-checkpoint).
-Production promotion remains a separate qualification boundary. Do not
-restart completed stages or revive dated “next” instructions from audits.
+The user requested a broader construction pass. The [implementation outline](EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
+now has checked whole Nat-recursive maps Wₙ(C)⇄NCₙ(C) and a concrete tensor
+square consumer, using qualified `85b30c5e`. Whole lifting-composition and
+inverse comparisons, the geometric bridge, same-index action and degeneracies
+remain explicit next dependencies. The native whole-section equation remains
+required and is not replaced by these independent map definitions.
+
+The [actual moving-action recovery](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
+preserves its focused progress and pending overlap/full-integration boundary.
+Production promotion remains separate. Do not restart completed stages or
+revive dated “next” instructions from audits.
 
 ## Authorized continuations after the foundations migration
 

@@ -1,0 +1,36 @@
+require open emdash.native_actual_moving_stable;
+require open emdash.native_moving_fibre_func;
+require open emdash.native_precomp_raw_staged;
+
+symbol nerve_actual_moving_filler_func [C : Cat]
+  (x y x1 y1 : τ (Obj C)) (u : τ (Hom C x y)) (v : τ (Hom C x1 y1))
+  (a a1 : τ (Hom C x x1)) (b b1 : τ (Hom C y y1))
+  (alpha : τ (Hom (Hom_cat C x y1)
+    (@comp_fapp0 C x y y1 b u) (@comp_fapp0 C x x1 y1 v a)))
+  (beta : τ (Hom (Hom_cat C x y1)
+    (@comp_fapp0 C x y y1 b1 u) (@comp_fapp0 C x x1 y1 v a1)))
+  (A : τ (Hom (Hom_cat C x x1) a a1))
+  (B : τ (Hom (Hom_cat C y y1) b b1))
+ : τ (Functor
+    (Hom_cat
+    (Hom_cat (Hom_cat C x y1) (@comp_fapp0 C x y y1 b u) (@comp_fapp0 C x x1 y1 v a1))
+    (@comp_fapp0 (Hom_cat C x y1) _ _ _
+      (@fapp1_fapp0 (Hom_cat C x x1) (Hom_cat C x y1)
+        (@hom_postcomp_func C C (@id_func C) x x1 y1 v) a a1 A) alpha)
+    (@hom_precomp_along_fapp0 (Hom_cat C y y1) (Hom_cat C x y1)
+      (@hom_precomp_along_func C C (@id_func C) y1 x y u)
+      (@comp_fapp0 C x x1 y1 v a1) b b1 B beta))
+    (Hom_cat (Hom_cat (@LaxArrow_cat C) (@lax_edge C x y u) (@lax_edge C x1 y1 v))
+      (Struct_sigma a (Struct_sigma b alpha))
+      (Struct_sigma a1 (Struct_sigma b1 beta))))
+≔ @comp_cat_fapp0 _ _ _
+    (@nerve_sigma_arrow_fibre_func (Hom_cat C x x1) (@hom_ (@PathOut_cat C x) (Hom_cat C x x1)
+      (@comp_cat_fapp0 (Hom_cat C x x1) (Hom_cat C x y1) (@PathOut_cat C x)
+        (@sigma_intro_tapp0_func C (@hom_ C C (@id_func C) x) y1)
+        (@hom_postcomp_func C C (@id_func C) x x1 y1 v)) (@pathout_obj C x y u))
+      a a1 (Struct_sigma b alpha) (Struct_sigma b1 beta) A)
+    (@nerve_pathout_2cell_func C x y y1 u (@comp_fapp0 C x x1 y1 v a1)
+      b b1 (@comp_fapp0 (Hom_cat C x y1) _ _ _
+        (@fapp1_fapp0 (Hom_cat C x x1) (Hom_cat C x y1)
+          (@hom_postcomp_func C C (@id_func C) x x1 y1 v) a a1 A) alpha)
+      beta B);

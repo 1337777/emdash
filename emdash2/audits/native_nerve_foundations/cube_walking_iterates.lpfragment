@@ -1,0 +1,65 @@
+/* Concrete intermediate model: iterated oplax walking diagrams.
+   This is not the geometric tensor mapping category. No equivalence or
+   tensor closure is postulated by these definitions. */
+require open emdash.native_curried_square_maps;
+
+symbol nerve_walking_cube_cat (C : Cat) (n : τ Nat_grpd) : Cat
+≔ @nat_elim (λ _ : τ Nat_grpd, Obj Cat_cat) C
+    (λ _ : τ Nat_grpd, λ D : Cat, Functor_oplax_cat WalkingArrow_cat D) n;
+
+symbol nerve_walking_cube_decode (C : Cat) (n : τ Nat_grpd)
+  : τ (Functor (@nerve_walking_cube_cat C n) (@CubicalLevel_cat C n))
+≔ @nat_elim
+    (λ k : τ Nat_grpd, Functor (@nerve_walking_cube_cat C k) (@CubicalLevel_cat C k))
+    (@id_func C)
+    (λ k : τ Nat_grpd,
+      λ D : τ (Functor (@nerve_walking_cube_cat C k) (@CubicalLevel_cat C k)),
+        @comp_cat_fapp0
+          (Functor_oplax_cat WalkingArrow_cat (@nerve_walking_cube_cat C k))
+          (Functor_oplax_cat WalkingArrow_cat (@CubicalLevel_cat C k))
+          (@LaxArrow_cat (@CubicalLevel_cat C k))
+          (nerve_walking_observe_func (@CubicalLevel_cat C k))
+          (@nerve_oplax_postcomp_func WalkingArrow_cat
+            (@nerve_walking_cube_cat C k) (@CubicalLevel_cat C k) D)) n;
+
+symbol nerve_walking_cube_encode (C : Cat) (n : τ Nat_grpd)
+  : τ (Functor (@CubicalLevel_cat C n) (@nerve_walking_cube_cat C n))
+≔ @nat_elim
+    (λ k : τ Nat_grpd, Functor (@CubicalLevel_cat C k) (@nerve_walking_cube_cat C k))
+    (@id_func C)
+    (λ k : τ Nat_grpd,
+      λ E : τ (Functor (@CubicalLevel_cat C k) (@nerve_walking_cube_cat C k)),
+        @comp_cat_fapp0
+          (@LaxArrow_cat (@CubicalLevel_cat C k))
+          (Functor_oplax_cat WalkingArrow_cat (@CubicalLevel_cat C k))
+          (Functor_oplax_cat WalkingArrow_cat (@nerve_walking_cube_cat C k))
+          (@nerve_oplax_postcomp_func WalkingArrow_cat
+            (@CubicalLevel_cat C k) (@nerve_walking_cube_cat C k) E)
+          (nerve_walking_realize_func (@CubicalLevel_cat C k))) n;
+
+assert [C : Cat] ⊢ @nerve_walking_cube_decode C zero ≡ @id_func C;
+assert [C : Cat] ⊢ @nerve_walking_cube_encode C zero ≡ @id_func C;
+assert [C : Cat] ⊢ @nerve_walking_cube_decode C (succ zero) ≡ nerve_walking_observe_func C;
+assert [C : Cat] ⊢ @nerve_walking_cube_encode C (succ zero) ≡ nerve_walking_realize_func C;
+assert [C : Cat] ⊢ @nerve_walking_cube_decode C (succ (succ zero)) ≡ nerve_curried_square_decode C;
+assert [C : Cat] ⊢ @nerve_walking_cube_encode C (succ (succ zero)) ≡ nerve_curried_square_encode C;
+
+// A whole arbitrary-dimensional Hom action; no object-list decoder.
+symbol nerve_walking_cube_decode_hom [C : Cat] (n : τ Nat_grpd)
+  (F G : τ (Obj (@nerve_walking_cube_cat C n)))
+  : τ (Functor (Hom_cat (@nerve_walking_cube_cat C n) F G)
+      (Hom_cat (@CubicalLevel_cat C n)
+        (fapp0 (@nerve_walking_cube_decode C n) F)
+        (fapp0 (@nerve_walking_cube_decode C n) G)))
+≔ @fapp1_func _ _ (@nerve_walking_cube_decode C n) F G;
+
+symbol nerve_walking_cube_decode_next [C : Cat] (n : τ Nat_grpd)
+  (F G : τ (Obj (@nerve_walking_cube_cat C n)))
+  (alpha beta : τ (Hom (@nerve_walking_cube_cat C n) F G))
+  : τ (Functor (Hom_cat (Hom_cat (@nerve_walking_cube_cat C n) F G) alpha beta)
+      (Hom_cat (Hom_cat (@CubicalLevel_cat C n)
+        (fapp0 (@nerve_walking_cube_decode C n) F)
+        (fapp0 (@nerve_walking_cube_decode C n) G))
+        (fapp0 (@nerve_walking_cube_decode_hom C n F G) alpha)
+        (fapp0 (@nerve_walking_cube_decode_hom C n F G) beta)))
+≔ @fapp1_func _ _ (@nerve_walking_cube_decode_hom C n F G) alpha beta;

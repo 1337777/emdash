@@ -1,0 +1,38 @@
+/* NF-2C: concrete whole maps for the iterated walking presentation.
+   Geometric tensor currying and both inverse obligations remain separate.
+   No new primitive, rewrite, admission premise or inverse is supplied. */
+require open emdash.native_nerve_realization_review;
+require open emdash.emdash3_2_cubical_levels;
+
+symbol nerve_oplax_postcomp_func [I A B : Cat] (F : τ (Functor A B))
+  : τ (Functor (Functor_oplax_cat I A) (Functor_oplax_cat I B))
+≔ @OddDual_func
+    (Functor_cat (OddDual_cat I) (OddDual_cat A))
+    (Functor_cat (OddDual_cat I) (OddDual_cat B))
+    (@comp_cat_cov_func (OddDual_cat I) (OddDual_cat A) (OddDual_cat B)
+      (@OddDual_func A B F));
+
+symbol nerve_curried_square_cat (C : Cat) : Cat
+≔ Functor_oplax_cat WalkingArrow_cat (Functor_oplax_cat WalkingArrow_cat C);
+
+symbol nerve_curried_square_decode (C : Cat)
+  : τ (Functor (nerve_curried_square_cat C) (@CubicalLevel_cat C (succ (succ zero))))
+≔ @comp_cat_fapp0 (nerve_curried_square_cat C)
+    (Functor_oplax_cat WalkingArrow_cat (@LaxArrow_cat C))
+    (@CubicalLevel_cat C (succ (succ zero)))
+    (nerve_walking_observe_func (@LaxArrow_cat C))
+    (@nerve_oplax_postcomp_func WalkingArrow_cat
+      (Functor_oplax_cat WalkingArrow_cat C) (@LaxArrow_cat C)
+      (nerve_walking_observe_func C));
+
+symbol nerve_curried_square_encode (C : Cat)
+  : τ (Functor (@CubicalLevel_cat C (succ (succ zero))) (nerve_curried_square_cat C))
+≔ @comp_cat_fapp0 (@CubicalLevel_cat C (succ (succ zero)))
+    (Functor_oplax_cat WalkingArrow_cat (@LaxArrow_cat C)) (nerve_curried_square_cat C)
+    (@nerve_oplax_postcomp_func WalkingArrow_cat (@LaxArrow_cat C)
+      (Functor_oplax_cat WalkingArrow_cat C) (nerve_walking_realize_func C))
+    (nerve_walking_realize_func (@LaxArrow_cat C));
+
+// Fixed postcomposition is unital and compositional on its actual maps.
+assert [I A : Cat] ⊢ @nerve_oplax_postcomp_func I A A (@id_func A)
+  ≡ @id_func (Functor_oplax_cat I A);

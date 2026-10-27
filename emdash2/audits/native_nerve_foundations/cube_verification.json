@@ -1,0 +1,297 @@
+{
+  "schema": 1,
+  "status": "qualified whole maps through iterated walking diagrams; geometric closure and inverse proofs remain open; non-library",
+  "receiverBaseline": "85b30c5e",
+  "baseReplay": "replay_moving.py",
+  "checker": {
+    "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+    "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+    "version": "dev-3.0.0-90-gdb4f7809-dirty"
+  },
+  "programs": {
+    "native_curried_square_maps.lp": "cube_curried_maps.lpfragment",
+    "native_walking_cube_maps.lp": "cube_walking_iterates.lpfragment",
+    "native_cube_skeleton_consumer.lp": "cube_skeleton_consumer.lpfragment"
+  },
+  "additionalSources": {
+    "emdash3_2_cubical_arrow_composition.lp": "6f7f20fd141de7478cbd028b6ee257506ae0149128e35a629c4822ebc4708fb1",
+    "emdash3_2_cubical_arrow_functor.lp": "833091cc2e17b7089c7bf9caf59c090232752165c1c48b1e4dda36a1a2d57ddc",
+    "emdash3_2_cubical_levels.lp": "956003355c38ae379a81dca2ae458c6c559c399332e5e11394307ea3f5e30242",
+    "emdash3_2_cubical_square_level.lp": "b6ad8254211f6913a81d7e88b39a57f16db73cd4bb219d241f0de16ff945ce11",
+    "emdash3_2_readable_pseudofunctors.lp": "da27c3beabd50404b04dcdec9003b29e5e9aea960c49f6e1949ee15bab96b5b8"
+  },
+  "modes": {
+    "maps": {
+      "target": "native_walking_cube_maps.lp",
+      "expectedInputs": {
+        "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+        "emdash3_2.lp": "1c10b88923a7fd68d05000c74ea83fb76ce64eda711002aa23b661dde658c711",
+        "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_arrow_composition.lp": "6f7f20fd141de7478cbd028b6ee257506ae0149128e35a629c4822ebc4708fb1",
+        "emdash3_2_cubical_arrow_functor.lp": "833091cc2e17b7089c7bf9caf59c090232752165c1c48b1e4dda36a1a2d57ddc",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_levels.lp": "956003355c38ae379a81dca2ae458c6c559c399332e5e11394307ea3f5e30242",
+        "emdash3_2_cubical_square_level.lp": "b6ad8254211f6913a81d7e88b39a57f16db73cd4bb219d241f0de16ff945ce11",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_gray_transformation_graph.lp": "db87cf675f63982930023ec8b397315111dadb0800a1c1d5ec2e82aaed9cd68a",
+        "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_readable_pseudofunctors.lp": "da27c3beabd50404b04dcdec9003b29e5e9aea960c49f6e1949ee15bab96b5b8",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_curried_square_maps.lp": "5fa66f1ab2d873a9f327be2a9f8f65bd2470827333b86742c009e3d5996a3e13",
+        "native_generic_square_whisker_whole.lp": "f7f8fc3c32bbab0abb0cd66f0f1384cc163f92814eef776dc8e7583588b69744",
+        "native_nerve_realization_review.lp": "d627e730cd7f1b4486fbe6320774e940617fc3ecb5c6e83715bec3b6b82fb605",
+        "native_walking_cube_maps.lp": "f3d64471bd307c21d5573cfe07ef8af403a243fd63aaac5d3716ce32e811ba43"
+      },
+      "timeoutMs": 180000,
+      "expectedOutcome": "passed-fresh",
+      "receipt": "20261027T100216Z-67202c123c434123b4fd7d2d772dde4e"
+    },
+    "square": {
+      "target": "native_cube_skeleton_consumer.lp",
+      "expectedInputs": {
+        "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+        "emdash3_2.lp": "1c10b88923a7fd68d05000c74ea83fb76ce64eda711002aa23b661dde658c711",
+        "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_arrow_composition.lp": "6f7f20fd141de7478cbd028b6ee257506ae0149128e35a629c4822ebc4708fb1",
+        "emdash3_2_cubical_arrow_functor.lp": "833091cc2e17b7089c7bf9caf59c090232752165c1c48b1e4dda36a1a2d57ddc",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_levels.lp": "956003355c38ae379a81dca2ae458c6c559c399332e5e11394307ea3f5e30242",
+        "emdash3_2_cubical_square_level.lp": "b6ad8254211f6913a81d7e88b39a57f16db73cd4bb219d241f0de16ff945ce11",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_gray_transformation_graph.lp": "db87cf675f63982930023ec8b397315111dadb0800a1c1d5ec2e82aaed9cd68a",
+        "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_readable_pseudofunctors.lp": "da27c3beabd50404b04dcdec9003b29e5e9aea960c49f6e1949ee15bab96b5b8",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_cube_skeleton_consumer.lp": "dcb5feb0e13128c370724e86df443392deb46bbcfff87919ce4560229e3ce5eb",
+        "native_curried_square_maps.lp": "5fa66f1ab2d873a9f327be2a9f8f65bd2470827333b86742c009e3d5996a3e13",
+        "native_generic_square_whisker_whole.lp": "f7f8fc3c32bbab0abb0cd66f0f1384cc163f92814eef776dc8e7583588b69744",
+        "native_nerve_realization_review.lp": "d627e730cd7f1b4486fbe6320774e940617fc3ecb5c6e83715bec3b6b82fb605",
+        "native_walking_cube_maps.lp": "f3d64471bd307c21d5573cfe07ef8af403a243fd63aaac5d3716ce32e811ba43"
+      },
+      "timeoutMs": 180000,
+      "expectedOutcome": "passed-fresh",
+      "receipt": "20261027T101257Z-cf5f1a376dac4f66a4ffa1343045e089"
+    },
+    "composition": {
+      "target": "native_curried_square_maps.lp",
+      "expectedInputs": {
+        "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+        "emdash3_2.lp": "1c10b88923a7fd68d05000c74ea83fb76ce64eda711002aa23b661dde658c711",
+        "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_arrow_composition.lp": "6f7f20fd141de7478cbd028b6ee257506ae0149128e35a629c4822ebc4708fb1",
+        "emdash3_2_cubical_arrow_functor.lp": "833091cc2e17b7089c7bf9caf59c090232752165c1c48b1e4dda36a1a2d57ddc",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_levels.lp": "956003355c38ae379a81dca2ae458c6c559c399332e5e11394307ea3f5e30242",
+        "emdash3_2_cubical_square_level.lp": "b6ad8254211f6913a81d7e88b39a57f16db73cd4bb219d241f0de16ff945ce11",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_gray_transformation_graph.lp": "db87cf675f63982930023ec8b397315111dadb0800a1c1d5ec2e82aaed9cd68a",
+        "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_readable_pseudofunctors.lp": "da27c3beabd50404b04dcdec9003b29e5e9aea960c49f6e1949ee15bab96b5b8",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_curried_square_maps.lp": "0b1db0a205ee3c7d0ada81d68ccfe9247a7cb7a5c6122a68dd5e6dab2e16cb48",
+        "native_generic_square_whisker_whole.lp": "f7f8fc3c32bbab0abb0cd66f0f1384cc163f92814eef776dc8e7583588b69744",
+        "native_nerve_generation_review.lp": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323",
+        "native_nerve_graph_review.lp": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9",
+        "native_nerve_graph_whole_review.lp": "6a69911880e10a4332a14582444d5ed45b146ea9e969975ede3e96c8fea47b4e",
+        "native_nerve_realization_review.lp": "d627e730cd7f1b4486fbe6320774e940617fc3ecb5c6e83715bec3b6b82fb605"
+      },
+      "timeoutMs": 180000,
+      "expectedOutcome": "failed",
+      "receipt": "20261027T095548Z-b622028284084001b2f43dada3ab47d1",
+      "programOverrides": {
+        "native_curried_square_maps.lp": "cube_comp_pending.lpfragment"
+      }
+    }
+  },
+  "construction": [
+    "W_0(C)=C; W_(n+1)(C)=Functor_oplax_cat(I,W_n(C))",
+    "d_(n+1)=Observe_(NC_n) o G_I(d_n); e_(n+1)=G_I(e_n) o Realize_(NC_n)",
+    "Both maps have genuine internal Nat recursion and whole first/next-Hom action",
+    "Degree-two tensor coevaluation comparison retains the original whole coordinate family"
+  ],
+  "noNewStructure": [
+    "no new primitive category or arrow",
+    "no rewrite or unification rule",
+    "no supplied inverse or closure map in the recursive maps",
+    "no new strictness/pseudo evidence input",
+    "no operational equality cast"
+  ],
+  "qualificationLimits": [
+    "W_n is an intermediate category, not the geometric tensor mapping category",
+    "No whole inverse theorem for the recursive maps yet",
+    "G_I composition proof by literal reflexivity failed under the recorded fuller import scope",
+    "General walking-first geometric curry/uncurry and same-index naturality remain required",
+    "Geometric degree zero remains separate from W_0=C",
+    "No named-interchanger equality inferred solely from coordinate-family comparison",
+    "Both degeneracy extensions and native all-flags simplex branch remain required"
+  ],
+  "runs": [
+    {
+      "id": "20261027T095548Z-b622028284084001b2f43dada3ab47d1",
+      "target": "native_curried_square_maps.lp",
+      "outcome": "failed",
+      "wallSeconds": 124.19161494704895,
+      "childrenMaxRssKiB": 597792,
+      "inputSnapshot": "8bef6748bb0ea511d509f9384dfeb850ed328381a2bb62358926e41642c0bccb",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      }
+    },
+    {
+      "id": "20261027T100216Z-67202c123c434123b4fd7d2d772dde4e",
+      "target": "native_walking_cube_maps.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 130.3020697599277,
+      "childrenMaxRssKiB": 589400,
+      "inputSnapshot": "66f1317dc4f9f543e5af137e0eb432ea0842a219a7a9df418a7fbd1175999dad",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      }
+    },
+    {
+      "id": "20261027T101257Z-cf5f1a376dac4f66a4ffa1343045e089",
+      "target": "native_cube_skeleton_consumer.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 116.18258953280747,
+      "childrenMaxRssKiB": 583852,
+      "inputSnapshot": "aa70f4a744c62742868f014cfe4f12baf17a9533f41661f9ce4d41ee3a7b4fab",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      }
+    }
+  ],
+  "resourceReason": "The initial same-family comparison scope measured 124.192s in imports; the 180s/2GiB budget preserves the existing serial/file/no-swap/SR guard.",
+  "artifacts": {
+    "cube_curried_maps.lpfragment": "180d7e0e37a5bcbe7e6779feb5558a1d092c1483334f37bcc52ca534938f37d8",
+    "cube_walking_iterates.lpfragment": "f3d64471bd307c21d5573cfe07ef8af403a243fd63aaac5d3716ce32e811ba43",
+    "cube_skeleton_consumer.lpfragment": "dcb5feb0e13128c370724e86df443392deb46bbcfff87919ce4560229e3ce5eb",
+    "cube_comp_pending.lpfragment": "0b1db0a205ee3c7d0ada81d68ccfe9247a7cb7a5c6122a68dd5e6dab2e16cb48",
+    "replay_cube.py": "eca9623d053f0fe95cd0f4b7675c39980024a61bd980abbb111ac1b309a1d97e"
+  },
+  "warnings": {
+    "baseline": "20261027T100216Z-67202c123c434123b4fd7d2d772dde4e",
+    "candidate": "20261027T101257Z-cf5f1a376dac4f66a4ffa1343045e089",
+    "allFieldsEqual": {
+      "categories": true,
+      "locations": true,
+      "term_heads": true,
+      "rule_families": true,
+      "parser_issues": true
+    },
+    "explanation": "same imported source plus one new definitions/consumer file; no new rule or unifier"
+  },
+  "fragmentSuffixes": {
+    "cube_curried_maps.lpfragment": "\n"
+  }
+}

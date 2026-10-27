@@ -1,0 +1,10 @@
+require open emdash.native_actual_moving_controls;
+require open emdash.native_graph_factorization_review;
+
+// Recheck the whole section on the corrected (unidentified) Pi classifier.
+symbol nerve_current_section_identity (C : Cat)
+  : τ (@= (Obj (@Pi_cat (nerve_native_section_base C) (nerve_native_section_family C)))
+      (nerve_native_graph_section C)
+      (@nerve_sigma_tautological_sec (TotalOp_cat C) (nerve_native_total_catd C)))
+≔ @eq_refl (Obj (@Pi_cat (nerve_native_section_base C) (nerve_native_section_family C)))
+    (nerve_native_graph_section C);
