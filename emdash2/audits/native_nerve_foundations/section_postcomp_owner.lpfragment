@@ -1,0 +1,6 @@
+// Whole semantic presentation of the existing section postcomposition owner.
+// Keep its runtime head, and compare every original map/section argument.
+unif_rule @section_postcomp_sec $K $E $D $FF $s
+  ≡ @hom_postcomp_fapp0 (@Catd_cat $K0) (@Catd_cat $K0)
+      (@id Cat_cat (@Catd_cat $K0)) (@Const_catd $K0 Terminal_cat) $E0 $D0 $GG $t
+  ↪ [ $K0 ≡ $K; $E0 ≡ $E; $D0 ≡ $D; $GG ≡ $FF; $t ≡ $s ];

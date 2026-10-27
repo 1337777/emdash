@@ -1,0 +1,72 @@
+// Factor the actual represented-Sigma graph through its two displayed maps.
+// Every map remains the existing implementation; this adds only definitions.
+symbol nerve_comma_graph_factored_total [B C : Cat] [F G : τ (Functor B C)]
+  (theta : τ (Hom (Functor_cart_cat (Op_cat B) (Catd_cat B))
+    (@hom_int_view B B (@id_func B)) (@comma_graph_middle_inner_catd B C F G)))
+  : τ (Functor (TotalOp_cat B)
+      (@Sigma_cat (TotalOp_cat C) (@comma_graph_target_base_catd C)))
+≔ @comp_cat_fapp0 _ _ _
+    (@sigma_pullback_total_func (TotalOp_cat B) (TotalOp_cat C)
+      (@TotalOp_func B C F) (@comma_graph_target_base_catd C))
+    (@comp_cat_fapp0 _ _ _
+      (@sigma_map_func (TotalOp_cat B) (@comma_graph_middle_catd B C F G)
+        (@comma_graph_target_catd B C F) (@comma_graph_basechange_op_funcd B C F G))
+      (@comp_cat_fapp0 _ _ _
+        (@sigma_map_func (TotalOp_cat B) (@comma_graph_source_catd B)
+          (@comma_graph_middle_catd B C F G) (@comma_graph_sigma_op_funcd B C F G theta))
+        (@section_total_func (TotalOp_cat B) (@comma_graph_source_catd B)
+          (@comma_graph_identity_sec B))));
+
+symbol nerve_comma_graph_factored_total_path [B C : Cat] [F G : τ (Functor B C)]
+  (theta : τ (Hom (Functor_cart_cat (Op_cat B) (Catd_cat B))
+    (@hom_int_view B B (@id_func B)) (@comma_graph_middle_inner_catd B C F G)))
+  : τ (@= (Functor (TotalOp_cat B)
+      (@Sigma_cat (TotalOp_cat C) (@comma_graph_target_base_catd C)))
+      (@comma_graph_underlying_func B C F G theta)
+      (@nerve_comma_graph_factored_total B C F G theta))
+≔ @eq_trans (Functor (TotalOp_cat B)
+    (@Sigma_cat (TotalOp_cat C) (@comma_graph_target_base_catd C))) _ _ _
+    (@eq_ap
+      (Functor (TotalOp_cat B) (@Sigma_cat (TotalOp_cat B) (@comma_graph_target_catd B C F)))
+      (Functor (TotalOp_cat B) (@Sigma_cat (TotalOp_cat C) (@comma_graph_target_base_catd C)))
+      (λ H : τ (Functor (TotalOp_cat B) (@Sigma_cat (TotalOp_cat B) (@comma_graph_target_catd B C F))),
+        @comp_cat_fapp0 _ _ _
+          (@sigma_pullback_total_func (TotalOp_cat B) (TotalOp_cat C)
+            (@TotalOp_func B C F) (@comma_graph_target_base_catd C)) H)
+      _ _ (@eq_sym (Functor (TotalOp_cat B) (@Sigma_cat (TotalOp_cat B) (@comma_graph_target_catd B C F))) _ _
+        (@nerve_section_total_postcomp_path (TotalOp_cat B)
+          (@comma_graph_middle_catd B C F G) (@comma_graph_target_catd B C F)
+          (@comma_graph_basechange_op_funcd B C F G) (@comma_graph_middle_sec B C F G theta))))
+    (@eq_ap
+      (Functor (TotalOp_cat B) (@Sigma_cat (TotalOp_cat B) (@comma_graph_middle_catd B C F G)))
+      (Functor (TotalOp_cat B) (@Sigma_cat (TotalOp_cat C) (@comma_graph_target_base_catd C)))
+      (λ H : τ (Functor (TotalOp_cat B) (@Sigma_cat (TotalOp_cat B) (@comma_graph_middle_catd B C F G))),
+        @comp_cat_fapp0 _ _ _
+          (@sigma_pullback_total_func (TotalOp_cat B) (TotalOp_cat C)
+            (@TotalOp_func B C F) (@comma_graph_target_base_catd C))
+          (@comp_cat_fapp0 _ _ _
+            (@sigma_map_func (TotalOp_cat B) (@comma_graph_middle_catd B C F G)
+              (@comma_graph_target_catd B C F) (@comma_graph_basechange_op_funcd B C F G)) H))
+      _ _ (@eq_sym (Functor (TotalOp_cat B) (@Sigma_cat (TotalOp_cat B) (@comma_graph_middle_catd B C F G))) _ _
+        (@nerve_section_total_postcomp_path (TotalOp_cat B)
+          (@comma_graph_source_catd B) (@comma_graph_middle_catd B C F G)
+          (@comma_graph_sigma_op_funcd B C F G theta) (@comma_graph_identity_sec B))));
+
+symbol nerve_comma_graph_factored_func [B C : Cat] [F G : τ (Functor B C)]
+  (theta : τ (Hom (Functor_cart_cat (Op_cat B) (Catd_cat B))
+    (@hom_int_view B B (@id_func B)) (@comma_graph_middle_inner_catd B C F G)))
+  : τ (Functor B (@LaxArrow_cat C))
+≔ @TotalOp_func _ _ (@nerve_comma_graph_factored_total B C F G theta);
+
+symbol nerve_comma_graph_factored_path [B C : Cat] [F G : τ (Functor B C)]
+  (theta : τ (Hom (Functor_cart_cat (Op_cat B) (Catd_cat B))
+    (@hom_int_view B B (@id_func B)) (@comma_graph_middle_inner_catd B C F G)))
+  : τ (@= (Functor B (@LaxArrow_cat C))
+      (@comma_graph_internal_func B C F G theta)
+      (@nerve_comma_graph_factored_func B C F G theta))
+≔ @eq_ap (Functor (TotalOp_cat B)
+    (@Sigma_cat (TotalOp_cat C) (@comma_graph_target_base_catd C)))
+    (Functor B (@LaxArrow_cat C))
+    (λ H : τ (Functor (TotalOp_cat B)
+      (@Sigma_cat (TotalOp_cat C) (@comma_graph_target_base_catd C))), @TotalOp_func _ _ H)
+    _ _ (@nerve_comma_graph_factored_total_path B C F G theta);

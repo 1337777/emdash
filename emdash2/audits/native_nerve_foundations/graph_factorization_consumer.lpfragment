@@ -1,0 +1,68 @@
+require open emdash.native_section_sigma_consumer;
+
+// Specialize the generic factorization to the actual native universal arrow.
+symbol nerve_native_factored_func (C : Cat)
+  : τ (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+≔ @nerve_comma_graph_factored_func (@LaxArrow_cat C) C
+    (@cubical_src_func C) (@cubical_tgt_func C)
+    (@tapp1_int_cart (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C)
+      (nerve_native_universal_transf C));
+
+symbol nerve_native_graph_factored_path (C : Cat)
+  : τ (@= (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+      (@nerve_default_graph_func (@LaxArrow_cat C) C
+        (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C))
+      (nerve_native_factored_func C))
+≔ @eq_trans (Functor (@LaxArrow_cat C) (@LaxArrow_cat C)) _ _ _
+    (@nerve_default_graph_sigma_path (@LaxArrow_cat C) C
+      (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C))
+    (@nerve_comma_graph_factored_path (@LaxArrow_cat C) C
+      (@cubical_src_func C) (@cubical_tgt_func C)
+      (@tapp1_int_cart (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C)
+        (nerve_native_universal_transf C)));
+
+symbol nerve_observe_realize_factored_path (C : Cat)
+  : τ (@= (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+      (@comp_cat_fapp0 (@LaxArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+        (@LaxArrow_cat C) (nerve_walking_observe_func C) (nerve_walking_realize_func C))
+      (nerve_native_factored_func C))
+≔ @eq_trans (Functor (@LaxArrow_cat C) (@LaxArrow_cat C)) _ _ _
+    (nerve_observe_realize_graph_path C) (nerve_native_graph_factored_path C);
+
+// This refactoring alone supplies no new reconstruction or inverse law.
+assertnot [C : Cat] ⊢
+  @eq_refl (Functor (@LaxArrow_cat C) (@LaxArrow_cat C)) (nerve_native_factored_func C)
+  : τ (@= (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+      (nerve_native_factored_func C) (@id_func (@LaxArrow_cat C)));
+
+require open emdash.native_whole_filler_readback;
+
+// Actual native filler category; p is arbitrary and no cell is invertible
+// by assumption. The selected arrows are the original stored native arrows.
+symbol nerve_native_filler_category [C : Cat]
+  (q r : τ (Obj (@LaxArrow_cat C))) (p : τ (Hom (@LaxArrow_cat C) q r)) : Cat
+≔ Hom_cat
+    (Hom_cat C (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q)
+      (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) r))
+    (@hom_postcomp_fapp0 C (@LaxArrow_cat C) (@cubical_tgt_func C)
+      (@fapp0 (@LaxArrow_cat C) C (@cubical_src_func C) q) q r p (@nerve_native_arrow_value C q))
+    (@hom_precomp_along_fapp0 (@LaxArrow_cat C) C (@cubical_src_func C)
+      (@fapp0 (@LaxArrow_cat C) C (@cubical_tgt_func C) r) q r p (@nerve_native_arrow_value C r));
+
+symbol nerve_native_filler_readback_path [C : Cat]
+  (q r : τ (Obj (@LaxArrow_cat C))) (p : τ (Hom (@LaxArrow_cat C) q r))
+  : τ (@= (Functor (@nerve_native_filler_category C q r p) (@nerve_native_filler_category C q r p))
+      (@nerve_square_filler_readback_func (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C)
+        q r p (@nerve_native_arrow_value C q) (@nerve_native_arrow_value C r))
+      (@id_func (@nerve_native_filler_category C q r p)))
+≔ @nerve_square_filler_readback_path (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C)
+    q r p (@nerve_native_arrow_value C q) (@nerve_native_arrow_value C r);
+
+// Do not identify the recovered functor with an arbitrary endofunctor.
+assertnot [C : Cat]
+  (q r : τ (Obj (@LaxArrow_cat C))) (p : τ (Hom (@LaxArrow_cat C) q r))
+  (H : τ (Functor (@nerve_native_filler_category C q r p) (@nerve_native_filler_category C q r p))) ⊢
+  @nerve_native_filler_readback_path C q r p
+  : τ (@= (Functor (@nerve_native_filler_category C q r p) (@nerve_native_filler_category C q r p))
+      (@nerve_square_filler_readback_func (@LaxArrow_cat C) C (@cubical_src_func C) (@cubical_tgt_func C)
+        q r p (@nerve_native_arrow_value C q) (@nerve_native_arrow_value C r)) H);

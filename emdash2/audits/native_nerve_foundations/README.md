@@ -4,6 +4,64 @@ Status: non-library NF-1 candidate on the corrected foundations.
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
+## Sigma factorization and whole filler readback
+
+The [section postcomposition view](section_postcomp_owner.lpfragment) adds
+one proof-time structural comparison with composition in `Catd(K)`. It
+retains the original displayed map FF and section s; neither is made strict
+or discarded. The no-rule check fails at precisely these two whole heads,
+and the retained [comparison controls](section_postcomp_comparison.lpfragment)
+reject substitutions of either argument. Runtime computation is unchanged.
+
+Using that view, existing Sigma functoriality and the totalization result
+below, [`section_total_postcomp.lpfragment`](section_total_postcomp.lpfragment)
+**derives** the whole comparison
+
+```text
+Sigma(FF) ∘ total(s) ≐ total(section_postcomp(FF,s)).
+```
+
+The [graph factorization](graph_factorization_owner.lpfragment) applies it
+twice to the actual represented-comma implementation. The resulting whole
+map is total duality applied to: projection base change, Sigma of the
+existing base-change displayed map, Sigma of the existing internal-action
+displayed map, and totalization of the original represented identity section.
+All original maps and the whole internal action remain in this expression.
+The [native consumer](graph_factorization_consumer.lpfragment) derives the
+same presentation for `Observe ∘ Realize`; no inverse or reconstruction
+equation is added.
+
+Separately, [`whole_filler_readback.lpfragment`](whole_filler_readback.lpfragment)
+derives the identity of the **entire** filler endofunctor:
+
+```text
+ev_id ∘ Whisker(F,G,p,u,v) ≐ id_S,
+S = Hom(Hom_B(F[y],G[z]), G[p]∘u, v∘F[p]).
+```
+
+This uses the previously checked generic evaluation comparison and its
+identity specialization; it adds no rewrite rule. The native specialization
+uses arbitrary native q, r, p and their original stored arrows. An arbitrary
+replacement endofunctor is rejected. This includes all higher cells inside
+that fixed-boundary filler category. It does **not** by itself establish the
+comparison when boundary arrows vary, or the identity of the whole native
+Hom/Sigma map. Those remain the reconstruction obligation.
+
+The [verification record](factorization_verification.json) pins every source
+and all six runs. Generic totalization compatibility passes in 28.940s;
+generic whole filler recovery passes in 24.811s. The 49-input native replay
+passes in 161.782s / 592,604 KiB under 180s / 2 GiB, retaining the first
+inverse and inherited higher-cell controls. All five warning inventory
+fields match the preceding candidate after exact line mapping; the strict
+LHS audit reports no unreviewed clauses. The inherited overlap and full-module
+promotion gates remain open. Production sources are unchanged.
+
+Replay with `replay_factorization.py --mode generic`, `--mode filler`, or
+`--mode integration`. Each supports `--assemble-only` to verify its exact
+checked closure without repeating validation. Continue with the full
+Homd/Sigma action and canonical reassembly, preserving boundary variation;
+do not replace that obligation with more fixed-filler observations.
+
 ## Whole section totalization through Sigma
 
 The [new candidate](section_sigma_totalization.lpfragment) connects the two

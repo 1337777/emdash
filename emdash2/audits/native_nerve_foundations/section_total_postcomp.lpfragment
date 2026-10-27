@@ -1,0 +1,50 @@
+require open emdash.native_section_sigma_action;
+require open emdash.native_section_postcomp;
+
+// Sigma functoriality, with the section composition left intact.
+symbol nerve_section_sigma_postcomp_path [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (@Functord K E D)) (s : τ (Obj (@Pi_cat K E)))
+  : τ (@= (Functor (@Sigma_cat K (@Const_catd K Terminal_cat)) (@Sigma_cat K D))
+      (@sigma_map_func K (@Const_catd K Terminal_cat) D (@section_postcomp_sec K E D FF s))
+      (@comp_cat_fapp0 _ _ _ (@sigma_map_func K E D FF)
+        (@sigma_map_func K (@Const_catd K Terminal_cat) E s)))
+≔ @eq_trans (Functor (@Sigma_cat K (@Const_catd K Terminal_cat)) (@Sigma_cat K D)) _ _ _
+    (@eq_ap (Obj (@Pi_cat K D))
+      (Functor (@Sigma_cat K (@Const_catd K Terminal_cat)) (@Sigma_cat K D))
+      (λ t : τ (Obj (@Pi_cat K D)), @sigma_map_func K (@Const_catd K Terminal_cat) D t)
+      _ _ (@nerve_section_postcomp_path K E D FF s))
+    (@eq_refl (Functor (@Sigma_cat K (@Const_catd K Terminal_cat)) (@Sigma_cat K D))
+      (@sigma_map_func K (@Const_catd K Terminal_cat) D
+        (@hom_postcomp_fapp0 (@Catd_cat K) (@Catd_cat K) (@id_func (@Catd_cat K))
+          (@Const_catd K Terminal_cat) E D FF s)));
+
+// The same comparison after the canonical product-unit input.
+symbol nerve_section_sigma_postcomp_unit_path [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (@Functord K E D)) (s : τ (Obj (@Pi_cat K E)))
+  : τ (@= (Functor K (@Sigma_cat K D))
+      (@nerve_section_total_via_sigma K D (@section_postcomp_sec K E D FF s))
+      (@comp_cat_fapp0 K (@Sigma_cat K E) (@Sigma_cat K D)
+        (@sigma_map_func K E D FF) (@nerve_section_total_via_sigma K E s)))
+≔ @eq_ap (Functor (@Sigma_cat K (@Const_catd K Terminal_cat)) (@Sigma_cat K D))
+    (Functor K (@Sigma_cat K D))
+    (λ H : τ (Functor (@Sigma_cat K (@Const_catd K Terminal_cat)) (@Sigma_cat K D)),
+      @comp_cat_fapp0 K (@Sigma_cat K (@Const_catd K Terminal_cat)) (@Sigma_cat K D)
+        H (@Product_pair (Functor_cat K K) (Functor_cat K Terminal_cat)
+          (@id_func K) (@Const_func K Terminal_cat Terminal_obj)))
+    _ _ (@nerve_section_sigma_postcomp_path K E D FF s);
+
+// Whole totalization commutes with postcomposition by the existing map FF.
+// No strict naturality of FF is assumed or imposed.
+symbol nerve_section_total_postcomp_path [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (@Functord K E D)) (s : τ (Obj (@Pi_cat K E)))
+  : τ (@= (Functor K (@Sigma_cat K D))
+      (@section_total_mapped_func K E D FF s)
+      (@section_total_postcomp_func K E D FF s))
+≔ @eq_trans (Functor K (@Sigma_cat K D)) _ _ _
+    (@eq_ap (Functor K (@Sigma_cat K E)) (Functor K (@Sigma_cat K D))
+      (λ H : τ (Functor K (@Sigma_cat K E)),
+        @comp_cat_fapp0 K (@Sigma_cat K E) (@Sigma_cat K D) (@sigma_map_func K E D FF) H)
+      _ _ (@eq_sym (Functor K (@Sigma_cat K E)) _ _ (@nerve_section_sigma_whole_path K E s)))
+    (@eq_trans (Functor K (@Sigma_cat K D)) _ _ _
+      (@eq_sym (Functor K (@Sigma_cat K D)) _ _ (@nerve_section_sigma_postcomp_unit_path K E D FF s))
+      (@nerve_section_sigma_whole_path K D (@section_postcomp_sec K E D FF s)));

@@ -15,6 +15,18 @@ Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 
 ## Authorization and current boundary
 
+NF-1 Sigma factorization, 2026-10-27 UTC: [the derived whole comparison](../emdash2/audits/native_nerve_foundations/README.md#sigma-factorization-and-whole-filler-readback)
+moves section postcomposition through totalization and exposes the graph's
+actual Sigma-map factors. One generic structural view connects the existing
+section-composition head with composition in Catd; no native inverse law is
+added. The entire fixed-boundary filler readback functor is also proved to be
+identity, using existing evaluation laws without new computation. The actual
+native specialization and 49-input prefix pass in 161.782s / 592,604 KiB with
+unchanged mapped warning inventory. Next compare the complete Homd/Sigma
+action with canonical reassembly, including variation of boundary arrows.
+That requirement and the second inverse are not implied by fixed-filler
+recovery. Keep the remaining production/full-module and later-stage gates.
+
 NF-1 whole totalization, 2026-10-27 UTC: the [generic section/Sigma presentation](../emdash2/audits/native_nerve_foundations/README.md#whole-section-totalization-through-sigma)
 adds the structural whole comparison `total(s) ≐ Sigma(s) ∘ (id,const(*))`
 and derives its complete Hom compatibility through the existing negative

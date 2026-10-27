@@ -1,0 +1,52 @@
+require open emdash.native_higher_staged_unit;
+
+// Whole filler readback: specialize the generic evaluation comparison,
+// instead of inferring a functor identity from capped cell observations.
+symbol nerve_square_filler_readback_func [A B : Cat] (F G : τ (Functor A B)) (Y Z : τ (Obj A))
+  (p : τ (Hom A Y Z))
+  (u : τ (Hom B (@fapp0 A B F Y) (@fapp0 A B G Y)))
+  (v : τ (Hom B (@fapp0 A B F Z) (@fapp0 A B G Z)))
+  : τ (Functor (Hom_cat (Hom_cat B (@fapp0 A B F Y) (@fapp0 A B G Z))
+    (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)
+    (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v)) (Hom_cat (Hom_cat B (@fapp0 A B F Y) (@fapp0 A B G Z))
+    (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)
+    (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v)))
+≔ @comp_cat_fapp0 (Hom_cat (Hom_cat B (@fapp0 A B F Y) (@fapp0 A B G Z))
+    (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)
+    (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v)) (@Transf_cat (Hom_cat A Y Y) (Hom_cat B (@fapp0 A B F Y) (@fapp0 A B G Z)) (@comp_cat_fapp0 _ _ _
+    (@hom_postcomp_func B A G (@fapp0 A B F Y) Y Z p)
+    (@comp_cat_fapp0 _ _ _
+      (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F Y) (@fapp0 A B F Y) (@fapp0 A B G Y) u)
+      (@fapp1_func A B F Y Y))) (@comp_cat_fapp0 _ _ _
+    (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F Y) (@fapp0 A B F Z) (@fapp0 A B G Z) v)
+    (@comp_cat_fapp0 _ _ _ (@fapp1_func A B F Y Z)
+      (@hom_postcomp_func A A (@id_func A) Y Y Z p)))) (Hom_cat (Hom_cat B (@fapp0 A B F Y) (@fapp0 A B G Z))
+    (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)
+    (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v))
+    (@tapp0_func (Hom_cat A Y Y) (Hom_cat B (@fapp0 A B F Y) (@fapp0 A B G Z))
+      (@comp_cat_fapp0 _ _ _
+    (@hom_postcomp_func B A G (@fapp0 A B F Y) Y Z p)
+    (@comp_cat_fapp0 _ _ _
+      (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F Y) (@fapp0 A B F Y) (@fapp0 A B G Y) u)
+      (@fapp1_func A B F Y Y))) (@comp_cat_fapp0 _ _ _
+    (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F Y) (@fapp0 A B F Z) (@fapp0 A B G Z) v)
+    (@comp_cat_fapp0 _ _ _ (@fapp1_func A B F Y Z)
+      (@hom_postcomp_func A A (@id_func A) Y Y Z p))) (@id A Y))
+    (@nerve_generic_square_whisker_func A B F G Y Y Z p u v);
+
+symbol nerve_square_filler_readback_path [A B : Cat] (F G : τ (Functor A B)) (Y Z : τ (Obj A))
+  (p : τ (Hom A Y Z))
+  (u : τ (Hom B (@fapp0 A B F Y) (@fapp0 A B G Y)))
+  (v : τ (Hom B (@fapp0 A B F Z) (@fapp0 A B G Z)))
+  : τ (@= (Functor (Hom_cat (Hom_cat B (@fapp0 A B F Y) (@fapp0 A B G Z))
+    (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)
+    (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v)) (Hom_cat (Hom_cat B (@fapp0 A B F Y) (@fapp0 A B G Z))
+    (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)
+    (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v)))
+      (@nerve_square_filler_readback_func A B F G Y Z p u v) (@id_func (Hom_cat (Hom_cat B (@fapp0 A B F Y) (@fapp0 A B G Z))
+    (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)
+    (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v))))
+≔ @nerve_postcomp_evaluation_path B (@fapp0 A B F Y) (@fapp0 A B F Y) (@fapp0 A B G Z)
+    (@hom_postcomp_fapp0 B A G (@fapp0 A B F Y) Y Z p u)
+    (@hom_precomp_along_fapp0 A B F (@fapp0 A B G Z) Y Z p v)
+    (@id B (@fapp0 A B F Y));

@@ -1,0 +1,23 @@
+require open emdash.emdash3_2;
+
+// Section postcomposition and ordinary composition in the displayed-map category.
+symbol nerve_section_postcomp_path [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (@Functord K E D)) (s : τ (Obj (@Pi_cat K E)))
+  : τ (@= (Obj (@Pi_cat K D)) (@section_postcomp_sec K E D FF s)
+      (@hom_postcomp_fapp0 (@Catd_cat K) (@Catd_cat K) (@id_func (@Catd_cat K))
+        (@Const_catd K Terminal_cat) E D FF s))
+≔ @eq_refl (Obj (@Pi_cat K D)) (@section_postcomp_sec K E D FF s);
+
+assertnot [K : Cat] [E D : τ (Catd K)]
+  (FF GG : τ (@Functord K E D)) (s : τ (Obj (@Pi_cat K E))) ⊢
+  @eq_refl (Obj (@Pi_cat K D)) (@section_postcomp_sec K E D FF s)
+  : τ (@= (Obj (@Pi_cat K D)) (@section_postcomp_sec K E D FF s)
+      (@hom_postcomp_fapp0 (@Catd_cat K) (@Catd_cat K) (@id_func (@Catd_cat K))
+        (@Const_catd K Terminal_cat) E D GG s));
+
+assertnot [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (@Functord K E D)) (s t : τ (Obj (@Pi_cat K E))) ⊢
+  @eq_refl (Obj (@Pi_cat K D)) (@section_postcomp_sec K E D FF s)
+  : τ (@= (Obj (@Pi_cat K D)) (@section_postcomp_sec K E D FF s)
+      (@hom_postcomp_fapp0 (@Catd_cat K) (@Catd_cat K) (@id_func (@Catd_cat K))
+        (@Const_catd K Terminal_cat) E D FF t));

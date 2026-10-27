@@ -42,6 +42,15 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Native Sigma factorization, 2026-10-27 UTC: [the current candidate](../emdash2/audits/native_nerve_foundations/README.md#sigma-factorization-and-whole-filler-readback)
+derives totalization compatibility with section postcomposition and factors
+the actual graph into its existing Sigma maps. Whole fixed-boundary filler
+recovery is proved independently from the existing evaluation comparison.
+The 49-input native check passes with unchanged mapped warnings. The active
+remaining task is whole reconstruction with varying boundary arrows, then
+the second inverse and subsequent NF stages; no native identity is supplied
+and no production/promotion or later integration gate is closed by this check.
+
 Native whole totalization, 2026-10-27 UTC: [the generic section/Sigma comparison](../emdash2/audits/native_nerve_foundations/README.md#whole-section-totalization-through-sigma)
 now has derived compatibility with the complete Hom action. Its one whole
 structural law is stated explicitly; two missing componentwise duality rules

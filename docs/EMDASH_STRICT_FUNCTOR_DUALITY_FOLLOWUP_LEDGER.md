@@ -4,6 +4,15 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: book/article complete; native Pi/Sigma correction installed; NF-1 reconstruction active; affected frontend candidate preserved separately; broad health/final integration remain deferred
 
+NF-1 graph factorization and whole filler recovery: [the new record](../emdash2/audits/native_nerve_foundations/factorization_verification.json)
+qualifies the complete Sigma-map factorization of the actual graph and the
+identity of the fixed-boundary filler endofunctor. General FF retains its
+existing lax profile. The 49-input native prefix passes in 161.782s with no
+warning-inventory change after line mapping. Still required: the complete
+Homd/Sigma comparison as boundary arrows vary, the second inverse and the
+existing promotion/integration obligations. More fixed-filler checks would
+not discharge that remaining whole comparison.
+
 NF-1 whole section/Sigma presentation: [the candidate and exact receipts](../emdash2/audits/native_nerve_foundations/section_sigma_verification.json)
 replace the earlier object/arrow-only alternative with a generic whole
 structural comparison and a derived complete Hom comparison. The duality
