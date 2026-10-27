@@ -20,6 +20,11 @@ cubical degeneracy work. Object observation and whole diagram readback do
 not yet establish that comparison. The
 legacy literal identity-square reduction remains an explicit failed control,
 and core repairs/coefficient overlaps still need production qualification.
+The first whole third-edge source proof fails directly; its narrower
+Cartesian coefficient naturality proof also fails direct reflexivity,
+before totalization. The audit retains both failures and their exact source
+snapshots. A staged whiskering proof, rather than a supplied nerve boundary
+equation, is the next local construction step.
 
 User priority clarification, 2026-10-27: assess the core cubical and simplicial
 constructions before further face/degeneracy expansion. The native all-flags

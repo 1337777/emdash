@@ -1,0 +1,14 @@
+// Whole endpoint agreement for the third native edge.
+require open emdash.native_higher_triangle_qualification;
+
+symbol triangle_face12_source_path (C : Cat)
+  : τ (@= (Functor (nerve_native_triangle_cat C) C)
+      (@comp_cat_fapp0 _ _ _ (cubical_src_func C) (nerve_triangle_face12_func C))
+      (triangle_vertex1_func C))
+≔ @eq_refl _ _;
+
+symbol triangle_face12_target_path (C : Cat)
+  : τ (@= (Functor (nerve_native_triangle_cat C) C)
+      (@comp_cat_fapp0 _ _ _ (cubical_tgt_func C) (nerve_triangle_face12_func C))
+      (triangle_vertex2_func C))
+≔ @eq_refl _ _;

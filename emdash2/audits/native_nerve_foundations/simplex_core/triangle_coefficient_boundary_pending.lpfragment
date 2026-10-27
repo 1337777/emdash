@@ -1,0 +1,24 @@
+// Whole Cartesian naturality for the source/target arrow projections.
+require open emdash.native_simplex_triangle_faces;
+
+symbol triangle_path_target_coeff (C : Cat)
+  : τ (Hom (Functor_cart_cat (Op_cat C) Cat_cart)
+      (@PathOut_cat_func C) (@Const_catd (Op_cat C) C))
+≔ @sigma_proj1_family_funcd (Op_cat C) C (@hom_int C C (@id_func C));
+
+symbol triangle_source_const_coeff (C : Cat)
+  : τ (Hom (Functor_cart_cat (Op_cat C) Cat_cart)
+      (@Const_catd (Op_cat C) (LaxArrow_cat C)) (@Const_catd (Op_cat C) C))
+≔ @fapp1_fapp0 _ _ (@comp_cat_con_cart_func (Op_cat C) Cat_cart Cat_cart (@Const_catd (Op_cat C) C))
+    nerve_native_arrow_coeff (@id_func Cat_cart) nerve_native_arrow_source_coeff;
+
+symbol triangle_source_coeff_naturality (C : Cat)
+  : τ (@= (Hom (Functor_cart_cat (Op_cat C) Cat_cart)
+      (nerve_triangle_fibres C) (@Const_catd (Op_cat C) C))
+    (@comp_fapp0 (Functor_cart_cat (Op_cat C) Cat_cart)
+      (nerve_triangle_fibres C) (@Const_catd (Op_cat C) (LaxArrow_cat C)) (@Const_catd (Op_cat C) C)
+      (triangle_source_const_coeff C) (nerve_triangle_third_edge_funcd C))
+    (@comp_fapp0 (Functor_cart_cat (Op_cat C) Cat_cart)
+      (nerve_triangle_fibres C) (@PathOut_cat_func C) (@Const_catd (Op_cat C) C)
+      (triangle_path_target_coeff C) (nerve_triangle_first_edge_funcd C)))
+≔ @eq_refl _ _;

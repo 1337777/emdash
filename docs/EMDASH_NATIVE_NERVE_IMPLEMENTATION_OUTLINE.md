@@ -357,7 +357,7 @@ parameter-transformation component ladder. The total, all three edge maps,
 fixed-vertex inclusion and actual directed-interchanger triangle pass in the
 44-input scope. No geometric mapping category defines this total.
 
-The next proposed geometric shape S₂ is a strict directed triangle:
+The implemented isolated geometric shape S₂ is a strict directed triangle:
 
 ```text
 objects: 0, 1, 2
@@ -366,9 +366,12 @@ cell:    κ : e₁₂∘e₀₁ ⇒ e₀₂
 Hom(0,2)=WalkingArrow; composition e₁₂∘e₀₁ selects its source object.
 ```
 
-This is a proposed finite higher shape, not an existing declaration or a
-supplied comparison theorem. Its intended whole comparison profile
-G(S₂,C)⇄T₂(C) must be checked against the actual triangle action. The existing
+The finite shape and its structural whole-Hom recursor now check. Applying
+the recursor in Functor_cat(K,C) and existing mixed exchange constructs a
+whole K→G(S₂,C) family, retaining its lax edges and original modification.
+Its object observation/constructor beta and whole diagram readback pass;
+the intended whole comparison G(S₂,C)⇄T₂(C) still needs the actual native
+triangle action. The existing
 ordinary DirectedSimplex_cat(2) has no independent κ and is unsuitable here.
 Whole mapping/universality, both actual inverse laws and the next higher step
 remain required. The runtime native identity-square observation and broader
@@ -378,11 +381,18 @@ coefficient/core overlap qualification remain at the native audit boundary.
 A proposed whole encoder route is to obtain the three vertex functors
 T₂(C)→C and their universal edge transformations from the already formed
 edge functors. The stored triangle should then give a whole modification
-between the composed 01/12 edges and the 02 edge. Apply the proposed shape
+between the composed 01/12 edges and the 02 edge. Apply the checked shape
 recursor in Functor_cat(T₂(C),C), then use the existing mixed shape exchange
 to obtain T₂(C)→G(S₂,C). These are construction obligations: do not declare
 the universal filler or inverse merely to close the comparison. Whole vertex
 agreement and the modification must come from the native Sigma/Homd owners.
+
+The direct third-edge source comparison currently fails. A narrower test
+forms the whole Cartesian source-coefficient naturality square but also
+fails direct reflexivity between its two whiskering composites, before
+Sigma totalization. Stage that existing naturality through the horizontal
+action interfaces next; do not add the nerve boundary equation itself as
+a rewrite. Both failed scopes remain reproducible in the simplex audit.
 
 Keep the user-selected higher simplex shapes. Strict maps from ordinary
 ordinals are not substituted for arbitrary triangles with nonidentity fillers.

@@ -186,7 +186,24 @@ guard and pinned checker are used. Active production sources are untouched.
 `higher-qualification` reconstructs the checked higher shape, whole families,
 observation and composition controls. `higher-dependencies` is its same-import
 baseline; `higher-recursion` and `higher-family` retain the smaller checked
-scopes. All seven modes verify exact imported bytes before invoking the checker.
+scopes. All modes verify exact imported bytes before invoking the checker.
+
+Two subsequent direct-reflexivity attempts isolate the next boundary:
+
+- `vertices-pending` fails to prove the third edge's whole source agreement
+  (70.462s / 279,412 KiB). Its target-agreement declaration is not reached.
+- `coefficient-boundary-pending` first forms the whole source-coefficient
+  naturality square, but direct reflexivity does not join its two whiskering
+  composites (46.728s / 192,864 KiB).
+
+The second test is upstream of Sigma totalization: source/target projection
+components alone do not make this whole proof close automatically. The
+declared Cartesian coefficient predicts the naturality equation; the failed
+proof is not a semantic counterexample. Next stage that equation through the
+existing Cartesian horizontal-action/whiskering interfaces, then carry it
+through totalization. Neither attempt changes a formal rule or declares the
+desired endpoint equality. Their sources and expected failures are retained
+independently of `higher-qualification`.
 
 Next construct the whole native/geometric comparison. The available whole
 family realizer needs the native triangle's universal vertex functors, edge
