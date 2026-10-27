@@ -4,6 +4,54 @@ Status: non-library NF-1 candidate on the corrected foundations.
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
+## Whole first round trip at every dimension
+
+The [composition proof](lift_composition_staged.lpfragment) now stages the
+existing Odd-dual composition law before the represented postcomposition cut.
+Its specialization gives the required whole G_I composition comparison. No
+new unification bridge or runtime rule is needed.
+
+The [Nat-inductive retraction](cube_retraction.lpfragment) derives
+
+```text
+encodeₙ ∘ decodeₙ ≐ id_Wₙ(C)
+```
+
+for every C and variable n, using the actual recursively defined maps and the
+existing first walking inverse. The induction step is proof-only: its induction
+hypothesis is not an extra operational argument of decode or encode. The
+reverse round trip still needs the native second walking inverse.
+
+The [consumers](cube_retraction_controls.lpfragment) recover complete
+K-parameter families and the concrete tensor coevaluation diagram. An unrelated
+replacement family is rejected. The 44-input check passes in **131.887s /
+595,104 KiB** at 180s / 2 GiB with subject reduction. All five warning-inventory
+fields match the preceding retraction check. [Exact evidence](retraction_verification.json)
+and `replay_retraction.py` retain `composition`, `retraction`, and `interface`
+modes, with exact `--assemble-only` checks. This remains non-library evidence
+relative to the existing walking structural interfaces, not a geometric nerve
+equivalence or production qualification.
+
+The geometric investigation now has a precise next interface. With
+G(A,B)=Functor_oplax_cat(A,B), whole oplax-parameter postcomposition would have
+
+```text
+P(I,A,B) : G(A,B) → G(G(I,A),G(I,B)).
+```
+
+Its fixed-D Hom component is already [constructed and checked](oplax_postcomp_interface.lpfragment)
+by the existing oplax precomposition functor. Its value at i retains the
+original component of alpha at D[i]. The walking-first curry consumer of P
+also typechecks, while the existing Cartesian parameter map is rejected in
+that slot. The 39-input interface check passes in **122.223s**, with unchanged
+warning inventory relative to the preceding square consumer.
+
+P itself is not declared or assumed. Its whole assembly, variation in D,
+extracted directed comparison and coherence still require implementation;
+the conditional curry consumer does not close the geometric-closure milestone.
+The [outline](../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
+records the exact next construction and source-profile boundary.
+
 ## Whole iterated-walking cube maps and implementation outline
 
 The user requested an end-to-end construction pass while the local native

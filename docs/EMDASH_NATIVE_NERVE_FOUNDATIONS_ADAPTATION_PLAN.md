@@ -23,8 +23,10 @@ reconstruction remain separate required obligations; no missing inverse is
 supplied to make the skeleton check.
 
 Current resumption, 2026-10-27: the [whole iterated-walking maps and tensor consumer](../emdash2/audits/native_nerve_foundations/README.md#whole-iterated-walking-cube-maps-and-implementation-outline)
-now check on qualified `85b30c5e`. Follow the outline's geometric-closure and
-round-trip dependencies while retaining the native second inverse as required.
+now check on qualified `85b30c5e`. The first whole round trip at variable n
+and its parameter-family/tensor consumers are also derived. Follow the
+outline's geometric parameter-action/closure route while retaining the native
+second inverse and reverse recursive round trip as required.
 The actual moving-action experiment is preserved separately with its unfinished
 overlap qualification; it is not used by the new recursive maps. The standing
 references, plan consolidation and book/article stage remain complete; later

@@ -14,9 +14,11 @@ Infinity-Codex-Decision-Responses: prior-thread 0099/0105 design and launch deci
 Follow the [implementation outline](EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
 for the user-requested broader construction pass. The whole Nat-recursive
 iterated-walking cube maps and concrete degree-two tensor consumer now check.
-Next qualify their reusable composition/inverse comparisons and the geometric
-tensor bridge, while retaining whole-section reconstruction as a required
-proof obligation. Formation of the recursive maps assumes no missing inverse.
+The composition comparison and first whole round trip are now derived at
+every dimension, with whole parameter-family and tensor consumers. Next
+implement the correctly profiled geometric parameter action/closure, while
+retaining whole-section reconstruction and the reverse inverse as required
+proof obligations. Formation of the recursive maps assumes no missing inverse.
 All inverse laws, same-index action and degeneracies remain required.
 
 The [actual moving-cell/map experiment](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
@@ -156,7 +158,7 @@ in scope until actually achieved or explicitly reassigned by the user.
 | Stage | Required outcome | Current next boundary |
 | --- | --- | --- |
 | NF-1 | Whole walking Observe/Realize with both actual inverses, original noninvertible filler and next-Hom action | Simultaneous moving-boundary comparison; native second inverse; owning qualification/promotion |
-| NF-2C | Whole variable-dimensional cube decoder and encoder, including degree zero | Wₙ/NCₙ whole maps are checked; geometric closure, round trips, geometric degree zero and shift/face coherence remain. Retain bracketing and coordinate order. |
+| NF-2C | Whole variable-dimensional cube decoder and encoder, including degree zero | Wₙ/NCₙ whole maps and encode-after-decode are checked at variable n; geometric closure, reverse round trip, geometric zero and shift/face coherence remain. Retain bracketing and coordinate order. |
 | NF-3C | Native/geometric semicubical nerves on one face index | Whole inverse transformations and coherent face action |
 | NF-4C | Cubical degeneracies | Native/geometric identity insertion and all face/degeneracy relations |
 | NF-2S | Independent all-flags native simplexes and selected higher shapes | Moving vertices/flags, actual triangle/tetrahedron data, whole terminal-join/cone universality and inverses |

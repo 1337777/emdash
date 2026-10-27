@@ -1,0 +1,43 @@
+/* Component and consumer of the missing whole oplax composition interface.
+   No whole composition map or tensor closure is postulated here. */
+require open emdash.native_cube_skeleton_consumer;
+
+// At a fixed D, varying oplax transformations and their higher cells are
+// acted on by the existing whole precomposition functor.
+symbol nerve_oplax_postcomp_component [I A B : Cat]
+  (F G : τ (Functor A B)) (D : τ (Functor I A))
+  : τ (Functor (@Transf_oplax_cat A B F G)
+      (Hom_cat (Functor_oplax_cat I B)
+        (fapp0 (@nerve_oplax_postcomp_func I A B F) (@OddDual_func I A D))
+        (fapp0 (@nerve_oplax_postcomp_func I A B G) (@OddDual_func I A D))))
+≔ @fapp1_func (Functor_oplax_cat A B) (Functor_oplax_cat I B)
+    (@oplax_precomp_func I A B D) (@OddDual_func A B F) (@OddDual_func A B G);
+
+// Observe the original component of alpha after actual prewhiskering.
+assert [I A B : Cat] (F G : τ (Functor A B)) (D : τ (Functor I A))
+  (alpha : τ (@Transf_oplax A B F G)) (i : τ (Obj I)) ⊢
+  @tapp0_fapp0 (OddDual_cat I) (OddDual_cat B)
+    (fapp0 (@nerve_oplax_postcomp_func I A B G) (@OddDual_func I A D))
+    (fapp0 (@nerve_oplax_postcomp_func I A B F) (@OddDual_func I A D)) i
+    (fapp0 (@nerve_oplax_postcomp_component I A B F G D) alpha)
+  ≡ @tapp0_fapp0 (OddDual_cat A) (OddDual_cat B)
+      (@OddDual_func A B G) (@OddDual_func A B F) (fapp0 D i) alpha;
+
+// The complete generic map P is an explicit unresolved input to this
+// architecture test. Its final implementation must supply higher action.
+symbol nerve_left_curry_from_oplax_postcomp [B C : Cat]
+  (P : τ (Functor (Functor_oplax_cat (@GrayTensor_R WalkingArrow_cat B) C)
+      (Functor_oplax_cat
+        (Functor_oplax_cat WalkingArrow_cat (@GrayTensor_R WalkingArrow_cat B))
+        (Functor_oplax_cat WalkingArrow_cat C))))
+  : τ (Functor (Functor_oplax_cat (@GrayTensor_R WalkingArrow_cat B) C)
+      (Functor_oplax_cat B (Functor_oplax_cat WalkingArrow_cat C)))
+≔ @comp_cat_fapp0 _ _ _
+    (@oplax_precomp_func B
+      (Functor_oplax_cat WalkingArrow_cat (@GrayTensor_R WalkingArrow_cat B))
+      (Functor_oplax_cat WalkingArrow_cat C) (nerve_walking_left_coevaluation B)) P;
+
+// The existing Cartesian parameter map is not this lax-profile interface.
+assertnot [I A B : Cat] ⊢ @comp_cat_cov_func_func I A B
+  : τ (Functor (Functor_oplax_cat A B)
+      (Functor_oplax_cat (Functor_oplax_cat I A) (Functor_oplax_cat I B)));

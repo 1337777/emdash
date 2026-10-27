@@ -1,0 +1,23 @@
+require open emdash.emdash3_2_diagram_evaluation;
+
+// Stage ordinary duality composition before represented composition folds.
+symbol nerve_odd_comp_path [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C))
+  : τ (@= (Functor (OddDual_cat A) (OddDual_cat C))
+      (@OddDual_func A C (@comp_cat_fapp0 A B C G F))
+      (@comp_cat_fapp0 (OddDual_cat A) (OddDual_cat B) (OddDual_cat C)
+        (@OddDual_func B C G) (@OddDual_func A B F)))
+≔ @eq_refl (Functor (OddDual_cat A) (OddDual_cat C))
+    (@OddDual_func A C (@comp_cat_fapp0 A B C G F));
+
+symbol nerve_odd_postcomp_accumulation_path [I A B C : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B C))
+  : τ (@= (Functor (OddDual_cat (Functor_cat I A)) (OddDual_cat (Functor_cat I C)))
+      (@comp_cat_fapp0 (OddDual_cat (Functor_cat I A))
+        (OddDual_cat (Functor_cat I B)) (OddDual_cat (Functor_cat I C))
+        (@OddDual_func (Functor_cat I B) (Functor_cat I C) (@comp_cat_cov_func I B C G))
+        (@OddDual_func (Functor_cat I A) (Functor_cat I B) (@comp_cat_cov_func I A B F)))
+      (@OddDual_func (Functor_cat I A) (Functor_cat I C)
+        (@comp_cat_cov_func I A C (@comp_cat_fapp0 A B C G F))))
+≔ @eq_sym (Functor (OddDual_cat (Functor_cat I A)) (OddDual_cat (Functor_cat I C))) _ _
+    (@nerve_odd_comp_path (Functor_cat I A) (Functor_cat I B) (Functor_cat I C)
+      (@comp_cat_cov_func I A B F) (@comp_cat_cov_func I B C G));

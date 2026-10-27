@@ -1,0 +1,37 @@
+require open emdash.native_cube_retraction;
+require open emdash.native_cube_skeleton_consumer;
+
+// Whole parameterized diagrams are recovered, including their K-action.
+symbol nerve_walking_cube_family_retraction [K C : Cat] (n : τ Nat_grpd)
+  (D : τ (Functor K (@nerve_walking_cube_cat C n)))
+  : τ (@= (Functor K (@nerve_walking_cube_cat C n))
+      (@comp_cat_fapp0 K (@CubicalLevel_cat C n) (@nerve_walking_cube_cat C n)
+        (@nerve_walking_cube_encode C n)
+        (@comp_cat_fapp0 K (@nerve_walking_cube_cat C n) (@CubicalLevel_cat C n)
+          (@nerve_walking_cube_decode C n) D)) D)
+≔ @eq_ap (Functor (@nerve_walking_cube_cat C n) (@nerve_walking_cube_cat C n))
+    (Functor K (@nerve_walking_cube_cat C n))
+    (λ H : τ (Functor (@nerve_walking_cube_cat C n) (@nerve_walking_cube_cat C n)),
+      @comp_cat_fapp0 K (@nerve_walking_cube_cat C n) (@nerve_walking_cube_cat C n) H D)
+    _ _ (@nerve_walking_cube_retraction C n);
+
+assertnot [K C : Cat] (n : τ Nat_grpd)
+  (D E : τ (Functor K (@nerve_walking_cube_cat C n))) ⊢
+  @nerve_walking_cube_family_retraction K C n D
+  : τ (@= (Functor K (@nerve_walking_cube_cat C n))
+      (@comp_cat_fapp0 K (@CubicalLevel_cat C n) (@nerve_walking_cube_cat C n)
+        (@nerve_walking_cube_encode C n)
+        (@comp_cat_fapp0 K (@nerve_walking_cube_cat C n) (@CubicalLevel_cat C n)
+          (@nerve_walking_cube_decode C n) D)) E);
+
+// The concrete Gray coevaluation diagram survives the two actual maps.
+symbol nerve_tensor_square_roundtrip
+  : τ (@= (Obj (nerve_curried_square_cat GrayWalkingSquare_cat))
+      (fapp0 (nerve_curried_square_encode GrayWalkingSquare_cat) nerve_tensor_square_decoded)
+      nerve_tensor_square_curried)
+≔ @eq_ap
+    (Functor (nerve_curried_square_cat GrayWalkingSquare_cat) (nerve_curried_square_cat GrayWalkingSquare_cat))
+    (Obj (nerve_curried_square_cat GrayWalkingSquare_cat))
+    (λ H : τ (Functor (nerve_curried_square_cat GrayWalkingSquare_cat) (nerve_curried_square_cat GrayWalkingSquare_cat)),
+      fapp0 H nerve_tensor_square_curried)
+    _ _ (@nerve_walking_cube_retraction GrayWalkingSquare_cat (succ (succ zero)));

@@ -1,0 +1,67 @@
+require open emdash.native_walking_cube_maps;
+require open emdash.native_nerve_graph_whole_review;
+require open emdash.native_lift_composition_staged;
+
+symbol nerve_oplax_postcomp_comp_path [I A B C : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B C))
+  : τ (@= (Functor (Functor_oplax_cat I A) (Functor_oplax_cat I C))
+      (@comp_cat_fapp0 (Functor_oplax_cat I A) (Functor_oplax_cat I B) (Functor_oplax_cat I C)
+        (@nerve_oplax_postcomp_func I B C G) (@nerve_oplax_postcomp_func I A B F))
+      (@nerve_oplax_postcomp_func I A C (@comp_cat_fapp0 A B C G F)))
+≔ @nerve_odd_postcomp_accumulation_path (OddDual_cat I)
+    (OddDual_cat A) (OddDual_cat B) (OddDual_cat C)
+    (@OddDual_func A B F) (@OddDual_func B C G);
+
+// A proof-only lifting step. No equality argument enters decode or encode.
+symbol nerve_walking_retraction_lift [A B : Cat]
+  (D : τ (Functor A B)) (E : τ (Functor B A))
+  (p : τ (@= (Functor A A) (@comp_cat_fapp0 A B A E D) (@id_func A)))
+  : τ (@= (Functor (Functor_oplax_cat WalkingArrow_cat A) (Functor_oplax_cat WalkingArrow_cat A))
+      (@comp_cat_fapp0 (Functor_oplax_cat WalkingArrow_cat A) (@LaxArrow_cat B)
+        (Functor_oplax_cat WalkingArrow_cat A)
+        (@comp_cat_fapp0 (@LaxArrow_cat B) (Functor_oplax_cat WalkingArrow_cat B)
+          (Functor_oplax_cat WalkingArrow_cat A)
+          (@nerve_oplax_postcomp_func WalkingArrow_cat B A E) (nerve_walking_realize_func B))
+        (@comp_cat_fapp0 (Functor_oplax_cat WalkingArrow_cat A) (Functor_oplax_cat WalkingArrow_cat B)
+          (@LaxArrow_cat B) (nerve_walking_observe_func B)
+          (@nerve_oplax_postcomp_func WalkingArrow_cat A B D)))
+      (@id_func (Functor_oplax_cat WalkingArrow_cat A)))
+≔ @eq_trans (Functor (Functor_oplax_cat WalkingArrow_cat A) (Functor_oplax_cat WalkingArrow_cat A)) _ _ _
+    (@eq_ap (Functor (Functor_oplax_cat WalkingArrow_cat B) (Functor_oplax_cat WalkingArrow_cat B))
+      (Functor (Functor_oplax_cat WalkingArrow_cat A) (Functor_oplax_cat WalkingArrow_cat A))
+      (λ H : τ (Functor (Functor_oplax_cat WalkingArrow_cat B) (Functor_oplax_cat WalkingArrow_cat B)),
+        @comp_cat_fapp0 (Functor_oplax_cat WalkingArrow_cat A) (Functor_oplax_cat WalkingArrow_cat B)
+          (Functor_oplax_cat WalkingArrow_cat A)
+          (@comp_cat_fapp0 (Functor_oplax_cat WalkingArrow_cat B) (Functor_oplax_cat WalkingArrow_cat B)
+            (Functor_oplax_cat WalkingArrow_cat A) (@nerve_oplax_postcomp_func WalkingArrow_cat B A E) H)
+          (@nerve_oplax_postcomp_func WalkingArrow_cat A B D))
+      _ _ (nerve_walking_realize_observe_path B))
+    (@eq_trans (Functor (Functor_oplax_cat WalkingArrow_cat A) (Functor_oplax_cat WalkingArrow_cat A)) _ _ _
+      (@nerve_oplax_postcomp_comp_path WalkingArrow_cat A B A D E)
+      (@eq_ap (Functor A A)
+        (Functor (Functor_oplax_cat WalkingArrow_cat A) (Functor_oplax_cat WalkingArrow_cat A))
+        (λ H : τ (Functor A A), @nerve_oplax_postcomp_func WalkingArrow_cat A A H)
+        _ _ p));
+
+symbol nerve_walking_cube_retraction (C : Cat) (n : τ Nat_grpd)
+  : τ (@= (Functor (@nerve_walking_cube_cat C n) (@nerve_walking_cube_cat C n))
+      (@comp_cat_fapp0 (@nerve_walking_cube_cat C n) (@CubicalLevel_cat C n)
+        (@nerve_walking_cube_cat C n)
+        (@nerve_walking_cube_encode C n) (@nerve_walking_cube_decode C n))
+      (@id_func (@nerve_walking_cube_cat C n)))
+≔ @nat_elim
+    (λ k : τ Nat_grpd,
+      @= (Functor (@nerve_walking_cube_cat C k) (@nerve_walking_cube_cat C k))
+        (@comp_cat_fapp0 (@nerve_walking_cube_cat C k) (@CubicalLevel_cat C k)
+          (@nerve_walking_cube_cat C k)
+          (@nerve_walking_cube_encode C k) (@nerve_walking_cube_decode C k))
+        (@id_func (@nerve_walking_cube_cat C k)))
+    (@eq_refl (Functor C C) (@id_func C))
+    (λ k : τ Nat_grpd,
+      λ p : τ (@= (Functor (@nerve_walking_cube_cat C k) (@nerve_walking_cube_cat C k))
+        (@comp_cat_fapp0 (@nerve_walking_cube_cat C k) (@CubicalLevel_cat C k)
+          (@nerve_walking_cube_cat C k)
+          (@nerve_walking_cube_encode C k) (@nerve_walking_cube_decode C k))
+        (@id_func (@nerve_walking_cube_cat C k))),
+      @nerve_walking_retraction_lift (@nerve_walking_cube_cat C k) (@CubicalLevel_cat C k)
+        (@nerve_walking_cube_decode C k) (@nerve_walking_cube_encode C k) p) n;

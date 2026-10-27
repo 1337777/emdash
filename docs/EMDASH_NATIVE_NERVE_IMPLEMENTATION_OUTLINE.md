@@ -69,20 +69,22 @@ G_I(G_I(C)) --G_I(Observe_C)--> G_I(N(C)) --Observe_N(C)--> N(N(C))
 N(N(C)) --Realize_N(C)--> G_I(N(C)) --G_I(Realize_C)--> G_I(G_I(C)).
 ```
 
-The first round trip should follow from the existing first walking inverse
-and composition/unit compatibility of G_I. The reverse round trip also needs
-the second walking inverse. A literal reflexivity attempt for composition
-compatibility currently stops at Odd-dual distribution versus the represented
-postcomposition normal form; that is an explicit reusable comparison
-obligation, not a reason to postpone the map definitions.
+The [whole first round trip](../emdash2/audits/native_nerve_foundations/README.md#whole-first-round-trip-at-every-dimension)
+is now derived by Nat induction: `eₙ ∘ dₙ ≐ id_Wₙ(C)`. It also recovers whole
+K-parameter families and the original tensor coevaluation diagram. The
+composition comparison uses a staged proof of the existing Odd-dual action;
+the earlier literal-reflexivity failure is superseded, with no new rule. The
+44-input consumer passes in 131.887s / 595,104 KiB. The reverse round trip still
+needs the second walking inverse; no operational map acquires a proof argument.
 
 The [recursion and square consumer](../emdash2/audits/native_nerve_foundations/README.md#whole-iterated-walking-cube-maps-and-implementation-outline)
 are checked in a 38-input scope. All six degree-zero/one/two computations and
 whole first/next-Hom types at variable n pass. The tensor coevaluation is an
 actual decoded input, with a path to the square of its original coordinate
 family. The final check takes 116.183s / 583,852 KiB at 180s / 2 GiB, with no new
-rule or unifier and unchanged warning inventories. Inverse laws and equality
-with the separately named interchanger constant are not claimed.
+rule or unifier and unchanged warning inventories. The later first round trip
+is recorded above; the reverse inverse and equality with the separately named
+interchanger constant are not claimed.
 
 ## Full cubical bridge and its remaining interfaces
 
@@ -109,6 +111,54 @@ The first tensor consumer is the existing walking-square coevaluation. The
 whole W₂/NC₂ maps can consume its curried diagram before a general λ is
 finished. Recover its original boundary edges and interchanger in the
 selected direction; do not infer tensor symmetry or invert a filler.
+
+## Next geometric interface
+
+The fixed functor G_I(F) and its composition law do not by themselves provide
+its whole action on oplax transformations in F. The current
+`comp_cat_cov_func_func` has Cartesian source and target mapping categories;
+it is not the required general parameter action. The checked interface
+consumer explicitly rejects that substitution.
+
+The next candidate is the strict functor
+
+```text
+P(I,A,B) : G(A,B) → G(G(I,A),G(I,B)),
+```
+
+whose object at an encoded F is the encoded fixed postcomposition G_I(F).
+At a fixed D:I→A, its Hom component in alpha is the existing whole
+precomposition action by D. This component and the observation alpha[D[i]]
+are already checked. Assembling them into P must retain the original directed
+naturality data as D varies; it must not strictify that comparison or request
+it as a caller-supplied cell. In the encoded ordinary-lax view, the decisive
+next consumer is the extracted post/left cell at delta: its i-component must
+be the original alpha-comparison at delta[i]. That law is not yet checked;
+an object projection alone will not qualify P. No new lax-functor/weak-category
+universe is required by this proposed type.
+
+For Q=GrayTensor_R(I,B) and the already constructed coevaluation
+q_B:B→G(I,Q), the forward closure would be the concrete composite
+
+```text
+λ(B,C) = precompose_oplax(q_B) ∘ P(I,Q,C)
+       : G(Q,C) → G(B,G(I,C)).
+```
+
+The [conditional consumer](../emdash2/audits/native_nerve_foundations/oplax_postcomp_interface.lpfragment)
+checks this exact type. It does not declare P or lambda as completed maps.
+Next implement the whole parameter interface with projections to the checked
+fixed actions, test its retained comparison/higher action, then construct
+lambda. The reverse closure and both closure round trips remain independent
+requirements. Do not substitute the Cartesian joint-composition/admission
+route retained in the legacy donor.
+
+Semantic cross-check: Ara–Guetta v1, §21 describes mixed lax/oplax exchange;
+Proposition 36 and Remark 38 relate it to odd/even duality, which reverses
+tensor-factor order. These facts support investigating the stated profiles,
+not identifying different kernel mapping categories or assuming the missing
+maps. The precise argument order must follow the receiver's declared right
+closure. [Primary reference](https://arxiv.org/html/2503.08832v1#S2).
 
 ## Independent simplicial branch
 
@@ -140,9 +190,11 @@ claiming independent all-flags totals at arbitrary dimension.
 ## Qualification and return to reconstruction
 
 The Wₙ/NCₙ map formation and degree-two consumer are checked using qualified
-`85b30c5e`, independently of the unfinished normalization experiment. Next resolve the reusable G_I composition comparison
-and test the whole walking-first tensor bridge. The exact whole-section
-reconstruction equation remains required; scalar readbacks do not replace it.
+`85b30c5e`, independently of the unfinished normalization experiment. The G_I
+composition comparison and first recursive round trip are also derived. Next
+implement the geometric parameter interface above and test its whole tensor
+consumer. The exact whole-section reconstruction equation remains required;
+scalar readbacks do not replace it.
 
 The actual native moving-cell/map investigation has positive focused evidence,
 but its total-dual constant-family overlap is not fully qualified. Preserve its

@@ -16,9 +16,10 @@ consolidation preserves the previous documents verbatim in historical files.
 
 The user requested a broader construction pass. The [implementation outline](EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
 now has checked whole Nat-recursive maps Wₙ(C)⇄NCₙ(C) and a concrete tensor
-square consumer, using qualified `85b30c5e`. Whole lifting-composition and
-inverse comparisons, the geometric bridge, same-index action and degeneracies
-remain explicit next dependencies. The native whole-section equation remains
+square consumer, using qualified `85b30c5e`. The lifting-composition comparison
+and first whole round trip are now derived at variable n, including whole
+parameter families. The reverse inverse, geometric bridge, same-index action
+and degeneracies remain explicit next dependencies. The native whole-section equation remains
 required and is not replaced by these independent map definitions.
 
 The [actual moving-action recovery](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
