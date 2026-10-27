@@ -1,12 +1,14 @@
 # EMDASH v3.2 Current Status And SOP
 
 Date: 2026-05-26
-Last consolidated: 2026-10-25
+Last consolidated: 2026-10-27
 Status: living current-state and kernel-development authority
 
 The active kernel and the nested [AGENTS.md](../AGENTS.md) own semantics and
 editing policy. This report retains the source catalogue, architecture and
-SOP below. Dated implementation narratives and obsolete validation totals
+SOP below. Individual owner entries retain their source-specific validation
+provenance; their historical counts are not current aggregate totals.
+Dated implementation narratives and obsolete validation totals
 are preserved in the [consolidated history](REPORT_EMDASH_V3_2_CONSOLIDATED_HISTORY_2026-09-16.md),
 with their source links and decisions. Their “next” statements are historical.
 
@@ -23,7 +25,13 @@ checks and exact central-closure correspondence; [integration evidence](../audit
 records the affected frontend adaptation and final gates still pending under
 [its plan](../../docs/EMDASH_SIGMA_SECTION_PROFILE_CORRECTION_PLAN.md).
 The older source/check receipts below do not establish a semantic model of
-that inherited comparison.
+that inherited comparison. The original frontend migration was accepted at
+`f0e22340`, the book/article revision completed at `1fe72617`, and native nerve
+adaptation began at `e8ffc4d0`. The later native correction `bc37e5fc` created
+new frontend adaptation work; it does not make the original accepted tranche
+unfinished. Book and overview are locally revised at 0.10.2-dev and 0.4.2-dev.
+Native nerve reconstruction is now active; broad health/final integration
+and the affected frontend repair are separate remaining obligations.
 
 The strict-functor/corrected-duality migration is now installed in this
 worktree's active Lambdapi sources. The [living plan](../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
@@ -48,7 +56,9 @@ The current contracts are:
   same Cartesian coefficient.
 - `Op_cat` reverses dimension 1; `CoAbove2_cat` reverses dimensions 2 and
   above; `TotalOp_cat = CoAbove2_cat ∘ Op_cat`; `CoAt2_cat` reverses exactly
-  dimension 2. Whole family operations retain their actual shifted bases.
+  dimension 2. The whole maps are `op : C₂(Cat_cart)→Cat_cart`,
+  `total_op : R(Cat_cat)→Cat_cat` and `total_op_cart : R(Cat_cart)→Cat_cart`.
+  Whole family operations retain their actual shifted bases.
 - The identity Homd root and direct x/u/y/v/f ladder use a whole Q-valued
   transformation category. Here `P(I) = Op_cat(Functor_cat I (Op_cat Cat_cart))`
   and `Hom_Q(A,B) = Functor_cart_cat A (P(B))`. A fixed object's presheaf view
@@ -68,11 +78,11 @@ The current contracts are:
 The redundant `StrictFunctor` carrier/admission/view grammar has been
 retired. `IsStrictFunctor` remains a descriptive compositor property with
 canonical `functor_is_strict`; `StrictTransfor`, `StrictFunctord` and the
-separate Gray mapping profile retain their actual distinctions. Older
-strict/lax and unshifted-Op accounts below describe their dated baseline
-where they conflict with this current profile. Comprehensive book/article
-revision follows the foundations integration; older TypeScript transfer
-contracts are not automatically qualified for these new owner signatures.
+separate Gray mapping profile retain their actual distinctions. The current
+architecture sections below use these contracts. Versioned
+migration diagnostics remain historical evidence. The book/article revision
+is complete; TypeScript transfer remains profile- and source-specific, with
+the later Pi/Sigma adaptation still open.
 
 ## Earlier integration and publication context
 
@@ -112,9 +122,11 @@ Its structural support is at the existing library owners. Γ, its whole
 projections, ordinary triangle and H comparison now have public definition
 owners; the point comparison remains downstream. The completed assembly ledger records joint
 native-consumer qualification. The [dedicated main-based action-profile
-integration](../../docs/EMDASH_ACTION_PROFILE_INTEGRATION_PLAN.md) is qualified:
-generic composition/strict-naturality cuts are retired while normal identity
-computation and qualified constructor instances remain. Opaque action profiles,
+integration](../../docs/EMDASH_ACTION_PROFILE_INTEGRATION_PLAN.md) was qualified
+at its recorded pre-migration source: it then retired generic composition and
+strict-naturality cuts while retaining identity and selected instances.
+The subsequent strict-default migration restores generic strict functor
+composition, while retaining lax transformation naturality. Opaque action profiles,
 classified Gray arrows, inherited assembly and bounded path-cubical owners
 pass complete production CI across 1,388 targets and the original 94-assertion
 proof–CAS corpus. Checked health and the affected TypeScript/renderer
@@ -122,7 +134,9 @@ qualification are recorded in the [acceptance audit](../../docs/EMDASH_ACTION_PR
 The [main integration review](../../docs/EMDASH_ACTION_PROFILE_MAIN_INTEGRATION_REVIEW.md)
 records the subsequent book refresh and local fast-forward boundary;
 remote publication is separate.
-Op/duality and the large six-term package comparison remain deferred.
+At that historical checkpoint, Op/duality repair and the large six-term
+comparison were deferred. The present foundations profile above includes the
+installed duality repair; the six-term comparison retains its own deferral.
 
 The initial main/Pages publication was df9b4778. The user subsequently
 authorized completed consolidation c3792b67 and book 0.9.1-dev for main/Pages;
@@ -925,7 +939,8 @@ migration is implied by that review.
   induction agree with the same primitive right-`J` transport. No category-
   head rewrite, second `J`, proof-time unifier, or Gray tensor is introduced.
 - `emdash3_2_path_pseudo_laxity.lp`: transparent rule-free Path realization
-  of the generic normal-lax compositor. For `path_map_func(h)`, the existing
+  of the existing functor compositor under the strict default. For
+  `path_map_func(h)`, the existing
   `fapp1_compositor` is an equality between paths and `eq_sym` supplies its
   reverse. Its formal represented-action endpoints compare propositionally
   with the usual `eq_ap`/`eq_trans` formula, and its whole transformation
@@ -955,8 +970,8 @@ migration is implied by that review.
   from `Join_cat(Terminal_cat,Terminal_cat)`. Both endpoints, the generator,
   and its next hom action are projections of existing join owners.
 - `emdash3_2_gray_right_closure.lp`: one profiled right-closed slice with an
-  opaque `GrayTensor_R`, whole curry/uncurry maps paired with supplied
-  `IsStrictFunctor` evidence, equality-valued beta/eta packaged by
+  opaque `GrayTensor_R`, whole default-strict curry/uncurry maps, and
+  structural equality-valued beta/eta packaged by
   `OmegaEquivAlong Cat_cat`, and identity-derived coevaluation/evaluation. It
   does not claim the mirror closure or full Crans--Gray monoidal structure.
 - `emdash3_2_gray_walking_square.lp`: transparent `I tensor I` boundary whose
@@ -1035,11 +1050,10 @@ migration is implied by that review.
   their selected strict graph profile, and a genuine arbitrary-`n` object
   decoder. The predecessor index `n` denotes dimension `n+1`. Successor
   decoding curries, takes the walking generator, recursively decodes its graph
-  in `LaxArrow`, and applies the Nat-derived level shift. For strict endpoint
-  packages, the public graph is paired with supplied `IsStrictFunctor`
-  evidence over its already-extracted compositor; carrier and evidence
-  projections compute, and no graph-specific compositor or identity rule is
-  added.
+  in `LaxArrow`, and applies the Nat-derived level shift. Its endpoints and
+  result already have the default strict Functor type. The graph retains its
+  classified lax-transfor input and original noninvertible comparison; the
+  retired strict-object admission wrapper is not part of this interface.
   Dimensions one through three, the exact `I tensor_R I`
   interchanger, four square edges, six cube faces, and retained next action are
   checked. No tensor unit, alternate-bracketing coherence, inverse decoder, or
@@ -1056,12 +1070,12 @@ migration is implied by that review.
   four side faces. The fixed sides compute to identities and bottom remains a
   dependent section action. Its generic varying-Sigma projection now computes
   both point components and constructor-visible displayed arrow action,
-  including pointwise opposite; it adds no cubical filler rule or unifier.
+  including its shifted total-dual specialization; it adds no cubical filler rule or unifier.
 - `emdash3_2_cubical_internalization.lp`: transparent variance-correct whole
-  cubical internalization. It forms the inner edge family by ordinary Sigma,
-  takes its pointwise opposite, defines `homdc_int` as the existing
-  `homd_int` of that family, and derives
-  `homdc_total_cat = Op(Sigma(Op K1,D_E))`. Its `LaxArrow_cat` specialization,
+  cubical internalization. Its input is E:T(K1)→Cart(K2,Cat_cart).
+  `Sigma_coeff_func(K2) ∘ E` forms the admitted inner family; total fibre
+  duality gives D_E over O(K1). It defines `homdc_int(E)=homd_int(id_D_E)`
+  and `homdc_total_cat(E)=O(Sigma_(O(K1))(D_E))`. Its `LaxArrow_cat` specialization,
   visible edge/square constructors, and whole source/target functors add no
   primitive category, square, two-sided Sigma, rule, or unifier.
 - `emdash3_2_cubical_arrow.lp` and
@@ -1077,15 +1091,15 @@ migration is implied by that review.
   post cell; the profile supplies fixed-forward `OmegaEquivAlong` for that
   cell, and the pre/right reverse adjustment is derived from a selected native
   inverse plus the existing endpoint comparison. Direct source and target
-  paths expose the existing compositor without identifying its two generic
-  lax endpoints; the former global-cut adapter has been removed.
+  paths expose the existing compositor. Public functors have canonical strict
+  computation; these readable path comparisons retain their own proof terms.
   `CubicalArrow_func` maps a filler by that cell, generic next-hom action, then
   the derived reverse adjustment. Source, target, and every recursive lift
   retain profiles. A general constructor accepts an explicit family of
   fixed-forward omega-equivalence evidence; identity/composition and cubical
   structural instances remain honestly supplied pending extracted
-  unit/composite coherence. Arbitrary normal-lax carriers are intentionally
-  not lifted.
+  unit/composite coherence. This is retained inverse data over default-strict
+  functors, not admission of a separate lax-functor carrier.
 - `emdash3_2_cubical_square_level.lp` and `emdash3_2_cubical_levels.lp`:
   first six-face cube boundary and genuine Nat-indexed iteration. Level zero
   is `C`, successor is `CubicalArrow` of the previous level, and dimensions
@@ -1181,8 +1195,8 @@ migration is implied by that review.
   through `fdapp1_int_hom_fapp0`, while retaining another hom action. The
   ordinary specialization recovers `fapp1_compositor`. No standalone higher
   cell, rule, unifier, `homd_con_int`, or whole nerve equivalence is added.
-  The focused profile reviewer keeps the generic compositor noncollapsed,
-  checks semantic `IsStrictFunctor` evidence at dimension two, and reads
+  The focused profile reviewer checks the default-strict compositor endpoints
+  and canonical `IsStrictFunctor` evidence at dimension two, and reads
   Path-valued triangle and tetrahedron components as invertible equalities;
   no parallel simplex classifier or unscoped higher strictness claim is made.
 - `emdash3_2_dependent_simplex_path_associator.lp`: rule-free groupoidal
@@ -1410,7 +1424,8 @@ migration is implied by that review.
 - `REPORT_EMDASH_V3_2_FOUNDATIONAL_DOCUMENTATION_SOP_AND_REGISTRY_MAINTENANCE_PLAN_2026-08-30.md`:
   completed corrective authority/registry maintenance ledger for the
   integrated `0e61a79` baseline. It changes no Lambdapi semantics and excludes
-  the in-flight global strictness migration.
+  the historical migration at that source boundary; the current reference
+  refresh is owned by the consolidated foundations plan.
 - `REPORT_EMDASH_V3_2_AUTONOMOUS_MAINTENANCE_AND_EVOLUTION_PLAN_2026-07-22.md`:
   completed reusable predecessor ledger for cross-project maintenance,
   triage, and evolution. The 2026-08-30 child above owns the current reopen.
@@ -1432,12 +1447,13 @@ Current source counts and check-content identity are generated in
 [the check catalogue](REPORT_EMDASH_CHECK_CATALOG.md). A source-only health
 refresh does not assert fresh checking of every registered target.
 
-The consolidation ledger records the exact affected checks: complete native
-nonsplit LES/snake workflow replays with 94 emitted assertions, focused
-retirement/import controls, categorical-interface reviewers, and the final
-identity-projection nucleus check. Keep source and resource identities with
-those receipts. Do not turn their scoped results into a repository-wide
-consistency or normalization claim.
+The foundations migration ledger records the installed source and the scopes
+of the library, reviewer and central checks. The Pi/Sigma correction has its
+own installed-source record. The accepted frontend tranche, completed local
+book/article revision, and active native-nerve candidates have separate
+receipts. Earlier LES/snake and consolidation snapshots remain valid evidence
+for their pinned sources; they are not today's aggregate totals. Preserve
+source/resource identities and the remaining final-integration gates.
 
 The unsuffixed equality-valued interfaces remain the sole native API. The old
 D0/D1 and decoder compatibility layers are retired. Their older qualification
@@ -1788,10 +1804,12 @@ factored pre/post cuts, and one-inactive-endpoint degenerations are related by
 narrow two-rigid-head `unif_rule`s. They are not global runtime folds.
 
 Section 7f retains stable ordinary target-internalized action owners.
-`tapp1_con_int_fapp0_transf(epsilon)` and its identity-specialized
-`fapp1_con_int_transf(F)` compare proof-time with the ordinary action of
-`Op_transf(epsilon)` and `Op_func(F)`. Their fixed-target projections are
-also stable. In particular,
+`tapp1_con_int_fapp0_transf(epsilon)` accepts an ordinary lax transformation
+and retains its native fixed-target projections. Its comparison with an
+`Op_transf` presentation requires the actual StrictTransfor input and its
+ordinary view. The identity-specialized `fapp1_con_int_transf(F)` compares
+with the action of `Op_func(F)`. Do not apply same-profile T-transpose to a
+general lax epsilon. In particular,
 
 ```text
 tapp1_con_at_transf(epsilon,Y)
@@ -1986,9 +2004,21 @@ consumer-led question rather than a prerequisite for fixed-head whiskering.
 
 ### Sections 8–10: directed Cat-valued families, Sigma/Pi, and mixed variance
 
-Active family constructors include fibre notation, pullback/reindexing,
-constant/terminal/opposite families, displayed composition, section
-categories, and internalized Pi over varying bases.
+Admitted family objects are strict `K → Cat_cart` functors. Their transports
+and coefficient higher maps have the Cartesian profile; `Functord` maps are
+still lax across K. The facade tower is `Catd_cat(K) ≐ Functor_cat(K,Cat_cart)`,
+`Functord_cat(E,D) ≐ Transf_cat(K,Cat_cart,E,D)`, followed by its iterated Hom.
+
+Family duality retains the base: `Op_catd(E) : Catd(CoAt2_cat K)` has fibres
+T(E[k]), and `TotalOp_catd(E) : Catd(CoAbove2_cat K)` has fibres O(E[k]).
+Their map actions consume the Cartesian diagram-map classifiers declared by
+the owners; they do not transpose arbitrary lax FF into the same profile.
+
+For I = Hom_K(x,y) and H = homd_(id_E,x,u,y,v), the production Sigma-Hom is
+`O(Sigma_(O(I))(TotalOp_catd(H)))`. Its objects `(f,alpha)` have the forward
+fibre arrow `E[f](u) → v`. The negative-index family, rather than only that
+object formula, determines the higher category. Strict transports give
+`(q,beta) ∘ (p,alpha) = (qp,beta ∘ E[q][alpha])` at visible constructors.
 
 ```text
 Pi_cat(E) =proof-time Functord_cat(Terminal_catd K,E)
@@ -2073,7 +2103,7 @@ semantics rather than a new `Product_catd` head. For `B,C : Catd K`, the
 transparent family
 
 ```text
-uncurry(Product_cat_func) o Product_pair(B,C)
+uncurry(Product_cat_coeff_func) o Product_pair(B,C)
 ```
 
 computes its fibre at `k` to `Product_cat(B[k],C[k])` and its transport over
@@ -2144,12 +2174,15 @@ global displayed-functor/product conversion, universe-level product
 projection, generic total pullback, or full family base-two-cell action is
 implied.
 
-`Functor_catd`, `Hom_catd`, and `Transf_catd` are mixed-variance family
-constructors. Pointwise formulas do not replace their required base-arrow
-actions.
+`Functor_catd(A,B)` takes A : Catd(TK), B : Catd(K), and has Cartesian
+fibres Cart(A[k],B[k]). `Hom_catd(E,X,Y)` takes X in Pi over R(K) of
+TotalOp_catd(E), and Y in Pi_K(E); its value is Hom_(E[k])(X[k⁻],Y[k]).
+`Transf_catd` uses the corresponding total-dual negative section of the
+mixed functor family, and its fibre is the strict-transformation Hom of
+Cart(A[k],B[k]). Their whole base actions remain essential.
 
 The active constant-middle composition owner is the variance-qualified
-displayed lift of ordinary functor composition. For `A : Catd(Op K)`,
+displayed lift of Cartesian functor composition. For `A : Catd(Op K)`,
 `B : Catd K`, and an ordinary category `X`, it has the form
 
 ```text
@@ -2194,7 +2227,7 @@ The constant-domain displayed-evaluation closure is now active. For
 owners are:
 
 ```text
-Eval_funcd(B)     : Functord(P(S(A,B),Const_catd(K,A)),B)
+Eval_funcd(B)     : Hom_(Cart(K,Cat_cart))(P(S(A,B),Const_catd(K,A)),B)
 Terminal_funcd(E) : Functord(E,Const_catd(K,Terminal_cat)).
 ```
 
@@ -2224,8 +2257,23 @@ consumer profiles do not imply a general kernel binder.
 
 ### Sections 11–17: representables, dependent hom, and displayed action
 
-The dependent-hom architecture is shared by Sigma homs, fibre transport, and
-section action. Important owners are:
+The identity core has a direct whole Q-valued y-transformation. Set
+P(I)=T(Functor_cat(I,T(Cat_cart))), Hom_Q(A,B)=Cart(A,P(B)),
+S_E(x)=Transf_(K,Q)(iota(E),iota(Hom_K(x,−))), and H_E[x]=T(S_E(x)).
+`homd_id_int(E)` is a canonical strict diagram map E→H_E; its source-u
+component is the transpose of `homd_id_src_func(E,x):T(E[x])→S_E(x)`.
+
+For FF : Functord(D,E), `homd_int(FF):Functord(E,H_D)` is the ordinary view
+of the defined relative composite. Its public ladder is
+`homd_src_func : E[x]→T(S_D(x))`, `homd_src_sec : Obj(S_D(x))`,
+`homd_tgt_func : D[y]→P(Hom_K(x,y))`, and
+`homd_ : T(Hom_K(x,y))→Cat_cart`, with leaf
+`Hom_(E[y])(E[f](u),FF[y](v))`. General FF retains its lax comparison.
+The old Pi(Functor_catd(...)) target is not this classifier.
+
+This architecture is shared by Sigma homs, fibre transport and section action.
+`Edge_catd_func` and `HomPresheaf_catd_func` remain separate mixed-family
+helpers rather than the definition of the current Q target. Important owners are:
 
 ```text
 Rep_catd
@@ -2289,8 +2337,9 @@ The nondegenerate continuation is now derived from the same internal-hom/Sigma
 calculus. For
 
 ```text
-EdgeFamily_E[x1] = Sigma(x2:K2), E[x1][x2]
-D_E              = Op_catd(EdgeFamily_E),
+E                : T(K1) → Cart(K2,Cat_cart)
+EdgeFamily_E     = Sigma_coeff_func(K2) ∘ E
+D_E              = TotalOp_catd(EdgeFamily_E) : Catd(O(K1)),
 ```
 
 the whole mixed-variance owner is
@@ -2304,7 +2353,7 @@ Its canonical target-edge-first projection at `a:x1->y1` is
 computation exposes `(b,alpha)` with the expected cross-fibre type. The total
 
 ```text
-homdc_total_cat(E) = Op(Sigma(x1:K1^op),D_E[x1])
+homdc_total_cat(E) = O(Sigma_(O(K1))(D_E))
 ```
 
 therefore internalizes both endpoints and side arrows without a new
@@ -2318,7 +2367,7 @@ source and target without the former strict-cut adapter. Nat recursion construct
 `CubicalLevel_cat(C,n)`.
 
 The associated `{L,R,*}` code grammar is independent of Gray semantics and of
-the separate generic assignment `FF |-> homd_int(FF)`. It forms the locally
+the already-defined general-FF Homd composition. It forms the locally
 discrete `SemiCubePlus_cat`, acts by source/target/profiled lift, and assembles
 a whole opposite-indexed Cat-valued nerve. Public code action and whole nerve
 action are joined by typed paths rather than a runtime arrow beta, because the
@@ -2600,7 +2649,8 @@ an actual transformation `eta : T0 ⇒ PathOut(a) ∘ T1` is evaluated to
 `(a,eta[i])`. The local computation is independently checked using ordinary
 Eval and does not manufacture an inverse arrow. The hybrid triangle remains
 a prototype until its strict zero restriction and coherent maps are
-qualified; general op/Sigma repair is still deferred.
+qualified. The general foundations migration is installed; this prototype
+retains its own unqualified higher comparison boundary.
 
 The uncurrying operation is functorial at one whole owner:
 
@@ -2628,8 +2678,10 @@ audit justifies it.
 
 ### One generic owner for ordinary laws
 
-The global `fapp*`/`tapp*` calculus is the sole owner of ordinary identity,
-composition, functoriality, and naturality. A constructor-specific rule whose
+The global `fapp*` calculus owns strict functor identity/composition, and
+`tapp*` owns the conventional lax transformation action. The pre/right leg is
+strict; the post/left cell need not be an equality. Constructor-specific
+strict naturality must have its actual profile. A constructor-specific rule whose
 only content is one of those laws indicates a missing internalized
 functor/transfor owner or a detached projection.
 
@@ -2657,7 +2709,7 @@ tapp0_hom_fapp0(Y,Theta) : eta[Y] -> eta'[Y].
 ```
 
 It is the capped hom action of `tapp0_func(Y)`, with computational identity
-and vertical-composition projections. Its `Cat_cat` specialization reduces to
+and vertical-composition projections. Its `Cat_cart` displayed specialization reduces to
 the pre-existing `tdapp0_fapp0` stable head; the former direct Cat-only capped
 rule is retired, while `fapp1_func(tapp0_func(Y))` still exposes the whole
 `tdapp0_func(Y)` action. The owner-position diagnostic delta is exactly
@@ -2888,7 +2940,7 @@ spellings are joined through the typed pre/post proof-time bridge; that
 proof-time joinability is the selected criterion for this measured overlap.
 Across the ordinary/displayed first-hom facade, identity-specialized
 `tdapp1_int_*` consumers explicitly accept generic `id` at both
-`Functord_cat(E,D)` and `Transf_cat(K,Cat,E,D)`. This is a typed façade package,
+`Functord_cat(E,D)` and `Transf_cat(K,Cat_cart,E,D)`. This is a typed façade package,
 not a global rewrite between the two identity terms.
 
 ## Comment And Layout SOP
@@ -2938,25 +2990,28 @@ do not erase the decision trail.
 
 ### Bounded checks
 
+Use the guarded runner and the owning target's registered resource profile:
+
 ```bash
 EMDASH_TYPECHECK_TIMEOUT=90s make check
-timeout 90s lambdapi check emdash3_2.lp
+python3 scripts/run_lambdapi.py --no-colors --quiet --timeout-ms 90000 emdash3_2.lp
 make check-warnings
 ```
 
-The 90-second value is the default per-file limit for focused probes, warning
-checks, registered aggregates, and health traversals. The native-universality
-goal's 2026-09-14 user direction permits measured extensions; the guard accepts
-an explicit limit up to 300 seconds while preserving memory/file bounds and
-serial execution. Its model/reifier subplan records the selected target and
-evidence. The central diagnostics
-and several focused consumers now have measured green runs near 60 seconds, so
-the older split limits could classify the same valid import path differently.
-This is a timeout ceiling, not permission to run broad aggregates for
-reassurance. If a quiet check times out or hides the interaction, rerun the
-smallest target with warnings enabled before changing the architecture.
-Resumable health evidence continues to require exact checked-content and
-environment identity, including the timeout.
+Ninety seconds is the default process budget, including that target's import
+closure. Aggregate traversals may take many minutes and need a reviewed,
+explicit cumulative budget and progress monitoring. A time limit is not a
+mathematical threshold. Follow `AGENTS.md` for the current supported ceilings,
+memory/GC procedure, serialization, file limits and no-swap policy.
+Measured target-specific increases use the standing user authorization; they
+do not require a fresh permission question or a permanent change to defaults.
+Temporary host contention is not a reason to rewrite policy or tools.
+
+Preserve exact source/checker hashes, flags, limits and logs. Distinguish
+import cost from new construction cost before changing mathematics. Run the
+smallest affected check; carry forward recent evidence for unchanged scopes
+rather than repeating a repository aggregate for reassurance. A failed or
+stale source pin remains a review signal, not permission to refresh evidence.
 
 ### Focused probes
 
@@ -3022,17 +3077,17 @@ fixed-site capability. `emdash3_2_direct_cover_completion_universality.lp`
 provides the whole seed-functorial recursor, higher unit beta, topology-local
 eta/uniqueness, and the resulting Hom `OmegaEquivAlong`. The subsequent
 `emdash3_2_direct_cover_sheafification.lp` realizes only
-`Sheaf_cat(K,T,Cat_cat)` as pairs `(P,IsTopologyLocalPsh(P))`; arbitrary value
+`Sheaf_cat(K,T,Cat_cart)` as pairs `(P,IsTopologyLocalPsh(P))`; arbitrary value
 categories remain opaque.
 
 One whole inclusion forgets locality, and one whole reflector maps `P` to its
 local direct cover completion. The indexed adjunction is declared at the raw
-`Functor_cat(Op_cat(K),Cat_cat)` boundary required by the generic package,
+`Functor_cat(Op_cat(K),Cat_cart)` boundary required by the generic package,
 while a scoped proof-time comparison preserves rigid `Psh_cat(K)` as the
 computational owner. Its unit and counit compute to the HIT unit and the
 identity-seeded recursor. Recursor beta and topology-local eta derive both
 cancellation laws, giving the exact fixed-counit `OmegaEquivAlong` and a term
-of the existing `SheafificationCapability(K,T,Cat_cat)`.
+of the existing `SheafificationCapability(K,T,Cat_cart)`.
 
 The facade's runtime composition projection exposes twelve additional
 `comp_fapp0`/generic-naturality warning blocks: the imported baseline is
@@ -3300,16 +3355,18 @@ The following remain explicit future work rather than hidden assumptions:
   universe-level projection transfors, raw kernel pullback stability, a
   global `Functord_cat` product conversion, dependent-chain exchange, and
   full family base-two-cell action remain open;
-- a named `section_total` presentation facade and packaged projection laws;
-  its transparent expression and the general
-  `sigma_pullback_total_func(F,D)` base-change totalization are active;
+- remaining Sigma/section whole comparisons and production qualification.
+  `section_total_func` and `sigma_pullback_total_func` are already production
+  owners. The current native audit qualifies additional whole presentations;
 - semantic uncurry action on arbitrary transfors;
 - a named public facade varying higher arrows between ordinary transfors, and
   a complete recursive simplicial/omega interface beyond the active whole
   post/left and pre/right surfaces. The existing second `homd_`/Sigma internal
   action has already passed one current-source, no-associativity tetrahedral
   probe, so that validated generic action is not itself an open gap;
-- the arrow action of `sigma_intro_tapp0_func`;
+- production promotion of the Sigma fibre-inclusion Hom/arrow action. Its
+  isolated native candidate now passes whole/capped and next-Hom controls;
+  the production owner still has only its existing object beta;
 - off-diagonal `tapp1_*` projections for `sigma_map_transf` beyond its current
   point-component computation;
 - a fully internalized general coend/coinserter semantics for profunctor tensor;

@@ -15,11 +15,11 @@ make examples
 Current milestone files:
 
 - `path_category.lp`: path categories and equality-as-arrows.
-- `products_eval_curry.lp`: products, evaluation, curry, and uncurry.
+- `products_eval_curry.lp`: products and Cartesian-profile evaluation, curry, and uncurry.
 - `sigma_total.lp`: Sigma totals, projections, and Sigma-map action.
 - `dependent_hom_laxity.lp`: dependent hom projection, whole displayed
   laxity extraction, ordinary post/pre witnesses, and the projected
-  normal-lax functor compositor.
+  canonical default-strict functor compositor.
 - `path_induction_transitivity.lp`: path induction producing composition /
   transitivity.
 - `adjunction_triangles.lp`: ordinary adjunction triangle cut-elimination.

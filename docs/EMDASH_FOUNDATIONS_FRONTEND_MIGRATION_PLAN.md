@@ -1,7 +1,7 @@
 # Frontend integration of the strict-functor and duality migration
 
 Date: 2026-10-25
-Status: active integration; identity/general-FF Homd endpoint computations qualified; higher-action consumers, remaining frontend profiles and final integration remain
+Status: original migration tranche accepted at f0e22340; subsequent Pi/Sigma adaptation and final integration remain separate obligations
 Owner: R14 of the [foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Scope: migrate existing TypeScript consumers to the qualified native source;
 no new mathematical profile, generic-checker redesign or resumed bulk transfer.
@@ -9,16 +9,30 @@ no new mathematical profile, generic-checker redesign or resumed bulk transfer.
 User continuation decision, 2026-10-26: do not repeat the28-minute aggregate
 after the two test-only id ownership corrections. Accept the complete
 1,837-pass/two-failure/63-skip snapshot together with the13-pass/one-skip
-owning replay for this frontend tranche, then proceed to production health.
+owning replay for this frontend tranche, then proceed without an immediate repeat. The later user priority moved to
+book/article completion and then native nerve reconstruction; production
+health is not the current execution task.
 This waives the immediate repeat only; it does not relabel the aggregate as
 green or waive checks required by later substantive changes.
+
+## Current continuation boundary
+
+The original frontend migration was accepted at `f0e22340`. The local
+book/article revision completed at `1fe72617`, native adaptation began at
+`e8ffc4d0`, and the later Pi/Sigma native correction `bc37e5fc` created new
+frontend adaptation work. That separate candidate is preserved under the
+[Pi/Sigma plan](EMDASH_SIGMA_SECTION_PROFILE_CORRECTION_PLAN.md#work-and-acceptance).
+It does not retroactively make the earlier accepted migration unfinished.
+The dated stages below record their own source snapshots; their old next-step
+sentences are not current execution instructions. Resume through the parent
+foundations plan and its current native-nerve priority.
 
 ## Starting evidence
 
 The native source promotion is checkpoint `57e627b9`. All 1,388 original
 registered LP files have source-check coverage on the supported checker;
-production health and final CI remain separate ongoing gates. The active
-core hash is `70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e`.
+production health and final CI remain separate ongoing gates. At this initial promotion snapshot, the
+core hash was `70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e`.
 
 A fresh guarded `export -o lp` succeeds with that source and the supported
 binary `94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f`.

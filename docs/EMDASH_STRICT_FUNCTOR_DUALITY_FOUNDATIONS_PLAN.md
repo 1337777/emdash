@@ -42,6 +42,14 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Standing-reference refresh, 2026-10-27: the [in-place review](EMDASH_FOUNDATIONS_REFERENCE_REFRESH_REVIEW.md)
+updates Foundations, canonical syntax, current architecture/SOP, AGENTS,
+READMEs and handoffs to the installed contracts. Document checks pass; kernel,
+frontend, manuscripts and PDFs are unchanged. The next bounded task is
+user-authorized consolidation of this oversized execution narrative and its
+ledger, preserving historical evidence and every remaining required outcome.
+Native reconstruction resumes after that documentation checkpoint.
+
 Native represented transport, 2026-10-27 UTC: [the current candidate](../emdash2/audits/native_nerve_foundations/README.md#represented-boundary-transport-and-sigma-inclusion)
 qualifies the whole native Hom-family transport and the existing Sigma fibre
 inclusion's higher action. The 58-input prefix passes; the nine new unit

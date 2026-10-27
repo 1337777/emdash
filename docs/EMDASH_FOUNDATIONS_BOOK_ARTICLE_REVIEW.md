@@ -37,9 +37,10 @@ components even though displayed maps remain lax across the base. They
 present `sigma_functord_sec_func` as the existing whole forward construction
 and distinguish its source from the broader section category. Chapter 5
 retains evaluation at the total object `(y,p)` and points to that qualification.
-The Foundations/current-status reports no longer present the legacy whole
-identification as the intended mathematical contract; both explicitly record
-that its production clauses are still present.
+At this isolated checkpoint, the Foundations/current-status reports stopped
+presenting the legacy whole identification as the intended contract and
+recorded that its production clauses were then still present. The subsequent
+native-correction synchronization above records their removal.
 
 The earlier review of all 46 sources and 189 claims is carried forward for
 unchanged material. No new checked theorem or evidence ID is introduced.

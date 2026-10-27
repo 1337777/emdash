@@ -4,6 +4,13 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: book/article complete; native Pi/Sigma correction installed; NF-1 reconstruction active; affected frontend candidate preserved separately; broad health/final integration remain deferred
 
+Standing-reference refresh, 2026-10-27: the [review](EMDASH_FOUNDATIONS_REFERENCE_REFRESH_REVIEW.md)
+records substantive corrections to the frequently read foundations, syntax,
+SOP and guidance documents. Their own descriptions now use the installed
+contracts; old accounts are not retained as current beneath an update banner.
+Document checks pass, with no kernel/frontend/artifact changes. Consolidate
+the active plan and this ledger next, then resume native reconstruction.
+
 NF-1 represented transport: [the source-pinned record](../emdash2/audits/native_nerve_foundations/transport_verification.json)
 qualifies the whole `a ↦ (y′,v∘a)` transport extracted from the actual native
 family, plus the Sigma fibre inclusion's complete Hom and next action. The

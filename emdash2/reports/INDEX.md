@@ -1,6 +1,6 @@
 # EMDASH Reports Index
 
-Reviewed: 2026-10-11. Start with active source and [AGENTS](../AGENTS.md).
+Reviewed: 2026-10-27. Start with active source and [AGENTS](../AGENTS.md).
 This index routes to existing owners; it does not repeat implementation ledgers.
 The former narrative is preserved in
 [index history](history/REPORT_INDEX_THROUGH_2026-09-23.md); earlier mathematical
@@ -14,7 +14,7 @@ Dated “next” statements are not current work authorization.
 - [TypeScript entry point](../../docs/TYPESCRIPT_ELABORATOR_V3_2_HANDOFF.md) and [DevOps commands](../../docs/DEVOPS.md).
 - [Repository consolidation](../../docs/EMDASH_REPOSITORY_CONSOLIDATION_PLAN.md) records maintenance, corrected full TypeScript qualification and main integration; [profile/performance repair](../../docs/TYPESCRIPT_PROFILE_AND_PERFORMANCE_REPAIR_PLAN.md) retains the source/performance evidence.
 - [Native homology final audit](../../docs/TYPESCRIPT_EMDASH_NATIVE_UNIVERSALITY_FINAL_AUDIT.md), [categorical consolidation audit](../../docs/TYPESCRIPT_EMDASH_CATEGORICAL_CORE_CONSOLIDATION_FINAL_AUDIT.md) and [universality assembly audit](../../docs/TYPESCRIPT_EMDASH_CATEGORICAL_UNIVERSALITY_FINAL_AUDIT.md) record qualified results and supplied contracts.
-- [Foundational reassessment](../../docs/TYPESCRIPT_EMDASH_FOUNDATIONS_DEVOPS_AND_CONTINUATION_REVIEW.md) records the source action-profile branch. The completed [integration plan](../../docs/EMDASH_ACTION_PROFILE_INTEGRATION_PLAN.md) and [acceptance audit](../../docs/EMDASH_ACTION_PROFILE_INTEGRATION_FINAL_AUDIT.md) record its qualified reimplementation; the [main integration review](../../docs/EMDASH_ACTION_PROFILE_MAIN_INTEGRATION_REVIEW.md) records compatibility, book corrections and the local fast-forward boundary. Op/duality remains separate. Current check success is not a consistency claim.
+- [Current foundations continuation](../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md) and [follow-up ledger](../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER.md) distinguish installed strict-default/duality sources, completed local exposition, active native reconstruction and remaining integration gates. The earlier [action-profile integration](../../docs/EMDASH_ACTION_PROFILE_INTEGRATION_PLAN.md) and [main integration review](../../docs/EMDASH_ACTION_PROFILE_MAIN_INTEGRATION_REVIEW.md) are historical source/decision evidence, not the current strictness policy.
 - [Native nerves review](../../docs/TYPESCRIPT_EMDASH_NATIVE_NERVES_AND_HOMOLOGY_NOTATION_REVIEW.md) and [dependent-spectra review](../../docs/EMDASH_DEPENDENT_SPECTRA_RESEARCH_REVIEW.md) distinguish implemented owners from proposals.
 - [Local research resources](../research/LOCAL_RESOURCES.md) locate existing reading notes, PDFs/text and source checkouts.
 
@@ -34,7 +34,7 @@ deferred. Exact status, evidence and resumption boundaries live in each owner.
 
 ## Active Plans
 
-- `../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md`: [Strict-functor default and corrected-duality foundations](../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md). Active in its dedicated worktree; preserves lax transfors and blended Hom/Homd owners. The separate application goal remains paused.
+- `../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md`: [Strict-functor default and corrected-duality foundations](../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md). Consolidated continuation: installed foundations, completed local book/article revision, active native nerve reconstruction and explicit remaining frontend/final gates. The separate legacy donor thread remains paused.
 - `../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md`: [Native nerve adaptation on the corrected foundations](../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md). Active continuation of the consolidated foundations goal after the local book/article revision; pinned donor inventory, selected higher shapes, whole mapping/inverse obligations, and excluded legacy tooling. This does not resume or merge the separate donor thread.
 - `REPORT_EMDASH_V3_2_PRESHEAVES_SITES_SCHEMES_PRELIMINARY_PLAN_2026-08-01.md`: [Emdash v3.2 Presheaves, Sites, And Schemes Living Preliminary Plan](REPORT_EMDASH_V3_2_PRESHEAVES_SITES_SCHEMES_PRELIMINARY_PLAN_2026-08-01.md).
 - `../../docs/TYPESCRIPT_ELABORATOR_V3_2_SCALE_QUALIFICATION_PLAN.md`: [TypeScript Elaborator v3.2 — Systematic Transfer Scale Qualification](../../docs/TYPESCRIPT_ELABORATOR_V3_2_SCALE_QUALIFICATION_PLAN.md).

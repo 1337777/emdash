@@ -17,16 +17,26 @@ Book: [Functorial Type Theory](../docs/emdash-book.pdf), with
 [archived book DOI](https://doi.org/10.5281/zenodo.21544186).
 Code: [github.com/hotdocx/emdash](https://github.com/hotdocx/emdash).
 
-Research qualification: the current whole-opposite and Sigma-Hom encodings
-have known variance/soundness defects. Their diagnostics and deferred repair
-are tracked in `AGENTS.md` and the current status report; passing local
-checks is not a consistency certificate.
+The current foundations use strict functors and conventional lax
+transformations. `Hom_Cat(A,B)` is `Functor_cat(A,B)`; admitted families and
+ordinary Hom use the Cartesian coefficient `Cat_cart`. `Op_cat` reverses
+only dimension 1, while `TotalOp_cat`, `CoAbove2_cat` and `CoAt2_cat` retain
+their separate higher-dimensional meanings and shifted family bases.
+The direct Q-valued Homd ladder and its defined general-FF extension are the
+current dependent-Hom interface.
 
-The [2026-09-18 reassessment](../docs/TYPESCRIPT_EMDASH_FOUNDATIONS_DEVOPS_AND_CONTINUATION_REVIEW.md)
-collects the foundational, DevOps and deferred-work boundaries at that date.
-The [action-profile acceptance audit](../docs/EMDASH_ACTION_PROFILE_INTEGRATION_FINAL_AUDIT.md)
-records the qualified main-based reimplementation on its dedicated branch;
-main integration remains a separate review boundary.
+The migration and the scoped Pi/Sigma profile correction are installed in
+this worktree's native source. The local book/article revision is complete.
+The original frontend migration was accepted before the later Pi/Sigma
+change, which has separate remaining frontend adaptation. Native nerve
+reconstruction is the active continuation; isolated audit candidates are not
+production promotion or completed inverse/equivalence results. See the
+[living plan](../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md) and
+[current mathematical account](reports/EMDASH_FOUNDATIONS.md).
+
+The versioned opposite/Sigma diagnostics and earlier action-profile ledgers
+remain historical evidence. Current local checks are not a global consistency,
+normalization or semantic-model theorem.
 
 ## Headline results
 
@@ -125,9 +135,10 @@ the recommended mathematical reading order.
 The core develops categories, functors, transfors, higher hom action,
 Cat-valued directed families, reindexing, Sigma totals, Pi section categories,
 dependent homs, mixed variance, and the projection ladders that keep higher
-action iterable. Generic `fapp*` and `tapp*` owners carry identity,
-composition, functoriality, and naturality; constructor-specific rules are
-kept to justified projections or measured joins.
+action iterable. Generic `fapp*` owns strict functoriality; `tapp*` retains conventional lax
+naturality. Admitted families use Cat_cart, and stronger transformation
+naturality needs its declared profile. Constructor-specific clauses are
+justified projections or measured joins.
 
 Equality-valued homs, truncation levels, dependent sums and products,
 equivalence interfaces, and a restricted groupoidal core test how the directed
@@ -161,36 +172,32 @@ Hom_Grpd(Groupoidify(C),G) ≃_omega Functor(C,Path(G)).
 The current boundary does not yet construct source action,
 `Groupoidify_func`, or the packaged adjunction with `Path_cat_func`.
 
-Whole internal laxity also exposes the generic functor compositor and its next
-action. Semantic strict functors are opaque classified carriers admitted from
-`(F,IsStrictFunctor(F))`. They are the objects of `StrictFunctor_cat`, whose
-arrows are ambient transfors. `GrayHom_lax` has the same strict objects and
-classified `LaxTransfor` arrows, with ambient higher homs. Stable classified
-views retain their computation; explicit raw views expose the admitted data.
-Generic composition and naturality remain lax, with stricter computation
-selected by an explicit profile or a justified named constructor. No second
-functor grammar or parallel compositor is introduced. The strict-action
-extension maps equivalence, isomorphism, `DefIso` and profunctor evidence
-through the existing classified action. One right
-closure yields a coevaluation-derived walking square and a checked nonidentity
-oriented interchanger. Its checked direction becomes the native lax-square
-direction after exchanging the two coordinate roles.
+Whole internal action exposes the functor compositor and transformation
+naturality. Public functors already preserve identities and composition
+strictly; `IsStrictFunctor` is a descriptive property with canonical evidence,
+not a separate `StrictFunctor` carrier. Ordinary transformation naturality
+remains lax. `GrayHom_lax` uses these functor objects and its classified
+`LaxTransfor` Homs, with a whole ordinary view.
+
+The selected right Gray closure supplies whole curry/uncurry maps and
+structural beta/eta comparisons. Its coevaluation-derived walking square has
+a nonidentity oriented interchanger. This retains directed transformation
+data without restoring lax functors as the public default or imposing strict
+naturality on every transformation.
 
 Every classified `L : LaxTransfor(F,G)` has an iterable whole graph
 `B -> LaxArrow_cat(C)`. Objects compute to its carrier components; capped arrows
 compute to the standard square with literal `F[g]` and `G[g]` sides and a
 filler extracted from the existing post/left internal action. Its stable view
 makes the pre/right leg compute, without postulating a separate square. Generic
-`fapp1_func` retains the next whole action. The identity instance knowingly
-overlaps retained normal identity computation. For strict
-endpoint packages, the public graph is paired with supplied
-`IsStrictFunctor` evidence about its already-extracted compositor; carrier and
-evidence projections compute, without a graph-specific identity rule.
+`fapp1_func` retains the next whole action. The identity instance retains its qualified presentation boundary.
+The graph itself is an ordinary strict functor, without the retired
+strict-object admission wrapper or a supplied graph-strictness certificate.
 Fixed-bracketing positive right-Gray cubes and one Nat-recursive
 object decoder then give
 
 ```text
-StrictFunctor(GrayCubePos_R(n),C)
+Functor(GrayCubePos_R(n),C)
   -> Obj(CubicalLevel(C,succ n)).
 ```
 
@@ -218,14 +225,18 @@ are whole observations. The next hom has two endpoint squares and four side
 faces, with the fixed left/right sides computing to identities. This is a
 computational bounded test retained beside the fully varying construction.
 
-The fully varying layer is derived from the same primitives. Define
+The fully varying layer uses the admitted Cartesian parameter profile:
 
 ```text
-EdgeFamily_E[x1] = Sigma(x2:K2), E[x1][x2]
-D_E              = Op_catd(EdgeFamily_E)
+E                : T(K1) → Cart(K2,Cat_cart)
+EdgeFamily_E     = Sigma_coeff_func(K2) ∘ E
+D_E              = TotalOp_catd(EdgeFamily_E) : Catd(O(K1))
 homdc_int(E)      = homd_int(id_D_E)
-homdc_total_cat(E)= Op(Sigma(x1:K1^op),D_E[x1]).
+homdc_total_cat(E)= O(Sigma_(O(K1))(D_E)).
 ```
+
+The fixed-boundary and fully internalized constructions share arrow-object
+formulas; that alone does not identify their higher categories.
 
 The canonical target-edge-first projection of `homdc_int` exposes the
 remaining `(b,alpha)` Sigma-Hom data. At `E=hom_int(id_C)`,
@@ -327,10 +338,10 @@ than a second simplex record. A triangle is the `Hom(Sigma)` total of one
 `Sigma(FF)`, and its next action maps `(κ,λ)` to the same base cell together
 with `fdapp1_int_hom_fapp0(...,λ)`. The ordinary dimension-two specialization
 is the active functor compositor, and another higher action remains iterable.
-The same owner stays noncollapsed for a generic map, is constrained by the
-selected semantic `IsStrictFunctor` property on the whole compositor, and
-becomes invertible at both triangle and tetrahedron components when the target
-fibres are path categories.
+Public functor compositors have canonical strict behavior; displayed maps
+retain their lax base comparison. When the target fibres are path categories,
+the triangle and tetrahedron components are equality-valued and have inverses
+by path symmetry.
 
 Represented composition now supplies the first non-circular groupoidal source
 coherence for that recursion. The generic compositor of `Rep_catd_func` is a

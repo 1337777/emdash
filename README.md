@@ -12,6 +12,14 @@ dependent type theory with categories, directed families, functors,
 transfors, and higher cells, using cut-elimination-inspired operations so
 that functoriality and naturality can compute.
 
+The current foundations use strict ω-categories, strict functors, and
+conventional lax transformations. Public `Hom_Cat` is `Functor_cat`;
+admitted dependent families and represented Hom use `Cat_cart`. The direct
+Homd ladder preserves its whole y-transformation, and dimension-one, higher
+and total dualities are distinguished explicitly. The
+[current Foundations account](./emdash2/reports/EMDASH_FOUNDATIONS.md) gives
+the actual types and computational boundaries.
+
 The long-term product direction is an **open-source, AI-native, cloud-capable
 scientific computing system in the TypeScript ecosystem**, with integrated
 functorial type theory and proof development. Users should be able to compute,
@@ -74,10 +82,10 @@ pullback-cone square.
 Its groupoidal layer now also contains an opaque Circle HIT and a checked
 encode--decode equivalence between its based loop space and the integers,
 together with the concrete WalkingEnd-to-Circle nonnegative comparison and a
-coherent product-transport closure theorem. The same generic lax compositor,
-when realized in a path category, is now checked as an invertible equality
-between paths with the usual `ap`/path-composition presentation and a retained
-higher action. A classified computational truncation reflector now supplies
+coherent product-transport closure theorem. The existing extracted compositor also has a checked readable path-level
+comparison with the usual `ap`/path-composition presentation and retained
+higher action. Public functors are strict; the readable path comparison does
+not make ordinary `ap` equations new runtime rewrites. A classified computational truncation reflector now supplies
 restricted point-computing elimination and recursor-derived whole map action;
 its first concrete consumer proves the Circle merely connected and its set
 truncation contractible, without choosing global based paths or replacing the
@@ -91,9 +99,8 @@ classified `LaxTransfor` arrow and gives an iterable whole transformation
 graph whose capped arrows compute to the literal square
 `G[g] o epsilon[x] ==> epsilon[y] o F[g]`. The classified view makes the
 pre/right leg compute and retains the post/left cell as its filler. The graph
-beta retains its reviewed overlap with normal identity computation; generic
-composition and naturality cuts have been replaced by profiles or justified
-named computations. Fixed-bracketing positive
+beta retains its reviewed overlap with normal identity computation; generic functor identity/composition is strict, while stronger transformation
+naturality requires its actual profile or a justified named computation. Fixed-bracketing positive
 Gray cubes and an internal Nat-recursive decoder then reach native cubical
 levels. Dimensions one
 through three, the selected `I tensor_R I` direction, four square edges, six
@@ -167,9 +174,10 @@ mapping-category equivalence with `Functor_cat(Delta[n],C)` remain future
 work.
 
 The same internal-hom/Sigma architecture now has a fully varying cubical
-counterpart. For a mixed-variance family `E : K1^op -> Catd(K2)`, an inner
-Sigma and pointwise opposite let the existing `homd_int` classify directed
-lax squares; an outer opposite Sigma then derives the lax-arrow category.
+counterpart. For the admitted whole family
+`E : T(K1) → Cart(K2,Cat_cart)`, Cartesian Sigma formation and total fibre
+duality produce a family over O(K1). The existing `homd_int` and an outer
+total dual then give the derived lax-arrow category.
 Iterating that category gives native edges, squares, cubes, and arbitrary
 dimensions. The internal augmented semicube category uses `{L,R,*}` face
 codes, its whole nerve computes the native levels, and Yoneda standard
@@ -330,12 +338,14 @@ external naturality evidence when no internal construction owns it.
 
 ## Current Boundaries
 
-- The current whole-opposite and Sigma-Hom encodings have known
-  variance/soundness defects, including diagnostics that inhabit the encoded
-  empty type. Higher-variance-dependent formal claims remain unqualified
-  pending repair. See the [opposite diagnostic](./docs/TYPESCRIPT_EMDASH_INTERNAL_OP_VARIANCE_DIAGNOSTIC.md)
-  and [Sigma-Hom diagnostic](./docs/TYPESCRIPT_EMDASH_SIGMA_HOM_VARIANCE_DIAGNOSTIC.md).
-  Passing local checks is not a consistency certificate.
+- The strict-default/corrected-duality migration and scoped Pi/Sigma profile
+  correction are installed in the native sources of this worktree. The
+  [living foundations plan](./docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
+  distinguishes that source qualification from remaining promotion/CI gates.
+  The book/article revision is complete locally; the later Pi/Sigma frontend
+  adaptation and native nerve inverse/comparison work remain open. Historical
+  pre-migration Empty diagnostics are not descriptions of the current types,
+  and current checks are not a global consistency certificate.
 - The text adapter is not a parser for every notation in the book or for
   arbitrary Lambdapi source. It accepts the reviewed mathematical
   constructions and fails closed outside them.

@@ -62,11 +62,11 @@ geometry, 25--28 groupoidal and Gray structure, 29 dependent simplexes,
 The current source revision explains the migrated strict-functor default,
 conventional lax transformations, Cartesian family coefficients, corrected
 whole dependent-Hom ladder, and separate dualities. It retains the native
-whole-universality, LES/snake, and nonsplit model developments. The active
-[book/article update plan](../../docs/EMDASH_FOUNDATIONS_BOOK_ARTICLE_UPDATE_PLAN.md)
-records chapter review, evidence changes, and remaining manuscript/artifact
-validation. Production-health qualification and later legacy nerve adaptation
-remain separate goal obligations.
+whole-universality, LES/snake, and nonsplit model developments. The [completed local book/article review](../../docs/EMDASH_FOUNDATIONS_BOOK_ARTICLE_REVIEW.md)
+records chapter review, evidence changes, validated artifacts and the current
+0.10.2-dev / 0.4.2-dev drafts. Native nerve adaptation is now the active
+continuation. Production-health/final integration and the later Pi/Sigma
+frontend adaptation remain separate obligations; no publication is implied.
 Appendix G owns the formal
 presentation. Contents and the evidence appendix are generated from
 their structured authorities.

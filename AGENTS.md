@@ -17,6 +17,15 @@ API. TypeScript qualification is profile-specific and does not establish that
 every newer Lambdapi owner has been transferred. Preserve source-pin failures
 as review signals rather than updating mathematical evidence merely to pass CI.
 
+The current native foundations use strict functors and conventional lax
+transformations. Public `Hom_Cat` is `Functor_cat`; admitted `Catd` families
+and ordinary Hom use `Cat_cart`. Dimension-one `Op_cat`, total `TotalOp_cat`,
+`CoAbove2_cat` and `CoAt2_cat` are distinct, including their shifted family
+bases. The identity Homd core and defined FF-relative interface use the direct
+whole Q-valued ladder. Follow the nested SOP and current Foundations account;
+do not restore the former strict-functor wrapper grammar or the retired
+whole Sigma-section/displayed-functor identification.
+
 For renewed TypeScript elaborator work, read
 `docs/TYPESCRIPT_ELABORATOR_V3_2_HANDOFF.md`, then the active kernel, current
 SOP, Foundations, canonical-syntax report, and living master plan named there.

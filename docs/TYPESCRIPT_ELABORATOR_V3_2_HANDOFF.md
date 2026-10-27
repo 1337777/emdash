@@ -1,10 +1,39 @@
 # TypeScript Elaborator For Emdash v3.2 — Start Here
 
-Reviewed: 2026-09-28. This is current orientation; detailed qualification lives
+Reviewed: 2026-10-27 (foundations boundary; other receipts retain their dates).
+This is current orientation; detailed qualification lives
 with the source contracts and plans linked below. The former running narrative
 is preserved in [handoff history](history/TYPESCRIPT_ELABORATOR_HANDOFF_THROUGH_2026-09-23.md).
 
 ## Current Work And Qualification
+
+The current mathematical source uses strict functors and conventional lax
+transformations. `Hom_Cat` is `Functor_cat`; admitted families and ordinary
+Hom use `Cat_cart`. T=`Op_cat` reverses dimension one, R=`CoAbove2_cat`
+reverses dimensions at least two, and O=`TotalOp_cat` is total reversal.
+Family duality retains its shifted base. The direct Homd ladder uses a whole
+Q-valued y-transformation and a defined FF-relative extension; the old whole
+Sigma-section/displayed-functor identification is removed.
+
+The [current architecture report](../emdash2/reports/REPORT_EMDASH_V3_2_CURRENT_STATUS_AND_SOP_2026-05-26.md)
+and [Foundations](../emdash2/reports/EMDASH_FOUNDATIONS.md) give the actual
+interfaces. The native homology/universality results retain their ordinary,
+model, normality and interpretation contracts. The original frontend
+foundations migration was accepted at `f0e22340`; the later Pi/Sigma correction
+has its own remaining adaptation under the
+[frontend plan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md).
+Do not qualify an affected transfer merely by editing a source hash.
+
+The local book/article revision is complete. Native nerve reconstruction is
+the active consolidated-goal continuation; its newer audit rules are not
+production source or automatically transferred profiles. The earlier
+[action-profile audit](EMDASH_ACTION_PROFILE_INTEGRATION_FINAL_AUDIT.md)
+and [September reassessment](TYPESCRIPT_EMDASH_FOUNDATIONS_DEVOPS_AND_CONTINUATION_REVIEW.md)
+remain source-pinned history. Their former generic-lax-functor and deferred
+Op-repair descriptions are not the current foundations. The independent
+six-term and spectral deferrals remain in their owning plans.
+
+### Recorded workbench and product qualification
 
 The [repository consolidation ledger](EMDASH_REPOSITORY_CONSOLIDATION_PLAN.md)
 records the completed bounded maintenance. The [DevOps guide](DEVOPS.md) owns commands
@@ -67,25 +96,6 @@ explicit computed-equation assumption and its existing interpretation boundary.
 The plan also records a future cloud-container transport comparison; no cloud
 deployment is selected. Existing
 proof protocols retain their precise meaning within the broader workflow.
-
-For mathematical status use the
-[current architecture report](../emdash2/reports/REPORT_EMDASH_V3_2_CURRENT_STATUS_AND_SOP_2026-05-26.md)
-and [Foundations](../emdash2/reports/EMDASH_FOUNDATIONS.md). The native whole
-homology/universality interfaces and proof–CAS examples have explicit ordinary,
-model, normality and interpretation contracts. The current unrestricted
-Op/Sigma/Homd package has recorded defects. The
-[action-profile integration plan](EMDASH_ACTION_PROFILE_INTEGRATION_PLAN.md)
-records the qualified main-based reimplementation and affected transfer
-review. Its [acceptance audit](EMDASH_ACTION_PROFILE_INTEGRATION_FINAL_AUDIT.md)
-records full formal CI, the retained production CAS corpus and unchanged
-TypeScript semantic IR, with the exact metadata follow-up scope. This does
-not transfer additional mathematical profiles to the TypeScript kernel.
-Preserve the six-term, Op/variance and spectral deferrals.
-
-The [September reassessment](TYPESCRIPT_EMDASH_FOUNDATIONS_DEVOPS_AND_CONTINUATION_REVIEW.md)
-records those boundaries, the qualified binder direction and sibling-template
-roles. The [newer consolidation review](EMDASH_DEVOPS_CONSOLIDATION_REVIEW_2026-09-23.md#broader-repository-and-ecosystem-reassessment)
-adds context/research ownership and the future design reference.
 
 ## Trust And Compilation Boundary
 

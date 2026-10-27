@@ -31,33 +31,42 @@ Homd projection ladder, general lax FF and actual inverse data. The historical
 reproducers are non-library audits, not current positive examples or a blanket
 consistency certificate. Do not use invalid higher action to justify a result.
 
-Action-profile integration is qualified on
-`goal/action-profile-integration-v3.2` under the completed
-[integration plan](../docs/EMDASH_ACTION_PROFILE_INTEGRATION_PLAN.md).
-The [main integration review](../docs/EMDASH_ACTION_PROFILE_MAIN_INTEGRATION_REVIEW.md)
-records the user-requested book refresh and local fast-forward boundary.
-Op/duality repair and further Empty audits remain deferred. Preserve
-hom_int/homd_int as foundations and the checkpoint/resumption bundle in
-`audits/deferred_native_homd_y/README.md`. The selected native duality design
-is a proposal; external set-of-dimensions semantics is not an implementation
-API. No current homology maintenance task authorizes resuming that migration.
-Spectral/stabilization research is also deferred.
+The current foundations use strict public functors and conventional lax
+transformations. `Hom_cat Cat_cat A B` is `Functor_cat A B`; the admitted
+family coefficient is `Cat_cart`, with Cartesian Homs. Ordinary Hom families
+use that same coefficient. `Functord` remains lax across its base, while its
+fibre functors and displayed higher components retain their declared profiles.
+Do not reintroduce the retired `StrictFunctor` carrier/admission grammar or a
+blanket strict-naturality exception for Cat-valued transformations.
 
-Worktree-specific continuation, authorized 2026-10-11: the
-[strict-functor/duality foundations plan](../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
-is active on `goal/strict-functor-duality-v3.2`. It supersedes the ambient-lax
-functor default and the Op/Homd deferral for this goal. Reinterpret public
-Functor/fapp* as strict while retaining lax transfors, blended F/FF Hom
-owners and native intrinsic laxity extraction. Restore functor laws only
-through the owner-position and validation workflow below; do not restore
-strict naturality of arbitrary transfors. The future weak-category/lax-map
-interface remains shared design. The separate application goal stays paused.
-The mathematical migration has now been promoted to the production source
-paths in this worktree after the recorded full source/reviewer qualification.
-The initial carrier relocation is preserved. Generated evidence, authoritative
-prose and frontend/source-pin integration remain explicit gates; source
-promotion is not overall goal completion. The current plan records later
-book/article and nerve continuations, which start only at their dependency gates.
+`Op_cat` reverses dimension 1, `CoAbove2_cat` dimensions 2 and above,
+`TotalOp_cat` all positive dimensions, and `CoAt2_cat` dimension 2.
+`Op_catd(E)` is over `CoAt2_cat K`; `TotalOp_catd(E)` is over
+`CoAbove2_cat K`. The direct identity Homd core and its defined general-FF
+extension retain the Q-valued whole y-transformation and x/u/y/v/f ladder.
+Use the actual declarations and rules to determine these profiles; a surviving
+pre-migration source comment is not an alternative contract.
+
+The mathematical migration and the scoped Pi/Sigma higher-profile correction
+are installed in the production sources of this worktree. The old identification
+of all Sigma-projection sections with displayed functors is retired; use
+`sigma_functord_sec_func` in its declared forward direction. The original
+frontend migration was accepted at its recorded snapshot; the subsequent
+Pi/Sigma change has a separate unfinished frontend adaptation.
+
+The [consolidated foundations plan](../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
+and [follow-up ledger](../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER.md)
+own qualification and remaining gates. The local book/article revision is
+complete. Native nerve reconstruction is the current continuation under its
+[adaptation plan](../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md);
+its audit candidates are not production promotion. The separate legacy donor
+thread remains paused. Do not resume unrelated homology, spectral, frontend
+or broad health work merely because an older narrative calls it next.
+
+The earlier action-profile integration and its main-integration review remain
+historical source/decision evidence. They do not override the current strict
+functor default. The future native weak-category/LaxFunctor design remains
+outside the present implementation prerequisites.
 
 ## Authority And Document Roles
 
@@ -143,12 +152,13 @@ are not a second functor grammar or automatic judgmental reflection. Opposite
 instances and ordinary reconstruction do not establish unrestricted inverse
 laxity, higher diagram eta or a `Groupoidify` adjunction.
 
-The completed successor branch `goal/opaque-action-profile-classifiers-v3.2`
-at `114dc19f` is the pinned source for this integration. The
+The completed predecessor branch `goal/opaque-action-profile-classifiers-v3.2`
+at `114dc19f` was the pinned source for the earlier action-profile integration. The
 [continuation review](../docs/TYPESCRIPT_EMDASH_FOUNDATIONS_DEVOPS_AND_CONTINUATION_REVIEW.md#completed-action-profile-branch)
 owns its exact worktree/plan recovery and original selective migration proposal.
-Use the completed integration audit for the current adapted implementation;
-do not substitute donor counts or donor receipts for current qualification.
+Use that completed integration audit for its recorded implementation, and
+the current foundations ledger for this migration; do not substitute donor
+counts or receipts for current qualification.
 
 ## Starting A v3.2 Task
 
@@ -400,22 +410,20 @@ Git for retired implementations, rather than an ignored alternative library.
   patterns. Test both reduction orders for every exceptional commuting bridge.
 - Treat warning counts as diagnostics for locating overlap families, not as an
   automatic veto on semantically intended computation.
-- The selected action-profile integration retires generic composition and
-  strict-naturality cuts while retaining normal identity computation and
-  qualified named-constructor instances. Preserve the ambient/profile
-  distinction. Record constructor/identity/composition overlaps at their
-  actual owners and check both observation orders and the first real consumer.
-  A justified named strict computation may be direct; the user does not require
-  every such instance to be wrapped as a `StrictFunctor`. This is not permission
-  to restore a generic strictness leak, ignore subject reduction or leave an
-  unrelated overlap unclassified.
-  The authorized strict-default migration above deliberately requalifies the
-  generic functor-composition owners. That change of contract does not
-  authorize strict-transfor naturality or weaken any of these checks.
+- Generic strict functor identity/composition belongs to the existing
+  `fapp*` owners. Default transformations retain their directed post/left
+  comparison; strict transfor naturality needs its actual classifier or a
+  justified named-constructor computation. A direct constructor-specific rule
+  is permitted without a new operational evidence argument. Record the
+  constructor/identity/composition overlaps at their actual owners, check both
+  observation orders and the first real consumer, and preserve subject reduction.
+  This does not authorize stronger naturality for arbitrary FF or an
+  unqualified variance-changing coercion.
 - `IsPseudoFunctor(F)` is the transparent dependent product of fixed-forward
   `OmegaEquivAlong` evidence for the existing readable compositor. Do not
   claim that no pseudofunctor property exists. Its direct endpoint paths expose
-  the existing compositor without identifying generic lax endpoints. It is
+  the existing compositor. Public functors already have canonical strict
+  computation; selected inverse data must still be retained by consumers. It is
   evidence over an already-formed carrier, not a separate carrier classifier
   or an automatic strict computation rule. Identity/composition and cubical structural closure
   remain explicitly supplied pending extracted unit/composite coherence.
@@ -481,7 +489,8 @@ Git for retired implementations, rather than an ignored alternative library.
   constructor-specific identity/composition/naturality clause is permitted
   when that constructor's strictness is part of the selected interface and
   its owning-position, subject-reduction, overlap and consumer checks pass.
-  Do not infer the same equation for an arbitrary functor or transformation.
+  Generic functoriality already has its default strict computation; do not
+  infer stronger naturality for an arbitrary transformation from such a clause.
 - A specialized projection-order bridge is justified only when a stable
   projection erases the literal generic-owner pattern and a measured competing
   path does not already join. Select one orientation and document it.
