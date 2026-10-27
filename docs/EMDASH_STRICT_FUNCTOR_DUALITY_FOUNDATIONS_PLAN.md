@@ -42,6 +42,14 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Native higher recovery, 2026-10-27 UTC: the [latest candidate](../emdash2/audits/native_nerve_foundations/README.md#staged-higher-component-recovery)
+closes the recorded identity-filler γ observation by a staged proof-time
+comparison. The retained native prefix and typed Op/Cartesian clients pass,
+and the no-bridge control fails as intended. Runtime γ conversion is not
+claimed. Nine new identity-presentation overlap warnings and the unfinished
+arbitrary-source-map specialization stay explicit; their broader qualification
+and the native-side whole inverse remain required. Production is unchanged.
+
 Native NF-1 progress, 2026-10-27 UTC: [the whole post-comparison candidate](../emdash2/audits/native_nerve_foundations/README.md#whole-native-post-comparison)
 now derives the comparison from the stored native filler via an existing Hom
 telescope and fixed precomposition, as a whole functor in the filler. Its

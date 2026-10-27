@@ -15,6 +15,16 @@ Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 
 ## Authorization and current boundary
 
+NF-1 higher recovery, 2026-10-27 UTC: the [staged comparison](../emdash2/audits/native_nerve_foundations/README.md#staged-higher-component-recovery)
+proves γ recovery for the recorded identity-filler observation, preserving a
+negative runtime-equality control and rejecting an unrelated δ. The full
+retained prefix and typed Op/Cartesian instances pass; the no-bridge control
+fails at its intended proof. Nine identity-normalization warning peaks are
+classified and remain a promotion boundary. Arbitrary strict source-map
+specialization is still unfinished and its experimental rules are excluded.
+Continue toward the complete native action and whole section reconstruction;
+this does not supply the second inverse or reopen frontend/book work.
+
 NF-1 whole post-cell continuation, 2026-10-27 UTC: the [native refinement](../emdash2/audits/native_nerve_foundations/README.md#whole-native-post-comparison)
 constructs the extracted post-comparison by whiskering the original stored
 filler, with a whole functor in that filler. Two owner-level proof comparisons

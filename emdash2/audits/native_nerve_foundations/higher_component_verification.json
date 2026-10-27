@@ -1,0 +1,270 @@
+{
+  "schema": "emdash-native-higher-component-v1",
+  "status": "recorded identity-filler higher readback proved at proof time; full native prefix and typed Op/Cartesian instances pass; general source-map specialization and second inverse remain open",
+  "receiverBaseline": "a3d78429",
+  "baseReplay": "replay_whisker.py",
+  "coreAnchor": "// Product-valued transfor components project componentwise.\n",
+  "newProgram": "native_higher_staged_unit.lp",
+  "instanceProgram": "native_higher_typed_instances.lp",
+  "targetPrefix": "require open emdash.native_higher_staged_unit;\n",
+  "checker": {
+    "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+    "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+    "version": "dev-3.0.0-90-gdb4f7809-dirty"
+  },
+  "modes": {
+    "integration": {
+      "target": "native_nerve_section_review.lp",
+      "timeoutMs": 180000,
+      "expectedInputs": {
+        "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+        "emdash3_2.lp": "a4467dafe54b7ec9300b68831a8f606f4673794b9e52ab34b2bc16c4b6fbb747",
+        "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_gray_transformation_graph.lp": "db87cf675f63982930023ec8b397315111dadb0800a1c1d5ec2e82aaed9cd68a",
+        "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_represented_comma_families.lp": "741ac9a3801492acc31a6763628788f40b21b07a00037fdd6eafa0b14e82257f",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_generic_square_whisker_whole.lp": "f7f8fc3c32bbab0abb0cd66f0f1384cc163f92814eef776dc8e7583588b69744",
+        "native_higher_staged_unit.lp": "189c28e3dbee89b4184ab415059e896fa71462266bd4ca805d009b9729b3e023",
+        "native_nerve_composite_review.lp": "a9d7512af42a23a2eba38e3d67da390cea6297a2f571820ccd3e2a89614c1abd",
+        "native_nerve_generation_review.lp": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323",
+        "native_nerve_graph_review.lp": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9",
+        "native_nerve_graph_whole_review.lp": "6a69911880e10a4332a14582444d5ed45b146ea9e969975ede3e96c8fea47b4e",
+        "native_nerve_realization_review.lp": "d627e730cd7f1b4486fbe6320774e940617fc3ecb5c6e83715bec3b6b82fb605",
+        "native_nerve_section_review.lp": "d4bdb08fb37ba71470fe28017f3a082e112464f92b6df74309fcde3856a759d0",
+        "native_nerve_sigma_generation_review.lp": "cd0542f0a92de40d7bd132705b2281540cf7c182cca788dddb6f1e41eddfe20e",
+        "native_nerve_sigma_graph_review.lp": "52f9f0cbe357a442c425a23064742a70a29c4f41a6e26cf840034970670e4fc5",
+        "native_whisker_qualified_controls.lp": "b220423818024ab8c4b62327a23a1b3a260b9f53fc8bbbda16203f025f6d7924"
+      }
+    },
+    "instances": {
+      "target": "native_higher_typed_instances.lp",
+      "timeoutMs": 90000,
+      "expectedInputs": {
+        "emdash3_2.lp": "a4467dafe54b7ec9300b68831a8f606f4673794b9e52ab34b2bc16c4b6fbb747",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_generic_square_whisker_whole.lp": "f7f8fc3c32bbab0abb0cd66f0f1384cc163f92814eef776dc8e7583588b69744",
+        "native_higher_staged_unit.lp": "189c28e3dbee89b4184ab415059e896fa71462266bd4ca805d009b9729b3e023",
+        "native_higher_typed_instances.lp": "c55824751fae1326c55f206ce72317a45064f4f657a87f41f982c019da5bdaca"
+      }
+    },
+    "without-bridge": {
+      "target": "native_higher_staged_unit.lp",
+      "timeoutMs": 90000,
+      "expectedInputs": {
+        "emdash3_2.lp": "a4a65ff7d2d06f4d480ee77b3cd8bafbe4e9a01e14b0391fb9afed02e0b5b4a8",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_generic_square_whisker_whole.lp": "f7f8fc3c32bbab0abb0cd66f0f1384cc163f92814eef776dc8e7583588b69744",
+        "native_higher_staged_unit.lp": "189c28e3dbee89b4184ab415059e896fa71462266bd4ca805d009b9729b3e023"
+      },
+      "expectedOutcome": "failed at the staged unit higher comparison"
+    }
+  },
+  "runs": [
+    {
+      "role": "whole_association_failure",
+      "id": "20261027T004307Z-04a57b03bdbb45bcba66ce51d19e60ef",
+      "target": "native_higher_evaluation.lp",
+      "outcome": "failed",
+      "wallSeconds": 31.621864166110754,
+      "childrenMaxRssKiB": 173400,
+      "inputSnapshot": "587c5a92395cd7a0e2ea8a19c926a87c7f291b37faefc9489f6c77340c740ca4",
+      "logSha256": "b4b683daadb849440c0b4b1c1098400f1dc758686e4f7f3031ee421cd3246c92"
+    },
+    {
+      "role": "general_incoming_inference_failure",
+      "id": "20261027T004534Z-abbefafd0b734ec78c35b482adbaea44",
+      "target": "native_higher_evaluation.lp",
+      "outcome": "failed",
+      "wallSeconds": 33.047297039069235,
+      "childrenMaxRssKiB": 173424,
+      "inputSnapshot": "b206c1cdcd5fedb43369f47b0cec71d9a3849e44c337241421e317255792c92f",
+      "logSha256": "0833c28f1765a9c3156d6e0f7baf1321a8ed473a8068f96ab3e0e2494c02a8f0"
+    },
+    {
+      "role": "direct_refl_after_unit_failure",
+      "id": "20261027T005411Z-2fe4b8682ab741629f3abe20603063e0",
+      "target": "native_whisker_higher_readback.lp",
+      "outcome": "failed",
+      "wallSeconds": 32.31257822504267,
+      "childrenMaxRssKiB": 173796,
+      "inputSnapshot": "650a64a37afc3621caf5b601faf9d8b6e25245adae856195a588ae84e8b60172",
+      "logSha256": "36ea737c10e0e1a0f546c1b85f54eba0b8d028d5bc51c63b7b3c081925b39419"
+    },
+    {
+      "role": "staged_unit_comparison",
+      "id": "20261027T005727Z-de7d868e93054754af09d39f546918f4",
+      "target": "native_higher_staged_unit.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 38.306671919999644,
+      "childrenMaxRssKiB": 173832,
+      "inputSnapshot": "531314df6f513179a6fb4c9d3ff1c4fe01a5624580d1ca51158d53d542108c77",
+      "logSha256": "0d6e05e3a107639586438bdf8ad8fad1418e4cead58254662360ed38c39a0ffc"
+    },
+    {
+      "role": "native_integration",
+      "id": "20261027T010347Z-3916fea3d72d42cea3e43a28fd264ab6",
+      "target": "native_nerve_section_review.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 137.36802412895486,
+      "childrenMaxRssKiB": 589540,
+      "inputSnapshot": "5eae545a5874727c9c59c6732e66482f6d8113a96e2e7222099b8c4b930881e5",
+      "logSha256": "72e94d0d0e827c1d7356f399febd908162be40135f7e33231b0a18209eeb779e"
+    },
+    {
+      "role": "without_higher_bridge",
+      "id": "20261027T010745Z-a943d48c5cda40988d9b7eb82c738ce2",
+      "target": "native_higher_staged_unit.lp",
+      "outcome": "failed",
+      "wallSeconds": 37.452253533061594,
+      "childrenMaxRssKiB": 174140,
+      "inputSnapshot": "b5249f2bd03071503f9f894db80094a95075ecba5a3b347ff86664508523cc0b",
+      "logSha256": "d536b33636d597b152970f643b660bdd39a3888f87338b33d1333818e653113c"
+    },
+    {
+      "role": "inline_concrete_instances_failure",
+      "id": "20261027T014040Z-aebca5db0e964b8a98cfabfdab37ce58",
+      "target": "native_higher_instances.lp",
+      "outcome": "failed",
+      "wallSeconds": 34.50193926808424,
+      "childrenMaxRssKiB": 174416,
+      "inputSnapshot": "b4ee945f68a1a9ad2cce756ae150ad5d5c966bc4c293421ffc4f5ebfb3dcadc3",
+      "logSha256": "73abdd66778264649e9accd632632309c83a0e29f17e8b0945055b8bcd599c98"
+    },
+    {
+      "role": "typed_concrete_instances",
+      "id": "20261027T015115Z-7d49769a5cee4af78958ac5f56ed09a6",
+      "target": "native_higher_typed_instances.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 40.882834954885766,
+      "childrenMaxRssKiB": 175384,
+      "inputSnapshot": "65d67a5b3967229f6362035081bf2a16f11eac41eb96cbd96c4646c1d03ddf0e",
+      "logSha256": "ab090d552e53d1a8311d56879d8d9f91101af766509d1ad1261a7fddf20f0770"
+    },
+    {
+      "role": "general_source_scalar_mismatch",
+      "id": "20261027T020112Z-f693039848a449ef9f9b8882dcb0c4f6",
+      "target": "native_general_higher_readback.lp",
+      "outcome": "failed",
+      "wallSeconds": 37.03283475409262,
+      "childrenMaxRssKiB": 174180,
+      "inputSnapshot": "157ba683ce9037335ff6913d6ddaa590e71310c2845cdaf8765ebad9100e281a",
+      "logSha256": "cebc91d5a2712b6dd814ae37c917728c63a29ad8a06e640d171eeeb6c409d4b4"
+    },
+    {
+      "role": "general_source_raw_view_mismatch",
+      "id": "20261027T020914Z-5060312c253140b788a0312a649c8e0d",
+      "target": "native_general_higher_readback.lp",
+      "outcome": "failed",
+      "wallSeconds": 47.05413758801296,
+      "childrenMaxRssKiB": 174624,
+      "inputSnapshot": "be577ae1fb3311984233de7956e9b89d9d767518d638c8b219f0cc8fb742e3bd",
+      "logSha256": "f3d506ac7634f44154a59563ac53a95c755e4da9d5b5d91d0d96f30b926a7da3"
+    },
+    {
+      "role": "general_source_typed_value_mismatch",
+      "id": "20261027T021116Z-b898f352060a42028e96ab9f0c6d7a32",
+      "target": "native_general_higher_typed.lp",
+      "outcome": "failed",
+      "wallSeconds": 42.1541126309894,
+      "childrenMaxRssKiB": 175008,
+      "inputSnapshot": "b2bd3b69ba1ce4a3f1e9944fc27a3e6083d7065260e7d0d9d4c581ce06ec55ae",
+      "logSha256": "1b5eb16cacbafcea654749a9ff60194e81d15acd0018278102db139355957f00"
+    }
+  ],
+  "construction": {
+    "wholeComparison": "Evaluation of the canonical postcomposition Hom action agrees with precomposition as a whole functor.",
+    "higherProjection": "A component-first comparison is restricted to the consumed identity-input case and retains original alpha, beta and Gamma.",
+    "unit": "The whole first-Hom identity cut for represented precomposition is installed after the staged comparison proof.",
+    "proofOrder": "Prove the unit-input comparison while its right constructor remains visible, then use the canonical identity cut and reuse the typed proof. No rule replaces the native higher observation by Gamma directly.",
+    "operationalEqualityArguments": 0,
+    "nativeInverseAxioms": 0
+  },
+  "controls": {
+    "higherReadback": "derived named proof, not runtime conversion",
+    "wrongHigherCell": "unrelated delta rejected",
+    "runtimeBoundary": "original raw runtime equality remains rejected",
+    "concreteInstances": "Op_cat C and Cat_cart work through a generically typed observation; the expanded inline Op assertion still fails elaboration",
+    "removal": "removing only the higher projection comparison makes the staged proof fail"
+  },
+  "warnings": {
+    "baseline": "20261027T002117Z-39a1406fe66b466ab4f6614a4364f307",
+    "candidate": "20261027T010347Z-3916fea3d72d42cea3e43a28fd264ab6",
+    "baselineCategories": {
+      "replaceable pattern variable": 181,
+      "unjoinable critical pair": 2151
+    },
+    "candidateCategories": {
+      "replaceable pattern variable": 181,
+      "unjoinable critical pair": 2160
+    },
+    "addedRuleFamilies": [
+      {
+        "heads": [
+          "hom_precomp_along_fapp1_func",
+          "id"
+        ],
+        "count": 9
+      }
+    ],
+    "parserIssues": {},
+    "classification": [
+      {
+        "kind": "identity category erasure",
+        "presentations": [
+          "Op_cat",
+          "CoAbove2_cat",
+          "CoAt2_cat",
+          "Cat_cart",
+          "EqSkeleton_cat"
+        ],
+        "count": 5
+      },
+      {
+        "kind": "identity changes constructor presentation",
+        "presentations": [
+          "Path_cat",
+          "Terminal_cat",
+          "Product_cat",
+          "Homd_coeff_cat"
+        ],
+        "count": 4
+      }
+    ],
+    "boundary": "These nine untyped identity-normalization peaks are recorded, not claimed joined. The actual native prefix and typed Op/Cartesian consumers pass; broader normalization and production promotion remain open."
+  },
+  "remaining": [
+    "Extend the higher readback through an arbitrary strict source map; the experimental prewhiskering clauses are not part of this selected candidate.",
+    "Derive whole graph-section reconstruction and the native-side inverse.",
+    "Qualify broader identity-normalization overlaps, full module suffix and production promotion."
+  ],
+  "artifacts": {
+    "higher_component_owner.lpfragment": "85c553a0a8ca331e8287808b0b06af1bdacbdf2e2dee1522ccadb8220fea58e6",
+    "higher_component_readback.lpfragment": "189c28e3dbee89b4184ab415059e896fa71462266bd4ca805d009b9729b3e023",
+    "higher_component_instances.lpfragment": "b8fce6c24859198a192c1113311762c837d96498cdfe46ffec8f9ca90cce5234",
+    "replay_higher.py": "4081d74210ae30b5f99abfa53ac854f12c2af2ac837293a30f33eb6ff5f91311"
+  },
+  "generalSourceBoundary": "The unselected prewhiskering experiment typechecks its two generic projection rules, but its arbitrary-F/G readback leaves postcomposition by v at F[p] versus precomposition along F at p. A raw variant moves the mismatch into included telescope action; a typed observer does not close the original scalar mismatch. These rules are excluded from this candidate."
+}

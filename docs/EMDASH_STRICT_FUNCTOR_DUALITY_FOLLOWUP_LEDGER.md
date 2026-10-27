@@ -4,6 +4,15 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: book/article complete; native Pi/Sigma correction installed; NF-1 reconstruction active; affected frontend candidate preserved separately; broad health/final integration remain deferred
 
+NF-1 identity-filler higher recovery: [the staged proof](../emdash2/audits/native_nerve_foundations/higher_component_verification.json)
+recovers γ at proof time and rejects a distinct δ. Full-prefix and typed
+Op/Cartesian consumers pass; the removed-bridge control fails. This supersedes
+the earlier proof-time failure only for that recorded identity-filler case.
+Raw runtime conversion, arbitrary-source-map specialization, nine classified
+identity-normalization peaks, whole section reconstruction and the second
+inverse remain boundaries. The unqualified prewhiskering experiment is not
+installed in the selected candidate or production.
+
 NF-1 post-comparison: [the retained candidate](../emdash2/audits/native_nerve_foundations/whisker_verification.json)
 has a whole functor in the stored filler and a native intrinsic projection
 computing its whiskered comparison. The integrated early-prefix check passes

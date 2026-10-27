@@ -1,0 +1,87 @@
+require open emdash.native_generic_square_whisker_whole;
+
+symbol nerve_postcomp_evaluation_path [C : Cat] (W X Y : τ (Obj C)) (f g : τ (Hom C X Y))
+  (u : τ (Hom C W X))
+ : τ (@= (Functor (Hom_cat (Hom_cat C X Y) f g) (Hom_cat (Hom_cat C W Y) (@hom_postcomp_fapp0 C C (@id_func C) W X Y f u) (@hom_postcomp_fapp0 C C (@id_func C) W X Y g u))) (@comp_cat_fapp0 (Hom_cat (Hom_cat C X Y) f g) (@Transf_cat (Hom_cat C W X) (Hom_cat C W Y) (@hom_postcomp_func C C (@id_func C) W X Y f) (@hom_postcomp_func C C (@id_func C) W X Y g)) (Hom_cat (Hom_cat C W Y) (@hom_postcomp_fapp0 C C (@id_func C) W X Y f u) (@hom_postcomp_fapp0 C C (@id_func C) W X Y g u)) (@tapp0_func (Hom_cat C W X) (Hom_cat C W Y) (@hom_postcomp_func C C (@id_func C) W X Y f) (@hom_postcomp_func C C (@id_func C) W X Y g) u) (@comp_cat_fapp0 (Hom_cat (Hom_cat C X Y) f g) (Hom_cat (Functor_cart_cat (Hom_cat C W X) (Hom_cat C W Y)) (@hom_postcomp_func C C (@id_func C) W X Y f) (@hom_postcomp_func C C (@id_func C) W X Y g)) (@Transf_cat (Hom_cat C W X) (Hom_cat C W Y) (@hom_postcomp_func C C (@id_func C) W X Y f) (@hom_postcomp_func C C (@id_func C) W X Y g)) (@fapp1_func (Functor_cart_cat (Hom_cat C W X) (Hom_cat C W Y)) (Functor_cat (Hom_cat C W X) (Hom_cat C W Y)) (Functor_cart_include (Hom_cat C W X) (Hom_cat C W Y)) (@hom_postcomp_func C C (@id_func C) W X Y f) (@hom_postcomp_func C C (@id_func C) W X Y g)) (@hom_postcomp_tele_fapp1_func C C (@id_func C) W X Y f g))) (@hom_precomp_along_fapp1_func C C (@id_func C) Y W X u f g))
+≔ @eq_refl (Functor (Hom_cat (Hom_cat C X Y) f g) (Hom_cat (Hom_cat C W Y) (@hom_postcomp_fapp0 C C (@id_func C) W X Y f u) (@hom_postcomp_fapp0 C C (@id_func C) W X Y g u))) (@comp_cat_fapp0 (Hom_cat (Hom_cat C X Y) f g) (@Transf_cat (Hom_cat C W X) (Hom_cat C W Y) (@hom_postcomp_func C C (@id_func C) W X Y f) (@hom_postcomp_func C C (@id_func C) W X Y g)) (Hom_cat (Hom_cat C W Y) (@hom_postcomp_fapp0 C C (@id_func C) W X Y f u) (@hom_postcomp_fapp0 C C (@id_func C) W X Y g u)) (@tapp0_func (Hom_cat C W X) (Hom_cat C W Y) (@hom_postcomp_func C C (@id_func C) W X Y f) (@hom_postcomp_func C C (@id_func C) W X Y g) u) (@comp_cat_fapp0 (Hom_cat (Hom_cat C X Y) f g) (Hom_cat (Functor_cart_cat (Hom_cat C W X) (Hom_cat C W Y)) (@hom_postcomp_func C C (@id_func C) W X Y f) (@hom_postcomp_func C C (@id_func C) W X Y g)) (@Transf_cat (Hom_cat C W X) (Hom_cat C W Y) (@hom_postcomp_func C C (@id_func C) W X Y f) (@hom_postcomp_func C C (@id_func C) W X Y g)) (@fapp1_func (Functor_cart_cat (Hom_cat C W X) (Hom_cat C W Y)) (Functor_cat (Hom_cat C W X) (Hom_cat C W Y)) (Functor_cart_include (Hom_cat C W X) (Hom_cat C W Y)) (@hom_postcomp_func C C (@id_func C) W X Y f) (@hom_postcomp_func C C (@id_func C) W X Y g)) (@hom_postcomp_tele_fapp1_func C C (@id_func C) W X Y f g)));
+
+// Stage the generic higher comparison before the identity functor erases
+// the right-hand constructor used by the comparison matcher.
+symbol nerve_postcomp_unit_higher_path [C : Cat] (x y : τ (Obj C))
+  (f g : τ (Hom C x y)) (alpha beta : τ (Obj (Hom_cat (Hom_cat C x y) f g)))
+  (Gamma : τ (Hom (Hom_cat (Hom_cat C x y) f g) alpha beta))
+  : τ (@= (Hom (Hom_cat (Hom_cat C x y) f g) alpha beta) (@fapp1_fapp0 (Hom_cat (Hom_cat C x y) f g) (Hom_cat (Hom_cat C x y) f g) (@comp_cat_fapp0 (Hom_cat (Hom_cat C x y) f g) (@Transf_cat (Hom_cat C x x) (Hom_cat C x y) (@hom_postcomp_func C C (@id_func C) x x y f) (@hom_postcomp_func C C (@id_func C) x x y g)) (Hom_cat (Hom_cat C x y) f g) (@tapp0_func (Hom_cat C x x) (Hom_cat C x y) (@hom_postcomp_func C C (@id_func C) x x y f) (@hom_postcomp_func C C (@id_func C) x x y g) (@id C x)) (@comp_cat_fapp0 (Hom_cat (Hom_cat C x y) f g) (Hom_cat (Functor_cart_cat (Hom_cat C x x) (Hom_cat C x y)) (@hom_postcomp_func C C (@id_func C) x x y f) (@hom_postcomp_func C C (@id_func C) x x y g)) (@Transf_cat (Hom_cat C x x) (Hom_cat C x y) (@hom_postcomp_func C C (@id_func C) x x y f) (@hom_postcomp_func C C (@id_func C) x x y g)) (@fapp1_func (Functor_cart_cat (Hom_cat C x x) (Hom_cat C x y)) (Functor_cat (Hom_cat C x x) (Hom_cat C x y)) (Functor_cart_include (Hom_cat C x x) (Hom_cat C x y)) (@hom_postcomp_func C C (@id_func C) x x y f) (@hom_postcomp_func C C (@id_func C) x x y g)) (@hom_postcomp_tele_fapp1_func C C (@id_func C) x x y f g))) alpha beta Gamma) (@fapp1_fapp0 (Hom_cat (Hom_cat C x y) f g) (Hom_cat (Hom_cat C x y) f g) (@hom_precomp_along_fapp1_func C C (@id_func C) y x x (@id C x) f g) alpha beta Gamma))
+≔ @eq_refl (Hom (Hom_cat (Hom_cat C x y) f g) alpha beta) (@fapp1_fapp0 (Hom_cat (Hom_cat C x y) f g) (Hom_cat (Hom_cat C x y) f g) (@comp_cat_fapp0 (Hom_cat (Hom_cat C x y) f g) (@Transf_cat (Hom_cat C x x) (Hom_cat C x y) (@hom_postcomp_func C C (@id_func C) x x y f) (@hom_postcomp_func C C (@id_func C) x x y g)) (Hom_cat (Hom_cat C x y) f g) (@tapp0_func (Hom_cat C x x) (Hom_cat C x y) (@hom_postcomp_func C C (@id_func C) x x y f) (@hom_postcomp_func C C (@id_func C) x x y g) (@id C x)) (@comp_cat_fapp0 (Hom_cat (Hom_cat C x y) f g) (Hom_cat (Functor_cart_cat (Hom_cat C x x) (Hom_cat C x y)) (@hom_postcomp_func C C (@id_func C) x x y f) (@hom_postcomp_func C C (@id_func C) x x y g)) (@Transf_cat (Hom_cat C x x) (Hom_cat C x y) (@hom_postcomp_func C C (@id_func C) x x y f) (@hom_postcomp_func C C (@id_func C) x x y g)) (@fapp1_func (Functor_cart_cat (Hom_cat C x x) (Hom_cat C x y)) (Functor_cat (Hom_cat C x x) (Hom_cat C x y)) (Functor_cart_include (Hom_cat C x x) (Hom_cat C x y)) (@hom_postcomp_func C C (@id_func C) x x y f) (@hom_postcomp_func C C (@id_func C) x x y g)) (@hom_postcomp_tele_fapp1_func C C (@id_func C) x x y f g))) alpha beta Gamma);
+
+// Whole first-Hom identity cut for represented precomposition.
+// Its capped projection is the existing precomposition identity on 2-cells.
+rule @hom_precomp_along_fapp1_func $A $B $F $Z $X $X (@id $A $X) $g $k
+  ↪ @id_func (Hom_cat (Hom_cat $B (@fapp0 $A $B $F $X) $Z) $g $k);
+
+symbol nerve_whisker_identity_filler_func [C : Cat]
+  (x y : τ (Obj C)) (p : τ (Hom C x y))
+  : τ (Functor (Hom_cat (Hom_cat C x y) p p)
+      (@Transf_cat (Hom_cat C x x) (Hom_cat C x y)
+        (@hom_postcomp_func C C (@id_func C) x x y p)
+        (@hom_postcomp_func C C (@id_func C) x x y p)))
+≔ @nerve_generic_square_whisker_func C C (@id_func C) (@id_func C) x x y p
+    (@id C x) (@id C y);
+
+// Evaluating the whole mapped comparison at the represented identity
+// recovers the original possibly noninvertible filler.
+assert [C : Cat] (x y : τ (Obj C)) (p : τ (Hom C x y))
+  (alpha : τ (Hom (Hom_cat C x y) p p)) ⊢
+  @tapp0_fapp0 (Hom_cat C x x) (Hom_cat C x y)
+    (@hom_postcomp_func C C (@id_func C) x x y p)
+    (@hom_postcomp_func C C (@id_func C) x x y p) (@id C x)
+    (@fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) alpha)
+  ≡ alpha;
+
+symbol nerve_whisker_higher_readback [C : Cat] (x y : τ (Obj C)) (p : τ (Hom C x y))
+  (alpha beta : τ (Hom (Hom_cat C x y) p p))
+  (gamma : τ (Hom (Hom_cat (Hom_cat C x y) p p) alpha beta))
+  : τ (@= (Hom (Hom_cat (Hom_cat C x y) p p) alpha beta)
+      (@tapp0_hom_fapp0 (Hom_cat C x x) (Hom_cat C x y)
+    (@hom_postcomp_func C C (@id_func C) x x y p)
+    (@hom_postcomp_func C C (@id_func C) x x y p)
+    (@fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) alpha)
+    (@fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) beta)
+    (@id C x)
+    (@fapp1_fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) alpha beta gamma)) gamma)
+≔ @nerve_postcomp_unit_higher_path C x y p p alpha beta gamma;
+
+assertnot [C : Cat] (x y : τ (Obj C)) (p : τ (Hom C x y))
+  (alpha beta : τ (Hom (Hom_cat C x y) p p)) ⊢
+  @tapp0_fapp0 (Hom_cat C x x) (Hom_cat C x y)
+    (@hom_postcomp_func C C (@id_func C) x x y p)
+    (@hom_postcomp_func C C (@id_func C) x x y p) (@id C x)
+    (@fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) alpha)
+  ≡ beta;
+
+// Proof-time recovery is separate from runtime reduction.
+// The next action is retained by the same whole functor in alpha.
+assertnot [C : Cat] (x y : τ (Obj C)) (p : τ (Hom C x y))
+  (alpha beta : τ (Hom (Hom_cat C x y) p p))
+  (gamma : τ (Hom (Hom_cat (Hom_cat C x y) p p) alpha beta)) ⊢
+  @tapp0_hom_fapp0 (Hom_cat C x x) (Hom_cat C x y)
+    (@hom_postcomp_func C C (@id_func C) x x y p)
+    (@hom_postcomp_func C C (@id_func C) x x y p)
+    (@fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) alpha)
+    (@fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) beta)
+    (@id C x)
+    (@fapp1_fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) alpha beta gamma)
+  ≡ gamma;
+
+
+assertnot [C : Cat] (x y : τ (Obj C)) (p : τ (Hom C x y))
+  (alpha beta : τ (Hom (Hom_cat C x y) p p))
+  (gamma delta : τ (Hom (Hom_cat (Hom_cat C x y) p p) alpha beta)) ⊢
+  @nerve_whisker_higher_readback C x y p alpha beta gamma
+  : τ (@= (Hom (Hom_cat (Hom_cat C x y) p p) alpha beta)
+      (@tapp0_hom_fapp0 (Hom_cat C x x) (Hom_cat C x y)
+    (@hom_postcomp_func C C (@id_func C) x x y p)
+    (@hom_postcomp_func C C (@id_func C) x x y p)
+    (@fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) alpha)
+    (@fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) beta)
+    (@id C x)
+    (@fapp1_fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) alpha beta gamma)) delta);

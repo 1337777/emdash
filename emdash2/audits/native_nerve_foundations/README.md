@@ -413,6 +413,11 @@ normalization or native section-generation law has been added for that gap.
 
 ### Whole native post-comparison
 
+The later [higher-component continuation](#staged-higher-component-recovery)
+closes the recorded identity-filler recovery at proof time. The original
+runtime failure below remains a boundary; the arbitrary-source-map extension
+and whole native inverse are not thereby established.
+
 The [new construction and verification](whisker_verification.json) computes
 the native universal transformation's whole intrinsic post-cell on visible
 Sigma squares. For a square with stored filler α, it uses the ordinary Hom
@@ -458,6 +463,59 @@ The replay checks the exact 39-input closure, including the prior audit
 construction and its corrected Pi/Sigma profile. It changes no production
 source. Whole native section reconstruction, the second inverse, full-module
 qualification and inherited promotion gates remain open.
+
+### Staged higher-component recovery
+
+The [selected continuation](higher_component_verification.json) adds a whole
+comparison between evaluating the postcomposition Hom action and the existing
+precomposition Hom action. An identity-input component-first comparison covers
+the projection order that had erased that whole pattern. It retains both
+fillers and the original higher cell. These are structural operator
+comparisons, not a native inverse assumption.
+
+The [proof module](higher_component_readback.lpfragment) first proves the
+comparison while its right-hand constructor is visible. It then installs the
+canonical whole first-Hom identity cut for precomposition and reuses the
+already-typed proof. This ordering matters to the incomplete unification
+strategy. `nerve_whisker_higher_readback` returns the original γ for the
+recorded identity-filler case **as a proof-time equality**. No computation rule
+directly replaces that native observation by γ, and its raw runtime equality
+remains a negative control. An unrelated δ cannot replace the original γ.
+
+The complete retained native prefix passes in **137.368s / 589,540 KiB**,
+preserving the first walking inverse and common Sigma totalization. Removing
+only the component-first comparison fails at the staged higher proof, as
+expected. [Typed observation consumers](higher_component_instances.lpfragment)
+at `Op_cat C` and `Cat_cart` pass in 40.883s / 175,384 KiB. The expanded inline
+Op instance failed elaboration and remains recorded; the typed helper has the
+same computed body and carries no equality argument.
+
+The identity cut introduces **nine additional untyped critical-pair warnings**
+against existing identity presentations: five change the identity's category
+tag (`Op_cat`, `CoAbove2_cat`, `CoAt2_cat`, `Cat_cart`, `EqSkeleton_cat`), and
+four change its constructor (`Path_cat`, `Terminal_cat`, `Product_cat`,
+`Homd_coeff_cat`). Pattern warnings are unchanged and no parser issue appears.
+The audit classifies these peaks but does not claim they are joined or that
+the global normalizer is confluent. Broader identity-normalization and
+promotion qualification remain explicit obligations.
+
+The arbitrary strict source-map extension is still unfinished. Its attempted
+prewhiskering projection rules are excluded from the selected candidate:
+the consumer leaves a scalar postcomposition/precomposition comparison, while
+a raw variant moves the mismatch into included telescope action. The passing
+identity-filler theorem must not be reported as that general result or as the
+second native inverse.
+
+```bash
+python3 emdash2/audits/native_nerve_foundations/replay_higher.py
+python3 emdash2/audits/native_nerve_foundations/replay_higher.py --mode instances
+# Expected failure at the staged comparison:
+python3 emdash2/audits/native_nerve_foundations/replay_higher.py --mode without-bridge
+```
+
+All modes also support `--assemble-only`, which verifies the exact recorded
+source closure without another checker run. Production sources and the parked
+frontend candidate are unchanged.
 
 Current-profile continuation: [two fresh comparison attempts](current_section_review.json)
 use the installed Pi/Sigma correction, so the generic section view is a typed

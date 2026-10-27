@@ -1,0 +1,33 @@
+require open emdash.native_higher_staged_unit;
+
+symbol nerve_whisker_higher_value [C : Cat] (x y : τ (Obj C)) (p : τ (Hom C x y))
+  (alpha beta : τ (Hom (Hom_cat C x y) p p))
+  (gamma : τ (Hom (Hom_cat (Hom_cat C x y) p p) alpha beta))
+  : τ (Hom (Hom_cat (Hom_cat C x y) p p) alpha beta)
+≔ @tapp0_hom_fapp0 (Hom_cat C x x) (Hom_cat C x y)
+    (@hom_postcomp_func C C (@id_func C) x x y p)
+    (@hom_postcomp_func C C (@id_func C) x x y p)
+    (@fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) alpha)
+    (@fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) beta)
+    (@id C x)
+    (@fapp1_fapp0 _ _ (@nerve_whisker_identity_filler_func C x y p) alpha beta gamma);
+
+symbol nerve_whisker_higher_view_readback [C : Cat]
+  (x y : τ (Obj C)) (p : τ (Hom C x y))
+  (alpha beta : τ (Hom (Hom_cat C x y) p p))
+  (Gamma : τ (Hom (Hom_cat (Hom_cat C x y) p p) alpha beta))
+  : τ (@= (Hom (Hom_cat (Hom_cat C x y) p p) alpha beta)
+      (@nerve_whisker_higher_value C x y p alpha beta Gamma) Gamma)
+≔ @nerve_whisker_higher_readback C x y p alpha beta Gamma;
+
+assert [C : Cat] (x y : τ (Obj (Op_cat C))) (p : τ (Hom (Op_cat C) x y))
+  (alpha beta : τ (Obj (Hom_cat (Hom_cat (Op_cat C) x y) p p))) (Gamma : τ (Hom (Hom_cat (Hom_cat (Op_cat C) x y) p p) alpha beta)) ⊢
+  @nerve_whisker_higher_view_readback (Op_cat C) x y p alpha beta Gamma
+  : τ (@= (Hom (Hom_cat (Hom_cat (Op_cat C) x y) p p) alpha beta)
+      (@nerve_whisker_higher_value (Op_cat C) x y p alpha beta Gamma) Gamma);
+
+assert  (x y : τ (Obj Cat_cart)) (p : τ (Hom Cat_cart x y))
+  (alpha beta : τ (Obj (Hom_cat (Hom_cat Cat_cart x y) p p))) (Gamma : τ (Hom (Hom_cat (Hom_cat Cat_cart x y) p p) alpha beta)) ⊢
+  @nerve_whisker_higher_view_readback Cat_cart x y p alpha beta Gamma
+  : τ (@= (Hom (Hom_cat (Hom_cat Cat_cart x y) p p) alpha beta)
+      (@nerve_whisker_higher_value Cat_cart x y p alpha beta Gamma) Gamma);
