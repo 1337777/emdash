@@ -25,7 +25,10 @@ The [reverse whole maps and recursive encoder](../emdash2/audits/native_nerve_fo
 now check with whole-family readbacks in a 61-input scope. No reverse map or
 inverse law is postulated. Whole mixed-exchange cancellation and geometric
 inverse laws, geometric degree zero, same-index action and degeneracies remain
-required. Raw nested higher-projection normalization and
+required. The [whole reindexing/reflection extension](../emdash2/audits/native_nerve_foundations/exchange_cancellation_review.md)
+reduces the first exchange inverse to a specific universal-evaluation equation;
+the direct proof of that equation fails and remains open. Its implication
+helper is proof-only, not caller-supplied operational coherence. Raw nested higher-projection normalization and
 the Cat_cart extracted-cell specialization have explicit failed observations;
 resolve their needed contracts before promotion without making them the sole
 continuation. The native whole-section equation and second inverse remain

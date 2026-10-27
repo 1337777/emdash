@@ -1,0 +1,52 @@
+require open emdash.native_exchange_reflection;
+
+// The remaining whole evaluation family after transposing the first inverse.
+// This is a defined composite of the actual maps, not supplied coherence.
+symbol nerve_mixed_cancel_family (K I C : Cat)
+  : τ (Functor K (Functor_oplax_cat (Functor_cat K (Functor_oplax_cat I C))
+      (Functor_oplax_cat I C)))
+≔ @comp_cat_fapp0 _ _ _
+    (@oplax_precomp_func (Functor_cat K (Functor_oplax_cat I C))
+      (Functor_oplax_cat I (Functor_cat K C)) (Functor_oplax_cat I C)
+      (nerve_mixed_exchange_func K I C))
+    (@comp_cat_fapp0 _ _ _
+      (nerve_oplax_postcomposition_func I (Functor_cat K C) C)
+      (@diagram_evaluation_func K C));
+
+// Whole reduction of the first inverse problem by transposition.
+symbol nerve_mixed_cancel_reduction (K I C : Cat)
+  : τ (@= (Functor K (Functor_oplax_cat (Functor_cat K (Functor_oplax_cat I C))
+      (Functor_oplax_cat I C)))
+      (@diagram_family_shape_func (Functor_cat K (Functor_oplax_cat I C)) K (Functor_oplax_cat I C)
+        (@comp_cat_fapp0 _ _ _ (nerve_mixed_unexchange_func K I C) (nerve_mixed_exchange_func K I C)))
+      (nerve_mixed_cancel_family K I C))
+≔ @eq_trans _ _ _ _
+    (@nerve_shape_parameter_reindex_path (Functor_cat K (Functor_oplax_cat I C))
+      (Functor_oplax_cat I (Functor_cat K C)) K (Functor_oplax_cat I C)
+      (nerve_mixed_unexchange_func K I C) (nerve_mixed_exchange_func K I C))
+    (@eq_ap _ _
+      (λ H : τ (Functor K (Functor_oplax_cat (Functor_oplax_cat I (Functor_cat K C))
+          (Functor_oplax_cat I C))),
+        @comp_cat_fapp0 _ _ _
+          (@oplax_precomp_func (Functor_cat K (Functor_oplax_cat I C))
+            (Functor_oplax_cat I (Functor_cat K C)) (Functor_oplax_cat I C)
+            (nerve_mixed_exchange_func K I C)) H)
+      _ _ (nerve_mixed_unexchange_shape_path K I C));
+
+// Name the required statement only. There is no inhabitant or inverse axiom.
+symbol NerveMixedEvaluationCoherence (K I C : Cat) : Grpd
+≔ @= (Functor K (Functor_oplax_cat (Functor_cat K (Functor_oplax_cat I C)) (Functor_oplax_cat I C)))
+    (nerve_mixed_cancel_family K I C)
+    (@diagram_evaluation_func K (Functor_oplax_cat I C));
+
+// Proof-only consequence, not a completed inverse and never an operational
+// input of exchange, closure, decode or encode. The premise remains open.
+symbol nerve_mixed_first_inverse_from_evaluation (K I C : Cat)
+  (p : τ (NerveMixedEvaluationCoherence K I C))
+  : τ (@= (Functor (Functor_cat K (Functor_oplax_cat I C)) (Functor_cat K (Functor_oplax_cat I C)))
+      (@comp_cat_fapp0 _ _ _ (nerve_mixed_unexchange_func K I C) (nerve_mixed_exchange_func K I C))
+      (@id_func (Functor_cat K (Functor_oplax_cat I C))))
+≔ @nerve_shape_reflect_path (Functor_cat K (Functor_oplax_cat I C)) K (Functor_oplax_cat I C)
+    (@comp_cat_fapp0 _ _ _ (nerve_mixed_unexchange_func K I C) (nerve_mixed_exchange_func K I C))
+    (@id_func (Functor_cat K (Functor_oplax_cat I C)))
+    (@eq_trans _ _ _ _ (nerve_mixed_cancel_reduction K I C) p);

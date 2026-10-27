@@ -31,6 +31,10 @@ now pass a 54-input check, including both iteration-shift inverses. The
 also pass a 61-input check, with whole-family readbacks. Follow the outline's
 whole exchange/closure inverse proofs while retaining the native second
 inverse, reverse recursive round trip and geometric degree zero as required.
+The [65-input reindexing/reflection extension](../emdash2/audits/native_nerve_foundations/exchange_cancellation_review.md)
+now identifies the exact universal-evaluation equation needed for the first
+exchange inverse. That equation has no proved inhabitant; the checked
+reduction does not close the inverse gate.
 The raw nested higher-projection and Cat_cart specialization limits are
 recorded promotion obligations, not reasons to stop the broader construction.
 The actual moving-action experiment is preserved separately with its unfinished

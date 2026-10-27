@@ -1,0 +1,60 @@
+require open emdash.native_evaluation_reindex_review;
+
+// Fixed oplax precomposition: stage OddDual distribution before its
+// represented composition cuts, exactly as for the covariant lifting law.
+symbol nerve_oplax_precomp_comp_path [A B C D : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B C))
+  : τ (@= (Functor (Functor_oplax_cat C D) (Functor_oplax_cat A D))
+      (@comp_cat_fapp0 _ _ _ (@oplax_precomp_func A B D F) (@oplax_precomp_func B C D G))
+      (@oplax_precomp_func A C D (@comp_cat_fapp0 A B C G F)))
+≔ @eq_trans _ _ _ _
+    (@eq_sym _ _ _ (@nerve_odd_comp_path _ _ _
+      (@comp_cat_con_func (OddDual_cat B) (OddDual_cat C) (OddDual_cat D) (@OddDual_func B C G))
+      (@comp_cat_con_func (OddDual_cat A) (OddDual_cat B) (OddDual_cat D) (@OddDual_func A B F))))
+    (@eq_ap _ _
+      (λ H : τ (Functor (OddDual_cat A) (OddDual_cat C)),
+        @OddDual_func (Functor_cat (OddDual_cat C) (OddDual_cat D))
+          (Functor_cat (OddDual_cat A) (OddDual_cat D))
+          (@comp_cat_con_func (OddDual_cat A) (OddDual_cat C) (OddDual_cat D) H))
+      _ _ (@eq_sym _ _ _ (@nerve_odd_comp_path A B C F G)));
+
+// Reindex the family parameter before exchanging: this is the existing
+// contravariant precomposition law, with the evaluator left whole.
+symbol nerve_shape_parameter_reindex_path [A K I C : Cat]
+  (D : τ (Functor K (Functor_cat I C))) (F : τ (Functor A K))
+  : τ (@= (Functor I (Functor_oplax_cat A C))
+      (@diagram_family_shape_func A I C (@comp_cat_fapp0 A K (Functor_cat I C) D F))
+      (@comp_cat_fapp0 I (Functor_oplax_cat K C) (Functor_oplax_cat A C)
+        (@oplax_precomp_func A K C F) (@diagram_family_shape_func K I C D)))
+≔ @eq_ap _ _
+    (λ H : τ (Functor (Functor_oplax_cat (Functor_cat I C) C) (Functor_oplax_cat A C)),
+      @comp_cat_fapp0 _ _ _ H (@diagram_evaluation_func I C))
+    _ _ (@eq_sym _ _ _ (@nerve_oplax_precomp_comp_path A K (Functor_cat I C) C F D));
+
+// Reindex the shape after exchanging. This is the first concrete whole
+// family consumer of evaluator naturality, not an inverse assertion.
+symbol nerve_shape_index_reindex_path [K A B C : Cat]
+  (D : τ (Functor K (Functor_cat B C))) (F : τ (Functor A B))
+  : τ (@= (Functor A (Functor_oplax_cat K C))
+      (@comp_cat_fapp0 A B (Functor_oplax_cat K C)
+        (@diagram_family_shape_func K B C D) F)
+      (@diagram_family_shape_func K A C
+        (@comp_cat_fapp0 K (Functor_cat B C) (Functor_cat A C) (@comp_cat_con_func A B C F) D)))
+≔ @eq_trans _ _ _ _
+    (@eq_ap _ _
+      (λ H : τ (Functor A (Functor_oplax_cat (Functor_cat B C) C)),
+        @comp_cat_fapp0 _ _ _ (@oplax_precomp_func K (Functor_cat B C) C D) H)
+      _ _ (@nerve_evaluation_reindex_path A B C F))
+    (@eq_ap _ _
+      (λ H : τ (Functor (Functor_oplax_cat (Functor_cat A C) C) (Functor_oplax_cat K C)),
+        @comp_cat_fapp0 _ _ _ H (@diagram_evaluation_func A C))
+      _ _ (@nerve_oplax_precomp_comp_path K (Functor_cat B C) (Functor_cat A C) C D
+        (@comp_cat_con_func A B C F)));
+
+// The shape-map parameter must not disappear from the new whole comparison.
+assertnot [A B C : Cat] (F G : τ (Functor A B)) ⊢
+  @eq_refl (Functor A (Functor_oplax_cat (Functor_cat B C) C))
+    (@comp_cat_fapp0 A B (Functor_oplax_cat (Functor_cat B C) C) (@diagram_evaluation_func B C) F)
+  : τ (@= (Functor A (Functor_oplax_cat (Functor_cat B C) C))
+      (@comp_cat_fapp0 A B (Functor_oplax_cat (Functor_cat B C) C) (@diagram_evaluation_func B C) F)
+      (@diagram_family_shape_func (Functor_cat B C) A C (@comp_cat_con_func A B C G)));

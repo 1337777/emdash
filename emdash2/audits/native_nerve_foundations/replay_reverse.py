@@ -24,7 +24,7 @@ def digest(path: Path) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--mode', choices=('maps', 'readback', 'qualification', 'inverse-review'), default='qualification')
+    parser.add_argument('--mode', choices=('maps', 'readback', 'qualification', 'inverse-review', 'reindex', 'reflection', 'evaluation-pending'), default='qualification')
     parser.add_argument('--assemble-only', action='store_true')
     args = parser.parse_args()
     record = json.loads((HERE / 'reverse_verification.json').read_text())
@@ -38,7 +38,8 @@ def main() -> int:
     if not match:
         raise SystemExit('parent replay did not report its exact package')
     package = Path(match.group(1))
-    for insertion in record['ownerInsertions']:
+    mode = record['modes'][args.mode]
+    for insertion in record['ownerInsertions'] + mode.get('extraOwnerInsertions', []):
         owner = package / insertion['owner']
         if digest(owner) != insertion['parentSha256']:
             raise SystemExit(f'parent owner drift: {insertion["owner"]}')
@@ -52,7 +53,6 @@ def main() -> int:
     for name, fragment in record['programs'].items():
         (package / name).write_bytes((HERE / fragment).read_bytes()
             + record.get('fragmentSuffixes', {}).get(fragment, '').encode())
-    mode = record['modes'][args.mode]
     if input_hashes([Path(mode['target'])], package) != mode['expectedInputs']:
         raise SystemExit('reverse closure differs from the recorded input snapshot')
     print(f'Exact reverse {args.mode} assembly verified: {package}', flush=True)

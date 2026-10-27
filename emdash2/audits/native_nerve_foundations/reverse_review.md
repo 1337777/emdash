@@ -119,6 +119,10 @@ independent simplex branch and final production/frontend integration remain
 required. Earlier Cat_cart and raw nested-projection limits are retained at
 their own source boundaries, not silently marked resolved here.
 
+The later [reindexing/reflection extension](exchange_cancellation_review.md)
+records the current proof reduction and its still-unproved universal-evaluation
+equation. It does not upgrade the map-formation checkpoint to an equivalence.
+
 ## Qualification
 
 The final **61-input** scope passes with subject reduction in **85.162s /

@@ -1,0 +1,29 @@
+require open emdash.native_reverse_final;
+
+// Whole shape reindexing of the existing mixed evaluator.
+symbol nerve_evaluation_reindex_path [A B C : Cat] (F : τ (Functor A B))
+  : τ (@= (Functor A (Functor_oplax_cat (Functor_cat B C) C))
+      (@comp_cat_fapp0 A B (Functor_oplax_cat (Functor_cat B C) C)
+        (@diagram_evaluation_func B C) F)
+      (@diagram_family_shape_func (Functor_cat B C) A C
+        (@comp_cat_con_func A B C F)))
+≔ @eq_refl _ _;
+
+// The dual profile gives the corresponding opposite-diagram reindexing.
+symbol nerve_oplax_evaluation_reindex_path [A B C : Cat] (F : τ (Functor A B))
+  : τ (@= (Functor A (Functor_cat (Functor_oplax_cat B C) C))
+      (@comp_cat_fapp0 A B (Functor_cat (Functor_oplax_cat B C) C)
+        (@diagram_oplax_evaluation_func B C) F)
+      (@diagram_oplax_family_shape_func (Functor_oplax_cat B C) A C
+        (@oplax_precomp_func A B C F)))
+≔ @eq_trans _ _ _ _
+    (@eq_sym _ _ _ (@nerve_odd_comp_path
+      (OddDual_cat A) (OddDual_cat B)
+      (Functor_oplax_cat (Functor_cat (OddDual_cat B) (OddDual_cat C)) (OddDual_cat C))
+      (@OddDual_func A B F) (@diagram_evaluation_func (OddDual_cat B) (OddDual_cat C))))
+    (@eq_ap _ _
+      (λ H : τ (Functor (OddDual_cat A)
+        (Functor_oplax_cat (Functor_cat (OddDual_cat B) (OddDual_cat C)) (OddDual_cat C))),
+        @OddDual_func _ _ H)
+      _ _ (@nerve_evaluation_reindex_path (OddDual_cat A) (OddDual_cat B) (OddDual_cat C)
+        (@OddDual_func A B F)));

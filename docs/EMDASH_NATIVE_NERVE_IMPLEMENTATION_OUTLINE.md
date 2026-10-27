@@ -206,9 +206,19 @@ OddDual functoriality; no new rule is needed for that proof. A whole fixed-D
 evaluation comparison is part of the structural postcomposition interface,
 with typed-reflexivity and wrong-D controls.
 
-The first whole cancellation of M with its reciprocal candidate still fails
-direct reflexivity. Next derive those cancellations and the closure inverse
-laws, then use them in the two cube recursions. The existing walking first
+The [whole reindexing/reflection extension](../emdash2/audits/native_nerve_foundations/exchange_cancellation_review.md)
+now reduces the first cancellation to one whole evaluation equation. Writing
+S=L(K,G(I,C)), its two sides are K→G(S,G(I,C)):
+
+```text
+pre_G(M) ∘ P_G(I,L(K,C),C) ∘ ε_K(C) ≐ ε_K(G(I,C)).
+```
+
+The reduction passes in a 65-input scope; the actual proof of this remaining
+equation still fails. Its named equality type has no supplied inhabitant,
+and no operational map takes an equality argument. Next derive this
+compatibility, both exchange cancellations and the closure inverse laws,
+then use them in the cube recursions. The existing walking first
 round trip can support one geometric inverse independently of the second
 walking inverse. Preserve the latter, degree zero, same-index action and
 degeneracies as requirements. The [replay record](../emdash2/audits/native_nerve_foundations/reverse_verification.json)

@@ -1,0 +1,13 @@
+// Whole naturality of mixed evaluation in its strict shape map F.
+// This is a structural evaluator comparison, with both runtime owners kept.
+// The rigid nested precomposition is the actual normalized action; no
+// reducible shape alias or equality-proof argument is matched.
+unif_rule
+  @comp_fapp0 Cat_cat $A $B _ (@diagram_evaluation_func $B $C) $F
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@OddDual_func _ _
+        (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) (OddDual_cat $C0) _ _
+          (@OddDual_func _ _
+            (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) $C0 $A0 $B0 $F0))))
+      (@diagram_evaluation_func $A0 $C0)
+  ↪ [ $A0 ≡ $A; $B0 ≡ $B; $C0 ≡ $C; $F0 ≡ $F ];

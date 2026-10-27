@@ -21,8 +21,12 @@ The 54-input scope passes in 97.488s / 595,020 KiB at 180s / 2 GiB.
 The [derived whole reverse map and encoder](../emdash2/audits/native_nerve_foundations/reverse_review.md)
 now also check through internal mixed exchange and existing right uncurry,
 with whole-family readbacks. The final 61-input scope passes in 85.162s /
-583,624 KiB at the same profile. Next derive whole mixed-exchange cancellation
-and the geometric closure inverse laws, retaining whole-section reconstruction
+583,624 KiB at the same profile. Whole evaluator/family reindexing and a
+[checked reduction of the first exchange inverse](../emdash2/audits/native_nerve_foundations/exchange_cancellation_review.md)
+now pass in a 65-input scope (84.410s / 603,372 KiB). The remaining universal
+evaluation equation is explicit and still unproved; it is not a new premise
+of the operational maps. Next prove that compatibility and the geometric
+closure inverse laws, retaining whole-section reconstruction
 and the native reverse inverse as required proof obligations. Raw nested higher projection and Cat_cart
 specialization limits remain documented promotion obligations; they must not
 become the sole next task. The new whole postcomposition is structural;

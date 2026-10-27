@@ -1,0 +1,71 @@
+require open emdash.native_shape_reindex_paths;
+
+// Existing double exchange acts on entire parameter functors.
+symbol nerve_shape_double_lax_path [A B C : Cat] (D : τ (Functor A (Functor_cat B C)))
+  : τ (@= (Functor A (Functor_cat B C))
+      (@diagram_oplax_family_shape_func B A C (@diagram_family_shape_func A B C D)) D)
+≔ @eq_refl _ _;
+symbol nerve_shape_double_oplax_path [A B C : Cat] (D : τ (Functor A (Functor_oplax_cat B C)))
+  : τ (@= (Functor A (Functor_oplax_cat B C))
+      (@diagram_family_shape_func B A C (@diagram_oplax_family_shape_func A B C D)) D)
+≔ @eq_refl _ _;
+
+// Proof-only reflection through the actual two whole exchange operations.
+// No pointwise extensionality or operational proof argument is introduced.
+symbol nerve_shape_reflect_path [A B C : Cat]
+  (D E : τ (Functor A (Functor_cat B C)))
+  (p : τ (@= (Functor B (Functor_oplax_cat A C))
+    (@diagram_family_shape_func A B C D) (@diagram_family_shape_func A B C E)))
+  : τ (@= (Functor A (Functor_cat B C)) D E)
+≔ @eq_trans _ _ _ _ (@eq_sym _ _ _ (@nerve_shape_double_lax_path A B C D))
+    (@eq_trans _ _ _ _
+      (@eq_ap _ _ (λ H : τ (Functor B (Functor_oplax_cat A C)),
+        @diagram_oplax_family_shape_func B A C H) _ _ p)
+      (@nerve_shape_double_lax_path A B C E));
+
+// Odd duality commutes with the two existing exchange operations.
+symbol nerve_odd_shape_path [A B C : Cat] (D : τ (Functor A (Functor_cat B C)))
+  : τ (@= (Functor (OddDual_cat B) (Functor_cat (OddDual_cat A) (OddDual_cat C)))
+      (@OddDual_func B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C D))
+      (@diagram_oplax_family_shape_func (OddDual_cat A) (OddDual_cat B) (OddDual_cat C)
+        (@OddDual_func A (Functor_cat B C) D)))
+≔ @nerve_odd_comp_path B (Functor_oplax_cat (Functor_cat B C) C) (Functor_oplax_cat A C)
+    (@diagram_evaluation_func B C) (@oplax_precomp_func A (Functor_cat B C) C D);
+
+symbol nerve_odd_shape_double_path [A B C : Cat] (D : τ (Functor A (Functor_cat B C)))
+  : τ (@= (Functor (OddDual_cat A) (Functor_oplax_cat (OddDual_cat B) (OddDual_cat C)))
+      (@diagram_family_shape_func (OddDual_cat B) (OddDual_cat A) (OddDual_cat C)
+        (@OddDual_func B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C D)))
+      (@OddDual_func A (Functor_cat B C) D))
+≔ @eq_trans _ _ _ _
+    (@eq_ap _ _
+      (λ H : τ (Functor (OddDual_cat B) (Functor_cat (OddDual_cat A) (OddDual_cat C))),
+        @diagram_family_shape_func (OddDual_cat B) (OddDual_cat A) (OddDual_cat C) H)
+      _ _ (@nerve_odd_shape_path A B C D))
+    (@nerve_shape_double_oplax_path (OddDual_cat A) (OddDual_cat B) (OddDual_cat C)
+      (@OddDual_func A (Functor_cat B C) D));
+
+// Whole transposed presentation of the reciprocal internal exchange.
+symbol nerve_mixed_unexchange_shape_path (K I C : Cat)
+  : τ (@= (Functor K (Functor_oplax_cat (Functor_oplax_cat I (Functor_cat K C)) (Functor_oplax_cat I C)))
+    (@diagram_family_shape_func (Functor_oplax_cat I (Functor_cat K C)) K (Functor_oplax_cat I C)
+      (nerve_mixed_unexchange_func K I C))
+    (@comp_cat_fapp0 K (Functor_oplax_cat (Functor_cat K C) C)
+      (Functor_oplax_cat (Functor_oplax_cat I (Functor_cat K C)) (Functor_oplax_cat I C))
+      (nerve_oplax_postcomposition_func I (Functor_cat K C) C)
+      (@diagram_evaluation_func K C)))
+≔ @eq_trans _ _ _ _
+    (@nerve_odd_shape_double_path (OddDual_cat K)
+      (Functor_cat (OddDual_cat I) (Functor_oplax_cat (OddDual_cat K) (OddDual_cat C)))
+      (Functor_cat (OddDual_cat I) (OddDual_cat C))
+      (@comp_cat_fapp0 (OddDual_cat K)
+          (Functor_cat (Functor_oplax_cat (OddDual_cat K) (OddDual_cat C)) (OddDual_cat C))
+          (Functor_cat (Functor_cat (OddDual_cat I) (Functor_oplax_cat (OddDual_cat K) (OddDual_cat C)))
+            (Functor_cat (OddDual_cat I) (OddDual_cat C)))
+          (nerve_lax_postcomposition_func (OddDual_cat I)
+            (Functor_oplax_cat (OddDual_cat K) (OddDual_cat C)) (OddDual_cat C))
+          (@diagram_oplax_evaluation_func (OddDual_cat K) (OddDual_cat C))))
+    (@nerve_odd_comp_path _ _ _
+      (@diagram_oplax_evaluation_func (OddDual_cat K) (OddDual_cat C))
+      (nerve_lax_postcomposition_func (OddDual_cat I)
+        (Functor_oplax_cat (OddDual_cat K) (OddDual_cat C)) (OddDual_cat C)));

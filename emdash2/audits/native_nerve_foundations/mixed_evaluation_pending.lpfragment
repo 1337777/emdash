@@ -1,0 +1,6 @@
+require open emdash.native_mixed_cancel_reduction;
+
+// Attempt the actual remaining equation, with no supplied coherence input.
+symbol nerve_mixed_evaluation_candidate (K I C : Cat)
+  : τ (NerveMixedEvaluationCoherence K I C)
+≔ @eq_refl _ _;

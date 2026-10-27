@@ -4,6 +4,17 @@ Status: non-library NF-1 reconstruction and NF-2C cube construction on the corre
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
+## Whole reindexing and the remaining exchange equation
+
+The [reindexing/reflection extension](exchange_cancellation_review.md) checks
+whole evaluator naturality, both family reindexing directions and reflection
+through the existing double exchange. It reduces the first internal exchange
+inverse to one explicit universal-evaluation equation. The reduction passes
+in **84.410s / 603,372 KiB** across 65 inputs; the equation itself still fails
+its proof attempt and is not supplied as an axiom or operational argument.
+The new `reindex`, `reflection` and `evaluation-pending` replay modes retain
+both boundaries. Previous reverse-map replay modes retain their exact source.
+
 ## Whole reverse geometric maps
 
 The [reverse construction](reverse_review.md) now supplies whole maps from
