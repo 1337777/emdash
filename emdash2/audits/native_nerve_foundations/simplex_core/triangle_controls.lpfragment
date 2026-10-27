@@ -1,0 +1,48 @@
+require open emdash.native_simplex_triangle_total;
+
+// Stage the strict default at a generic category before specializing the
+// coefficient, whose id/comp carriers have their own native presentations.
+symbol nerve_generic_functor_unit [A B : Cat] (F : τ (Functor A B)) (x : τ (Obj A))
+  : τ (@= (Hom B (fapp0 F x) (fapp0 F x))
+      (@fapp1_fapp0 A B F x x (@id A x)) (@id B (fapp0 F x)))
+≔ @eq_refl (Hom B (fapp0 F x) (fapp0 F x)) (@id B (fapp0 F x));
+symbol nerve_generic_functor_composition [A B : Cat] (F : τ (Functor A B))
+  (x y z : τ (Obj A)) (p : τ (Hom A x y)) (q : τ (Hom A y z))
+  : τ (@= (Hom B (fapp0 F x) (fapp0 F z))
+      (@comp_fapp0 B (fapp0 F x) (fapp0 F y) (fapp0 F z)
+        (@fapp1_fapp0 A B F y z q) (@fapp1_fapp0 A B F x y p))
+      (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z q p)))
+≔ @eq_refl (Hom B (fapp0 F x) (fapp0 F z))
+    (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z q p));
+
+symbol nerve_native_arrow_map_unit (C : Cat)
+  : τ (@= (Functor (LaxArrow_cat C) (LaxArrow_cat C))
+      (@nerve_native_arrow_map C C (@id_func C)) (@id_func (LaxArrow_cat C)))
+≔ @nerve_generic_functor_unit Cat_cart Cat_cart nerve_native_arrow_coeff C;
+symbol nerve_native_arrow_map_composition [A B C : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B C))
+  : τ (@= (Functor (LaxArrow_cat A) (LaxArrow_cat C))
+      (@comp_cat_fapp0 _ _ _ (@nerve_native_arrow_map B C G) (@nerve_native_arrow_map A B F))
+      (@nerve_native_arrow_map A C (@comp_cat_fapp0 A B C G F)))
+≔ @nerve_generic_functor_composition Cat_cart Cat_cart nerve_native_arrow_coeff A B C F G;
+
+// Real two-cell parameter action: both components of U survive the whole
+// coefficient Hom ladder. No invertibility assumption is imposed on them.
+assert [C D : Cat] (F G : τ (Functor C D)) (U : τ (@StrictTransfor C D F G))
+  (x y : τ (Obj C)) (u : τ (Hom C x y)) ⊢
+  sigma_Fst (@tapp0_fapp0 _ _ _ _ (@lax_edge C x y u)
+    (@strict_transfor _ _ _ _
+      (@fapp1_fapp0 _ _ (@fapp1_func Cat_cart Cat_cart nerve_native_arrow_coeff C D) F G U)))
+  ≡ @tapp0_fapp0 C D F G x (@strict_transfor C D F G U);
+assert [C D : Cat] (F G : τ (Functor C D)) (U : τ (@StrictTransfor C D F G))
+  (x y : τ (Obj C)) (u : τ (Hom C x y)) ⊢
+  sigma_Fst (sigma_Snd (@tapp0_fapp0 _ _ _ _ (@lax_edge C x y u)
+    (@strict_transfor _ _ _ _
+      (@fapp1_fapp0 _ _ (@fapp1_func Cat_cart Cat_cart nerve_native_arrow_coeff C D) F G U))))
+  ≡ @tapp0_fapp0 C D F G y (@strict_transfor C D F G U);
+assertnot [C D : Cat] (F G : τ (Functor C D)) (U V : τ (@StrictTransfor C D F G))
+  (x y : τ (Obj C)) (u : τ (Hom C x y)) ⊢
+  sigma_Fst (@tapp0_fapp0 _ _ _ _ (@lax_edge C x y u)
+    (@strict_transfor _ _ _ _
+      (@fapp1_fapp0 _ _ (@fapp1_func Cat_cart Cat_cart nerve_native_arrow_coeff C D) F G U)))
+  ≡ @tapp0_fapp0 C D F G x (@strict_transfor C D F G V);

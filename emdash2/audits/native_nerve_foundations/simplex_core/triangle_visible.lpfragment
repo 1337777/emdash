@@ -1,0 +1,16 @@
+/* Plain directed triangle input for the independently formed Sigma total.
+   This is a typed view of its existing dependent-Hom filler, not a new cell. */
+require open emdash.native_simplex_triangle_total;
+
+symbol nerve_native_triangle_from_cell [C : Cat]
+  (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02))
+  : τ (Obj (nerve_native_triangle_cat C))
+≔ @nerve_native_triangle C x0 x1 x2 p01 p02 p12 alpha;
+
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)) ⊢
+  sigma_Snd (sigma_Snd (sigma_Snd (sigma_Snd
+    (@nerve_native_triangle_from_cell C x0 x1 x2 p01 p02 p12 alpha)))) ≡ alpha;

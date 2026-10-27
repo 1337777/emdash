@@ -1,0 +1,92 @@
+/* Whole Cartesian parameter action for the existing native arrow total.
+   This is a structural internalization of the native map owner, not a
+   definition by geometric diagrams or a supplied nerve inverse. */
+require open emdash.native_simplex_core_baseline;
+
+// Internal adapter to the existing pseudo-capability API. No caller supplies
+// strictness: public F is strict and its existing extracted evidence is used.
+symbol nerve_strict_cell_equiv [C : Cat] [x y : τ (Obj C)]
+  (cell : τ (Hom C x y)) (S : τ (@IsStrictCell C x y cell))
+  : τ (@OmegaEquivAlong C x y cell)
+≔ @omega_equiv_along_equal C x y
+    (@path_to_hom C x y (@strict_cell_path C x y cell S)) cell
+    (@object_path_equiv_along C x y (@strict_cell_path C x y cell S))
+    (@eq_sym (Hom C x y) cell
+      (@path_to_hom C x y (@strict_cell_path C x y cell S))
+      (@strict_cell_agreement C x y cell S));
+
+symbol nerve_default_functor_pseudo_body [A B : Cat] (F : τ (Functor A B))
+  : τ (@IsPseudoFunctor A B F)
+≔ λ X : τ (Obj A), λ Y : τ (Obj A), λ Z : τ (Obj A),
+  λ g : τ (Hom A Y Z), λ f : τ (Hom A X Y),
+  @omega_equiv_along_comp (Hom_cat B (fapp0 F X) (fapp0 F Z)) _ _ _ _ _
+    (@omega_equiv_along_comp (Hom_cat B (fapp0 F X) (fapp0 F Z)) _ _ _ _ _
+      (@object_path_equiv_along _ _ _ (@eq_sym _ _ _
+        (@readable_pseudo_post_source_path A B F X Y Z g f)))
+      (@nerve_strict_cell_equiv _ _ _ (@fapp1_compositor A B F X Y Z g f)
+        (@strict_functor_compositor_evidence A B F (@functor_is_strict A B F) X Y Z g f)))
+    (@object_path_equiv_along _ _ _ (@readable_pseudo_post_target_path A B F X Y Z g f));
+
+// Keep the canonical capability stable when passed to the older native
+// map. Its selected fields still compute to the derived evidence above.
+symbol nerve_default_functor_pseudo [A B : Cat] (F : τ (Functor A B))
+  : τ (@IsPseudoFunctor A B F);
+rule @nerve_default_functor_pseudo $A $B $F $X $Y $Z $g $f
+  ↪ @nerve_default_functor_pseudo_body $A $B $F $X $Y $Z $g $f;
+
+symbol nerve_native_arrow_map [C D : Cat] (F : τ (Functor C D))
+  : τ (Functor (LaxArrow_cat C) (LaxArrow_cat D))
+≔ @CubicalArrow_func C D F (@nerve_default_functor_pseudo C D F);
+
+// The whole coefficient owner keeps the admitted Cartesian higher profile.
+injective symbol nerve_native_arrow_coeff : τ (Functor Cat_cart Cat_cart);
+injective symbol nerve_native_arrow_map_func (C D : Cat)
+  : τ (Functor (Functor_cart_cat C D) (Functor_cart_cat (LaxArrow_cat C) (LaxArrow_cat D)));
+rule fapp0 nerve_native_arrow_coeff $C ↪ LaxArrow_cat $C;
+rule @fapp1_func _ _ nerve_native_arrow_coeff $C $D ↪ nerve_native_arrow_map_func $C $D;
+rule @fapp1_fapp0 _ _ nerve_native_arrow_coeff $C $D $F ↪ @nerve_native_arrow_map $C $D $F;
+rule @fapp0 _ _ (nerve_native_arrow_map_func $C $D) $F ↪ @nerve_native_arrow_map $C $D $F;
+
+injective symbol nerve_native_arrow_transfor_func [C D : Cat] (F G : τ (Functor C D))
+  : τ (Functor (Hom_cat (Functor_cart_cat C D) F G)
+      (Hom_cat (Functor_cart_cat (LaxArrow_cat C) (LaxArrow_cat D))
+        (@nerve_native_arrow_map C D F) (@nerve_native_arrow_map C D G)));
+injective symbol nerve_native_arrow_transfor [C D : Cat] [F G : τ (Functor C D)]
+  (U : τ (@StrictTransfor C D F G))
+  : τ (@StrictTransfor (LaxArrow_cat C) (LaxArrow_cat D)
+      (@nerve_native_arrow_map C D F) (@nerve_native_arrow_map C D G));
+rule @fapp1_func _ _ (nerve_native_arrow_map_func $C $D) $F $G
+  ↪ @nerve_native_arrow_transfor_func $C $D $F $G;
+rule @fapp1_fapp0 _ _ (nerve_native_arrow_map_func $C $D) $F $G $U
+  ↪ @nerve_native_arrow_transfor $C $D $F $G $U;
+rule @fapp0 _ _ (@nerve_native_arrow_transfor_func $C $D $F $G) $U
+  ↪ @nerve_native_arrow_transfor $C $D $F $G $U;
+
+// Typed constructor view of the existing native square. Stage the generic
+// readable filler type before specializing a strict naturality square.
+symbol nerve_native_square_from_cell [D : Cat] [x1 y1 x2 y2 : τ (Obj D)]
+  (u : τ (Hom D x1 x2)) (v : τ (Hom D y1 y2))
+  (a : τ (Hom D x1 y1)) (b : τ (Hom D x2 y2))
+  (alpha : τ (Hom (Hom_cat D x1 y2)
+    (@comp_fapp0 D x1 x2 y2 b u) (@comp_fapp0 D x1 y1 y2 v a)))
+  : τ (Hom (LaxArrow_cat D) (@lax_edge D x1 x2 u) (@lax_edge D y1 y2 v))
+≔ @cubical_square D x1 y1 x2 y2 u v a b alpha;
+
+// At an entire source edge u, retain both components of the original strict
+// transformation U and its strictly commuting square. Components need not
+// be identities or invertible.
+symbol nerve_native_arrow_transfor_component [C D : Cat] [F G : τ (Functor C D)]
+  (U : τ (@StrictTransfor C D F G)) [x y : τ (Obj C)] (u : τ (Hom C x y))
+  : τ (Hom (LaxArrow_cat D)
+      (lax_edge (fapp0 F x) (fapp0 F y) (fapp1_fapp0 F u))
+      (lax_edge (fapp0 G x) (fapp0 G y) (fapp1_fapp0 G u)))
+≔ @nerve_native_square_from_cell D (fapp0 F x) (fapp0 G x) (fapp0 F y) (fapp0 G y)
+    (@fapp1_fapp0 C D F x y u) (@fapp1_fapp0 C D G x y u)
+    (@tapp0_fapp0 C D F G x (@strict_transfor C D F G U))
+    (@tapp0_fapp0 C D F G y (@strict_transfor C D F G U))
+    (@id (Hom_cat D (fapp0 F x) (fapp0 G y))
+      (@tapp1_fapp0 C D F G x y (@strict_transfor C D F G U) u));
+
+rule @tapp0_fapp0 _ _ _ _ (Struct_sigma $x (Struct_sigma $y $u))
+    (@strict_transfor _ _ _ _ (@nerve_native_arrow_transfor $C $D $F $G $U))
+  ↪ @nerve_native_arrow_transfor_component $C $D $F $G $U $x $y $u;

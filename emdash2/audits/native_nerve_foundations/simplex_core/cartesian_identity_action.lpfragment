@@ -1,0 +1,5 @@
+// Strict identity action after the Cartesian coefficient has erased its
+// identity tag to the underlying ordinary category identity.
+// lhs-audit: keep 1 -- Cat_cart is the actual source of this erased identity.
+rule @fapp1_fapp0 Cat_cart $B $F $C $C (@id Cat_cat $C)
+  ↪ @id $B (@fapp0 Cat_cart $B $F $C);

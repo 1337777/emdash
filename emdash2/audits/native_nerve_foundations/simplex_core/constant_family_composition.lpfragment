@@ -1,0 +1,4 @@
+// Generic constant-composition beta after Const_func(...,Cat_cart,...) has
+// selected its canonical Const_catd head. Keep the actual outer map F.
+rule @comp_fapp0 Cat_cat _ _ $B $F (@Const_catd $K $C)
+  ↪ @Const_func $K $B (@fapp0 Cat_cart $B $F $C);

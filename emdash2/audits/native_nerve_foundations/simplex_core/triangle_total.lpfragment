@@ -1,0 +1,64 @@
+/* Independent all-flags native triangle total. Its x0-fibre is the native
+   arrow category of PathOut_C(x0), and x0 varies through a whole family. */
+require open emdash.native_arrow_coefficient;
+
+symbol nerve_triangle_fibres (C : Cat)
+  : τ (Functor (Op_cat C) Cat_cart)
+≔ @comp_cat_fapp0 (Op_cat C) Cat_cart Cat_cart nerve_native_arrow_coeff (@PathOut_cat_func C);
+
+symbol nerve_triangle_dual_fibres (C : Cat)
+  : τ (Catd (TotalOp_cat C))
+≔ @TotalOp_catd (Op_cat C) (nerve_triangle_fibres C);
+
+symbol nerve_native_triangle_cat (C : Cat) : Cat
+≔ TotalOp_cat (@Sigma_cat (TotalOp_cat C) (nerve_triangle_dual_fibres C));
+
+// The initial vertex projection is a whole total-dual Sigma projection.
+symbol nerve_triangle_vertex0_func (C : Cat)
+  : τ (Functor (nerve_native_triangle_cat C) C)
+≔ @TotalOp_func
+    (@Sigma_cat (TotalOp_cat C) (nerve_triangle_dual_fibres C)) (TotalOp_cat C)
+    (@Sigma_proj1_func (TotalOp_cat C) (nerve_triangle_dual_fibres C));
+
+// Three edges and the original directed dependent filler are stored by the
+// old PathOut/Homd constructors, not a new triangle record or geometric shape.
+symbol nerve_native_triangle [C : Cat]
+  (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Obj (Fibre_cat
+    (@DependentTriangle_catd C (@Rep_catd C x0) x1 p01 x2 p02) p12)))
+  : τ (Obj (nerve_native_triangle_cat C))
+≔ Struct_sigma x0
+    (@lax_edge (@PathOut_cat C x0)
+      (@dependent_simplex1 C x0 x1 p01) (@dependent_simplex1 C x0 x2 p02)
+      (@dependent_simplex_visible_triangle C x0 x1 x2 p01 p02 p12 alpha));
+
+assert [C : Cat] (x : τ (Obj C)) ⊢
+  fapp0 (nerve_triangle_fibres C) x ≡ LaxArrow_cat (@PathOut_cat C x);
+
+// The actual changing-initial-vertex action uses the existing PathOut map.
+assert [C : Cat] (x y : τ (Obj C)) (p : τ (Hom C y x))
+  (e f : τ (Obj (@PathOut_cat C x))) (q : τ (Hom (@PathOut_cat C x) e f)) ⊢
+  fapp0 (@fapp1_fapp0 (Op_cat C) Cat_cart (nerve_triangle_fibres C) x y p)
+    (@lax_edge (@PathOut_cat C x) e f q)
+  ≡ @lax_edge (@PathOut_cat C y)
+      (fapp0 (@PathOut_transport_func C y x p) e)
+      (fapp0 (@PathOut_transport_func C y x p) f)
+      (@fapp1_fapp0 (@PathOut_cat C x) (@PathOut_cat C y) (@PathOut_transport_func C y x p) e f q);
+
+// Whole projection and the original filler survive the all-flags assembly.
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Obj (Fibre_cat (@DependentTriangle_catd C (@Rep_catd C x0) x1 p01 x2 p02) p12))) ⊢
+  fapp0 (nerve_triangle_vertex0_func C) (@nerve_native_triangle C x0 x1 x2 p01 p02 p12 alpha) ≡ x0;
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Obj (Fibre_cat (@DependentTriangle_catd C (@Rep_catd C x0) x1 p01 x2 p02) p12))) ⊢
+  sigma_Snd (sigma_Snd (sigma_Snd (sigma_Snd (@nerve_native_triangle C x0 x1 x2 p01 p02 p12 alpha)))) ≡ alpha;
+assertnot [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha beta : τ (Obj (Fibre_cat (@DependentTriangle_catd C (@Rep_catd C x0) x1 p01 x2 p02) p12))) ⊢
+  @eq_refl (Obj (nerve_native_triangle_cat C)) (@nerve_native_triangle C x0 x1 x2 p01 p02 p12 alpha)
+  : τ (@= (Obj (nerve_native_triangle_cat C))
+      (@nerve_native_triangle C x0 x1 x2 p01 p02 p12 alpha)
+      (@nerve_native_triangle C x0 x1 x2 p01 p02 p12 beta));

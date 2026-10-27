@@ -16,18 +16,17 @@ constructions below. No unfinished inverse is supplied to make a skeleton pass.
 | Core | Present evidence | Decisive remaining feasibility slice |
 | --- | --- | --- |
 | Cubical | Whole native/geometric maps at every dimension; both zero inverses; variable-dimensional iterated-walking retraction; nonidentity higher-cell consumers. | Whole native walking reconstruction and mixed-evaluation/positive closure cancellation with the actual maps. |
-| Simplicial | Qualified earlier flagged low-dimensional simplex/PathOut machinery and selected geometric shapes. | Independent all-flags triangle total with a whole varying-vertex family, directed filler and actual mapping comparisons; then test the uniform recursion/higher step. |
+| Simplicial | Independent all-flags triangle total, whole varying-vertex family, three edge functors and an actual directed-interchanger consumer now check in isolation. | Genuine higher triangle shape and whole mapping comparisons; then qualify the uniform coefficient recursion/higher step. |
 | Computational foundation | Installed corrected-duality Homd ladder and strict defaults; bounded whole-functor proof consumers. | Keep new core operations internal and usable; identify actual owner/profile gaps rather than count point checks. |
 
 Next implementation order:
 
-1. Form the whole family for the independent simplicial triangle and its
-   Sigma total, using current T/R/O bases and the admitted coefficient. Expose
-   the existing Homd/Sigma projections and a nonidentity triangle
-   filler. Do not define the total as a geometric mapping category or Path of
-   an object package.
-2. Construct the corresponding whole mapping/universality interface in both
-   directions. Use the first real reconstruction/beta consumer to decide what
+1. Preserve the now checked independent all-flags native triangle and its
+   whole varying-vertex family. Its coefficient is explicitly structural;
+   its Sigma total, edge projections and interchanger consumer are derived.
+   The remaining canonical identity-square runtime observation stays recorded.
+2. Construct a genuine higher triangle shape and the corresponding whole
+   mapping/universality interface in both directions. Use the first real reconstruction/beta consumer to decide what
    is missing. Sketch the dimension-three and Nat-recursive continuation with
    assumptions and unresolved interfaces labelled.
 3. Return to the exact cubical walking/mixed-evaluator gaps, using their
@@ -347,6 +346,41 @@ shape and comparison operations alongside mixed-evaluation and native
 whole-section reconstruction; the first-coordinate law is not the full index.
 
 ## Independent simplicial branch
+
+The [native degree-two core](../emdash2/audits/native_nerve_foundations/simplex_core/README.md)
+is now checked: E_C=N_coeff∘PathOut_C is a whole T(C)→Cat_cart family, and
+T₂(C)=O(Σ_(O(C)) TotalOp_catd(E_C)). The newly internalized coefficient reuses
+the native arrow total and canonical default-functor map, including a strict
+parameter-transformation component ladder. The total, all three edge maps,
+fixed-vertex inclusion and actual directed-interchanger triangle pass in the
+44-input scope. No geometric mapping category defines this total.
+
+The next proposed geometric shape S₂ is a strict directed triangle:
+
+```text
+objects: 0, 1, 2
+edges:   e₀₁, e₁₂, e₀₂
+cell:    κ : e₁₂∘e₀₁ ⇒ e₀₂
+Hom(0,2)=WalkingArrow; composition e₁₂∘e₀₁ selects its source object.
+```
+
+This is a proposed finite higher shape, not an existing declaration or a
+supplied comparison theorem. Its intended whole comparison profile
+G(S₂,C)⇄T₂(C) must be checked against the actual triangle action. The existing
+ordinary DirectedSimplex_cat(2) has no independent κ and is unsuitable here.
+Whole mapping/universality, both actual inverse laws and the next higher step
+remain required. The runtime native identity-square observation and broader
+coefficient/core overlap qualification remain at the native audit boundary.
+
+
+A proposed whole encoder route is to obtain the three vertex functors
+T₂(C)→C and their universal edge transformations from the already formed
+edge functors. The stored triangle should then give a whole modification
+between the composed 01/12 edges and the 02 edge. Apply the proposed shape
+recursor in Functor_cat(T₂(C),C), then use the existing mixed shape exchange
+to obtain T₂(C)→G(S₂,C). These are construction obligations: do not declare
+the universal filler or inverse merely to close the comparison. Whole vertex
+agreement and the modification must come from the native Sigma/Homd owners.
 
 Keep the user-selected higher simplex shapes. Strict maps from ordinary
 ordinals are not substituted for arbitrary triangles with nonidentity fillers.

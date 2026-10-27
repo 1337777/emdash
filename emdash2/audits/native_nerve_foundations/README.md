@@ -4,11 +4,21 @@ Status: non-library NF-1 reconstruction and NF-2C cube construction on the corre
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
+## Independent all-flags simplicial triangle
+
+The [native triangle core](simplex_core/README.md) now supplies a whole
+varying-vertex family, independent Sigma total, all three whole edge maps and
+an actual directed-interchanger consumer. The 44-input qualification passes
+in 45.740s / 196,808 KiB. Its native-arrow coefficient is an added structural
+internalization; no native/geometric inverse is supplied. A legacy runtime
+identity-square observation remains separately failed. The next core task is
+the genuine higher triangle shape and its whole mapping comparison.
+
 ## Current priority and retained latest experiment
 
 The user has prioritized the cubical/simplicial core feasibility assessment
-before further face and degeneracy expansion. The next construction is the
-independent all-flags simplicial triangle; see the [working order](../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md#working-order--core-feasibility-first).
+before further face and degeneracy expansion. The native triangle is now formed; its geometric comparison is next. See the
+[working order](../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md#working-order--core-feasibility-first).
 The latest [whole profile restoration and second-factor maps](profile_restore_review.md)
 are derived and checked. The larger [face-order experiment](pending_face_order/README.md)
 passes its local typing checks but is unadopted pending actual decoder/index

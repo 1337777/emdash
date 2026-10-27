@@ -1,0 +1,44 @@
+/* Concrete higher-cell and fixed-first-vertex consumers of the independent
+   native total. No geometric shape defines that total. */
+require open emdash.native_constant_family_composition_controls;
+require open emdash.emdash3_2_gray_interchanger_orientation;
+require open emdash.emdash3_2_sigma_fibre_inclusion;
+
+// The actual directed Gray interchanger supplies a triangle. Its direction
+// is post-composite -> pre-composite; no inverse of that cell is requested.
+symbol nerve_interchanger_triangle
+  : τ (Obj (nerve_native_triangle_cat GrayWalkingSquare_cat))
+≔ @nerve_native_triangle_from_cell GrayWalkingSquare_cat
+    gray_square_obj00 gray_square_obj10 gray_square_obj11
+    gray_square_outer_src_arrow gray_square_pre_composite gray_square_inner_tgt_arrow
+    gray_interchanger_readable;
+assert ⊢ sigma_Snd (sigma_Snd (sigma_Snd (sigma_Snd nerve_interchanger_triangle)))
+  ≡ gray_interchanger_readable;
+assert ⊢ fapp0 (nerve_triangle_face01_func GrayWalkingSquare_cat) nerve_interchanger_triangle
+  ≡ @lax_edge GrayWalkingSquare_cat gray_square_obj00 gray_square_obj10 gray_square_outer_src_arrow;
+assert ⊢ fapp0 (nerve_triangle_face12_func GrayWalkingSquare_cat) nerve_interchanger_triangle
+  ≡ @lax_edge GrayWalkingSquare_cat gray_square_obj10 gray_square_obj11 gray_square_inner_tgt_arrow;
+
+// Include the entire old fixed-first-vertex category, not merely its objects.
+symbol nerve_triangle_fixed_vertex_include [C : Cat] (x : τ (Obj C))
+  : τ (Functor (LaxArrow_cat (@PathOut_cat C x)) (nerve_native_triangle_cat C))
+≔ @TotalOp_func
+    (@Fibre_cat (TotalOp_cat C) (nerve_triangle_dual_fibres C) x)
+    (@Sigma_cat (TotalOp_cat C) (nerve_triangle_dual_fibres C))
+    (@sigma_fibre_inclusion_func (TotalOp_cat C) (nerve_triangle_dual_fibres C) x);
+
+assert [C : Cat] (x : τ (Obj C)) (t : τ (Obj (LaxArrow_cat (@PathOut_cat C x)))) ⊢
+  fapp0 (@nerve_triangle_fixed_vertex_include C x) t
+  ≡ @Struct_sigma (Obj (TotalOp_cat C))
+      (λ y : τ (Obj (TotalOp_cat C)), Obj (@Fibre_cat (TotalOp_cat C) (nerve_triangle_dual_fibres C) y)) x t;
+assert [C : Cat] (x : τ (Obj C)) (t : τ (Obj (LaxArrow_cat (@PathOut_cat C x)))) ⊢
+  fapp0 (nerve_triangle_vertex0_func C) (fapp0 (@nerve_triangle_fixed_vertex_include C x) t) ≡ x;
+
+// The full next-Hom action is an existing strict functor operation.
+symbol nerve_triangle_fixed_vertex_hom [C : Cat] (x : τ (Obj C))
+  (t u : τ (Obj (LaxArrow_cat (@PathOut_cat C x))))
+  : τ (Functor (Hom_cat (LaxArrow_cat (@PathOut_cat C x)) t u)
+      (Hom_cat (nerve_native_triangle_cat C)
+        (fapp0 (@nerve_triangle_fixed_vertex_include C x) t)
+        (fapp0 (@nerve_triangle_fixed_vertex_include C x) u)))
+≔ @fapp1_func _ _ (@nerve_triangle_fixed_vertex_include C x) t u;

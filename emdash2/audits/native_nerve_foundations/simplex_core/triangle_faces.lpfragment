@@ -1,0 +1,78 @@
+/* Whole edge projections of the independent triangle total. The two
+   canonical arrow projections are internalized at their Cartesian owner;
+   totalization then uses existing strict family maps and total duality. */
+require open emdash.native_simplex_triangle_total;
+
+injective symbol nerve_native_arrow_source_coeff
+  : τ (@StrictTransfor Cat_cart Cat_cart nerve_native_arrow_coeff (@id_func Cat_cart));
+injective symbol nerve_native_arrow_target_coeff
+  : τ (@StrictTransfor Cat_cart Cat_cart nerve_native_arrow_coeff (@id_func Cat_cart));
+rule @tapp0_fapp0 _ _ _ _ $C (@strict_transfor _ _ _ _ nerve_native_arrow_source_coeff)
+  ↪ cubical_src_func $C;
+rule @tapp0_fapp0 _ _ _ _ $C (@strict_transfor _ _ _ _ nerve_native_arrow_target_coeff)
+  ↪ cubical_tgt_func $C;
+
+symbol nerve_triangle_first_edge_funcd (C : Cat)
+  : τ (Hom (Functor_cart_cat (Op_cat C) Cat_cart) (nerve_triangle_fibres C) (@PathOut_cat_func C))
+≔ @fapp1_fapp0 _ _ (@comp_cat_con_cart_func (Op_cat C) Cat_cart Cat_cart (@PathOut_cat_func C))
+    nerve_native_arrow_coeff (@id_func Cat_cart) nerve_native_arrow_source_coeff;
+symbol nerve_triangle_second_edge_funcd (C : Cat)
+  : τ (Hom (Functor_cart_cat (Op_cat C) Cat_cart) (nerve_triangle_fibres C) (@PathOut_cat_func C))
+≔ @fapp1_fapp0 _ _ (@comp_cat_con_cart_func (Op_cat C) Cat_cart Cat_cart (@PathOut_cat_func C))
+    nerve_native_arrow_coeff (@id_func Cat_cart) nerve_native_arrow_target_coeff;
+
+// Totalize an actual whole Cartesian map of the varying initial-vertex fibres.
+symbol nerve_triangle_edge_total [C : Cat]
+  (U : τ (Hom (Functor_cart_cat (Op_cat C) Cat_cart) (nerve_triangle_fibres C) (@PathOut_cat_func C)))
+  : τ (Functor (nerve_native_triangle_cat C) (LaxArrow_cat C))
+≔ @TotalOp_func
+    (@Sigma_cat (TotalOp_cat C) (nerve_triangle_dual_fibres C))
+    (@Sigma_cat (TotalOp_cat C) (@TotalOp_catd (Op_cat C) (@PathOut_cat_func C)))
+    (@sigma_map_func (TotalOp_cat C) (nerve_triangle_dual_fibres C)
+      (@TotalOp_catd (Op_cat C) (@PathOut_cat_func C))
+      (@strict_transfor _ _ _ _ (@TotalOp_funcd (Op_cat C) (nerve_triangle_fibres C) (@PathOut_cat_func C) U)));
+
+symbol nerve_triangle_face01_func (C : Cat)
+  : τ (Functor (nerve_native_triangle_cat C) (LaxArrow_cat C))
+≔ @nerve_triangle_edge_total C (nerve_triangle_first_edge_funcd C);
+symbol nerve_triangle_face02_func (C : Cat)
+  : τ (Functor (nerve_native_triangle_cat C) (LaxArrow_cat C))
+≔ @nerve_triangle_edge_total C (nerve_triangle_second_edge_funcd C);
+
+// Apply the whole native-arrow coefficient to the existing family of
+// PathOut projections. Its component is N(PathOut_C(x) -> C).
+symbol nerve_triangle_third_edge_funcd (C : Cat)
+  : τ (Hom (Functor_cart_cat (Op_cat C) Cat_cart)
+      (nerve_triangle_fibres C) (@Const_catd (Op_cat C) (LaxArrow_cat C)))
+≔ @fapp1_fapp0 _ _ (@comp_cat_cov_cart_func (Op_cat C) Cat_cart Cat_cart nerve_native_arrow_coeff)
+    (@PathOut_cat_func C) (@Const_catd (Op_cat C) C)
+    (@sigma_proj1_family_funcd (Op_cat C) C (@hom_int C C (@id_func C)));
+
+symbol nerve_triangle_face12_func (C : Cat)
+  : τ (Functor (nerve_native_triangle_cat C) (LaxArrow_cat C))
+≔ @TotalOp_func
+    (@Sigma_cat (TotalOp_cat C) (nerve_triangle_dual_fibres C)) (TotalOp_cat (LaxArrow_cat C))
+    (@comp_cat_fapp0 _ _ _
+      (@Product_projR_func (TotalOp_cat C) (TotalOp_cat (LaxArrow_cat C)))
+      (@sigma_map_func (TotalOp_cat C) (nerve_triangle_dual_fibres C)
+        (@Const_catd (TotalOp_cat C) (TotalOp_cat (LaxArrow_cat C)))
+        (@strict_transfor _ _ _ _
+          (@TotalOp_funcd (Op_cat C) (nerve_triangle_fibres C)
+            (@Const_catd (Op_cat C) (LaxArrow_cat C)) (nerve_triangle_third_edge_funcd C)))));
+
+// All three whole edge maps recover the constructor's original boundary.
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Obj (Fibre_cat (@DependentTriangle_catd C (@Rep_catd C x0) x1 p01 x2 p02) p12))) ⊢
+  fapp0 (nerve_triangle_face01_func C) (@nerve_native_triangle C x0 x1 x2 p01 p02 p12 alpha)
+  ≡ @lax_edge C x0 x1 p01;
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Obj (Fibre_cat (@DependentTriangle_catd C (@Rep_catd C x0) x1 p01 x2 p02) p12))) ⊢
+  fapp0 (nerve_triangle_face02_func C) (@nerve_native_triangle C x0 x1 x2 p01 p02 p12 alpha)
+  ≡ @lax_edge C x0 x2 p02;
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Obj (Fibre_cat (@DependentTriangle_catd C (@Rep_catd C x0) x1 p01 x2 p02) p12))) ⊢
+  fapp0 (nerve_triangle_face12_func C) (@nerve_native_triangle C x0 x1 x2 p01 p02 p12 alpha)
+  ≡ @lax_edge C x1 x2 p12;

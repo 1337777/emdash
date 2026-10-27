@@ -1,0 +1,12 @@
+require open emdash.native_simplex_triangle_consumer;
+
+// Whole-vs-preprojected action of the constant-family composition beta.
+assert [K B : Cat] (F : τ (Functor Cat_cart B)) (C : Cat)
+  (x y : τ (Obj K)) ⊢
+  @fapp1_func K B (@comp_cat_fapp0 K Cat_cart B F (@Const_catd K C)) x y
+  ≡ @comp_cat_fapp0 (Hom_cat K x y) (Functor_cart_cat C C) (Hom_cat B (fapp0 F C) (fapp0 F C))
+      (@fapp1_func Cat_cart B F C C) (@fapp1_func K Cat_cart (@Const_catd K C) x y);
+assert [K B : Cat] (F : τ (Functor Cat_cart B)) (C : Cat)
+  (x y : τ (Obj K)) (p : τ (Hom K x y)) ⊢
+  @fapp1_fapp0 Cat_cart B F C C (@fapp1_fapp0 K Cat_cart (@Const_catd K C) x y p)
+  ≡ @id B (fapp0 F C);

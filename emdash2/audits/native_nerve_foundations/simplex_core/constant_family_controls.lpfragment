@@ -1,0 +1,14 @@
+require open emdash.native_simplex_triangle_qualification;
+
+assert [K B : Cat] (F : τ (Functor Cat_cart B)) (C : Cat) ⊢
+  @comp_cat_fapp0 K Cat_cart B F (@Const_catd K C)
+  ≡ @Const_func K B (fapp0 F C);
+assert [K : Cat] (C : Cat) ⊢
+  @comp_cat_fapp0 K Cat_cart Cat_cart (@id_func Cat_cart) (@Const_catd K C)
+  ≡ @Const_catd K C;
+assert [K B : Cat] (b : τ (Obj B)) (C : Cat) ⊢
+  @comp_cat_fapp0 K Cat_cart B (@Const_func Cat_cart B b) (@Const_catd K C)
+  ≡ @Const_func K B b;
+assertnot [K B : Cat] (F G : τ (Functor Cat_cart B)) (C : Cat) ⊢
+  @comp_cat_fapp0 K Cat_cart B F (@Const_catd K C)
+  ≡ @Const_func K B (fapp0 G C);

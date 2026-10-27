@@ -33,13 +33,19 @@ walking second inverse and the whole mixed-evaluation/positive closure
 reconstruction. [Complete-diagram round trips](../emdash2/audits/native_nerve_foundations/mixed_diagram_reconstruction_review.md)
 do not replace the missing equality of the internal mapping functors.
 
-**The next implementation slice is the independent all-flags simplicial
-triangle**, with its whole varying-vertex family, retained directed filler
-and actual comparison maps to the selected higher simplex shape. Reuse the
-qualified flagged/simplex and Homd owners. A record of object data, a pointwise
-family or a native total defined as its geometric mapping category does not
-meet this slice. Then assess the uniform recursion and return to the exact
-cubical reconstruction gaps in bounded attempts.
+The [independent all-flags native triangle](../emdash2/audits/native_nerve_foundations/simplex_core/README.md)
+now has a whole varying-vertex family, Sigma total, three whole edge maps and
+an actual directed-interchanger consumer. Its native-arrow coefficient is a
+new structural internalization of the existing map owner; the triangle and
+faces are derived. The 44-input isolated check passes in 45.740s / 196,808 KiB.
+Two generic constructor/identity joins remain experimental, and a legacy
+literal identity-square reduction is explicitly pending.
+
+**Next construct the genuine higher triangle shape and its whole comparison
+maps.** Do not use the ordinary ordinal simplex for an arbitrary nonidentity
+filler. Then assess the uniform coefficient recursion/higher step and return
+to the exact cubical reconstruction gaps in bounded attempts. No inverse or
+higher-simplex universality is assumed by the new native total.
 
 Preserve the [first-coordinate face/degeneracy work](../emdash2/audits/native_nerve_foundations/geometric_first_faces_review.md)
 and [second-factor support](../emdash2/audits/native_nerve_foundations/profile_restore_review.md).
@@ -189,15 +195,16 @@ in scope until actually achieved or explicitly reassigned by the user.
 | NF-2C | Whole variable-dimensional cube decoder and encoder, including degree zero | Wₙ/NCₙ whole maps and encode-after-decode check at variable n; both geometric zero inverse laws now check. Positive geometric closure, reverse round trip and face coherence remain. Retain bracketing and coordinate order. |
 | NF-3C | Native/geometric semicubical nerves on one face index | Whole inverse transformations and coherent face action |
 | NF-4C | Cubical degeneracies | Geometric first-coordinate insertion and its whole face-degeneracy law now check at every dimension; native/other-coordinate operations and all cross-coordinate relations remain. |
-| NF-2S | Independent all-flags native simplexes and selected higher shapes | Moving vertices/flags, actual triangle/tetrahedron data, whole terminal-join/cone universality and inverses |
+| NF-2S | Independent all-flags native simplexes and selected higher shapes | Native all-flags triangle and three whole edges now check in isolation; next genuine higher triangle shape, whole comparison, uniform coefficient/higher step and inverses. |
 | NF-3S | Same-index semisimplicial equivalence | Common augmented index and vertex convention, whole inverse transformations and face coherence |
 | NF-4S | Simplicial degeneracies | Higher-shape identity insertion and required index/unit laws |
 | SP-5F | Frontend adaptation to the later Pi/Sigma correction | Resume preserved 18-file candidate, semantic review, actual PathInd/chain consumers, conformance and affected aggregate |
 | R14 / NF-CLOSE | Production integration and final qualification | Remaining warning/normalization/health gates, source-pin review, registration, owning CI and updated book/article claims for new nerve results |
 
 Current priority is core feasibility on both branches: the cubical maps are
-already substantially developed, so the independent simplicial triangle is
-next. Return to shared/cubical reconstruction before broader index expansion.
+already substantially developed; the native simplicial triangle now checks
+and its higher geometric shape/comparison is next. Return to shared/cubical
+reconstruction before broader index expansion.
 Do not spend repeated tranches only on scalar graph controls.
 Independent higher simplex totals must not be defined as the geometric mapping
 category or as Path of an object package. Same-index comparisons require
