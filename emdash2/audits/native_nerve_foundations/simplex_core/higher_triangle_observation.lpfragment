@@ -1,0 +1,38 @@
+/* Object observation from the explicit geometric shape. The whole
+   mapping-category comparison is not inferred from these readbacks. */
+require open emdash.native_triangle_vertex_paths;
+
+symbol triangle_shape_observe_object [C : Cat] (F : τ (Functor HigherTriangle_cat C))
+  : τ (Obj (nerve_native_triangle_cat C))
+≔ @nerve_native_triangle_from_cell C
+    (@fapp0 HigherTriangle_cat C F triangle_v0)
+    (@fapp0 HigherTriangle_cat C F triangle_v1)
+    (@fapp0 HigherTriangle_cat C F triangle_v2)
+    (@fapp1_fapp0 HigherTriangle_cat C F triangle_v0 triangle_v1 triangle_e01)
+    (@fapp1_fapp0 HigherTriangle_cat C F triangle_v0 triangle_v2 triangle_e02)
+    (@fapp1_fapp0 HigherTriangle_cat C F triangle_v1 triangle_v2 triangle_e12)
+    (@fapp1_fapp0 (Hom_cat HigherTriangle_cat triangle_v0 triangle_v2)
+      (Hom_cat C (fapp0 F triangle_v0) (fapp0 F triangle_v2))
+      (@fapp1_func HigherTriangle_cat C F triangle_v0 triangle_v2)
+      triangle_composite triangle_e02 triangle_kappa);
+
+symbol triangle_shape_observe_rec_path [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02))
+  : τ (@= (Obj (nerve_native_triangle_cat C))
+      (@triangle_shape_observe_object C (@triangle_shape_rec C x0 x1 x2 p01 p02 p12 alpha))
+      (@nerve_native_triangle_from_cell C x0 x1 x2 p01 p02 p12 alpha))
+≔ @eq_refl _ _;
+
+// This instance retains the entire K-diagram data, including its lax maps
+// and modification. It is not a claim of K -> native-triangle assembly.
+symbol triangle_family_native_data_path [K C : Cat]
+  (F0 F1 F2 : τ (Functor K C))
+  (e01 : τ (@Transf K C F0 F1)) (e02 : τ (@Transf K C F0 F2)) (e12 : τ (@Transf K C F1 F2))
+  (phi : τ (Hom (@Transf_cat K C F0 F2) (@comp_fapp0 (Functor_cat K C) F0 F1 F2 e12 e01) e02))
+  : τ (@= (Obj (nerve_native_triangle_cat (Functor_cat K C)))
+      (@triangle_shape_observe_object (Functor_cat K C)
+        (@diagram_oplax_family_shape_func K HigherTriangle_cat C
+          (@triangle_shape_family K C F0 F1 F2 e01 e02 e12 phi)))
+      (@nerve_native_triangle_from_cell (Functor_cat K C) F0 F1 F2 e01 e02 e12 phi))
+≔ @triangle_shape_observe_rec_path (Functor_cat K C) F0 F1 F2 e01 e02 e12 phi;

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Replay the independent native triangle core and its explicit pending boundary."""
+"""Replay the native triangle, higher shape/families and explicit pending boundary."""
 from __future__ import annotations
 
 import argparse
@@ -25,7 +25,9 @@ def digest(path: Path) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--mode", choices=("baseline", "qualification", "unit-pending"),
+    parser.add_argument("--mode", choices=("baseline", "qualification", "unit-pending",
+                                          "higher-recursion", "higher-family",
+                                          "higher-qualification", "higher-dependencies"),
                         default="qualification")
     parser.add_argument("--assemble-only", action="store_true")
     args = parser.parse_args()

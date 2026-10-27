@@ -1,7 +1,7 @@
 # Independent all-flags native triangle core
 
 Date: 2026-10-27
-Status: qualified isolated native construction and consumers; geometric comparison and one legacy runtime normalization remain open
+Status: qualified isolated native triangle, higher shape and whole family construction; whole geometric comparison and one legacy runtime normalization remain open
 Owner: [core-feasibility outline](../../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
 Evidence: [exact sources, scopes and attempts](verification.json)
 
@@ -116,6 +116,65 @@ passes. This failed observation is retained separately as `unit-pending`;
 it is not removed from the completion ledger or called a green aggregate.
 The positive scope includes all preceding construction and repair checks.
 
+## Genuine higher shape and whole parameter families
+
+The [finite shape](higher_triangle_shape.lpfragment) S₂ now has three vertices,
+short edges 01/12 and a genuine long Hom WalkingArrow. Composition of the
+short edges selects its source; edge 02 selects its target. Its generator is
+therefore κ:12∘01⇒02, rather than an equality of the two arrows. The short
+Homs use distinct nominal singleton carriers, so a source identity cannot be
+misread as a nonidentity short edge.
+
+The [structural recursor](higher_triangle_recursion.lpfragment) realizes
+(x₀,x₁,x₂,p₀₁,p₀₂,p₁₂,α) as S₂→C. Its stable whole-Hom projection ladder uses
+constant functors on the short Homs and the existing walking-arrow recursor
+on the long Hom. Its image of κ is the original α. This is an explicit
+structural shape/elimination interface, not a proved mapping equivalence.
+Neither a whole recursor η law nor a nerve inverse has been declared.
+
+Applying that recursor in Functor_cat(K,C) and the existing mixed exchange
+gives the [derived whole family constructor](higher_triangle_family.lpfragment):
+
+```text
+F₀,F₁,F₂ : K→C
+e₀₁:F₀⇒F₁, e₁₂:F₁⇒F₂, e₀₂:F₀⇒F₂
+φ:e₁₂∘e₀₁⇒e₀₂
+───────────────────────────────────────
+triangle_shape_family(...) : K→Functor_oplax_cat(S₂,C).
+```
+
+The e's are ordinary lax transformations. Exchange back recovers the whole
+S₂→Functor_cat(K,C) recursor, including the original e and φ; another φ is
+rejected. The concrete interchanger consumer also passes through the geometric
+shape and recovers the same native triangle. No strict-transformation guard
+or operational equality-proof argument is introduced.
+
+The [object observation](higher_triangle_observation.lpfragment) reads an
+S₂→C into T₂(C), and its composite with the recursor recovers the native
+constructor. At C=Functor_cat(K,C′), this recovers whole diagram data as an
+object of T₂(Functor_cat(K,C′)). It is **not** yet a functor K→T₂(C′), nor a
+whole observer between the geometric and native mapping categories.
+The [vertex comparisons](triangle_vertex_paths.lpfragment) additionally prove
+that faces 01 and 02 have the same whole initial-vertex functor.
+
+The selected 57-input scope passes with subject reduction in **76.099s /
+279,792 KiB**, at 180s / 2 GiB. The same-import dependency baseline passes in
+64.393s / 270,464 KiB. Their warning inventories are respectively 2,464 and
+2,244 critical-pair reports, both with 181 replaceable patterns and no parser
+issues. The 220 additional reports concern the private singleton unit and
+composition rules, their source-identity joins, finite shape composition,
+recursor action and interactions with existing dual/evaluation rules. Typed
+unit/composition, whole/capped and cell-retention controls pass; broader
+typed overlap review remains required before production. No global confluence
+claim is made. The final qualification adds no warning-family change to the
+preceding whole-family scope.
+
+The inferred-slot audit has no unreviewed compound slots. The helper type
+retains explicit C: Obj(C) alone does not reconstruct C. The first failed
+implicit-C attempt remains in the evidence history. These additions change
+no active production source and do not resolve the separate legacy
+identity-square observation above.
+
 ## Replay and next core task
 
 Run `python3 .../simplex_core/replay.py --mode qualification --assemble-only`
@@ -124,12 +183,18 @@ unchanged-source import scope; `unit-pending` reproduces the failed literal
 square observation. Without `--assemble-only`, the existing serial resource
 guard and pinned checker are used. Active production sources are untouched.
 
-Next construct a genuine directed triangle shape and its whole comparison
-maps. The existing ordinary DirectedSimplex_cat(2) cannot encode arbitrary α
-under strict functors. A minimal proposed shape has three vertices, generating
-edges 01/12/02 and a generating cell 12∘01⇒02; its 0→2 Hom is WalkingArrow,
-with composition selecting the source endpoint. This shape and its mapping
-universality are not yet implemented or assumed here.
+`higher-qualification` reconstructs the checked higher shape, whole families,
+observation and composition controls. `higher-dependencies` is its same-import
+baseline; `higher-recursion` and `higher-family` retain the smaller checked
+scopes. All seven modes verify exact imported bytes before invoking the checker.
+
+Next construct the whole native/geometric comparison. The available whole
+family realizer needs the native triangle's universal vertex functors, edge
+transformations and modification as its inputs. Two outgoing-edge source
+comparisons are checked; the third edge's endpoint comparisons and the whole
+native universal filler remain to be constructed. Pointwise observation and
+T₂(Functor_cat(K,C)) data do not discharge those obligations. The ordinary
+DirectedSimplex_cat(2) is not substituted for the genuine higher shape.
 
 The uniform all-flags recursion still needs a whole coefficient operation
 at each step, not the pointwise formula alone. The current slice establishes

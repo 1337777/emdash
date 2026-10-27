@@ -1,0 +1,4 @@
+// Same pre-existing dependency order, without the new finite shape rules.
+require open emdash.emdash3_2_walking_arrow_introduction;
+require open emdash.native_simplex_triangle_consumer;
+require open emdash.emdash3_2_diagram_evaluation;

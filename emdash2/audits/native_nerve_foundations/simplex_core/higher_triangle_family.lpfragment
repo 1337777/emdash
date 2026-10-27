@@ -1,0 +1,50 @@
+/* Whole K-parameter realization of a directed triangle of functors,
+   lax transformations and a modification. No native inverse is assumed. */
+require open emdash.native_higher_triangle_controls;
+require open emdash.emdash3_2_diagram_evaluation;
+
+symbol triangle_shape_family [K C : Cat]
+  (F0 F1 F2 : τ (Functor K C))
+  (e01 : τ (@Transf K C F0 F1)) (e02 : τ (@Transf K C F0 F2)) (e12 : τ (@Transf K C F1 F2))
+  (phi : τ (Hom (@Transf_cat K C F0 F2)
+    (@comp_fapp0 (Functor_cat K C) F0 F1 F2 e12 e01) e02))
+  : τ (Functor K (Functor_oplax_cat HigherTriangle_cat C))
+≔ @diagram_family_shape_func HigherTriangle_cat K C
+    (@triangle_shape_rec (Functor_cat K C) F0 F1 F2 e01 e02 e12 phi);
+
+// Exchange back recovers the complete shape functor, including K-action.
+symbol triangle_shape_family_readback [K C : Cat]
+  (F0 F1 F2 : τ (Functor K C))
+  (e01 : τ (@Transf K C F0 F1)) (e02 : τ (@Transf K C F0 F2)) (e12 : τ (@Transf K C F1 F2))
+  (phi : τ (Hom (@Transf_cat K C F0 F2)
+    (@comp_fapp0 (Functor_cat K C) F0 F1 F2 e12 e01) e02))
+  : τ (@= (Functor HigherTriangle_cat (Functor_cat K C))
+      (@diagram_oplax_family_shape_func K HigherTriangle_cat C
+        (@triangle_shape_family K C F0 F1 F2 e01 e02 e12 phi))
+      (@triangle_shape_rec (Functor_cat K C) F0 F1 F2 e01 e02 e12 phi))
+≔ @eq_refl _ _;
+
+// Recover the whole transformation and modification, not just values at k.
+assert [K C : Cat] (F0 F1 F2 : τ (Functor K C))
+  (e01 : τ (@Transf K C F0 F1)) (e02 : τ (@Transf K C F0 F2)) (e12 : τ (@Transf K C F1 F2))
+  (phi : τ (Hom (@Transf_cat K C F0 F2) (@comp_fapp0 (Functor_cat K C) F0 F1 F2 e12 e01) e02)) ⊢
+  @fapp1_fapp0 HigherTriangle_cat (Functor_cat K C)
+    (@diagram_oplax_family_shape_func K HigherTriangle_cat C
+      (@triangle_shape_family K C F0 F1 F2 e01 e02 e12 phi))
+    triangle_v0 triangle_v1 triangle_e01 ≡ e01;
+assert [K C : Cat] (F0 F1 F2 : τ (Functor K C))
+  (e01 : τ (@Transf K C F0 F1)) (e02 : τ (@Transf K C F0 F2)) (e12 : τ (@Transf K C F1 F2))
+  (phi : τ (Hom (@Transf_cat K C F0 F2) (@comp_fapp0 (Functor_cat K C) F0 F1 F2 e12 e01) e02)) ⊢
+  @fapp1_fapp0 _ _
+    (@fapp1_func HigherTriangle_cat (Functor_cat K C)
+      (@diagram_oplax_family_shape_func K HigherTriangle_cat C
+        (@triangle_shape_family K C F0 F1 F2 e01 e02 e12 phi)) triangle_v0 triangle_v2)
+    triangle_composite triangle_e02 triangle_kappa ≡ phi;
+assertnot [K C : Cat] (F0 F1 F2 : τ (Functor K C))
+  (e01 : τ (@Transf K C F0 F1)) (e02 : τ (@Transf K C F0 F2)) (e12 : τ (@Transf K C F1 F2))
+  (phi psi : τ (Hom (@Transf_cat K C F0 F2) (@comp_fapp0 (Functor_cat K C) F0 F1 F2 e12 e01) e02)) ⊢
+  @fapp1_fapp0 _ _
+    (@fapp1_func HigherTriangle_cat (Functor_cat K C)
+      (@diagram_oplax_family_shape_func K HigherTriangle_cat C
+        (@triangle_shape_family K C F0 F1 F2 e01 e02 e12 phi)) triangle_v0 triangle_v2)
+    triangle_composite triangle_e02 triangle_kappa ≡ psi;

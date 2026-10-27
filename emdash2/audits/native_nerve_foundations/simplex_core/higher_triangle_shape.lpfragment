@@ -1,0 +1,85 @@
+/* A finite directed triangle with a genuine 2-cell. Nominal singleton
+   edge carriers retain the distinction between short edges and identities.
+   This shape is independent of the native all-flags triangle total. */
+require open emdash.emdash3_2_walking_arrow_introduction;
+
+inductive TriangleVertexData : TYPE ≔
+| triangle_v0 : TriangleVertexData
+| triangle_v1 : TriangleVertexData
+| triangle_v2 : TriangleVertexData;
+constant symbol TriangleVertices : Grpd;
+rule τ TriangleVertices ↪ TriangleVertexData;
+
+inductive TriangleEdge01Data : TYPE ≔ | triangle_e01 : TriangleEdge01Data;
+inductive TriangleEdge12Data : TYPE ≔ | triangle_e12 : TriangleEdge12Data;
+constant symbol TriangleEdge01 : Grpd;
+constant symbol TriangleEdge12 : Grpd;
+rule τ TriangleEdge01 ↪ TriangleEdge01Data;
+rule τ TriangleEdge12 ↪ TriangleEdge12Data;
+
+// Each labelled singleton category has only identity higher cells.
+constant symbol TriangleHom01_cat : Cat;
+constant symbol TriangleHom12_cat : Cat;
+rule Obj TriangleHom01_cat ↪ TriangleEdge01;
+rule Obj TriangleHom12_cat ↪ TriangleEdge12;
+rule Hom_cat TriangleHom01_cat _ _ ↪ Terminal_cat;
+rule Hom_cat TriangleHom12_cat _ _ ↪ Terminal_cat;
+rule @id TriangleHom01_cat _ ↪ Terminal_obj;
+rule @id TriangleHom12_cat _ ↪ Terminal_obj;
+rule @comp_fapp0 TriangleHom01_cat _ _ _ _ _ ↪ Terminal_obj;
+rule @comp_fapp0 TriangleHom12_cat _ _ _ _ _ ↪ Terminal_obj;
+
+// Identity-action joins after a labelled singleton identity becomes the
+// terminal arrow token. Repeated endpoints retain the actual source object.
+// lhs-audit: keep 1 -- the labelled singleton is the actual functor source.
+rule @fapp1_fapp0 TriangleHom01_cat $C $F $x $x Terminal_obj
+  ↪ @id $C (@fapp0 TriangleHom01_cat $C $F $x);
+// lhs-audit: keep 1 -- the other labelled singleton has its own source carrier.
+rule @fapp1_fapp0 TriangleHom12_cat $C $F $x $x Terminal_obj
+  ↪ @id $C (@fapp0 TriangleHom12_cat $C $F $x);
+
+constant symbol HigherTriangle_cat : Cat;
+rule Obj HigherTriangle_cat ↪ TriangleVertices;
+rule Hom_cat HigherTriangle_cat $x $x ↪ Terminal_cat;
+rule Hom_cat HigherTriangle_cat triangle_v0 triangle_v1 ↪ TriangleHom01_cat;
+rule Hom_cat HigherTriangle_cat triangle_v1 triangle_v2 ↪ TriangleHom12_cat;
+rule Hom_cat HigherTriangle_cat triangle_v0 triangle_v2 ↪ WalkingArrow_cat;
+rule Hom_cat HigherTriangle_cat triangle_v1 triangle_v0 ↪ Path_cat Empty_grpd;
+rule Hom_cat HigherTriangle_cat triangle_v2 triangle_v0 ↪ Path_cat Empty_grpd;
+rule Hom_cat HigherTriangle_cat triangle_v2 triangle_v1 ↪ Path_cat Empty_grpd;
+
+// The sole nonidentity composable pair selects the source of the long Hom.
+rule @comp_fapp0 HigherTriangle_cat triangle_v0 triangle_v1 triangle_v2 _ _
+  ↪ walking_arrow_src;
+rule @comp_prod_func HigherTriangle_cat triangle_v0 triangle_v1 triangle_v2
+  ↪ @Const_func (Product_cat TriangleHom01_cat TriangleHom12_cat) WalkingArrow_cat walking_arrow_src;
+
+// Hom projection companions of this same constant composition functor.
+rule @comp_prod_fapp1_func HigherTriangle_cat triangle_v0 triangle_v1 triangle_v2 $p $q
+  ↪ @fapp1_func _ _
+      (@Const_func (Product_cat TriangleHom01_cat TriangleHom12_cat) WalkingArrow_cat walking_arrow_src) $p $q;
+rule @comp_prod_fapp1_fapp0 HigherTriangle_cat triangle_v0 triangle_v1 triangle_v2 $p $q $alpha
+  ↪ @fapp1_fapp0 _ _
+      (@Const_func (Product_cat TriangleHom01_cat TriangleHom12_cat) WalkingArrow_cat walking_arrow_src) $p $q $alpha;
+
+symbol triangle_e02 : τ (Hom HigherTriangle_cat triangle_v0 triangle_v2)
+≔ walking_arrow_tgt;
+symbol triangle_composite : τ (Hom HigherTriangle_cat triangle_v0 triangle_v2)
+≔ @comp_fapp0 HigherTriangle_cat triangle_v0 triangle_v1 triangle_v2 triangle_e12 triangle_e01;
+symbol triangle_kappa
+  : τ (Hom (Hom_cat HigherTriangle_cat triangle_v0 triangle_v2) triangle_composite triangle_e02)
+≔ walking_arrow_generator;
+
+// A source identity must not be accepted as either nonidentity short edge.
+assertnot ⊢ @id HigherTriangle_cat triangle_v1
+  : τ (Hom HigherTriangle_cat triangle_v0 triangle_v1);
+assertnot ⊢ triangle_e01 : τ (Hom HigherTriangle_cat triangle_v1 triangle_v2);
+assert ⊢ triangle_composite ≡ walking_arrow_src;
+assertnot ⊢ triangle_composite ≡ triangle_e02;
+
+// Existing path functoriality gives the unique map out of the empty Hom.
+symbol triangle_empty_func (C : Cat) : τ (Functor (Path_cat Empty_grpd) C)
+≔ @comp_cat_fapp0 (Path_cat Empty_grpd) (Path_cat (Obj C)) C
+    (Core_incl_func C)
+    (@path_map_func Empty_grpd (Obj C)
+      (λ e : τ Empty_grpd, @empty_elim (λ _ : τ Empty_grpd, Obj C) e));

@@ -1,0 +1,43 @@
+require open emdash.native_higher_triangle_family;
+
+symbol triangle_total_dual_comp_path [A B C : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B C))
+  : τ (@= (Functor (TotalOp_cat A) (TotalOp_cat C))
+      (@TotalOp_func A C (@comp_cat_fapp0 A B C G F))
+      (@comp_cat_fapp0 (TotalOp_cat A) (TotalOp_cat B) (TotalOp_cat C)
+        (@TotalOp_func B C G) (@TotalOp_func A B F)))
+≔ @eq_refl (Functor (TotalOp_cat A) (TotalOp_cat C))
+    (@TotalOp_func A C (@comp_cat_fapp0 A B C G F));
+
+// Both outgoing edges have the same whole initial-vertex functor.
+symbol triangle_edge_source_path [C : Cat]
+  (U : τ (Hom (Functor_cart_cat (Op_cat C) Cat_cart) (nerve_triangle_fibres C) (@PathOut_cat_func C)))
+  : τ (@= (Functor (nerve_native_triangle_cat C) C)
+      (@comp_cat_fapp0 (nerve_native_triangle_cat C) (LaxArrow_cat C) C
+        (cubical_src_func C) (@nerve_triangle_edge_total C U))
+      (nerve_triangle_vertex0_func C))
+≔ @eq_sym _ _ _
+    (@triangle_total_dual_comp_path
+      (@Sigma_cat (TotalOp_cat C) (nerve_triangle_dual_fibres C))
+      (@Sigma_cat (TotalOp_cat C) (@TotalOp_catd (Op_cat C) (@PathOut_cat_func C)))
+      (TotalOp_cat C)
+      (@sigma_map_func (TotalOp_cat C) (nerve_triangle_dual_fibres C)
+        (@TotalOp_catd (Op_cat C) (@PathOut_cat_func C))
+        (@strict_transfor _ _ _ _ (@TotalOp_funcd (Op_cat C) (nerve_triangle_fibres C) (@PathOut_cat_func C) U)))
+      (@Sigma_proj1_func (TotalOp_cat C) (@TotalOp_catd (Op_cat C) (@PathOut_cat_func C))));
+
+symbol triangle_vertex1_func (C : Cat) : τ (Functor (nerve_native_triangle_cat C) C)
+≔ @comp_cat_fapp0 _ _ _ (cubical_tgt_func C) (nerve_triangle_face01_func C);
+symbol triangle_vertex2_func (C : Cat) : τ (Functor (nerve_native_triangle_cat C) C)
+≔ @comp_cat_fapp0 _ _ _ (cubical_tgt_func C) (nerve_triangle_face02_func C);
+
+symbol triangle_face01_source_path (C : Cat)
+  : τ (@= (Functor (nerve_native_triangle_cat C) C)
+      (@comp_cat_fapp0 _ _ _ (cubical_src_func C) (nerve_triangle_face01_func C))
+      (nerve_triangle_vertex0_func C))
+≔ @triangle_edge_source_path C (nerve_triangle_first_edge_funcd C);
+symbol triangle_face02_source_path (C : Cat)
+  : τ (@= (Functor (nerve_native_triangle_cat C) C)
+      (@comp_cat_fapp0 _ _ _ (cubical_src_func C) (nerve_triangle_face02_func C))
+      (nerve_triangle_vertex0_func C))
+≔ @triangle_edge_source_path C (nerve_triangle_second_edge_funcd C);

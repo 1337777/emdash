@@ -16,7 +16,7 @@ constructions below. No unfinished inverse is supplied to make a skeleton pass.
 | Core | Present evidence | Decisive remaining feasibility slice |
 | --- | --- | --- |
 | Cubical | Whole native/geometric maps at every dimension; both zero inverses; variable-dimensional iterated-walking retraction; nonidentity higher-cell consumers. | Whole native walking reconstruction and mixed-evaluation/positive closure cancellation with the actual maps. |
-| Simplicial | Independent all-flags triangle total, whole varying-vertex family, three edge functors and an actual directed-interchanger consumer now check in isolation. | Genuine higher triangle shape and whole mapping comparisons; then qualify the uniform coefficient recursion/higher step. |
+| Simplicial | Independent all-flags triangle total and three edge functors; genuine higher triangle shape/recursor; whole K-family realization retaining lax edges and a directed modification; actual interchanger readback. | Whole native/geometric mapping comparisons using the native universal filler; then qualify the uniform coefficient recursion/higher step. |
 | Computational foundation | Installed corrected-duality Homd ladder and strict defaults; bounded whole-functor proof consumers. | Keep new core operations internal and usable; identify actual owner/profile gaps rather than count point checks. |
 
 Next implementation order:
@@ -25,8 +25,10 @@ Next implementation order:
    whole varying-vertex family. Its coefficient is explicitly structural;
    its Sigma total, edge projections and interchanger consumer are derived.
    The remaining canonical identity-square runtime observation stays recorded.
-2. Construct a genuine higher triangle shape and the corresponding whole
-   mapping/universality interface in both directions. Use the first real reconstruction/beta consumer to decide what
+2. Use the now checked genuine higher triangle shape and whole K-family
+   realizer to construct the mapping comparison with the native triangle in
+   both directions. Its object observation/recursor beta and whole diagram
+   readback pass; they are not yet the whole nerve inverse. Use the first real reconstruction/beta consumer to decide what
    is missing. Sketch the dimension-three and Nat-recursive continuation with
    assumptions and unresolved interfaces labelled.
 3. Return to the exact cubical walking/mixed-evaluator gaps, using their

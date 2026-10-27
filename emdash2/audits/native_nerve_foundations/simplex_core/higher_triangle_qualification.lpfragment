@@ -1,0 +1,35 @@
+require open emdash.native_higher_triangle_observation;
+
+// The genuine nonidentity composition, both whole and capped observations.
+assert ⊢ fapp0 (@comp_prod_func HigherTriangle_cat triangle_v0 triangle_v1 triangle_v2)
+    (@Product_pair TriangleHom01_cat TriangleHom12_cat triangle_e01 triangle_e12)
+  ≡ triangle_composite;
+assert ⊢ @comp_prod_fapp1_fapp0 HigherTriangle_cat triangle_v0 triangle_v1 triangle_v2
+    (@Product_pair TriangleHom01_cat TriangleHom12_cat triangle_e01 triangle_e12)
+    (@Product_pair TriangleHom01_cat TriangleHom12_cat triangle_e01 triangle_e12)
+    (@id (Product_cat TriangleHom01_cat TriangleHom12_cat)
+      (@Product_pair TriangleHom01_cat TriangleHom12_cat triangle_e01 triangle_e12))
+  ≡ @id WalkingArrow_cat walking_arrow_src;
+
+// A neutral source vertex retains the generic identity computation.
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02))
+  (v : τ TriangleVertices) ⊢
+  @fapp1_fapp0 HigherTriangle_cat C (@triangle_shape_rec C x0 x1 x2 p01 p02 p12 alpha)
+    v v (@id HigherTriangle_cat v)
+  ≡ @id C (@triangle_shape_image C x0 x1 x2 v);
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)) ⊢
+  @comp_fapp0 C x0 x1 x2
+    (@fapp1_fapp0 HigherTriangle_cat C (@triangle_shape_rec C x0 x1 x2 p01 p02 p12 alpha)
+      triangle_v1 triangle_v2 triangle_e12)
+    (@fapp1_fapp0 HigherTriangle_cat C (@triangle_shape_rec C x0 x1 x2 p01 p02 p12 alpha)
+      triangle_v0 triangle_v1 triangle_e01)
+  ≡ @fapp1_fapp0 HigherTriangle_cat C (@triangle_shape_rec C x0 x1 x2 p01 p02 p12 alpha)
+      triangle_v0 triangle_v2 triangle_composite;
+
+// Native observation retains the same directed concrete interchanger.
+assert ⊢ @triangle_shape_observe_object GrayWalkingSquare_cat triangle_interchanger_realization
+  ≡ nerve_interchanger_triangle;

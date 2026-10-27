@@ -41,9 +41,16 @@ faces are derived. The 44-input isolated check passes in 45.740s / 196,808 KiB.
 Two generic constructor/identity joins remain experimental, and a legacy
 literal identity-square reduction is explicitly pending.
 
-**Next construct the genuine higher triangle shape and its whole comparison
-maps.** Do not use the ordinary ordinal simplex for an arbitrary nonidentity
-filler. Then assess the uniform coefficient recursion/higher step and return
+The genuine higher triangle shape and stable whole-Hom recursor now check,
+with a derived K-family realizer retaining ordinary lax edge transformations
+and their original modification. Object observation/constructor beta and
+whole diagram readback pass in 76.099s / 279,792 KiB (57 inputs); this does not
+yet construct the whole native/geometric comparison. The audit retains its
+same-import warning baseline and explicit structural/derived boundary.
+
+**Next construct the whole native/geometric triangle comparison**, supplying
+the realizer with native universal edges and filler. Do not use the ordinary
+ordinal simplex for an arbitrary nonidentity filler. Then assess the uniform coefficient recursion/higher step and return
 to the exact cubical reconstruction gaps in bounded attempts. No inverse or
 higher-simplex universality is assumed by the new native total.
 

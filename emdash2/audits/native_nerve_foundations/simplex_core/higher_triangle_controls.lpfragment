@@ -1,0 +1,53 @@
+require open emdash.native_higher_triangle_recursion;
+require open emdash.native_simplex_triangle_consumer;
+
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)) ⊢
+  fapp0 (@triangle_shape_rec C x0 x1 x2 p01 p02 p12 alpha) triangle_v0 ≡ x0;
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)) ⊢
+  @fapp1_fapp0 HigherTriangle_cat C (@triangle_shape_rec C x0 x1 x2 p01 p02 p12 alpha)
+    triangle_v0 triangle_v1 triangle_e01 ≡ p01;
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)) ⊢
+  @fapp1_fapp0 HigherTriangle_cat C (@triangle_shape_rec C x0 x1 x2 p01 p02 p12 alpha)
+    triangle_v1 triangle_v2 triangle_e12 ≡ p12;
+
+// The whole long Hom is the existing walking-arrow functor on alpha.
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)) ⊢
+  @fapp1_func HigherTriangle_cat C (@triangle_shape_rec C x0 x1 x2 p01 p02 p12 alpha)
+    triangle_v0 triangle_v2
+  ≡ @walking_arrow_func (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02 alpha;
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)) ⊢
+  @fapp1_fapp0 _ _
+    (@fapp1_func HigherTriangle_cat C (@triangle_shape_rec C x0 x1 x2 p01 p02 p12 alpha)
+      triangle_v0 triangle_v2)
+    triangle_composite triangle_e02 triangle_kappa ≡ alpha;
+assertnot [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha beta : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)) ⊢
+  @fapp1_fapp0 _ _
+    (@fapp1_func HigherTriangle_cat C (@triangle_shape_rec C x0 x1 x2 p01 p02 p12 alpha)
+      triangle_v0 triangle_v2)
+    triangle_composite triangle_e02 triangle_kappa ≡ beta;
+
+// A concrete directed interchanger is a valid image of the shape's 2-cell.
+symbol triangle_interchanger_realization : τ (Functor HigherTriangle_cat GrayWalkingSquare_cat)
+≔ @triangle_shape_rec GrayWalkingSquare_cat gray_square_obj00 gray_square_obj10 gray_square_obj11
+    gray_square_outer_src_arrow gray_square_pre_composite gray_square_inner_tgt_arrow gray_interchanger_readable;
+assert ⊢ @fapp1_fapp0 _ _
+    (@fapp1_func HigherTriangle_cat GrayWalkingSquare_cat triangle_interchanger_realization triangle_v0 triangle_v2)
+    triangle_composite triangle_e02 triangle_kappa ≡ gray_interchanger_readable;
+
+// Identity tag erasure is qualified for both nominal singleton sources.
+assert [C : Cat] (F : τ (Functor TriangleHom01_cat C)) (x : τ TriangleEdge01) ⊢
+  @fapp1_fapp0 TriangleHom01_cat C F x x Terminal_obj ≡ @id C (fapp0 F x);
+assert [C : Cat] (F : τ (Functor TriangleHom12_cat C)) (x : τ TriangleEdge12) ⊢
+  @fapp1_fapp0 TriangleHom12_cat C F x x Terminal_obj ≡ @id C (fapp0 F x);

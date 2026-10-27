@@ -1,0 +1,47 @@
+/* Structural elimination from the explicit higher triangle. Whole Hom
+   projections use constants, the existing walking-arrow recursor, and empty
+   elimination. No reconstruction or nerve-inverse law is postulated. */
+require open emdash.native_higher_triangle_shape;
+
+symbol triangle_shape_image [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (v : τ TriangleVertices) : τ (Obj C)
+≔ @ind_TriangleVertexData (λ _ : TriangleVertexData, Obj C) x0 x1 x2 v;
+
+injective symbol triangle_shape_rec [C : Cat]
+  (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02))
+  : τ (Functor HigherTriangle_cat C);
+
+injective symbol triangle_shape_rec_hom [C : Cat]
+  (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02))
+  (a b : τ TriangleVertices)
+  : τ (Functor (Hom_cat HigherTriangle_cat a b)
+      (Hom_cat C (@triangle_shape_image C x0 x1 x2 a) (@triangle_shape_image C x0 x1 x2 b)));
+
+rule @fapp0 _ _ (@triangle_shape_rec $C $x0 $x1 $x2 _ _ _ _) $v
+  ↪ @triangle_shape_image $C $x0 $x1 $x2 $v;
+rule @fapp1_func _ _ (@triangle_shape_rec $C $x0 $x1 $x2 $p01 $p02 $p12 $alpha) $a $b
+  ↪ @triangle_shape_rec_hom $C $x0 $x1 $x2 $p01 $p02 $p12 $alpha $a $b;
+rule @fapp1_fapp0 _ _ (@triangle_shape_rec $C $x0 $x1 $x2 $p01 $p02 $p12 $alpha) $a $b $u
+  ↪ fapp0 (@triangle_shape_rec_hom $C $x0 $x1 $x2 $p01 $p02 $p12 $alpha $a $b) $u;
+
+// Endomorphism Homs are terminal, at every (also neutral) source vertex.
+rule @triangle_shape_rec_hom $C $x0 $x1 $x2 _ _ _ _ $a $a
+  ↪ @Const_func Terminal_cat
+      (Hom_cat $C (@triangle_shape_image $C $x0 $x1 $x2 $a) (@triangle_shape_image $C $x0 $x1 $x2 $a))
+      (@id $C (@triangle_shape_image $C $x0 $x1 $x2 $a));
+rule @triangle_shape_rec_hom $C $x0 $x1 _ $p01 _ _ _ triangle_v0 triangle_v1
+  ↪ @Const_func TriangleHom01_cat (Hom_cat $C $x0 $x1) $p01;
+rule @triangle_shape_rec_hom $C _ $x1 $x2 _ _ $p12 _ triangle_v1 triangle_v2
+  ↪ @Const_func TriangleHom12_cat (Hom_cat $C $x1 $x2) $p12;
+rule @triangle_shape_rec_hom $C $x0 $x1 $x2 $p01 $p02 $p12 $alpha triangle_v0 triangle_v2
+  ↪ @walking_arrow_func (Hom_cat $C $x0 $x2) (@comp_fapp0 $C $x0 $x1 $x2 $p12 $p01) $p02 $alpha;
+rule @triangle_shape_rec_hom $C $x0 $x1 _ _ _ _ _ triangle_v1 triangle_v0
+  ↪ triangle_empty_func (Hom_cat $C $x1 $x0);
+rule @triangle_shape_rec_hom $C $x0 _ $x2 _ _ _ _ triangle_v2 triangle_v0
+  ↪ triangle_empty_func (Hom_cat $C $x2 $x0);
+rule @triangle_shape_rec_hom $C _ $x1 $x2 _ _ _ _ triangle_v2 triangle_v1
+  ↪ triangle_empty_func (Hom_cat $C $x2 $x1);

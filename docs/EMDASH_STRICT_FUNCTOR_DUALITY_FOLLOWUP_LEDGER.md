@@ -11,14 +11,20 @@ History: [complete earlier ledger](EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER
 The [native all-flags triangle core](../emdash2/audits/native_nerve_foundations/simplex_core/README.md)
 now passes in an isolated 44-input scope, including whole edge projections
 and the actual directed interchanger. The new arrow coefficient is structural;
-its total and consumers are derived. The next task is the genuine higher
-triangle shape and whole comparison, not more cubical degeneracy work. The
+its total and consumers are derived. The genuine higher triangle shape,
+structural recursor and derived whole K-family realization now also pass
+(57 inputs, 76.099s / 279,792 KiB), retaining lax edge transformations and
+their modification. The next task is the whole native/geometric comparison:
+native universal edges/filler and both whole mapping directions, not more
+cubical degeneracy work. Object observation and whole diagram readback do
+not yet establish that comparison. The
 legacy literal identity-square reduction remains an explicit failed control,
 and core repairs/coefficient overlaps still need production qualification.
 
 User priority clarification, 2026-10-27: assess the core cubical and simplicial
 constructions before further face/degeneracy expansion. The native all-flags
-triangle now has its whole parameter action; the immediate next slice is its higher geometric shape and whole
+triangle has its whole parameter action and the higher shape has a whole
+family realizer; the immediate next slice connects them through actual whole
 mapping comparisons. Follow the [core-feasibility working order](EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md#working-order--core-feasibility-first).
 Existing face work is preserved; the [face-order attempt](../emdash2/audits/native_nerve_foundations/pending_face_order/README.md)
 is not adopted as a common-index interpretation. The wider obligations below
