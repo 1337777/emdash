@@ -31,26 +31,19 @@ and the native reverse inverse as required proof obligations. Raw nested higher 
 specialization limits remain documented promotion obligations; they must not
 become the sole next task. The new whole postcomposition is structural;
 no missing inverse or closure equivalence is supplied by the recursion.
-All inverse laws, same-index action and degeneracies remain required.
+The remaining inverse laws, same-index action and degeneracies remain required.
 
-The independent [degree-zero/all-degree continuation](../emdash2/audits/native_nerve_foundations/geometric_degree_zero_review.md)
-now supplies the actual encoder and decoder at every dimension, including
-zero. Its first zero round trip and whole parameter-family recovery pass;
-ordinary terminal-mapping eta already remains unproved before applying duality.
-The 69-input qualification passes in 108.523s / 615,940 KiB. Next review the
-whole unit/reconstruction contracts at their generic owners, alongside the
-mixed-evaluator equation. Do not substitute more pointwise readbacks or an
-assumed native inverse for these remaining whole requirements.
-
-The [intrinsic unit-normality continuation](../emdash2/audits/native_nerve_foundations/intrinsic_unit_normality_review.md)
-now qualifies identity-base computation through the original displayed-action
-ladder, including the extracted whole comparison. Its 73-input scope passes
-in 158.920s / 621,372 KiB at 300s / 2 GiB, with subject reduction and controls
-preserving nonidentity laxity. This is the conventional transformation unit
-law, not strict naturality or a new normality classifier. Production promotion
-and other erased-identity overlaps remain open. Next test terminal
-reconstruction through existing native equivalence/object-path structure and
-represented precomposition; no inverse or eta law is assumed.
+The [all-degree construction](../emdash2/audits/native_nerve_foundations/geometric_degree_zero_review.md)
+supplies actual encoder/decoder maps at every dimension. Intrinsic
+identity-base computation is qualified through the existing Homd ladder;
+it preserves nonidentity laxity and introduces no normality classifier.
+The [whole degree-zero equivalence](../emdash2/audits/native_nerve_foundations/terminal_inverse_review.md)
+is now derived with both inverse paths and the original encoder retained as
+inverse data. Its 78-input scope passes in 110.775s / 618,504 KiB. The proof
+uses existing terminal-valued equivalence/object-path structure and a generic
+constant-precomposition beta; no terminal eta or native inverse axiom is
+added. Production/warning qualification remains separate. Continue the
+positive-dimensional mixed-evaluator and native reconstruction obligations.
 
 The [actual moving-cell/map experiment](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
 has positive focused evidence, but its constant-family overlap and final
@@ -189,7 +182,7 @@ in scope until actually achieved or explicitly reassigned by the user.
 | Stage | Required outcome | Current next boundary |
 | --- | --- | --- |
 | NF-1 | Whole walking Observe/Realize with both actual inverses, original noninvertible filler and next-Hom action | Simultaneous moving-boundary comparison; native second inverse; owning qualification/promotion |
-| NF-2C | Whole variable-dimensional cube decoder and encoder, including degree zero | Wₙ/NCₙ whole maps and encode-after-decode are checked at variable n; geometric closure, reverse round trip, geometric zero and shift/face coherence remain. Retain bracketing and coordinate order. |
+| NF-2C | Whole variable-dimensional cube decoder and encoder, including degree zero | Wₙ/NCₙ whole maps and encode-after-decode check at variable n; both geometric zero inverse laws now check. Positive geometric closure, reverse round trip and face coherence remain. Retain bracketing and coordinate order. |
 | NF-3C | Native/geometric semicubical nerves on one face index | Whole inverse transformations and coherent face action |
 | NF-4C | Cubical degeneracies | Native/geometric identity insertion and all face/degeneracy relations |
 | NF-2S | Independent all-flags native simplexes and selected higher shapes | Moving vertices/flags, actual triangle/tetrahedron data, whole terminal-join/cone universality and inverses |

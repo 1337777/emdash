@@ -1,9 +1,15 @@
 # Geometric degree zero and all-degree cube maps
 
 Date: 2026-10-27
-Status: checked non-library all-degree maps and first zero round trip; whole terminal reconstruction remains open
+Status: checked non-library all-degree maps; both zero inverse laws now qualified by the linked continuation
 Owner: [native implementation outline](../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
 Evidence: [reverse replay extensions](reverse_verification.json)
+
+The [terminal reconstruction continuation](terminal_inverse_review.md) now
+proves the second whole zero inverse and retains the actual encoder as inverse
+data. The failed direct-reflexivity attempts below remain historical evidence;
+they are superseded by a derived proof using terminal-valued equivalences and
+a generic constant-precomposition beta, not by an eta axiom.
 
 ## Actual zero maps
 
@@ -26,7 +32,7 @@ unrelated replacement arrow is rejected. The first complete round trip
 constant/evaluation comparison below. It also recovers an arbitrary whole
 K-parameter family D:K→C after encoding and decoding.
 
-## Structural beta and unresolved eta
+## Structural beta and the earlier eta boundary
 
 The [generic whole comparison](constant_evaluation_beta.lpfragment) is
 
@@ -42,8 +48,8 @@ only to the constant-diagram constructor. Replacing that constructor with
 an arbitrary V:C→Cart(I,C) is rejected. There is no general terminal-source
 runtime eta or mapping-category identification.
 
-The opposite-profile reconstruction `e₀ ∘ d₀ ≐ id_G(Terminal,C)` remains
-unproved. The [isolated ordinary eta attempt](geometric_zero_eta_pending.lpfragment)
+At the original checkpoint, opposite-profile reconstruction
+`e₀ ∘ d₀ ≐ id_G(Terminal,C)` was unproved. The [isolated ordinary eta attempt](geometric_zero_eta_pending.lpfragment)
 also fails already at
 
 ```text

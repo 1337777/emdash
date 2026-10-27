@@ -1,0 +1,6 @@
+// Alternating dualities preserve the actual constant functor and its point.
+// Paired clauses keep the recursive whole Hom projections aligned.
+rule @OddDual_func _ _ (@Const_func $A $B $b)
+  ↪ @Const_func (OddDual_cat $A) (OddDual_cat $B) $b;
+rule @EvenDual_func _ _ (@Const_func $A $B $b)
+  ↪ @Const_func (EvenDual_cat $A) (EvenDual_cat $B) $b;

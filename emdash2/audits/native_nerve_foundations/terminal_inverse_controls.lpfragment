@@ -1,0 +1,62 @@
+require open emdash.native_geometric_zero_inverse;
+require open emdash.native_intrinsic_unit_noncollapse;
+
+// Selected actual inverses survive equivalence packaging.
+assert [C : Cat] ⊢
+  @omega_equiv_along_left_inv Cat_cat (nerve_geometric_zero_cat C) C
+    (nerve_geometric_zero_decode C) (nerve_geometric_zero_equivalence C)
+  ≡ nerve_geometric_zero_encode C;
+assert [C : Cat] ⊢
+  @omega_equiv_along_right_inv Cat_cat (nerve_geometric_zero_cat C) C
+    (nerve_geometric_zero_decode C) (nerve_geometric_zero_equivalence C)
+  ≡ nerve_geometric_zero_encode C;
+
+// Whole parameter-family recovery, without objectwise extensionality.
+symbol nerve_geometric_zero_family_reconstruction [K C : Cat]
+  (D : τ (Functor K (nerve_geometric_zero_cat C)))
+  : τ (@= (Functor K (nerve_geometric_zero_cat C))
+      (@comp_cat_fapp0 K (nerve_geometric_zero_cat C) (nerve_geometric_zero_cat C)
+        (@comp_cat_fapp0 (nerve_geometric_zero_cat C) C (nerve_geometric_zero_cat C)
+          (nerve_geometric_zero_encode C) (nerve_geometric_zero_decode C)) D)
+      D)
+≔ @eq_ap (Functor (nerve_geometric_zero_cat C) (nerve_geometric_zero_cat C))
+    (Functor K (nerve_geometric_zero_cat C))
+    (λ H : τ (Functor (nerve_geometric_zero_cat C) (nerve_geometric_zero_cat C)),
+      @comp_cat_fapp0 K (nerve_geometric_zero_cat C) (nerve_geometric_zero_cat C) H D)
+    _ _ (nerve_geometric_zero_encode_decode C);
+
+// The structural comparison retains the selected point, not any other b'.
+assertnot [A B C : Cat] (b c : τ (Obj B)) ⊢
+  @eq_refl (Functor (Functor_cat B C) (Functor_cat A C))
+    (@comp_cat_con_func A B C (@Const_func A B b))
+  : τ (@= (Functor (Functor_cat B C) (Functor_cat A C))
+      (@comp_cat_con_func A B C (@Const_func A B b))
+      (@comp_cat_fapp0 (Functor_cat B C) C (Functor_cat A C)
+        (@comp_cat_fapp0 C (Functor_cart_cat A C) (Functor_cat A C)
+          (Functor_cart_include A C) (@Const_func_func A C))
+        (@fapp0_func B C c)));
+
+// Odd/Even constant rules join both projection orders through the next Hom.
+assert [A B : Cat] (b : τ (Obj B)) (x y : τ (Obj A)) ⊢
+  @fapp1_func _ _ (@OddDual_func A B (@Const_func A B b)) x y
+  ≡ @EvenDual_func _ _ (@fapp1_func A B (@Const_func A B b) y x);
+assert [A B : Cat] (b : τ (Obj B)) (x y : τ (Obj A)) ⊢
+  @fapp1_func _ _ (@EvenDual_func A B (@Const_func A B b)) x y
+  ≡ @OddDual_func _ _ (@fapp1_func A B (@Const_func A B b) x y);
+assert [A B : Cat] (b : τ (Obj B)) ⊢
+  @OddDual_func _ _ (@OddDual_func A B (@Const_func A B b)) ≡ @Const_func A B b;
+assert [A B : Cat] (b : τ (Obj B)) ⊢
+  @EvenDual_func _ _ (@EvenDual_func A B (@Const_func A B b)) ≡ @Const_func A B b;
+
+// Constant prewhiskering retains the actual component of a lax transfor.
+assert [A B C : Cat] (b : τ (Obj B)) (a : τ (Obj A))
+  (F G : τ (Functor B C)) (e : τ (@Transf B C F G)) ⊢
+  @tapp0_fapp0 A C _ _ a
+    (@fapp1_fapp0 _ _ (@comp_cat_con_func A B C (@Const_func A B b)) F G e)
+  ≡ @tapp0_fapp0 B C F G b e;
+assertnot [A B C : Cat] (b : τ (Obj B)) (a : τ (Obj A))
+  (F G : τ (Functor B C)) (e : τ (@Transf B C F G))
+  (q : τ (Hom C (fapp0 F b) (fapp0 G b))) ⊢
+  @tapp0_fapp0 A C _ _ a
+    (@fapp1_fapp0 _ _ (@comp_cat_con_func A B C (@Const_func A B b)) F G e)
+  ≡ q;

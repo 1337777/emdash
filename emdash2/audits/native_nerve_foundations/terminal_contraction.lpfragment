@@ -1,0 +1,39 @@
+/* Actual equivalence between terminal-valued functors, then the existing
+   native equivalence/object-path view. No mapping eta axiom. */
+require open emdash.native_transfor_unit_review;
+require open emdash.emdash3_2_nat_arithmetic;
+
+symbol nerve_terminal_valued_along [A : Cat]
+  (F G : τ (Functor A Terminal_cat))
+  : τ (@OmegaEquivAlong (Functor_cat A Terminal_cat) F G Terminal_obj)
+≔ @omega_equiv_along_intro (Functor_cat A Terminal_cat) F G Terminal_obj
+    Terminal_obj Terminal_obj
+    (@contractible_path_center Unit_grpd unit_is_contr
+      (@comp_fapp0 (Functor_cat A Terminal_cat) F G F Terminal_obj Terminal_obj)
+      (@id (Functor_cat A Terminal_cat) F))
+    (@contractible_path_center Unit_grpd unit_is_contr
+      (@comp_fapp0 (Functor_cat A Terminal_cat) G F G Terminal_obj Terminal_obj)
+      (@id (Functor_cat A Terminal_cat) G));
+
+symbol nerve_terminal_valued_path [A : Cat]
+  (F G : τ (Functor A Terminal_cat))
+  : τ (@= (Functor A Terminal_cat) F G)
+≔ @omega_cast_to_object_path (Functor_cat A Terminal_cat) F G
+    (@omega_equiv_pack (Functor_cat A Terminal_cat) F G Terminal_obj
+      (@nerve_terminal_valued_along A F G));
+
+symbol nerve_terminal_contraction
+  : τ (@= (Functor Terminal_cat Terminal_cat)
+      (@Const_func Terminal_cat Terminal_cat Terminal_obj) (@id_func Terminal_cat))
+≔ @nerve_terminal_valued_path Terminal_cat
+    (@Const_func Terminal_cat Terminal_cat Terminal_obj) (@id_func Terminal_cat);
+
+symbol nerve_terminal_precompose_contraction (C : Cat)
+  : τ (@= (Functor (Functor_cat Terminal_cat C) (Functor_cat Terminal_cat C))
+      (@comp_cat_con_func Terminal_cat Terminal_cat C
+        (@Const_func Terminal_cat Terminal_cat Terminal_obj))
+      (@id_func (Functor_cat Terminal_cat C)))
+≔ @eq_ap (Functor Terminal_cat Terminal_cat)
+    (Functor (Functor_cat Terminal_cat C) (Functor_cat Terminal_cat C))
+    (λ H : τ (Functor Terminal_cat Terminal_cat), @comp_cat_con_func Terminal_cat Terminal_cat C H)
+    _ _ nerve_terminal_contraction;

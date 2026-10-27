@@ -1,0 +1,12 @@
+// Precomposition by a constant shape is evaluation followed by ordinary
+// weakening. This is a whole structural beta, not terminal-source eta.
+// Both the source shape and selected point survive the comparison.
+// lhs-audit: keep 1,2,3 -- ordinary Cat identity-family precomposition is the selected owner.
+unif_rule
+  @hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+    $C $A $B (@Const_func _ _ $b)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _
+        (Functor_cart_include $A1 $C1) (@Const_func_func $A1 $C1))
+      (@fapp0_func $B1 $C1 $b1)
+  ↪ [ $A1 ≡ $A; $B1 ≡ $B; $C1 ≡ $C; $b1 ≡ $b ];

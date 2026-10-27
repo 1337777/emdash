@@ -35,10 +35,13 @@ The [65-input reindexing/reflection extension](../emdash2/audits/native_nerve_fo
 now identifies the exact universal-evaluation equation needed for the first
 exchange inverse. That equation has no proved inhabitant; the checked
 reduction does not close the inverse gate.
-The [degree-zero continuation](../emdash2/audits/native_nerve_foundations/geometric_degree_zero_review.md)
-now integrates actual maps at every dimension, with a proved first zero
-round trip. Whole terminal reconstruction is still open already in the
-ordinary mapping profile; this is not labelled a completed NF-2C equivalence.
+The [whole degree-zero equivalence](../emdash2/audits/native_nerve_foundations/terminal_inverse_review.md)
+is now derived with both inverse paths and the original encoder retained as
+inverse data. Its 78-input scope passes in 110.775s / 618,504 KiB. The proof
+uses existing terminal-valued equivalence/object-path structure and a generic
+constant-precomposition beta; no terminal eta or native inverse axiom is
+added. Production/warning qualification remains separate. Continue the
+positive-dimensional mixed-evaluator and native reconstruction obligations.
 The raw nested higher-projection and Cat_cart specialization limits are
 recorded promotion obligations, not reasons to stop the broader construction.
 The actual moving-action experiment is preserved separately with its unfinished
@@ -47,14 +50,8 @@ references, plan consolidation and book/article stage remain complete; later
 frontend/health integration stays separate.
 
 The [intrinsic unit-normality continuation](../emdash2/audits/native_nerve_foundations/intrinsic_unit_normality_review.md)
-now qualifies identity-base computation through the original displayed-action
-ladder, including the extracted whole comparison. Its 73-input scope passes
-in 158.920s / 621,372 KiB at 300s / 2 GiB, with subject reduction and controls
-preserving nonidentity laxity. This is the conventional transformation unit
-law, not strict naturality or a new normality classifier. Production promotion
-and other erased-identity overlaps remain open. Next test terminal
-reconstruction through existing native equivalence/object-path structure and
-represented precomposition; no inverse or eta law is assumed.
+qualifies identity-base computation while preserving nonidentity laxity.
+Broader erased-identity overlaps and production qualification remain open.
 
 The dated entries below are evidence chronology, newest first. An older
 “next,” “open” or “not yet” statement is superseded by the current parent and

@@ -98,7 +98,7 @@ actual whole closure establishes a necessary correction.
 | Walking-first closure | `λₙ:GCₙ₊₁(C) ⇄ G(Qₙ,G_I(C)):ρₙ` | Both maps are constructed. Reverse ρ uses mixed exchange and existing right uncurry; neither inverse law is assumed. Whole exchange cancellation and closure laws remain open. |
 | Repeated currying | `cₙ:GCₙ(C) ⇄ Wₙ(C):uₙ` | Both recursions check at every positive dimension. The iteration-shift inverses are derived; c/u inverse laws still depend on closure. |
 | Geometric/native maps | `Dₙ=dₙ∘cₙ`, `Eₙ=uₙ∘eₙ` in positive degrees; actual terminal maps at zero | Both maps are now implemented at every n, with whole Hom action. Their inverse laws remain required. No primitive equivalence is introduced. |
-| Geometric degree zero | `Functor_oplax_cat(Terminal,C) ⇄ C` | Actual evaluation/constant maps and the first whole round trip check. Whole terminal-diagram reconstruction remains open, already at the ordinary mapping profile. |
+| Geometric degree zero | `Functor_oplax_cat(Terminal,C) ⇄ C` | Actual evaluation/constant maps now have both derived whole inverse paths with retained inverse data. Production and warning qualification remain separate. |
 | Common face index | Both nerves over the existing selected augmented cube index | Establish whole restriction/shape action and natural comparison, with original coordinate order. |
 | Degeneracies | Extend the same two diagrams by identity insertion | Face-degeneracy and degeneracy-degeneracy laws, and compatibility of D/E with them. |
 
@@ -167,8 +167,8 @@ Hom action and parameter-owner interactions pass together in 97.488s /
 retain the new rules, failed alternatives and warning boundaries.
 
 The reverse closure map and encoder are now constructed as described below.
-Both closure round trips, geometric degree zero and the native second inverse
-remain required. Do not substitute the Cartesian
+Both positive-dimensional closure round trips and the native second inverse
+remain open; the later degree-zero proof below is now checked. Do not substitute the Cartesian
 joint-composition/admission route retained in the legacy donor or let either
 local normalization limit become the sole continuation.
 
@@ -220,8 +220,8 @@ and no operational map takes an equality argument. Next derive this
 compatibility, both exchange cancellations and the closure inverse laws,
 then use them in the cube recursions. The existing walking first
 round trip can support one geometric inverse independently of the second
-walking inverse. Preserve the latter, degree zero, same-index action and
-degeneracies as requirements. The [replay record](../emdash2/audits/native_nerve_foundations/reverse_verification.json)
+walking inverse. Preserve the latter, the checked degree-zero maps/inverses,
+and the remaining same-index action and degeneracy requirements. The [replay record](../emdash2/audits/native_nerve_foundations/reverse_verification.json)
 separates the passing constructions from the pending inverse attempt.
 
 ## Degree zero and the uniform dimension interface
@@ -230,8 +230,12 @@ The [zero construction](../emdash2/audits/native_nerve_foundations/geometric_deg
 uses actual evaluation and constant-diagram maps G(Terminal,C)⇄C. Their first
 whole round trip is derived from the structural constant/evaluation beta and
 OddDual composition. It also recovers whole arbitrary parameter families.
-The opposite-profile reconstruction remains open; a separate ordinary
-terminal-mapping eta attempt fails before duality is involved.
+The [terminal reconstruction](../emdash2/audits/native_nerve_foundations/terminal_inverse_review.md)
+now proves the reverse whole round trip using actual terminal-valued
+equivalence data, the existing object-path view and a structural
+constant-precomposition beta. The original direct-reflexivity attempt remains
+failed evidence; no eta axiom replaces it. The final 78-input scope passes in
+110.775s / 618,504 KiB, including whole K-family reconstruction.
 
 The complete index family and maps are now internal Nat eliminations:
 
@@ -244,19 +248,16 @@ Encodeₙ : CubicalLevel(C,n) → G(Shapeₙ,C).
 The zero/successor equations and variable-n whole Hom actions pass in the
 69-input qualification (108.523s / 615,940 KiB). This is dimension indexing,
 not yet a common-index nerve equivalence. No tensor unit comparison or
-mapping-category identification is assumed. Review the retained unit action
-and whole generic reconstruction interfaces before strengthening any eta
-contract; preserve the independent mixed-evaluator and native inverse goals.
+mapping-category identification is assumed. The new whole zero proof uses
+these same maps. Preserve the independent mixed-evaluator and native inverse
+goals; neither follows from the zero case.
 
 The [intrinsic unit-normality continuation](../emdash2/audits/native_nerve_foundations/intrinsic_unit_normality_review.md)
-now qualifies identity-base computation through the original displayed-action
-ladder, including the extracted whole comparison. Its 73-input scope passes
-in 158.920s / 621,372 KiB at 300s / 2 GiB, with subject reduction and controls
-preserving nonidentity laxity. This is the conventional transformation unit
-law, not strict naturality or a new normality classifier. Production promotion
-and other erased-identity overlaps remain open. Next test terminal
-reconstruction through existing native equivalence/object-path structure and
-represented precomposition; no inverse or eta law is assumed.
+qualifies identity-base computation through the existing Homd ladder while
+preserving nonidentity laxity. Broader erased-identity overlap qualification
+and production promotion remain open. The zero inverse proof is now checked;
+next return to positive-dimensional mixed-evaluator compatibility and native
+whole-section reconstruction, keeping the independent branch below in scope.
 
 ## Independent simplicial branch
 

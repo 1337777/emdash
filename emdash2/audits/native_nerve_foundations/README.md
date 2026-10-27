@@ -4,6 +4,17 @@ Status: non-library NF-1 reconstruction and NF-2C cube construction on the corre
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
+## Whole geometric degree-zero equivalence
+
+The [terminal reconstruction](terminal_inverse_review.md) proves both whole
+inverse laws for the existing zero encoder/decoder and retains the actual
+encoder as inverse data. The 78-input scope passes in 110.775s / 618,504 KiB
+with subject reduction. The proof uses existing terminal-valued equivalence
+and object-path structure plus a generic constant-precomposition beta; no
+terminal eta axiom, category identification or operational proof payload is
+added. Positive-dimensional closure and the native walking inverse remain
+open. `terminal-inverse` replays this precise isolated boundary.
+
 ## Intrinsic unit computation
 
 The [unit-normality review](intrinsic_unit_normality_review.md) qualifies the
@@ -20,8 +31,8 @@ The [degree-zero continuation](geometric_degree_zero_review.md) now combines
 actual terminal evaluation/constants with the positive recursion. Whole
 encoder and decoder maps exist at every degree, with whole Hom action at a
 variable dimension. The first zero round trip and whole parameter-family
-recovery pass; reverse terminal reconstruction remains open already in the
-ordinary mapping profile.
+recovery pass. The subsequent whole terminal reconstruction is qualified
+above; positive inverse laws and same-index action remain open.
 
 The final **69-input** qualification passes in **108.523s / 615,940 KiB**.
 `zero`, `all-degrees`, and `zero-eta-pending` replay modes retain the positive

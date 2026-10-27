@@ -79,9 +79,8 @@ profile or manuscript artifact is promoted here.
 ## Remaining reconstruction
 
 Unit normality alone does not prove terminal-diagram eta, mixed-exchange
-cancellation or the native walking inverse. Those obligations remain open.
-The next candidate for terminal reconstruction uses actual omega-equivalence
-data between terminal-valued functors, the existing equivalence-to-object-path
-interface, and precomposition. Its required constant-precomposition
-computation still needs qualification; no such reconstruction theorem is
-claimed by this unit checkpoint.
+cancellation or the native walking inverse. The subsequent
+[terminal reconstruction](terminal_inverse_review.md) now derives the zero
+inverse using actual omega-equivalence data, the existing object-path view,
+and a generic whole constant-precomposition beta. Mixed-exchange cancellation
+and native walking reconstruction remain open.

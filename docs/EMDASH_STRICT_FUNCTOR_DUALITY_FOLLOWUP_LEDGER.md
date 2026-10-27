@@ -24,7 +24,7 @@ postcomposition owner is structural; the geometric maps are derived from it.
 The [reverse whole maps and recursive encoder](../emdash2/audits/native_nerve_foundations/reverse_review.md)
 now check with whole-family readbacks in a 61-input scope. No reverse map or
 inverse law is postulated. Whole mixed-exchange cancellation and geometric
-inverse laws, geometric degree zero, same-index action and degeneracies remain
+inverse laws in positive degrees, same-index action and degeneracies remain
 required. The [whole reindexing/reflection extension](../emdash2/audits/native_nerve_foundations/exchange_cancellation_review.md)
 reduces the first exchange inverse to a specific universal-evaluation equation;
 the direct proof of that equation fails and remains open. Its implication
@@ -34,22 +34,13 @@ resolve their needed contracts before promotion without making them the sole
 continuation. The native whole-section equation and second inverse remain
 required and are not replaced by these independent map definitions.
 
-The [all-degree geometric maps](../emdash2/audits/native_nerve_foundations/geometric_degree_zero_review.md)
-now include actual terminal-diagram evaluation/constants at degree zero.
-The first zero round trip is proved using an explicit structural
-constant/evaluation beta; whole terminal reconstruction still fails its
-ordinary eta check. Thus map formation covers every degree, while zero and
-positive inverse qualification remain separate open requirements.
-
-The [intrinsic unit-normality continuation](../emdash2/audits/native_nerve_foundations/intrinsic_unit_normality_review.md)
-now qualifies identity-base computation through the original displayed-action
-ladder, including the extracted whole comparison. Its 73-input scope passes
-in 158.920s / 621,372 KiB at 300s / 2 GiB, with subject reduction and controls
-preserving nonidentity laxity. This is the conventional transformation unit
-law, not strict naturality or a new normality classifier. Production promotion
-and other erased-identity overlaps remain open. Next test terminal
-reconstruction through existing native equivalence/object-path structure and
-represented precomposition; no inverse or eta law is assumed.
+The [whole degree-zero equivalence](../emdash2/audits/native_nerve_foundations/terminal_inverse_review.md)
+is now derived with both inverse paths and the original encoder retained as
+inverse data. Its 78-input scope passes in 110.775s / 618,504 KiB. The proof
+uses existing terminal-valued equivalence/object-path structure and a generic
+constant-precomposition beta; no terminal eta or native inverse axiom is
+added. Production/warning qualification remains separate. Continue the
+positive-dimensional mixed-evaluator and native reconstruction obligations.
 
 The [actual moving-action recovery](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
 preserves its focused progress and pending overlap/full-integration boundary.

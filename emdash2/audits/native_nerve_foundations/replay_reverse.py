@@ -26,7 +26,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     modes = ('maps', 'readback', 'qualification', 'inverse-review', 'reindex',
              'reflection', 'evaluation-pending', 'zero', 'all-degrees', 'zero-eta-pending',
-             'unit-owners', 'unit-normality')
+             'unit-owners', 'unit-normality', 'terminal-contraction',
+             'constant-precomposition-pending', 'terminal-inverse')
     parser.add_argument('--mode', choices=modes, default='qualification')
     parser.add_argument('--assemble-only', action='store_true')
     args = parser.parse_args()
@@ -42,6 +43,11 @@ def main() -> int:
         raise SystemExit('parent replay did not report its exact package')
     package = Path(match.group(1))
     mode = record['modes'][args.mode]
+    for source in mode.get('extraSourceCopies', []):
+        origin = ROOT / source['source']
+        if digest(origin) != source['sha256']:
+            raise SystemExit(f'extra source drift: {source["source"]}')
+        (package / source['target']).write_bytes(origin.read_bytes())
     for insertion in record['ownerInsertions'] + mode.get('extraOwnerInsertions', []):
         owner = package / insertion['owner']
         if digest(owner) != insertion['parentSha256']:
