@@ -1,0 +1,72 @@
+/* Complete dimension indexing of the actual geometric/native maps.
+   Whole inverse laws remain separate from map formation. */
+require open emdash.native_geometric_zero;
+require open emdash.native_mixed_cancel_reduction;
+
+// Independent geometric shapes: terminal in degree zero, the existing
+// fixed-bracketing positive Gray cubes in every successor degree.
+symbol nerve_geometric_shape_cat (n : τ Nat_grpd) : Cat
+≔ @nat_elim (λ _ : τ Nat_grpd, Obj Cat_cat) Terminal_cat
+    (λ k : τ Nat_grpd, λ _ : Cat, @GrayCubePos_R k) n;
+
+symbol nerve_geometric_cube_cat (C : Cat) (n : τ Nat_grpd) : Cat
+≔ Functor_oplax_cat (nerve_geometric_shape_cat n) C;
+
+symbol nerve_geometric_cube_decode (C : Cat) (n : τ Nat_grpd)
+  : τ (Functor (nerve_geometric_cube_cat C n) (@CubicalLevel_cat C n))
+≔ @nat_elim
+    (λ k : τ Nat_grpd, Functor (nerve_geometric_cube_cat C k) (@CubicalLevel_cat C k))
+    (nerve_geometric_zero_decode C)
+    (λ k : τ Nat_grpd,
+      λ _ : τ (Functor (nerve_geometric_cube_cat C k) (@CubicalLevel_cat C k)),
+      nerve_geometric_positive_decode C k) n;
+
+symbol nerve_geometric_cube_encode (C : Cat) (n : τ Nat_grpd)
+  : τ (Functor (@CubicalLevel_cat C n) (nerve_geometric_cube_cat C n))
+≔ @nat_elim
+    (λ k : τ Nat_grpd, Functor (@CubicalLevel_cat C k) (nerve_geometric_cube_cat C k))
+    (nerve_geometric_zero_encode C)
+    (λ k : τ Nat_grpd,
+      λ _ : τ (Functor (@CubicalLevel_cat C k) (nerve_geometric_cube_cat C k)),
+      nerve_geometric_positive_encode C k) n;
+
+assert [C : Cat] ⊢ nerve_geometric_cube_decode C zero ≡ nerve_geometric_zero_decode C;
+assert [C : Cat] ⊢ nerve_geometric_cube_encode C zero ≡ nerve_geometric_zero_encode C;
+assert [C : Cat] (n : τ Nat_grpd) ⊢ nerve_geometric_cube_decode C (succ n) ≡ nerve_geometric_positive_decode C n;
+assert [C : Cat] (n : τ Nat_grpd) ⊢ nerve_geometric_cube_encode C (succ n) ≡ nerve_geometric_positive_encode C n;
+
+// Whole Hom action at a variable dimension, in each direction.
+symbol nerve_geometric_cube_decode_hom [C : Cat] (n : τ Nat_grpd)
+  (D E : τ (Obj (nerve_geometric_cube_cat C n)))
+  : τ (Functor (Hom_cat (nerve_geometric_cube_cat C n) D E)
+      (Hom_cat (@CubicalLevel_cat C n)
+        (fapp0 (nerve_geometric_cube_decode C n) D) (fapp0 (nerve_geometric_cube_decode C n) E)))
+≔ @fapp1_func _ _ (nerve_geometric_cube_decode C n) D E;
+symbol nerve_geometric_cube_encode_hom [C : Cat] (n : τ Nat_grpd)
+  (x y : τ (Obj (@CubicalLevel_cat C n)))
+  : τ (Functor (Hom_cat (@CubicalLevel_cat C n) x y)
+      (Hom_cat (nerve_geometric_cube_cat C n)
+        (fapp0 (nerve_geometric_cube_encode C n) x) (fapp0 (nerve_geometric_cube_encode C n) y)))
+≔ @fapp1_func _ _ (nerve_geometric_cube_encode C n) x y;
+
+// The proved zero retraction retains an entire arbitrary parameter family.
+symbol nerve_geometric_zero_family_retraction [K C : Cat] (D : τ (Functor K C))
+  : τ (@= (Functor K C)
+      (@comp_cat_fapp0 K C C
+        (@comp_cat_fapp0 C (nerve_geometric_zero_cat C) C
+          (nerve_geometric_zero_decode C) (nerve_geometric_zero_encode C)) D) D)
+≔ @eq_ap (Functor C C) (Functor K C)
+    (λ H : τ (Functor C C), @comp_cat_fapp0 K C C H D)
+    _ _ (nerve_geometric_zero_decode_encode C);
+
+// Only the actual constant-family constructor receives the whole beta.
+assertnot [I C : Cat] (i : τ (Obj I))
+  (V : τ (Functor C (Functor_cart_cat I C))) ⊢
+  @eq_refl (Functor C C)
+    (@comp_cat_fapp0 C (Functor_cat I C) C (@fapp0_func I C i)
+      (@comp_cat_fapp0 C (Functor_cart_cat I C) (Functor_cat I C)
+        (Functor_cart_include I C) V))
+  : τ (@= (Functor C C)
+    (@comp_cat_fapp0 C (Functor_cat I C) C (@fapp0_func I C i)
+      (@comp_cat_fapp0 C (Functor_cart_cat I C) (Functor_cat I C)
+        (Functor_cart_include I C) V)) (@id_func C));

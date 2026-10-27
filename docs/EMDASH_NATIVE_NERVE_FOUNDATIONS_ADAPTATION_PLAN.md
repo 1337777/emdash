@@ -35,6 +35,10 @@ The [65-input reindexing/reflection extension](../emdash2/audits/native_nerve_fo
 now identifies the exact universal-evaluation equation needed for the first
 exchange inverse. That equation has no proved inhabitant; the checked
 reduction does not close the inverse gate.
+The [degree-zero continuation](../emdash2/audits/native_nerve_foundations/geometric_degree_zero_review.md)
+now integrates actual maps at every dimension, with a proved first zero
+round trip. Whole terminal reconstruction is still open already in the
+ordinary mapping profile; this is not labelled a completed NF-2C equivalence.
 The raw nested higher-projection and Cat_cart specialization limits are
 recorded promotion obligations, not reasons to stop the broader construction.
 The actual moving-action experiment is preserved separately with its unfinished

@@ -1,0 +1,64 @@
+/* Geometric degree zero: actual evaluation/constant maps. No unit-category
+   equality, tensor unit comparison or whole inverse is assumed. */
+require open emdash.native_lift_composition_staged;
+
+symbol nerve_geometric_zero_cat (C : Cat) : Cat
+≔ Functor_oplax_cat Terminal_cat C;
+
+symbol nerve_geometric_zero_decode (C : Cat)
+  : τ (Functor (nerve_geometric_zero_cat C) C)
+≔ @diagram_oplax_evaluation_at_func Terminal_cat C Terminal_obj;
+
+// Keep the actual encoded terminal source; OddDual(1)=1 is not assumed.
+symbol nerve_geometric_zero_encode (C : Cat)
+  : τ (Functor C (nerve_geometric_zero_cat C))
+≔ @OddDual_func (OddDual_cat C)
+    (Functor_cat (OddDual_cat Terminal_cat) (OddDual_cat C))
+    (@comp_cat_fapp0 (OddDual_cat C)
+      (Functor_cart_cat (OddDual_cat Terminal_cat) (OddDual_cat C))
+      (Functor_cat (OddDual_cat Terminal_cat) (OddDual_cat C))
+      (Functor_cart_include (OddDual_cat Terminal_cat) (OddDual_cat C))
+      (@Const_func_func (OddDual_cat Terminal_cat) (OddDual_cat C)));
+
+assert [C : Cat] (x : τ (Obj C)) ⊢
+  fapp0 (nerve_geometric_zero_decode C) (fapp0 (nerve_geometric_zero_encode C) x) ≡ x;
+
+// Preserve a general nonidentity arrow through the two actual map actions.
+assert [C : Cat] (x y : τ (Obj C)) (p : τ (Hom C x y)) ⊢
+  @fapp1_fapp0 (nerve_geometric_zero_cat C) C (nerve_geometric_zero_decode C)
+    (fapp0 (nerve_geometric_zero_encode C) x) (fapp0 (nerve_geometric_zero_encode C) y)
+    (@fapp1_fapp0 C (nerve_geometric_zero_cat C) (nerve_geometric_zero_encode C) x y p)
+  ≡ p;
+assertnot [C : Cat] (x y : τ (Obj C)) (p q : τ (Hom C x y)) ⊢
+  @fapp1_fapp0 (nerve_geometric_zero_cat C) C (nerve_geometric_zero_decode C)
+    (fapp0 (nerve_geometric_zero_encode C) x) (fapp0 (nerve_geometric_zero_encode C) y)
+    (@fapp1_fapp0 C (nerve_geometric_zero_cat C) (nerve_geometric_zero_encode C) x y p)
+  ≡ q;
+
+// First inspect the generic whole evaluation/constant beta needed by degree
+// zero. Its point and arrow equations alone are not a whole inverse proof.
+symbol nerve_eval_const_path [I C : Cat] (i : τ (Obj I))
+  : τ (@= (Functor C C)
+      (@comp_cat_fapp0 C (Functor_cat I C) C (@fapp0_func I C i)
+        (@comp_cat_fapp0 C (Functor_cart_cat I C) (Functor_cat I C)
+          (Functor_cart_include I C) (@Const_func_func I C)))
+      (@id_func C))
+≔ @eq_refl _ _;
+
+// The first geometric zero round trip is a derived OddDual image of beta.
+symbol nerve_geometric_zero_decode_encode (C : Cat)
+  : τ (@= (Functor C C)
+    (@comp_cat_fapp0 C (nerve_geometric_zero_cat C) C
+      (nerve_geometric_zero_decode C) (nerve_geometric_zero_encode C))
+    (@id_func C))
+≔ @eq_trans _ _ _ _
+    (@eq_sym _ _ _ (@nerve_odd_comp_path _ _ _
+      (@comp_cat_fapp0 (OddDual_cat C)
+        (Functor_cart_cat (OddDual_cat Terminal_cat) (OddDual_cat C))
+        (Functor_cat (OddDual_cat Terminal_cat) (OddDual_cat C))
+        (Functor_cart_include (OddDual_cat Terminal_cat) (OddDual_cat C))
+        (@Const_func_func (OddDual_cat Terminal_cat) (OddDual_cat C)))
+      (@fapp0_func (OddDual_cat Terminal_cat) (OddDual_cat C) Terminal_obj)))
+    (@eq_ap (Functor (OddDual_cat C) (OddDual_cat C)) (Functor C C)
+      (λ H : τ (Functor (OddDual_cat C) (OddDual_cat C)), @OddDual_func _ _ H)
+      _ _ (@nerve_eval_const_path (OddDual_cat Terminal_cat) (OddDual_cat C) Terminal_obj));

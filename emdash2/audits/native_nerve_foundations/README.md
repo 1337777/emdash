@@ -4,6 +4,20 @@ Status: non-library NF-1 reconstruction and NF-2C cube construction on the corre
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
+## Geometric maps in every dimension
+
+The [degree-zero continuation](geometric_degree_zero_review.md) now combines
+actual terminal evaluation/constants with the positive recursion. Whole
+encoder and decoder maps exist at every degree, with whole Hom action at a
+variable dimension. The first zero round trip and whole parameter-family
+recovery pass; reverse terminal reconstruction remains open already in the
+ordinary mapping profile.
+
+The final **69-input** qualification passes in **108.523s / 615,940 KiB**.
+`zero`, `all-degrees`, and `zero-eta-pending` replay modes retain the positive
+and failed scopes separately. This extends map formation; it does not close
+the inverse, common-index or degeneracy requirements below.
+
 ## Whole reindexing and the remaining exchange equation
 
 The [reindexing/reflection extension](exchange_cancellation_review.md) checks

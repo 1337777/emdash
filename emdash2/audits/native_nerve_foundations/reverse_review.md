@@ -122,6 +122,9 @@ their own source boundaries, not silently marked resolved here.
 The later [reindexing/reflection extension](exchange_cancellation_review.md)
 records the current proof reduction and its still-unproved universal-evaluation
 equation. It does not upgrade the map-formation checkpoint to an equivalence.
+The subsequent [degree-zero continuation](geometric_degree_zero_review.md)
+extends map formation to every dimension, while retaining the separate
+whole terminal-reconstruction obligation.
 
 ## Qualification
 

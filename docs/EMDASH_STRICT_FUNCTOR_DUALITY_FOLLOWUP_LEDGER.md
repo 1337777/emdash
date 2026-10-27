@@ -34,6 +34,13 @@ resolve their needed contracts before promotion without making them the sole
 continuation. The native whole-section equation and second inverse remain
 required and are not replaced by these independent map definitions.
 
+The [all-degree geometric maps](../emdash2/audits/native_nerve_foundations/geometric_degree_zero_review.md)
+now include actual terminal-diagram evaluation/constants at degree zero.
+The first zero round trip is proved using an explicit structural
+constant/evaluation beta; whole terminal reconstruction still fails its
+ordinary eta check. Thus map formation covers every degree, while zero and
+positive inverse qualification remain separate open requirements.
+
 The [actual moving-action recovery](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
 preserves its focused progress and pending overlap/full-integration boundary.
 Production promotion remains separate. Do not restart completed stages or

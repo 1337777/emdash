@@ -1,0 +1,21 @@
+require open emdash.native_geometric_zero;
+
+// First isolate the ordinary whole terminal-mapping eta. This distinguishes
+// a missing unit reconstruction from an alternating-duality normalization.
+symbol nerve_terminal_mapping_eta_candidate (C : Cat)
+  : τ (@= (Functor (Functor_cat Terminal_cat C) (Functor_cat Terminal_cat C))
+      (@comp_cat_fapp0 (Functor_cat Terminal_cat C) C (Functor_cat Terminal_cat C)
+        (@comp_cat_fapp0 C (Functor_cart_cat Terminal_cat C) (Functor_cat Terminal_cat C)
+          (Functor_cart_include Terminal_cat C) (@Const_func_func Terminal_cat C))
+        (@fapp0_func Terminal_cat C Terminal_obj))
+      (@id_func (Functor_cat Terminal_cat C)))
+≔ @eq_refl _ _;
+
+// Try the actual whole terminal-diagram reconstruction, independently of
+// the first round trip. No terminal mapping category is identified with C.
+symbol nerve_geometric_zero_encode_decode (C : Cat)
+  : τ (@= (Functor (nerve_geometric_zero_cat C) (nerve_geometric_zero_cat C))
+    (@comp_cat_fapp0 (nerve_geometric_zero_cat C) C (nerve_geometric_zero_cat C)
+      (nerve_geometric_zero_encode C) (nerve_geometric_zero_decode C))
+    (@id_func (nerve_geometric_zero_cat C)))
+≔ @eq_refl _ _;

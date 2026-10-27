@@ -1,0 +1,10 @@
+// Whole evaluation after constant-diagram introduction. The Cartesian
+// inclusion is retained explicitly; arbitrary lax diagrams are not collapsed.
+// This is the structural weakening/evaluation beta comparison, not a runtime
+// terminal-source eta rule or a mapping-category identification.
+unif_rule
+  @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _ (@fapp0_func $I $C _) (Functor_cart_include $I $C))
+    (@Const_func_func $I $C)
+  ≡ @id Cat_cat $C0
+  ↪ [ $C0 ≡ $C ];

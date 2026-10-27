@@ -33,6 +33,15 @@ become the sole next task. The new whole postcomposition is structural;
 no missing inverse or closure equivalence is supplied by the recursion.
 All inverse laws, same-index action and degeneracies remain required.
 
+The independent [degree-zero/all-degree continuation](../emdash2/audits/native_nerve_foundations/geometric_degree_zero_review.md)
+now supplies the actual encoder and decoder at every dimension, including
+zero. Its first zero round trip and whole parameter-family recovery pass;
+ordinary terminal-mapping eta already remains unproved before applying duality.
+The 69-input qualification passes in 108.523s / 615,940 KiB. Next review the
+whole unit/reconstruction contracts at their generic owners, alongside the
+mixed-evaluator equation. Do not substitute more pointwise readbacks or an
+assumed native inverse for these remaining whole requirements.
+
 The [actual moving-cell/map experiment](../emdash2/audits/native_nerve_foundations/actual_action_pending/README.md)
 has positive focused evidence, but its constant-family overlap and final
 integration are unfinished. Its candidate is preserved separately; the checked

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Replay derived reverse geometric maps and their whole-family consumers."""
+"""Replay geometric cube maps, whole-family consumers and inverse investigations."""
 from __future__ import annotations
 
 import argparse
@@ -24,7 +24,9 @@ def digest(path: Path) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--mode', choices=('maps', 'readback', 'qualification', 'inverse-review', 'reindex', 'reflection', 'evaluation-pending'), default='qualification')
+    modes = ('maps', 'readback', 'qualification', 'inverse-review', 'reindex',
+             'reflection', 'evaluation-pending', 'zero', 'all-degrees', 'zero-eta-pending')
+    parser.add_argument('--mode', choices=modes, default='qualification')
     parser.add_argument('--assemble-only', action='store_true')
     args = parser.parse_args()
     record = json.loads((HERE / 'reverse_verification.json').read_text())
