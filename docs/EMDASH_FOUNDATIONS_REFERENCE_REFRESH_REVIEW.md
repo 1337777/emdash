@@ -81,9 +81,31 @@ Targeted stale-contract searches and declaration/rule review caught and removed
 remaining wrapper/compositor claims in the catalogue and README. The core and
 both PDF SHA-256 values match the pre-edit snapshot; no source pin was refreshed.
 
-The next documentation step is consolidation of the oversized living-plan
-execution narrative into a concise current resumption contract plus preserved
-history. This is user-authorized context cleanup, not a new implementation
-goal. Native reconstruction remains the mathematical priority after this
-reference work; its simultaneous moving-boundary comparison and second
-inverse remain open.
+The substantive refresh is checkpoint `f74e14f6`. The following consolidation
+replaces the oversized plan and ledger with current resumption contracts,
+while preserving their exact prior bodies in clearly historical snapshots:
+
+- [previous plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN_HISTORY_THROUGH_2026-10-27.md),
+  12,398 lines, SHA-256
+  `2f91a71176460c74074ec1d4c6e00168d0773fa004adb5d7273c18b6d62ee162`;
+- [previous ledger](EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER_HISTORY_THROUGH_2026-10-27.md),
+  1,961 lines, SHA-256
+  `0ba7454799a2bca86bd82d01bec645acbc7b7480aeeefa1427fa9280eeaa8c4a`.
+
+Historical source bytes are preserved after each snapshot's marker; keeping
+them in the same directory preserves relative artifact links. Existing incoming
+plan anchors remain, including a redirect to the earlier Q/Sigma review.
+The active plan retains all NF stages, frontend/health/final gates, accepted
+terminal contracts, permissions and uncheckpointed native recovery details.
+R01–R14 and optional D01–D06 keep their identifiers and current dispositions.
+The native subplan labels its older “next” statements as evidence chronology.
+The two active entrypoints shrink from 14,359 lines to 436 lines, with no
+historical source bytes removed. The consolidation passes lifecycle/header
+and active-reference lints, exact diff hygiene, all changed active-document
+links, every tracked incoming plan/ledger anchor, and byte-for-byte historical
+snapshot verification. The kernel and PDF hashes remain unchanged.
+
+This is user-authorized context cleanup, not a new implementation goal or a
+mathematical completion claim. The next implementation is native
+reconstruction; its simultaneous moving-boundary comparison and second inverse
+remain open. No broad aggregate is required for this document consolidation.

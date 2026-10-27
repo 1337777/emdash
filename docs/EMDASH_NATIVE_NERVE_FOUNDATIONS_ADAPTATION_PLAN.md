@@ -15,6 +15,19 @@ Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 
 ## Authorization and current boundary
 
+Current resumption, 2026-10-27: the [consolidated parent](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md#native-resumption-at-the-present-checkpoint)
+records checkpoint `84f0539e`, the later uncheckpointed whole-family/transport
+comparisons, and the still-failing simultaneous moving-boundary consumer.
+Finish that whole comparison and the native second inverse. The standing
+foundational references are refreshed at `f74e14f6`; book/article work remains
+complete, and later frontend/health integration remains separate.
+
+The dated entries below are evidence chronology, newest first. An older
+“next,” “open” or “not yet” statement is superseded by the current parent and
+later evidence; it must not restart an already completed step.
+
+### NF-1 evidence chronology
+
 NF-1 represented boundary transport, 2026-10-27 UTC: [the whole extracted map](../emdash2/audits/native_nerve_foundations/README.md#represented-boundary-transport-and-sigma-inclusion)
 now agrees with `a ↦ (y′,v∘a)` through a staged functor comparison. The existing
 Sigma fibre inclusion has whole/capped and next-Hom computation. The 58-input
@@ -250,6 +263,11 @@ remain outside this continuation. None is an automatic prerequisite for the
 required comparisons.
 
 ## First bounded implementation slice
+
+This section records the original slice and its successive results. The
+Pi/Sigma native correction mentioned below was subsequently installed at
+`bc37e5fc`; its frontend integration is still separate. Follow the current
+resumption above rather than the dated scheduling statements below.
 
 Profile boundary, 2026-10-26: the [Pi/Sigma correction](EMDASH_SIGMA_SECTION_PROFILE_CORRECTION_PLAN.md)
 is now a prerequisite to further native reconstruction. The old full section/
