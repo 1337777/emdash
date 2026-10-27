@@ -1,0 +1,100 @@
+require open emdash.emdash3_2;
+
+// A section is a displayed map from the terminal family. Totalizing it
+// therefore has this existing Sigma-map / product-unit presentation.
+symbol nerve_section_total_via_sigma [K : Cat] (E : τ (Catd K))
+  (s : τ (Obj (@Pi_cat K E))) : τ (Functor K (@Sigma_cat K E))
+≔ @comp_cat_fapp0 K (@Sigma_cat K (@Const_catd K Terminal_cat)) (@Sigma_cat K E)
+    (@sigma_map_func K (@Const_catd K Terminal_cat) E s)
+    (@Product_pair (Functor_cat K K) (Functor_cat K Terminal_cat)
+      (@id_func K) (@Const_func K Terminal_cat Terminal_obj));
+
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (@Pi_cat K E)))
+  (x : τ (Obj K)) ⊢
+  @fapp0 K (@Sigma_cat K E) (@nerve_section_total_via_sigma K E s) x
+  ≡ @fapp0 K (@Sigma_cat K E) (@section_total_func K E s) x;
+
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (@Pi_cat K E)))
+  (x y : τ (Obj K)) (p : τ (Hom K x y)) ⊢
+  @fapp1_fapp0 K (@Sigma_cat K E) (@nerve_section_total_via_sigma K E s) x y p
+  ≡ @fapp1_fapp0 K (@Sigma_cat K E) (@section_total_func K E s) x y p;
+
+// Whole presentation preserves the actual section argument.
+symbol nerve_section_sigma_whole_path [K : Cat] (E : τ (Catd K))
+  (s : τ (Obj (@Pi_cat K E)))
+  : τ (@= (Functor K (@Sigma_cat K E))
+      (@nerve_section_total_via_sigma K E s) (@section_total_func K E s))
+≔ @eq_refl (Functor K (@Sigma_cat K E)) (@nerve_section_total_via_sigma K E s);
+
+assertnot [K : Cat] (E : τ (Catd K)) (s t : τ (Obj (@Pi_cat K E))) ⊢
+  @eq_refl (Functor K (@Sigma_cat K E)) (@nerve_section_total_via_sigma K E s)
+  : τ (@= (Functor K (@Sigma_cat K E))
+      (@nerve_section_total_via_sigma K E s) (@section_total_func K E t));
+
+// Congruence in the existing *whole* internal Hom functor, before capping
+// endpoint parameters. This retains object and higher endpoint dependence.
+symbol nerve_section_sigma_internal_hom_path [K : Cat] (E : τ (Catd K))
+  (s : τ (Obj (@Pi_cat K E)))
+  : τ (@= (Functor (Op_cat (@Sigma_cat K E)) (Functor_cart_cat K Cat_cart))
+      (@hom_int (@Sigma_cat K E) K (@nerve_section_total_via_sigma K E s))
+      (@hom_int (@Sigma_cat K E) K (@section_total_func K E s)))
+≔ @eq_ap (Functor K (@Sigma_cat K E))
+    (Functor (Op_cat (@Sigma_cat K E)) (Functor_cart_cat K Cat_cart))
+    (λ F : τ (Functor K (@Sigma_cat K E)), @hom_int (@Sigma_cat K E) K F)
+    (@nerve_section_total_via_sigma K E s) (@section_total_func K E s)
+    (@nerve_section_sigma_whole_path K E s);
+
+// Compare both actual definitions before the section-total presentation cut.
+symbol nerve_section_sigma_negative_hom [K : Cat] (E : τ (Catd K))
+  (s : τ (Obj (@Pi_cat K E))) (x y : τ (Obj K))
+  : τ (Functor (Hom_cat K x y)
+    (Hom_cat (@Sigma_cat K E) (Struct_sigma x (@piapp0 K E s x))
+      (Struct_sigma y (@piapp0 K E s y))))
+≔ @TotalOp_func _ _
+    (@nerve_section_total_via_sigma (TotalOp_cat (Hom_cat K x y))
+      (@TotalOp_catd (Op_cat (Hom_cat K x y))
+        (@homd_ K E E (@id_funcd K E) x (@piapp0 K E s x) y (@piapp0 K E s y)))
+      (@piapp1_func K E s x y));
+
+symbol nerve_section_sigma_negative_hom_path [K : Cat] (E : τ (Catd K))
+  (s : τ (Obj (@Pi_cat K E))) (x y : τ (Obj K))
+  : τ (@= (Functor (Hom_cat K x y)
+      (Hom_cat (@Sigma_cat K E) (Struct_sigma x (@piapp0 K E s x))
+        (Struct_sigma y (@piapp0 K E s y))))
+      (@fapp1_func K (@Sigma_cat K E) (@nerve_section_total_via_sigma K E s) x y)
+      (@nerve_section_sigma_negative_hom K E s x y))
+≔ @eq_refl (Functor (Hom_cat K x y)
+    (Hom_cat (@Sigma_cat K E) (Struct_sigma x (@piapp0 K E s x))
+      (Struct_sigma y (@piapp0 K E s y))))
+    (@fapp1_func K (@Sigma_cat K E) (@nerve_section_total_via_sigma K E s) x y);
+
+// The negative-index section has fixed endpoints. Apply total duality to
+// its whole structural presentation, then compose with the definition check.
+symbol nerve_section_sigma_action_path [K : Cat] (E : τ (Catd K))
+  (s : τ (Obj (@Pi_cat K E))) (x y : τ (Obj K))
+  : τ (@= (Functor (Hom_cat K x y)
+      (Hom_cat (@Sigma_cat K E) (Struct_sigma x (@piapp0 K E s x))
+        (Struct_sigma y (@piapp0 K E s y))))
+      (@fapp1_func K (@Sigma_cat K E) (@nerve_section_total_via_sigma K E s) x y)
+      (@fapp1_func K (@Sigma_cat K E) (@section_total_func K E s) x y))
+≔ @eq_trans (Functor (Hom_cat K x y)
+    (Hom_cat (@Sigma_cat K E) (Struct_sigma x (@piapp0 K E s x))
+      (Struct_sigma y (@piapp0 K E s y))))
+    _ _ _ (@nerve_section_sigma_negative_hom_path K E s x y)
+    (@eq_ap
+      (Functor (TotalOp_cat (Hom_cat K x y))
+        (@Sigma_cat (TotalOp_cat (Hom_cat K x y))
+          (@TotalOp_catd (Op_cat (Hom_cat K x y))
+            (@homd_ K E E (@id_funcd K E) x (@piapp0 K E s x) y (@piapp0 K E s y)))))
+      (Functor (Hom_cat K x y)
+        (Hom_cat (@Sigma_cat K E) (Struct_sigma x (@piapp0 K E s x))
+          (Struct_sigma y (@piapp0 K E s y))))
+      (λ H : τ (Functor (TotalOp_cat (Hom_cat K x y))
+        (@Sigma_cat (TotalOp_cat (Hom_cat K x y))
+          (@TotalOp_catd (Op_cat (Hom_cat K x y))
+            (@homd_ K E E (@id_funcd K E) x (@piapp0 K E s x) y (@piapp0 K E s y))))),
+        @TotalOp_func _ _ H)
+      _ _ (@nerve_section_sigma_whole_path (TotalOp_cat (Hom_cat K x y))
+        (@TotalOp_catd (Op_cat (Hom_cat K x y))
+          (@homd_ K E E (@id_funcd K E) x (@piapp0 K E s x) y (@piapp0 K E s y)))
+        (@piapp1_func K E s x y)));

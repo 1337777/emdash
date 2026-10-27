@@ -1,0 +1,243 @@
+{
+  "schema": "emdash-native-section-totalization-v1",
+  "status": "generic whole section/Sigma presentation, complete Hom compatibility and native whole presentation consumer qualified in isolated prefix; second inverse and promotion remain open",
+  "receiverBaseline": "f5d4c593",
+  "baseReplay": "replay_general_source.py",
+  "ownerInsertions": [
+    {
+      "anchor": "// Raw canonical-triangle cell extracted from the internal displayed hom-action.\n",
+      "fragment": "section_sigma_totalization_owner.lpfragment",
+      "separator": "\n"
+    },
+    {
+      "anchor": "// First projection functor: π₁ : A × B ⊢ A.\n",
+      "fragment": "dual_pair_owner.lpfragment",
+      "separator": "\n"
+    }
+  ],
+  "programs": {
+    "native_section_sigma_action.lp": "section_sigma_totalization.lpfragment",
+    "native_dual_pair_controls.lp": "dual_pair_controls.lpfragment",
+    "native_section_sigma_consumer.lp": "section_sigma_native_consumer.lpfragment"
+  },
+  "checker": {
+    "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+    "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+    "version": "dev-3.0.0-90-gdb4f7809-dirty"
+  },
+  "runs": [
+    {
+      "role": "whole_rule_without_expanded_hom",
+      "id": "20261027T024338Z-5859ad335fed40a89ded78c8605a0163",
+      "target": "native_section_sigma_structural.lp",
+      "outcome": "failed",
+      "wallSeconds": 26.75701503804885,
+      "childrenMaxRssKiB": 174984,
+      "inputSnapshot": "fd5a3fd0731faaea49dd1989d1c2717ead1f85f950b96e5a3dc44670b2ed6c02",
+      "logSha256": "49696cbed20466f88796c442b22fbdb6077d25ed3d653841f8e116370a1df4e0"
+    },
+    {
+      "role": "whole_presentation_and_internal_hom",
+      "id": "20261027T024541Z-fe294f04e5524609b5f829bfebba5b93",
+      "target": "native_section_sigma_structural_whole.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 44.05979369999841,
+      "childrenMaxRssKiB": 176284,
+      "inputSnapshot": "cf6892baaa0dbac33ecb3cdc2bc340ac4c24e7840930958799f8d074b3905d1f",
+      "logSha256": "9325feaec8a90626f60f5035366e0f54f03119d7837a60263f07105d9aa90498"
+    },
+    {
+      "role": "negative_total_without_dual_pair",
+      "id": "20261027T024650Z-dddb3a240a114893be38416684ee41c3",
+      "target": "native_section_sigma_negative.lp",
+      "outcome": "failed",
+      "wallSeconds": 49.56746069598012,
+      "childrenMaxRssKiB": 175212,
+      "inputSnapshot": "6f4372f06873baa017ad9de197ecd33bed691822feb11925c1bd6687702ea3be",
+      "logSha256": "f7c40defd72eac5363e0712e987c014720272cc73c8c88fe9e519d16532b2374"
+    },
+    {
+      "role": "negative_total_with_dual_pair",
+      "id": "20261027T024811Z-f1fa5abeadc1413997df86c0184745df",
+      "target": "native_section_sigma_negative.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 44.83125381404534,
+      "childrenMaxRssKiB": 174828,
+      "inputSnapshot": "76b66f14d9700646d8fc7e7e5aeb4e8c90639ece3468d62dd6c6a6590b8abbc1",
+      "logSha256": "ae118808daaebbefbc9de3601216ec337bda7e7357d2777fb74800ffdd21585d"
+    },
+    {
+      "role": "complete_hom_comparison",
+      "id": "20261027T024927Z-3dee7bd821c340b0b29c7fd543f7abae",
+      "target": "native_section_sigma_action.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 51.91557600419037,
+      "childrenMaxRssKiB": 174688,
+      "inputSnapshot": "21c732af965e40711f8247e6939731893e347792f670d81c8748d02518bb0b05",
+      "logSha256": "8ad482873a4328a5a68bd0c93fa67e84ffc3d93a936b8d96eab7a9357d992164"
+    },
+    {
+      "role": "concrete_native_family_elaboration",
+      "id": "20261027T025046Z-58115b04d3384a1ea835caefb9928bec",
+      "target": "native_section_sigma_consumer.lp",
+      "outcome": "failed",
+      "wallSeconds": 149.51281488197856,
+      "childrenMaxRssKiB": 599256,
+      "inputSnapshot": "f3f8e3f44778d6e0616cd8c0f8246d4c90a1a08ecb13f4ab25c2c58d0f272f39",
+      "logSha256": "9411cad46772846902d8770cce562c601d36c9aa0756e4226090df3229ac6947"
+    },
+    {
+      "role": "native_helper_visibility_correction",
+      "id": "20261027T025421Z-c6be5d328aa748f8a89134ba1d9c8906",
+      "target": "native_section_sigma_consumer.lp",
+      "outcome": "failed",
+      "wallSeconds": 109.08647008100525,
+      "childrenMaxRssKiB": 596288,
+      "inputSnapshot": "724fbcd0698c04795e132766eaef6beaa762ce5e975a309b8de327d072faf05a",
+      "logSha256": "833519077c2cf0b223ef4b7a4249eb011f1174b11d74a2d104060780cb06b4d1"
+    },
+    {
+      "role": "dual_specialization_elaboration",
+      "id": "20261027T025657Z-a331727c01264298889aeb46f9616fe2",
+      "target": "native_section_sigma_consumer.lp",
+      "outcome": "failed",
+      "wallSeconds": 132.78016852703877,
+      "childrenMaxRssKiB": 592664,
+      "inputSnapshot": "0582974015a5a196f2bae1e2c24a768653dfd9097b7579a1fb13b457f0be21da",
+      "logSha256": "ae5e1bc1007150e81c3db7d516b7fda0c5b4f95225022e41f7a4f059b886952d"
+    },
+    {
+      "role": "generic_projection_and_total_dual_comparison",
+      "id": "20261027T030013Z-4c8b4ae5ce7e464c85eedaa3075fcbe4",
+      "target": "native_section_sigma_generic_projection.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 46.20960437390022,
+      "childrenMaxRssKiB": 175408,
+      "inputSnapshot": "2e2cb65a279cc1910557af5378f49cd1651aa397d6b9fb2dd667366d6eda63b3",
+      "logSha256": "5e8c7d6bf48562ac9c7f99211f0c3e8b8de7f704674c674151430ad1003896cf"
+    },
+    {
+      "role": "native_integration",
+      "id": "20261027T030121Z-4eab10218d0c41328c297eddc6c13425",
+      "target": "native_section_sigma_consumer.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 168.01048539602198,
+      "childrenMaxRssKiB": 590740,
+      "inputSnapshot": "3be19fda4a1b875d7261f4f3fe71ba9212489e9ddc8c10a5c6efa752854a7897",
+      "logSha256": "ac20c8d337d1bca3c7b2e2809f0e748ea27dd2392db3fca97f7b831a6c97792a"
+    }
+  ],
+  "changes": {
+    "runtimeRules": 2,
+    "wholeStructuralComparisons": 1,
+    "description": "Op and CoAbove2 act componentwise on visible paired functors. A terminal-source Sigma-map/product-unit composite has a structural comparison with section totalization."
+  },
+  "derivationBoundary": "The generic whole presentation is an added structural contract; its Hom compatibility is derived by the existing negative-index Sigma action and equality action on total duality. It is not inferred by object/arrow extensionality. No native inverse or section reconstruction equation is supplied.",
+  "qualified": [
+    "original section retained in the whole comparison; a distinct section rejected",
+    "runtime object/arrow computations retain their existing normal forms",
+    "expanded Sigma-map Hom equals the dual of the negative-index total presentation",
+    "whole Hom comparison derived from the negative-index structural presentation",
+    "whole-first and Hom-first duality on a visible pair, dual involution, and distinct-component rejection",
+    "native Observe/Realize and tautological total both reach the new Sigma-map presentation",
+    "all retained first-inverse, original-filler and next-Hom controls pass in the 45-input prefix"
+  ],
+  "modes": {
+    "generic": {
+      "target": "native_section_sigma_action.lp",
+      "timeoutMs": 90000,
+      "expectedInputs": {
+        "emdash3_2.lp": "11b35d5ff857999d03269bbd5a12d0f2b523d3cc3c668f315145d6f4589bff57",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_section_sigma_action.lp": "d96f6f652d9c58d5c3fb54fc37cf6d61035dab7d30294a1fe30e7391f320e1e0"
+      }
+    },
+    "integration": {
+      "target": "native_section_sigma_consumer.lp",
+      "timeoutMs": 180000,
+      "expectedInputs": {
+        "audits/native_nerve_foundations/walking_observer.lp": "c36fbcfc65adc8ce4e6dbb7dd87510c3260d5dba0ca45e8f79ca49f501ad8b97",
+        "emdash3_2.lp": "11b35d5ff857999d03269bbd5a12d0f2b523d3cc3c668f315145d6f4589bff57",
+        "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_gray_transformation_graph.lp": "db87cf675f63982930023ec8b397315111dadb0800a1c1d5ec2e82aaed9cd68a",
+        "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_represented_comma_families.lp": "741ac9a3801492acc31a6763628788f40b21b07a00037fdd6eafa0b14e82257f",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_dual_pair_controls.lp": "d68b8fbd1dd267ee168de383402e94cbfbd917c791fb34f3666b27e551698b65",
+        "native_general_higher_typed.lp": "6b9fb5fa1aebc8f4a64d87126f5d79c9a03160e836251cc185c28c86f782ea85",
+        "native_general_source_controls.lp": "fcc58f0ef5e5c5176cf5f69a0d3f99e303ba560aa67b013daeca1807bbabf460",
+        "native_generic_square_whisker_whole.lp": "f7f8fc3c32bbab0abb0cd66f0f1384cc163f92814eef776dc8e7583588b69744",
+        "native_higher_staged_unit.lp": "189c28e3dbee89b4184ab415059e896fa71462266bd4ca805d009b9729b3e023",
+        "native_nerve_composite_review.lp": "a9d7512af42a23a2eba38e3d67da390cea6297a2f571820ccd3e2a89614c1abd",
+        "native_nerve_generation_review.lp": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323",
+        "native_nerve_graph_review.lp": "b8557b725ea09d095e07bc308375f1ef8a146e533d765f3341f8fe8a7bd58fb9",
+        "native_nerve_graph_whole_review.lp": "6a69911880e10a4332a14582444d5ed45b146ea9e969975ede3e96c8fea47b4e",
+        "native_nerve_realization_review.lp": "d627e730cd7f1b4486fbe6320774e940617fc3ecb5c6e83715bec3b6b82fb605",
+        "native_nerve_section_review.lp": "1a92d11f0497b00ae1b84926d8a74d414a285ef93a0ed0df10dc48e4655d77df",
+        "native_nerve_sigma_generation_review.lp": "cd0542f0a92de40d7bd132705b2281540cf7c182cca788dddb6f1e41eddfe20e",
+        "native_nerve_sigma_graph_review.lp": "52f9f0cbe357a442c425a23064742a70a29c4f41a6e26cf840034970670e4fc5",
+        "native_section_sigma_action.lp": "d96f6f652d9c58d5c3fb54fc37cf6d61035dab7d30294a1fe30e7391f320e1e0",
+        "native_section_sigma_consumer.lp": "4582ea2df838c7a8970c6fda1984329f49ba547ac6fb318232e8cdc0606e9f6d",
+        "native_whisker_qualified_controls.lp": "b220423818024ab8c4b62327a23a1b3a260b9f53fc8bbbda16203f025f6d7924"
+      }
+    }
+  },
+  "artifacts": {
+    "section_sigma_totalization.lpfragment": "d96f6f652d9c58d5c3fb54fc37cf6d61035dab7d30294a1fe30e7391f320e1e0",
+    "dual_pair_controls.lpfragment": "d68b8fbd1dd267ee168de383402e94cbfbd917c791fb34f3666b27e551698b65",
+    "section_sigma_native_consumer.lpfragment": "4582ea2df838c7a8970c6fda1984329f49ba547ac6fb318232e8cdc0606e9f6d",
+    "section_sigma_totalization_owner.lpfragment": "e02c7b7a156226fa803c3905880c492f56882d937a70ee1d7af7d6d1cec1a90c",
+    "dual_pair_owner.lpfragment": "237cbddb68cba8fe2aa9583b3eabc44ebfc7613f469854669802bf54c22e6453",
+    "replay_section_sigma.py": "dfdba42a82856434873b33427830914411187d6a361c699d977c3f2e17578f7c"
+  },
+  "remaining": [
+    "derive the whole graph-section/total comparison and the second native inverse from the actual Sigma-map composites",
+    "qualify the complete represented-comma module and production/promotion gates, including inherited warning peaks"
+  ],
+  "warnings": {
+    "baseline": "20261027T021821Z-35df3d3404254c4ab5afe527b869a32c",
+    "candidate": "20261027T030121Z-4eab10218d0c41328c297eddc6c13425",
+    "categories": {
+      "replaceable pattern variable": 181,
+      "unjoinable critical pair": 2160
+    },
+    "equalFields": [
+      "categories",
+      "term_heads",
+      "rule_families",
+      "parser_issues"
+    ],
+    "mappedLocationsEqual": true,
+    "mapping": "unchanged core lines mapped with exact source-line matching; other modules unchanged",
+    "boundary": "No new warning family. The inherited nine identity-normalization peaks and earlier total-dual postcomposition overlaps remain promotion obligations."
+  },
+  "lhsAudit": {
+    "unreviewedClauses": 0,
+    "annotatedSlots": 79,
+    "intentionalClauses": 53,
+    "manualReview": "The added Op/R rules use their product target as the genuine constructor discriminator; the whole section presentation retains base, target family and section."
+  },
+  "nativeElaboration": "The direct concrete pullback family and an inline dual equality action failed. Defined generic projection-pullback and total-dual comparisons specialize successfully; no native family-unification rule was added. One intervening protected-helper visibility mistake was corrected."
+}

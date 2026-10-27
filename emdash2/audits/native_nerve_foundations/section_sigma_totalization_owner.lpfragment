@@ -1,0 +1,8 @@
+// Whole section totalization through its terminal-source displayed map.
+// This is a structural presentation law, not an inverse theorem or an
+// extensionality rule inferred from the object/arrow observations.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@sigma_map_func $K (@Const_catd $K Terminal_cat) $E $s)
+    (Struct_sigma (@id Cat_cat $K) (@Const_func $K Terminal_cat Terminal_obj))
+  ≡ @section_total_func $K0 $E0 $s0
+  ↪ [ $K0 ≡ $K; $E0 ≡ $E; $s0 ≡ $s ];

@@ -15,6 +15,19 @@ Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 
 ## Authorization and current boundary
 
+NF-1 whole totalization, 2026-10-27 UTC: the [generic section/Sigma presentation](../emdash2/audits/native_nerve_foundations/README.md#whole-section-totalization-through-sigma)
+adds the structural whole comparison `total(s) ≐ Sigma(s) ∘ (id,const(*))`
+and derives its complete Hom compatibility through the existing negative
+index action. Two product-functor duality rules close the measured expanded
+Hom mismatch; no specialized native equation is added. The whole law is an
+explicit structural contract, not a theorem inferred from point observations.
+The 45-input native consumer passes in 168.010s / 590,740 KiB, preserving the
+first inverse and higher-filler checks with unchanged mapped warning inventory.
+Continue reconstruction through the actual Sigma-map composites, retaining
+the original graph section and its higher action. The second inverse and
+production/full-module gates remain required. Book work is complete; the later
+frontend integration obligation stays separate from this native continuation.
+
 NF-1 general source recovery, 2026-10-27 UTC: the [new higher-readback proof](../emdash2/audits/native_nerve_foundations/README.md#general-source-higher-recovery)
 accepts arbitrary strict F,G and passes for the actual native source/target
 projections and arbitrary native p. The original Γ is retained; wrong Γ and

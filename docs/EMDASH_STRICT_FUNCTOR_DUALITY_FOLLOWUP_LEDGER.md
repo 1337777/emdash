@@ -4,6 +4,15 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: book/article complete; native Pi/Sigma correction installed; NF-1 reconstruction active; affected frontend candidate preserved separately; broad health/final integration remain deferred
 
+NF-1 whole section/Sigma presentation: [the candidate and exact receipts](../emdash2/audits/native_nerve_foundations/section_sigma_verification.json)
+replace the earlier object/arrow-only alternative with a generic whole
+structural comparison and a derived complete Hom comparison. The duality
+repair is confined to explicitly paired product-valued functors. Preserve
+the distinction between the supplied generic presentation and its derived
+Hom compatibility. The 45-input native integration passes with unchanged
+mapped warning inventory. Whole graph reconstruction, the second inverse, inherited
+warning peaks and production/full-module qualification are still open.
+
 NF-1 general-source higher readback: [the new proof and native instance](../emdash2/audits/native_nerve_foundations/general_source_verification.json)
 close the earlier arbitrary-F/G restriction using fixed prewhiskering and a
 direct scalar image comparison. The 42-input native prefix passes with

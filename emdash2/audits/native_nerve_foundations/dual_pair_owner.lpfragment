@@ -1,0 +1,11 @@
+// Duality acts componentwise on an explicitly paired product-valued functor.
+// lhs-audit: keep 2 -- the product target types the two visible functors.
+rule @Op_func $A (Product_cat $B $C) (Struct_sigma $F $G)
+  ↪ @Product_pair (Functor_cat (Op_cat $A) (Op_cat $B))
+      (Functor_cat (Op_cat $A) (Op_cat $C))
+      (@Op_func $A $B $F) (@Op_func $A $C $G);
+// lhs-audit: keep 2 -- the product target types the two visible functors.
+rule @CoAbove2_func $A (Product_cat $B $C) (Struct_sigma $F $G)
+  ↪ @Product_pair (Functor_cat (CoAbove2_cat $A) (CoAbove2_cat $B))
+      (Functor_cat (CoAbove2_cat $A) (CoAbove2_cat $C))
+      (@CoAbove2_func $A $B $F) (@CoAbove2_func $A $C $G);

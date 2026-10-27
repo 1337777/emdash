@@ -1,0 +1,24 @@
+require open emdash.emdash3_2;
+
+// Whole paired functors and their Hom-first observations share the dual.
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor A C)) ⊢
+  @TotalOp_func A (Product_cat B C) (@Product_pair (Functor_cat A B) (Functor_cat A C) F G)
+  ≡ @Product_pair (Functor_cat (TotalOp_cat A) (TotalOp_cat B))
+      (Functor_cat (TotalOp_cat A) (TotalOp_cat C)) (@TotalOp_func A B F) (@TotalOp_func A C G);
+
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor A C))
+  (x y : τ (Obj A)) ⊢
+  @fapp1_func _ _ (@TotalOp_func A (Product_cat B C)
+    (@Product_pair (Functor_cat A B) (Functor_cat A C) F G)) y x
+  ≡ @TotalOp_func _ _ (@fapp1_func A (Product_cat B C)
+    (@Product_pair (Functor_cat A B) (Functor_cat A C) F G) x y);
+
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor A C)) ⊢
+  @TotalOp_func _ _ (@TotalOp_func A (Product_cat B C)
+    (@Product_pair (Functor_cat A B) (Functor_cat A C) F G))
+  ≡ @Product_pair (Functor_cat A B) (Functor_cat A C) F G;
+
+assertnot [A B C : Cat] (F H : τ (Functor A B)) (G : τ (Functor A C)) ⊢
+  @TotalOp_func A (Product_cat B C) (@Product_pair (Functor_cat A B) (Functor_cat A C) F G)
+  ≡ @Product_pair (Functor_cat (TotalOp_cat A) (TotalOp_cat B))
+      (Functor_cat (TotalOp_cat A) (TotalOp_cat C)) (@TotalOp_func A B H) (@TotalOp_func A C G);

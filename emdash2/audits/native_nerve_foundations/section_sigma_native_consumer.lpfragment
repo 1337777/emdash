@@ -1,0 +1,89 @@
+require open emdash.native_dual_pair_controls;
+require open emdash.native_nerve_section_review;
+require open emdash.native_section_sigma_action;
+
+// Use the existing generic projection-pullback owner before specializing
+// total duality. This avoids re-elaborating a reducible family at C.
+symbol nerve_projection_section_sigma_total [K : Cat] (R D : τ (Catd K))
+  (s : τ (Obj (@Pi_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D))))
+  : τ (Functor (@Sigma_cat K R) (@Sigma_cat K D))
+≔ @comp_cat_fapp0 (@Sigma_cat K R)
+    (@Sigma_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D)) (@Sigma_cat K D)
+    (@sigma_pullback_total_func (@Sigma_cat K R) K (@Sigma_proj1_func K R) D)
+    (@nerve_section_total_via_sigma (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D) s);
+
+symbol nerve_projection_section_sigma_total_path [K : Cat] (R D : τ (Catd K))
+  (s : τ (Obj (@Pi_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D))))
+  : τ (@= (Functor (@Sigma_cat K R) (@Sigma_cat K D))
+      (@nerve_projection_section_sigma_total K R D s)
+      (@comp_cat_fapp0 (@Sigma_cat K R)
+        (@Sigma_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D)) (@Sigma_cat K D)
+        (@sigma_pullback_total_func (@Sigma_cat K R) K (@Sigma_proj1_func K R) D)
+        (@section_total_func (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D) s)))
+≔ @eq_ap
+    (Functor (@Sigma_cat K R) (@Sigma_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D)))
+    (Functor (@Sigma_cat K R) (@Sigma_cat K D))
+    (λ H : τ (Functor (@Sigma_cat K R)
+      (@Sigma_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D))),
+      @comp_cat_fapp0 _ _ _
+        (@sigma_pullback_total_func (@Sigma_cat K R) K (@Sigma_proj1_func K R) D) H)
+    _ _ (@nerve_section_sigma_whole_path (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D) s);
+
+// Apply total duality while the original base and families remain generic.
+symbol nerve_projection_section_sigma_total_op_path [K : Cat] (R D : τ (Catd K))
+  (s : τ (Obj (@Pi_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D))))
+  : τ (@= (Functor (TotalOp_cat (@Sigma_cat K R)) (TotalOp_cat (@Sigma_cat K D)))
+      (@TotalOp_func _ _ (@nerve_projection_section_sigma_total K R D s))
+      (@TotalOp_func _ _
+        (@comp_cat_fapp0 (@Sigma_cat K R)
+          (@Sigma_cat (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D)) (@Sigma_cat K D)
+          (@sigma_pullback_total_func (@Sigma_cat K R) K (@Sigma_proj1_func K R) D)
+          (@section_total_func (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D) s))))
+≔ @eq_ap (Functor (@Sigma_cat K R) (@Sigma_cat K D))
+    (Functor (TotalOp_cat (@Sigma_cat K R)) (TotalOp_cat (@Sigma_cat K D)))
+    (λ H : τ (Functor (@Sigma_cat K R) (@Sigma_cat K D)), @TotalOp_func _ _ H)
+    _ _ (@nerve_projection_section_sigma_total_path K R D s);
+
+// Same native total through existing Sigma(s) and product-unit operations.
+symbol nerve_native_sigma_section_total (C : Cat)
+  (s : τ (Obj (@Pi_cat (nerve_native_section_base C) (nerve_native_section_family C))))
+  : τ (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+≔ @TotalOp_func (nerve_native_section_base C) (nerve_native_section_base C)
+    (@nerve_projection_section_sigma_total (TotalOp_cat C)
+      (nerve_native_total_catd C) (nerve_native_total_catd C) s);
+
+symbol nerve_native_sigma_section_total_path (C : Cat)
+  (s : τ (Obj (@Pi_cat (nerve_native_section_base C) (nerve_native_section_family C))))
+  : τ (@= (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+      (nerve_native_sigma_section_total C s) (nerve_native_section_total C s))
+≔ @nerve_projection_section_sigma_total_op_path (TotalOp_cat C)
+    (nerve_native_total_catd C) (nerve_native_total_catd C) s;
+
+symbol nerve_observe_realize_sigma_presentation (C : Cat)
+  : τ (@= (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+      (@comp_cat_fapp0 (@LaxArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+        (@LaxArrow_cat C) (nerve_walking_observe_func C) (nerve_walking_realize_func C))
+      (nerve_native_sigma_section_total C (nerve_native_graph_section C)))
+≔ @eq_trans (Functor (@LaxArrow_cat C) (@LaxArrow_cat C)) _ _ _
+    (nerve_observe_realize_section_path C)
+    (@eq_sym (Functor (@LaxArrow_cat C) (@LaxArrow_cat C)) _ _
+      (nerve_native_sigma_section_total_path C (nerve_native_graph_section C)));
+
+// The alternate presentation also retains the established canonical total.
+symbol nerve_tautological_sigma_presentation (C : Cat)
+  : τ (@= (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+      (nerve_native_sigma_section_total C
+        (@nerve_sigma_tautological_sec (TotalOp_cat C) (nerve_native_total_catd C)))
+      (@id_func (@LaxArrow_cat C)))
+≔ @eq_trans (Functor (@LaxArrow_cat C) (@LaxArrow_cat C)) _ _ _
+    (nerve_native_sigma_section_total_path C
+      (@nerve_sigma_tautological_sec (TotalOp_cat C) (nerve_native_total_catd C)))
+    (nerve_native_tautological_total_path C);
+
+// Direct typed reconstruction still must be established, not postulated.
+assertnot [C : Cat] ⊢
+  @eq_refl (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+    (nerve_native_sigma_section_total C (nerve_native_graph_section C))
+  : τ (@= (Functor (@LaxArrow_cat C) (@LaxArrow_cat C))
+      (nerve_native_sigma_section_total C (nerve_native_graph_section C))
+      (@id_func (@LaxArrow_cat C)));

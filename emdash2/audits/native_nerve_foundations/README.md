@@ -4,6 +4,57 @@ Status: non-library NF-1 candidate on the corrected foundations.
 Owner: [adaptation plan](../../../docs/EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md).
 Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
+## Whole section totalization through Sigma
+
+The [new candidate](section_sigma_totalization.lpfragment) connects the two
+existing whole constructions:
+
+```text
+total(s) ≐ Sigma(s) ∘ (id_K, const(*)),   s : Pi(E).
+```
+
+This uses one [generic structural presentation law](section_sigma_totalization_owner.lpfragment).
+It is an added contract for section totalization, not a theorem inferred
+from matching object/arrow projections. Its pattern retains K, E and the
+original section; a different section is rejected. Runtime heads are kept,
+and operational symbols acquire no equality-proof inputs.
+
+The complete Hom compatibility is then **derived**, using the existing
+negative-index total family and `piapp1_func`. The expanded Sigma-map Hom
+agrees with the total dual of `Sigma(piapp1_func(s,x,y))` after the product
+unit. Equality action on total duality applies the same whole structural
+presentation to that section, giving the direct `section_total_func` Hom.
+This checks both actual Hom constructions, beyond their arrow objects.
+
+That derivation exposed a missing computation: T and R had no componentwise
+action on explicitly paired product-valued functors. Two
+[constructor rules](dual_pair_owner.lpfragment) supply it. They preserve both
+functors and join the whole-first/Hom-first duality observations and double
+duality; an unrelated component is rejected. They add no warning family in
+the checked core. The failed pre-repair comparison isolates this exact pair
+versus dual-pair mismatch.
+
+The [native consumer](section_sigma_native_consumer.lpfragment) uses the
+existing generic projection-pullback interface before specializing C. It
+expresses both `Observe ∘ Realize` and the tautological total through this
+Sigma-map presentation. Their remaining whole comparison is still required;
+no native inverse or graph-section reconstruction law is added. Literal
+reflexivity of the expanded Hom remains insufficient: the accepted Hom
+comparison uses the stated derivation.
+
+Exact sources, checks and diagnostic failures are recorded in
+[`section_sigma_verification.json`](section_sigma_verification.json).
+The complete Hom comparison passes in 51.916s / 174,688 KiB; the 45-input
+native integration passes in 168.010s / 590,740 KiB under the 180s / 2 GiB
+guard. All five warning inventory fields match the preceding native prefix
+after mapping unchanged core lines. The inferred-slot audit reports zero
+unreviewed clauses. No aggregate or unchanged frontend/book gate is rerun.
+Replay with `replay_section_sigma.py --mode generic` or `--mode integration`;
+`--assemble-only` verifies the corresponding exact input closure without
+repeating the checker. This remains an isolated prefix candidate. Production
+promotion, full-module qualification and inherited overlap obligations remain
+open.
+
 ## Whole walking observer and tensor coordinate family
 
 [`walking_observer.lp`](walking_observer.lp) is a fresh receiver construction,

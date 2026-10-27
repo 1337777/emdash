@@ -42,6 +42,16 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Native whole totalization, 2026-10-27 UTC: [the generic section/Sigma comparison](../emdash2/audits/native_nerve_foundations/README.md#whole-section-totalization-through-sigma)
+now has derived compatibility with the complete Hom action. Its one whole
+structural law is stated explicitly; two missing componentwise duality rules
+for paired functors account for the expanded-action obstruction. No native
+inverse or graph-section identity is supplied. The active continuation is
+the comparison of the actual Sigma-map composites in NF-1, with the original
+sections and noninvertible higher data retained. Full-module/promotion and
+later integration obligations remain open. The 45-input native replay passes
+in 168.010s / 590,740 KiB with unchanged mapped warning inventory.
+
 Native general-source continuation, 2026-10-27 UTC: [the retained construction](../emdash2/audits/native_nerve_foundations/README.md#general-source-higher-recovery)
 extends higher readback to arbitrary strict source/target maps and checks the
 actual native projections, with original-cell retention controls. Its full
