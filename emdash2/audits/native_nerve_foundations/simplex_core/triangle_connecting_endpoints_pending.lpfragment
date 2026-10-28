@@ -1,0 +1,11 @@
+require open emdash.native_triangle_connecting_transformation;
+
+// The required whole comparison, not a point-only replacement.
+symbol native_triangle_connecting_source_path (C : Cat)
+  : τ (@= (Functor (nerve_native_triangle_cat C) (LaxArrow_cat C))
+    (native_triangle_connecting_source C) (nerve_triangle_face01_func C))
+≔ @eq_refl (Functor (nerve_native_triangle_cat C) (LaxArrow_cat C)) (nerve_triangle_face01_func C);
+symbol native_triangle_connecting_target_path (C : Cat)
+  : τ (@= (Functor (nerve_native_triangle_cat C) (LaxArrow_cat C))
+    (native_triangle_connecting_target C) (nerve_triangle_face02_func C))
+≔ @eq_refl (Functor (nerve_native_triangle_cat C) (LaxArrow_cat C)) (nerve_triangle_face02_func C);

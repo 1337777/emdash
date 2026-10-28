@@ -412,13 +412,27 @@ projection overlaps are covered. Its Sigma identity presentation has an
 independent production-core proof by Sigma elimination. This is isolated
 qualification (81 inputs, 66.809s / 308,176 KiB), not production promotion.
 
-Next qualify d_A:O(N(A))→N(O(A)) using the native graph of TotalOp_transf(U_A),
-including the whole Cartesian parameter action needed by the PathOut family.
-Combine it with the native-arrow totalization map to obtain the connecting
-arrow between faces 01/02, then extract Φ through the existing U_C naturality.
-Do not assume a walking inverse, change Transfd's fibre profile, or silently
-apply fibrewise opposite to a general lax map. The [Sigma slice](../emdash2/audits/native_nerve_foundations/simplex_core/README.md#canonical-sigma-introduction-and-coefficient-totalization)
-records the qualified computations and this still-open construction route.
+The d_A:O(N(A))→N(O(A)) graph and its directed-square action are now checked.
+A structural Cartesian coefficient internalization, with those defined
+components, supports the derived whole connecting map L_C:T₂(C)→N(N(C)).
+Its universal arrow gives τ:a⇒b, where a,b are L_C's actual endpoint maps.
+Existing post/left extraction then gives a whole modification
+
+```text
+Ψ : tgt_C[τ] ∘ U_C[a] ⇒ U_C[b] ∘ src_C[τ].
+```
+
+Ψ's component is the original α; changed-filler controls pass. The selected
+94-input scope and independently proved family comparisons are recorded in
+[the connecting audit](../emdash2/audits/native_nerve_foundations/simplex_core/README.md#whole-connecting-map-and-derived-modification--2026-10-28).
+This advances the actual cell construction without declaring Φ. The missing
+whole identifications are a≐face01, b≐face02, src_C[τ]≐id_vertex0 and
+tgt_C[τ]≐β₁₂. The direct first-endpoint attempt failed; pointwise readback is
+not its replacement. Next inspect the generic Sigma cocone/projection and
+coefficient endpoint laws required for these comparisons. Do not assume a
+walking inverse, change Transfd's fibre profile or silently apply fibrewise
+opposite to a general lax map. The inherited total-dual identity-presentation
+and general higher-action boundaries remain separate qualification work.
 
 Keep the user-selected higher simplex shapes. Strict maps from ordinary
 ordinals are not substituted for arbitrary triangles with nonidentity fillers.

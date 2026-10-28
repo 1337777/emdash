@@ -1,0 +1,11 @@
+// Derived conventional pre/right endpoint in its total-dual presentation.
+// The actual R(T(F)) functor is a necessary discriminator: an unguarded
+// second head also matched ordinary postcomposition before its own view.
+// Inferred outer classifiers remain side conditions, and all data are kept.
+unif_rule @tapp1_fapp0 $A $B $F $G $X $Y $epsilon $p
+  ≡ @hom_postcomp_fapp0 $B0 $A0
+      (@CoAbove2_func _ _ (@Op_func $A1 $B1 $F0)) $W0 $Y0 $X0 $p0 $component
+  ↪ [ $A0 ≡ TotalOp_cat $A; $B0 ≡ TotalOp_cat $B;
+      $A1 ≡ $A; $B1 ≡ $B; $F0 ≡ $F; $W0 ≡ @fapp0 $A $B $G $Y;
+      $Y0 ≡ $Y; $X0 ≡ $X; $p0 ≡ $p;
+      $component ≡ @tapp0_fapp0 $A $B $F $G $Y $epsilon ];

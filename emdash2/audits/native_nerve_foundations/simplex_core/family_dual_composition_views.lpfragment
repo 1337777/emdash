@@ -1,0 +1,19 @@
+// Whole total-fibre duality and reindexing: two presentations already
+// joined by the independent staged family-formation proof. Keep every map
+// and shifted base, without changing their runtime normal forms.
+unif_rule @TotalOp_catd $K (@comp_fapp0 Cat_cat _ _ _ $H $E)
+  ≡ @comp_fapp0 Cat_cat $A0 $B0 $C0
+      (@TotalOp_catd $L $H0) (@CoAbove2_func $K0 $L0 $E0)
+  ↪ [ $K0 ≡ $K; $L0 ≡ $L; $A0 ≡ CoAbove2_cat $K;
+      $B0 ≡ CoAbove2_cat $L; $C0 ≡ Cat_cart; $H0 ≡ $H; $E0 ≡ $E ];
+
+// Ordinary postcomposition after the same family formation. The proof is
+// the existing categorical associativity law instantiated before the inner
+// total-dual family becomes stable. No functor or family argument is erased.
+unif_rule @comp_fapp0 Cat_cat $A $M $B $H (@TotalOp_catd $K $E)
+  ≡ @comp_fapp0 Cat_cat $A0 $M0 $B0
+      (@comp_fapp0 Cat_cat $M1 $C1 $B1 $H0 total_op_cart)
+      (@CoAbove2_func $K0 Cat_cart $E0)
+  ↪ [ $A ≡ CoAbove2_cat $K; $M ≡ Cat_cart; $A0 ≡ $A;
+      $M0 ≡ CoAbove2_cat Cat_cart; $M1 ≡ $M0; $C1 ≡ Cat_cart;
+      $B0 ≡ $B; $B1 ≡ $B; $H0 ≡ $H; $K0 ≡ $K; $E0 ≡ $E ];

@@ -1,0 +1,20 @@
+require open emdash.native_arrow_dual_naturality;
+
+// Actual endpoint projections of the whole connecting map. These have not
+// yet been identified with the pre-existing faces 01 and 02.
+symbol native_triangle_connecting_source (C : Cat)
+  : τ (Functor (nerve_native_triangle_cat C) (LaxArrow_cat C))
+≔ @comp_cat_fapp0 _ _ _ (cubical_src_func (LaxArrow_cat C)) (native_triangle_connecting_func C);
+symbol native_triangle_connecting_target (C : Cat)
+  : τ (Functor (nerve_native_triangle_cat C) (LaxArrow_cat C))
+≔ @comp_cat_fapp0 _ _ _ (cubical_tgt_func (LaxArrow_cat C)) (native_triangle_connecting_func C);
+
+symbol native_triangle_connecting_transf (C : Cat)
+  : τ (@Transf (nerve_native_triangle_cat C) (LaxArrow_cat C)
+      (native_triangle_connecting_source C) (native_triangle_connecting_target C))
+≔ @comp_prod_fapp1_fapp0 Cat_cat (nerve_native_triangle_cat C)
+    (LaxArrow_cat (LaxArrow_cat C)) (LaxArrow_cat C)
+    (Struct_sigma (native_triangle_connecting_func C) (cubical_src_func (LaxArrow_cat C)))
+    (Struct_sigma (native_triangle_connecting_func C) (cubical_tgt_func (LaxArrow_cat C)))
+    (Struct_sigma (@id (Functor_cat (nerve_native_triangle_cat C) (LaxArrow_cat (LaxArrow_cat C)))
+      (native_triangle_connecting_func C)) (nerve_native_universal_transf (LaxArrow_cat C)));

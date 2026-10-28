@@ -1,0 +1,23 @@
+require open emdash.native_negative_arrow_total;
+
+// The family restriction evaluates to the original defined duality map.
+assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K)) ⊢
+  @tapp0_fapp0 (CoAbove2_cat K) Cat_cart _ _ k
+    (@strict_transfor _ _ _ _ (@native_arrow_total_dual_family K E))
+  ≡ native_arrow_total_dual (Fibre_cat E k);
+
+// The connecting native square has identity at the initial vertex and
+// retains p12 and alpha. No filler or comparison is supplied to the functor.
+symbol native_triangle_connecting_object [C : Cat]
+  (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02))
+  : τ (@= (Obj (LaxArrow_cat (LaxArrow_cat C)))
+      (@fapp0 (nerve_native_triangle_cat C) (LaxArrow_cat (LaxArrow_cat C))
+        (native_triangle_connecting_func C)
+        (@nerve_native_triangle_from_cell C x0 x1 x2 p01 p02 p12 alpha))
+      (@lax_edge (LaxArrow_cat C) (@lax_edge C x0 x1 p01) (@lax_edge C x0 x2 p02)
+        (@nerve_native_square_from_cell C x0 x0 x1 x2 p01 p02 (@id C x0) p12 alpha)))
+≔ @eq_refl (Obj (LaxArrow_cat (LaxArrow_cat C)))
+    (@lax_edge (LaxArrow_cat C) (@lax_edge C x0 x1 p01) (@lax_edge C x0 x2 p02)
+      (@nerve_native_square_from_cell C x0 x0 x1 x2 p01 p02 (@id C x0) p12 alpha));

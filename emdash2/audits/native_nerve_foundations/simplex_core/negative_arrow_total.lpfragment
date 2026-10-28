@@ -1,0 +1,44 @@
+/* Native arrow comparison for the existing negative Sigma total.
+   Every map is a composition of the whole coefficient restriction,
+   ordinary Sigma maps, the checked coefficient total and native duality. */
+require open emdash.native_arrow_dual_coefficient;
+
+symbol native_negative_total [K : Cat] (E : τ (Catd K)) : Cat
+≔ TotalOp_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E));
+
+symbol native_dual_sigma_arrow_total [K : Cat] (E : τ (Catd K))
+  : τ (Functor
+      (@Sigma_cat (CoAbove2_cat K)
+        (@TotalOp_catd K (@native_sigma_coeff_family K nerve_native_arrow_coeff E)))
+      (LaxArrow_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E))))
+≔ @comp_cat_fapp0
+    (@Sigma_cat (CoAbove2_cat K)
+      (@TotalOp_catd K (@native_sigma_coeff_family K nerve_native_arrow_coeff E)))
+    (@Sigma_cat (CoAbove2_cat K)
+      (@native_sigma_coeff_family (CoAbove2_cat K) nerve_native_arrow_coeff (@TotalOp_catd K E)))
+    (LaxArrow_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E)))
+    (@native_sigma_arrow_total (CoAbove2_cat K) (@TotalOp_catd K E))
+    (@sigma_map_func (CoAbove2_cat K)
+      (@TotalOp_catd K (@native_sigma_coeff_family K nerve_native_arrow_coeff E))
+      (@native_sigma_coeff_family (CoAbove2_cat K) nerve_native_arrow_coeff (@TotalOp_catd K E))
+      (@strict_transfor _ _ _ _ (@native_arrow_total_dual_family K E)));
+
+symbol native_negative_arrow_total [K : Cat] (E : τ (Catd K))
+  : τ (Functor
+      (@native_negative_total K (@native_sigma_coeff_family K nerve_native_arrow_coeff E))
+      (LaxArrow_cat (@native_negative_total K E)))
+≔ @comp_cat_fapp0
+    (@native_negative_total K (@native_sigma_coeff_family K nerve_native_arrow_coeff E))
+    (TotalOp_cat (LaxArrow_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E))))
+    (LaxArrow_cat (@native_negative_total K E))
+    (native_arrow_total_dual (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E)))
+    (@TotalOp_func
+      (@Sigma_cat (CoAbove2_cat K)
+        (@TotalOp_catd K (@native_sigma_coeff_family K nerve_native_arrow_coeff E)))
+      (LaxArrow_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E)))
+      (@native_dual_sigma_arrow_total K E));
+
+// Specialize the genuine whole construction to the PathOut family.
+symbol native_triangle_connecting_func (C : Cat)
+  : τ (Functor (nerve_native_triangle_cat C) (LaxArrow_cat (LaxArrow_cat C)))
+≔ @native_negative_arrow_total (Op_cat C) (@PathOut_cat_func C);

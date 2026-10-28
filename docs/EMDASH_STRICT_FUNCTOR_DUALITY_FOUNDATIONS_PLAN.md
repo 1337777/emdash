@@ -80,11 +80,24 @@ original directed square filler, square double reversal and noncollapse
 controls pass in an isolated 86-input scope (82.454s / 592,776 KiB). One
 intrinsic identity-input projection and an independently proved endpoint
 view support this computation. The [audit boundary](../emdash2/audits/native_nerve_foundations/simplex_core/README.md#native-total-duality-comparison--2026-10-28)
-keeps general higher computation and coefficient-level naturality unqualified.
-**Next qualify that whole coefficient comparison**, then combine it with
-Σ(N∘E)→N(ΣE) to obtain the connecting triangle arrow and canonical Φ. The
-whole generic dual-naturality attempt and rejected eager whiskering rules
-remain recorded; neither is silently adopted.
+retains the earlier higher-action and identity-presentation boundaries.
+A new structural Cartesian internalization of d now has its defined components
+and whole naturality comparison. Restriction, Sigma totalization and duality
+then derive the whole connecting map T₂(C)→N(N(C)), its transformation τ and
+a whole modification Ψ whose component is the original α. The expanded
+94-input scope passes in 93.797s / 615,160 KiB. Two whole-family views are
+independently proved on the production core, and the reused postcomposition
+consumer required narrowing the earlier duality matcher to its actual R(T(F))
+head. [The current audit](../emdash2/audits/native_nerve_foundations/simplex_core/README.md#whole-connecting-map-and-derived-modification--2026-10-28)
+separates that new structural admission from the derived construction.
+
+**Next identify the connecting map's whole endpoints with faces 01/02 and
+its source/target transformations with id_vertex0 and β₁₂.** Those comparisons
+turn Ψ into the required Φ; they are not implied by the α readback. Review the
+needed generic Sigma cocone/projection reconstruction and coefficient endpoint
+coherence, without restoring arbitrary section eta or supplying a triangle
+inverse. The generic dual-naturality and identity-presentation limits remain
+recorded for later qualification.
 
 **Next construct the whole native/geometric triangle comparison**, supplying
 the realizer with native universal edges and filler. Do not use the ordinary

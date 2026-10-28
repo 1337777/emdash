@@ -1,0 +1,24 @@
+require open emdash.native_triangle_connecting_controls;
+
+// Stage ordinary strict naturality before the component functors project.
+symbol native_strict_naturality_path [A B : Cat]
+  [F G : τ (Functor A B)] (U : τ (@StrictTransfor A B F G))
+  [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (@= (Hom B (fapp0 F x) (fapp0 G y))
+    (@comp_fapp0 B (fapp0 F x) (fapp0 G x) (fapp0 G y)
+      (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x (@strict_transfor A B F G U)))
+    (@comp_fapp0 B (fapp0 F x) (fapp0 F y) (fapp0 G y)
+      (@tapp0_fapp0 A B F G y (@strict_transfor A B F G U)) (@fapp1_fapp0 A B F x y p)))
+≔ @eq_refl _ _;
+
+// Whole functor agreement supplied by the structural coefficient profile,
+// specialized to its actual already-defined d_A components and N(F) action.
+symbol native_arrow_duality_naturality [A B : Cat] (F : τ (Functor A B))
+  : τ (@= (Functor (TotalOp_cat (LaxArrow_cat A)) (LaxArrow_cat (TotalOp_cat B)))
+    (@comp_cat_fapp0 _ _ _ (@nerve_native_arrow_map (TotalOp_cat A) (TotalOp_cat B)
+      (@TotalOp_func A B F)) (native_arrow_total_dual A))
+    (@comp_cat_fapp0 _ _ _ (native_arrow_total_dual B)
+      (@TotalOp_func (LaxArrow_cat A) (LaxArrow_cat B) (@nerve_native_arrow_map A B F))))
+≔ @native_strict_naturality_path (CoAbove2_cat Cat_cart) Cat_cart
+    (@TotalOp_catd Cat_cart nerve_native_arrow_coeff) native_arrow_dual_target_coeff
+    native_arrow_total_dual_coeff A B F;

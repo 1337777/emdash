@@ -1,9 +1,12 @@
 # Independent all-flags native triangle core
 
 Date: 2026-10-28
-Status: qualified isolated native triangle, higher shape and whole family construction; whole geometric comparison and one legacy runtime normalization remain open
+Status: isolated native triangle, whole connecting map and derived raw modification qualified; whole triangle boundary identifications, geometric comparison and production gates remain open
 Owner: [core-feasibility outline](../../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
 Evidence: [exact sources, scopes and attempts](verification.json)
+
+Current continuation: [the whole connecting map and modification](#whole-connecting-map-and-derived-modification--2026-10-28). Use the selected
+`triangle-connecting` replay; earlier narrower modes retain historical evidence.
 
 ## Whole interface and native meaning
 
@@ -618,3 +621,90 @@ Replay with `--mode arrow-total-duality`, `arrow-duality-boundary-proof`, or
 `arrow-duality-omission`. As before, `--assemble-only` verifies exact source
 snapshots without launching a checker. All changes remain isolated audit
 candidates; production owners, registration and frontend pins are untouched.
+
+
+## Whole connecting map and derived modification — 2026-10-28
+
+The [Cartesian coefficient owner](arrow_dual_coefficient.lpfragment) now
+internalizes the preceding defined d_A:
+
+```text
+d : StrictTransfor(R(Cat_cart), Cat_cart,
+                  TotalOp_catd(N_coeff), N_coeff ∘ total_op_cart).
+```
+
+Its strict parameter action is a **new structural admission**, with the
+already defined d_A as component. It is not a theorem inferred from agreeing
+objects. The [whole naturality comparison](arrow_dual_naturality.lpfragment)
+is a consequence of that selected profile. Ordinary transformations elsewhere
+remain lax. No external profile certificate or comparison is an argument of
+the construction.
+
+Restricting d along R(E), then applying existing Sigma maps and the checked
+Σ(N∘E)→N(ΣE) comparison, gives the [defined negative-total map](negative_arrow_total.lpfragment):
+
+```text
+O(Σ_(R K) O_fib(N∘E)) → N(O(Σ_(R K) O_fib(E))).
+```
+
+At E=PathOut_C this is an actual whole functor L_C:T₂(C)→N(N(C)). On a native
+triangle, its stored arrow is the square `(id_x₀, p₁₂, α)` from p₀₁ to p₀₂.
+The [constructor consumer](triangle_connecting_controls.lpfragment) recovers
+that complete square, not just its vertices.
+
+Let a and b be L_C's actual whole source and target projections. The
+[whole connecting transformation](triangle_connecting_transformation.lpfragment)
+and [whole modification](triangle_raw_modification.lpfragment) are derived:
+
+```text
+τ_C : a ⇒ b
+Ψ_C : tgt_C[τ_C] ∘ U_C[a] ⇒ U_C[b] ∘ src_C[τ_C].
+```
+
+Ψ_C uses the existing post/left naturality extraction, not a supplied filler.
+Its [component consumer](triangle_raw_modification_controls.lpfragment)
+recovers exactly the original α and rejects an unrelated β. Changed-family
+and changed-postfunctor controls also pass.
+
+**Ψ_C is not yet the required Φ_C.** The [direct whole endpoint attempt](triangle_connecting_endpoints_pending.lpfragment)
+failed at a≐face01; the target proof was not reached. We still need both
+whole endpoint identifications, src_C[τ_C]≐id_vertex0 and
+tgt_C[τ_C]≐β₁₂. Component readback proves none of these whole equations.
+The next work is the applicable generic Sigma cocone/projection reconstruction
+and coefficient endpoint coherence. The earlier
+[tautological Sigma source-generation contract](../sigma_generation_owner.lpfragment)
+is relevant evidence, but is not already a theorem about this new cocone.
+Do not restore arbitrary Pi/Sigma-section identification or introduce a
+triangle-specific inverse to close the gap.
+
+Two [family composition views](family_dual_composition_views.lpfragment)
+allow the whole coefficient restriction to use its actual shifted families.
+Their [independent proofs](family_dual_composition_proof.lpfragment) use the
+existing family formation and ordinary associativity. They pass on the
+unchanged production core in 35.052s / 168,432 KiB. Removing those two
+views restores the expected family-typing failure (84.772s).
+
+The expanded postcomposition consumer also exposed an overbroad matcher in
+the preceding total-duality endpoint view. Its second head could match an
+ordinary postcomposition case before the appropriate ordinary view. The
+[selected guarded version](total_dual_boundary_view_guarded.lpfragment)
+requires the actual R(T(F)) head and preserves every original argument.
+The prior unguarded version remains only in its historical narrower replays
+and the explicit failing `duality-view-broad-regression` mode. Reused
+postcomposition component-owner dependencies are pinned from their existing
+audit; no strictness assumption was added to make them pass.
+
+The selected **94-input scope passes in 93.797s / 615,160 KiB**, with subject
+reduction, 180s/2GiB limits and the existing GC profile. Its 2,612 critical-pair
+and 181 replaceable-variable warnings have a clean parser inventory. Compared
+with the 89-input connecting-map scope before adding postcomposition, four
+locations are added and one removed (net +3), at the reused component-evaluation,
+product-projection and modification-projection owners. Exact source-line
+mapping and disposition are in `verification.json`; this is not a confluence
+certificate. Active production sources and frontend pins remain unchanged.
+
+Replay modes are `triangle-connecting`, `family-duality-proof`,
+`family-duality-view-omission`, `triangle-endpoints-pending` and
+`duality-view-broad-regression`. The two last modes retain their exact earlier
+failed snapshots. The full native triangle realizer, its inverse comparisons,
+general higher duality computation and production integration remain open.

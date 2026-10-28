@@ -1,0 +1,30 @@
+/* Whole Cartesian internalization of the native arrow duality.
+   The root's natural parameter action is structural, not a theorem inferred
+   from component agreement. Its components are the already defined graph;
+   all subsequent family and total maps below are derived compositions. */
+require open emdash.native_arrow_total_dual_controls;
+
+symbol native_arrow_dual_target_coeff
+  : τ (Functor (CoAbove2_cat Cat_cart) Cat_cart)
+≔ @comp_cat_fapp0 (CoAbove2_cat Cat_cart) Cat_cart Cat_cart
+    nerve_native_arrow_coeff total_op_cart;
+
+injective symbol native_arrow_total_dual_coeff
+  : τ (@StrictTransfor (CoAbove2_cat Cat_cart) Cat_cart
+      (@TotalOp_catd Cat_cart nerve_native_arrow_coeff)
+      native_arrow_dual_target_coeff);
+
+rule @tapp0_fapp0 _ _ _ _ $A
+    (@strict_transfor _ _ _ _ native_arrow_total_dual_coeff)
+  ↪ native_arrow_total_dual $A;
+
+// Restrict the whole coefficient along R(E), with the actual R-shifted base.
+symbol native_arrow_total_dual_family [K : Cat] (E : τ (Catd K))
+  : τ (Hom (Functor_cart_cat (CoAbove2_cat K) Cat_cart)
+      (@TotalOp_catd K (@native_sigma_coeff_family K nerve_native_arrow_coeff E))
+      (@native_sigma_coeff_family (CoAbove2_cat K) nerve_native_arrow_coeff (@TotalOp_catd K E)))
+≔ @fapp1_fapp0 _ _
+    (@comp_cat_con_cart_func (CoAbove2_cat K) (CoAbove2_cat Cat_cart) Cat_cart
+      (@CoAbove2_func K Cat_cart E))
+    (@TotalOp_catd Cat_cart nerve_native_arrow_coeff) native_arrow_dual_target_coeff
+    native_arrow_total_dual_coeff;

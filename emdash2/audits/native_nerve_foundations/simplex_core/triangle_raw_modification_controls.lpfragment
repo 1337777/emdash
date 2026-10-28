@@ -1,0 +1,46 @@
+require open emdash.native_triangle_raw_modification;
+
+// The whole modification is built from the existing post/left naturality
+// owner. Its component must be the input's original directed filler.
+symbol native_triangle_raw_modification_component [C : Cat]
+  (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02))
+  : τ (@= (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)
+      (@tapp0_hom_fapp0 (nerve_native_triangle_cat C) C
+        (fapp0 (native_triangle_source_post C) (native_triangle_connecting_source C))
+        (fapp0 (native_triangle_target_post C) (native_triangle_connecting_target C)) _ _
+        (@nerve_native_triangle_from_cell C x0 x1 x2 p01 p02 p12 alpha)
+        (native_triangle_raw_modification C)) alpha)
+≔ @eq_refl (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02) alpha;
+
+// The derived modification cannot replace the input filler with another one.
+assertnot [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha beta : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)) ⊢
+  @eq_refl (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02) beta
+  : τ (@= (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)
+      (@tapp0_hom_fapp0 (nerve_native_triangle_cat C) C
+        (fapp0 (native_triangle_source_post C) (native_triangle_connecting_source C))
+        (fapp0 (native_triangle_target_post C) (native_triangle_connecting_target C)) _ _
+        (@nerve_native_triangle_from_cell C x0 x1 x2 p01 p02 p12 alpha)
+        (native_triangle_raw_modification C)) beta);
+
+// The family comparison must keep the actual reindexing functor.
+assertnot [K L : Cat] (E E1 : τ (Functor K L)) (H : τ (Catd L)) ⊢
+  @eq_refl (Functor (CoAbove2_cat K) Cat_cart)
+    (@TotalOp_catd K (@comp_cat_fapp0 K L Cat_cart H E))
+  : τ (@= (Functor (CoAbove2_cat K) Cat_cart)
+      (@TotalOp_catd K (@comp_cat_fapp0 K L Cat_cart H E))
+      (@comp_cat_fapp0 (CoAbove2_cat K) (CoAbove2_cat L) Cat_cart
+        (@TotalOp_catd L H) (@CoAbove2_func K L E1)));
+
+// The second view must keep the actual postcomposing functor.
+assertnot [K B : Cat] (E : τ (Catd K)) (H H1 : τ (Functor Cat_cart B)) ⊢
+  @eq_refl (Functor (CoAbove2_cat K) B)
+    (@comp_cat_fapp0 (CoAbove2_cat K) Cat_cart B H (@TotalOp_catd K E))
+  : τ (@= (Functor (CoAbove2_cat K) B)
+      (@comp_cat_fapp0 (CoAbove2_cat K) Cat_cart B H (@TotalOp_catd K E))
+      (@comp_cat_fapp0 (CoAbove2_cat K) (CoAbove2_cat Cat_cart) B
+        (@comp_cat_fapp0 (CoAbove2_cat Cat_cart) Cat_cart B H1 total_op_cart)
+        (@CoAbove2_func K Cat_cart E)));

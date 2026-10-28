@@ -1,0 +1,45 @@
+require open emdash.emdash3_2;
+
+symbol native_R_composition_path [A B C : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B C))
+  : τ (@= (Functor (CoAbove2_cat A) (CoAbove2_cat C))
+      (@CoAbove2_func A C (@comp_cat_fapp0 A B C G F))
+      (@comp_cat_fapp0 (CoAbove2_cat A) (CoAbove2_cat B) (CoAbove2_cat C)
+        (@CoAbove2_func B C G) (@CoAbove2_func A B F)))
+≔ @eq_refl _ _;
+
+symbol native_total_family_form_path [K : Cat] (E : τ (Catd K))
+  : τ (@= (Functor (CoAbove2_cat K) Cat_cart)
+      (@comp_cat_fapp0 (CoAbove2_cat K) (CoAbove2_cat Cat_cart) Cat_cart
+        total_op_cart (@CoAbove2_func K Cat_cart E))
+      (@TotalOp_catd K E))
+≔ @eq_refl _ _;
+
+// Apply the actual R composition law before the coefficient forms its
+// stable family head. No new family equality is assumed.
+symbol native_total_family_reindex_path [K L : Cat]
+  (E : τ (Functor K L)) (H : τ (Catd L))
+  : τ (@= (Functor (CoAbove2_cat K) Cat_cart)
+      (@TotalOp_catd K (@comp_cat_fapp0 K L Cat_cart H E))
+      (@comp_cat_fapp0 (CoAbove2_cat K) (CoAbove2_cat L) Cat_cart
+        (@TotalOp_catd L H) (@CoAbove2_func K L E)))
+≔ @eq_sym (Functor (CoAbove2_cat K) Cat_cart)
+    (@comp_cat_fapp0 (CoAbove2_cat K) (CoAbove2_cat L) Cat_cart
+      (@TotalOp_catd L H) (@CoAbove2_func K L E))
+    (@TotalOp_catd K (@comp_cat_fapp0 K L Cat_cart H E))
+    (@native_total_family_form_path K (@comp_cat_fapp0 K L Cat_cart H E));
+
+symbol native_total_family_post_path [K B : Cat]
+  (E : τ (Catd K)) (H : τ (Functor Cat_cart B))
+  : τ (@= (Functor (CoAbove2_cat K) B)
+      (@comp_cat_fapp0 (CoAbove2_cat K) (CoAbove2_cat Cat_cart) B
+        (@comp_cat_fapp0 (CoAbove2_cat Cat_cart) Cat_cart B H total_op_cart)
+        (@CoAbove2_func K Cat_cart E))
+      (@comp_cat_fapp0 (CoAbove2_cat K) Cat_cart B H (@TotalOp_catd K E)))
+≔ @eq_sym (Functor (CoAbove2_cat K) B)
+    (@comp_cat_fapp0 (CoAbove2_cat K) Cat_cart B H (@TotalOp_catd K E))
+    (@comp_cat_fapp0 (CoAbove2_cat K) (CoAbove2_cat Cat_cart) B
+      (@comp_cat_fapp0 (CoAbove2_cat Cat_cart) Cat_cart B H total_op_cart)
+      (@CoAbove2_func K Cat_cart E))
+    (@comp_assoc Cat_cat (CoAbove2_cat K) (CoAbove2_cat Cat_cart) Cat_cart B
+      H total_op_cart (@CoAbove2_func K Cat_cart E));

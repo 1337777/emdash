@@ -1,0 +1,53 @@
+/* Derived whole square modification from the connecting transformation.
+   Its four endpoint functors retain their actual composition owners. The
+   identification of its lower edge with identity and with the established
+   triangle edges is a separate whole-comparison obligation. */
+require open emdash.native_triangle_connecting_transformation;
+require open emdash.native_postcomposition_laxity;
+
+symbol native_triangle_source_post (C : Cat)
+  : τ (Functor (Functor_cat (nerve_native_triangle_cat C) (LaxArrow_cat C))
+      (Functor_cat (nerve_native_triangle_cat C) C))
+≔ @comp_cat_cov_func (nerve_native_triangle_cat C) (LaxArrow_cat C) C (cubical_src_func C);
+symbol native_triangle_target_post (C : Cat)
+  : τ (Functor (Functor_cat (nerve_native_triangle_cat C) (LaxArrow_cat C))
+      (Functor_cat (nerve_native_triangle_cat C) C))
+≔ @comp_cat_cov_func (nerve_native_triangle_cat C) (LaxArrow_cat C) C (cubical_tgt_func C);
+symbol native_triangle_post_universal (C : Cat)
+  : τ (@Transf (Functor_cat (nerve_native_triangle_cat C) (LaxArrow_cat C))
+      (Functor_cat (nerve_native_triangle_cat C) C)
+      (native_triangle_source_post C) (native_triangle_target_post C))
+≔ @nerve_lax_postcomposition_transf (nerve_native_triangle_cat C) (LaxArrow_cat C) C
+    (cubical_src_func C) (cubical_tgt_func C) (nerve_native_universal_transf C);
+
+symbol native_triangle_raw_modification_type (C : Cat) : Grpd
+≔ Hom
+    (Hom_cat (Functor_cat (nerve_native_triangle_cat C) C)
+      (fapp0 (native_triangle_source_post C) (native_triangle_connecting_source C))
+      (fapp0 (native_triangle_target_post C) (native_triangle_connecting_target C)))
+    (@comp_fapp0 (Functor_cat (nerve_native_triangle_cat C) C)
+      (fapp0 (native_triangle_source_post C) (native_triangle_connecting_source C))
+      (fapp0 (native_triangle_target_post C) (native_triangle_connecting_source C))
+      (fapp0 (native_triangle_target_post C) (native_triangle_connecting_target C))
+      (@fapp1_fapp0 _ _ (native_triangle_target_post C)
+        (native_triangle_connecting_source C) (native_triangle_connecting_target C)
+        (native_triangle_connecting_transf C))
+      (@tapp0_fapp0 _ _ _ _ (native_triangle_connecting_source C) (native_triangle_post_universal C)))
+    (@comp_fapp0 (Functor_cat (nerve_native_triangle_cat C) C)
+      (fapp0 (native_triangle_source_post C) (native_triangle_connecting_source C))
+      (fapp0 (native_triangle_source_post C) (native_triangle_connecting_target C))
+      (fapp0 (native_triangle_target_post C) (native_triangle_connecting_target C))
+      (@tapp0_fapp0 _ _ _ _ (native_triangle_connecting_target C) (native_triangle_post_universal C))
+      (@fapp1_fapp0 _ _ (native_triangle_source_post C)
+        (native_triangle_connecting_source C) (native_triangle_connecting_target C)
+        (native_triangle_connecting_transf C)));
+
+symbol native_triangle_raw_modification (C : Cat)
+  : τ (native_triangle_raw_modification_type C)
+≔ @native_readable_lax_cell
+    (Functor_cat (nerve_native_triangle_cat C) (LaxArrow_cat C))
+    (Functor_cat (nerve_native_triangle_cat C) C)
+    (native_triangle_source_post C) (native_triangle_target_post C)
+    (native_triangle_post_universal C)
+    (native_triangle_connecting_source C) (native_triangle_connecting_target C)
+    (native_triangle_connecting_transf C);
