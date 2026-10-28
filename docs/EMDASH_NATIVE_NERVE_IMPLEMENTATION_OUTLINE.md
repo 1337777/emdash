@@ -16,7 +16,7 @@ constructions below. No unfinished inverse is supplied to make a skeleton pass.
 | Core | Present evidence | Decisive remaining feasibility slice |
 | --- | --- | --- |
 | Cubical | Whole native/geometric maps at every dimension; both zero inverses; variable-dimensional iterated-walking retraction; nonidentity higher-cell consumers. | Whole native walking reconstruction and mixed-evaluation/positive closure cancellation with the actual maps. |
-| Simplicial | Independent all-flags triangle and higher shape; whole connecting map and internally extracted Ψ retaining α; final assembly still awaits its whole triangle boundary identifications. | Make the uniform coefficient recursion/higher step concrete and test a further nonidentity higher consumer; resolve the Ψ-to-Φ conversions needed by that construction. |
+| Simplicial | Internal Nat recursion of native coefficients, whole map action and 3-cell filler functors; triangle connecting map and Ψ also retained. | Assess the geometric successor/terminal-join profile and whole comparison with Step; retain required Ψ-to-Φ, inverse and index obligations. |
 | Computational foundation | Installed corrected-duality Homd ladder and strict defaults; bounded whole-functor proof consumers. | Keep new core operations internal and usable; identify actual owner/profile gaps rather than count point checks. |
 
 Next implementation order:
@@ -442,23 +442,41 @@ and general higher-action boundaries remain separate qualification work.
 Keep the user-selected higher simplex shapes. Strict maps from ordinary
 ordinals are not substituted for arbitrary triangles with nonidentity fillers.
 The native construction remains independent of those geometric shapes.
-A candidate recursion is
+The [native coefficient recursion](../emdash2/audits/native_nerve_foundations/simplex_core/recursive/README.md)
+is now checked in a standalone 39-input scope. With S⁻ denoting the existing
+negative Sigma total, its actual whole interfaces are
 
 ```text
-NS₀(C) = C
-NSₙ₊₁(C) = O(Σ_(O(C)) O_fib(x ↦ NSₙ(PathOut_C(x)))).
+Step(H)(C) = S⁻_(T C)(H ∘ PathOut_cat_func(C))
+H₀ = N_coeff,          Hₙ₊₁ = Step(Hₙ)
+NS₀(C) = C,            NSₙ₊₁(C) = Hₙ(C).
 ```
 
-The displayed family in this expression is an obligation: it needs whole
-Cartesian parameter action for NSₙ, not a pointwise assignment at x. At n=0
-it recovers the existing native edge total. At the next step its fixed-x
-consumer is N(PathOut_C(x)), the triangle category with original filler data.
-Use that concrete consumer to qualify the whole varying-x family before
-claiming independent all-flags totals at arbitrary dimension.
+The positive recurrence deliberately preserves the existing degree-one
+coefficient. Step(id) has the same category values, but no whole coefficient
+identification with N_coeff is assumed. That compatibility remains relevant
+to later uniform face/index comparisons. The whole Step/PathOut profiles are
+explicit structural internalizations; negative totalization, base change,
+map bodies, Nat recursion and filler inclusions are derived.
+
+Variable-n map computation and unit/composition comparisons pass. Degrees
+one and two recover the existing arrow and triangle categories. A generic
+whole tetrahedron-filler inclusion and a whole functor on genuine C 3-cells
+now check, with constructor computation and changed-cell noncollapse. A raw
+deep projection chain remains an inference limitation; it is not the chosen
+constructor or a proof argument carried by the maps.
+
+The next core slice is the geometric successor and its whole comparison
+with Step. Review the actual terminal-join cross profile against the checked
+higher triangle. Current Prof_transf_cat uses lax Functord; older “ordinary
+simplex” prose alone establishes neither truncation nor higher universality.
+Existing join mapping-data and cross-computation qualifications still apply.
+No terminal-join equivalence or arbitrary-dimensional geometric realization
+has been imported as an assumption.
 
 | Piece | Required result |
 | --- | --- |
-| Native parameter action | Form the whole family above using admitted Cat_cart maps and corrected T/R/O bases. No object-only family declaration. |
+| Native parameter action | Internal coefficient recursion and whole maps now check with the recorded structural profiles. Further literal unit/composite normalization and promotion remain open. |
 | Higher shape recursion | Selected Sₙ and its whole terminal-join/cone mapping interface, with actual triangle/tetrahedron cells. |
 | Native/geometric maps | Whole `NSₙ(C) ⇄ G(Sₙ,C)` maps and actual inverse data; do not define NS by the geometric mapping category. |
 | Same index and augmentation | A common augmented simplex index, with n-simplexes having n+1 vertices and the augmentation checked separately. |

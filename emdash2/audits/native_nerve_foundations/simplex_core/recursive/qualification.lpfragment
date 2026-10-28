@@ -1,0 +1,104 @@
+require open emdash.native_recursive_simplex_filler_functors;
+
+// A whole functor with objects genuine 3-cells of C; its subsequent Hom
+// actions are inherited from the existing Hom maps and Sigma inclusions.
+symbol native_simplex3_vertical_func [C : Cat] (x0 x : τ (Obj C))
+  (u v w : τ (Hom C x0 x))
+  (a : τ (Hom (Hom_cat C x0 x) u v))
+  (b : τ (Hom (Hom_cat C x0 x) u w))
+  (c : τ (Hom (Hom_cat C x0 x) v w))
+  : τ (Functor (@native_triangle_filler_cat (Hom_cat C x0 x) u v w a b c)
+      (native_simplex_cat C (succ (succ (succ zero)))))
+≔ @comp_cat_fapp0 _ _ _
+    (@native_simplex3_filler_func C x0
+      (@dependent_simplex1 C x0 x u) (@dependent_simplex1 C x0 x v) (@dependent_simplex1 C x0 x w)
+      (@fapp1_fapp0 _ _ (@sigma_intro_tapp0_func C (@Rep_catd C x0) x) u v a)
+      (@fapp1_fapp0 _ _ (@sigma_intro_tapp0_func C (@Rep_catd C x0) x) u w b)
+      (@fapp1_fapp0 _ _ (@sigma_intro_tapp0_func C (@Rep_catd C x0) x) v w c))
+    (@native_triangle_filler_image_func (Hom_cat C x0 x) (@PathOut_cat C x0)
+      (@sigma_intro_tapp0_func C (@Rep_catd C x0) x) u v w a b c);
+
+assert [C : Cat] (x0 x : τ (Obj C)) (u v w : τ (Hom C x0 x))
+  (a : τ (Hom (Hom_cat C x0 x) u v)) (b : τ (Hom (Hom_cat C x0 x) u w))
+  (c : τ (Hom (Hom_cat C x0 x) v w))
+  (Omega : τ (Hom (Hom_cat (Hom_cat C x0 x) u w)
+      (@comp_fapp0 (Hom_cat C x0 x) u v w c a) b)) ⊢
+  fapp0 (@native_simplex3_vertical_func C x0 x u v w a b c) Omega
+  ≡ @native_simplex3_vertical_cell C x0 x u v w a b c Omega;
+
+assertnot [C : Cat] (x0 x : τ (Obj C)) (u v w : τ (Hom C x0 x))
+  (a : τ (Hom (Hom_cat C x0 x) u v)) (b : τ (Hom (Hom_cat C x0 x) u w))
+  (c : τ (Hom (Hom_cat C x0 x) v w))
+  (Omega Psi : τ (Hom (Hom_cat (Hom_cat C x0 x) u w)
+      (@comp_fapp0 (Hom_cat C x0 x) u v w c a) b)) ⊢
+  @eq_refl (Obj (native_simplex_cat C (succ (succ (succ zero)))))
+    (fapp0 (@native_simplex3_vertical_func C x0 x u v w a b c) Omega)
+  : τ (@= (Obj (native_simplex_cat C (succ (succ (succ zero)))))
+      (fapp0 (@native_simplex3_vertical_func C x0 x u v w a b c) Omega)
+      (fapp0 (@native_simplex3_vertical_func C x0 x u v w a b c) Psi));
+
+// Variable-dimensional functoriality follows from the selected whole
+// coefficient, without per-dimension equations or proof arguments.
+symbol native_simplex_map_unit (n : τ Nat_grpd) (C : Cat)
+  : τ (@= (Functor (native_simplex_cat C n) (native_simplex_cat C n))
+      (@native_simplex_map C C n (@id_func C)) (@id_func (native_simplex_cat C n)))
+≔ @nerve_generic_functor_unit Cat_cart Cat_cart (native_simplex_coeff n) C;
+
+symbol native_simplex_map_composition [A B C : Cat] (n : τ Nat_grpd)
+  (F : τ (Functor A B)) (G : τ (Functor B C))
+  : τ (@= (Functor (native_simplex_cat A n) (native_simplex_cat C n))
+      (@comp_cat_fapp0 _ _ _ (@native_simplex_map B C n G) (@native_simplex_map A B n F))
+      (@native_simplex_map A C n (@comp_cat_fapp0 A B C G F)))
+≔ @nerve_generic_functor_composition Cat_cart Cat_cart (native_simplex_coeff n) A B C F G;
+
+// Whole coefficient-transformation components recover the existing faces.
+symbol native_step_source_face_path (C : Cat)
+  : τ (@= (Functor (nerve_native_triangle_cat C) (LaxArrow_cat C))
+      (@tapp0_fapp0 Cat_cart Cat_cart _ _ C
+        (@strict_transfor _ _ _ _ (@native_simplex_step_transfor nerve_native_arrow_coeff
+          (@id_func Cat_cart) nerve_native_arrow_source_coeff)))
+      (nerve_triangle_face01_func C))
+≔ @eq_refl (Functor (nerve_native_triangle_cat C) (LaxArrow_cat C)) (nerve_triangle_face01_func C);
+symbol native_step_target_face_path (C : Cat)
+  : τ (@= (Functor (nerve_native_triangle_cat C) (LaxArrow_cat C))
+      (@tapp0_fapp0 Cat_cart Cat_cart _ _ C
+        (@strict_transfor _ _ _ _ (@native_simplex_step_transfor nerve_native_arrow_coeff
+          (@id_func Cat_cart) nerve_native_arrow_target_coeff)))
+      (nerve_triangle_face02_func C))
+≔ @eq_refl (Functor (nerve_native_triangle_cat C) (LaxArrow_cat C)) (nerve_triangle_face02_func C);
+
+// The composition view cannot substitute a different original arrow.
+assertnot [A B : Cat] (F : τ (Functor A B)) [x y z : τ (Obj A)]
+  (a a1 : τ (Hom A x y)) (c : τ (Hom A y z)) ⊢
+  @eq_refl (Hom B (fapp0 F x) (fapp0 F z))
+    (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z c a))
+  : τ (@= (Hom B (fapp0 F x) (fapp0 F z))
+      (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z c a))
+      (@hom_precomp_along_fapp0 B B (@id_func B) (fapp0 F z) (fapp0 F x) (fapp0 F y)
+        (@fapp1_fapp0 A B F x y a1) (@fapp1_fapp0 A B F y z c)));
+
+// Both first-action projection orders agree at variable positive dimension.
+assert (n : τ Nat_grpd) [C D : Cat] (F : τ (Functor C D)) ⊢
+  fapp0 (native_simplex_map_func (succ (succ n)) C D) F
+  ≡ @native_simplex_map C D (succ (succ n)) F;
+
+// The root map itself computes on a whole variable fibre object.
+assert (n : τ Nat_grpd) [C D : Cat] (F : τ (Functor C D))
+  (x : τ (Obj C))
+  (u : τ (Obj (fapp0 (native_simplex_coeff (succ n)) (@PathOut_cat C x)))) ⊢
+  fapp0 (@native_simplex_map C D (succ (succ n)) F)
+    (fapp0 (@native_negative_fibre_func (Op_cat C)
+      (native_simplex_step_family (native_simplex_coeff (succ n)) C) x) u)
+  ≡ fapp0 (@native_negative_fibre_func (Op_cat D)
+      (native_simplex_step_family (native_simplex_coeff (succ n)) D) (fapp0 F x))
+    (fapp0 (@fapp1_fapp0 Cat_cart Cat_cart (native_simplex_coeff (succ n))
+      (@PathOut_cat C x) (@PathOut_cat D (fapp0 F x)) (@pathout_map_func C D F x)) u);
+
+// Whole-to-component projection in the coefficient-transformation slot.
+assert (H J : τ (Functor Cat_cart Cat_cart))
+  (U : τ (@StrictTransfor Cat_cart Cat_cart H J)) (C : Cat) ⊢
+  @tapp0_fapp0 Cat_cart Cat_cart _ _ C
+    (@strict_transfor _ _ _ _
+      (fapp0 (@fapp1_func _ _ native_simplex_step_operator H J) U))
+  ≡ @fapp1_fapp0 (Functor_cart_cat Cat_cart Cat_cart) Cat_cart
+      (native_simplex_step_at_coeff C) H J U;

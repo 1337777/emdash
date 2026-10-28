@@ -1,0 +1,88 @@
+require open emdash.native_recursive_simplex_coefficients;
+
+// Typed projections of the generic negative total. Its whole base
+// projection lands in T(K); object classifiers retain the original K.
+symbol native_negative_base_func [K : Cat] (E : τ (Catd K))
+  : τ (Functor (fapp0 (native_negative_sigma_coeff K) E) (Op_cat K))
+≔ @TotalOp_func (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E)) (CoAbove2_cat K)
+    (@Sigma_proj1_func (CoAbove2_cat K) (@TotalOp_catd K E));
+symbol native_negative_tail [K : Cat] (E : τ (Catd K))
+  (q : τ (Obj (fapp0 (native_negative_sigma_coeff K) E)))
+  : τ (Obj (Fibre_cat E (fapp0 (@native_negative_base_func K E) q)))
+≔ @sigma_obj_fibre (CoAbove2_cat K) (@TotalOp_catd K E) q;
+
+// The step is an actual map over F: its base and fibre observations keep
+// both F and the supplied coefficient H.
+assert [C D : Cat] (H : τ (Functor Cat_cart Cat_cart)) (F : τ (Functor C D))
+  (x : τ (Obj C)) (u : τ (Obj (fapp0 H (@PathOut_cat C x)))) ⊢
+  sigma_Fst (fapp0 (@native_simplex_step_map C D H F) (Struct_sigma x u)) ≡ fapp0 F x;
+assert [C D : Cat] (H : τ (Functor Cat_cart Cat_cart)) (F : τ (Functor C D))
+  (x : τ (Obj C)) (u : τ (Obj (fapp0 H (@PathOut_cat C x)))) ⊢
+  sigma_Snd (fapp0 (@native_simplex_step_map C D H F) (Struct_sigma x u))
+  ≡ fapp0 (@fapp1_fapp0 Cat_cart Cat_cart H (@PathOut_cat C x)
+      (@PathOut_cat D (fapp0 F x)) (@pathout_map_func C D F x)) u;
+
+// Mapping a visible triangle along a strict default functor uses its actual
+// next-Hom action. No endpoint equation is supplied to the constructor.
+symbol native_triangle_image [A B : Cat] (F : τ (Functor A B))
+  (x y z : τ (Obj A)) (a : τ (Hom A x y)) (b : τ (Hom A x z)) (c : τ (Hom A y z))
+  (theta : τ (Hom (Hom_cat A x z) (@comp_fapp0 A x y z c a) b))
+  : τ (Obj (nerve_native_triangle_cat B))
+≔ @nerve_native_triangle_from_cell B (fapp0 F x) (fapp0 F y) (fapp0 F z)
+    (@fapp1_fapp0 A B F x y a) (@fapp1_fapp0 A B F x z b) (@fapp1_fapp0 A B F y z c)
+    (@fapp1_fapp0 (Hom_cat A x z) (Hom_cat B (fapp0 F x) (fapp0 F z))
+      (@fapp1_func A B F x z) (@comp_fapp0 A x y z c a) b theta);
+
+symbol native_simplex3_from_triangle [C : Cat] (x0 : τ (Obj C))
+  (t : τ (Obj (nerve_native_triangle_cat (@PathOut_cat C x0))))
+  : τ (Obj (native_simplex_cat C (succ (succ (succ zero)))))
+≔ Struct_sigma x0 t;
+
+// A genuine 3-cell of C, with the three terminal vertices fixed at x.
+// The fibre inclusion turns its 2-dimensional boundary into a PathOut
+// triangle; the uniform step then adds x0. This uses no geometric nerve.
+symbol native_simplex3_vertical_cell [C : Cat] (x0 x : τ (Obj C))
+  (u v w : τ (Hom C x0 x))
+  (a : τ (Hom (Hom_cat C x0 x) u v))
+  (b : τ (Hom (Hom_cat C x0 x) u w))
+  (c : τ (Hom (Hom_cat C x0 x) v w))
+  (Omega : τ (Hom (Hom_cat (Hom_cat C x0 x) u w)
+      (@comp_fapp0 (Hom_cat C x0 x) u v w c a) b))
+  : τ (Obj (native_simplex_cat C (succ (succ (succ zero)))))
+≔ @native_simplex3_from_triangle C x0
+    (@native_triangle_image (Hom_cat C x0 x) (@PathOut_cat C x0)
+      (@sigma_intro_tapp0_func C (@Rep_catd C x0) x) u v w a b c Omega);
+
+// First typed stage of this constructor's projection ladder. Fixing the
+// known initial vertex in the result avoids re-inferring it in later Homs.
+symbol native_simplex3_vertical_triangle [C : Cat]
+  (x0 x : τ (Obj C)) (u v w : τ (Hom C x0 x))
+  (a : τ (Hom (Hom_cat C x0 x) u v)) (b : τ (Hom (Hom_cat C x0 x) u w))
+  (c : τ (Hom (Hom_cat C x0 x) v w))
+  (Omega : τ (Hom (Hom_cat (Hom_cat C x0 x) u w)
+      (@comp_fapp0 (Hom_cat C x0 x) u v w c a) b))
+  : τ (Obj (nerve_native_triangle_cat (@PathOut_cat C x0)))
+≔ @native_negative_tail (Op_cat C)
+    (native_simplex_step_family (native_simplex_coeff (succ (succ zero))) C)
+    (@native_simplex3_vertical_cell C x0 x u v w a b c Omega);
+
+// Give the readback its actual 3-cell classifier before elaborating the
+// dependent projections. This observes the constructed simplex; it adds no
+// equation field or projection rewrite.
+symbol native_simplex3_constructor_readback [C : Cat]
+  (x0 x : τ (Obj C)) (u v w : τ (Hom C x0 x))
+  (a : τ (Hom (Hom_cat C x0 x) u v)) (b : τ (Hom (Hom_cat C x0 x) u w))
+  (c : τ (Hom (Hom_cat C x0 x) v w))
+  (Omega : τ (Hom (Hom_cat (Hom_cat C x0 x) u w)
+      (@comp_fapp0 (Hom_cat C x0 x) u v w c a) b))
+  : τ (Hom (Hom_cat (Hom_cat C x0 x) u w)
+      (@comp_fapp0 (Hom_cat C x0 x) u v w c a) b)
+≔ sigma_Snd (sigma_Snd (sigma_Snd (sigma_Snd (sigma_Snd
+    (@native_simplex3_vertical_triangle C x0 x u v w a b c Omega)))));
+
+assert [C : Cat] (x0 x : τ (Obj C)) (u v w : τ (Hom C x0 x))
+  (a : τ (Hom (Hom_cat C x0 x) u v)) (b : τ (Hom (Hom_cat C x0 x) u w))
+  (c : τ (Hom (Hom_cat C x0 x) v w))
+  (Omega : τ (Hom (Hom_cat (Hom_cat C x0 x) u w)
+      (@comp_fapp0 (Hom_cat C x0 x) u v w c a) b)) ⊢
+  @native_simplex3_constructor_readback C x0 x u v w a b c Omega ≡ Omega;

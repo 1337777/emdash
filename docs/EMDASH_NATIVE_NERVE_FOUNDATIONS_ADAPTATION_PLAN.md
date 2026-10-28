@@ -23,6 +23,11 @@ source/target transformations versus id_vertex0 and β₁₂. These must identif
 consumer also qualifies a narrower duality-view matcher; the broad predecessor
 is retained as a failing regression, not the selected implementation.
 
+The [internal native level recursion](../emdash2/audits/native_nerve_foundations/simplex_core/recursive/README.md)
+now checks at variable dimension, with actual map computation and a whole
+3-cell filler functor. The next feasibility slice is the geometric higher
+successor and its comparison profile; full inverse/index laws remain open.
+
 ## Authorization and current boundary
 
 The [native all-flags triangle core](../emdash2/audits/native_nerve_foundations/simplex_core/README.md)

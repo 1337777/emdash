@@ -40,7 +40,9 @@ def main() -> int:
                                           "arrow-duality-unit-pending", "triangle-connecting",
                                           "family-duality-proof", "family-duality-view-omission",
                                           "triangle-endpoints-pending", "duality-view-broad-regression",
-                                          "sigma-cocone-observations"),
+                                          "sigma-cocone-observations", "recursive-core",
+                                          "recursive-dependencies", "recursive-composition-proof",
+                                          "recursive-filler-omission", "recursive-deep-readback-pending"),
                         default="qualification")
     parser.add_argument("--assemble-only", action="store_true")
     args = parser.parse_args()

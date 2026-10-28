@@ -28,6 +28,24 @@ generic owners. Identify which boundary comparisons genuinely block the
 recursive terms' typing or computation, resolve those, and retain the other
 comparison/inverse obligations explicitly for the subsequent refinement.
 
+The [uniform native recursive core](../emdash2/audits/native_nerve_foundations/simplex_core/recursive/README.md)
+now checks as internal Nat recursion of whole Cartesian coefficients. It
+preserves the existing degree-one action, recovers the triangle at degree two,
+and has whole map action at variable n. Defined filler functors supply an
+actual nonidentity 3-cell consumer with constructor computation and noncollapse.
+The 39-input standalone scope passes in 92.337s / 237,192 KiB; it does not
+import the unfinished connecting/Ψ modules. Cartesian PathOut/step
+internalizations are explicitly structural; negative totalization, base
+change, the map bodies, recursion and filler inclusions are derived.
+
+**Next assess the geometric successor and its whole comparison with the
+native step.** Review the actual terminal-join cross profile against the
+higher triangle and a nonidentity higher consumer; do not infer truncation
+or higher universality from older “ordinary simplex” prose. Uniform geometric
+maps, inverse laws and the simplicial index remain unproved. The raw deep
+3-cell projection inference and literal unit/composite normalization stay
+recorded without blocking this next core-feasibility slice.
+
 The foundations source migration, original frontend qualification and local
 book/article revision remain complete at their recorded boundaries. The later
 Pi/Sigma correction still has a separate frontend/integration obligation.
@@ -265,7 +283,7 @@ in scope until actually achieved or explicitly reassigned by the user.
 | NF-2C | Whole variable-dimensional cube decoder and encoder, including degree zero | Wₙ/NCₙ whole maps and encode-after-decode check at variable n; both geometric zero inverse laws now check. Positive geometric closure, reverse round trip and face coherence remain. Retain bracketing and coordinate order. |
 | NF-3C | Native/geometric semicubical nerves on one face index | Whole inverse transformations and coherent face action |
 | NF-4C | Cubical degeneracies | Geometric first-coordinate insertion and its whole face-degeneracy law now check at every dimension; native/other-coordinate operations and all cross-coordinate relations remain. |
-| NF-2S | Independent all-flags native simplexes and selected higher shapes | Native triangle, higher triangle shape, whole connecting map and Ψ check in isolation. Next uniform coefficient recursion/higher step and its actual consumers; Ψ-to-Φ whole conversions and inverse comparisons remain required. |
+| NF-2S | Independent all-flags native simplexes and selected higher shapes | Internal Nat coefficient recursion and whole 3-cell filler functors now check. Next geometric higher successor/profile and whole comparison; Ψ-to-Φ conversions, index structure and inverse comparisons remain required. |
 | NF-3S | Same-index semisimplicial equivalence | Common augmented index and vertex convention, whole inverse transformations and face coherence |
 | NF-4S | Simplicial degeneracies | Higher-shape identity insertion and required index/unit laws |
 | SP-5F | Frontend adaptation to the later Pi/Sigma correction | Resume preserved 18-file candidate, semantic review, actual PathInd/chain consumers, conformance and affected aggregate |

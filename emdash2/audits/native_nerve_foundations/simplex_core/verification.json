@@ -112,7 +112,15 @@
     "native_triangle_raw_modification.lp": "triangle_raw_modification.lpfragment",
     "native_triangle_raw_modification_controls.lp": "triangle_raw_modification_controls.lpfragment",
     "native_postcomposition_laxity.lp": "../postcomposition_laxity.lpfragment",
-    "native_sigma_intro_reconstruction.lp": "sigma_intro_reconstruction.lpfragment"
+    "native_sigma_intro_reconstruction.lp": "sigma_intro_reconstruction.lpfragment",
+    "native_recursive_simplex_step.lp": "recursive/step.lpfragment",
+    "native_recursive_simplex_coefficients.lp": "recursive/coefficients.lpfragment",
+    "native_recursive_simplex_observations.lp": "recursive/observations.lpfragment",
+    "native_recursive_simplex_filler_functors.lp": "recursive/filler_functors.lpfragment",
+    "native_recursive_simplex_qualification.lp": "recursive/qualification.lpfragment",
+    "native_functor_filler_composition_proof.lp": "recursive/composition_proof.lpfragment",
+    "native_recursive_simplex_consumers.lp": "recursive/deep_readback_pending.lpfragment",
+    "native_recursive_dependencies.lp": "recursive/dependencies.lpfragment"
   },
   "artifactSuffixes": {
     "constant_family_composition.lpfragment": "\n",
@@ -152,7 +160,16 @@
     "total_dual_boundary_view_guarded.lpfragment": "\n",
     "../postcomp_component_owner.lpfragment": "\n",
     "../postcomp_pre_action_view.lpfragment": "\n",
-    "sigma_intro_reconstruction.lpfragment": ""
+    "sigma_intro_reconstruction.lpfragment": "",
+    "recursive/step.lpfragment": "",
+    "recursive/coefficients.lpfragment": "",
+    "recursive/observations.lpfragment": "\n",
+    "recursive/filler_functors.lpfragment": "",
+    "recursive/qualification.lpfragment": "",
+    "recursive/composition_proof.lpfragment": "",
+    "recursive/deep_readback_pending.lpfragment": "",
+    "recursive/dependencies.lpfragment": "",
+    "recursive/composition_view.lpfragment": "\n"
   },
   "artifacts": {
     "baseline.lpfragment": "f06dcbdb828eb664e1f10112e91555701a3c77c0f66195b299dade7f44cb553d",
@@ -168,7 +185,7 @@
     "constant_family_composition.lpfragment": "d156617ac7a0952031894a916e9a453da60dfbcfee6cc83ce1b41a527961c6fd",
     "cartesian_identity_action.lpfragment": "8d621d83b3c043f4e53cd5adaeef31364bc5ba12b642748da3211835b690ea5f",
     "owner_controls_unit_pending.lpfragment": "3e2d412fe48c73751256c04230b5d8fb390eb6be79ba16e679ef312db3c78091",
-    "replay.py": "62bcfaf114c425235c0d57616f96f0e6b95e077634d342b303967244ae8a454e",
+    "replay.py": "e5d77dce3aaab431af4fbcd85214399a3e5cfabce4ad50a059fbfd40e7b5df3c",
     "higher_triangle_shape.lpfragment": "bb022315738ae349ec0457d64bf8ae4e0ccced36fc1d71313dc8c357c291c02b",
     "higher_triangle_recursion.lpfragment": "a948e732037464f46e8c0371a3d292a7bfe4da69ef42e24d93337ff6b454e305",
     "higher_triangle_controls.lpfragment": "3cccb5a7689d179d306b640e9315e11cbabbceed28e91c3abd05dab641ff2bec",
@@ -242,7 +259,16 @@
     "triangle_raw_modification_controls.lpfragment": "2fdf097acd52c0611eed4ff1e2b9fb327e46e9336bd2c454c1be3db885799a50",
     "../postcomp_component_owner.lpfragment": "9f23f9d9ae4e3c868f758063e2e807c653a8eb7b28f6deef68ab6627bac35370",
     "arrow_dual_naturality.lpfragment": "b0cd3975f6b051fd98d6e8ddac4bcfa26b5985c4582ee5ed50a4e6592976d0af",
-    "sigma_intro_reconstruction.lpfragment": "a4f3aaded5d19e86ad74d60e4147ff640a09b3d87d0200008725769b600f6c1a"
+    "sigma_intro_reconstruction.lpfragment": "a4f3aaded5d19e86ad74d60e4147ff640a09b3d87d0200008725769b600f6c1a",
+    "recursive/step.lpfragment": "933dd10067fbc2fecbadc004f7d8cdf6b46600aeb8e9507bd9c2232b1796ac5d",
+    "recursive/coefficients.lpfragment": "d5a48aa66fcec522df2a02c54106c425f79e37c6a13820c4dba7b1fb8d7f9e17",
+    "recursive/observations.lpfragment": "5a43a0d5bb34b6537eea5aa6790d9090befb92b078d58ccbdc8eef7feb7b3841",
+    "recursive/filler_functors.lpfragment": "af674d338c2d56313637b316467b90c3dd69236edb4fd58233ca57ab37855e47",
+    "recursive/qualification.lpfragment": "a93b71604e3a42754c65c3a9ecce70acfc9dd97c542445388bf86991b1d7de90",
+    "recursive/composition_proof.lpfragment": "70d99023e08856bb4a81f87e9d8c0ad1f3ca58f2ffd7cadc0fb007d9c1c7aa77",
+    "recursive/deep_readback_pending.lpfragment": "f87e4ca4df2c47925c5473d7080bcc121c30059a2a7573d3e16c6a4a03e9d242",
+    "recursive/dependencies.lpfragment": "836f28b7d16b4691841b0ca62dc901d6826020a6ba758dbbe53e1f5de4d3c21c",
+    "recursive/composition_view.lpfragment": "46a14dc2d1d474f23d01884927fe8155d111825bcc0d1c55baf8be76284a325b"
   },
   "checker": {
     "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
@@ -3512,6 +3538,639 @@
         "emdash3_2_sigma_fibre_inclusion.lp": "sigma_fibre_inclusion_owner.lpfragment"
       },
       "receipt": "logs/check-runs/20261028T144632Z-1f1031ddbcb34ff599f60a0a486ec714.json"
+    },
+    "recursive-core": {
+      "target": "native_recursive_simplex_qualification.lp",
+      "timeoutMs": 180000,
+      "ownerInsertions": [
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Whole dual and postcomposition views of a constant coefficient family.\n",
+          "parentSha256": "fe85009da18343b8e5a0d70f7661a385af5b8f66cbdfb8d6d453a2cf59bee21e",
+          "fragment": "constant_family_composition.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// lhs-audit: keep 1 -- only composition inside the Cartesian coefficient.\n",
+          "parentSha256": "ddf04f7f7278d401ac4280e59916025721c0186502e077d0a4c82caa92e505ba",
+          "fragment": "cartesian_identity_action.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "rule sigma_Snd (@sigma_map_func $K $E (@Const_catd $K $C) $FF)\n",
+          "parentSha256": "60e5f964a81bac2b7ff2a6ce9a69a192bfe2aa5371ea61917646c3797e835f96",
+          "fragment": "constant_total_projection.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Whole dual and postcomposition views of a constant coefficient family.\n",
+          "parentSha256": "be99ef8dd572f41bd9fa8eed3ef67e3f31a49aaa910218ead22f73292e0077a5",
+          "fragment": "constant_prewhiskering.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Fibrewise dimension-one transpose changes the base by CoAt2.\n",
+          "parentSha256": "64769574c269a014c8624e95d1cf768f5aedf21d51ea4ead1f39474a4642c386",
+          "fragment": "total_dual_constant_map.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Pairing telescope for products.\n",
+          "parentSha256": "1bd7cf1040598597c3758e4a62954b29c88f2ff20976140f7ce7eeb58bca3f77",
+          "fragment": "constant_transformation_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Strict default maps preserve represented postcomposition. Whole functors\n",
+          "parentSha256": "697043b245666fd3d3c36c78d1f3df599dc205d0e3ce3da4037a6e7bda1c0d94",
+          "fragment": "../total_dual_postcomp_units.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Constructor-visible whole projection joins. These retain the original\n",
+          "parentSha256": "c1849694d47c179c36409665326a10277365b516352e7c4171600a30a5c261c0",
+          "fragment": "cartesian_total_projection_view.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Strict default maps preserve represented postcomposition. Whole functors\n",
+          "parentSha256": "ffb463ea990008feee1ceb0b44486a226dac3c3d5eaa28623667d06e55fe51cf",
+          "fragment": "cartesian_postcomposition_units.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "/*\n  Stable arbitrary-endpoint Sigma arrow. The older transparent `sigma_arrow`\n",
+          "parentSha256": "dbbbbdd1c88605e57084fde20f6a4eea2b4134e59d4b631c0de42f38cf77f9b8",
+          "fragment": "sigma_identity_constructor_view.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "total_dual_boundary_view_guarded.lpfragment",
+          "before": "// Conventional lax is the default Transf profile.",
+          "parentSha256": "f6706b44eca44cbe714bc4e533fca514af6daa7c49d52424025ad71d180e5670"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "total_dual_intrinsic_body.lpfragment",
+          "before": "// Whole pre/right ordinary laxity.",
+          "parentSha256": "c09c96ebda4ad47d51e11997b5f9709007426b9f77eadf5a1f2075c353319f7c"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "total_dual_intrinsic_projection.lpfragment",
+          "before": "// Whole pre/right ordinary laxity.",
+          "parentSha256": "a2f259b51e96a8d9fbb0484e08518b1db8f8a757d70ba57b1da56bd3f81e7496"
+        },
+        {
+          "owner": "emdash3_2_gray_transformation_graph.lp",
+          "fragment": "../graph_endpoint_projections.lpfragment",
+          "before": "// Public object observation, retained as the graph functor's ordinary action.",
+          "parentSha256": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "family_dual_composition_views.lpfragment",
+          "before": "// Actual Cartesian coefficient duality inverse.",
+          "parentSha256": "7f73fc6eb11a5614237205ab7d3d08dc204f6c67d297317410a685d96e913c2f"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "../postcomp_component_owner.lpfragment",
+          "before": "// Component of a postcomposition-telescope action uses the original",
+          "parentSha256": "ac1afd52f340b9299f571f9da053ec8fd228b5cb202cc7f8ef08fb612abaf364"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "../postcomp_pre_action_view.lpfragment",
+          "before": "// Conventional lax is the default Transf profile.",
+          "parentSha256": "8153d2e2543ba504ae9db0e5947f7b2ad4690e27bf4eabf628e6dfb257b23bfb"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "recursive/composition_view.lpfragment",
+          "before": "// Fold-direction codomain accumulation for precomposition.",
+          "parentSha256": "9829d30ed0fc1dbac6b327200ce6de1cd67f6f181942ad968bcb776a626cadef"
+        }
+      ],
+      "expectedInputs": {
+        "emdash3_2.lp": "42bd6038ed72650d0a18810673d51852c41b473550615729c67e22c264c0bb87",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_arrow_composition.lp": "6f7f20fd141de7478cbd028b6ee257506ae0149128e35a629c4822ebc4708fb1",
+        "emdash3_2_cubical_arrow_functor.lp": "833091cc2e17b7089c7bf9caf59c090232752165c1c48b1e4dda36a1a2d57ddc",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_dependent_simplex_bridge.lp": "d8b2b93b0211c089d196cb16834cb53c4da41c450fc1296c36e7abcafcfc8711",
+        "emdash3_2_dependent_simplex_native_dimensions.lp": "df0a14f02892394b4a96c8b80d07da81d7a45077401ae64bfcf3915ccee7705d",
+        "emdash3_2_dependent_simplex_path_associator.lp": "d33c8049058aa9f9bd383397cf82a8ebac3d10f077167088cc197f857d12519e",
+        "emdash3_2_dependent_simplex_represented_source.lp": "f9fcb665d35c62e947189ec608f5d91c3393dc91b6071f35ca791f08db0d8904",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_face_realization.lp": "39de45f4a546503319935f772bebf2385d31c2d1c1b51dfaad98cbb02d6403bc",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+        "emdash3_2_join_mapping_recursion.lp": "483deefcc6da0a9b654a5e9512f0040d896ded7aab73b7810ae4a7ee89eea702",
+        "emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_readable_pseudofunctors.lp": "da27c3beabd50404b04dcdec9003b29e5e9aea960c49f6e1949ee15bab96b5b8",
+        "emdash3_2_semisimplicial_face_codes.lp": "7c229a1e2a318c2daf3113c64e5b96c34a85d4e296bb79e960095779408cc571",
+        "emdash3_2_semisimplicial_index.lp": "64350349a86cf54fa058687badf82352f3b5091ffc9d31c50f1a92f1f57edb7e",
+        "emdash3_2_sigma_fibre_inclusion.lp": "256bb22dff1566b7324711c3c0cef9a1ebebe2991b2dae45cb6e49cfb285818d",
+        "emdash3_2_simplex_shapes.lp": "5352c770161d53f4e067b60085494ec141bd4349427b422d3e5af01caf557c77",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_truncation_reflector.lp": "768750396af7e0576c7227418720774ab8dd9bf937ad44d6763bc89bfc1734b2",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_arrow_coefficient.lp": "f282e33b5cde490cc282dd059131b841c4a188172b83a3e2d917cc0e4f9aa0dc",
+        "native_recursive_simplex_coefficients.lp": "d5a48aa66fcec522df2a02c54106c425f79e37c6a13820c4dba7b1fb8d7f9e17",
+        "native_recursive_simplex_filler_functors.lp": "af674d338c2d56313637b316467b90c3dd69236edb4fd58233ca57ab37855e47",
+        "native_recursive_simplex_observations.lp": "b06ae307b503a6510165256057b7d59a6737a22545b5fe0ce0f4b236fb5364ff",
+        "native_recursive_simplex_qualification.lp": "a93b71604e3a42754c65c3a9ecce70acfc9dd97c542445388bf86991b1d7de90",
+        "native_recursive_simplex_step.lp": "933dd10067fbc2fecbadc004f7d8cdf6b46600aeb8e9507bd9c2232b1796ac5d",
+        "native_simplex_core_baseline.lp": "f06dcbdb828eb664e1f10112e91555701a3c77c0f66195b299dade7f44cb553d",
+        "native_simplex_triangle_controls.lp": "986e91a134caf05bee7c82b53a34535686f878f2d343a1d0e51cbd39c1905515",
+        "native_simplex_triangle_faces.lp": "6360dd804824adbbe9687dfa38455a9628f748a376f4fc89ec7c979d0a4adb08",
+        "native_simplex_triangle_total.lp": "3cb2b87dc7cae1e16d0af75b0e5cab67293d676da14d0aa8cd30b6e49bbd0e76",
+        "native_simplex_triangle_visible.lp": "42679d693313da4499721c0e3178f2a76b03549b849f9d92de15f8515d7f5314"
+      },
+      "expectedOutcome": "passed-fresh",
+      "programOverrides": {
+        "emdash3_2_sigma_fibre_inclusion.lp": "sigma_fibre_inclusion_owner.lpfragment"
+      },
+      "receipt": "logs/check-runs/20261028T172143Z-3569790215be42c4a69950e2bff344dd.json"
+    },
+    "recursive-deep-readback-pending": {
+      "target": "native_recursive_simplex_consumers.lp",
+      "timeoutMs": 180000,
+      "ownerInsertions": [
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Whole dual and postcomposition views of a constant coefficient family.\n",
+          "parentSha256": "fe85009da18343b8e5a0d70f7661a385af5b8f66cbdfb8d6d453a2cf59bee21e",
+          "fragment": "constant_family_composition.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// lhs-audit: keep 1 -- only composition inside the Cartesian coefficient.\n",
+          "parentSha256": "ddf04f7f7278d401ac4280e59916025721c0186502e077d0a4c82caa92e505ba",
+          "fragment": "cartesian_identity_action.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "rule sigma_Snd (@sigma_map_func $K $E (@Const_catd $K $C) $FF)\n",
+          "parentSha256": "60e5f964a81bac2b7ff2a6ce9a69a192bfe2aa5371ea61917646c3797e835f96",
+          "fragment": "constant_total_projection.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Whole dual and postcomposition views of a constant coefficient family.\n",
+          "parentSha256": "be99ef8dd572f41bd9fa8eed3ef67e3f31a49aaa910218ead22f73292e0077a5",
+          "fragment": "constant_prewhiskering.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Fibrewise dimension-one transpose changes the base by CoAt2.\n",
+          "parentSha256": "64769574c269a014c8624e95d1cf768f5aedf21d51ea4ead1f39474a4642c386",
+          "fragment": "total_dual_constant_map.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Pairing telescope for products.\n",
+          "parentSha256": "1bd7cf1040598597c3758e4a62954b29c88f2ff20976140f7ce7eeb58bca3f77",
+          "fragment": "constant_transformation_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Strict default maps preserve represented postcomposition. Whole functors\n",
+          "parentSha256": "697043b245666fd3d3c36c78d1f3df599dc205d0e3ce3da4037a6e7bda1c0d94",
+          "fragment": "../total_dual_postcomp_units.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Constructor-visible whole projection joins. These retain the original\n",
+          "parentSha256": "c1849694d47c179c36409665326a10277365b516352e7c4171600a30a5c261c0",
+          "fragment": "cartesian_total_projection_view.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Strict default maps preserve represented postcomposition. Whole functors\n",
+          "parentSha256": "ffb463ea990008feee1ceb0b44486a226dac3c3d5eaa28623667d06e55fe51cf",
+          "fragment": "cartesian_postcomposition_units.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "/*\n  Stable arbitrary-endpoint Sigma arrow. The older transparent `sigma_arrow`\n",
+          "parentSha256": "dbbbbdd1c88605e57084fde20f6a4eea2b4134e59d4b631c0de42f38cf77f9b8",
+          "fragment": "sigma_identity_constructor_view.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "total_dual_boundary_view_guarded.lpfragment",
+          "before": "// Conventional lax is the default Transf profile.",
+          "parentSha256": "f6706b44eca44cbe714bc4e533fca514af6daa7c49d52424025ad71d180e5670"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "total_dual_intrinsic_body.lpfragment",
+          "before": "// Whole pre/right ordinary laxity.",
+          "parentSha256": "c09c96ebda4ad47d51e11997b5f9709007426b9f77eadf5a1f2075c353319f7c"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "total_dual_intrinsic_projection.lpfragment",
+          "before": "// Whole pre/right ordinary laxity.",
+          "parentSha256": "a2f259b51e96a8d9fbb0484e08518b1db8f8a757d70ba57b1da56bd3f81e7496"
+        },
+        {
+          "owner": "emdash3_2_gray_transformation_graph.lp",
+          "fragment": "../graph_endpoint_projections.lpfragment",
+          "before": "// Public object observation, retained as the graph functor's ordinary action.",
+          "parentSha256": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "family_dual_composition_views.lpfragment",
+          "before": "// Actual Cartesian coefficient duality inverse.",
+          "parentSha256": "7f73fc6eb11a5614237205ab7d3d08dc204f6c67d297317410a685d96e913c2f"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "../postcomp_component_owner.lpfragment",
+          "before": "// Component of a postcomposition-telescope action uses the original",
+          "parentSha256": "ac1afd52f340b9299f571f9da053ec8fd228b5cb202cc7f8ef08fb612abaf364"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "../postcomp_pre_action_view.lpfragment",
+          "before": "// Conventional lax is the default Transf profile.",
+          "parentSha256": "8153d2e2543ba504ae9db0e5947f7b2ad4690e27bf4eabf628e6dfb257b23bfb"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "recursive/composition_view.lpfragment",
+          "before": "// Fold-direction codomain accumulation for precomposition.",
+          "parentSha256": "9829d30ed0fc1dbac6b327200ce6de1cd67f6f181942ad968bcb776a626cadef"
+        }
+      ],
+      "expectedInputs": {
+        "emdash3_2.lp": "42bd6038ed72650d0a18810673d51852c41b473550615729c67e22c264c0bb87",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_arrow_composition.lp": "6f7f20fd141de7478cbd028b6ee257506ae0149128e35a629c4822ebc4708fb1",
+        "emdash3_2_cubical_arrow_functor.lp": "833091cc2e17b7089c7bf9caf59c090232752165c1c48b1e4dda36a1a2d57ddc",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_dependent_simplex_bridge.lp": "d8b2b93b0211c089d196cb16834cb53c4da41c450fc1296c36e7abcafcfc8711",
+        "emdash3_2_dependent_simplex_native_dimensions.lp": "df0a14f02892394b4a96c8b80d07da81d7a45077401ae64bfcf3915ccee7705d",
+        "emdash3_2_dependent_simplex_path_associator.lp": "d33c8049058aa9f9bd383397cf82a8ebac3d10f077167088cc197f857d12519e",
+        "emdash3_2_dependent_simplex_represented_source.lp": "f9fcb665d35c62e947189ec608f5d91c3393dc91b6071f35ca791f08db0d8904",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_face_realization.lp": "39de45f4a546503319935f772bebf2385d31c2d1c1b51dfaad98cbb02d6403bc",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+        "emdash3_2_join_mapping_recursion.lp": "483deefcc6da0a9b654a5e9512f0040d896ded7aab73b7810ae4a7ee89eea702",
+        "emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_readable_pseudofunctors.lp": "da27c3beabd50404b04dcdec9003b29e5e9aea960c49f6e1949ee15bab96b5b8",
+        "emdash3_2_semisimplicial_face_codes.lp": "7c229a1e2a318c2daf3113c64e5b96c34a85d4e296bb79e960095779408cc571",
+        "emdash3_2_semisimplicial_index.lp": "64350349a86cf54fa058687badf82352f3b5091ffc9d31c50f1a92f1f57edb7e",
+        "emdash3_2_sigma_fibre_inclusion.lp": "256bb22dff1566b7324711c3c0cef9a1ebebe2991b2dae45cb6e49cfb285818d",
+        "emdash3_2_simplex_shapes.lp": "5352c770161d53f4e067b60085494ec141bd4349427b422d3e5af01caf557c77",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_truncation_reflector.lp": "768750396af7e0576c7227418720774ab8dd9bf937ad44d6763bc89bfc1734b2",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_arrow_coefficient.lp": "f282e33b5cde490cc282dd059131b841c4a188172b83a3e2d917cc0e4f9aa0dc",
+        "native_recursive_simplex_coefficients.lp": "d5a48aa66fcec522df2a02c54106c425f79e37c6a13820c4dba7b1fb8d7f9e17",
+        "native_recursive_simplex_consumers.lp": "f87e4ca4df2c47925c5473d7080bcc121c30059a2a7573d3e16c6a4a03e9d242",
+        "native_recursive_simplex_step.lp": "933dd10067fbc2fecbadc004f7d8cdf6b46600aeb8e9507bd9c2232b1796ac5d",
+        "native_simplex_core_baseline.lp": "f06dcbdb828eb664e1f10112e91555701a3c77c0f66195b299dade7f44cb553d",
+        "native_simplex_triangle_controls.lp": "986e91a134caf05bee7c82b53a34535686f878f2d343a1d0e51cbd39c1905515",
+        "native_simplex_triangle_faces.lp": "6360dd804824adbbe9687dfa38455a9628f748a376f4fc89ec7c979d0a4adb08",
+        "native_simplex_triangle_total.lp": "3cb2b87dc7cae1e16d0af75b0e5cab67293d676da14d0aa8cd30b6e49bbd0e76",
+        "native_simplex_triangle_visible.lp": "42679d693313da4499721c0e3178f2a76b03549b849f9d92de15f8515d7f5314"
+      },
+      "expectedOutcome": "failed",
+      "programOverrides": {
+        "emdash3_2_sigma_fibre_inclusion.lp": "sigma_fibre_inclusion_owner.lpfragment"
+      },
+      "receipt": "logs/check-runs/20261028T170829Z-ca391f1c860f45fbae0189a393ad131a.json"
+    },
+    "recursive-filler-omission": {
+      "target": "native_recursive_simplex_filler_functors.lp",
+      "timeoutMs": 180000,
+      "ownerInsertions": [
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Whole dual and postcomposition views of a constant coefficient family.\n",
+          "parentSha256": "fe85009da18343b8e5a0d70f7661a385af5b8f66cbdfb8d6d453a2cf59bee21e",
+          "fragment": "constant_family_composition.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// lhs-audit: keep 1 -- only composition inside the Cartesian coefficient.\n",
+          "parentSha256": "ddf04f7f7278d401ac4280e59916025721c0186502e077d0a4c82caa92e505ba",
+          "fragment": "cartesian_identity_action.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "rule sigma_Snd (@sigma_map_func $K $E (@Const_catd $K $C) $FF)\n",
+          "parentSha256": "60e5f964a81bac2b7ff2a6ce9a69a192bfe2aa5371ea61917646c3797e835f96",
+          "fragment": "constant_total_projection.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Whole dual and postcomposition views of a constant coefficient family.\n",
+          "parentSha256": "be99ef8dd572f41bd9fa8eed3ef67e3f31a49aaa910218ead22f73292e0077a5",
+          "fragment": "constant_prewhiskering.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Fibrewise dimension-one transpose changes the base by CoAt2.\n",
+          "parentSha256": "64769574c269a014c8624e95d1cf768f5aedf21d51ea4ead1f39474a4642c386",
+          "fragment": "total_dual_constant_map.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Pairing telescope for products.\n",
+          "parentSha256": "1bd7cf1040598597c3758e4a62954b29c88f2ff20976140f7ce7eeb58bca3f77",
+          "fragment": "constant_transformation_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Strict default maps preserve represented postcomposition. Whole functors\n",
+          "parentSha256": "697043b245666fd3d3c36c78d1f3df599dc205d0e3ce3da4037a6e7bda1c0d94",
+          "fragment": "../total_dual_postcomp_units.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Constructor-visible whole projection joins. These retain the original\n",
+          "parentSha256": "c1849694d47c179c36409665326a10277365b516352e7c4171600a30a5c261c0",
+          "fragment": "cartesian_total_projection_view.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Strict default maps preserve represented postcomposition. Whole functors\n",
+          "parentSha256": "ffb463ea990008feee1ceb0b44486a226dac3c3d5eaa28623667d06e55fe51cf",
+          "fragment": "cartesian_postcomposition_units.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "/*\n  Stable arbitrary-endpoint Sigma arrow. The older transparent `sigma_arrow`\n",
+          "parentSha256": "dbbbbdd1c88605e57084fde20f6a4eea2b4134e59d4b631c0de42f38cf77f9b8",
+          "fragment": "sigma_identity_constructor_view.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "total_dual_boundary_view_guarded.lpfragment",
+          "before": "// Conventional lax is the default Transf profile.",
+          "parentSha256": "f6706b44eca44cbe714bc4e533fca514af6daa7c49d52424025ad71d180e5670"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "total_dual_intrinsic_body.lpfragment",
+          "before": "// Whole pre/right ordinary laxity.",
+          "parentSha256": "c09c96ebda4ad47d51e11997b5f9709007426b9f77eadf5a1f2075c353319f7c"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "total_dual_intrinsic_projection.lpfragment",
+          "before": "// Whole pre/right ordinary laxity.",
+          "parentSha256": "a2f259b51e96a8d9fbb0484e08518b1db8f8a757d70ba57b1da56bd3f81e7496"
+        },
+        {
+          "owner": "emdash3_2_gray_transformation_graph.lp",
+          "fragment": "../graph_endpoint_projections.lpfragment",
+          "before": "// Public object observation, retained as the graph functor's ordinary action.",
+          "parentSha256": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "family_dual_composition_views.lpfragment",
+          "before": "// Actual Cartesian coefficient duality inverse.",
+          "parentSha256": "7f73fc6eb11a5614237205ab7d3d08dc204f6c67d297317410a685d96e913c2f"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "../postcomp_component_owner.lpfragment",
+          "before": "// Component of a postcomposition-telescope action uses the original",
+          "parentSha256": "ac1afd52f340b9299f571f9da053ec8fd228b5cb202cc7f8ef08fb612abaf364"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "../postcomp_pre_action_view.lpfragment",
+          "before": "// Conventional lax is the default Transf profile.",
+          "parentSha256": "8153d2e2543ba504ae9db0e5947f7b2ad4690e27bf4eabf628e6dfb257b23bfb"
+        }
+      ],
+      "expectedInputs": {
+        "emdash3_2.lp": "9829d30ed0fc1dbac6b327200ce6de1cd67f6f181942ad968bcb776a626cadef",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_arrow_composition.lp": "6f7f20fd141de7478cbd028b6ee257506ae0149128e35a629c4822ebc4708fb1",
+        "emdash3_2_cubical_arrow_functor.lp": "833091cc2e17b7089c7bf9caf59c090232752165c1c48b1e4dda36a1a2d57ddc",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_dependent_simplex_bridge.lp": "d8b2b93b0211c089d196cb16834cb53c4da41c450fc1296c36e7abcafcfc8711",
+        "emdash3_2_dependent_simplex_native_dimensions.lp": "df0a14f02892394b4a96c8b80d07da81d7a45077401ae64bfcf3915ccee7705d",
+        "emdash3_2_dependent_simplex_path_associator.lp": "d33c8049058aa9f9bd383397cf82a8ebac3d10f077167088cc197f857d12519e",
+        "emdash3_2_dependent_simplex_represented_source.lp": "f9fcb665d35c62e947189ec608f5d91c3393dc91b6071f35ca791f08db0d8904",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_face_realization.lp": "39de45f4a546503319935f772bebf2385d31c2d1c1b51dfaad98cbb02d6403bc",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+        "emdash3_2_join_mapping_recursion.lp": "483deefcc6da0a9b654a5e9512f0040d896ded7aab73b7810ae4a7ee89eea702",
+        "emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_readable_pseudofunctors.lp": "da27c3beabd50404b04dcdec9003b29e5e9aea960c49f6e1949ee15bab96b5b8",
+        "emdash3_2_semisimplicial_face_codes.lp": "7c229a1e2a318c2daf3113c64e5b96c34a85d4e296bb79e960095779408cc571",
+        "emdash3_2_semisimplicial_index.lp": "64350349a86cf54fa058687badf82352f3b5091ffc9d31c50f1a92f1f57edb7e",
+        "emdash3_2_sigma_fibre_inclusion.lp": "256bb22dff1566b7324711c3c0cef9a1ebebe2991b2dae45cb6e49cfb285818d",
+        "emdash3_2_simplex_shapes.lp": "5352c770161d53f4e067b60085494ec141bd4349427b422d3e5af01caf557c77",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_truncation_reflector.lp": "768750396af7e0576c7227418720774ab8dd9bf937ad44d6763bc89bfc1734b2",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_arrow_coefficient.lp": "f282e33b5cde490cc282dd059131b841c4a188172b83a3e2d917cc0e4f9aa0dc",
+        "native_recursive_simplex_coefficients.lp": "d5a48aa66fcec522df2a02c54106c425f79e37c6a13820c4dba7b1fb8d7f9e17",
+        "native_recursive_simplex_filler_functors.lp": "af674d338c2d56313637b316467b90c3dd69236edb4fd58233ca57ab37855e47",
+        "native_recursive_simplex_observations.lp": "b06ae307b503a6510165256057b7d59a6737a22545b5fe0ce0f4b236fb5364ff",
+        "native_recursive_simplex_step.lp": "933dd10067fbc2fecbadc004f7d8cdf6b46600aeb8e9507bd9c2232b1796ac5d",
+        "native_simplex_core_baseline.lp": "f06dcbdb828eb664e1f10112e91555701a3c77c0f66195b299dade7f44cb553d",
+        "native_simplex_triangle_controls.lp": "986e91a134caf05bee7c82b53a34535686f878f2d343a1d0e51cbd39c1905515",
+        "native_simplex_triangle_faces.lp": "6360dd804824adbbe9687dfa38455a9628f748a376f4fc89ec7c979d0a4adb08",
+        "native_simplex_triangle_total.lp": "3cb2b87dc7cae1e16d0af75b0e5cab67293d676da14d0aa8cd30b6e49bbd0e76",
+        "native_simplex_triangle_visible.lp": "42679d693313da4499721c0e3178f2a76b03549b849f9d92de15f8515d7f5314"
+      },
+      "expectedOutcome": "failed",
+      "programOverrides": {
+        "emdash3_2_sigma_fibre_inclusion.lp": "sigma_fibre_inclusion_owner.lpfragment"
+      },
+      "receipt": "logs/check-runs/20261028T172936Z-99b0944bb73a41189e30948bb16e4b10.json"
+    },
+    "recursive-composition-proof": {
+      "target": "native_functor_filler_composition_proof.lp",
+      "timeoutMs": 90000,
+      "ownerInsertions": [],
+      "expectedInputs": {
+        "emdash3_2.lp": "fe85009da18343b8e5a0d70f7661a385af5b8f66cbdfb8d6d453a2cf59bee21e",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_functor_filler_composition_proof.lp": "70d99023e08856bb4a81f87e9d8c0ad1f3ca58f2ffd7cadc0fb007d9c1c7aa77"
+      },
+      "expectedOutcome": "passed-fresh",
+      "receipt": "logs/check-runs/20261028T171324Z-198138f0a95f441a8a38d04b34fd3c11.json"
+    },
+    "recursive-dependencies": {
+      "target": "native_recursive_dependencies.lp",
+      "timeoutMs": 180000,
+      "ownerInsertions": [
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Whole dual and postcomposition views of a constant coefficient family.\n",
+          "parentSha256": "fe85009da18343b8e5a0d70f7661a385af5b8f66cbdfb8d6d453a2cf59bee21e",
+          "fragment": "constant_family_composition.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// lhs-audit: keep 1 -- only composition inside the Cartesian coefficient.\n",
+          "parentSha256": "ddf04f7f7278d401ac4280e59916025721c0186502e077d0a4c82caa92e505ba",
+          "fragment": "cartesian_identity_action.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "rule sigma_Snd (@sigma_map_func $K $E (@Const_catd $K $C) $FF)\n",
+          "parentSha256": "60e5f964a81bac2b7ff2a6ce9a69a192bfe2aa5371ea61917646c3797e835f96",
+          "fragment": "constant_total_projection.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Whole dual and postcomposition views of a constant coefficient family.\n",
+          "parentSha256": "be99ef8dd572f41bd9fa8eed3ef67e3f31a49aaa910218ead22f73292e0077a5",
+          "fragment": "constant_prewhiskering.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Fibrewise dimension-one transpose changes the base by CoAt2.\n",
+          "parentSha256": "64769574c269a014c8624e95d1cf768f5aedf21d51ea4ead1f39474a4642c386",
+          "fragment": "total_dual_constant_map.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Pairing telescope for products.\n",
+          "parentSha256": "1bd7cf1040598597c3758e4a62954b29c88f2ff20976140f7ce7eeb58bca3f77",
+          "fragment": "constant_transformation_unit.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Strict default maps preserve represented postcomposition. Whole functors\n",
+          "parentSha256": "697043b245666fd3d3c36c78d1f3df599dc205d0e3ce3da4037a6e7bda1c0d94",
+          "fragment": "../total_dual_postcomp_units.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Constructor-visible whole projection joins. These retain the original\n",
+          "parentSha256": "c1849694d47c179c36409665326a10277365b516352e7c4171600a30a5c261c0",
+          "fragment": "cartesian_total_projection_view.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Strict default maps preserve represented postcomposition. Whole functors\n",
+          "parentSha256": "ffb463ea990008feee1ceb0b44486a226dac3c3d5eaa28623667d06e55fe51cf",
+          "fragment": "cartesian_postcomposition_units.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "/*\n  Stable arbitrary-endpoint Sigma arrow. The older transparent `sigma_arrow`\n",
+          "parentSha256": "dbbbbdd1c88605e57084fde20f6a4eea2b4134e59d4b631c0de42f38cf77f9b8",
+          "fragment": "sigma_identity_constructor_view.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "total_dual_boundary_view_guarded.lpfragment",
+          "before": "// Conventional lax is the default Transf profile.",
+          "parentSha256": "f6706b44eca44cbe714bc4e533fca514af6daa7c49d52424025ad71d180e5670"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "total_dual_intrinsic_body.lpfragment",
+          "before": "// Whole pre/right ordinary laxity.",
+          "parentSha256": "c09c96ebda4ad47d51e11997b5f9709007426b9f77eadf5a1f2075c353319f7c"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "total_dual_intrinsic_projection.lpfragment",
+          "before": "// Whole pre/right ordinary laxity.",
+          "parentSha256": "a2f259b51e96a8d9fbb0484e08518b1db8f8a757d70ba57b1da56bd3f81e7496"
+        },
+        {
+          "owner": "emdash3_2_gray_transformation_graph.lp",
+          "fragment": "../graph_endpoint_projections.lpfragment",
+          "before": "// Public object observation, retained as the graph functor's ordinary action.",
+          "parentSha256": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "family_dual_composition_views.lpfragment",
+          "before": "// Actual Cartesian coefficient duality inverse.",
+          "parentSha256": "7f73fc6eb11a5614237205ab7d3d08dc204f6c67d297317410a685d96e913c2f"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "../postcomp_component_owner.lpfragment",
+          "before": "// Component of a postcomposition-telescope action uses the original",
+          "parentSha256": "ac1afd52f340b9299f571f9da053ec8fd228b5cb202cc7f8ef08fb612abaf364"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "fragment": "../postcomp_pre_action_view.lpfragment",
+          "before": "// Conventional lax is the default Transf profile.",
+          "parentSha256": "8153d2e2543ba504ae9db0e5947f7b2ad4690e27bf4eabf628e6dfb257b23bfb"
+        }
+      ],
+      "expectedInputs": {
+        "emdash3_2.lp": "9829d30ed0fc1dbac6b327200ce6de1cd67f6f181942ad968bcb776a626cadef",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_arrow_composition.lp": "6f7f20fd141de7478cbd028b6ee257506ae0149128e35a629c4822ebc4708fb1",
+        "emdash3_2_cubical_arrow_functor.lp": "833091cc2e17b7089c7bf9caf59c090232752165c1c48b1e4dda36a1a2d57ddc",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+        "emdash3_2_dependent_simplex_bridge.lp": "d8b2b93b0211c089d196cb16834cb53c4da41c450fc1296c36e7abcafcfc8711",
+        "emdash3_2_dependent_simplex_native_dimensions.lp": "df0a14f02892394b4a96c8b80d07da81d7a45077401ae64bfcf3915ccee7705d",
+        "emdash3_2_dependent_simplex_path_associator.lp": "d33c8049058aa9f9bd383397cf82a8ebac3d10f077167088cc197f857d12519e",
+        "emdash3_2_dependent_simplex_represented_source.lp": "f9fcb665d35c62e947189ec608f5d91c3393dc91b6071f35ca791f08db0d8904",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_face_realization.lp": "39de45f4a546503319935f772bebf2385d31c2d1c1b51dfaad98cbb02d6403bc",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+        "emdash3_2_join_mapping_recursion.lp": "483deefcc6da0a9b654a5e9512f0040d896ded7aab73b7810ae4a7ee89eea702",
+        "emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_readable_pseudofunctors.lp": "da27c3beabd50404b04dcdec9003b29e5e9aea960c49f6e1949ee15bab96b5b8",
+        "emdash3_2_semisimplicial_face_codes.lp": "7c229a1e2a318c2daf3113c64e5b96c34a85d4e296bb79e960095779408cc571",
+        "emdash3_2_semisimplicial_index.lp": "64350349a86cf54fa058687badf82352f3b5091ffc9d31c50f1a92f1f57edb7e",
+        "emdash3_2_sigma_fibre_inclusion.lp": "256bb22dff1566b7324711c3c0cef9a1ebebe2991b2dae45cb6e49cfb285818d",
+        "emdash3_2_simplex_shapes.lp": "5352c770161d53f4e067b60085494ec141bd4349427b422d3e5af01caf557c77",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_truncation_reflector.lp": "768750396af7e0576c7227418720774ab8dd9bf937ad44d6763bc89bfc1734b2",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_arrow_coefficient.lp": "f282e33b5cde490cc282dd059131b841c4a188172b83a3e2d917cc0e4f9aa0dc",
+        "native_recursive_dependencies.lp": "836f28b7d16b4691841b0ca62dc901d6826020a6ba758dbbe53e1f5de4d3c21c",
+        "native_simplex_core_baseline.lp": "f06dcbdb828eb664e1f10112e91555701a3c77c0f66195b299dade7f44cb553d",
+        "native_simplex_triangle_controls.lp": "986e91a134caf05bee7c82b53a34535686f878f2d343a1d0e51cbd39c1905515",
+        "native_simplex_triangle_faces.lp": "6360dd804824adbbe9687dfa38455a9628f748a376f4fc89ec7c979d0a4adb08",
+        "native_simplex_triangle_total.lp": "3cb2b87dc7cae1e16d0af75b0e5cab67293d676da14d0aa8cd30b6e49bbd0e76",
+        "native_simplex_triangle_visible.lp": "42679d693313da4499721c0e3178f2a76b03549b849f9d92de15f8515d7f5314"
+      },
+      "expectedOutcome": "passed-fresh",
+      "programOverrides": {
+        "emdash3_2_sigma_fibre_inclusion.lp": "sigma_fibre_inclusion_owner.lpfragment"
+      },
+      "receipt": "logs/check-runs/20261028T173430Z-3bdff3eeba7b4861a830e5ce05ccf83c.json"
     }
   },
   "qualification": {
@@ -4466,7 +5125,7 @@
       "disposition": "retained-endpoint identity comparison failed; production-core replay reproduces failure"
     }
   ],
-  "selectedContinuationMode": "triangle-connecting",
+  "selectedContinuationMode": "recursive-core",
   "connectingQualification": {
     "status": "isolated structural Cartesian duality coefficient; derived negative-Sigma arrow comparison, whole connecting transformation and whole raw modification; required triangle boundary identifications and Phi remain open",
     "selectedReceipt": "20261028T140502Z-cded9735e2554534a181794151d99802",
@@ -4588,5 +5247,122 @@
     ],
     "priorDirectReflexivityFailure": "20261028T143951Z-4d40bbfdc1f649aaa3780489de9bf9c6",
     "priority": "retained evidence; uniform recursive core feasibility is the next priority under user clarification, 2026-10-28"
+  },
+  "recursiveQualification": {
+    "status": "isolated internal Nat recursion of native simplex coefficients and whole functor action; genuine 3-cell filler functors; not a completed simplicial index or geometric equivalence",
+    "receipt": "20261028T172143Z-3569790215be42c4a69950e2bff344dd",
+    "inputCount": 39,
+    "wallSeconds": 92.33673336892389,
+    "maxRssKiB": 237192,
+    "structuralAdmissions": [
+      "Cartesian native_pathout_family_map with existing pathout_map_func components",
+      "native_simplex_step_coeff and its whole Cartesian mapping action in C",
+      "native_simplex_step_operator and its coefficient-transformation projection ladder"
+    ],
+    "derived": [
+      "negative Sigma coefficient and negative base change",
+      "step value and map body from PathOut, coefficient action and Sigma",
+      "internal positive Nat coefficient recursion; existing degree-zero/one and triangle carriers",
+      "variable-dimensional whole map unit/composition comparisons and both first-action projection orders",
+      "generic whole triangle/tetrahedron filler inclusions with correct higher-cell orientation",
+      "whole functor from genuine C 3-cells to native 3-simplexes, constructor beta and changed-cell control",
+      "step endpoint-transformation components recover existing whole triangle faces"
+    ],
+    "notEstablished": [
+      "geometric higher-shape recursion and uniform native/geometric comparisons",
+      "full simplicial index, face laws or degeneracies",
+      "whole coefficient identification Step(id)=native arrow coefficient (positive recursion deliberately does not assume this)",
+      "whole required triangle Phi boundary identifications and nerve inverse laws",
+      "deep untyped/nested 3-cell readback (pending diagnostic)",
+      "complete literal constructor-unit/composition overlap normalization and production qualification"
+    ],
+    "next": "Review the actual terminal-join higher cross-cell profile against the checked HigherTriangle shape; then specify the uniform geometric successor and whole comparison with Step. Do not infer ordinary truncation or higher universality from existing names/comments."
+  },
+  "recursiveWarnings": {
+    "baselineReceipt": "20261028T173430Z-3bdff3eeba7b4861a830e5ce05ccf83c",
+    "baselineInputCount": 35,
+    "baselineCategories": {
+      "replaceable pattern variable": 178,
+      "unjoinable critical pair": 1924
+    },
+    "selectedReceipt": "20261028T172143Z-3569790215be42c4a69950e2bff344dd",
+    "categories": {
+      "replaceable pattern variable": 178,
+      "unjoinable critical pair": 1942
+    },
+    "categoryDelta": {
+      "unjoinable critical pair": 18
+    },
+    "addedLocationsAfterLineMapping": {
+      "native_recursive_simplex_coefficients.lp:13": 1,
+      "native_recursive_simplex_coefficients.lp:15": 7,
+      "native_recursive_simplex_coefficients.lp:39": 1,
+      "native_recursive_simplex_coefficients.lp:41": 9
+    },
+    "removedLocationsAfterLineMapping": {},
+    "unmappedBaselineLocations": [],
+    "addedRuleFamilies": [
+      [
+        [
+          "fapp1_fapp0",
+          "fapp1_fapp0"
+        ],
+        16
+      ],
+      [
+        [
+          "fapp0",
+          "fapp1_func"
+        ],
+        2
+      ]
+    ],
+    "parserIssues": {},
+    "disposition": "New step-coefficient/operator first-action constructors overlap generic identity/composition and whole/capped projection owners. Whole variable-n unit/composition, both first-action orders, coefficient components, actual map observations and 3-cell consumer pass. Literal constructor-unit/composite joins are not claimed fully normalized; promotion/confluence remains unqualified."
+  },
+  "recursiveAttempts": [
+    {
+      "receipt": "20261028T153128Z-3cead16edecd44508513ef92f77770d3",
+      "disposition": "six untyped nested Sigma projections failed inference after valid 3-cell construction"
+    },
+    {
+      "receipt": "20261028T155934Z-10f340d48b47468ab9e9c6ab8988cd2f",
+      "disposition": "staging the first fixed vertex did not qualify the remaining deep readback"
+    },
+    {
+      "receipt": "20261028T161933Z-f15191290f7843a08398df9c10fafeaa",
+      "disposition": "whole filler-image functor isolated strict F(composite) versus retained precomposition endpoint comparison"
+    },
+    {
+      "receipt": "20261028T162425Z-7186d009c73544b2b041786032ced406",
+      "disposition": "independent staged proof before adding conversion; subsequently rechecked on production core"
+    },
+    {
+      "receipt": "20261028T170829Z-ca391f1c860f45fbae0189a393ad131a",
+      "mode": "recursive-deep-readback-pending",
+      "disposition": "deep readback remains unqualified even with the composition view; accepted consumer is the whole filler functor and its constructor/data computation"
+    },
+    {
+      "receipt": "20261028T172936Z-99b0944bb73a41189e30948bb16e4b10",
+      "mode": "recursive-filler-omission",
+      "disposition": "removing only the new composition view restores the whole filler-functor typing failure"
+    }
+  ],
+  "recursiveArchitectureReview": {
+    "scope": "native recursion now concrete; geometric successor profile remains a required review",
+    "localSources": {
+      "emdash3_2.lp": "fe85009da18343b8e5a0d70f7661a385af5b8f66cbdfb8d6d453a2cf59bee21e",
+      "emdash3_2_simplex_shapes.lp": "5352c770161d53f4e067b60085494ec141bd4349427b422d3e5af01caf557c77",
+      "emdash3_2_join_mapping_recursion.lp": "483deefcc6da0a9b654a5e9512f0040d896ded7aab73b7810ae4a7ee89eea702",
+      "emdash3_2_join_cross_compatibility.lp": "5343adcaa8379ffc313c20ff0fed6792f5f71cf2ef1a601ae316d6ea0fef5e7e"
+    },
+    "finding": "Prof_transf_cat is a Functord_cat over the product base; its current lax cross profile needs direct qualification. The older ordinary-simplex prose alone does not establish a truncation or a higher cone universal property.",
+    "literature": {
+      "url": "https://arxiv.org/abs/1607.00668v4",
+      "authors": "Dimitri Ara and Georges Maltsiniotis",
+      "version": "v4, 2020-09-24",
+      "coverage": "abstract and version metadata only; no exact theorem or implementation imported",
+      "relevance": "The abstract distinguishes strict-infinity joins from ordinary joins up to truncation and discusses higher lax/oplax functoriality qualifications."
+    }
   }
 }

@@ -1,0 +1,65 @@
+/* Whole native filler inclusions. The input uses homd_ before the fibre
+   total dual, so its higher cells have the forward orientation. */
+require open emdash.native_recursive_simplex_observations;
+
+symbol native_negative_fibre_func [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  : τ (Functor (Fibre_cat E k) (fapp0 (native_negative_sigma_coeff K) E))
+≔ @TotalOp_func (TotalOp_cat (Fibre_cat E k))
+    (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E))
+    (@sigma_intro_tapp0_func (CoAbove2_cat K) (@TotalOp_catd K E) k);
+
+symbol native_arrow_at_endpoints_func [C : Cat] (x y : τ (Obj C))
+  : τ (Functor (Hom_cat C x y) (LaxArrow_cat C))
+≔ @comp_cat_fapp0 (Hom_cat C x y) (@PathOut_cat C x) (LaxArrow_cat C)
+    (@native_negative_fibre_func (Op_cat C) (@PathOut_cat_func C) x)
+    (@sigma_intro_tapp0_func C (@Rep_catd C x) y);
+
+symbol native_triangle_filler_family [C : Cat]
+  (x0 x1 x2 : τ (Obj C)) (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2))
+  : τ (Catd (Op_cat (Hom_cat C x1 x2)))
+≔ @homd_ C (@Rep_catd C x0) (@Rep_catd C x0) (@id_funcd C (@Rep_catd C x0))
+    x1 p01 x2 p02;
+symbol native_triangle_filler_cat [C : Cat]
+  (x0 x1 x2 : τ (Obj C)) (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2))
+  (p12 : τ (Hom C x1 x2)) : Cat
+≔ Fibre_cat (@native_triangle_filler_family C x0 x1 x2 p01 p02) p12;
+
+symbol native_triangle_filler_func [C : Cat]
+  (x0 x1 x2 : τ (Obj C)) (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2))
+  (p12 : τ (Hom C x1 x2))
+  : τ (Functor (@native_triangle_filler_cat C x0 x1 x2 p01 p02 p12) (nerve_native_triangle_cat C))
+≔ @comp_cat_fapp0 _ _ _
+    (@native_negative_fibre_func (Op_cat C) (nerve_triangle_fibres C) x0)
+    (@comp_cat_fapp0 _ _ _
+      (@native_arrow_at_endpoints_func (@PathOut_cat C x0)
+        (@dependent_simplex1 C x0 x1 p01) (@dependent_simplex1 C x0 x2 p02))
+      (@native_negative_fibre_func (Op_cat (Hom_cat C x1 x2))
+        (@native_triangle_filler_family C x0 x1 x2 p01 p02) p12));
+
+// A strict functor maps the WHOLE filler category by its next Hom action.
+symbol native_triangle_filler_image_func [A B : Cat] (F : τ (Functor A B))
+  (x y z : τ (Obj A)) (a : τ (Hom A x y)) (b : τ (Hom A x z)) (c : τ (Hom A y z))
+  : τ (Functor (@native_triangle_filler_cat A x y z a b c)
+      (@native_triangle_filler_cat B (fapp0 F x) (fapp0 F y) (fapp0 F z)
+        (@fapp1_fapp0 A B F x y a) (@fapp1_fapp0 A B F x z b) (@fapp1_fapp0 A B F y z c)))
+≔ @fapp1_func (Hom_cat A x z) (Hom_cat B (fapp0 F x) (fapp0 F z))
+    (@fapp1_func A B F x z) (@comp_fapp0 A x y z c a) b;
+
+symbol native_simplex3_filler_func [C : Cat] (x0 : τ (Obj C))
+  (e1 e2 e3 : τ (Obj (@PathOut_cat C x0)))
+  (a : τ (Hom (@PathOut_cat C x0) e1 e2))
+  (b : τ (Hom (@PathOut_cat C x0) e1 e3))
+  (c : τ (Hom (@PathOut_cat C x0) e2 e3))
+  : τ (Functor (@native_triangle_filler_cat (@PathOut_cat C x0) e1 e2 e3 a b c)
+      (native_simplex_cat C (succ (succ (succ zero)))))
+≔ @comp_cat_fapp0 _ _ _
+    (@native_negative_fibre_func (Op_cat C)
+      (native_simplex_step_family (native_simplex_coeff (succ (succ zero))) C) x0)
+    (@native_triangle_filler_func (@PathOut_cat C x0) e1 e2 e3 a b c);
+
+// Constructor beta for the entire variable-filler inclusion.
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Obj (@native_triangle_filler_cat C x0 x1 x2 p01 p02 p12))) ⊢
+  fapp0 (@native_triangle_filler_func C x0 x1 x2 p01 p02 p12) alpha
+  ≡ @nerve_native_triangle C x0 x1 x2 p01 p02 p12 alpha;

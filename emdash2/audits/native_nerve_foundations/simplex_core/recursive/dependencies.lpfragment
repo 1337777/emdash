@@ -1,0 +1,5 @@
+// Complete existing-owner baseline for the recursive native core.
+require open emdash.native_simplex_triangle_controls;
+require open emdash.native_simplex_triangle_faces;
+require open emdash.native_simplex_triangle_visible;
+require open emdash.emdash3_2_sigma_fibre_inclusion;

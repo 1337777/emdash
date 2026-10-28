@@ -1,0 +1,11 @@
+// Derived scalar strict-functor composition in retained precomposition.
+// Match the actual image heads as well as the composite. This avoids
+// capturing unrelated factorizations whose factors need not be those images.
+unif_rule @fapp1_fapp0 $A $B $F $x $z (@comp_fapp0 $A $x $y $z $c $a)
+  ≡ @hom_precomp_along_fapp0 $B0 $B0 (@id Cat_cat $B0) $Fz $Fx $Fy
+      (@fapp1_fapp0 $A0 $B0 $F0 $x0 $y0 $a0)
+      (@fapp1_fapp0 $A0 $B0 $F0 $y0 $z0 $c0)
+  ↪ [ $A0 ≡ $A; $B0 ≡ $B; $F0 ≡ $F;
+      $x0 ≡ $x; $y0 ≡ $y; $z0 ≡ $z; $a0 ≡ $a; $c0 ≡ $c;
+      $Fx ≡ @fapp0 $A $B $F $x; $Fy ≡ @fapp0 $A $B $F $y;
+      $Fz ≡ @fapp0 $A $B $F $z ];

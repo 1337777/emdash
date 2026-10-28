@@ -1,0 +1,79 @@
+/* Whole coefficient recursion. The step's internalization is structural;
+   its value, map in C, and component on coefficient transformations use
+   the defined negative total/base-change operations. */
+require open emdash.native_recursive_simplex_step;
+
+injective symbol native_simplex_step_coeff (H : τ (Functor Cat_cart Cat_cart))
+  : τ (Functor Cat_cart Cat_cart);
+rule fapp0 (native_simplex_step_coeff $H) $C ↪ native_simplex_step_cat $H $C;
+
+injective symbol native_simplex_step_map_func (H : τ (Functor Cat_cart Cat_cart)) (C D : Cat)
+  : τ (Functor (Functor_cart_cat C D)
+      (Functor_cart_cat (native_simplex_step_cat H C) (native_simplex_step_cat H D)));
+rule @fapp1_func _ _ (native_simplex_step_coeff $H) $C $D
+  ↪ native_simplex_step_map_func $H $C $D;
+rule @fapp1_fapp0 _ _ (native_simplex_step_coeff $H) $C $D $F
+  ↪ @native_simplex_step_map $C $D $H $F;
+rule @fapp0 _ _ (native_simplex_step_map_func $H $C $D) $F
+  ↪ @native_simplex_step_map $C $D $H $F;
+
+// The entire fixed-C functor in H is a defined composition.
+symbol native_simplex_step_at_coeff (C : Cat)
+  : τ (Functor (Functor_cart_cat Cat_cart Cat_cart) Cat_cart)
+≔ @comp_cat_fapp0 (Functor_cart_cat Cat_cart Cat_cart)
+    (Functor_cart_cat (Op_cat C) Cat_cart) Cat_cart
+    (native_negative_sigma_coeff (Op_cat C))
+    (@comp_cat_con_cart_func (Op_cat C) Cat_cart Cat_cart (@PathOut_cat_func C));
+
+injective symbol native_simplex_step_operator
+  : τ (Functor (Functor_cart_cat Cat_cart Cat_cart) (Functor_cart_cat Cat_cart Cat_cart));
+rule fapp0 native_simplex_step_operator $H ↪ native_simplex_step_coeff $H;
+
+injective symbol native_simplex_step_transfor_func (H J : τ (Functor Cat_cart Cat_cart))
+  : τ (Functor (Hom_cat (Functor_cart_cat Cat_cart Cat_cart) H J)
+      (Hom_cat (Functor_cart_cat Cat_cart Cat_cart)
+        (native_simplex_step_coeff H) (native_simplex_step_coeff J)));
+injective symbol native_simplex_step_transfor [H J : τ (Functor Cat_cart Cat_cart)]
+  (U : τ (@StrictTransfor Cat_cart Cat_cart H J))
+  : τ (@StrictTransfor Cat_cart Cat_cart (native_simplex_step_coeff H) (native_simplex_step_coeff J));
+rule @fapp1_func _ _ native_simplex_step_operator $H $J
+  ↪ native_simplex_step_transfor_func $H $J;
+rule @fapp1_fapp0 _ _ native_simplex_step_operator $H $J $U
+  ↪ @native_simplex_step_transfor $H $J $U;
+rule @fapp0 _ _ (native_simplex_step_transfor_func $H $J) $U
+  ↪ @native_simplex_step_transfor $H $J $U;
+rule @tapp0_fapp0 _ _ _ _ $C
+    (@strict_transfor _ _ _ _ (@native_simplex_step_transfor $H $J $U))
+  ↪ @fapp1_fapp0 (Functor_cart_cat Cat_cart Cat_cart) Cat_cart
+      (native_simplex_step_at_coeff $C) $H $J $U;
+
+// Positive dimensions start from the existing arrow coefficient, preserving
+// its degree-one action. No unproved Step(id)=N coefficient equality is used.
+symbol native_simplex_positive_coeff (n : τ Nat_grpd)
+  : τ (Functor Cat_cart Cat_cart)
+≔ @nat_elim (λ _ : τ Nat_grpd, Functor Cat_cart Cat_cart)
+    nerve_native_arrow_coeff
+    (λ _ : τ Nat_grpd, λ H : τ (Functor Cat_cart Cat_cart),
+      fapp0 native_simplex_step_operator H) n;
+
+symbol native_simplex_coeff (n : τ Nat_grpd) : τ (Functor Cat_cart Cat_cart)
+≔ @nat_elim (λ _ : τ Nat_grpd, Functor Cat_cart Cat_cart) (@id_func Cat_cart)
+    (λ k : τ Nat_grpd, λ _ : τ (Functor Cat_cart Cat_cart), native_simplex_positive_coeff k) n;
+
+symbol native_simplex_cat (C : Cat) (n : τ Nat_grpd) : Cat
+≔ fapp0 (native_simplex_coeff n) C;
+symbol native_simplex_map [C D : Cat] (n : τ Nat_grpd) (F : τ (Functor C D))
+  : τ (Functor (native_simplex_cat C n) (native_simplex_cat D n))
+≔ @fapp1_fapp0 Cat_cart Cat_cart (native_simplex_coeff n) C D F;
+
+// Whole action in F and its next parameter Hom remain internal at variable n.
+symbol native_simplex_map_func (n : τ Nat_grpd) (C D : Cat)
+  : τ (Functor (Functor_cart_cat C D)
+      (Functor_cart_cat (native_simplex_cat C n) (native_simplex_cat D n)))
+≔ @fapp1_func Cat_cart Cat_cart (native_simplex_coeff n) C D;
+
+assert [C : Cat] ⊢ native_simplex_cat C zero ≡ C;
+assert [C : Cat] ⊢ native_simplex_cat C (succ zero) ≡ LaxArrow_cat C;
+assert [C : Cat] ⊢ native_simplex_cat C (succ (succ zero)) ≡ nerve_native_triangle_cat C;
+assert (n : τ Nat_grpd) ⊢ native_simplex_coeff (succ (succ n))
+  ≡ native_simplex_step_coeff (native_simplex_coeff (succ n));

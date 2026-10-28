@@ -54,6 +54,14 @@ source/target transformations versus id_vertex0 and β₁₂. These must identif
 consumer also qualifies a narrower duality-view matcher; the broad predecessor
 is retained as a failing regression, not the selected implementation.
 
+The [native recursive core](../emdash2/audits/native_nerve_foundations/simplex_core/recursive/README.md)
+now has whole variable-dimensional coefficients/maps and a whole 3-cell filler
+consumer in a 39-input standalone scope. Its structural PathOut/step profiles,
+derived maps, proof-backed scalar conversion and pending projection/unit
+normalization are distinguished in the audit. Next qualify the geometric
+successor/terminal-join profile and whole comparison. No all-degree geometric
+equivalence, full simplicial index or Step(id)=N coefficient identity is assumed.
+
 User priority clarification, 2026-10-28: the next priority is the uniform
 recursive native simplex core and next-dimensional consumer, alongside the
 existing cubical recursion. The four Ψ-to-Φ boundary comparisons remain

@@ -1,0 +1,71 @@
+/* A uniform coefficient step for all-flags native simplexes.
+   Negative totalization and base change are defined from current owners.
+   The whole Cartesian PathOut family action is a structural internalization
+   of the existing pathout_map_func; no equality witnesses are arguments. */
+require open emdash.native_simplex_triangle_controls;
+require open emdash.native_simplex_triangle_faces;
+require open emdash.native_simplex_triangle_visible;
+require open emdash.emdash3_2_sigma_fibre_inclusion;
+
+symbol native_negative_sigma_coeff (K : Cat)
+  : τ (Functor (Functor_cart_cat K Cat_cart) Cat_cart)
+≔ @comp_cat_fapp0 (Functor_cart_cat K Cat_cart) (CoAbove2_cat Cat_cart) Cat_cart
+    total_op_cart
+    (@CoAbove2_func (CoAbove2_cat (Functor_cart_cat K Cat_cart)) Cat_cart
+      (@comp_cat_fapp0 (CoAbove2_cat (Functor_cart_cat K Cat_cart))
+        (Functor_cart_cat (CoAbove2_cat K) Cat_cart) Cat_cart
+        (@Sigma_coeff_func (CoAbove2_cat K)) (@TotalOp_catd_func K)));
+
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  fapp0 (native_negative_sigma_coeff K) E ≡ TotalOp_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E));
+
+symbol native_negative_total_basechange [A B : Cat]
+  (F : τ (Functor A B)) (E : τ (Catd B))
+  : τ (Functor (fapp0 (native_negative_sigma_coeff A) (@Pullback_catd A B E F))
+      (fapp0 (native_negative_sigma_coeff B) E))
+≔ @TotalOp_func
+    (@Sigma_cat (CoAbove2_cat A) (@TotalOp_catd A (@Pullback_catd A B E F)))
+    (@Sigma_cat (CoAbove2_cat B) (@TotalOp_catd B E))
+    (@sigma_pullback_total_func (CoAbove2_cat A) (CoAbove2_cat B)
+      (@CoAbove2_func A B F) (@TotalOp_catd B E));
+
+injective symbol native_pathout_family_map [C D : Cat] (F : τ (Functor C D))
+  : τ (@StrictTransfor (Op_cat C) Cat_cart (@PathOut_cat_func C)
+      (@comp_cat_fapp0 (Op_cat C) (Op_cat D) Cat_cart (@PathOut_cat_func D) (@Op_func C D F)));
+rule @tapp0_fapp0 _ _ _ _ $x
+    (@strict_transfor _ _ _ _ (@native_pathout_family_map $C $D $F))
+  ↪ @pathout_map_func $C $D $F $x;
+
+symbol native_simplex_step_family (H : τ (Functor Cat_cart Cat_cart)) (C : Cat)
+  : τ (Catd (Op_cat C))
+≔ @comp_cat_fapp0 (Op_cat C) Cat_cart Cat_cart H (@PathOut_cat_func C);
+
+symbol native_simplex_step_cat (H : τ (Functor Cat_cart Cat_cart)) (C : Cat) : Cat
+≔ fapp0 (native_negative_sigma_coeff (Op_cat C)) (native_simplex_step_family H C);
+
+symbol native_simplex_step_family_map [C D : Cat]
+  (H : τ (Functor Cat_cart Cat_cart)) (F : τ (Functor C D))
+  : τ (Hom (Functor_cart_cat (Op_cat C) Cat_cart)
+      (native_simplex_step_family H C)
+      (@comp_cat_fapp0 (Op_cat C) (Op_cat D) Cat_cart
+        (native_simplex_step_family H D) (@Op_func C D F)))
+≔ @fapp1_fapp0 _ _ (@comp_cat_cov_cart_func (Op_cat C) Cat_cart Cat_cart H)
+    (@PathOut_cat_func C)
+    (@comp_cat_fapp0 (Op_cat C) (Op_cat D) Cat_cart (@PathOut_cat_func D) (@Op_func C D F))
+    (@native_pathout_family_map C D F);
+
+// First restrict to the target family over T(C), then change the base to T(D).
+symbol native_simplex_step_map [C D : Cat]
+  (H : τ (Functor Cat_cart Cat_cart)) (F : τ (Functor C D))
+  : τ (Functor (native_simplex_step_cat H C) (native_simplex_step_cat H D))
+≔ @comp_cat_fapp0 (native_simplex_step_cat H C)
+    (fapp0 (native_negative_sigma_coeff (Op_cat C))
+      (@Pullback_catd (Op_cat C) (Op_cat D) (native_simplex_step_family H D) (@Op_func C D F)))
+    (native_simplex_step_cat H D)
+    (@native_negative_total_basechange (Op_cat C) (Op_cat D)
+      (@Op_func C D F) (native_simplex_step_family H D))
+    (@fapp1_fapp0 _ _ (native_negative_sigma_coeff (Op_cat C))
+      (native_simplex_step_family H C)
+      (@comp_cat_fapp0 (Op_cat C) (Op_cat D) Cat_cart
+        (native_simplex_step_family H D) (@Op_func C D F))
+      (@native_simplex_step_family_map C D H F));

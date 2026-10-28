@@ -1,0 +1,23 @@
+require open emdash.emdash3_2;
+
+// Stage the existing precomposition reading before the arrows become
+// functor images and ordinary strict composition folds to F(c o a).
+symbol native_precomp_reading_path [C : Cat] [x y z : τ (Obj C)]
+  (a : τ (Hom C x y)) (c : τ (Hom C y z))
+  : τ (@= (Hom C x z)
+      (@hom_precomp_along_fapp0 C C (@id_func C) z x y a c)
+      (@comp_fapp0 C x y z c a))
+≔ @eq_refl (Hom C x z) (@hom_precomp_along_fapp0 C C (@id_func C) z x y a c);
+
+symbol native_functor_precomp_image_path [A B : Cat] (F : τ (Functor A B))
+  [x y z : τ (Obj A)] (a : τ (Hom A x y)) (c : τ (Hom A y z))
+  : τ (@= (Hom B (fapp0 F x) (fapp0 F z))
+      (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z c a))
+      (@hom_precomp_along_fapp0 B B (@id_func B) (fapp0 F z) (fapp0 F x) (fapp0 F y)
+        (@fapp1_fapp0 A B F x y a) (@fapp1_fapp0 A B F y z c)))
+≔ @eq_sym (Hom B (fapp0 F x) (fapp0 F z))
+    (@hom_precomp_along_fapp0 B B (@id_func B) (fapp0 F z) (fapp0 F x) (fapp0 F y)
+      (@fapp1_fapp0 A B F x y a) (@fapp1_fapp0 A B F y z c))
+    (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z c a))
+    (@native_precomp_reading_path B (fapp0 F x) (fapp0 F y) (fapp0 F z)
+      (@fapp1_fapp0 A B F x y a) (@fapp1_fapp0 A B F y z c));
