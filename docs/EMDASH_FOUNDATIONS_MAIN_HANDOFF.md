@@ -1,11 +1,17 @@
 # Migrated foundations: main and parallel-worktree handoff
 
 Date: 2026-10-28
-Status: prepared continuation baseline for the user-authorized local main fast-forward; not a release or whole-goal completion
+Status: integrated local main continuation baseline; not a release or whole-goal completion
 Owner: [consolidated foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Source branch: `goal/strict-functor-duality-v3.2`
 Original main baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 Last mathematical checkpoint before this maintenance: `fcb03ea4`
+
+The local main worktree was fast-forwarded from `f8af1fca` to maintenance
+checkpoint `7044acdd` on 2026-10-28. It was clean afterward; the `join-core`
+exact assembly and the 1,388-target registry check also passed directly from
+main. The following documentation receipt is fast-forwarded as part of the
+same maintenance. No push or publication was performed.
 
 The user authorized updating the correspondence and standing documentation,
 preserving relevant auxiliary sources, and fast-forwarding local `main` so

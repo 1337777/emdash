@@ -11,7 +11,7 @@ Infinity-Codex-Decision-Responses: prior-thread 0099/0105 design and launch deci
 
 ## Current execution contract
 
-Main-baseline maintenance, explicitly authorized 2026-10-28: after checkpoint
+Completed main-baseline maintenance, explicitly authorized 2026-10-28: after checkpoint
 `fcb03ea4`, update the tracked correspondence draft `emdash2/tmp/EMAIL.md`,
 review the standing foundations/readme/SOP material, inventory portable
 implementation/toolchain/auxiliary sources, and fast-forward local `main` to
@@ -22,9 +22,9 @@ unfinished native and later frontend boundaries in the
 [main/worktree handoff](EMDASH_FOUNDATIONS_MAIN_HANDOFF.md). Preparation updates
 both correspondence drafts, preserves the eight historical authoring files,
 refreshes source-health inventory and verifies tracked replay dependencies.
-Once main contains this maintenance checkpoint, resume the whole geometric
-successor below; do not repeat the maintenance merely because this decision
-record remains in the plan.
+Main was fast-forwarded from `f8af1fca` to `7044acdd`; it was clean and the
+current join assembly and registry passed in the main worktree. Resume the
+whole geometric successor below; do not repeat this completed maintenance.
 
 User priority clarification, 2026-10-27: the immediate purpose is to assess
 whether the cubical and simplicial nerve core constructions are expressible
