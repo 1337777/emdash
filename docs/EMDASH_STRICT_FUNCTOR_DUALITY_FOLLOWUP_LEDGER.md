@@ -54,6 +54,15 @@ source/target transformations versus id_vertex0 and β₁₂. These must identif
 consumer also qualifies a narrower duality-view matcher; the broad predecessor
 is retained as a failing regression, not the selected implementation.
 
+User priority clarification, 2026-10-28: the next priority is the uniform
+recursive native simplex core and next-dimensional consumer, alongside the
+existing cubical recursion. The four Ψ-to-Φ boundary comparisons remain
+required; resolve those that block actual recursive typing/computation and
+retain the others for refinement. They are not adopted as operational proof
+fields. The canonical Sigma cocone now has a separate object/arbitrary-arrow
+observation through the existing projection view; its whole unit remains
+unproved, and no new eta rule was installed.
+
 User priority clarification, 2026-10-27: assess the core cubical and simplicial
 constructions before further face/degeneracy expansion. The native all-flags
 triangle has its whole parameter action and the higher shape has a whole

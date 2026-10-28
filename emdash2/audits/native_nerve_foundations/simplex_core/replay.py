@@ -39,7 +39,8 @@ def main() -> int:
                                           "arrow-duality-omission", "arrow-duality-boundary-proof",
                                           "arrow-duality-unit-pending", "triangle-connecting",
                                           "family-duality-proof", "family-duality-view-omission",
-                                          "triangle-endpoints-pending", "duality-view-broad-regression"),
+                                          "triangle-endpoints-pending", "duality-view-broad-regression",
+                                          "sigma-cocone-observations"),
                         default="qualification")
     parser.add_argument("--assemble-only", action="store_true")
     args = parser.parse_args()

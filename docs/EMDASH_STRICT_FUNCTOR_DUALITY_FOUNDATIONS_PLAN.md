@@ -18,6 +18,16 @@ and nontrivial consumers to a comparable level before extending face and
 degeneracy theory.** The [implementation outline](EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
 owns the decisive feasibility slices and their current ordering.
 
+User clarification, 2026-10-28: with the degree-two connecting map and Ψ
+constructed, **advance the uniform recursive core outline and the next
+nontrivial dimension now**. Do not let completion of all boundary/coherence
+proofs delay that feasibility assessment. Operational nerve maps must not gain
+equality-proof fields or boundary-certificate arguments. Existing `*_path`
+lemmas are validation evidence; required conversion belongs at justified
+generic owners. Identify which boundary comparisons genuinely block the
+recursive terms' typing or computation, resolve those, and retain the other
+comparison/inverse obligations explicitly for the subsequent refinement.
+
 The foundations source migration, original frontend qualification and local
 book/article revision remain complete at their recorded boundaries. The later
 Pi/Sigma correction still has a separate frontend/integration obligation.
@@ -91,15 +101,17 @@ consumer required narrowing the earlier duality matcher to its actual R(T(F))
 head. [The current audit](../emdash2/audits/native_nerve_foundations/simplex_core/README.md#whole-connecting-map-and-derived-modification--2026-10-28)
 separates that new structural admission from the derived construction.
 
-**Next identify the connecting map's whole endpoints with faces 01/02 and
-its source/target transformations with id_vertex0 and β₁₂.** Those comparisons
+**Required degree-two comparisons:** identify the connecting map's whole
+endpoints with faces 01/02 and its source/target transformations with
+id_vertex0 and β₁₂. Those comparisons
 turn Ψ into the required Φ; they are not implied by the α readback. Review the
 needed generic Sigma cocone/projection reconstruction and coefficient endpoint
 coherence, without restoring arbitrary section eta or supplying a triangle
 inverse. The generic dual-naturality and identity-presentation limits remain
 recorded for later qualification.
 
-**Next construct the whole native/geometric triangle comparison**, supplying
+**Required comparison outcome:** construct the whole native/geometric
+triangle comparison, supplying
 the realizer with native universal edges and filler. Do not use the ordinary
 ordinal simplex for an arbitrary nonidentity filler. Then assess the uniform coefficient recursion/higher step and return
 to the exact cubical reconstruction gaps in bounded attempts. No inverse or
@@ -253,7 +265,7 @@ in scope until actually achieved or explicitly reassigned by the user.
 | NF-2C | Whole variable-dimensional cube decoder and encoder, including degree zero | Wₙ/NCₙ whole maps and encode-after-decode check at variable n; both geometric zero inverse laws now check. Positive geometric closure, reverse round trip and face coherence remain. Retain bracketing and coordinate order. |
 | NF-3C | Native/geometric semicubical nerves on one face index | Whole inverse transformations and coherent face action |
 | NF-4C | Cubical degeneracies | Geometric first-coordinate insertion and its whole face-degeneracy law now check at every dimension; native/other-coordinate operations and all cross-coordinate relations remain. |
-| NF-2S | Independent all-flags native simplexes and selected higher shapes | Native all-flags triangle and three whole edges now check in isolation; next genuine higher triangle shape, whole comparison, uniform coefficient/higher step and inverses. |
+| NF-2S | Independent all-flags native simplexes and selected higher shapes | Native triangle, higher triangle shape, whole connecting map and Ψ check in isolation. Next uniform coefficient recursion/higher step and its actual consumers; Ψ-to-Φ whole conversions and inverse comparisons remain required. |
 | NF-3S | Same-index semisimplicial equivalence | Common augmented index and vertex convention, whole inverse transformations and face coherence |
 | NF-4S | Simplicial degeneracies | Higher-shape identity insertion and required index/unit laws |
 | SP-5F | Frontend adaptation to the later Pi/Sigma correction | Resume preserved 18-file candidate, semantic review, actual PathInd/chain consumers, conformance and affected aggregate |

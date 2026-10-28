@@ -1,0 +1,34 @@
+/* Observe the original totalized canonical cocone before proposing its
+   whole unit cut. This file installs no new rule. */
+require open emdash.emdash3_2_sigma_fibre_inclusion;
+
+symbol native_sigma_intro_total [K : Cat] (E : τ (Catd K))
+  : τ (Functor (@Sigma_cat K E) (@Sigma_cat K E))
+≔ @sigma_const_target_func K E (@Sigma_cat K E) (@sigma_intro_transf K E);
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) ⊢
+  @fapp0 _ _ (@native_sigma_intro_total K E) (Struct_sigma x u)
+  ≡ @Struct_sigma (Obj K) (λ k : τ (Obj K), Obj (Fibre_cat E k)) x u;
+
+// The existing capped projection view is checked before the concrete FF
+// and input arrow normalize the second projection to its native constructor.
+symbol native_sigma_const_target_arrow_view [K : Cat] [E : τ (Catd K)] [C : Cat]
+  (FF : τ (@Functord K E (@Const_catd K C)))
+  [q r : τ (Obj (@Sigma_cat K E))] (p : τ (Hom (@Sigma_cat K E) q r))
+  : τ (@= (Hom C
+      (fapp0 (@sigma_const_target_func K E C FF) q)
+      (fapp0 (@sigma_const_target_func K E C FF) r))
+      (@fapp1_fapp0 _ _ (@sigma_const_target_func K E C FF) q r p)
+      (sigma_Snd (@fapp1_fapp0 _ _ (@sigma_map_func K E (@Const_catd K C) FF) q r p)))
+≔ @eq_refl _ (@fapp1_fapp0 _ _ (@sigma_const_target_func K E C FF) q r p);
+
+symbol native_sigma_intro_arrow_path [K : Cat] (E : τ (Catd K))
+  [x y : τ (Obj K)] [u : τ (Obj (Fibre_cat E x))] [v : τ (Obj (Fibre_cat E y))]
+  (p : τ (Hom K x y))
+  (alpha : τ (Hom (Fibre_cat E y) (fapp0 (@catd_transport_func K E x y p) u) v))
+  : τ (@= (Hom (@Sigma_cat K E) (Struct_sigma x u) (Struct_sigma y v))
+    (@fapp1_fapp0 _ _ (@native_sigma_intro_total K E) (Struct_sigma x u) (Struct_sigma y v)
+      (@sigma_arrow K E x y u v p alpha))
+    (@sigma_arrow K E x y u v p alpha))
+≔ @native_sigma_const_target_arrow_view K E (@Sigma_cat K E) (@sigma_intro_transf K E)
+    (Struct_sigma x u) (Struct_sigma y v) (@sigma_arrow K E x y u v p alpha);

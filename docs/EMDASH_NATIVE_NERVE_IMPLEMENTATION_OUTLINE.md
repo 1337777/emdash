@@ -16,7 +16,7 @@ constructions below. No unfinished inverse is supplied to make a skeleton pass.
 | Core | Present evidence | Decisive remaining feasibility slice |
 | --- | --- | --- |
 | Cubical | Whole native/geometric maps at every dimension; both zero inverses; variable-dimensional iterated-walking retraction; nonidentity higher-cell consumers. | Whole native walking reconstruction and mixed-evaluation/positive closure cancellation with the actual maps. |
-| Simplicial | Independent all-flags triangle total; higher shape/recursor; whole endpoint proofs and three native edges at shared vertices; whole assembly from a modification; actual interchanger readback. | Construct the canonical native modification and whole native/geometric comparison; then qualify the uniform coefficient recursion/higher step. |
+| Simplicial | Independent all-flags triangle and higher shape; whole connecting map and internally extracted Ψ retaining α; final assembly still awaits its whole triangle boundary identifications. | Make the uniform coefficient recursion/higher step concrete and test a further nonidentity higher consumer; resolve the Ψ-to-Φ conversions needed by that construction. |
 | Computational foundation | Installed corrected-duality Homd ladder and strict defaults; bounded whole-functor proof consumers. | Keep new core operations internal and usable; identify actual owner/profile gaps rather than count point checks. |
 
 Next implementation order:
@@ -25,12 +25,17 @@ Next implementation order:
    whole varying-vertex family. Its coefficient is explicitly structural;
    its Sigma total, edge projections and interchanger consumer are derived.
    The remaining canonical identity-square runtime observation stays recorded.
-2. Use the now checked genuine higher triangle shape and whole K-family
-   realizer to construct the mapping comparison with the native triangle in
-   both directions. Its object observation/recursor beta and whole diagram
-   readback pass; they are not yet the whole nerve inverse. Use the first real reconstruction/beta consumer to decide what
-   is missing. Sketch the dimension-three and Nat-recursive continuation with
-   assumptions and unresolved interfaces labelled.
+2. Develop the uniform native simplex coefficient recursion and next
+   nontrivial dimension alongside the partly completed degree-two comparison.
+   Use the constructed whole connecting map and Ψ as its concrete base
+   evidence. Write the higher-shape comparison interfaces with their actual
+   variance/profiles; distinguish structural admission from derived maps.
+   Identify which missing triangle boundary conversions are needed to type
+   the recursive construction, then qualify those and a nonidentity higher
+   consumer. Do not wait for all inverse/coherence proofs before exploring
+   the recursive core, or replace missing conversions by operational
+   equality-proof arguments. Whole typing and retained action remain required
+   feasibility evidence; a conditional signature alone is not completion.
 3. Return to the exact cubical walking/mixed-evaluator gaps, using their
    already constructed maps and whole diagram readbacks. Keep attempts
    bounded and require a result that changes the remaining core interface.

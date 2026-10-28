@@ -708,3 +708,33 @@ Replay modes are `triangle-connecting`, `family-duality-proof`,
 `duality-view-broad-regression`. The two last modes retain their exact earlier
 failed snapshots. The full native triangle realizer, its inverse comparisons,
 general higher duality computation and production integration remain open.
+
+
+## Operational arguments and recursive-feasibility priority
+
+User clarification, 2026-10-28: advance the uniform core outline and its
+nontrivial higher-dimensional consumers before completing all remaining
+comparison and coherence proofs. The existing L_C and Ψ are the degree-two
+construction evidence; their required whole boundary identifications remain
+open. None is an equality-proof field of a nerve constructor. The operational
+maps take categories, families and transformations. `*_path` values verify
+comparisons separately; the intended interface does not pass them into
+realizers as operational transports or boundary certificates.
+
+The next priority is the uniform native simplex coefficient recursion and
+the next higher-dimensional consumer, alongside the already constructed
+Nat-recursive cubical maps. Keep enough whole typing and computation to
+expose real blockers. Fix a boundary comparison when the recursive
+construction needs its conversion; do not silently assume it, and do not
+turn it into an extra proof argument. Arbitrary-dimensional realization and
+inverse laws are still unproved.
+
+A small [canonical-cocone observation](sigma_intro_reconstruction.lpfragment)
+now proves that the totalized Sigma inclusion returns the original object
+and an arbitrary constructor arrow (p,α), using the existing capped projection
+view. No new rule was installed. The direct unstaged reflexivity attempt
+failed; the staged proof passes (48.568s / 215,552 KiB, 4 inputs). It does
+not prove the whole cocone unit or introduce a general Sigma eta rule.
+Replay with `--mode sigma-cocone-observations`; this evidence is retained
+without making completion of the whole unit a prerequisite to the recursive
+outline review.
