@@ -34,6 +34,11 @@ production promotion or completed inverse/equivalence results. See the
 [living plan](../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md) and
 [current mathematical account](reports/EMDASH_FOUNDATIONS.md).
 
+The [main/worktree handoff](../docs/EMDASH_FOUNDATIONS_MAIN_HANDOFF.md)
+inventories the tracked implementation, checker patch and current replay
+recipes. It distinguishes this development baseline from a release or a
+completed frontend/native-nerve integration.
+
 The versioned opposite/Sigma diagnostics and earlier action-profile ledgers
 remain historical evidence. Current local checks are not a global consistency,
 normalization or semantic-model theorem.

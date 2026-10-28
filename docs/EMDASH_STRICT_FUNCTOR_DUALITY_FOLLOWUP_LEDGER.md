@@ -8,6 +8,14 @@ History: [complete earlier ledger](EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER
 
 ## Current boundary
 
+The user-authorized local main fast-forward is documented in the
+[main/worktree handoff](EMDASH_FOUNDATIONS_MAIN_HANDOFF.md). It includes the
+updated correspondence, reviewed standing references, tracked checker patch
+and preserved historical authoring inventory. This is a parallel-development
+baseline; it does not close the later Pi/Sigma frontend or native inverse and
+index obligations below. After main contains that maintenance checkpoint,
+continue the geometric successor rather than reopening this inventory.
+
 Latest geometric slice: the [uniform terminal-join cone extension](../emdash2/audits/native_nerve_foundations/simplex_core/join/README.md)
 and both actual HigherTriangle/`Join(1,I)` maps now check. Its supplied
 cross-section recovers the original α; the actual recursor Hom image of the

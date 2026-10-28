@@ -1,0 +1,66 @@
+{
+  "schema": "emdash-foundations-retained-authoring-v1",
+  "recorded": "2026-10-28",
+  "status": "historical unselected authoring; tracked for preservation, not active source or a current replay entry point",
+  "authority": "../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md",
+  "history": "../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN_HISTORY_THROUGH_2026-10-27.md",
+  "files": {
+    "cart_homd_balance.lpfragment": {
+      "sha256": "a68643788933ac0f051c89874bb051a048d4a98d1b025c4dbd7eb087cc40144f",
+      "bytes": 3306,
+      "disposition": "unselected optional represented-middle balancing experiment; definitions checked historically, whole reflexivity failed",
+      "historicalReceipt": "20261015T071301Z-43e96b1c3cc347a881d323f92514a17a"
+    },
+    "cart_homd_balance_controls.lpfragment": {
+      "sha256": "5d03ddebebba879d43d043f07ec536f543f648ebc321dc8580fa34fa043c3cbf",
+      "bytes": 896,
+      "disposition": "unselected optional represented-middle balancing experiment; definitions checked historically, whole reflexivity failed",
+      "historicalReceipt": "20261015T071301Z-43e96b1c3cc347a881d323f92514a17a"
+    },
+    "cart_homd_balance_replay.py": {
+      "sha256": "8a0f0d621755304db1d8c51a2d7aa7f77e7909ce9b4aae17ce2f2bfff1fd5114",
+      "bytes": 1835,
+      "disposition": "unselected optional represented-middle balancing experiment; definitions checked historically, whole reflexivity failed",
+      "historicalReceipt": "20261015T071301Z-43e96b1c3cc347a881d323f92514a17a"
+    },
+    "homd_intrinsic_parameter.lpfragment": {
+      "sha256": "c71105ebc74372be68ed16d9071e521aab11ccf4fed497c3d4c3c7185c59f6b1",
+      "bytes": 3565,
+      "disposition": "unselected interrupted experiment using an obsolete stronger coefficient contract; not the current general-FF theory",
+      "historicalReceipt": "20261014T064742Z-5410531e472a47b1b0e4deca6beab250"
+    },
+    "homd_intrinsic_parameter_controls.lpfragment": {
+      "sha256": "93b486a63f4be2c82ee8324f4264e9c09d5d8571ca7a9ce8ebea39a11c3a4943",
+      "bytes": 1030,
+      "disposition": "unselected interrupted experiment using an obsolete stronger coefficient contract; not the current general-FF theory",
+      "historicalReceipt": "20261014T064742Z-5410531e472a47b1b0e4deca6beab250"
+    },
+    "homd_intrinsic_parameter_migration.py": {
+      "sha256": "4b29858d17c077c4ab0d553a90cc2a1ef094cf6dda0b20f9f30486a3d0b146ff",
+      "bytes": 3393,
+      "disposition": "unselected interrupted experiment using an obsolete stronger coefficient contract; not the current general-FF theory",
+      "historicalReceipt": "20261014T064742Z-5410531e472a47b1b0e4deca6beab250"
+    },
+    "foundation_terminal_contract_proposal.patch": {
+      "sha256": "51154f7c68799dbc7457d00fd51d8e50fefccaf17392b02718d3e379ecf93145",
+      "bytes": 11079,
+      "disposition": "superseded terminal-contract proposal; do not apply to current sources; current whole comparisons are installed",
+      "historicalReceipt": null
+    },
+    "owner_relocation.json": {
+      "sha256": "286ff74272e945fc10c61e0c9647d0c891ed44d08dc1d6e1c05a9e5656f9ec4f",
+      "bytes": 3280,
+      "disposition": "historical 2026-10-11 StrictTransfor carrier-relocation evidence; its running-status text and process handles are historical",
+      "historicalReceipt": null
+    }
+  },
+  "externalHistoricalInputs": {
+    "homd_intrinsic_parameter_migration.py": "tmp/probes/homd_root_action_scope/combined_controls.lp at hard-pinned historical hash; not needed by active implementation",
+    "cart_homd_balance_replay.py": "historical cart_homd_composition replay and its old source pins; not a current replay"
+  },
+  "currentSuccessors": [
+    "../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER.md",
+    "../native_nerve_foundations/simplex_core/verification.json"
+  ],
+  "policy": "No script is run, patch applied, semantic contract restored or historical running process resumed by this inventory."
+}

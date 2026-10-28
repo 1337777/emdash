@@ -1,0 +1,22 @@
+// A general raw FF is accepted through its strict component, without Op_funcd.
+assert [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (x : τ (Obj K)) ⊢
+  fapp0 (@homd_intrinsic_source_func K E D x) FF
+  ≡ @Op_func (@Fibre_cat K E x) (@Fibre_cat K D x)
+      (@tapp0_fapp0 K Cat_cat E D x FF);
+
+// Whole agreement is a proof-time comparison; the two existing composition
+// presentations need not have the same runtime normal form.
+assert [K : Cat] [E D : τ (Catd K)] (GG : τ (Functord E D))
+  (x : τ (Obj K)) ⊢
+  @eq_refl
+    (Functor (Op_cat (@Fibre_cat K D x)) (@Homd_section_cat K E x))
+    (fapp0 (@homd_intrinsic_target_parameter_func K E D x) GG)
+  : τ (@= (Functor (Op_cat (@Fibre_cat K D x)) (@Homd_section_cat K E x))
+      (fapp0 (@homd_intrinsic_target_parameter_func K E D x) GG)
+      (@homd_src_func K E D GG x));
+
+assertnot [K : Cat] [E D : τ (Catd K)] (GG : τ (Functord E D))
+  (x : τ (Obj K)) ⊢
+  fapp0 (@homd_intrinsic_target_parameter_func K E D x) GG
+  ≡ @homd_src_func K E D GG x;

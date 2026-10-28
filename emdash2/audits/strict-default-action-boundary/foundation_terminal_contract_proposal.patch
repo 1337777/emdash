@@ -1,0 +1,297 @@
+--- a/emdash2/emdash3_2_checks.lp
++++ b/emdash2/emdash3_2_checks.lp
+@@ -17928,22 +17928,30 @@
+     ≡ @homd_src_sec Z E E (@id_funcd Z E) x u;
+ 
+ assert [K : Cat] (x : τ (Obj K)) ⊢
+-  @homd_src_func K
++ @eq_refl (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
++  (@homd_src_func K
+     (@Const_catd K Terminal_cat)
+     (@Const_catd K Terminal_cat)
+     (@id_funcd K (@Const_catd K Terminal_cat))
+-    x
+-    ≡ @Obj_func
++    x)
++ : τ (@= (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
++  (@homd_src_func K
++    (@Const_catd K Terminal_cat)
++    (@Const_catd K Terminal_cat)
++    (@id_funcd K (@Const_catd K Terminal_cat))
++    x)
++  (@Obj_func
+         (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x))
+         (@homd_src_sec K
+           (@Const_catd K Terminal_cat)
+           (@Const_catd K Terminal_cat)
+           (@id_funcd K (@Const_catd K Terminal_cat))
+           x
+-          Terminal_obj);
++          Terminal_obj)));
+ 
+ assert [K : Cat] (x : τ (Obj K)) ⊢
+-  @Fibre_func
++ @eq_refl (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
++  (@Fibre_func
+     K
+     (@Const_catd K Terminal_cat)
+     (@Homd_target_catd K (@Const_catd K Terminal_cat))
+@@ -17952,15 +17960,26 @@
+       (@Const_catd K Terminal_cat)
+       (@Const_catd K Terminal_cat)
+       (@id_funcd K (@Const_catd K Terminal_cat)))
+-    x
+-    ≡ @Obj_func
++    x)
++ : τ (@= (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
++  (@Fibre_func
++    K
++    (@Const_catd K Terminal_cat)
++    (@Homd_target_catd K (@Const_catd K Terminal_cat))
++    (@homd_int
++      K
++      (@Const_catd K Terminal_cat)
++      (@Const_catd K Terminal_cat)
++      (@id_funcd K (@Const_catd K Terminal_cat)))
++    x)
++  (@Obj_func
+         (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x))
+         (@homd_src_sec K
+           (@Const_catd K Terminal_cat)
+           (@Const_catd K Terminal_cat)
+           (@id_funcd K (@Const_catd K Terminal_cat))
+           x
+-          Terminal_obj);
++          Terminal_obj)));
+ 
+ assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
+   (x y : τ (Obj Z))
+@@ -17987,21 +18006,33 @@
+   ≡ @homd_ Z E E (@id_funcd Z E) x u y v;
+ 
+ assert [K : Cat] (x y : τ (Obj K)) ⊢
+-  @homd_tgt_func K
++ @eq_refl (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
++  (@homd_tgt_func K
+     (@Const_catd K Terminal_cat)
+     (@Const_catd K Terminal_cat)
+     (@id_funcd K (@Const_catd K Terminal_cat))
+     x
+     Terminal_obj
+-    y
+-    ≡ @Obj_func (Homd_index_cat (Hom_cat K x y))
+-        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@Terminal_catd (Op_cat (Hom_cat K x y))));
++    y)
++ : τ (@= (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
++  (@homd_tgt_func K
++    (@Const_catd K Terminal_cat)
++    (@Const_catd K Terminal_cat)
++    (@id_funcd K (@Const_catd K Terminal_cat))
++    x
++    Terminal_obj
++    y)
++  (@Obj_func (Homd_index_cat (Hom_cat K x y))
++        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@Terminal_catd (Op_cat (Hom_cat K x y))))));
+ 
+ assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+   (x y : τ (Obj K))
+   (u : τ (Obj (Fibre_cat E x))) ⊢
+-  @homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y
+-    ≡ @Obj_func (Homd_index_cat (Hom_cat K x y))
++ @eq_refl (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
++  (@homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y)
++ : τ (@= (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
++  (@homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y)
++  (@Obj_func (Homd_index_cat (Hom_cat K x y))
+         (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@homd_
+           K
+           E
+@@ -18010,15 +18041,20 @@
+           x
+           u
+           y
+-          (@piapp0 K E s y)));
++          (@piapp0 K E s y)))));
+ 
+ assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+   (x y : τ (Obj K))
+   (u : τ (Obj (Fibre_cat E x))) ⊢
+-  @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
++ @eq_refl (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
++  (@tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
+       (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+-      (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u)
+-    ≡ @Obj_func (Homd_index_cat (Hom_cat K x y))
++      (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u))
++ : τ (@= (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
++  (@tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
++      (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
++      (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u))
++  (@Obj_func (Homd_index_cat (Hom_cat K x y))
+         (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@homd_
+           K
+           E
+@@ -18027,7 +18063,7 @@
+           x
+           u
+           y
+-          (@piapp0 K E s y)));
++          (@piapp0 K E s y)))));
+ 
+ assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+   (x y : τ (Obj K))
+
+--- a/emdash2/audits/strict-default-action-boundary/production_public_homd_controls.lpfragment
++++ b/emdash2/audits/strict-default-action-boundary/production_public_homd_controls.lpfragment
+@@ -1,6 +1,6 @@
+ // Original public Homd ladder, at the selected Q/index types.
+-// The five whole terminal-source Obj_func assertions remain required,
+-// unqualified normalization obligations. They are not silently downgraded.
++// Proposed contract: the five terminal-source constant presentations are
++// whole proof-time comparisons. Operational leaf/higher/inverse computation remains.
+ 
+ assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
+   (x : τ (Obj Z)) ⊢
+@@ -62,22 +62,30 @@
+     ≡ @homd_src_sec Z E E (@id_funcd Z E) x u;
+ 
+ assert [K : Cat] (x : τ (Obj K)) ⊢
+-  @homd_src_func K
+-    (@Const_catd K Terminal_cat)
+-    (@Const_catd K Terminal_cat)
+-    (@id_funcd K (@Const_catd K Terminal_cat))
+-    x
+-    ≡ @Obj_func
++ @eq_refl (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
++  (@homd_src_func K
++    (@Const_catd K Terminal_cat)
++    (@Const_catd K Terminal_cat)
++    (@id_funcd K (@Const_catd K Terminal_cat))
++    x)
++ : τ (@= (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
++  (@homd_src_func K
++    (@Const_catd K Terminal_cat)
++    (@Const_catd K Terminal_cat)
++    (@id_funcd K (@Const_catd K Terminal_cat))
++    x)
++  (@Obj_func
+         (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x))
+         (@homd_src_sec K
+           (@Const_catd K Terminal_cat)
+           (@Const_catd K Terminal_cat)
+           (@id_funcd K (@Const_catd K Terminal_cat))
+           x
+-          Terminal_obj);
++          Terminal_obj)));
+ 
+ assert [K : Cat] (x : τ (Obj K)) ⊢
+-  @Fibre_func
++ @eq_refl (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
++  (@Fibre_func
+     K
+     (@Const_catd K Terminal_cat)
+     (@Homd_target_catd K (@Const_catd K Terminal_cat))
+@@ -86,15 +94,26 @@
+       (@Const_catd K Terminal_cat)
+       (@Const_catd K Terminal_cat)
+       (@id_funcd K (@Const_catd K Terminal_cat)))
+-    x
+-    ≡ @Obj_func
++    x)
++ : τ (@= (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
++  (@Fibre_func
++    K
++    (@Const_catd K Terminal_cat)
++    (@Homd_target_catd K (@Const_catd K Terminal_cat))
++    (@homd_int
++      K
++      (@Const_catd K Terminal_cat)
++      (@Const_catd K Terminal_cat)
++      (@id_funcd K (@Const_catd K Terminal_cat)))
++    x)
++  (@Obj_func
+         (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x))
+         (@homd_src_sec K
+           (@Const_catd K Terminal_cat)
+           (@Const_catd K Terminal_cat)
+           (@id_funcd K (@Const_catd K Terminal_cat))
+           x
+-          Terminal_obj);
++          Terminal_obj)));
+ 
+ assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
+   (x y : τ (Obj Z))
+@@ -121,21 +140,33 @@
+   ≡ @homd_ Z E E (@id_funcd Z E) x u y v;
+ 
+ assert [K : Cat] (x y : τ (Obj K)) ⊢
+-  @homd_tgt_func K
++ @eq_refl (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
++  (@homd_tgt_func K
+     (@Const_catd K Terminal_cat)
+     (@Const_catd K Terminal_cat)
+     (@id_funcd K (@Const_catd K Terminal_cat))
+     x
+     Terminal_obj
+-    y
+-    ≡ @Obj_func (Homd_index_cat (Hom_cat K x y))
+-        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@Terminal_catd (Op_cat (Hom_cat K x y))));
++    y)
++ : τ (@= (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
++  (@homd_tgt_func K
++    (@Const_catd K Terminal_cat)
++    (@Const_catd K Terminal_cat)
++    (@id_funcd K (@Const_catd K Terminal_cat))
++    x
++    Terminal_obj
++    y)
++  (@Obj_func (Homd_index_cat (Hom_cat K x y))
++        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@Terminal_catd (Op_cat (Hom_cat K x y))))));
+ 
+ assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+   (x y : τ (Obj K))
+   (u : τ (Obj (Fibre_cat E x))) ⊢
+-  @homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y
+-    ≡ @Obj_func (Homd_index_cat (Hom_cat K x y))
++ @eq_refl (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
++  (@homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y)
++ : τ (@= (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
++  (@homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y)
++  (@Obj_func (Homd_index_cat (Hom_cat K x y))
+         (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@homd_
+           K
+           E
+@@ -144,15 +175,20 @@
+           x
+           u
+           y
+-          (@piapp0 K E s y)));
++          (@piapp0 K E s y)))));
+ 
+ assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+   (x y : τ (Obj K))
+   (u : τ (Obj (Fibre_cat E x))) ⊢
+-  @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
++ @eq_refl (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
++  (@tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
+       (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+-      (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u)
+-    ≡ @Obj_func (Homd_index_cat (Hom_cat K x y))
++      (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u))
++ : τ (@= (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
++  (@tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
++      (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
++      (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u))
++  (@Obj_func (Homd_index_cat (Hom_cat K x y))
+         (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@homd_
+           K
+           E
+@@ -161,7 +197,7 @@
+           x
+           u
+           y
+-          (@piapp0 K E s y)));
++          (@piapp0 K E s y)))));
+ 
+ assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+   (x y : τ (Obj K))

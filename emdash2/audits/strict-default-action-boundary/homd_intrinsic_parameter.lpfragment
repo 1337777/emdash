@@ -1,0 +1,65 @@
+// Fixed-x source substitution, whole in the displayed-map parameter.
+// FF itself is ambient; only the already strict component FF[x] is transposed.
+// Source parameter variance: T(Transf(E,D)) -> Cart(T(E[x]),T(D[x])).
+symbol homd_intrinsic_source_func [K : Cat] [E D : τ (Catd K)]
+  (x : τ (Obj K))
+  : τ (Functor (Op_cat (@Transf_cat K Cat_cat E D))
+      (Functor_cart_cat (Op_cat (@Fibre_cat K E x)) (Op_cat (@Fibre_cat K D x))))
+≔ @comp_cat_fapp0
+    (Op_cat (@Transf_cat K Cat_cat E D))
+    (Op_cat (Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D x)))
+    (Functor_cart_cat (Op_cat (@Fibre_cat K E x)) (Op_cat (@Fibre_cat K D x)))
+    (Op_func_func (@Fibre_cat K E x) (@Fibre_cat K D x))
+    (@Op_func (@Transf_cat K Cat_cat E D)
+      (Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D x))
+      (@tapp0_func K Cat_cat E D x));
+
+// Fixed-x target substitution, whole in GG:E=>D.
+// It postcomposes the identity source functor with precomposition by iota(GG).
+// The result lands in actual whole y-sections, not an objectwise family.
+symbol homd_intrinsic_target_parameter_func [K : Cat] [E D : τ (Catd K)]
+  (x : τ (Obj K))
+  : τ (Functor (@Transf_cat K Cat_cat E D)
+      (Functor_cart_cat (Op_cat (@Fibre_cat K D x)) (@Homd_section_cat K E x)))
+≔ @comp_cat_fapp0
+    (@Transf_cat K Cat_cat E D)
+    (Functor_cart_cat (@Homd_section_cat K D x) (@Homd_section_cat K E x))
+    (Functor_cart_cat (Op_cat (@Fibre_cat K D x)) (@Homd_section_cat K E x))
+    (@comp_cat_con_cart_func
+      (Op_cat (@Fibre_cat K D x)) (@Homd_section_cat K D x) (@Homd_section_cat K E x)
+      (@homd_id_src_func K D x))
+    (@comp_cat_fapp0
+      (@Transf_cat K Cat_cat E D)
+      (Hom_cat (Functor_cat K Prof_cov_universe) (@Prof_cov_diagram K E) (@Prof_cov_diagram K D))
+      (Functor_cart_cat (@Homd_section_cat K D x) (@Homd_section_cat K E x))
+      (@hom_precomp_along_tele_cart_func
+        (Functor_cat K Prof_cov_universe) (Functor_cat K Prof_cov_universe)
+        (@id_func (Functor_cat K Prof_cov_universe))
+        (@Prof_cov_diagram K (@hom_ K K (@id_func K) x))
+        (@Prof_cov_diagram K E) (@Prof_cov_diagram K D))
+      (@fapp1_func (Catd_cat K) (Functor_cat K Prof_cov_universe)
+        (@comp_cat_cov_func K Cat_cat Prof_cov_universe Prof_cov_include) E D));
+
+// Both parameters retained with their actual variance.
+// At (FF,GG): homd_src_func(GG,x) o T(FF[x]).
+// This does not assert a whole assembly in x or construct intrinsic laxity.
+symbol homd_intrinsic_target_func [K : Cat] [E D : τ (Catd K)]
+  (x : τ (Obj K))
+  : τ (Functor
+      (Product_cat (Op_cat (@Transf_cat K Cat_cat E D)) (@Transf_cat K Cat_cat E D))
+      (Functor_cart_cat (Op_cat (@Fibre_cat K E x)) (@Homd_section_cat K E x)))
+≔ @comp_cat_fapp0
+    (Product_cat (Op_cat (@Transf_cat K Cat_cat E D)) (@Transf_cat K Cat_cat E D))
+    (Product_cat
+      (Functor_cart_cat (Op_cat (@Fibre_cat K E x)) (Op_cat (@Fibre_cat K D x)))
+      (Functor_cart_cat (Op_cat (@Fibre_cat K D x)) (@Homd_section_cat K E x)))
+    (Functor_cart_cat (Op_cat (@Fibre_cat K E x)) (@Homd_section_cat K E x))
+    (@comp_prod_func Cat_cat
+      (Op_cat (@Fibre_cat K E x)) (Op_cat (@Fibre_cat K D x)) (@Homd_section_cat K E x))
+    (@Product_map_func
+      (Op_cat (@Transf_cat K Cat_cat E D))
+      (Functor_cart_cat (Op_cat (@Fibre_cat K E x)) (Op_cat (@Fibre_cat K D x)))
+      (@Transf_cat K Cat_cat E D)
+      (Functor_cart_cat (Op_cat (@Fibre_cat K D x)) (@Homd_section_cat K E x))
+      (@homd_intrinsic_source_func K E D x)
+      (@homd_intrinsic_target_parameter_func K E D x));

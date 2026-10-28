@@ -6,18 +6,19 @@ Receiver baseline: `e8ffc4d0`; legacy donor: `280e7a03`.
 
 ## Independent all-flags simplicial triangle
 
-The [native triangle core](simplex_core/README.md) now supplies a whole
-varying-vertex family, independent Sigma total, all three whole edge maps and
-an actual directed-interchanger consumer. The 44-input qualification passes
-in 45.740s / 196,808 KiB. Its native-arrow coefficient is an added structural
-internalization; no native/geometric inverse is supplied. A legacy runtime
-identity-square observation remains separately failed. The next core task is
-the genuine higher triangle shape and its whole mapping comparison.
+Current continuation, 2026-10-28: the [native simplex core](simplex_core/README.md)
+now includes the higher triangle, whole connecting map and modification,
+internal Nat recursion of native coefficients, and a whole 3-cell filler
+consumer. The [terminal-join cone](simplex_core/join/README.md) supplies the
+next geometric object computation. Next internalize its action in apex and
+diagram; the actual join-cell image, whole inverse and index laws remain
+open. Earlier qualification scopes below retain their historical meaning.
 
 ## Current priority and retained latest experiment
 
 The user has prioritized the cubical/simplicial core feasibility assessment
-before further face and degeneracy expansion. The native triangle is now formed; its geometric comparison is next. See the
+before further face and degeneracy expansion. The whole geometric successor
+and its native comparison are next. See the
 [working order](../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md#working-order--core-feasibility-first).
 The latest [whole profile restoration and second-factor maps](profile_restore_review.md)
 are derived and checked. The larger [face-order experiment](pending_face_order/README.md)

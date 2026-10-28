@@ -3,11 +3,10 @@ LONGER TECHNICAL APPENDIX
 
 Functorial Type Theory in emdash v3.2
 
-Local development snapshot reviewed 2026-09-18, alongside book 0.9.2-dev.
-This is an unsent correspondence draft. The updated source and book were
-published to main/GitHub Pages on 2026-09-18; the live PDF matches the checked
-0.9.2-dev artifact. The DOI identifies the earlier
-archived edition.
+Local development snapshot reviewed 2026-10-28, after the strict-functor
+and corrected-duality foundations migration. This is an unsent correspondence
+draft. The local book is 0.10.2-dev and overview article is 0.4.2-dev; these
+local revisions are not a claim of a new DOI, Pages or other publication.
 
 Abstract. Functorial Type Theory asks what happens when the substitutional
 discipline of dependent type theory is extended to genuinely categorical
@@ -42,8 +41,8 @@ inner Sigma total has made edges into objects. Generic Sigma-Hom then exposes
 lax squares, and iterating the resulting derived lax-arrow category produces
 cubes; `{L,R,*}` face codes act through whole restriction functors and retain
 higher action. Finally, injective face codes form an internal semi-simplex
-category. Directed join builds the ordinal shapes `Delta[n]`, and the internal
-dependent hom
+category. Directed join builds the geometric candidate shapes `Delta[n]`,
+and the internal dependent hom
 keeps the base-arrow layer of a dependent cell functorial. Iterated outgoing
 paths place that layer beneath an independently varying target endpoint. This
 nested double fibration produces native dependent simplexes. One Nat recursion
@@ -83,49 +82,118 @@ without requiring a production Lambdapi process in the browser.
 
 Book: https://doi.org/10.5281/zenodo.21544186
 
-Research status. This appendix describes the qualified 2026-09-18 main/Pages
-development snapshot; the DOI still names the earlier archived edition.
-The current whole-opposite and
-Sigma-Hom encodings have known variance/soundness defects awaiting a separate
-repair. “Checked” below records particular typechecks and computational
-interfaces in this research calculus, not a global consistency certificate.
-Formal claims depending on those higher-variance encodings remain unqualified
-pending repair. The local ordinary-category interpretation of the homological
-constructions must be distinguished from an unrestricted higher-categorical
-semantics.
+Research status. The native migration is installed: categories and public
+functors are strict, while ordinary transformations are conventional lax.
+The former whole-opposite/Sigma-Hom contracts have been replaced by the
+explicit dualities, coefficient admission and direct Homd ladder below.
+Current source checks are not a global consistency or normalization theorem.
+The public Cat:Cat convention and selected structural computation contracts
+retain their research status; applications retain their supplied models and
+ordinary-target assumptions.
 
+The original TypeScript foundations migration and local book/article update
+were accepted at their recorded snapshots. A later Pi/Sigma section-profile
+correction still needs its separate frontend adaptation. Current native nerve
+work is an isolated audit: it has substantial whole-map computation, but its
+unfinished reconstruction, comparison and index laws are not production
+results or established equivalences.
+
+Conventions. `Cat` names the public universe with
+`Hom_Cat(A,B) = Functor_cat(A,B)`: strict functors, lax transformations.
+`Cart(A,B)` has strict functors and strict transformations. The admitted
+coefficient universe `Cat_cart` satisfies `Hom_Cat_cart(A,B) = Cart(A,B)`.
+Both a family E and a represented family Hom_K(x,−) land in Cat_cart.
+This does not make an arbitrary displayed map FF strictly natural across K.
+
+Write T for dimension-one reversal (`Op_cat`), R for reversal of dimensions
+2 and above (`CoAbove2_cat`), O=R∘T for total reversal (`TotalOp_cat`), and C₂
+for dimension-two reversal (`CoAt2_cat`). Unadorned `^op` below means T.
+Fibrewise T sends a family over K to one over C₂(K); fibrewise O sends it
+to one over R(K). These operations coincide on objects, not on higher cells.
 
 Directed dependent hom and arrow induction
 -------------------------------------------
 
-For a category-valued family
+For an admitted family and fixed source data,
 
 ```
-E : K ⊢ Cat
+E : K ⊢ Cat_cart,     x : K,     u : E[x],
 ```
 
-where `⊢` denotes a functor category, and fixed data `x : K`, `u : E[x]`,
-emdash forms the directed dependent hom
+the local dependent Hom retains the familiar value
 
 ```
-homd_E(x,u)
-  : Π(y : K^op), E[y^-] ⊢_[y] (Hom_K(x,y)^op ⊢ Cat).
+homd_id_(E,x,u,y,v) : T(Hom_K(x,y)) ⊢ Cat_cart
+homd_id_(E,x,u,y,v)[f] = Hom_{E[y]}(E[f](u),v).
 ```
 
-Here `⊢_[y]` is the mixed-variance displayed form of `⊢`, and `y^-`
-records that the `E`-argument is contravariant. At `y`, `v : E[y]`, and
-`f : x → y`, its value is
+The whole y-assembly is not the former unqualified
+`Π(Functor_catd(E,Presheaf_x))`. Its actual internal classifiers are
 
 ```
-Hom_{E[y]}(E[f](u),v).
+P(I)       = T(Functor_cat(I,T(Cat_cart)))
+Hom_Q(A,B) = Cart(A,P(B))
+I_x        = Hom_K(x,−) : K ⊢ Cat_cart
+S_E(x)     = Transf_{K,Q}(ι(E),ι(I_x)).
 ```
 
-This dependent hom organizes the arrows of the Sigma total:
+Here ι is the implemented represented inclusion into Q. An object of P(I)
+has a presheaf view `T(I) ⊢ Cat_cart`; that observation does not identify
+P(I)'s higher mapping structure with a Cartesian presheaf category. Q's
+represented/unit operations are structural computational interfaces, not a
+claim to have constructed general coend semantics.
+
+The identity construction has a direct internal projection ladder:
 
 ```
-Hom_{ΣE}((x,u),(y,v))
-  = Σ(f : x → y), Hom_{E[y]}(E[f](u),v).
+homd_id_int(E) : Hom_{Cart(K,Cat_cart)}(E,H_E)
+  where H_E[x] = T(S_E(x))
+
+at x: homd_id_src_func(E,x)       : T(E[x]) ⊢ S_E(x)
+at u: homd_id_src_sec(E,x,u)      : Obj(S_E(x))
+at y: homd_id_tgt_func(E,x,u,y)   : E[y] ⊢ P(Hom_K(x,y))
+at v: an object of P(Hom_K(x,y))
+      with view homd_id_(E,x,u,y,v)
+at f: Hom_{E[y]}(E[f](u),v).
 ```
+
+The canonical root is a strict transformation; general transfors remain
+lax. y is internal to the whole Q-valued transformation. There is no larger
+`(y,v,f)` base or final currying step standing in for this ladder.
+
+For `FF : Functord(D,E)`, the public `homd_int(FF)` is a defined composite
+of the identity core with the target action of FF. Its leaf is
+
+```
+homd_(FF,x,u,y,v)[f] = Hom_{E[y]}(E[f](u),FF[y](v)).
+```
+
+FF has strict fibre functors and can retain nonidentity base naturality
+cells. Those cells are extracted from its internal action, not supplied as
+extra witnesses to Homd. The five terminal constant presentations are whole
+proof-time comparisons, not literal constant runtime reductions.
+
+For `I=Hom_K(x,y)` and `H=homd_id_(E,x,u,y,v)`, Sigma-Hom is
+
+```
+H : T(I) ⊢ Cat_cart
+O_fib(H) : O(I) ⊢ Cat_cart
+Hom_{Σ_K E}((x,u),(y,v)) = O(Σ_{O(I)} O_fib(H)).
+```
+
+Its arrow objects are `(f,α)` with `f:x→y` and `α:E[f](u)→v`. This pair
+formula does not replace the negative-index total at higher dimensions.
+Strict family transport gives
+
+```
+(q,β) ∘ (p,α) = (q∘p, β ∘ E[q][α]).
+```
+
+Sections retain their ordinary transformation-backed meaning:
+`Π(E) = Transf_{K,Cat_cart}(const(1),E)`, through the kernel's stable Pi
+facade. The current Sigma-section bridge is the forward whole functor
+`sigma_functord_sec_func`; arbitrary sections over a Sigma projection are
+not identified with displayed functors at every higher level.
 
 Fix a category `Z` and `x : Z`. The outgoing-arrow category is
 
@@ -157,7 +225,7 @@ component of the total arrow `ρ`.
 For a motive and reflexive datum
 
 ```
-E : PathOut_Z(x) ⊢ Cat
+E : PathOut_Z(x) ⊢ Cat_cart
 u : E[(x,id_x)],
 ```
 
@@ -211,7 +279,8 @@ The source-indexed induction theorem is therefore one displayed
 transformation. Its naturality is internal to that transformation rather
 than supplied as a family of external squares.
 
-The notation is also executable. The current frontend accepts, for example,
+The notation is also executable. The accepted frontend profile supports
+examples such as
 
 ```
 λ^f  x. (H x) (K x)
@@ -224,7 +293,9 @@ recursively factored through identity, weakening, pairing, evaluation,
 reindexing, totalization, and internal action. The resulting explicit Core
 can be checked directly by TypeScript/emdash and, for the reviewed profile,
 emitted to Lambdapi/emdash for conformance. Unsupported variance or escaped
-variables are rejected rather than assigned an invented coherence law.
+variables are rejected. The subsequent native Pi/Sigma correction has an
+explicit unfinished frontend adaptation; these examples do not qualify that
+newer transfer merely by retaining its former source syntax.
 
 
 A directed HIT and its normalization
@@ -245,7 +316,7 @@ Apply the whole-HIT recursor to the category universe, choosing the
 equality-local category `ℕ` at the base and successor on the loop:
 
 ```
-Code := rec_WalkingEnd(Cat_cat; ℕ, Succ)
+Code := rec_WalkingEnd(Cat_cart; ℕ, Succ)
 
 Code[base] = ℕ
 Code[loop] = Succ : ℕ ⊢ ℕ.
@@ -390,220 +461,108 @@ This is the target-side universal property. Source action
 `Groupoidify(H)`, the whole `Groupoidify_func`, and the packaged adjunction
 with `Path` remain future interfaces.
 
-The same internal-action calculus keeps directed laxity visible. Its functor
-compositor is an already-existing cell
+The same internal-action calculus keeps directed transformation data visible.
+Public functors preserve identities and composition strictly:
 
 ```
-φ^F_{g,f} : F[g] ∘ F[f] ⇒ F[g ∘ f].
+F[id_x] = id_{F[x]},       F[g∘f] = F[g] ∘ F[f].
 ```
 
-In a path target this cell is invertible; in a general directed target it need
-not be. Strictness and pseudofunctoriality are properties of this existing
-internal action, not alternate functor grammars. `IsStrictFunctor(F)` supplies
-an endpoint path and identifies the compositor with the equality-induced
-arrow, while `IsPseudoFunctor(F)` equips its fixed-forward readable
-presentation with a native equivalence witness. The exact strict package is
+Their existing extracted compositor has canonical strict behavior.
+`IsStrictFunctor(F)` is descriptive, with canonical evidence; the former
+`StrictFunctor` carrier and `strict_functor` admission wrapper are retired.
+A separate LaxFunctor/weak-category interface remains future design work.
+
+For an ordinary transformation ε:F⇒G, the retained conventional lax direction
+has a genuinely directed comparison
 
 ```
-StrictFunctor(A,B)
-  = Σ(F : A ⊢ B), IsStrictFunctor(F).
+λ_ε(p) : G[p] ∘ ε[x] ⇒ ε[y] ∘ F[p].
 ```
 
-The selected strict-object/lax-arrow profile uses these packages as objects
-and reuses the ambient transfor and every higher-hom category as its hom tower:
+The pre/right leg is strict; the post/left comparison may be nonidentity.
+At an identity arrow, the intended unit law makes λ_ε(id_x) the identity of
+ε[x], not ε[x] itself an identity. Additional intrinsic unit reductions have
+isolated native-audit qualification and are not all installed production cuts.
+StrictTransfor and StrictFunctord remain meaningful stronger classifiers.
+
+The selected `GrayHom_lax` profile retains strict maps and lax
+transformations. Its chosen right closure is
 
 ```
-GrayHom_lax(A,B)
-
 GrayHom_lax(A ⊗_R B,C)
   ≃_ω GrayHom_lax(A,GrayHom_lax(B,C)).
 ```
 
-Coevaluation at two walking arrows produces four vertices and two boundary
-routes. Projecting the existing whole laxity action gives the oriented,
-nonidentity interchanger
+Coevaluation at two walking arrows and intrinsic transformation action
+produce a nonidentity interchanger
 
 ```
-χ : a₁ ∘ b₀ ⇒ b₁ ∘ a₀,
+χ : a₁ ∘ b₀ ⇒ b₁ ∘ a₀.
 ```
 
-with one next hom action still available. This is one checked profiled right
-closure and a low-dimensional coherence stress test. It is not the mirror
-closure, tensor functoriality/coherence, a full Crans–Gray biclosed monoidal
-structure, or a global migration of the prototype's historical strict cuts.
-In particular, no claim here depends on the separate continuing work to
-re-home those historical global cuts at explicit profiles.
+The comparison comes from transformation laxity; it does not require lax
+public functors. This selected closure and higher-cell consumer are not a
+complete Gray monoidal or arbitrary tensor-coherence development.
 
 
 Cubical cells from the same internal action
 --------------------------------------------
 
-The key point is that a square is still produced by the triangular dependent
-hom, not by a new square former. For an ordinary category-valued family `D`,
-generic Sigma-Hom computation has the familiar form
+A square is still produced by dependent Hom and Sigma, rather than a new
+primitive square former. The corrected whole mixed-family input is
 
 ```
-Hom_{ΣD}((x,u),(y,v))
-  = Σ(p : x → y), Hom_{D[y]}(D[p](u),v).
+E : T(K₁) ⊢ Cart(K₂,Cat_cart)
+Edge_E = Sigma_coeff(K₂) ∘ E : T(K₁) ⊢ Cat_cart
+D_E = TotalOp_catd(Edge_E) : O(K₁) ⊢ Cat_cart
+homdc_int(E) = homd_int(id_D_E)
+TwoSided_E = O(Σ_{O(K₁)} D_E).
 ```
 
-It says that an arrow in a Sigma total is a base arrow together with one fibre
-arrow after transport. This is the same triangular mechanism used for
-dependent arrows and simplexes.
-
-To apply it cubically, begin with a mixed-variance family
+The Cartesian parameter profile admits the inner Sigma coefficient. Applying
+Homd at target edge `(y₂,v)`, source edge `(x₂,u)`, and `a:x₁→y₁` gives the
+local Hom category
 
 ```
-E : K₁^op ⊢ Catd(K₂).
+Hom_{Edge_E[x₁]}((x₂,u), Edge_E[a^op](y₂,v)).
 ```
 
-First internalize the second endpoint by an ordinary Sigma total:
-
-```
-Edge_E[x₁] := Σ(x₂ : K₂), E[x₁][x₂].
-```
-
-An object is `(x₂,u)` with `u : E[x₁][x₂]`. In the specialization
-`E = hom_int(id_C)`, this is literally an edge `u : x₁ → x₂`. Now make the
-variance adjustment
-
-```
-D_E[x₁] := Edge_E[x₁]^op
-```
-
-and reuse the existing whole dependent internal hom at its identity displayed
-functor:
-
-```
-homdc_int(E) := homd_int(id_{D_E}).
-```
-
-This is a transparent definition, not a primitive cubical constructor. After
-selecting target edge `(y₂,v)`, source edge `(x₂,u)`, and
-`a : x₁ → y₁`, ordinary `homd_int` gives
-
-```
-Hom_{Edge_E[x₁]}
-  ((x₂,u), Edge_E[a^op](y₂,v)).
-```
-
-Generic Sigma-Hom computation—not a square-specific rule—then exposes an
-object as
+Its objects are `(b,α)` with
 
 ```
 b : x₂ → y₂
 α : E[x₁][b](u) → E[a^op][y₂](v).
 ```
 
-For `E = hom_int(id_C)`, the two existing Hom actions compute the endpoints:
+For `E=hom_int(id_C)`, the two actions give `b∘u` and `v∘a`. Thus the derived
+`LaxArrow(C)` has edge objects and square arrows `(a,(b,α))`, where
+`α:b∘u⇒v∘a`. The square includes the chosen higher cell α, but no separate
+proof of naturality or equation certificate is an operational input.
+The higher Hom retains the corrected negative-index total. `CubicalArrow`
+is a transparent name for this construction.
+
+Native levels are internal Nat recursion:
 
 ```
-E[x₁][b](u)    = b ∘ u
-E[a^op][y₂](v) = v ∘ a.
+NC₀(C) = C
+NCₙ₊₁(C) = LaxArrow(NCₙ(C)).
 ```
 
-Therefore the fibre arrow is precisely the directed 2-cell
+The existing `{L,R,*}` face-code layer supplies selected whole restrictions
+and retains higher action. Its profiled map APIs must not be confused with
+an automatic common-index equivalence of geometric and native nerves.
 
-```
-α : b ∘ u ⇒ v ∘ a.
-```
-
-A particular square genuinely includes a chosen `α`, just as any directed
-2-cell is data. What is absent is a bespoke record field or independently
-postulated lax-commutativity law: the classifier and both endpoints of `α`
-were computed by existing `homd_int`, Hom action, and Sigma-Hom.
-
-The category of such arrows is also a transparent total:
-
-```
-TwoSided_E
-  := (Σ(x₁ : K₁^op), Edge_E[x₁]^op)^op
-
-LaxArrow(C)
-  := TwoSided_{hom_int(id_C)}.
-```
-
-Its objects are edges. Its arrows have the canonical nested Sigma form
-
-```
-(a,(b,α)).
-```
-
-The readable constructor `lax_square(a,b,α)` merely packages that generic
-term; it owns no separate square computation. The inner and outer opposites
-select the displayed lax direction. The corresponding unreversed comma-total
-orientation exposes the opposite, oplax cell `v ∘ a ⇒ b ∘ u`; changing
-variance exchanges the two directions rather than removing the cell.
-
-The source and target projections are whole functors, so both side-arrow
-directions and the comparison cell retain their next actions. The public
-`CubicalArrow` names are transparent readability aliases for this derived
-`LaxArrow` construction, not a duplicate square theory. In short:
-
-```
-ordinary Sigma + pointwise opposite + homd_int
-  → homdc_int
-  → two-sided total
-  → LaxArrow
-  → CubicalArrow.       // transparent alias
-```
-
-Native cubical levels are genuine Nat recursion:
-
-```
-Cube_C(0)   = C
-Cube_C(n+1) = LaxArrow(Cube_C(n)).
-```
-
-Objects at levels one, two, and three are edges, lax squares, and cubes. Face
-maps are intrinsically indexed words in `{L,R,*}`: `L` and `R` fix the newest
-coordinate at its two endpoints, while `*` retains it. Structural substitution
-of these words computes, and their whole action satisfies the recursive
-reading
-
-```
-L(f) ↦ face(f) ∘ source
-R(f) ↦ face(f) ∘ target
-*(f) ↦ LaxArrow(face(f)).
-```
-
-The star case consumes the retained `IsPseudoFunctor` property; it does not
-invent a second forward map. The resulting whole semicubical nerve is
-
-```
-N_□(C) : SemiCubePlus^op ⊢ Cat
-N_□(C)[n] = Cube_C(n).
-```
-
-Its generic arrow action remains available above every face restriction. A
-recursive finite family exposes all `2n` immediate faces. Yoneda supplies an
-object-level section/evaluation beta between the standard representable
-semicube and a native cube, without asserting a whole equivalence.
-
-The Gray and cubical readings meet through a fixed right bracketing:
-
-```
-GrayCube_R(1)   = I
-GrayCube_R(n+2) = I ⊗_R GrayCube_R(n+1)
-
-StrictFunctor(GrayCube_R(n+1),C)
-  → Obj(Cube_C(n+1)).
-```
-
-This decoder is one internal Nat recursion. Dimensions one through three are
-checked, and at dimension two its transformation graph recovers the same
-coordinate-swapped interchanger as the walking-square calculation. The result
-does not yet include an inverse decoder or a mapping-category equivalence.
-In particular, the current geometric candidate uses `GrayHom_lax` (strict
-maps with the selected lax transformation profile), not an unspecified
-ambient Functor_cat. A whole nerve comparison additionally needs coherent
-face maps on the chosen Gray shapes and compatibility of the decoder with
-restriction. The positive Gray tower currently starts in dimension one;
-its zero-dimensional unit and face assembly still need qualification. This
-can be pursued at fixed bracketing without first claiming arbitrary Gray
-monoidal coherence. Degeneracies, connections and Kan filling are separate.
-The native opposite/Sigma encoding and strict/lax profiles retain their
-recorded higher-interpretation qualifications.
+The current isolated continuation constructs whole maps in both directions
+between geometric oplax diagrams and native cubes at every dimension, using
+the selected right tensor bracketing. The intermediate iterated walking
+profile is `G_I(C)=Functor_oplax_cat(I,C)`, with its actual Odd-dual encoding.
+Both geometric degree-zero inverse laws and the whole first round trip on
+iterated walking diagrams are derived. The native walking second inverse,
+whole mixed-evaluation/positive closure cancellation, and common-index
+compatibility remain open. Existing diagram-object round trips do not prove
+those missing equalities of whole mapping functors. Wider degeneracies,
+connections and Kan/Segal/Rezk claims retain their own boundaries.
 
 
 Simplexes from dependent homs
@@ -690,11 +649,11 @@ constructs a canonical source for variable `n`. Mapping it under arbitrary
 five tetrahedral faces of the four-simplex, noncollapse, and a retained next
 action are checked.
 
-The S_k categories depend on the previously chosen flag. They are not yet
-one category whose arrows vary all those earlier vertices and faces. The
-current `DependentSimplexObservation(C,n)` collects an intrinsic code and an
-object of its decoded category in a Grpd-valued package; this does not supply
-that missing directed category of all n-simplexes.
+The S_k categories in this earlier construction depend on the previously
+chosen flag. `DependentSimplexObservation(C,n)` collects an intrinsic code
+and an object of its decoded category in a Grpd-valued package; by itself it
+does not supply the directed category of all n-simplexes. The newer isolated
+whole construction is described immediately below.
 
 The geometric levels already exist as
 `CoherentNerveLevel_cat(C,n) = Functor_cat(Delta[n],C)`. Generic nonempty
@@ -715,13 +674,34 @@ full nerve equivalence, and any further Kan/Segal/Rezk properties are distinct
 completion tasks, not consequences of the current object decoder.
 
 
+Current continuation. The isolated all-flags native construction now has
+whole coefficients and variable-dimensional map action:
+
+```
+S⁻_K(E) = O(Σ_{R(K)} TotalOp_catd(E))
+Step(H)(C) = S⁻_{T(C)}(H ∘ PathOut_C)
+H₀ = LaxArrow_coeff,     Hₙ₊₁ = Step(Hₙ)
+NS₀(C)=C,               NSₙ₊₁(C)=Hₙ(C).
+```
+
+It recovers the earlier arrow and triangle carriers and includes a whole
+functor from genuine 3-cells to native 3-simplexes. The generic geometric
+cone extension `D:S→PathOut_C(x) ↦ Join(1,S)→C` now computes vertices,
+cross edges and the supplied cross-section's original α. Its action-derived
+join-cell image still has a boundary conversion to resolve. The whole
+parameterized successor and its inverse/index comparisons are the next
+feasibility tasks. These audit candidates are not yet promoted production
+or completed nerve equivalences; prepending and appending a join vertex
+must not be identified without the actual comparison.
+
+
 Profunctors, weighted universals, and duality
 ---------------------------------------------
 
 A Cat-valued profunctor is represented as a directed family
 
 ```
-Prof(A,B) = A^op × B ⊢ Cat.
+Prof(A,B) = T(A) × B ⊢ Cat_cart.
 ```
 
 The checked calculus contains representables `Hom(F ~,G —)`, endpoint
@@ -759,6 +739,9 @@ W-colimit in A
   → W^op-limit in B^op
   ↔ W-colimit in B.
 ```
+
+Here `W^op` is the endpoint-swapping `Op_prof` construction, using product
+symmetry on its base; it does not add a fibrewise total opposite.
 
 The adjunction is retained as one indexed structured witness; unit, counit,
 transpose, and mate operations are projections from that witness rather than
@@ -1324,17 +1307,17 @@ not a closed derivation of every universal provider or every native algorithm.
 
 Shared chain inputs and ordinary H records now have independent owners.
 Superseded model/connecting wrappers are retired; useful matrix/provider
-algorithms and the ordinary iterator remain separate references. Γ, the
-proposed whole classification of coherent family inputs and corresponding
-whole H comparison, is a meaningful unqualified follow-up. The current point
-comparisons already use categorical maps with retained inverses; existing
-native computations do not require the proposed upgrade.
+algorithms and the ordinary iterator remain separate references. The whole
+classifier Γ and the corresponding H_family≅H_native∘Γ comparison are now
+implemented for the recorded ordinary profile, retaining the original maps
+and inverse data. Stronger unrestricted higher-target normalization is not
+implied by that result.
 
 
 From invertibility sieves to sheafification
 -------------------------------------------
 
-For a category `K`, a Cat-valued presheaf `P : K^op ⊢ Cat` assigns a
+For a category `K`, a Cat-valued presheaf `P : T(K) ⊢ Cat_cart` assigns a
 category of observations to every stage and a restriction functor to every
 change of stage. A higher sieve may retain a category of witnesses over each
 probe; an ordinary sieve is the subterminal case in which only the
@@ -1590,42 +1573,62 @@ SHORTER TECHNICAL APPENDIX
 Book: https://doi.org/10.5281/zenodo.21544186
 Code: https://github.com/hotdocx/emdash
 
-Local development snapshot: 2026-09-16, book 0.9.1-dev. The DOI identifies
-the archived publication, not a publication of this updated draft.
+Local development snapshot: 2026-10-28, after the native foundations
+migration; local book 0.10.2-dev and overview 0.4.2-dev. The DOI names an
+archived publication, not this unsent draft or a new release.
 
-This is a development snapshot, not a global consistency claim. Known
-variance/soundness defects in the whole-opposite and Sigma-Hom encodings
-remain separately tracked; formal claims depending on those higher-variance
-encodings remain unqualified pending repair. The checked interfaces below
-and the local ordinary-category homological interpretation do not assert
-that those foundational repairs or the separate strictness migration are
-complete.
+The current calculus uses strict ω-categories, strict public functors and
+conventional lax transformations. `Hom_Cat(A,B)=Functor_cat(A,B)`. Admitted
+families and ordinary Hom land in `Cat_cart`, whose Homs are Cartesian
+mapping categories of strict functors and strict transformations. General
+`FF : Functord(D,E)` remains lax across the base. The native migration and
+local book/article revision are installed; the later Pi/Sigma frontend
+adaptation and complete nerve equivalences remain open.
 
-The basic construction underneath the emdash kernel/book is the
-ω-categorical directed dependent hom. Here `Cat` is the category universe,
-`Obj(C)` and `Hom_C(x,y)` denote objects and the iterable Hom, and
-`F : A ⊢ B` means a functor from `A` to `B`. Brackets denote its object or
-arrow action; `⇒` denotes a transformation or directed higher cell. `Σ`
-forms a dependent total and `Π` a section category. The arrows `⇝` and `↝`
-mark computation; `≐` marks proof-time comparison, not runtime expansion.
+Write T=`Op_cat` for reversal of dimension 1, R=`CoAbove2_cat` for reversal
+of dimensions ≥2, O=`TotalOp_cat` for total reversal, and C₂=`CoAt2_cat`.
+Fibrewise T changes the base K to C₂(K); fibrewise O changes it to R(K).
+Unadorned `^op` means T. The Cat:Cat convention and selected structural
+contracts are not a global consistency theorem.
 
-For a category-valued family `E : K ⊢ Cat`, fixed `x : K` and `u : E[x]`,
-emdash forms
+The dependent Hom starts with `E : K ⊢ Cat_cart`. For fixed x and u:E[x], put
 
 ```
-homd_E(x,u)
-  : Π(y : K^op), E[y^-] ⊢_[y] (Hom_K(x,y)^op ⊢ Cat),
+I_x = Hom_K(x,−)
+P(I) = T(Functor_cat(I,T(Cat_cart)))
+Hom_Q(A,B) = Cart(A,P(B))
+S_E(x) = Transf_{K,Q}(ι(E),ι(I_x)).
 ```
 
-whose value at `y`, `v : E[y]`, and `f : x → y` is
-`Hom_{E[y]}(E[f](u),v)`. Here `K^op` is the opposite base, `y^-` marks the
-contravariant E-slot, and `⊢_[y]` is the displayed functor category with
-endpoints varying over `y`. This hom organizes arrows in Sigma totals:
+The identity root and its direct projection ladder are
 
 ```
-Hom_{ΣE}((x,u),(y,v))
-  = Σ(f : x → y), Hom_{E[y]}(E[f](u),v).
+homd_id_int(E) : Hom_{Cart(K,Cat_cart)}(E,H_E),  H_E[x]=T(S_E(x))
+  at x: T(E[x]) ⊢ S_E(x)
+  at u: Obj(S_E(x))
+  at y: E[y] ⊢ P(Hom_K(x,y))
+  at v: an object of P(Hom_K(x,y))
+        with presheaf view homd_id_(E,x,u,y,v) : T(Hom_K(x,y)) ⊢ Cat_cart
+  at f: Hom_{E[y]}(E[f](u),v).
 ```
+
+y remains internal to the Q-valued transformation. This replaces the former
+`Π(Functor_catd(E,Presheaf_x))` type; no combined `(y,v,f)` base defines the
+ladder. The public FF-relative interface is a defined composite with leaf
+`Hom_{E[y]}(E[f](u),FF[y](v))`, retaining FF's extracted comparison cells.
+No equality proof is carried as an argument to this construction.
+
+For `I=Hom_K(x,y)` and `H=homd_id_(E,x,u,y,v)`, the whole Sigma-Hom is
+
+```
+Hom_{Σ_K E}((x,u),(y,v)) = O(Σ_{O(I)} TotalOp_catd(H)).
+```
+
+Its objects remain pairs `(f,α:E[f](u)→v)`. Their composition is
+`(q,β)∘(p,α)=(qp,β∘E[q][α])`. The pair description is not a replacement
+for the higher negative-index total. Ordinary Pi remains transformation-backed;
+the Sigma-section/displayed-functor bridge has only its declared forward
+whole direction, not the former identification of all higher classifiers.
 
 For a category `Z` and object `x : Z`, define the outgoing-arrow category
 
@@ -1638,7 +1641,7 @@ The reflexive object is `(x,id_x)`. For `p : x → y`, its canonical arrow is
 identity in the transported Hom fibre. Thus, for
 
 ```
-E : (x ↓ Z) ⊢ Cat
+E : (x ↓ Z) ⊢ Cat_cart
 u : E[(x,id_x)],
 ```
 
@@ -1658,13 +1661,14 @@ Write `Rep_Z(x)[z] = Hom_Z(x,z)` for the represented family. For the motive
 Ind_x(E,id)[(y,p)][z][q] ↝ q ∘ p.
 ```
 
-The current TypeScript elaborator lets the same internal operations be
+The accepted TypeScript elaborator profile lets the corresponding operations be
 authored with familiar bound variables—e.g. `λ^f x. (H x) (K x)` for given
 functors `H,K` of suitable types. The marks `^f`, `^n`, `^fd`, `^nd` select
 functorial, natural, displayed-functorial and displayed-natural binders.
 Elaboration lowers them to explicit emdash Core. The Core
 is checked by TypeScript/emdash; selected judgments are also emitted to the
-authoritative Lambdapi/emdash backend for conformance.
+authoritative Lambdapi/emdash backend for conformance. The later Pi/Sigma
+native correction still needs its separately tracked frontend adaptation.
 
 ---
 
@@ -1678,12 +1682,12 @@ base : Obj(WalkingEnd)
 loop : Hom_WalkingEnd(base,base).
 ```
 
-Its whole recursor targets the internal category universe `Cat_cat`, sending
+Its whole code recursor targets the admitted coefficient `Cat_cart`, sending
 `base` to the equality-local natural-number category `ℕ` and `loop` to its
 successor functor `Succ`:
 
 ```
-Code := rec_WalkingEnd(Cat_cat; ℕ,Succ)
+Code := rec_WalkingEnd(Cat_cart; ℕ,Succ)
 
 Code[base] = ℕ
 Code[loop] = Succ.
@@ -1769,93 +1773,34 @@ The recursor computes on represented points and dependent first cells and
 retains higher action. Source functoriality and the packaged adjunction remain
 separate.
 
-For `F : A ⊢ B` and composable `f,g`, the compositor
-`F[g] ∘ F[f] ⇒ F[g ∘ f]` is invertible in a path target but may remain
-directed otherwise. `IsStrictFunctor(F)` identifies it with the
-equality-induced arrow; `IsPseudoFunctor(F)` equips it with an equivalence.
-Both constrain the existing action. The strict package is
-`Σ(F : A ⊢ B), IsStrictFunctor(F)`, not a parallel functor grammar.
-`GrayHom_lax(A,B)` has strict functors as objects and ambient lax transfors
-and their higher Homs as arrows. Its selected right-Gray product `⊗_R` gives
+Public functors preserve identity and composition strictly; their extracted
+compositor has canonical strict behavior. The redundant StrictFunctor
+carrier is retired. For an ordinary conventional lax ε:F⇒G, the extracted
+cell `G[p]∘ε[x] ⇒ ε[y]∘F[p]` can be nonidentity. Its identity-arrow unit law
+does not make arbitrary naturality strict. Stronger transformation profiles
+remain explicit. The chosen right Gray closure retains this lax higher data
+and yields the nonidentity walking-square interchanger; a full monoidal
+coherence theory is not asserted.
+
+The whole cubical construction starts with
 
 ```
-GrayHom_lax(A ⊗_R B,C)
-  ≃_ω GrayHom_lax(A,GrayHom_lax(B,C))
+E : T(K₁) ⊢ Cart(K₂,Cat_cart)
+Edge_E = Sigma_coeff(K₂) ∘ E
+D_E = TotalOp_catd(Edge_E) : O(K₁) ⊢ Cat_cart
+homdc_int(E) = homd_int(id_D_E)
+TwoSided_E = O(Σ_{O(K₁)} D_E).
 ```
 
-and derives an interchanger from whole laxity. Calling the two routes around
-the walking square `a₁ ∘ b₀` and `b₁ ∘ a₀`, it is the nonidentity cell
-`a₁ ∘ b₀ ⇒ b₁ ∘ a₀`. This is a profiled coherence test,
-not the full Crans–Gray monoidal theory or the still-separate global migration
-of historical strict cuts.
-
-For a Cat-valued family `D`, the square is another use of the same
-triangular formula
-
-```
-Hom_{ΣD}((x,u),(y,v))
-  = Σ(p : x → y), Hom_{D[y]}(D[p](u),v).
-```
-
-Let `Catd_cat(K₂)` be the category of covariant Cat-valued families over
-`K₂`. For a mixed family `E : K₁^op ⊢ Catd_cat(K₂)`, first make edges into
-objects and correct the variance:
-
-```
-Edge_E[x₁] := Σ(x₂ : K₂), E[x₁][x₂]
-D_E[x₁]    := Edge_E[x₁]^op
-
-homdc_int(E) := homd_int(id_{D_E}).
-```
-
-Here `homd_int` is the whole internal dependent hom above, applied to the
-identity displayed functor of `D_E`. Take `u : E[x₁][x₂]`,
-`v : E[y₁][y₂]` and `a : x₁ → y₁`. Between their edge objects `(x₂,u)`
-and `(y₂,v)`, generic Sigma-Hom exposes
-
-```
-b : x₂ → y₂
-α : E[x₁][b](u) → E[a^op][y₂](v).
-```
-
-For the ordinary internal Hom family `E = hom_int(id_C)`, whose value at
-`(x,y)` is `Hom_C(x,y)`, post- and precomposition reduce this to
-
-```
-α : b ∘ u ⇒ v ∘ a.
-```
-
-Thus a square is a triangular `homd_int` arrow between edge objects. The
-derived edge category is
-
-```
-LaxArrow(C) := (Σ(x : C^op), (Σ(y : C), Hom_C(x,y))^op)^op.
-```
-
-It has edges `u` as objects and `(a,(b,α))` as arrows. The readable
-`lax_square(a,b,α)` only packages this nested Sigma term, not a separate
-square former or commutativity law. Iteration gives native cubical levels
-
-```
-Cube_C(0)   = C
-Cube_C(n+1) = LaxArrow(Cube_C(n)),
-```
-
-while intrinsically indexed words in `{L,R,*}` encode faces: `L` and `R`
-fix a coordinate at source or target, and `*` retains it. Their category is
-`SemiCubePlus`; substitution computes and whole restriction functors give
-`N_□(C) : SemiCubePlus^op ⊢ Cat` with `N_□(C)[n] = Cube_C(n)`. Higher action
-and all `2n` immediate faces remain available. A decoder maps strict diagrams
-on right-bracketed Gray tensor powers of the walking arrow to native cubes;
-dimensions one through three are checked, and
-dimension two recovers the walking-square interchanger. No inverse decoder,
-whole mapping equivalence, or face-compatible comparison of nerves is
-claimed. The geometric mapping profile is GrayHom_lax (strict maps and the
-selected lax transformations); the positive Gray tower does not yet supply
-the zero-dimensional unit or a whole shape functor on SemiCubePlus. These
-are focused completion tasks. Degeneracies, connections, Kan fillers,
-alternate bracketings and general Gray monoidal coherence are separate;
-the recorded Op/Sigma and action-profile qualifications remain in force.
+For `E=hom_int(id_C)`, this gives `LaxArrow(C)` with edge objects and
+square arrows `(a,(b,α))`, `α:b∘u⇒v∘a`. The cell is genuine data, extracted
+through the same Homd/Sigma classifier rather than a new square record.
+Native cube levels iterate LaxArrow internally. In the current isolated audit,
+whole native/geometric maps exist in both directions at every dimension;
+both geometric zero inverses and the iterated-walking first round trip are
+proved. The native walking second inverse, whole positive tensor-closure
+cancellation and common-index comparison remain open. Diagram-object
+readbacks are not substituted for those whole equalities.
 
 ---
 
@@ -1894,13 +1839,14 @@ One Nat recursion constructs the canonical ordinal dependent simplex at
 variable `n`; arbitrary `H : Functor(Delta[n],C)` maps it into `C`, and the
 existing nonempty `FaceCode` action exposes its faces while retaining higher
 action. Dimensions zero through four are checked. The recursion is flagged:
-`DependentSimplexObservation(C,n)` collects objects, but not the directed
-maps varying all earlier flags. A whole `DependentSimplex_cat(C,n)`, its
-native nerve and a face-compatible equivalence with the geometric levels
-remain unfinished. The geometric levels Functor_cat(Delta[n],C) already exist;
-their whole shape/face assembly still needs the join identity/composition and
-reconstruction comparisons. The higher mapping profile must retain the
-native noninvertible triangle cells.
+`DependentSimplexObservation(C,n)` is the earlier object-package surface.
+The new isolated all-flags construction additionally has internal Nat recursion
+of whole native coefficients, variable-dimensional map action and a whole
+3-cell filler functor. Its geometric successor begins with the constructed
+cone `D:S→PathOut_C(x) ↦ Join(1,S)→C`; the supplied cross-section retains
+its nonidentity α. Whole apex/diagram action, the actual join-cell image,
+inverse laws and the simplicial index remain unfinished. Ordinary ordinal
+functors alone do not classify arbitrary higher triangle cells.
 
 The actual `SemiDeltaPlus_cat` index has injective maps and counts vertices,
 so dimension n corresponds to n+1 there. Adding degeneracies gives a further
@@ -1912,7 +1858,7 @@ A Cat-valued nerve retains diagram transformations as well as simplex objects.
 For categories `A,B`, Cat-valued profunctors are directed families
 
 ```
-Prof(A,B) = A^op × B ⊢ Cat.
+Prof(A,B) = T(A) × B ⊢ Cat_cart.
 ```
 
 Emdash includes representables, endpoint reindexing, shaped cells, selected
@@ -2149,9 +2095,10 @@ extensions; a general higher terminality replacement remains future work.
 Shared raw inputs and optional ordinary H records now have independent owners.
 Superseded homology model/connecting wrappers have been retired from the active
 library, while the native LES/snake and useful CAS/provider algorithms remain.
-The actual categorical point comparisons retain their inverse data. A stronger
-whole input/H comparison, Γ, is preserved as an unqualified follow-up; it is
-not a prerequisite for the current checked nonsplit computations.
+The actual categorical point comparisons retain their inverse data. The whole
+input classifier Γ and H_family≅H_native∘Γ comparison are implemented for
+the recorded ordinary profile, with the original chosen maps and inverses.
+This does not qualify unrestricted higher-target normalization.
 
 ---
 

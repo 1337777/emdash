@@ -1,0 +1,79 @@
+{
+  "status": "carrier relocation applied; focused gates pass; full health gate running",
+  "symbols": [
+    "StrictTransfor",
+    "strict_transfor"
+  ],
+  "declarationsByteIdentical": true,
+  "rewriteOrUnificationChanges": false,
+  "checks": {
+    "baseline_profile": {
+      "id": "20261011T172802Z-bf506aed79de4bd99edfab869407bb3a",
+      "target": "emdash3_2_gray_profiles.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 9.574804668023717,
+      "childrenMaxRssKiB": 451900,
+      "inputSnapshot": "603483d239873c1515856818fdc4560276bdd27856fc4135642a4e114eb944b1",
+      "logSha256": "6a42597976569b9ad0d3c7ca77de8da98e16d85fa3b3fd32e769f3e70138099f",
+      "warningCount": 947
+    },
+    "copied_owner_profile": {
+      "id": "20261011T171904Z-fa49175334324187a213c1c286502e2a",
+      "target": "emdash3_2_gray_profiles.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 9.034958133997861,
+      "childrenMaxRssKiB": 452120,
+      "inputSnapshot": "409a46a2804ede559e55e7f8e817cc7041a2fc6f40a2b0317343db2a7c572a14",
+      "logSha256": "dc975b7898e11adbbaa55f162f098a9231de3494fe286e8afce268b4482574a0",
+      "warningCount": 947
+    },
+    "copied_owner_reviewer": {
+      "id": "20261011T172813Z-67bbb615a8e9401f8a58190333ac7e55",
+      "target": "examples/gray_profiles.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 12.006398690980859,
+      "childrenMaxRssKiB": 702520,
+      "inputSnapshot": "5939b5fccd788f52d6790899e74c70cd34a3cca822dc0a876743512abbd73590",
+      "logSha256": "d2303f831668ec0579c1733afca9f14f7a595bec128a8bb07c44aa7d8cf41efd",
+      "warningCount": 1009
+    },
+    "active_core": {
+      "id": "20261011T175643Z-23da0e76a64a4099b9c6b3bf4f90be71",
+      "target": "emdash3_2.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 6.138712187996134,
+      "childrenMaxRssKiB": 333892,
+      "inputSnapshot": "e0cc461cc844952144c36375e6c49ed69c34bfd0bc783d09b8e8033b7d2415cb",
+      "logSha256": "88ab44983679520569ed413313aaf31527646870b233b47bff6f8ec7c2a32097",
+      "warningCount": 648
+    },
+    "active_profile": {
+      "id": "20261011T175650Z-9a3e58b2fc1c4312bd534710dede0540",
+      "target": "emdash3_2_gray_profiles.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 8.689090526022483,
+      "childrenMaxRssKiB": 452532,
+      "inputSnapshot": "04b3e3c54943276248388ba30ce475e7906b66c26641ddd511985941a0a01a29",
+      "logSha256": "8211a626de70d3a9783d24f1f4e952c885c5a7704d04cc437f6c4029df6a8cf5",
+      "warningCount": 947
+    },
+    "active_reviewer": {
+      "id": "20261011T175659Z-79ac5b5b46c3496c97a9d0f08bef481a",
+      "target": "examples/gray_profiles.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 16.473239435988944,
+      "childrenMaxRssKiB": 702836,
+      "inputSnapshot": "e0104ab8b41d9134ce13c23b9fe88b178b8e60c2c2d337e9314a0e21a4f95fe6",
+      "logSha256": "666ae2620d31d1da92cabe0bb5388fa267896ea7ef9c459627c76a0a63ca7bbd",
+      "warningCount": 1009
+    }
+  },
+  "warningDelta": {
+    "addedNormalizedBlocks": 0,
+    "removedNormalizedBlocks": 0
+  },
+  "activeSources": {
+    "emdash3_2.lp": "c5df901221f647ca6965022e72f5682d3dacaa46f85d3cad8cf78264a8ac823a",
+    "emdash3_2_gray_profiles.lp": "f6214cbfaf0b37cdf2a0db2130c9c794eed943baacc50e18bd29aed3c965fc5b"
+  }
+}

@@ -117,6 +117,12 @@ compatibility API.
 
 ## Persistent Goals And Git Experimentation
 
+For parallel work starting from the migrated foundations baseline, read
+`docs/EMDASH_FOUNDATIONS_MAIN_HANDOFF.md`. Its inventory distinguishes active
+sources and reproducible checker patches from preserved, unselected authoring
+and ignored execution artifacts. A main fast-forward does not close the
+recorded frontend/native integration obligations.
+
 Long-running or mostly unsupervised `/goal` work must use an active living plan
 and the workflow in
 `docs/PERSISTENT_GOAL_GIT_EXPERIMENTATION.md`. Repository consolidation decisions

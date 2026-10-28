@@ -20,6 +20,10 @@ and total dualities are distinguished explicitly. The
 [current Foundations account](./emdash2/reports/EMDASH_FOUNDATIONS.md) gives
 the actual types and computational boundaries.
 
+For new parallel worktrees, the [migrated-foundations handoff](./docs/EMDASH_FOUNDATIONS_MAIN_HANDOFF.md)
+records the local main baseline, reproducible checker patch, auxiliary-source
+inventory, and unfinished frontend/native integration boundaries.
+
 The long-term product direction is an **open-source, AI-native, cloud-capable
 scientific computing system in the TypeScript ecosystem**, with integrated
 functorial type theory and proof development. Users should be able to compute,

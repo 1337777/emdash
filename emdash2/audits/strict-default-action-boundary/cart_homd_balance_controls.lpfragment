@@ -1,0 +1,15 @@
+// Whole image agreement, before identifying any source generators.
+assert [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z)) (d : τ (Obj (fapp0 D y)))
+  [e0 e1 : τ (Obj (fapp0 E y))] (h : τ (Hom (fapp0 E y) e0 e1)) (e' : τ (Obj (fapp0 E z))) ⊢
+  @eq_refl (Functor
+      (Product_cat
+        (Hom_cat (fapp0 E z) e' (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) e0))
+        (Hom_cat (fapp0 D y) (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U) e1) d))
+      (Hom_cat (fapp0 D z)
+        (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D z) U) e')
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat D y z q) d)))
+    (@sf_cq_balance_left K E D U y z q d e0 e1 h e')
+  : τ (@= _ (@sf_cq_balance_left K E D U y z q d e0 e1 h e')
+      (@sf_cq_balance_right K E D U y z q d e0 e1 h e'));
