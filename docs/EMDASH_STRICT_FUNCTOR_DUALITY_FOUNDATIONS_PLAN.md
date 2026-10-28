@@ -57,8 +57,11 @@ their broader identity/duality overlap review still required before promotion.
 Both literal whole third-edge endpoint equalities now pass (67 inputs), and
 the native universal-arrow owner constructs edges 01/02 at shared vertices
 and edge 12 at its raw projected endpoints (70 inputs, 64.137s / 280,500 KiB).
-Using the proved comparisons as conversion in edge 12's shared-vertex type
-and constructing the native universal filler remain open;
+The general totalized Cartesian projection law now has an independent proof
+and a qualified proof-time view admitting edge 12 at the shared vertices.
+The assembly from an arbitrary whole modification Φ checks (74 inputs,
+74.773s / 314,752 KiB), without operational equality payloads. Constructing
+the canonical native Φ with its actual higher action remains open;
 the [simplex audit](../emdash2/audits/native_nerve_foundations/simplex_core/README.md)
 distinguishes these obligations from the now proved coefficient comparisons.
 

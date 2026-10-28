@@ -31,7 +31,9 @@ def main() -> int:
                                           "vertices-pending", "coefficient-boundary-pending",
                                           "boundary-qualification", "constant-total-pending",
                                           "constant-qualification", "endpoints-qualification",
-                                          "shared-edge-pending", "universal-qualification"),
+                                          "shared-edge-pending", "universal-qualification",
+                                          "projection-law-proof", "projection-qualification",
+                                          "projection-omission"),
                         default="qualification")
     parser.add_argument("--assemble-only", action="store_true")
     args = parser.parse_args()

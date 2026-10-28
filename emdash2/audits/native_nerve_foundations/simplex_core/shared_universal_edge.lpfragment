@@ -1,0 +1,6 @@
+require open emdash.native_cart_total_projection;
+
+// The endpoint comparisons are now consumed in this operational type.
+symbol triangle_universal_edge12 (C : Cat)
+  : τ (@Transf (nerve_native_triangle_cat C) C (triangle_vertex1_func C) (triangle_vertex2_func C))
+≔ @triangle_edge_whisker C (nerve_triangle_face12_func C);

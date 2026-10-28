@@ -1,0 +1,40 @@
+/* Proof-time totalization of a Cartesian coefficient projection U:F=>id.
+   For E:K->Cat_cart and h:E=>const(B), both strict family maps,
+     U[B] o T(F[h]) = T(h) o O(Sigma(O_fib(U[E]))).
+   The generic proof is retained in the native-nerve audit. This is a whole
+   semantic comparison, not an object-extensionality or nerve inverse rule.
+   All maps, families, component data and shifted bases remain constraints.
+   Match stable R(T(-)) heads, not the reducible total-dual aliases. */
+unif_rule
+  @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _ $component
+      (@CoAbove2_func _ _ (@Op_func _ _ (@Product_projR_func $RK4 $OFB))))
+    (@CoAbove2_func _ _ (@Op_func _ _
+      (@sigma_map_func $RK5 $ON1 (@Const_catd $RK5 $OFB1)
+        (@strict_transfor _ _ _ _
+          (@TotalOp_funcd $K4 $N1 (@Const_catd $K4 $FB)
+            (@hom_postcomp_fapp1_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+              $K5 Cat_cart Cat_cart $F1 $E3 (@Const_catd $K5 $B1) $h1))))))
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _
+      (@CoAbove2_func _ _ (@Op_func _ _ (@Product_projR_func $RK $OB)))
+      (@CoAbove2_func _ _ (@Op_func _ _
+        (@sigma_map_func $RK1 $OE (@Const_catd $RK1 $OB1)
+          (@strict_transfor _ _ _ _ (@TotalOp_funcd $K $E (@Const_catd $K $B) $h))))))
+    (@CoAbove2_func _ _ (@Op_func _ _
+      (@sigma_map_func $RK2 $ON $OE1
+        (@strict_transfor _ _ _ _
+          (@TotalOp_funcd $K2 $N $E1
+            (@hom_precomp_along_fapp1_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+              Cat_cart $K3 Cat_cart $E2 $F (@id Cat_cat Cat_cart) $U))))))
+  ↪ [ $K2 ≡ $K; $K3 ≡ $K; $K4 ≡ $K; $K5 ≡ $K;
+      $RK ≡ CoAbove2_cat $K; $RK1 ≡ $RK; $RK2 ≡ $RK; $RK4 ≡ $RK; $RK5 ≡ $RK;
+      $E1 ≡ $E; $E2 ≡ $E; $E3 ≡ $E; $F1 ≡ $F; $B1 ≡ $B; $h1 ≡ $h;
+      $N ≡ @comp_cat_fapp0 $K Cat_cart Cat_cart $F $E; $N1 ≡ $N;
+      $OE ≡ @TotalOp_catd $K $E; $OE1 ≡ $OE;
+      $ON ≡ @TotalOp_catd $K $N; $ON1 ≡ $ON;
+      $OB ≡ TotalOp_cat $B; $OB1 ≡ $OB;
+      $FB ≡ @fapp0 Cat_cart Cat_cart $F $B;
+      $OFB ≡ TotalOp_cat $FB; $OFB1 ≡ $OFB;
+      $component ≡ @tapp0_fapp0 Cat_cart Cat_cart $F (@id Cat_cat Cat_cart) $B
+        (@strict_transfor Cat_cart Cat_cart $F (@id Cat_cat Cat_cart) $U) ];

@@ -1,0 +1,50 @@
+/* The general Cartesian coefficient-projection law behind shared endpoints.
+   All helpers are defined aliases; the comparison is derived, not supplied. */
+require open emdash.native_triangle_universal_edge_qualification;
+
+symbol native_projection_postmap [K : Cat]
+  (F : τ (Functor Cat_cart Cat_cart)) (E : τ (Catd K)) (B : Cat)
+  (h : τ (Hom (Functor_cart_cat K Cat_cart) E (@Const_catd K B)))
+  : τ (Hom (Functor_cart_cat K Cat_cart)
+      (@comp_cat_fapp0 K Cat_cart Cat_cart F E) (@Const_catd K (fapp0 F B)))
+≔ @fapp1_fapp0 _ _ (@comp_cat_cov_cart_func K Cat_cart Cat_cart F) E (@Const_catd K B) h;
+
+symbol native_projection_premap [K : Cat]
+  (F : τ (Functor Cat_cart Cat_cart)) (E : τ (Catd K))
+  (U : τ (Hom (Functor_cart_cat Cat_cart Cat_cart) F (@id_func Cat_cart)))
+  : τ (Hom (Functor_cart_cat K Cat_cart) (@comp_cat_fapp0 K Cat_cart Cat_cart F E) E)
+≔ @fapp1_fapp0 _ _ (@comp_cat_con_cart_func K Cat_cart Cat_cart E) F (@id_func Cat_cart) U;
+
+symbol native_projection_component
+  (F : τ (Functor Cat_cart Cat_cart))
+  (U : τ (Hom (Functor_cart_cat Cat_cart Cat_cart) F (@id_func Cat_cart))) (B : Cat)
+  : τ (Functor (fapp0 F B) B)
+≔ @tapp0_fapp0 Cat_cart Cat_cart F (@id_func Cat_cart) B (@strict_transfor _ _ _ _ U);
+
+symbol native_cart_total_projection_path [K : Cat]
+  (F : τ (Functor Cat_cart Cat_cart)) (E : τ (Catd K)) (B : Cat)
+  (h : τ (Hom (Functor_cart_cat K Cat_cart) E (@Const_catd K B)))
+  (U : τ (Hom (Functor_cart_cat Cat_cart Cat_cart) F (@id_func Cat_cart)))
+  : τ (@= (Functor
+      (TotalOp_cat (@Sigma_cat (CoAbove2_cat K)
+        (@TotalOp_catd K (@comp_cat_fapp0 K Cat_cart Cat_cart F E)))) B)
+    (@comp_cat_fapp0 _ _ _ (native_projection_component F U B)
+      (@triangle_cone_total K (@comp_cat_fapp0 K Cat_cart Cat_cart F E) (fapp0 F B)
+        (@native_projection_postmap K F E B h)))
+    (@comp_cat_fapp0 _ _ _ (@triangle_cone_total K E B h)
+      (@TotalOp_func _ _ (@triangle_dual_sigma_map K (@comp_cat_fapp0 K Cat_cart Cat_cart F E) E
+        (@native_projection_premap K F E U)))))
+≔ @eq_trans _ _ _ _
+    (@eq_sym _ _ _
+      (@triangle_cone_postcomposition_path K (@comp_cat_fapp0 K Cat_cart Cat_cart F E) (fapp0 F B) B
+        (@native_projection_postmap K F E B h) (native_projection_component F U B)))
+    (@eq_trans _ _ _ _
+      (@eq_ap
+        (Hom (Functor_cart_cat K Cat_cart) (@comp_cat_fapp0 K Cat_cart Cat_cart F E) (@Const_catd K B))
+        (Functor (TotalOp_cat (@Sigma_cat (CoAbove2_cat K)
+          (@TotalOp_catd K (@comp_cat_fapp0 K Cat_cart Cat_cart F E)))) B)
+        (λ V, @triangle_cone_total K (@comp_cat_fapp0 K Cat_cart Cat_cart F E) B V)
+        _ _ (@triangle_horizontal_whole_path Cat_cart K Cat_cart Cat_cart
+          E (@Const_catd K B) F (@id_func Cat_cart) h U))
+      (@triangle_cone_composition_path K (@comp_cat_fapp0 K Cat_cart Cat_cart F E) E B
+        (@native_projection_premap K F E U) h));

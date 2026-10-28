@@ -1,0 +1,33 @@
+/* Final assembly with the missing native modification left explicit.
+   This is an audited skeleton, NOT the completed native realizer: no
+   canonical filler value is declared or supplied as a structural axiom. */
+require open emdash.native_cart_total_projection_controls;
+
+symbol native_triangle_filler_type (C : Cat) : Grpd
+≔ Hom (@Transf_cat (nerve_native_triangle_cat C) C
+      (nerve_triangle_vertex0_func C) (triangle_vertex2_func C))
+    (@comp_fapp0 (Functor_cat (nerve_native_triangle_cat C) C)
+      (nerve_triangle_vertex0_func C) (triangle_vertex1_func C) (triangle_vertex2_func C)
+      (triangle_universal_edge12 C) (triangle_universal_edge01 C))
+    (triangle_universal_edge02 C);
+
+symbol native_triangle_realizer_from_modification [C : Cat]
+  (phi : τ (native_triangle_filler_type C))
+  : τ (Functor (nerve_native_triangle_cat C) (Functor_oplax_cat HigherTriangle_cat C))
+≔ @triangle_shape_family (nerve_native_triangle_cat C) C
+    (nerve_triangle_vertex0_func C) (triangle_vertex1_func C) (triangle_vertex2_func C)
+    (triangle_universal_edge01 C) (triangle_universal_edge02 C) (triangle_universal_edge12 C) phi;
+
+// Recover the supplied WHOLE modification, not merely its component at q.
+assert [C : Cat] (phi : τ (native_triangle_filler_type C)) ⊢
+  @fapp1_fapp0 _ _
+    (@fapp1_func HigherTriangle_cat (Functor_cat (nerve_native_triangle_cat C) C)
+      (@diagram_oplax_family_shape_func (nerve_native_triangle_cat C) HigherTriangle_cat C
+        (@native_triangle_realizer_from_modification C phi)) triangle_v0 triangle_v2)
+    triangle_composite triangle_e02 triangle_kappa ≡ phi;
+assertnot [C : Cat] (phi psi : τ (native_triangle_filler_type C)) ⊢
+  @fapp1_fapp0 _ _
+    (@fapp1_func HigherTriangle_cat (Functor_cat (nerve_native_triangle_cat C) C)
+      (@diagram_oplax_family_shape_func (nerve_native_triangle_cat C) HigherTriangle_cat C
+        (@native_triangle_realizer_from_modification C phi)) triangle_v0 triangle_v2)
+    triangle_composite triangle_e02 triangle_kappa ≡ psi;

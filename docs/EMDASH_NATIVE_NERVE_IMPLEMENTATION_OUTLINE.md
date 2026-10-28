@@ -16,7 +16,7 @@ constructions below. No unfinished inverse is supplied to make a skeleton pass.
 | Core | Present evidence | Decisive remaining feasibility slice |
 | --- | --- | --- |
 | Cubical | Whole native/geometric maps at every dimension; both zero inverses; variable-dimensional iterated-walking retraction; nonidentity higher-cell consumers. | Whole native walking reconstruction and mixed-evaluation/positive closure cancellation with the actual maps. |
-| Simplicial | Independent all-flags triangle total and three edge functors; genuine higher triangle shape/recursor; whole K-family realization retaining lax edges and a directed modification; actual interchanger readback. | Whole native/geometric mapping comparisons using the native universal filler; then qualify the uniform coefficient recursion/higher step. |
+| Simplicial | Independent all-flags triangle total; higher shape/recursor; whole endpoint proofs and three native edges at shared vertices; whole assembly from a modification; actual interchanger readback. | Construct the canonical native modification and whole native/geometric comparison; then qualify the uniform coefficient recursion/higher step. |
 | Computational foundation | Installed corrected-duality Homd ladder and strict defaults; bounded whole-functor proof consumers. | Keep new core operations internal and usable; identify actual owner/profile gaps rather than count point checks. |
 
 Next implementation order:
@@ -392,11 +392,14 @@ coefficient naturality, R-shifted totalization and constant cases (67 inputs,
 66.934s / 279,908 KiB). The existing native universal-arrow owner then gives
 edges 01/02 at the common vertex functors and edge 12 at its raw projected
 endpoints; all three original components and the original directed filler
-controls pass (70 inputs, 64.137s / 280,500 KiB). The remaining local issue is
-using the proved endpoint comparisons as type conversion for edge 12 at the
-shared vertices. Resolve that at the relevant semantic owners without
-operational proof payloads, then construct the whole native universal filler.
-No nerve boundary equation itself has been installed as a rewrite. The
+controls pass (70 inputs, 64.137s / 280,500 KiB). A general totalized Cartesian
+projection law is now proved without a new comparison; its scoped proof-time
+view admits edge 12 at the shared vertices without operational proof payloads.
+The final assembly from a modification Φ:β₁₂∘β₀₁⇒β₀₂ checks and retains the
+whole Φ (74 inputs, 74.773s / 314,752 KiB). No canonical Φ has been declared:
+construct it from the native Sigma data, including its stored filler and
+higher action, before calling the assembly a native realizer. No nerve
+boundary equation itself has been installed as a rewrite. The
 constant cases and reused total-dual unit rules still have their separate
 production/overlap qualification boundary.
 

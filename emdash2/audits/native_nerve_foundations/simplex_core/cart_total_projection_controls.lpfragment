@@ -1,0 +1,48 @@
+require open emdash.native_triangle_shared_edge_probe;
+
+symbol native_cart_total_projection_refl [K : Cat]
+  (F : τ (Functor Cat_cart Cat_cart)) (E : τ (Catd K)) (B : Cat)
+  (h : τ (Hom (Functor_cart_cat K Cat_cart) E (@Const_catd K B)))
+  (U : τ (Hom (Functor_cart_cat Cat_cart Cat_cart) F (@id_func Cat_cart)))
+  : τ (@= (Functor
+      (TotalOp_cat (@Sigma_cat (CoAbove2_cat K)
+        (@TotalOp_catd K (@comp_cat_fapp0 K Cat_cart Cat_cart F E)))) B)
+    (@comp_cat_fapp0 _ _ _ (native_projection_component F U B)
+      (@triangle_cone_total K (@comp_cat_fapp0 K Cat_cart Cat_cart F E) (fapp0 F B)
+        (@native_projection_postmap K F E B h)))
+    (@comp_cat_fapp0 _ _ _ (@triangle_cone_total K E B h)
+      (@TotalOp_func _ _ (@triangle_dual_sigma_map K (@comp_cat_fapp0 K Cat_cart Cat_cart F E) E
+        (@native_projection_premap K F E U)))))
+≔ @eq_refl _ _;
+
+// An unrelated original family map must not be discarded by the whole join.
+assertnot [K : Cat] (F : τ (Functor Cat_cart Cat_cart)) (E : τ (Catd K)) (B : Cat)
+  (h h2 : τ (Hom (Functor_cart_cat K Cat_cart) E (@Const_catd K B)))
+  (U : τ (Hom (Functor_cart_cat Cat_cart Cat_cart) F (@id_func Cat_cart))) ⊢ @eq_refl (Functor (TotalOp_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K (@comp_cat_fapp0 K Cat_cart Cat_cart F E)))) B) (@comp_cat_fapp0 _ _ _ (native_projection_component F U B)
+      (@triangle_cone_total K (@comp_cat_fapp0 K Cat_cart Cat_cart F E) (fapp0 F B)
+        (@native_projection_postmap K F E B h)))
+  : τ (@= (Functor (TotalOp_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K (@comp_cat_fapp0 K Cat_cart Cat_cart F E)))) B) (@comp_cat_fapp0 _ _ _ (native_projection_component F U B)
+      (@triangle_cone_total K (@comp_cat_fapp0 K Cat_cart Cat_cart F E) (fapp0 F B)
+        (@native_projection_postmap K F E B h))) (@comp_cat_fapp0 _ _ _ (@triangle_cone_total K E B h2)
+      (@TotalOp_func _ _ (@triangle_dual_sigma_map K (@comp_cat_fapp0 K Cat_cart Cat_cart F E) E
+        (@native_projection_premap K F E U)))));
+
+// The component must be the actual component of the retained Cartesian U.
+assertnot [K : Cat] (F : τ (Functor Cat_cart Cat_cart)) (E : τ (Catd K)) (B : Cat)
+  (h : τ (Hom (Functor_cart_cat K Cat_cart) E (@Const_catd K B)))
+  (U : τ (Hom (Functor_cart_cat Cat_cart Cat_cart) F (@id_func Cat_cart)))
+  (j : τ (Functor (fapp0 F B) B)) ⊢ @eq_refl (Functor (TotalOp_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K (@comp_cat_fapp0 K Cat_cart Cat_cart F E)))) B) (@comp_cat_fapp0 _ _ _ j
+      (@triangle_cone_total K (@comp_cat_fapp0 K Cat_cart Cat_cart F E) (fapp0 F B)
+        (@native_projection_postmap K F E B h)))
+  : τ (@= (Functor (TotalOp_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K (@comp_cat_fapp0 K Cat_cart Cat_cart F E)))) B) (@comp_cat_fapp0 _ _ _ j
+      (@triangle_cone_total K (@comp_cat_fapp0 K Cat_cart Cat_cart F E) (fapp0 F B)
+        (@native_projection_postmap K F E B h))) (@comp_cat_fapp0 _ _ _ (@triangle_cone_total K E B h)
+      (@TotalOp_func _ _ (@triangle_dual_sigma_map K (@comp_cat_fapp0 K Cat_cart Cat_cart F E) E
+        (@native_projection_premap K F E U)))));
+
+// The operational shared-edge value still uses the original native p12.
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)) ⊢
+  @tapp0_fapp0 _ _ _ _ (@nerve_native_triangle_from_cell C x0 x1 x2 p01 p02 p12 alpha)
+    (triangle_universal_edge12 C) ≡ p12;

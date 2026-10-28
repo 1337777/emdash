@@ -309,14 +309,73 @@ subject reduction at 180s / 2 GiB. The 31 additional warning reports belong
 to the reused total-dual postcomposition unit families; the final inventory
 is 2,504 / 181, with no parser issues. Broader promotion review remains open.
 
-**The shared-vertex type of edge₁₂ is still unresolved.** Its whole endpoint
-equalities are now proved, but the checker does not automatically treat these
-proofs as conversion when typing that edge. The
+The first shared-vertex type test for edge₁₂ failed: its whole endpoint
+equalities were proved, but the checker did not automatically treat those
+proofs as conversion. The generic comparison below now resolves that test. The
 [original failed shared-type consumer](shared_edge_type_pending.lpfragment)
 is retained separately. The first stable-precomposition spelling also failed
 to type edge₀₁; existing fixed horizontal whiskering solves that earlier
 presentation issue. No operational path cast, supplied equality proof or
-new endpoint unifier has been used to hide the remaining edge₁₂ issue.
+triangle-specific endpoint unifier was used to hide that issue.
+
+## Shared edge type and the remaining native modification
+
+The [general totalized-projection theorem](cart_total_projection_path.lpfragment)
+is now checked independently of the new comparison. For arbitrary admitted
+E:K→Cat_cart, a Cartesian h:E⇒const(B), an endofunctor F of Cat_cart, and a
+Cartesian U:F⇒id, it proves
+
+```text
+U[B] ∘ T(F[h]) ≐ T(h) ∘ O(Σ(O_fib(U[E]))).
+```
+
+Here U[E] is fixed prewhiskering, F[h] fixed postwhiskering, and T is the
+already defined negative total projection. The proof composes the existing
+Cartesian horizontal-action calculation and totalization compatibilities.
+Its 71-input run passes **without** the new unifier, so the justification
+does not depend on the inference rule being tested.
+
+The [whole proof-time view](cartesian_total_projection_view.lpfragment)
+implements that theorem at the Sigma projection owner in a temporary full
+core. It matches stable R(T(-)) presentations and checks the actual E, F, h,
+U-component, constant target and shifted bases. No new runtime rule, object
+extensionality or triangle-specific endpoint equation is introduced. In
+particular, ordinary lax transformations are not made Cartesian.
+
+This view admits [edge₁₂ at the shared vertices](shared_universal_edge.lpfragment),
+with its original p₁₂ component. The [generic controls](cart_total_projection_controls.lpfragment)
+reject an unrelated family map and an unrelated component. Removing only
+this comparison restores the edge-type failure, while its independent
+mathematical proof still checks. There are no operational path casts or
+equality-proof arguments.
+
+All three native edges can now be passed to the checked higher-shape family
+constructor. The [assembly outline](realizer_outline.lpfragment) makes the
+one remaining input precise:
+
+```text
+Φ_C : β₁₂ ∘ β₀₁ ⇒ β₀₂
+      (a modification over T₂(C), from vertex₀ to vertex₂)
+
+native_triangle_realizer_from_modification(Φ_C)
+  : T₂(C) → Functor_oplax_cat(S₂,C).
+```
+
+Exchange back recovers the entire supplied Φ_C, and another modification is
+rejected. **This is an assembly skeleton, not the native realizer.** No
+canonical Φ_C value is declared or assumed. The next construction must obtain
+it from the native Sigma data, recover the stored α at each triangle, and
+retain the actual higher action. Supplying a desired coherence cell would
+not complete that task.
+
+The final 74-input scope passes in **74.773s / 314,752 KiB** with subject
+reduction at 180s / 2 GiB. The omission control fails at the intended type
+in 66.065s. Warning counts remain 2,504 / 181; categories, term heads, rule
+families and parser inventory match the no-new-comparison proof scope.
+Location differences are exactly the core insertion's 41-line offset.
+The full-core inferred-slot audit has no unreviewed compound slot; the
+unifier's semantic argument-retention conditions were also reviewed manually.
+Production integration and the prior overlap gates remain open.
 
 ## Replay and next core task
 
@@ -346,18 +405,22 @@ comparison without the new cases; `constant-qualification` assembles all four
 scoped cases and their interaction consumers. `endpoints-qualification`
 checks the now derived whole endpoint proofs. `universal-qualification`
 checks the native edge constructions and original universal-arrow controls;
-`shared-edge-pending` reproduces the still-failed shared-type application.
+`shared-edge-pending` reproduces the earlier failed shared-type application.
 The latter selects the exact older owner prefix before its appended controls.
 All program and dependency hashes are checked. None of these scopes supplies
 a desired nerve endpoint equality or inverse as an assumption.
+`projection-law-proof` checks the general theorem without the new view;
+`projection-qualification` checks its implementation, the actual shared edge
+and the assembly skeleton; `projection-omission` removes only the comparison
+and records the expected type failure.
 
 Next construct the whole native/geometric comparison. The available whole
 family realizer needs the native triangle's universal vertex functors, edge
 transformations and modification as its inputs. Two outgoing-edge source
 comparisons are checked, as are both literal third-edge endpoint equalities.
-Next make these derived comparisons usable at the semantic owners needed by
-the shared edge₁₂ type, without operational proof payloads; then obtain the
-whole native universal filler. Pointwise observation and
+The shared edge₁₂ type now checks through the general totalized-projection
+view. Next obtain the whole native universal filler, then the actual native
+realizer and comparison laws. Pointwise observation and
 T₂(Functor_cat(K,C)) data do not discharge those obligations. The ordinary
 DirectedSimplex_cat(2) is not substituted for the genuine higher shape.
 

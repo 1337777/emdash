@@ -24,11 +24,14 @@ Both literal whole third-edge endpoint equalities are now proved using the
 coefficient equations and R-shifted totalization (67 inputs). The existing
 native universal-arrow owner gives edges 01/02 at shared vertices and edge
 12 at its original projected endpoints; all three component readbacks and
-the original filler/unit/noncollapse checks pass (70 inputs). Edge 12's
-shared-vertex type still fails automatic conversion, despite the now proved
-endpoint equalities. That actual consumer remains a separate pending scope.
-Next integrate the derived comparisons at their semantic owners without
-operational proof payloads, then construct the native universal filler.
+the original filler/unit/noncollapse checks pass (70 inputs). A general
+totalized Cartesian projection comparison now admits edge 12 at the shared
+vertices. Its theorem checks independently without the new view; the omission
+control restores the type failure, and altered map/component controls fail.
+The 74-input assembly skeleton retains an arbitrary whole modification Φ.
+Next construct the canonical native Φ from the stored filler and higher
+action. No such value has been declared or supplied; the actual native
+realizer and its inverse comparisons remain incomplete.
 Constant and reused unit cases retain their production/overlap review gates;
 no nerve boundary equation or inverse was supplied as a rule.
 
