@@ -1,8 +1,8 @@
 # Corrected foundations and native nerve continuation
 
-Date: 2026-10-27
+Date: 2026-10-28
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active consolidated goal; foundations installed, original frontend and local book/article revisions accepted; native NF-1/NF-2C construction active; later integration gates remain open
+Status: active consolidated goal; foundations installed, original frontend and local book/article revisions accepted; native NF-1/NF-2C/NF-2S construction active; later integration gates remain open
 Depends-On: active v3.2 source, root/nested AGENTS, source-pinned qualification
 Supersedes: accumulated execution narrative, not its evidence or required outcomes; earlier default-lax and unshifted-duality contracts
 Side-Task-Ledger: [current obligations and dispositions](EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER.md)
@@ -64,6 +64,15 @@ The assembly from an arbitrary whole modification Φ checks (74 inputs,
 the canonical native Φ with its actual higher action remains open;
 the [simplex audit](../emdash2/audits/native_nerve_foundations/simplex_core/README.md)
 distinguishes these obligations from the now proved coefficient comparisons.
+
+The canonical comparison Σ_K(H∘E)→H(Σ_K E) now checks for a Cartesian
+coefficient H, with native-arrow and oplax-diagram instances. The existing
+Sigma introduction's intrinsic Hom action computes its actual (p,α), with
+native transport at identity input and retained next-Hom data. The unit
+presentation has an independent proof on the production core. This 81-input
+isolated slice passes in 66.809s / 308,176 KiB. It leaves Φ_C open: next qualify
+the native total-duality comparison and its whole coefficient profile, then
+form the connecting native arrow and use U_C's extracted naturality.
 
 **Next construct the whole native/geometric triangle comparison**, supplying
 the realizer with native universal edges and filler. Do not use the ordinary

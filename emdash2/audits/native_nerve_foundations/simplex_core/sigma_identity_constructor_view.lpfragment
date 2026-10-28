@@ -1,0 +1,7 @@
+// Canonical Sigma identity constructor view. Preserve the stable identity
+// and pair normal forms; compare the complete typed constructor against the
+// actual identity data, without an arbitrary Sigma-arrow eta principle.
+unif_rule @id (@Sigma_cat $K $E) (Struct_sigma $x $u)
+  ≡ @Struct_sigma $A $B $p $alpha
+  ↪ [ @Struct_sigma $A $B $p $alpha
+      ≡ @sigma_arrow $K $E $x $x $u $u (@id $K $x) (@id (Fibre_cat $E $x) $u) ];

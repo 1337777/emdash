@@ -1,6 +1,6 @@
 # Independent all-flags native triangle core
 
-Date: 2026-10-27
+Date: 2026-10-28
 Status: qualified isolated native triangle, higher shape and whole family construction; whole geometric comparison and one legacy runtime normalization remain open
 Owner: [core-feasibility outline](../../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
 Evidence: [exact sources, scopes and attempts](verification.json)
@@ -377,6 +377,107 @@ The full-core inferred-slot audit has no unreviewed compound slot; the
 unifier's semantic argument-retention conditions were also reviewed manually.
 Production integration and the prior overlap gates remain open.
 
+## Canonical Sigma introduction and coefficient totalization
+
+The next construction uses a general one-way comparison, with H an actual
+Cartesian coefficient functor:
+
+```text
+κ_H(E) : Σ_K(H∘E) → H(Σ_K E),     H : Cat_cart → Cat_cart.
+```
+
+The [body](sigma_coefficient_total.lpfragment) postcomposes the existing lax
+Sigma introduction E⇒const(ΣE) by H, then takes the constant-target Sigma
+projection. It assumes neither colimit preservation nor an inverse. Fixed
+horizontal whiskering gives the right whole source presentation; the first
+stable-postcomposition spelling failed to align it. The native case H=N_coeff
+gives **Σ_K N(E)→N(Σ_K E)** and sends an actual fibre arrow a to the native
+arrow represented by (id_k,a). An unrelated arrow is rejected.
+
+The [oplax-diagram instance](sigma_diagram_total.lpfragment) is definitionally
+the same comparison at H(C)=Functor_oplax_cat(I,C). Its
+[coefficient](oplax_coefficient.lpfragment) uses a new structural whole root
+of the **existing** odd-dual Cartesian mapping action:
+
+```text
+Odd_coeff : EvenDual_cat(Cat_cart) → Cat_cart.
+```
+
+Object, whole-Hom and capped projections reuse OddDual_cat,
+OddDual_cart_func_func and OddDual_func. The oplax coefficient is then a
+defined composite. It retains the existing fixed postcomposition map, its
+unit/composition and the original components of a strict transfor. This is a
+structural internalization with projection qualification, not a newly proved
+global duality-coherence theorem. The native-arrow instance needs no new
+coefficient root. No default transformation profile changes.
+
+The [Sigma-introduction owner](sigma_fibre_inclusion_owner.lpfragment) also
+needed its canonical intrinsic action. The whole fixed-p Hom map is the
+total dual of the existing inclusion into the appropriate Sigma–Hom fibre.
+Its projections give
+
+```text
+fdapp1_int_hom(σ_intro(E),p)[α] = (p,α)
+fdapp1_int_cell(σ_intro(E),p,u) = σ_transport(E,p,u).
+```
+
+The second line is the transported-identity projection of the first, not a
+new supplied comparison cell. The fibre-Hom projections are its p=id case.
+The ordinary-functor view of σ_intro(const(1)) additionally projects to the
+canonical K→K×1 pairing, closing the constant-source overlap. These changes
+remain in a temporary full copy of the existing one-way owner.
+
+The [cell consumer](sigma_diagram_cell.lpfragment) carries a genuinely
+directed 2-cell through a walking diagram in a representable fibre and
+recovers that same cell in the total. The [qualification](sigma_diagram_qualification.lpfragment)
+also retains a next-Hom cell, checks both fibre projection orders and actual
+base-arrow extraction. The [overlap scope](sigma_intrinsic_overlap.lpfragment)
+covers constant and terminal-source families and rejects changing the base
+or fibre data. The [whole decoded diagram](sigma_diagram_consumers.lpfragment)
+is compared with postcomposition by the native fibre inclusion, rather than
+only inspected at its two endpoints.
+
+Two small core refinements accompany these computations:
+
+- [Cartesian-source postcomposition units](cartesian_postcomposition_units.lpfragment)
+  recognize the identity after its category tag has reduced. The diagram
+  coefficient's unit was the concrete failing consumer.
+- [Sigma's identity constructor view](sigma_identity_constructor_view.lpfragment)
+  compares stable id_Σ with the complete native pair (id_base,id_fibre).
+  It retains both runtime presentations and does not assert arbitrary arrow
+  eta. Its law is [proved independently](sigma_identity_derived.lpfragment)
+  against the production core, without any audit insertion: Sigma elimination
+  proves the constructor acts as a unit on every encoded loop arrow, then the
+  ordinary category unit law identifies it with id_Σ. The focused derivation
+  passes in 27.259s / 168,996 KiB; omitting only the inference view makes the
+  reflexive presentation test fail.
+
+The final 81-input scope passes in **66.809s / 308,176 KiB**, with subject
+reduction at 180s / 2 GiB. Warnings are 2,539 / 181, with no parser issues,
+versus 2,504 / 181 before this slice. The new reports concern the odd coefficient
+projections, Cartesian postcomposition units, intrinsic identity-input and
+constant-source overlaps, and fibre-Hom identity/composition observations.
+The typed controls above pass, and the full-core/owner inferred-slot audits
+have no unreviewed compound slots. Broader production and overlap review is
+still required. A separate normal-form diagnostic timed out during imports;
+it is not evidence of a normalization loop, and no resource default changed.
+
+### Filler construction route to qualify next
+
+Use the native-arrow instance of κ_H. The next needed comparison is
+d_A:O(N(A))→N(O(A)). A concrete candidate is the native graph of the existing
+TotalOp_transf applied to U_A; it needs no inverse of the walking comparison.
+Qualify its whole Cartesian coefficient profile and projection behavior
+before using it on the varying PathOut family. Do not apply fibrewise
+TotalOp_funcd to an arbitrary lax map to bypass its actual type.
+
+With those comparisons, the intended composite turns a native triangle into
+a native arrow between faces 01 and 02. Its source projection should be the
+identity and its target projection the existing edge 12. Applying the existing
+intrinsic naturality of U_C would then give Φ_C, with the original α as its
+component. These comparison/assembly steps are **not yet implemented** by
+this Sigma slice. No canonical Φ value or native inverse is assumed.
+
 ## Replay and next core task
 
 Run `python3 .../simplex_core/replay.py --mode qualification --assemble-only`
@@ -413,6 +514,12 @@ a desired nerve endpoint equality or inverse as an assumption.
 `projection-qualification` checks its implementation, the actual shared edge
 and the assembly skeleton; `projection-omission` removes only the comparison
 and records the expected type failure.
+`sigma-totalization` checks the coefficient maps, the completed introduction
+projections and their native/diagram consumers. `sigma-unit-derived` checks
+the independent production-core proof; `sigma-unit-view` and
+`sigma-unit-omission` retain the focused inference comparison and omission.
+The Sigma-inclusion owner is replaced only in the selected totalization
+mode, with its original active-source pin and full emitted source retained.
 
 Next construct the whole native/geometric comparison. The available whole
 family realizer needs the native triangle's universal vertex functors, edge

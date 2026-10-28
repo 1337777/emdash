@@ -1,0 +1,7 @@
+// The Cartesian source identity has the underlying Cat_cat tag after
+// normalization. These are the corresponding ordinary postcomposition units.
+// lhs-audit: keep 2 -- actual Cartesian source and erased identity tag.
+rule @hom_postcomp_func $A Cat_cart $F $W $C $C (@id Cat_cat $C)
+  ↪ @id_func (Hom_cat $A $W (@fapp0 Cat_cart $A $F $C));
+// lhs-audit: keep 2 -- same source discriminator at the capped owner.
+rule @hom_postcomp_fapp0 _ Cat_cart _ _ $C $C (@id Cat_cat $C) $g ↪ $g;

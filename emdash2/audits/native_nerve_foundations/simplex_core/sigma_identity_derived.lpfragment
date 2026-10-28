@@ -1,0 +1,30 @@
+// Derive the constructor-unit path from the existing Sigma carrier,
+// composition and ordinary category unit law. No new identity view is loaded.
+require open emdash.emdash3_2;
+
+symbol native_sigma_unit_ctor [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E k))) : τ (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+≔ @sigma_arrow K E k k u u (@id K k) (@id (Fibre_cat E k) u);
+
+symbol native_sigma_unit_left_path [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E k))) (q : τ (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u)))
+  : τ (@= (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+      (@comp_fapp0 (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u) (Struct_sigma k u)
+        (@native_sigma_unit_ctor K E k u) q) q)
+≔ @sigma_ind (Obj (Op_cat (Hom_cat K k k)))
+    (λ p : τ (Hom K k k), Obj (Fibre_cat (@homd_ K E E (@id_funcd K E) k u k u) p))
+    (λ r : τ (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u)),
+      @= (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+        (@comp_fapp0 (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u) (Struct_sigma k u)
+          (@native_sigma_unit_ctor K E k u) r) r)
+    (λ p : τ (Hom K k k),
+      λ a : τ (Obj (Fibre_cat (@homd_ K E E (@id_funcd K E) k u k u) p)),
+      @eq_refl (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+        (@sigma_arrow K E k k u u p a)) q;
+
+symbol native_sigma_identity_derived [K : Cat] (E : τ (Catd K))
+  (k : τ (Obj K)) (u : τ (Obj (Fibre_cat E k)))
+  : τ (@= (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+      (@id (@Sigma_cat K E) (Struct_sigma k u)) (@native_sigma_unit_ctor K E k u))
+≔ @eq_sym _ _ _
+    (@native_sigma_unit_left_path K E k u (@id (@Sigma_cat K E) (Struct_sigma k u)));

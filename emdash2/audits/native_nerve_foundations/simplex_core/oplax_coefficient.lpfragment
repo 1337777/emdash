@@ -1,0 +1,31 @@
+/* Internalize the existing odd-dual Cartesian Hom action, then derive
+   the oplax diagram coefficient. No new strict/lax carrier is introduced. */
+require open emdash.native_triangle_realizer_outline;
+
+// Structural whole root of the already implemented OddDual Cartesian action.
+injective symbol native_odd_cart_coeff : τ (Functor (EvenDual_cat Cat_cart) Cat_cart);
+rule @fapp0 _ _ native_odd_cart_coeff $C ↪ OddDual_cat $C;
+rule @fapp1_func _ _ native_odd_cart_coeff $A $B ↪ OddDual_cart_func_func $A $B;
+rule @fapp1_fapp0 _ _ native_odd_cart_coeff $A $B $F ↪ @OddDual_func $A $B $F;
+
+// Ordinary lax diagram Hom, restricted to Cartesian coefficient parameters.
+symbol native_lax_diagram_coeff (I : Cat) : τ (Functor Cat_cart Cat_cart)
+≔ @hom_ Cat_cat Cat_cart Cat_cart_include I;
+
+// Two parameter-duality changes cancel: C |-> Odd([Odd(I),Odd(C)]).
+symbol native_oplax_diagram_coeff (I : Cat) : τ (Functor Cat_cart Cat_cart)
+≔ @comp_cat_fapp0 Cat_cart (EvenDual_cat Cat_cart) Cat_cart native_odd_cart_coeff
+    (@EvenDual_func (EvenDual_cat Cat_cart) Cat_cart
+      (@comp_cat_fapp0 (EvenDual_cat Cat_cart) Cat_cart Cat_cart
+        (native_lax_diagram_coeff (OddDual_cat I)) native_odd_cart_coeff));
+
+assert [I C : Cat] ⊢ fapp0 (native_oplax_diagram_coeff I) C ≡ Functor_oplax_cat I C;
+
+// The coefficient retains the existing fixed oplax postcomposition functor.
+symbol native_oplax_coeff_map_path [I A B : Cat] (F : τ (Functor A B))
+  : τ (@= (Functor (Functor_oplax_cat I A) (Functor_oplax_cat I B))
+      (@fapp1_fapp0 Cat_cart Cat_cart (native_oplax_diagram_coeff I) A B F)
+      (@OddDual_func (Functor_cat (OddDual_cat I) (OddDual_cat A))
+        (Functor_cat (OddDual_cat I) (OddDual_cat B))
+        (@comp_cat_cov_func (OddDual_cat I) (OddDual_cat A) (OddDual_cat B) (@OddDual_func A B F))))
+≔ @eq_refl _ _;

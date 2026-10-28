@@ -1,6 +1,6 @@
 # Native nerve implementation outline
 
-Date: 2026-10-27
+Date: 2026-10-28
 Status: active construction outline; checked pieces and open obligations are distinguished below
 Owner: [native adaptation plan](EMDASH_NATIVE_NERVE_FOUNDATIONS_ADAPTATION_PLAN.md)
 Scope: the full NF-1–NF-CLOSE goal, without assuming its missing inverse or closure laws
@@ -402,6 +402,23 @@ higher action, before calling the assembly a native realizer. No nerve
 boundary equation itself has been installed as a rewrite. The
 constant cases and reused total-dual unit rules still have their separate
 production/overlap qualification boundary.
+
+The next slice now supplies the canonical whole comparison
+Σ_K(H∘E)→H(Σ_K E), derived from the existing lax Sigma introduction.
+Its native-arrow and oplax-diagram instances pass, including a nonidentity
+2-cell and a next-Hom cell. The introduction's intrinsic Hom action now
+computes (p,α), with its identity input giving native transport; constant-source
+projection overlaps are covered. Its Sigma identity presentation has an
+independent production-core proof by Sigma elimination. This is isolated
+qualification (81 inputs, 66.809s / 308,176 KiB), not production promotion.
+
+Next qualify d_A:O(N(A))→N(O(A)) using the native graph of TotalOp_transf(U_A),
+including the whole Cartesian parameter action needed by the PathOut family.
+Combine it with the native-arrow totalization map to obtain the connecting
+arrow between faces 01/02, then extract Φ through the existing U_C naturality.
+Do not assume a walking inverse, change Transfd's fibre profile, or silently
+apply fibrewise opposite to a general lax map. The [Sigma slice](../emdash2/audits/native_nerve_foundations/simplex_core/README.md#canonical-sigma-introduction-and-coefficient-totalization)
+records the qualified computations and this still-open construction route.
 
 Keep the user-selected higher simplex shapes. Strict maps from ordinary
 ordinals are not substituted for arbitrary triangles with nonidentity fillers.

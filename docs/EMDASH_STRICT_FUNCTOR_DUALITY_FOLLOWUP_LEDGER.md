@@ -1,8 +1,8 @@
 # Foundations and native nerves: current obligations
 
-Date: 2026-10-27
+Date: 2026-10-28
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active; native NF-1 reconstruction and NF-2C geometric construction; later frontend and final integration gates remain open
+Status: active; native NF-1 reconstruction and NF-2C/NF-2S core construction; later frontend and final integration gates remain open
 Parent: [current execution plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 History: [complete earlier ledger](EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER_HISTORY_THROUGH_2026-10-27.md)
 
@@ -34,6 +34,16 @@ action. No such value has been declared or supplied; the actual native
 realizer and its inverse comparisons remain incomplete.
 Constant and reused unit cases retain their production/overlap review gates;
 no nerve boundary equation or inverse was supplied as a rule.
+
+The canonical Sigma coefficient comparison is now qualified in isolation:
+Σ(H∘E)→H(ΣE), including native-arrow and oplax-diagram instances. Its actual
+introduction action and fibre next-Hom data compute, and constant/terminal
+overlaps pass. The Sigma unit comparison is independently proved by native
+Sigma elimination on the unchanged production core. The 81-input selected
+scope passes; the coefficient parity root and owner refinements remain
+experimental pending broader promotion review. Next qualify the native
+total-duality map O(N A)→N(O A) and whole parameter action needed to turn
+triangles into native squares, then extract the still-missing canonical Φ.
 
 User priority clarification, 2026-10-27: assess the core cubical and simplicial
 constructions before further face/degeneracy expansion. The native all-flags

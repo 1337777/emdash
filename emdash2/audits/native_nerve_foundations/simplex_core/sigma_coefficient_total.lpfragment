@@ -1,0 +1,53 @@
+/* Canonical one-way Sigma comparison for a Cartesian coefficient functor.
+   H need not preserve a colimit or have an inverse. Its input cocone is the
+   existing Sigma introduction with its intrinsic native arrow computation. */
+require open emdash.native_sigma_diagram_qualification;
+
+symbol native_sigma_coeff_family [K : Cat]
+  (H : τ (Functor Cat_cart Cat_cart)) (E : τ (Catd K)) : τ (Catd K)
+≔ @comp_cat_fapp0 K Cat_cart Cat_cart H E;
+
+symbol native_sigma_coeff_inclusion [K : Cat]
+  (H : τ (Functor Cat_cart Cat_cart)) (E : τ (Catd K))
+  : τ (@Functord K (@native_sigma_coeff_family K H E) (@Const_catd K (fapp0 H (@Sigma_cat K E))))
+≔ @comp_prod_fapp1_fapp0 Cat_cat K Cat_cart Cat_cart
+    (@Product_pair (Functor_cat K Cat_cart) (Functor_cat Cat_cart Cat_cart) E H)
+    (@Product_pair (Functor_cat K Cat_cart) (Functor_cat Cat_cart Cat_cart) (@Const_catd K (@Sigma_cat K E)) H)
+    (@Product_pair (@Transf_cat K Cat_cart E (@Const_catd K (@Sigma_cat K E)))
+      (@Transf_cat Cat_cart Cat_cart H H) (@sigma_intro_transf K E)
+      (@id (Functor_cat Cat_cart Cat_cart) H));
+
+symbol native_sigma_coeff_total [K : Cat]
+  (H : τ (Functor Cat_cart Cat_cart)) (E : τ (Catd K))
+  : τ (Functor (@Sigma_cat K (@native_sigma_coeff_family K H E)) (fapp0 H (@Sigma_cat K E)))
+≔ @sigma_const_target_func K (@native_sigma_coeff_family K H E)
+    (fapp0 H (@Sigma_cat K E)) (@native_sigma_coeff_inclusion K H E);
+
+// The previously checked diagram map is this same construction, definitionally.
+assert [K I : Cat] (E : τ (Catd K)) ⊢
+  @native_sigma_diagram_total K I E
+  ≡ @native_sigma_coeff_total K (native_oplax_diagram_coeff I) E;
+
+// Immediate native-arrow instance; no new coefficient or diagram profile.
+symbol native_sigma_arrow_total [K : Cat] (E : τ (Catd K))
+  : τ (Functor (@Sigma_cat K (@native_sigma_coeff_family K nerve_native_arrow_coeff E))
+      (LaxArrow_cat (@Sigma_cat K E)))
+≔ @native_sigma_coeff_total K nerve_native_arrow_coeff E;
+
+assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u v : τ (Obj (Fibre_cat E k))) (a : τ (Hom (Fibre_cat E k) u v)) ⊢
+  fapp0 (@native_sigma_arrow_total K E)
+    (@Struct_sigma (Obj K)
+      (λ x : τ (Obj K), Obj (Fibre_cat (@native_sigma_coeff_family K nerve_native_arrow_coeff E) x))
+      k (@lax_edge (Fibre_cat E k) u v a))
+  ≡ @lax_edge (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k v)
+      (@sigma_arrow K E k k u v (@id K k) a);
+
+assertnot [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u v : τ (Obj (Fibre_cat E k))) (a b : τ (Hom (Fibre_cat E k) u v)) ⊢
+  fapp0 (@native_sigma_arrow_total K E)
+    (@Struct_sigma (Obj K)
+      (λ x : τ (Obj K), Obj (Fibre_cat (@native_sigma_coeff_family K nerve_native_arrow_coeff E) x))
+      k (@lax_edge (Fibre_cat E k) u v a))
+  ≡ @lax_edge (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k v)
+      (@sigma_arrow K E k k u v (@id K k) b);

@@ -1,0 +1,34 @@
+// Constant-family and identity-input overlaps of the intrinsic inclusion.
+require open emdash.native_sigma_coefficient_total;
+
+assert [K : Cat] (x y : τ (Obj K)) (p : τ (Hom K x y)) ⊢
+  @fdapp1_int_cell K (@Const_catd K Terminal_cat)
+    (@Const_catd K (Product_cat K Terminal_cat))
+    (@sigma_intro_transf K (@Const_catd K Terminal_cat)) x y p Terminal_obj
+  ≡ @sigma_transport_arrow K (@Const_catd K Terminal_cat) x y p Terminal_obj;
+
+assert [K A : Cat] (x y : τ (Obj K)) (p : τ (Hom K x y)) (u v : τ (Obj A))
+  (a : τ (Hom A u v)) ⊢
+  @fdapp1_int_hom_fapp0 K (@Const_catd K A) (@Const_catd K (Product_cat K A))
+    (@sigma_intro_transf K (@Const_catd K A)) x y p u v a
+  ≡ @sigma_arrow K (@Const_catd K A) x y u v p a;
+
+assert [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  @fdapp1_int_hom_fapp0 K E (@Const_catd K (@Sigma_cat K E)) (@sigma_intro_transf K E)
+    x y p u (fapp0 (@catd_transport_func K E x y p) u)
+    (@id (Fibre_cat E y) (fapp0 (@catd_transport_func K E x y p) u))
+  ≡ @fdapp1_int_cell K E (@Const_catd K (@Sigma_cat K E)) (@sigma_intro_transf K E) x y p u;
+
+assertnot [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) (p q : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  sigma_Fst (@fdapp1_int_cell K E (@Const_catd K (@Sigma_cat K E)) (@sigma_intro_transf K E) x y p u)
+  ≡ q;
+
+// The Sigma identity view must also retain its actual base identity.
+assertnot [K : Cat] (E : τ (Catd K)) (k : τ (Obj K)) (u : τ (Obj (Fibre_cat E k)))
+  (p : τ (Hom K k k)) (a : τ (Hom (Fibre_cat E k) (fapp0 (@catd_transport_func K E k k p) u) u)) ⊢
+  @eq_refl (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+    (@id (@Sigma_cat K E) (Struct_sigma k u))
+  : τ (@= (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+      (@id (@Sigma_cat K E) (Struct_sigma k u)) (@sigma_arrow K E k k u u p a));

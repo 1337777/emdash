@@ -1,0 +1,57 @@
+/* A fixed fibre enters the existing Sigma via constant base change.
+   The generic constant-pullback and totalization owners supply computation. */
+require open emdash.emdash3_2;
+
+symbol sigma_fibre_inclusion_func [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  : τ (Functor (Fibre_cat E k) (@Sigma_cat K E))
+≔ @comp_cat_fapp0 (Fibre_cat E k)
+    (@Sigma_cat Terminal_cat (@Pullback_catd Terminal_cat K E (@Const_func Terminal_cat K k)))
+    (@Sigma_cat K E)
+    (@sigma_pullback_total_func Terminal_cat K (@Const_func Terminal_cat K k) E)
+    (@Product_pair_grpd (Functor (Fibre_cat E k) Terminal_cat) (Functor (Fibre_cat E k) (Fibre_cat E k))
+      (@Const_func (Fibre_cat E k) Terminal_cat Terminal_obj) (@id_func (Fibre_cat E k)));
+
+// The canonical inclusion into a Sigma Hom, at its actual base arrow p.
+// The body is the total dual of the existing fixed-fibre inclusion.
+symbol sigma_intro_transport_hom_func [K : Cat] (E : τ (Catd K))
+  [x y : τ (Obj K)] (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y)))
+  : τ (Functor
+      (Hom_cat (Fibre_cat E y) (fapp0 (@catd_transport_func K E x y p) u) v)
+      (Hom_cat (@Sigma_cat K E) (Struct_sigma x u) (Struct_sigma y v)))
+≔ @TotalOp_func
+    (Fibre_cat (@TotalOp_catd (Op_cat (Hom_cat K x y))
+      (@homd_ K E E (@id_funcd K E) x u y v)) p)
+    (@Sigma_cat (TotalOp_cat (Hom_cat K x y))
+      (@TotalOp_catd (Op_cat (Hom_cat K x y)) (@homd_ K E E (@id_funcd K E) x u y v)))
+    (@sigma_fibre_inclusion_func (TotalOp_cat (Hom_cat K x y))
+      (@TotalOp_catd (Op_cat (Hom_cat K x y)) (@homd_ K E E (@id_funcd K E) x u y v)) p);
+
+// Existing intrinsic-action owner: no separately supplied naturality cell.
+rule @fdapp1_int_hom_func $K _ _ (@sigma_intro_transf $K $E) $x $y $p $u $v
+  ↪ @sigma_intro_transport_hom_func $K $E $x $y $p $u $v;
+rule @fdapp1_int_hom_fapp0 $K _ _ (@sigma_intro_transf $K $E) $x $y $p $u $v $alpha
+  ↪ @sigma_arrow $K $E $x $y $u $v $p $alpha;
+
+// Identity input of that same Hom action gives the existing native
+// transport arrow. This is an extraction projection, not a new witness.
+rule @fdapp1_int_cell $K _ _ (@sigma_intro_transf $K $E) $x $y $p $u
+  ↪ @sigma_transport_arrow $K $E $x $y $p $u;
+
+// Whole and capped fibre-Hom projections are the identity-base instance.
+rule @fapp1_func _ _ (@sigma_intro_tapp0_func $K $E $k) $u $v
+  ↪ @sigma_intro_transport_hom_func $K $E $k $k (@id $K $k) $u $v;
+rule @fapp1_fapp0 _ _ (@sigma_intro_tapp0_func $K $E $k) $u $v $alpha
+  ↪ @sigma_arrow $K $E $k $k $u $v (@id $K $k) $alpha;
+
+// Ordinary-functor view of the existing terminal-source section. Keep the
+// displayed constructor stable; expose only its ordinary projection ladder.
+symbol sigma_intro_terminal_func (K : Cat) : τ (Functor K (Product_cat K Terminal_cat))
+≔ @Product_pair_grpd (Functor K K) (Functor K Terminal_cat)
+    (@id_func K) (@Const_func K Terminal_cat Terminal_obj);
+rule @fapp0 _ _ (@sigma_intro_transf $K (@Const_catd $K Terminal_cat)) $k
+  ↪ @Product_pair $K Terminal_cat $k Terminal_obj;
+rule @fapp1_func _ _ (@sigma_intro_transf $K (@Const_catd $K Terminal_cat)) $x $y
+  ↪ @fapp1_func $K (Product_cat $K Terminal_cat) (sigma_intro_terminal_func $K) $x $y;
+rule @fapp1_fapp0 _ _ (@sigma_intro_transf $K (@Const_catd $K Terminal_cat)) $x $y $p
+  ↪ @fapp1_fapp0 $K (Product_cat $K Terminal_cat) (sigma_intro_terminal_func $K) $x $y $p;

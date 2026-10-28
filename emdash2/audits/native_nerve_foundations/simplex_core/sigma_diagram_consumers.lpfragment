@@ -1,0 +1,35 @@
+// Whole decoded diagram and a genuine nonidentity fibre-arrow consumer.
+require open emdash.native_sigma_diagram_total;
+
+symbol native_diagram_post_value_path [I A B : Cat] (F : τ (Functor A B)) (D : τ (Functor I A))
+  : τ (@= (Functor I B) (fapp0 (@comp_cat_cov_func I A B F) D) (@comp_cat_fapp0 I A B F D))
+≔ @eq_refl _ _;
+
+symbol native_sigma_diagram_point_path [K I : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (D : τ (Functor I (Fibre_cat E k)))
+  : τ (@= (Functor I (@Sigma_cat K E))
+    (@OddDual_func (OddDual_cat I) (OddDual_cat (@Sigma_cat K E))
+      (fapp0 (@native_sigma_diagram_total K I E)
+        (@Struct_sigma (Obj K) (λ x : τ (Obj K), Obj (Fibre_cat (@native_sigma_diagram_family K I E) x))
+          k (@OddDual_func I (Fibre_cat E k) D))))
+    (@comp_cat_fapp0 I (Fibre_cat E k) (@Sigma_cat K E) (@sigma_intro_tapp0_func K E k) D))
+≔ @eq_trans _ _ _ _
+    (@eq_ap
+      (Functor (Functor_oplax_cat I (Fibre_cat E k)) (Functor_oplax_cat I (@Sigma_cat K E)))
+      (Functor I (@Sigma_cat K E))
+      (λ H, @OddDual_func (OddDual_cat I) (OddDual_cat (@Sigma_cat K E))
+        (fapp0 H (@OddDual_func I (Fibre_cat E k) D)))
+      _ _ (@native_oplax_coeff_map_path I (Fibre_cat E k) (@Sigma_cat K E) (@sigma_intro_tapp0_func K E k)))
+    (@eq_ap
+      (Functor (OddDual_cat I) (OddDual_cat (@Sigma_cat K E)))
+      (Functor I (@Sigma_cat K E))
+      (λ H, @OddDual_func (OddDual_cat I) (OddDual_cat (@Sigma_cat K E)) H)
+      _ _ (@native_diagram_post_value_path (OddDual_cat I) (OddDual_cat (Fibre_cat E k))
+        (OddDual_cat (@Sigma_cat K E)) (@OddDual_func (Fibre_cat E k) (@Sigma_cat K E) (@sigma_intro_tapp0_func K E k))
+        (@OddDual_func I (Fibre_cat E k) D)));
+
+// The already derived fixed-fibre inclusion retains the actual arrow.
+assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u v : τ (Obj (Fibre_cat E k))) (a : τ (Hom (Fibre_cat E k) u v)) ⊢
+  sigma_Snd (@fapp1_fapp0 (Fibre_cat E k) (@Sigma_cat K E)
+    (@sigma_fibre_inclusion_func K E k) u v a) ≡ a;

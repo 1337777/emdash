@@ -1,0 +1,34 @@
+/* Whole Sigma/diagram map using the existing lax total-inclusion map.
+   Fibre transfors are encoded as strict functors into an oplax diagram
+   category before totalization. No Transfd strictness is relaxed. */
+require open emdash.native_oplax_coefficient;
+
+symbol native_sigma_diagram_family [K : Cat] (I : Cat) (E : τ (Catd K)) : τ (Catd K)
+≔ @comp_cat_fapp0 K Cat_cart Cat_cart (native_oplax_diagram_coeff I) E;
+
+symbol native_sigma_diagram_inclusion [K : Cat] (I : Cat) (E : τ (Catd K))
+  : τ (@Functord K (@native_sigma_diagram_family K I E)
+      (@Const_catd K (Functor_oplax_cat I (@Sigma_cat K E))))
+≔ @comp_prod_fapp1_fapp0 Cat_cat K Cat_cart Cat_cart
+    (@Product_pair (Functor_cat K Cat_cart) (Functor_cat Cat_cart Cat_cart) E (native_oplax_diagram_coeff I))
+    (@Product_pair (Functor_cat K Cat_cart) (Functor_cat Cat_cart Cat_cart)
+      (@Const_catd K (@Sigma_cat K E)) (native_oplax_diagram_coeff I))
+    (@Product_pair
+      (@Transf_cat K Cat_cart E (@Const_catd K (@Sigma_cat K E)))
+      (@Transf_cat Cat_cart Cat_cart (native_oplax_diagram_coeff I) (native_oplax_diagram_coeff I))
+      (@sigma_intro_transf K E)
+      (@id (Functor_cat Cat_cart Cat_cart) (native_oplax_diagram_coeff I)));
+
+symbol native_sigma_diagram_total [K : Cat] (I : Cat) (E : τ (Catd K))
+  : τ (Functor (@Sigma_cat K (@native_sigma_diagram_family K I E))
+      (Functor_oplax_cat I (@Sigma_cat K E)))
+≔ @sigma_const_target_func K (@native_sigma_diagram_family K I E)
+    (Functor_oplax_cat I (@Sigma_cat K E)) (@native_sigma_diagram_inclusion K I E);
+
+// The diagram value is postcomposition with the actual native fibre inclusion.
+assert [K I : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (D : τ (Obj (Functor_oplax_cat I (Fibre_cat E k)))) ⊢
+  fapp0 (@native_sigma_diagram_total K I E)
+    (@Struct_sigma (Obj K) (λ x : τ (Obj K), Obj (Fibre_cat (@native_sigma_diagram_family K I E) x)) k D)
+  ≡ fapp0 (@fapp1_fapp0 Cat_cart Cat_cart (native_oplax_diagram_coeff I)
+      (Fibre_cat E k) (@Sigma_cat K E) (@sigma_intro_tapp0_func K E k)) D;

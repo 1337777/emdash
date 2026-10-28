@@ -1,0 +1,8 @@
+// Focused constructor-unit contract, independent of nerve declarations.
+require open emdash.emdash3_2;
+symbol native_sigma_identity_view_path [K : Cat] (E : τ (Catd K))
+  (k : τ (Obj K)) (u : τ (Obj (Fibre_cat E k)))
+  : τ (@= (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+      (@id (@Sigma_cat K E) (Struct_sigma k u))
+      (@sigma_arrow K E k k u u (@id K k) (@id (Fibre_cat E k) u)))
+≔ @eq_refl _ _;

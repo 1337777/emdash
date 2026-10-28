@@ -1,0 +1,77 @@
+// Coefficient and projection-order qualification for whole Sigma diagrams.
+require open emdash.native_sigma_diagram_cell;
+
+// The root's next-Hom action is the existing odd-dual strict transfor,
+// with its reversed endpoints and the original component data retained.
+assert [A B : Cat] (F G : τ (Functor A B))
+  (U : τ (@StrictTransfor A B F G)) (x : τ (Obj A)) ⊢
+  @tapp0_fapp0 (OddDual_cat A) (OddDual_cat B)
+    (@OddDual_func A B G) (@OddDual_func A B F) x
+    (@strict_transfor _ _ _ _
+      (@fapp1_fapp0 _ _ (@fapp1_func _ _ native_odd_cart_coeff A B) G F U))
+  ≡ @tapp0_fapp0 A B F G x (@strict_transfor _ _ _ _ U);
+assertnot [A B : Cat] (F G : τ (Functor A B))
+  (U V : τ (@StrictTransfor A B F G)) (x : τ (Obj A)) ⊢
+  @tapp0_fapp0 (OddDual_cat A) (OddDual_cat B)
+    (@OddDual_func A B G) (@OddDual_func A B F) x
+    (@strict_transfor _ _ _ _
+      (@fapp1_fapp0 _ _ (@fapp1_func _ _ native_odd_cart_coeff A B) G F U))
+  ≡ @tapp0_fapp0 A B F G x (@strict_transfor _ _ _ _ V);
+
+assert [I C : Cat] ⊢
+  @fapp1_fapp0 Cat_cart Cat_cart (native_oplax_diagram_coeff I) C C (@id_func C)
+  ≡ @id_func (Functor_oplax_cat I C);
+symbol native_oplax_coeff_comp_path [I A B C : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B C))
+  : τ (@= (Functor (Functor_oplax_cat I A) (Functor_oplax_cat I C))
+    (@fapp1_fapp0 Cat_cart Cat_cart (native_oplax_diagram_coeff I) A C (@comp_cat_fapp0 A B C G F))
+    (@comp_cat_fapp0 _ _ _
+      (@fapp1_fapp0 Cat_cart Cat_cart (native_oplax_diagram_coeff I) B C G)
+      (@fapp1_fapp0 Cat_cart Cat_cart (native_oplax_diagram_coeff I) A B F)))
+≔ @functor_composition_path Cat_cart Cat_cart (native_oplax_diagram_coeff I) A B C G F;
+
+// Both Hom observation orders recover the actual fibre arrow and identity base.
+assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u v : τ (Obj (Fibre_cat E k))) (a : τ (Hom (Fibre_cat E k) u v)) ⊢
+  sigma_Snd (fapp0 (@fapp1_func (Fibre_cat E k) (@Sigma_cat K E)
+    (@sigma_intro_tapp0_func K E k) u v) a) ≡ a;
+assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u v : τ (Obj (Fibre_cat E k))) (a : τ (Hom (Fibre_cat E k) u v)) ⊢
+  sigma_Fst (@fapp1_fapp0 (Fibre_cat E k) (@Sigma_cat K E)
+    (@sigma_intro_tapp0_func K E k) u v a) ≡ @id K k;
+symbol native_sigma_intro_unit_path [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E k)))
+  : τ (@= (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+    (@fapp1_fapp0 (Fibre_cat E k) (@Sigma_cat K E) (@sigma_intro_tapp0_func K E k)
+      u u (@id (Fibre_cat E k) u))
+    (@id (@Sigma_cat K E) (@Struct_sigma (Obj K) (λ x : τ (Obj K), Obj (Fibre_cat E x)) k u)))
+≔ @eq_refl _ _;
+
+// The complete first-Hom map remains usable at a nonidentity next cell.
+assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u v : τ (Obj (Fibre_cat E k))) (a b : τ (Hom (Fibre_cat E k) u v))
+  (theta : τ (Hom (Hom_cat (Fibre_cat E k) u v) a b)) ⊢
+  sigma_Snd (@fapp1_fapp0 _ _
+    (@fapp1_func (Fibre_cat E k) (@Sigma_cat K E) (@sigma_intro_tapp0_func K E k) u v) a b theta)
+  ≡ theta;
+
+// A nonidentity base arrow survives the actual intrinsic Sigma inclusion.
+assert [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  sigma_Fst (@fdapp1_int_cell K E (@Const_catd K (@Sigma_cat K E))
+    (@sigma_intro_transf K E) x y p u) ≡ p;
+assert [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y)))
+  (a : τ (Hom (Fibre_cat E y) (fapp0 (@catd_transport_func K E x y p) u) v)) ⊢
+  fapp0 (@fdapp1_int_hom_func K E (@Const_catd K (@Sigma_cat K E))
+    (@sigma_intro_transf K E) x y p u v) a
+  ≡ @sigma_arrow K E x y u v p a;
+
+// The identity view retains both base and fibre identity data.
+assertnot [K : Cat] (E : τ (Catd K)) (k : τ (Obj K)) (u : τ (Obj (Fibre_cat E k)))
+  (a : τ (Hom (Fibre_cat E k) u u)) ⊢
+  @eq_refl (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+    (@id (@Sigma_cat K E) (Struct_sigma k u))
+  : τ (@= (Hom (@Sigma_cat K E) (Struct_sigma k u) (Struct_sigma k u))
+      (@id (@Sigma_cat K E) (Struct_sigma k u))
+      (@sigma_arrow K E k k u u (@id K k) a));

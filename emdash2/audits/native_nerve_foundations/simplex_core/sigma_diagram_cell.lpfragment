@@ -1,0 +1,34 @@
+/* A real directed 2-cell is encoded as a walking diagram in a representable
+   fibre, then carried by the whole Sigma/diagram map. */
+require open emdash.native_sigma_diagram_consumers;
+
+symbol native_sigma_cell_diagram [C : Cat] [x y : τ (Obj C)]
+  [p q : τ (Hom C x y)] (alpha : τ (Hom (Hom_cat C x y) p q))
+  : τ (Functor WalkingArrow_cat (@PathOut_cat C x))
+≔ @OddDual_func (OddDual_cat WalkingArrow_cat) (OddDual_cat (@PathOut_cat C x))
+    (fapp0 (@native_sigma_diagram_total C WalkingArrow_cat (@Rep_catd C x))
+      (@Struct_sigma (Obj C)
+        (λ z : τ (Obj C), Obj (Fibre_cat (@native_sigma_diagram_family C WalkingArrow_cat (@Rep_catd C x)) z))
+        y (@OddDual_func WalkingArrow_cat (Hom_cat C x y)
+          (@walking_arrow_func (Hom_cat C x y) p q alpha))));
+
+assert [C : Cat] [x y : τ (Obj C)] [p q : τ (Hom C x y)]
+  (alpha : τ (Hom (Hom_cat C x y) p q)) ⊢
+  fapp0 (@native_sigma_cell_diagram C x y p q alpha) walking_arrow_src
+  ≡ @pathout_obj C x y p;
+assert [C : Cat] [x y : τ (Obj C)] [p q : τ (Hom C x y)]
+  (alpha : τ (Hom (Hom_cat C x y) p q)) ⊢
+  fapp0 (@native_sigma_cell_diagram C x y p q alpha) walking_arrow_tgt
+  ≡ @pathout_obj C x y q;
+
+// The stored cell is recovered from the actual first-Hom action.
+assert [C : Cat] [x y : τ (Obj C)] [p q : τ (Hom C x y)]
+  (alpha : τ (Hom (Hom_cat C x y) p q)) ⊢
+  sigma_Snd (@fapp1_fapp0 WalkingArrow_cat (@PathOut_cat C x)
+    (@native_sigma_cell_diagram C x y p q alpha)
+    walking_arrow_src walking_arrow_tgt walking_arrow_generator) ≡ alpha;
+assertnot [C : Cat] [x y : τ (Obj C)] [p q : τ (Hom C x y)]
+  (alpha beta : τ (Hom (Hom_cat C x y) p q)) ⊢
+  sigma_Snd (@fapp1_fapp0 WalkingArrow_cat (@PathOut_cat C x)
+    (@native_sigma_cell_diagram C x y p q alpha)
+    walking_arrow_src walking_arrow_tgt walking_arrow_generator) ≡ beta;
