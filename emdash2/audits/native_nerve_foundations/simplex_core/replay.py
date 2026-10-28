@@ -35,7 +35,9 @@ def main() -> int:
                                           "projection-law-proof", "projection-qualification",
                                           "projection-omission", "sigma-totalization",
                                           "sigma-unit-view", "sigma-unit-omission",
-                                          "sigma-unit-derived"),
+                                          "sigma-unit-derived", "arrow-total-duality",
+                                          "arrow-duality-omission", "arrow-duality-boundary-proof",
+                                          "arrow-duality-unit-pending"),
                         default="qualification")
     parser.add_argument("--assemble-only", action="store_true")
     args = parser.parse_args()

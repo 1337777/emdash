@@ -1,0 +1,33 @@
+require open emdash.native_arrow_total_dual;
+
+// For g:Z→Y in A, dual post-naturality is the old lambda(g),
+// postwhiskered by G[p] for the entire remaining p:Y→X Hom.
+// This is a definition from the original intrinsic comparison, not new data.
+symbol native_total_dual_post_body
+  [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G))
+  (X Y Z : τ (Obj A)) (g : τ (Hom A Z Y))
+  : τ (@Transf
+      (Hom_cat (TotalOp_cat A) X Y)
+      (Hom_cat (TotalOp_cat B) (fapp0 G X) (fapp0 F Z))
+      (@functord_transport_lhs_func (TotalOp_cat A)
+        (@hom_ (TotalOp_cat A) (TotalOp_cat A) (@id_func (TotalOp_cat A)) X)
+        (@hom_ (TotalOp_cat B) (TotalOp_cat A) (@TotalOp_func A B F) (fapp0 G X))
+        (@tapp1_at_transf (TotalOp_cat A) (TotalOp_cat B)
+          (@TotalOp_func A B G) (@TotalOp_func A B F) X
+          (@TotalOp_transf A B F G epsilon)) Y Z g)
+      (@functord_transport_rhs_func (TotalOp_cat A)
+        (@hom_ (TotalOp_cat A) (TotalOp_cat A) (@id_func (TotalOp_cat A)) X)
+        (@hom_ (TotalOp_cat B) (TotalOp_cat A) (@TotalOp_func A B F) (fapp0 G X))
+        (@tapp1_at_transf (TotalOp_cat A) (TotalOp_cat B)
+          (@TotalOp_func A B G) (@TotalOp_func A B F) X
+          (@TotalOp_transf A B F G epsilon)) Y Z g))
+≔ @TotalOp_transf (Hom_cat A Y X) (Hom_cat B (fapp0 F Z) (fapp0 G X)) _ _
+    (@comp_prod_fapp1_fapp0 Cat_cat
+      (Hom_cat A Y X) (Hom_cat B (fapp0 G Y) (fapp0 G X))
+      (Hom_cat B (fapp0 F Z) (fapp0 G X))
+      (Struct_sigma (@fapp1_func A B G Y X) _)
+      (Struct_sigma (@fapp1_func A B G Y X) _)
+      (Struct_sigma (@id (Functor_cat (Hom_cat A Y X)
+          (Hom_cat B (fapp0 G Y) (fapp0 G X))) (@fapp1_func A B G Y X))
+        (@hom_precomp_along_tele_transf B B (@id_func B) (fapp0 G X) _ _ _ _
+          (@tapp1_post_laxity_cell A B F G epsilon Z Z Y g (@id A Z)))));

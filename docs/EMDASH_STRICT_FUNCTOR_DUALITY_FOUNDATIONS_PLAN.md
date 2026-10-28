@@ -70,9 +70,21 @@ coefficient H, with native-arrow and oplax-diagram instances. The existing
 Sigma introduction's intrinsic Hom action computes its actual (p,α), with
 native transport at identity input and retained next-Hom data. The unit
 presentation has an independent proof on the production core. This 81-input
-isolated slice passes in 66.809s / 308,176 KiB. It leaves Φ_C open: next qualify
-the native total-duality comparison and its whole coefficient profile, then
-form the connecting native arrow and use U_C's extracted naturality.
+isolated slice passes in 66.809s / 308,176 KiB. The continuation below
+distinguishes the native total-duality map from its still-unqualified whole
+coefficient profile; the canonical Φ_C remains open.
+
+The native total-duality map `d_A : O(N(A)) → N(O(A))` now checks as a defined
+graph of the total-dual universal arrow. Its whole endpoint projections,
+original directed square filler, square double reversal and noncollapse
+controls pass in an isolated 86-input scope (82.454s / 592,776 KiB). One
+intrinsic identity-input projection and an independently proved endpoint
+view support this computation. The [audit boundary](../emdash2/audits/native_nerve_foundations/simplex_core/README.md#native-total-duality-comparison--2026-10-28)
+keeps general higher computation and coefficient-level naturality unqualified.
+**Next qualify that whole coefficient comparison**, then combine it with
+Σ(N∘E)→N(ΣE) to obtain the connecting triangle arrow and canonical Φ. The
+whole generic dual-naturality attempt and rejected eager whiskering rules
+remain recorded; neither is silently adopted.
 
 **Next construct the whole native/geometric triangle comparison**, supplying
 the realizer with native universal edges and filler. Do not use the ordinary

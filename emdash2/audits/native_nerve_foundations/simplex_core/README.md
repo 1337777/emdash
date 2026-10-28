@@ -535,3 +535,86 @@ The uniform all-flags recursion still needs a whole coefficient operation
 at each step, not the pointwise formula alone. The current slice establishes
 its native degree-two construction, not the complete simplicial nerve,
 geometric equivalence, common-index laws or degeneracies.
+
+
+## Native total-duality comparison — 2026-10-28
+
+The new [defined map](arrow_total_dual.lpfragment) is
+
+```text
+d_A : O(N(A)) → N(O(A))
+d_A = graph(TotalOp_transf(U_A)).
+```
+
+It reuses the existing graph constructor, the canonical default-lax admission
+from the cubical audit, and the native universal arrow U_A. Callers supply
+only A. The old explicit admission remains internal; no comparison cell,
+equality proof or nerve inverse is added to the interface.
+
+The [consumer](arrow_total_dual_controls.lpfragment) checks the full reversed
+native square, retaining the original directed filler α and swapping its
+sides a,b. It also checks double reversal of that square and rejects replacing
+α by an unrelated β. The reused structural graph endpoint projections give
+whole functor equalities
+
+```text
+src_(O A) ∘ d_A ≐ O(tgt_A)
+tgt_(O A) ∘ d_A ≐ O(src_A).
+```
+
+These endpoint beta contracts retain their previous structural status. They
+are not inferred merely from agreeing objects. The new identity-input
+[projection](total_dual_intrinsic_projection.lpfragment) computes the existing
+extracted naturality of `TotalOp_transf(ε)` from the original extracted
+naturality of ε, in the reversed Hom. Its [typed bodies](total_dual_intrinsic_body.lpfragment)
+are definitions, not new cells. The inferred source and identity carrier stay
+anonymous: O(N(A)) normalizes to a Sigma, so a literal O-source discriminator
+prevented the intended native consumer from matching.
+
+One [proof-time endpoint view](total_dual_boundary_view.lpfragment) relates
+the ordinary off-diagonal action to the corresponding total-dual
+postcomposition head. Its [independent staged proof](total_dual_boundary_proof.lpfragment)
+passes on the unchanged production core, without this view or any audit core
+insertion (35.027s / 168,188 KiB). It preserves every category, functor,
+endpoint, acting arrow and transformation component. No operational proof
+argument is introduced, and arbitrary lax naturality remains directed.
+
+The selected 86-input scope passes in **82.454s / 592,776 KiB**, with subject
+reduction and the explicit 180s/2GiB profile. The 2,609 critical-pair and 181
+replaceable-variable warnings have the same category, term-head and
+rule-family inventories as the same-import pre-change attempt; parser
+inventory is clean. Locations shift with the inserted owner text. This is
+not a confluence certificate. Removing only the intrinsic projection restores
+the expected full-square failure (114.071s); the unchanged Sigma, triangle,
+shape, family and original U consumers remain in the selected import scope.
+
+The broader [whole post-naturality body](total_dual_whole_pending.lpfragment)
+remains unadopted: its two whole endpoint-composite comparisons did not typecheck
+in the recorded attempt. A proposed runtime dual-whiskering normalization
+also disturbed an existing Sigma consumer and was rejected. Neither is in
+the selected replay. The exact receipts/source snapshots are retained in
+`verification.json`; these failures are computational qualification boundaries,
+not a proof of semantic impossibility.
+
+The [identity-transformation endpoint comparison](total_dual_retained_identity_pending.lpfragment)
+also remains unresolved. It fails both with the candidate and on the unchanged
+production core (33.761s / 167,972 KiB), before establishing a literal unit
+normal form. The [bare F[p] presentation](total_dual_identity_pending.lpfragment)
+failed in the candidate too. These are retained inference/overlap obligations;
+this slice does not repair or assume them. `arrow-duality-unit-pending`
+reproduces the production-core failure.
+
+**Still open:** the Cartesian coefficient-level naturality of d, general
+nonidentity-input/higher computation of the total-dual intrinsic action, the
+connecting whole triangle arrow, and the canonical Φ. In particular, neither
+the tested square involution nor d's declared functor type proves a whole
+inverse or a whole naturality theorem. The next intended coefficient has
+source `TotalOp_catd(N_coeff)` and target `N_coeff ∘ total_op_cart` over
+R(Cat_cart). Qualify that whole interface before feeding its restriction and
+the checked Σ(N∘E)→N(ΣE) map into the triangle construction. Do not declare Φ
+as an input or infer this coefficient profile from point computations.
+
+Replay with `--mode arrow-total-duality`, `arrow-duality-boundary-proof`, or
+`arrow-duality-omission`. As before, `--assemble-only` verifies exact source
+snapshots without launching a checker. All changes remain isolated audit
+candidates; production owners, registration and frontend pins are untouched.

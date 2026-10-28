@@ -1,0 +1,19 @@
+require open emdash.native_sigma_intrinsic_overlap;
+require open emdash.emdash3_2_gray_transformation_graph;
+require open emdash.native_reverse_profile_admission;
+
+// The graph of the total-dual native universal arrow. All legacy admission
+// is derived internally; no cell, inverse, or profile is supplied by callers.
+symbol native_arrow_total_dual (A : Cat)
+  : τ (Functor (TotalOp_cat (LaxArrow_cat A)) (LaxArrow_cat (TotalOp_cat A)))
+≔ @gray_transf_graph_func _ _ _ _
+    (@nerve_lax_profile_transf _ _ _ _
+      (@TotalOp_transf (LaxArrow_cat A) A _ _ (nerve_native_universal_transf A)));
+
+// The canonical legacy adapter computes to the original total-dual carrier.
+symbol native_arrow_total_dual_object [A : Cat] [x y : τ (Obj A)]
+  (u : τ (Hom A x y))
+  : τ (@= (Obj (LaxArrow_cat (TotalOp_cat A)))
+    (@fapp0 _ _ (native_arrow_total_dual A) (@lax_edge A x y u))
+    (@lax_edge (TotalOp_cat A) y x u))
+≔ @eq_refl (Obj (LaxArrow_cat (TotalOp_cat A))) (@lax_edge (TotalOp_cat A) y x u);

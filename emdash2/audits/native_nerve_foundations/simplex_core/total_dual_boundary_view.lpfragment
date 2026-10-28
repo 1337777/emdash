@@ -1,0 +1,10 @@
+// Derived endpoint reading of conventional pre/right action in a total
+// dual presentation. The independent staged proof retains ordinary raw
+// composition before duality normalizes it. No naturality cell is equated
+// to an identity, and every original parameter remains a side condition.
+unif_rule @tapp1_fapp0 $A $B $F $G $X $Y $epsilon $p
+  ≡ @hom_postcomp_fapp0 $B0 $A0 $F0 $W0 $Y0 $X0 $p0 $component
+  ↪ [ $A0 ≡ TotalOp_cat $A; $B0 ≡ TotalOp_cat $B;
+      $F0 ≡ @TotalOp_func $A $B $F; $W0 ≡ @fapp0 $A $B $G $Y;
+      $Y0 ≡ $Y; $X0 ≡ $X; $p0 ≡ $p;
+      $component ≡ @tapp0_fapp0 $A $B $F $G $Y $epsilon ];

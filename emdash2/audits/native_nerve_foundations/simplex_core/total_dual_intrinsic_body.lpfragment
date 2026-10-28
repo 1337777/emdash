@@ -1,0 +1,52 @@
+
+symbol native_dual_cell_view [B : Cat] [x y : τ (Obj B)]
+  [a b : τ (Hom B x y)] (alpha : τ (Hom (Hom_cat B x y) a b))
+  : τ (Hom (Hom_cat (TotalOp_cat B) y x) b a)
+≔ alpha;
+
+symbol native_readable_lax_cell [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (g : τ (Hom A x y))
+  : τ (Hom (Hom_cat B (fapp0 F x) (fapp0 G y))
+    (@comp_fapp0 B (fapp0 F x) (fapp0 G x) (fapp0 G y)
+      (@fapp1_fapp0 A B G x y g) (@tapp0_fapp0 A B F G x epsilon))
+    (@comp_fapp0 B (fapp0 F x) (fapp0 F y) (fapp0 G y)
+      (@tapp0_fapp0 A B F G y epsilon) (@fapp1_fapp0 A B F x y g)))
+≔ @tapp1_post_laxity_cell A B F G epsilon x x y g (@id A x);
+
+symbol native_dual_readable_lax_cell [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (g : τ (Hom A x y))
+  : τ (Hom (Hom_cat (TotalOp_cat B) (fapp0 G y) (fapp0 F x))
+    (@comp_fapp0 (TotalOp_cat B) (fapp0 G y) (fapp0 F y) (fapp0 F x)
+      (@fapp1_fapp0 A B F x y g) (@tapp0_fapp0 A B F G y epsilon))
+    (@comp_fapp0 (TotalOp_cat B) (fapp0 G y) (fapp0 G x) (fapp0 F x)
+      (@tapp0_fapp0 A B F G x epsilon) (@fapp1_fapp0 A B G x y g)))
+≔ @native_dual_cell_view B (fapp0 F x) (fapp0 G y)
+    (@comp_fapp0 B (fapp0 F x) (fapp0 G x) (fapp0 G y)
+      (@fapp1_fapp0 A B G x y g) (@tapp0_fapp0 A B F G x epsilon))
+    (@comp_fapp0 B (fapp0 F x) (fapp0 F y) (fapp0 G y)
+      (@tapp0_fapp0 A B F G y epsilon) (@fapp1_fapp0 A B F x y g))
+    (@native_readable_lax_cell A B F G epsilon x y g);
+
+// Total duality preserves the intrinsic comparison, exchanging its source
+// and target inside the totally reversed Hom. This is the canonical-id
+// observation of the original whole action, not an independently given cell.
+symbol native_total_dual_cell_body [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [X Y : τ (Obj A)] (g : τ (Hom A Y X))
+  : τ (Hom (Hom_cat (TotalOp_cat B) (fapp0 G X) (fapp0 F Y))
+      (@fapp0 (Hom_cat (TotalOp_cat A) X X)
+        (Hom_cat (TotalOp_cat B) (fapp0 G X) (fapp0 F Y))
+        (@functord_transport_lhs_func (TotalOp_cat A)
+          (@hom_ (TotalOp_cat A) (TotalOp_cat A) (@id_func (TotalOp_cat A)) X)
+          (@hom_ (TotalOp_cat B) (TotalOp_cat A) (@TotalOp_func A B F) (fapp0 G X))
+          (@tapp1_at_transf (TotalOp_cat A) (TotalOp_cat B)
+            (@TotalOp_func A B G) (@TotalOp_func A B F) X (@TotalOp_transf A B F G epsilon))
+          X Y g) (@id (TotalOp_cat A) X))
+      (@fapp0 (Hom_cat (TotalOp_cat A) X X)
+        (Hom_cat (TotalOp_cat B) (fapp0 G X) (fapp0 F Y))
+        (@functord_transport_rhs_func (TotalOp_cat A)
+          (@hom_ (TotalOp_cat A) (TotalOp_cat A) (@id_func (TotalOp_cat A)) X)
+          (@hom_ (TotalOp_cat B) (TotalOp_cat A) (@TotalOp_func A B F) (fapp0 G X))
+          (@tapp1_at_transf (TotalOp_cat A) (TotalOp_cat B)
+            (@TotalOp_func A B G) (@TotalOp_func A B F) X (@TotalOp_transf A B F G epsilon))
+          X Y g) (@id (TotalOp_cat A) X)))
+≔ @native_dual_readable_lax_cell A B F G epsilon Y X g;

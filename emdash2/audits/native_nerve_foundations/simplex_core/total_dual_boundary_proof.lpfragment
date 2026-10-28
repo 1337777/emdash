@@ -1,0 +1,20 @@
+require open emdash.emdash3_2;
+
+// Stage the installed semantic postcomposition reading before specializing
+// its category to a dual, whose raw composite then reverses its factors.
+symbol native_postcomp_composition_path [A B : Cat] (F : τ (Functor A B))
+  (w : τ (Obj B)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  (h : τ (Hom B w (fapp0 F x)))
+  : τ (@= (Hom B w (fapp0 F y))
+    (@hom_postcomp_fapp0 B A F w x y p h)
+    (@comp_fapp0 B w (fapp0 F x) (fapp0 F y) (@fapp1_fapp0 A B F x y p) h))
+≔ @eq_refl (Hom B w (fapp0 F y)) (@hom_postcomp_fapp0 B A F w x y p h);
+
+symbol native_total_dual_right_boundary_path [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (@= (Hom (TotalOp_cat B) (fapp0 G y) (fapp0 F x))
+    (@hom_postcomp_fapp0 (TotalOp_cat B) (TotalOp_cat A) (@TotalOp_func A B F)
+      (fapp0 G y) y x p (@tapp0_fapp0 A B F G y epsilon))
+    (@tapp1_fapp0 A B F G x y epsilon p))
+≔ @native_postcomp_composition_path (TotalOp_cat A) (TotalOp_cat B)
+    (@TotalOp_func A B F) (fapp0 G y) y x p (@tapp0_fapp0 A B F G y epsilon);

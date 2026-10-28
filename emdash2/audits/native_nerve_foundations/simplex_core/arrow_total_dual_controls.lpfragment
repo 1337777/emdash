@@ -1,0 +1,93 @@
+require open emdash.native_arrow_total_dual;
+
+// Stage the installed native filler reading before specializing to O(A).
+symbol native_square_filler_readable [A : Cat] [x x1 y y1 : τ (Obj A)]
+  (u : τ (Hom A x y)) (v : τ (Hom A x1 y1))
+  (a : τ (Hom A x x1)) (b : τ (Hom A y y1))
+  (alpha : τ (Obj (@homdc_square_fibre A x x1 y y1 u v a b)))
+  : τ (Hom (Hom_cat A x y1)
+      (@comp_fapp0 A x y y1 b u) (@comp_fapp0 A x x1 y1 v a))
+≔ alpha;
+
+// Constructor typing in the actual opposite profile.
+symbol native_total_dual_square [A : Cat] [x x1 y y1 : τ (Obj A)]
+  (u : τ (Hom A x y)) (v : τ (Hom A x1 y1))
+  (a : τ (Hom A x x1)) (b : τ (Hom A y y1))
+  (alpha : τ (Obj (@homdc_square_fibre A x x1 y y1 u v a b)))
+  : τ (Hom (LaxArrow_cat (TotalOp_cat A))
+      (@lax_edge (TotalOp_cat A) y1 x1 v) (@lax_edge (TotalOp_cat A) y x u))
+≔ @nerve_native_square_from_cell (TotalOp_cat A) y1 y x1 x v u b a
+    (@native_dual_cell_view A x y1
+      (@comp_fapp0 A x y y1 b u) (@comp_fapp0 A x x1 y1 v a)
+      (@native_square_filler_readable A x x1 y y1 u v a b alpha));
+
+// The complete reversed square retains the original directed filler.
+symbol native_arrow_total_dual_square_path [A : Cat]
+  [x x1 y y1 : τ (Obj A)]
+  (u : τ (Hom A x y)) (v : τ (Hom A x1 y1))
+  (a : τ (Hom A x x1)) (b : τ (Hom A y y1))
+  (alpha : τ (Obj (@homdc_square_fibre A x x1 y y1 u v a b)))
+  : τ (@= (Hom (LaxArrow_cat (TotalOp_cat A))
+      (@lax_edge (TotalOp_cat A) y1 x1 v) (@lax_edge (TotalOp_cat A) y x u))
+    (@fapp1_fapp0 (TotalOp_cat (LaxArrow_cat A)) (LaxArrow_cat (TotalOp_cat A)) (native_arrow_total_dual A)
+      (@lax_edge A x1 y1 v) (@lax_edge A x y u)
+      (@lax_square A x x1 y y1 u v a b alpha))
+    (@native_total_dual_square A x x1 y y1 u v a b alpha))
+≔ @eq_refl (Hom (LaxArrow_cat (TotalOp_cat A))
+    (@lax_edge (TotalOp_cat A) y1 x1 v) (@lax_edge (TotalOp_cat A) y x u)) (@native_total_dual_square A x x1 y y1 u v a b alpha);
+
+// Both whole endpoint maps are the reversed native endpoint maps.
+symbol native_arrow_total_dual_source (A : Cat)
+  : τ (@= (Functor (TotalOp_cat (LaxArrow_cat A)) (TotalOp_cat A))
+    (@comp_cat_fapp0 _ _ _ (cubical_src_func (TotalOp_cat A)) (native_arrow_total_dual A))
+    (@TotalOp_func (LaxArrow_cat A) A (cubical_tgt_func A)))
+≔ @eq_refl (Functor (TotalOp_cat (LaxArrow_cat A)) (TotalOp_cat A))
+    (@comp_cat_fapp0 _ _ _ (cubical_src_func (TotalOp_cat A)) (native_arrow_total_dual A));
+
+symbol native_arrow_total_dual_target (A : Cat)
+  : τ (@= (Functor (TotalOp_cat (LaxArrow_cat A)) (TotalOp_cat A))
+    (@comp_cat_fapp0 _ _ _ (cubical_tgt_func (TotalOp_cat A)) (native_arrow_total_dual A))
+    (@TotalOp_func (LaxArrow_cat A) A (cubical_src_func A)))
+≔ @eq_refl (Functor (TotalOp_cat (LaxArrow_cat A)) (TotalOp_cat A))
+    (@comp_cat_fapp0 _ _ _ (cubical_tgt_func (TotalOp_cat A)) (native_arrow_total_dual A));
+
+// Double reversal is checked on the entire directed square, without
+// asserting an inverse law for the whole internal mapping functor.
+symbol native_arrow_total_dual_square_twice [A : Cat]
+  [x x1 y y1 : τ (Obj A)]
+  (u : τ (Hom A x y)) (v : τ (Hom A x1 y1))
+  (a : τ (Hom A x x1)) (b : τ (Hom A y y1))
+  (alpha : τ (Obj (@homdc_square_fibre A x x1 y y1 u v a b)))
+  : τ (@= (Hom (LaxArrow_cat A) (@lax_edge A x y u) (@lax_edge A x1 y1 v))
+    (@fapp1_fapp0 (TotalOp_cat (LaxArrow_cat (TotalOp_cat A))) (LaxArrow_cat A)
+      (native_arrow_total_dual (TotalOp_cat A))
+      (@lax_edge (TotalOp_cat A) y x u) (@lax_edge (TotalOp_cat A) y1 x1 v)
+      (@fapp1_fapp0 (TotalOp_cat (LaxArrow_cat A)) (LaxArrow_cat (TotalOp_cat A))
+        (native_arrow_total_dual A) (@lax_edge A x1 y1 v) (@lax_edge A x y u)
+        (@lax_square A x x1 y y1 u v a b alpha)))
+    (@lax_square A x x1 y y1 u v a b alpha))
+≔ @eq_refl (Hom (LaxArrow_cat A) (@lax_edge A x y u) (@lax_edge A x1 y1 v))
+    (@lax_square A x x1 y y1 u v a b alpha);
+
+// An unrelated filler does not acquire the same whole square image.
+assertnot [A : Cat] [x x1 y y1 : τ (Obj A)]
+  (u : τ (Hom A x y)) (v : τ (Hom A x1 y1))
+  (a : τ (Hom A x x1)) (b : τ (Hom A y y1))
+  (alpha beta : τ (Obj (@homdc_square_fibre A x x1 y y1 u v a b))) ⊢
+  @eq_refl (Hom (LaxArrow_cat (TotalOp_cat A))
+      (@lax_edge (TotalOp_cat A) y1 x1 v) (@lax_edge (TotalOp_cat A) y x u))
+    (@native_total_dual_square A x x1 y y1 u v a b beta)
+  : τ (@= (Hom (LaxArrow_cat (TotalOp_cat A))
+      (@lax_edge (TotalOp_cat A) y1 x1 v) (@lax_edge (TotalOp_cat A) y x u))
+    (@fapp1_fapp0 (TotalOp_cat (LaxArrow_cat A)) (LaxArrow_cat (TotalOp_cat A))
+      (native_arrow_total_dual A) (@lax_edge A x1 y1 v) (@lax_edge A x y u)
+      (@lax_square A x x1 y y1 u v a b alpha))
+    (@native_total_dual_square A x x1 y y1 u v a b beta));
+
+// General total-dual extraction, independently of the native U constructor.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @tapp1_post_laxity_cell (TotalOp_cat A) (TotalOp_cat B)
+    (@TotalOp_func A B G) (@TotalOp_func A B F)
+    (@TotalOp_transf A B F G epsilon) y y x p (@id (TotalOp_cat A) y)
+  ≡ @native_total_dual_cell_body A B F G epsilon y x p;

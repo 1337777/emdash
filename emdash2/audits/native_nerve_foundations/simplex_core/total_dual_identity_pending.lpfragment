@@ -1,0 +1,9 @@
+require open emdash.emdash3_2;
+
+// Identity-transformation overlap keeps the ordinary strict functor action.
+assert [A B : Cat] (F : τ (Functor A B))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @tapp1_post_laxity_cell (TotalOp_cat A) (TotalOp_cat B)
+    (@TotalOp_func A B F) (@TotalOp_func A B F)
+    (@TotalOp_transf A B F F (@id (Functor_cat A B) F)) y y x p (@id (TotalOp_cat A) y)
+  ≡ @id (Hom_cat (TotalOp_cat B) (fapp0 F y) (fapp0 F x)) (@fapp1_fapp0 A B F x y p);

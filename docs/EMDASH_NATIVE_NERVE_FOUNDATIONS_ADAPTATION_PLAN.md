@@ -13,6 +13,13 @@ Receiver: `goal/strict-functor-duality-v3.2`, checkpoint `1fe72617`
 Donor: `goal/native-nerve-legacy-completion-v3.2`, checkpoint `280e7a03`
 Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 
+The [native total-duality comparison](../emdash2/audits/native_nerve_foundations/simplex_core/README.md#native-total-duality-comparison--2026-10-28)
+now checks with whole endpoint projections, retained square fillers, square
+double reversal and noncollapse. The 86-input scope passes; the general
+higher computation and Cartesian coefficient-level naturality remain open.
+Those are the next boundary before the connecting triangle arrow and Φ.
+
+
 ## Authorization and current boundary
 
 The [native all-flags triangle core](../emdash2/audits/native_nerve_foundations/simplex_core/README.md)

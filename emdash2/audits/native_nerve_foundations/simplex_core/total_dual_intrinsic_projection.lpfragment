@@ -1,0 +1,9 @@
+// The graph consumes canonical-identity naturality. Compute through the
+// existing intrinsic action; the comparison is the old extracted cell.
+// Keep inferred source and identity carrier anonymous: on native totals,
+// O(N(A)) normalizes to a Sigma and the literal O(A) tag disappears. The
+// actual TotalOp_transf constructor retains every original parameter.
+rule @fdapp1_int_cell _ _ _
+    (@tapp1_at_transf _ _ _ _ $X (@TotalOp_transf $A $B $F $G $epsilon))
+    $X $Y $g (@id _ $X)
+  ↪ @native_total_dual_cell_body $A $B $F $G $epsilon $X $Y $g;

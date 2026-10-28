@@ -41,9 +41,15 @@ introduction action and fibre next-Hom data compute, and constant/terminal
 overlaps pass. The Sigma unit comparison is independently proved by native
 Sigma elimination on the unchanged production core. The 81-input selected
 scope passes; the coefficient parity root and owner refinements remain
-experimental pending broader promotion review. Next qualify the native
-total-duality map O(N A)→N(O A) and whole parameter action needed to turn
-triangles into native squares, then extract the still-missing canonical Φ.
+experimental pending broader promotion review. The duality continuation
+below separates the native map from its required whole parameter action.
+
+The [native total-duality comparison](../emdash2/audits/native_nerve_foundations/simplex_core/README.md#native-total-duality-comparison--2026-10-28)
+now checks with whole endpoint projections, retained square fillers, square
+double reversal and noncollapse. The 86-input scope passes; the general
+higher computation and Cartesian coefficient-level naturality remain open.
+Those are the next boundary before the connecting triangle arrow and Φ.
+
 
 User priority clarification, 2026-10-27: assess the core cubical and simplicial
 constructions before further face/degeneracy expansion. The native all-flags

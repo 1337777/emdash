@@ -1,0 +1,17 @@
+require open emdash.emdash3_2;
+
+// Identity-transformation overlap keeps the existing transported-action
+// identity normal form. Its further bare F[p] runtime presentation is separate.
+assert [A B : Cat] (F : τ (Functor A B))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @tapp1_post_laxity_cell (TotalOp_cat A) (TotalOp_cat B)
+    (@TotalOp_func A B F) (@TotalOp_func A B F)
+    (@TotalOp_transf A B F F (@id (Functor_cat A B) F)) y y x p (@id (TotalOp_cat A) y)
+  ≡ @id (Hom_cat (TotalOp_cat B) (fapp0 F y) (fapp0 F x))
+      (@fapp0 (Hom_cat (TotalOp_cat A) y y)
+        (Hom_cat (TotalOp_cat B) (fapp0 F y) (fapp0 F x))
+        (@functord_transport_lhs_func (TotalOp_cat A)
+          (@hom_ (TotalOp_cat A) (TotalOp_cat A) (@id_func (TotalOp_cat A)) y)
+          (@hom_ (TotalOp_cat B) (TotalOp_cat A) (@TotalOp_func A B F) (fapp0 F y))
+          (@fapp1_at_transf (TotalOp_cat A) (TotalOp_cat B) (@TotalOp_func A B F) y)
+          y x p) (@id (TotalOp_cat A) y));
