@@ -1,0 +1,5 @@
+// A constant Cartesian map dualizes over the existing R-shifted base.
+// This is the total-dual counterpart of the existing Op_funcd constant case.
+rule @TotalOp_funcd $K _ _ (@Const_transf $K Cat_cart $A $B $F)
+  ↪ @Const_transf (CoAbove2_cat $K) Cat_cart (TotalOp_cat $A) (TotalOp_cat $B)
+      (@TotalOp_func $A $B $F);

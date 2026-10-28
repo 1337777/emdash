@@ -1,0 +1,32 @@
+/* Stage the existing internal-action calculation before specializing its
+   transfor to an identity. No new rewrite or comparison rule. */
+require open emdash.native_simplex_triangle_faces;
+require open emdash.emdash3_2_strict_functor_actions;
+
+symbol triangle_post_tele_action_path [A : Cat] [W X Y : τ (Obj A)]
+  (f g : τ (Hom A X Y)) (alpha : τ (Hom (Hom_cat A X Y) f g))
+  (u v : τ (Hom A W X)) (beta : τ (Hom (Hom_cat A W X) u v))
+  : τ (@= (Hom (Hom_cat A W Y)
+      (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y g v))
+    (@tapp1_fapp0 (Hom_cat A W X) (Hom_cat A W Y)
+      (@hom_postcomp_func A A (@id_func A) W X Y f)
+      (@hom_postcomp_func A A (@id_func A) W X Y g) u v
+      (@hom_postcomp_tele_transf A A (@id_func A) W X Y f g alpha) beta)
+    (@comp_prod_fapp1_fapp0 A W X Y
+      (@Product_pair (Hom_cat A W X) (Hom_cat A X Y) u f)
+      (@Product_pair (Hom_cat A W X) (Hom_cat A X Y) v g)
+      (@Product_pair (Hom_cat (Hom_cat A W X) u v) (Hom_cat (Hom_cat A X Y) f g) beta alpha)))
+≔ @eq_refl _ _;
+
+symbol triangle_post_action_pair_path [A : Cat] [W X Y : τ (Obj A)]
+  (f : τ (Hom A X Y)) (u v : τ (Hom A W X))
+  (beta : τ (Hom (Hom_cat A W X) u v))
+  : τ (@= (Hom (Hom_cat A W Y)
+      (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y f v))
+    (@hom_postcomp_fapp1_fapp0 A A (@id_func A) W X Y f u v beta)
+    (@comp_prod_fapp1_fapp0 A W X Y
+      (@Product_pair (Hom_cat A W X) (Hom_cat A X Y) u f)
+      (@Product_pair (Hom_cat A W X) (Hom_cat A X Y) v f)
+      (@Product_pair (Hom_cat (Hom_cat A W X) u v) (Hom_cat (Hom_cat A X Y) f f)
+        beta (@id (Hom_cat A X Y) f))))
+≔ @triangle_post_tele_action_path A W X Y f f (@id (Hom_cat A X Y) f) u v beta;

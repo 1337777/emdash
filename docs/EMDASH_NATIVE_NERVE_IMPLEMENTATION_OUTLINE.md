@@ -387,12 +387,16 @@ to obtain T₂(C)→G(S₂,C). These are construction obligations: do not declar
 the universal filler or inverse merely to close the comparison. Whole vertex
 agreement and the modification must come from the native Sigma/Homd owners.
 
-The direct third-edge source comparison currently fails. A narrower test
-forms the whole Cartesian source-coefficient naturality square but also
-fails direct reflexivity between its two whiskering composites, before
-Sigma totalization. Stage that existing naturality through the horizontal
-action interfaces next; do not add the nerve boundary equation itself as
-a rewrite. Both failed scopes remain reproducible in the simplex audit.
+The earlier direct third-edge source comparison remains open, but its
+upstream source/target coefficient naturality equations are now derived
+through existing horizontal action, with no new formal rules. The actual
+R-shifted fibre-duality/Sigma functor transports these to whole total-map
+comparisons (61-input scope). Four constant constructor/unit cases needed
+to expose the endpoint projections pass separately in a temporary full core
+(65 inputs, 64.250s / 282,172 KiB), with broader overlap review retained as a
+promotion gate. Next assemble the literal third-edge endpoint proofs from
+these comparisons, then the native universal filler. No nerve boundary
+equation itself has been installed as a rewrite.
 
 Keep the user-selected higher simplex shapes. Strict maps from ordinary
 ordinals are not substituted for arbitrary triangles with nonidentity fillers.

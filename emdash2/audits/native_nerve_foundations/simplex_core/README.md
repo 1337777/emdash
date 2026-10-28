@@ -175,6 +175,93 @@ implicit-C attempt remains in the evidence history. These additions change
 no active production source and do not resolve the separate legacy
 identity-square observation above.
 
+## Derived whole coefficient and total comparisons
+
+The whole source/target coefficient naturality equations are now proved by
+[staged whiskering](whiskering_paths.lpfragment) and
+[horizontal composition](horizontal_interchange.lpfragment), without any
+new rewrite or unification rule. The argument first exposes the existing
+postcomposition telescope's internal action, then specializes its transformation
+to an identity. The two whiskering routes are compared through the strict
+action of product composition, using explicit product carriers and the
+existing precomposition comparison. The native consumer instantiates this
+in Cat_cart, where the transformations are Cartesian; this is not an
+unrestricted interchange contract for ordinary lax transformations.
+
+Write P=PathOut_C, A=N_coeff, h:P⇒const(C) for the existing whole PathOut
+projection, and s,t:A⇒id for the native-arrow coefficient projections.
+The [coefficient proofs](coefficient_boundary_paths.lpfragment) give
+
+```text
+s_const(C) ∘ A[h] ≐ h ∘ s_P
+t_const(C) ∘ A[h] ≐ h ∘ t_P.
+```
+
+These are equalities of entire Cartesian family maps. A control rejects
+identifying h∘s_P with h∘t_P. No original filler or endpoint is erased.
+
+The [totalization proofs](total_boundary_paths.lpfragment) then use the
+actual existing functor
+
+```text
+Σ_coeff(R(K)) ∘ TotalOp_catd_func(K)
+  : R(Cart(K,Cat_cart)) → Cat_cart.
+```
+
+The R on its source is necessary; the first unshifted-source attempt failed
+and is retained in the history. Its arrow action is the existing Sigma map
+of the total-dual Cartesian family map. Strict action proves preservation of
+composition and transports both displayed equations to equalities between
+the actual whole Sigma-map composites. This **does not yet identify them
+with the third edge's literal endpoint maps**: constant projections and the
+outer total-duality presentation still need to be assembled in that proof.
+
+The 61-input comparison scope passes in **66.176s / 280,432 KiB**. Warning
+categories, term heads, rule families and parser inventory match the previous
+higher-triangle scope. Fourteen existing warnings move between source
+locations because the coefficient now imports before the finite shape.
+There are no new formal rules in this proof tranche.
+
+## Constant cases needed by endpoint assembly
+
+The next actual consumer isolates the expected formula
+
+```text
+π₂ ∘ Σ(const(F)) ≐ F ∘ π₂.
+```
+
+Its direct whole comparison initially fails. Four scoped constructor/unit
+cases now pass in the temporary full core:
+
+- [Sigma's constant-map second projection](constant_total_projection.lpfragment)
+  reduces to F∘π₂. General displayed maps keep their existing owner.
+- [Cartesian prewhiskering by a constant family](constant_prewhiskering.lpfragment)
+  selects the constant transformation on the original component.
+- [Total duality of a constant Cartesian map](total_dual_constant_map.lpfragment)
+  gives the constant map on O(F), over R(K), paralleling the existing
+  dimension-one case.
+- [The constant-transformation unit](constant_transformation_unit.lpfragment)
+  preserves the identity law of the existing strict weakening functor. An
+  arbitrary endomorphism does not trigger it.
+
+Prewhiskering's rule must be placed after the existing constant-composition
+beta for subject reduction; the failed earlier placement is recorded.
+The [interaction scope](constant_interactions.lpfragment) includes both
+component orders, the relevant unit overlap, dual involution, retained map
+data and noncollapse controls, together with all higher-triangle consumers.
+It passes in **64.250s / 282,172 KiB** with subject reduction (65 inputs,
+180s / 2 GiB). The full temporary-core inferred-slot audit has no unreviewed
+compound slot.
+
+The final warning inventory is 2,473 critical-pair reports / 181 replaceable
+patterns, with no parser issues. Relative to the 2,464-report comparison
+scope: prewhiskering adds two unit/component reports; the constant unit
+removes two old capped-action reports and adds nine identity-erasure,
+duality and transfor-projection reports. The typed consumers above pass.
+Broader Terminal/Product/Q identity-erasure and dual-unit interaction review
+remains required before production promotion. These candidates are not a
+global confluence certificate or an installed production change.
+
 ## Replay and next core task
 
 Run `python3 .../simplex_core/replay.py --mode qualification --assemble-only`
@@ -196,20 +283,20 @@ Two subsequent direct-reflexivity attempts isolate the next boundary:
   naturality square, but direct reflexivity does not join its two whiskering
   composites (46.728s / 192,864 KiB).
 
-The second test is upstream of Sigma totalization: source/target projection
-components alone do not make this whole proof close automatically. The
-declared Cartesian coefficient predicts the naturality equation; the failed
-proof is not a semantic counterexample. Next stage that equation through the
-existing Cartesian horizontal-action/whiskering interfaces, then carry it
-through totalization. Neither attempt changes a formal rule or declares the
-desired endpoint equality. Their sources and expected failures are retained
-independently of `higher-qualification`.
+The second failed direct proof is superseded mathematically by the staged
+proof in `boundary-qualification`; it remains a reproducible direct-reflexivity
+limitation. `constant-total-pending` retains the failed constant Sigma
+comparison without the new cases; `constant-qualification` assembles all four
+scoped cases and their interaction consumers. None of these scopes assumes
+the desired nerve endpoint equality or an inverse.
 
 Next construct the whole native/geometric comparison. The available whole
 family realizer needs the native triangle's universal vertex functors, edge
 transformations and modification as its inputs. Two outgoing-edge source
-comparisons are checked; the third edge's endpoint comparisons and the whole
-native universal filler remain to be constructed. Pointwise observation and
+comparisons are checked. The source/target coefficient and totalized
+comparisons now pass, with the constant constructor cases qualified separately.
+Use them to finish the third edge's literal endpoint comparisons, then obtain
+the whole native universal filler. Pointwise observation and
 T₂(Functor_cat(K,C)) data do not discharge those obligations. The ordinary
 DirectedSimplex_cat(2) is not substituted for the genuine higher shape.
 

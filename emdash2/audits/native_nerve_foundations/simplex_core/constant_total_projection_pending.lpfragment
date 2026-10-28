@@ -1,0 +1,12 @@
+/* Isolate the constant-family total projection needed after coefficient
+   naturality. Expected mathematical formula, not an installed rule. */
+require open emdash.native_triangle_total_boundary;
+
+symbol triangle_constant_total_projection_path [K A B : Cat]
+  (F : τ (Functor A B))
+  : τ (@= (Functor (Product_cat K A) B)
+      (@sigma_const_target_func K (@Const_catd K A) B
+        (@strict_transfor K Cat_cart (@Const_catd K A) (@Const_catd K B)
+          (@Const_transf K Cat_cart A B F)))
+      (@comp_cat_fapp0 (Product_cat K A) A B F (@Product_projR_func K A)))
+≔ @eq_refl _ _;

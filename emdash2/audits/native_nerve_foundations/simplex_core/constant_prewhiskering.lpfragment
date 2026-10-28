@@ -1,0 +1,9 @@
+// Cartesian prewhiskering by a constant family is the constant
+// transformation on its actual component. The transformation is classified
+// in a Cartesian Hom; this is not a strict-naturality rule for arbitrary FF.
+// lhs-audit: keep 1,2,3 -- Cartesian identity-family composition owns this strict-map action.
+rule @hom_precomp_along_fapp1_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+    $Z $K Cat_cart (@Const_catd $K $C) $F $G $U
+  ↪ @Const_transf $K $Z
+      (@fapp0 Cat_cart $Z $F $C) (@fapp0 Cat_cart $Z $G $C)
+      (@tapp0_fapp0 Cat_cart $Z $F $G $C (@strict_transfor Cat_cart $Z $F $G $U));

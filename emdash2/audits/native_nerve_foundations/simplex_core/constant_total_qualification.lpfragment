@@ -1,0 +1,38 @@
+// Qualify the canonical constant-map projection at its core owner.
+require open emdash.native_triangle_constant_total_pending;
+
+assert [K A B : Cat] (F : τ (Functor A B)) (k : τ (Obj K)) (a : τ (Obj A)) ⊢
+  fapp0 (@sigma_const_target_func K (@Const_catd K A) B
+    (@strict_transfor _ _ _ _ (@Const_transf K Cat_cart A B F)))
+    (@Product_pair K A k a) ≡ fapp0 F a;
+assert [K A B : Cat] (F : τ (Functor A B)) (k l : τ (Obj K)) (a b : τ (Obj A))
+  (p : τ (Hom K k l)) (q : τ (Hom A a b)) ⊢
+  @fapp1_fapp0 _ _ (@sigma_const_target_func K (@Const_catd K A) B
+    (@strict_transfor _ _ _ _ (@Const_transf K Cat_cart A B F)))
+    (@Product_pair K A k a) (@Product_pair K A l b)
+    (@Product_pair (Hom_cat K k l) (Hom_cat A a b) p q)
+  ≡ @fapp1_fapp0 A B F a b q;
+
+// Observe the old Sigma-map object first, rather than the new whole beta.
+assert [K A B : Cat] (F : τ (Functor A B)) (k : τ (Obj K)) (a : τ (Obj A)) ⊢
+  sigma_Snd (fapp0 (@sigma_map_func K (@Const_catd K A) (@Const_catd K B)
+    (@strict_transfor _ _ _ _ (@Const_transf K Cat_cart A B F)))
+    (@Product_pair K A k a)) ≡ fapp0 F a;
+
+assertnot [K A B : Cat] (F G : τ (Functor A B)) ⊢
+  @eq_refl (Functor (Product_cat K A) B)
+    (@sigma_const_target_func K (@Const_catd K A) B
+      (@strict_transfor _ _ _ _ (@Const_transf K Cat_cart A B F)))
+  : τ (@= (Functor (Product_cat K A) B)
+      (@sigma_const_target_func K (@Const_catd K A) B
+        (@strict_transfor _ _ _ _ (@Const_transf K Cat_cart A B F)))
+      (@comp_cat_fapp0 (Product_cat K A) A B G (@Product_projR_func K A)));
+
+// A variable displayed map is not replaced by an arbitrary constant map.
+assertnot [K A B : Cat] (U : τ (@Functord K (@Const_catd K A) (@Const_catd K B)))
+  (F : τ (Functor A B)) ⊢
+  @eq_refl (Functor (Product_cat K A) B)
+    (@sigma_const_target_func K (@Const_catd K A) B U)
+  : τ (@= (Functor (Product_cat K A) B)
+      (@sigma_const_target_func K (@Const_catd K A) B U)
+      (@comp_cat_fapp0 (Product_cat K A) A B F (@Product_projR_func K A)));

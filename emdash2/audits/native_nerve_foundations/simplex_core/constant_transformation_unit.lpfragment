@@ -1,0 +1,5 @@
+// The constant-transformation constructor is the capped action of the
+// strict weakening functor. Its identity input must retain that unit law,
+// including after the ambient identity category tag has normalized.
+rule @Const_transf $K $A $x $x (@id _ $x)
+  ↪ @id (Functor_cart_cat $K $A) (@Const_func $K $A $x);

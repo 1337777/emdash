@@ -1,0 +1,39 @@
+// Unit and projection-order consumers of the scoped constant cases.
+require open emdash.native_triangle_constant_profiles;
+
+assert [K Z : Cat] (F G : τ (Functor Cat_cart Z))
+  (U : τ (Hom (Functor_cart_cat Cat_cart Z) F G)) (C : Cat) (k : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Z _ _ k (@strict_transfor _ _ _ _
+    (@fapp1_fapp0 _ _ (@comp_cat_con_cart_func K Cat_cart Z (@Const_catd K C)) F G U))
+  ≡ @tapp0_fapp0 Cat_cart Z F G C (@strict_transfor _ _ _ _ U);
+
+// The existing component-owner route, before its functor parameter is constant.
+assert [K Z : Cat] (F G : τ (Functor Cat_cart Z))
+  (U : τ (Hom (Functor_cart_cat Cat_cart Z) F G)) (C : Cat) (k : τ (Obj K)) ⊢
+  fapp0 (@Functor_cart_component_func Cat_cart Z F G (fapp0 (@Const_catd K C) k)) U
+  ≡ @tapp0_fapp0 Cat_cart Z F G C (@strict_transfor _ _ _ _ U);
+
+assert [K Z : Cat] (F : τ (Functor Cat_cart Z)) (C : Cat) ⊢
+  @fapp1_fapp0 _ _ (@comp_cat_con_cart_func K Cat_cart Z (@Const_catd K C)) F F
+    (@id (Functor_cart_cat Cat_cart Z) F)
+  ≡ @id (Functor_cart_cat K Z) (@Const_func K Z (fapp0 F C));
+assert [K Z : Cat] (F : τ (Functor Cat_cart Z)) (C : Cat) ⊢
+  @Const_transf K Z (fapp0 F C) (fapp0 F C)
+    (@tapp0_fapp0 Cat_cart Z F F C
+      (@strict_transfor _ _ _ _ (@id (Functor_cart_cat Cat_cart Z) F)))
+  ≡ @id (Functor_cart_cat K Z) (@Const_func K Z (fapp0 F C));
+
+assert [K A B : Cat] (F : τ (Functor A B)) ⊢
+  @TotalOp_funcd (CoAbove2_cat K)
+    (@Const_catd (CoAbove2_cat K) (TotalOp_cat A))
+    (@Const_catd (CoAbove2_cat K) (TotalOp_cat B))
+    (@TotalOp_funcd K (@Const_catd K A) (@Const_catd K B) (@Const_transf K Cat_cart A B F))
+  ≡ @Const_transf K Cat_cart A B F;
+
+assertnot [K Z : Cat] (F G : τ (Functor Cat_cart Z))
+  (U V : τ (Hom (Functor_cart_cat Cat_cart Z) F G)) (C : Cat) (k : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Z _ _ k (@strict_transfor _ _ _ _
+    (@fapp1_fapp0 _ _ (@comp_cat_con_cart_func K Cat_cart Z (@Const_catd K C)) F G U))
+  ≡ @tapp0_fapp0 Cat_cart Z F G C (@strict_transfor _ _ _ _ V);
+assertnot [K A : Cat] (x : τ (Obj A)) (p : τ (Hom A x x)) ⊢
+  @Const_transf K A x x p ≡ @id (Functor_cart_cat K A) (@Const_func K A x);

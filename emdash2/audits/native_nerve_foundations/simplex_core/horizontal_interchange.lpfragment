@@ -1,0 +1,56 @@
+/* Whole interchange for Cartesian coefficient whiskering, derived by
+   strict action of the existing product-composition functor. */
+require open emdash.native_triangle_whiskering;
+
+symbol triangle_horizontal_interchange_path
+  [A : Cat] [W X Y : τ (Obj A)]
+  (u v : τ (Hom A W X)) (f g : τ (Hom A X Y))
+  (beta : τ (Hom (Hom_cat A W X) u v))
+  (alpha : τ (Hom (Hom_cat A X Y) f g))
+  : τ (@= (Hom (Hom_cat A W Y)
+      (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y g v))
+    (@comp_fapp0 (Hom_cat A W Y)
+      (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y f v) (@comp_fapp0 A W X Y g v)
+      (@hom_precomp_along_fapp1_fapp0 A A (@id_func A) Y W X v f g alpha)
+      (@hom_postcomp_fapp1_fapp0 A A (@id_func A) W X Y f u v beta))
+    (@comp_fapp0 (Hom_cat A W Y)
+      (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y g u) (@comp_fapp0 A W X Y g v)
+      (@hom_postcomp_fapp1_fapp0 A A (@id_func A) W X Y g u v beta)
+      (@hom_precomp_along_fapp1_fapp0 A A (@id_func A) Y W X u f g alpha)))
+≔ (@eq_trans (Hom (Hom_cat A W Y) (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y g v)) _ _ _
+    (@eq_ap
+      (Hom (Hom_cat A W Y) (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y f v))
+      (Hom (Hom_cat A W Y) (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y g v))
+      (λ h, (@comp_fapp0 (Hom_cat A W Y) (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y f v) (@comp_fapp0 A W X Y g v) (@hom_precomp_along_fapp1_fapp0 A A (@id_func A) Y W X v f g alpha) h))
+      _ _ (@triangle_post_action_pair_path A W X Y f u v beta))
+    (@eq_trans (Hom (Hom_cat A W Y) (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y g v)) _ _ _
+    (@eq_ap
+      (Hom (Hom_cat A W Y) (@comp_fapp0 A W X Y f v) (@comp_fapp0 A W X Y g v))
+      (Hom (Hom_cat A W Y) (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y g v))
+      (λ h, (@comp_fapp0 (Hom_cat A W Y) (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y f v) (@comp_fapp0 A W X Y g v) h (@comp_prod_fapp1_fapp0 A W X Y (@Product_pair (Hom_cat A W X) (Hom_cat A X Y) u f) (@Product_pair (Hom_cat A W X) (Hom_cat A X Y) v f) (@Product_pair (Hom_cat (Hom_cat A W X) u v) (Hom_cat (Hom_cat A X Y) f f) beta (@id (Hom_cat A X Y) f)))))
+      _ _ (@hom_precomp_along_fapp1_comp_prod_path A A (@id_func A) Y W X v f g alpha))
+    (@eq_trans (Hom (Hom_cat A W Y) (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y g v)) _ _ _
+    (@eq_sym _ _ _ (@functor_composition_path
+      (Product_cat (Hom_cat A W X) (Hom_cat A X Y)) (Hom_cat A W Y)
+      (@comp_prod_func A W X Y)
+      (@Product_pair (Hom_cat A W X) (Hom_cat A X Y) u f) (@Product_pair (Hom_cat A W X) (Hom_cat A X Y) v f) (@Product_pair (Hom_cat A W X) (Hom_cat A X Y) v g)
+      (@Product_pair (Hom_cat (Hom_cat A W X) v v) (Hom_cat (Hom_cat A X Y) f g) (@id (Hom_cat A W X) v) alpha)
+      (@Product_pair (Hom_cat (Hom_cat A W X) u v) (Hom_cat (Hom_cat A X Y) f f) beta (@id (Hom_cat A X Y) f))))
+    (@eq_trans (Hom (Hom_cat A W Y) (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y g v)) _ _ _
+    (@functor_composition_path
+      (Product_cat (Hom_cat A W X) (Hom_cat A X Y)) (Hom_cat A W Y)
+      (@comp_prod_func A W X Y)
+      (@Product_pair (Hom_cat A W X) (Hom_cat A X Y) u f) (@Product_pair (Hom_cat A W X) (Hom_cat A X Y) u g) (@Product_pair (Hom_cat A W X) (Hom_cat A X Y) v g)
+      (@Product_pair (Hom_cat (Hom_cat A W X) u v) (Hom_cat (Hom_cat A X Y) g g) beta (@id (Hom_cat A X Y) g))
+      (@Product_pair (Hom_cat (Hom_cat A W X) u u) (Hom_cat (Hom_cat A X Y) f g) (@id (Hom_cat A W X) u) alpha))
+    (@eq_trans (Hom (Hom_cat A W Y) (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y g v)) _ _ _
+    (@eq_ap
+      (Hom (Hom_cat A W Y) (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y g u))
+      (Hom (Hom_cat A W Y) (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y g v))
+      (λ h, (@comp_fapp0 (Hom_cat A W Y) (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y g u) (@comp_fapp0 A W X Y g v) (@comp_prod_fapp1_fapp0 A W X Y (@Product_pair (Hom_cat A W X) (Hom_cat A X Y) u g) (@Product_pair (Hom_cat A W X) (Hom_cat A X Y) v g) (@Product_pair (Hom_cat (Hom_cat A W X) u v) (Hom_cat (Hom_cat A X Y) g g) beta (@id (Hom_cat A X Y) g))) h))
+      _ _ (@eq_sym _ _ _ (@hom_precomp_along_fapp1_comp_prod_path A A (@id_func A) Y W X u f g alpha)))
+    (@eq_ap
+      (Hom (Hom_cat A W Y) (@comp_fapp0 A W X Y g u) (@comp_fapp0 A W X Y g v))
+      (Hom (Hom_cat A W Y) (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y g v))
+      (λ h, (@comp_fapp0 (Hom_cat A W Y) (@comp_fapp0 A W X Y f u) (@comp_fapp0 A W X Y g u) (@comp_fapp0 A W X Y g v) h (@hom_precomp_along_fapp1_fapp0 A A (@id_func A) Y W X u f g alpha)))
+      _ _ (@eq_sym _ _ _ (@triangle_post_action_pair_path A W X Y g u v beta))))))));

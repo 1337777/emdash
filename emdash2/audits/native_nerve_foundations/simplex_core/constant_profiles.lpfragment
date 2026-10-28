@@ -1,0 +1,21 @@
+// Whole constant-map views needed after the derived naturality square.
+require open emdash.native_triangle_constant_total_qualification;
+
+symbol triangle_constant_prewhisker_path [K : Cat]
+  (F G : τ (Functor Cat_cart Cat_cart))
+  (U : τ (Hom (Functor_cart_cat Cat_cart Cat_cart) F G)) (C : Cat)
+  : τ (@= (Hom (Functor_cart_cat K Cat_cart)
+      (@Const_catd K (fapp0 F C)) (@Const_catd K (fapp0 G C)))
+    (@fapp1_fapp0 _ _ (@comp_cat_con_cart_func K Cat_cart Cat_cart (@Const_catd K C)) F G U)
+    (@Const_transf K Cat_cart (fapp0 F C) (fapp0 G C)
+      (@tapp0_fapp0 Cat_cart Cat_cart F G C (@strict_transfor _ _ _ _ U))))
+≔ @eq_refl _ _;
+
+symbol triangle_total_dual_constant_map_path [K A B : Cat]
+  (F : τ (Functor A B))
+  : τ (@= (Hom (Functor_cart_cat (CoAbove2_cat K) Cat_cart)
+      (@Const_catd (CoAbove2_cat K) (TotalOp_cat A))
+      (@Const_catd (CoAbove2_cat K) (TotalOp_cat B)))
+    (@TotalOp_funcd K (@Const_catd K A) (@Const_catd K B) (@Const_transf K Cat_cart A B F))
+    (@Const_transf (CoAbove2_cat K) Cat_cart (TotalOp_cat A) (TotalOp_cat B) (@TotalOp_func A B F)))
+≔ @eq_refl _ _;

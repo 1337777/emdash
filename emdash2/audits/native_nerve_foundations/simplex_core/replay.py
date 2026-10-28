@@ -28,7 +28,9 @@ def main() -> int:
     parser.add_argument("--mode", choices=("baseline", "qualification", "unit-pending",
                                           "higher-recursion", "higher-family",
                                           "higher-qualification", "higher-dependencies",
-                                          "vertices-pending", "coefficient-boundary-pending"),
+                                          "vertices-pending", "coefficient-boundary-pending",
+                                          "boundary-qualification", "constant-total-pending",
+                                          "constant-qualification"),
                         default="qualification")
     parser.add_argument("--assemble-only", action="store_true")
     args = parser.parse_args()

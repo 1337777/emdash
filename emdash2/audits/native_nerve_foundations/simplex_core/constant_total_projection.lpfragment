@@ -1,0 +1,6 @@
+// A constant Cartesian family map totalizes as id_K times its actual
+// fibre functor. This is only the second projection's constructor beta;
+// arbitrary displayed maps retain the stable sigma_const_target_func owner.
+rule @sigma_const_target_func $K _ _
+    (@strict_transfor _ _ _ _ (@Const_transf $K Cat_cart $A $B $F))
+  ↪ @comp_cat_fapp0 (Product_cat $K $A) $A $B $F (@Product_projR_func $K $A);

@@ -20,11 +20,15 @@ cubical degeneracy work. Object observation and whole diagram readback do
 not yet establish that comparison. The
 legacy literal identity-square reduction remains an explicit failed control,
 and core repairs/coefficient overlaps still need production qualification.
-The first whole third-edge source proof fails directly; its narrower
-Cartesian coefficient naturality proof also fails direct reflexivity,
-before totalization. The audit retains both failures and their exact source
-snapshots. A staged whiskering proof, rather than a supplied nerve boundary
-equation, is the next local construction step.
+The direct whole third-edge source proof remains unresolved. Its narrower
+Cartesian coefficient naturality equations now have staged source/target
+proofs, and their actual total-map composites are equal by the existing
+R-shifted totalization functor. Four constant constructor/unit cases pass
+separately in the temporary core, with broad identity/duality overlap review
+still required before promotion. The earlier direct-reflexivity failures are
+retained as historical limitations, not current semantic obstructions. Next
+assemble the literal endpoint proofs and native universal filler; no nerve
+boundary equation or inverse was supplied as a rule.
 
 User priority clarification, 2026-10-27: assess the core cubical and simplicial
 constructions before further face/degeneracy expansion. The native all-flags

@@ -48,6 +48,16 @@ whole diagram readback pass in 76.099s / 279,792 KiB (57 inputs); this does not
 yet construct the whole native/geometric comparison. The audit retains its
 same-import warning baseline and explicit structural/derived boundary.
 
+The previously missing whole coefficient naturality now has derived source
+and target proofs, transported through the correctly R-shifted totalization
+functor to whole Sigma-map composites. That 61-input proof tranche adds no
+formal rule. Four constant constructor/unit cases needed by the endpoint
+presentation also pass in isolation (65 inputs, 64.250s / 282,172 KiB), with
+their broader identity/duality overlap review still required before promotion.
+The literal third-edge endpoint proof and native universal filler remain open;
+the [simplex audit](../emdash2/audits/native_nerve_foundations/simplex_core/README.md)
+distinguishes these obligations from the now proved coefficient comparisons.
+
 **Next construct the whole native/geometric triangle comparison**, supplying
 the realizer with native universal edges and filler. Do not use the ordinary
 ordinal simplex for an arbitrary nonidentity filler. Then assess the uniform coefficient recursion/higher step and return
