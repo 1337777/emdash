@@ -16,8 +16,16 @@ constructions below. No unfinished inverse is supplied to make a skeleton pass.
 | Core | Present evidence | Decisive remaining feasibility slice |
 | --- | --- | --- |
 | Cubical | Whole native/geometric maps at every dimension; both zero inverses; variable-dimensional iterated-walking retraction; nonidentity higher-cell consumers. | Whole native walking reconstruction and mixed-evaluation/positive closure cancellation with the actual maps. |
-| Simplicial | Internal Nat recursion of native coefficients, whole map action and 3-cell filler functors; triangle connecting map and Ψ also retained. | Assess the geometric successor/terminal-join profile and whole comparison with Step; retain required Ψ-to-Φ, inverse and index obligations. |
+| Simplicial | Internal Nat recursion of native coefficients, whole map action and 3-cell filler functors; generic terminal-join cone extension and nonidentity cross-section computation; triangle connecting map and Ψ retained. | Internalize the geometric successor in apex and diagram and compare it with Step; retain the actual join-cell image, Ψ-to-Φ, inverse and index obligations. |
 | Computational foundation | Installed corrected-duality Homd ladder and strict defaults; bounded whole-functor proof consumers. | Keep new core operations internal and usable; identify actual owner/profile gaps rather than count point checks. |
+
+The [terminal-join audit](../emdash2/audits/native_nerve_foundations/simplex_core/join/README.md)
+provides the next concrete object computation: `D:S→PathOut_C(x)` determines
+`Join(1,S)→C`. The proposed whole successor starts from
+`S⁻_(T C)(G_S∘P_C)` and lands in `G_(Join(1,S))(C)`. Its complete action and
+profile still need qualification; do not turn that signature into an assumed
+equivalence. Prepending versus the existing simplex's appending convention
+also needs an explicit comparison if both presentations are retained.
 
 Next implementation order:
 

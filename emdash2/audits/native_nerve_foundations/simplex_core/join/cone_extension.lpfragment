@@ -1,0 +1,58 @@
+/* Cone extension from an actual diagram in the outgoing-path category.
+   The cross datum is a reindexed tautological section. No equality proof
+   or separately supplied naturality cell is an operational input. */
+require open emdash.native_join_cross_profile;
+require open emdash.emdash3_2_dependent_simplex_native_dimensions;
+
+// Preserve the original projection-family head inside the section. The
+// ordinary composite pullback is only its externally exposed type.
+symbol native_sigma_tautological_reindex [A K : Cat] (E : τ (Catd K))
+  (F : τ (Functor A (@Sigma_cat K E)))
+  : τ (Obj (@Pi_cat A (@Pullback_catd A (@Sigma_cat K E)
+      (@Sigma_proj1_pullback_catd K E E) F)))
+≔ @section_pullback_sec A (@Sigma_cat K E) F
+    (@Sigma_proj1_pullback_catd K E E)
+    (@sigma_functord_sec K E E (@id_funcd K E));
+
+symbol native_cone_branch [S C : Cat] (x : τ (Obj C))
+  (D : τ (Functor S (@PathOut_cat C x))) : τ (Functor S C)
+≔ @comp_cat_fapp0 S (@PathOut_cat C x) C (@Sigma_proj1_func C (@Rep_catd C x)) D;
+
+symbol native_cone_cross_section [S C : Cat] (x : τ (Obj C))
+  (D : τ (Functor S (@PathOut_cat C x)))
+  : τ (Obj (@Pi_cat (native_join_cross_base S)
+      (@hom_ C (native_join_cross_base S)
+        (@comp_cat_fapp0 (native_join_cross_base S) S C (@native_cone_branch S C x D)
+          (@Product_projR_func (Op_cat Terminal_cat) S)) x)))
+≔ @native_sigma_tautological_reindex (native_join_cross_base S) C (@Rep_catd C x)
+    (@comp_cat_fapp0 (native_join_cross_base S) S (@PathOut_cat C x)
+      D (@Product_projR_func (Op_cat Terminal_cat) S));
+
+symbol native_cone_cross [S C : Cat] (x : τ (Obj C))
+  (D : τ (Functor S (@PathOut_cat C x)))
+  : τ (Obj (@Prof_transf_cat C Terminal_cat C S (Terminal_prof Terminal_cat S)
+      (@Obj_func C x) (Unit_prof C) (@native_cone_branch S C x D)))
+≔ @native_cone_cross_section S C x D;
+
+symbol native_cone_extension [S C : Cat] (x : τ (Obj C))
+  (D : τ (Functor S (@PathOut_cat C x)))
+  : τ (Functor (native_join_cone_cat S) C)
+≔ @join_elim_func Terminal_cat S C (@Obj_func C x)
+    (@native_cone_branch S C x D) (@native_cone_cross S C x D);
+
+// Stage the native filler at general C before specializing to a shape whose
+// chosen composite has already reduced to a named walking-arrow endpoint.
+symbol native_cone_path_diagram [C : Cat]
+  (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02))
+  : τ (Functor WalkingArrow_cat (@PathOut_cat C x0))
+≔ @walking_arrow_func (@PathOut_cat C x0)
+    (@dependent_simplex1 C x0 x1 p01) (@dependent_simplex1 C x0 x2 p02)
+    (@dependent_simplex_visible_triangle C x0 x1 x2 p01 p02 p12 alpha);
+
+symbol native_join_into_triangle
+  : τ (Functor (native_join_cone_cat WalkingArrow_cat) HigherTriangle_cat)
+≔ @native_cone_extension WalkingArrow_cat HigherTriangle_cat triangle_v0
+    (@native_cone_path_diagram HigherTriangle_cat triangle_v0 triangle_v1 triangle_v2
+      triangle_e01 triangle_e02 triangle_e12 triangle_kappa);

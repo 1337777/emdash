@@ -38,13 +38,23 @@ import the unfinished connecting/Ψ modules. Cartesian PathOut/step
 internalizations are explicitly structural; negative totalization, base
 change, the map bodies, recursion and filler inclusions are derived.
 
-**Next assess the geometric successor and its whole comparison with the
-native step.** Review the actual terminal-join cross profile against the
-higher triangle and a nonidentity higher consumer; do not infer truncation
-or higher universality from older “ordinary simplex” prose. Uniform geometric
-maps, inverse laws and the simplicial index remain unproved. The raw deep
-3-cell projection inference and literal unit/composite normalization stay
-recorded without blocking this next core-feasibility slice.
+The [terminal-join cone construction](../emdash2/audits/native_nerve_foundations/simplex_core/join/README.md)
+now builds a whole `Join(1,S) → C` from `D:S→PathOut_C(x)`, uniformly in S.
+It uses the existing Sigma tautological section and join recursor, with no
+operational boundary proofs. Both maps between `Join(1,I)` and HigherTriangle
+are constructed; vertices, cross edges and the supplied cross-section's
+original nonidentity α compute. The 24-input isolated check passes in 44.715s
+/ 181,124 KiB with an unchanged mapped warning inventory. The actual Hom image
+of the join's extracted cell still has an unresolved composite-boundary
+conversion; that is separate from the passing supplied-cross computation.
+
+**Next internalize the geometric successor and its whole comparison with the
+native step.** Qualify the action in both the apex and diagram, using the
+generic cone extension as its object computation. Do not infer higher
+universality from older “ordinary simplex” prose or supply a nerve inverse.
+Uniform geometric maps, inverse laws and the simplicial index remain unproved.
+The recorded cell-image, deep 3-cell readback and literal unit/composite
+normalization obligations must not delay independent whole-core construction.
 
 The foundations source migration, original frontend qualification and local
 book/article revision remain complete at their recorded boundaries. The later

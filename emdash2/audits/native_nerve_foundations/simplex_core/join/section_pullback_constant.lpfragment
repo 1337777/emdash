@@ -1,0 +1,5 @@
+// A section of a constant family is an ordinary functor. Reindexing it
+// selects the existing whole ordinary composite, joining the constant-family
+// intrinsic-action route with section-component evaluation.
+rule @section_pullback_sec $A $B $F (@Const_catd $B $C) $s
+  ↪ @comp_cat_fapp0 $A $B $C $s $F;

@@ -25,8 +25,12 @@ is retained as a failing regression, not the selected implementation.
 
 The [internal native level recursion](../emdash2/audits/native_nerve_foundations/simplex_core/recursive/README.md)
 now checks at variable dimension, with actual map computation and a whole
-3-cell filler functor. The next feasibility slice is the geometric higher
-successor and its comparison profile; full inverse/index laws remain open.
+3-cell filler functor. The [generic terminal-join cone extension](../emdash2/audits/native_nerve_foundations/simplex_core/join/README.md)
+now supplies its geometric successor's proposed object computation, with
+nonidentity cross-section action and both actual triangle-shape maps. Next
+internalize the action in apex and diagram and qualify the comparison profile.
+The action-derived join-cell image has a separate pending boundary conversion;
+full inverse/index laws remain open.
 
 ## Authorization and current boundary
 

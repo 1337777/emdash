@@ -42,7 +42,9 @@ def main() -> int:
                                           "triangle-endpoints-pending", "duality-view-broad-regression",
                                           "sigma-cocone-observations", "recursive-core",
                                           "recursive-dependencies", "recursive-composition-proof",
-                                          "recursive-filler-omission", "recursive-deep-readback-pending"),
+                                          "recursive-filler-omission", "recursive-deep-readback-pending",
+                                          "join-core", "join-dependencies", "join-projection-proof",
+                                          "join-action-omission", "join-cell-image-pending"),
                         default="qualification")
     parser.add_argument("--assemble-only", action="store_true")
     args = parser.parse_args()

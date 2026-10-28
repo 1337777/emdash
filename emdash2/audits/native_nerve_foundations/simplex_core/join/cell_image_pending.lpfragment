@@ -1,0 +1,28 @@
+// Open higher-constructor computation: actual Hom action of the join
+// recursor on the extracted join-cross cell, not its supplied cross datum.
+require open emdash.native_join_cone_action;
+
+symbol native_terminal_join_triangle_composite
+  : τ (Hom (native_join_cone_cat WalkingArrow_cat)
+      (native_join_apex WalkingArrow_cat) (@native_join_vertex WalkingArrow_cat walking_arrow_tgt))
+≔ @comp_fapp0 (native_join_cone_cat WalkingArrow_cat)
+    (native_join_apex WalkingArrow_cat)
+    (@native_join_vertex WalkingArrow_cat walking_arrow_src)
+    (@native_join_vertex WalkingArrow_cat walking_arrow_tgt)
+    (@fapp1_fapp0 WalkingArrow_cat (native_join_cone_cat WalkingArrow_cat)
+      (join_snd_func Terminal_cat WalkingArrow_cat) walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+    (@native_join_cross_arrow WalkingArrow_cat walking_arrow_src);
+
+symbol native_join_triangle_cell_image
+  : τ (Hom (Hom_cat HigherTriangle_cat triangle_v0 triangle_v2)
+      (@fapp1_fapp0 _ _ native_join_into_triangle _ _ native_terminal_join_triangle_composite)
+      (@fapp1_fapp0 _ _ native_join_into_triangle _ _
+        (@native_join_cross_arrow WalkingArrow_cat walking_arrow_tgt)))
+≔ @fapp1_fapp0 _ _
+    (@fapp1_func _ _ native_join_into_triangle
+      (native_join_apex WalkingArrow_cat) (@native_join_vertex WalkingArrow_cat walking_arrow_tgt))
+    native_terminal_join_triangle_composite
+    (@native_join_cross_arrow WalkingArrow_cat walking_arrow_tgt)
+    (@native_join_right_cell WalkingArrow_cat walking_arrow_src walking_arrow_tgt walking_arrow_generator);
+
+assert ⊢ native_join_triangle_cell_image ≡ triangle_kappa;

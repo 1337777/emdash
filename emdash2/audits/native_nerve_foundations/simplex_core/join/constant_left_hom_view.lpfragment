@@ -1,0 +1,8 @@
+// Constant-left represented Hom, at the whole family level. This is the
+// partial-evaluation interface of Unit_prof/endpoint reindexing. Preserve
+// both runtime owners; the actual right projection is a discriminator.
+unif_rule @Prof_reindex _ $A _ $B (@Unit_prof $C) (@Const_func $A $C $x) $G
+  ≡ @hom_ $C0 $K0
+      (@comp_fapp0 Cat_cat $K1 $B0 $C1 $G0 (@Product_projR_func $TA $B0)) $x0
+  ↪ [ $C0 ≡ $C; $C1 ≡ $C; $TA ≡ Op_cat $A; $B0 ≡ $B;
+      $K0 ≡ Product_cat (Op_cat $A) $B; $K1 ≡ $K0; $G0 ≡ $G; $x0 ≡ $x ];

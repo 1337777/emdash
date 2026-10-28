@@ -120,7 +120,16 @@
     "native_recursive_simplex_qualification.lp": "recursive/qualification.lpfragment",
     "native_functor_filler_composition_proof.lp": "recursive/composition_proof.lpfragment",
     "native_recursive_simplex_consumers.lp": "recursive/deep_readback_pending.lpfragment",
-    "native_recursive_dependencies.lp": "recursive/dependencies.lpfragment"
+    "native_recursive_dependencies.lp": "recursive/dependencies.lpfragment",
+    "native_join_cross_profile.lp": "join/cross_profile.lpfragment",
+    "native_join_cone_extension.lp": "join/cone_extension.lpfragment",
+    "native_join_cone_components.lp": "join/cone_components.lpfragment",
+    "native_join_cone_action.lp": "join/cone_action.lpfragment",
+    "native_section_reindex_controls.lp": "join/section_reindex_controls.lpfragment",
+    "native_join_qualification.lp": "join/qualification.lpfragment",
+    "native_projection_reindex_proof.lp": "join/projection_reindex_proof.lpfragment",
+    "native_join_dependencies.lp": "join/dependencies.lpfragment",
+    "native_join_cell_image_pending.lp": "join/cell_image_pending.lpfragment"
   },
   "artifactSuffixes": {
     "constant_family_composition.lpfragment": "\n",
@@ -169,7 +178,11 @@
     "recursive/composition_proof.lpfragment": "",
     "recursive/deep_readback_pending.lpfragment": "",
     "recursive/dependencies.lpfragment": "",
-    "recursive/composition_view.lpfragment": "\n"
+    "recursive/composition_view.lpfragment": "\n",
+    "join/constant_left_hom_view.lpfragment": "\n",
+    "join/projection_reindex_view.lpfragment": "\n",
+    "join/section_pullback_action.lpfragment": "\n",
+    "join/section_pullback_constant.lpfragment": "\n"
   },
   "artifacts": {
     "baseline.lpfragment": "f06dcbdb828eb664e1f10112e91555701a3c77c0f66195b299dade7f44cb553d",
@@ -185,7 +198,7 @@
     "constant_family_composition.lpfragment": "d156617ac7a0952031894a916e9a453da60dfbcfee6cc83ce1b41a527961c6fd",
     "cartesian_identity_action.lpfragment": "8d621d83b3c043f4e53cd5adaeef31364bc5ba12b642748da3211835b690ea5f",
     "owner_controls_unit_pending.lpfragment": "3e2d412fe48c73751256c04230b5d8fb390eb6be79ba16e679ef312db3c78091",
-    "replay.py": "e5d77dce3aaab431af4fbcd85214399a3e5cfabce4ad50a059fbfd40e7b5df3c",
+    "replay.py": "e9f88cdc8123d57e31b7e5315fc6b01cfe8e99d32332f4a9ae0bcc72f022e185",
     "higher_triangle_shape.lpfragment": "bb022315738ae349ec0457d64bf8ae4e0ccced36fc1d71313dc8c357c291c02b",
     "higher_triangle_recursion.lpfragment": "a948e732037464f46e8c0371a3d292a7bfe4da69ef42e24d93337ff6b454e305",
     "higher_triangle_controls.lpfragment": "3cccb5a7689d179d306b640e9315e11cbabbceed28e91c3abd05dab641ff2bec",
@@ -268,7 +281,20 @@
     "recursive/composition_proof.lpfragment": "70d99023e08856bb4a81f87e9d8c0ad1f3ca58f2ffd7cadc0fb007d9c1c7aa77",
     "recursive/deep_readback_pending.lpfragment": "f87e4ca4df2c47925c5473d7080bcc121c30059a2a7573d3e16c6a4a03e9d242",
     "recursive/dependencies.lpfragment": "836f28b7d16b4691841b0ca62dc901d6826020a6ba758dbbe53e1f5de4d3c21c",
-    "recursive/composition_view.lpfragment": "46a14dc2d1d474f23d01884927fe8155d111825bcc0d1c55baf8be76284a325b"
+    "recursive/composition_view.lpfragment": "46a14dc2d1d474f23d01884927fe8155d111825bcc0d1c55baf8be76284a325b",
+    "join/cross_profile.lpfragment": "c17df48271bb10efb137fec3222d59dc525e6f21567a6e5a1d1281782211a8cc",
+    "join/cone_components.lpfragment": "dda926526721641c5e202e9a4c4ec883a48c735831518e06c4506e5e53515031",
+    "join/section_pullback_constant.lpfragment": "8a3dd50ec210cce7b33b28e27e5999cc87e03235a9d7983d8c8a8139950833cd",
+    "join/section_reindex_controls.lpfragment": "dc6d4ad7cacae3eccde18f566240f2b8cdd7b9115d861cc12f77c5e72950ba58",
+    "join/dependencies.lpfragment": "2f0a7214cca5c6843c8abc033ce19f396099df3f927dfe3f9460c2c52512a806",
+    "join/qualification.lpfragment": "16ab03a8c3e8a21b0a3fa9eca71de9a125bf192e7009eddad040d239201f4fe9",
+    "join/cell_image_pending.lpfragment": "8bf90be084fc3cdfc201395c754f5339cb91f0c40972a7a408eca0ed7783ff8e",
+    "join/projection_reindex_view.lpfragment": "d07fddb87cc7c821b0b044d828fee7e31f9fb9c541e561565798424cc3aa2fa9",
+    "join/section_pullback_action.lpfragment": "b2a1e3dac3bab4a7269515842c0be0e8016d15c5b2a688d2025a5f525a40a82e",
+    "join/constant_left_hom_view.lpfragment": "983f3aa463e8a0dcd9f6fea4926ea0a67eefabcb772f074645afb8019a9bad0d",
+    "join/projection_reindex_proof.lpfragment": "83d269828254984763ca8db17b2759008f2a4e6bd3ab37f79988e382d8b1b885",
+    "join/cone_extension.lpfragment": "2bd04da5be55311b0430b576013e4bbca633ef7ad78c98ff2e4dea273caeb5da",
+    "join/cone_action.lpfragment": "d18095a9eac19a70f245747510eb167d6fbd8661ed051807965d9fa6dcdb2780"
   },
   "checker": {
     "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
@@ -4171,6 +4197,248 @@
         "emdash3_2_sigma_fibre_inclusion.lp": "sigma_fibre_inclusion_owner.lpfragment"
       },
       "receipt": "logs/check-runs/20261028T173430Z-3bdff3eeba7b4861a830e5ce05ccf83c.json"
+    },
+    "join-core": {
+      "target": "native_join_qualification.lp",
+      "timeoutMs": 180000,
+      "ownerInsertions": [
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Whole dual and postcomposition views of a constant coefficient family.\n",
+          "parentSha256": "fe85009da18343b8e5a0d70f7661a385af5b8f66cbdfb8d6d453a2cf59bee21e",
+          "fragment": "constant_family_composition.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// lhs-audit: keep 1 -- only composition inside the Cartesian coefficient.\n",
+          "parentSha256": "ddf04f7f7278d401ac4280e59916025721c0186502e077d0a4c82caa92e505ba",
+          "fragment": "cartesian_identity_action.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// A constant pair of represented endpoints selects the constant Hom family.",
+          "parentSha256": "60e5f964a81bac2b7ff2a6ce9a69a192bfe2aa5371ea61917646c3797e835f96",
+          "fragment": "join/constant_left_hom_view.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// DISPLAYED-CHAIN-1A explicit object-level bridge from a displayed functor to",
+          "parentSha256": "1417ff4bfc6ef79850c806f39d80564706bbdc8fefbdd69590cbf233e41c0f61",
+          "fragment": "join/projection_reindex_view.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// The source endpoint of a pulled section action agrees propositionally with",
+          "parentSha256": "67624b8e2bacd943c95e44249a9b27f7d63e909bca6ce844a0c3afe1a4cde82c",
+          "fragment": "join/section_pullback_action.lpfragment"
+        }
+      ],
+      "expectedInputs": {
+        "emdash3_2.lp": "4bee59a6cc4a75386cbbba88c76f7f94d67604c84e2d4080e7eb0a1f86eb367c",
+        "emdash3_2_dependent_simplex_bridge.lp": "d8b2b93b0211c089d196cb16834cb53c4da41c450fc1296c36e7abcafcfc8711",
+        "emdash3_2_dependent_simplex_native_dimensions.lp": "df0a14f02892394b4a96c8b80d07da81d7a45077401ae64bfcf3915ccee7705d",
+        "emdash3_2_dependent_simplex_path_associator.lp": "d33c8049058aa9f9bd383397cf82a8ebac3d10f077167088cc197f857d12519e",
+        "emdash3_2_dependent_simplex_represented_source.lp": "f9fcb665d35c62e947189ec608f5d91c3393dc91b6071f35ca791f08db0d8904",
+        "emdash3_2_face_realization.lp": "39de45f4a546503319935f772bebf2385d31c2d1c1b51dfaad98cbb02d6403bc",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_join_mapping_recursion.lp": "483deefcc6da0a9b654a5e9512f0040d896ded7aab73b7810ae4a7ee89eea702",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_semisimplicial_face_codes.lp": "7c229a1e2a318c2daf3113c64e5b96c34a85d4e296bb79e960095779408cc571",
+        "emdash3_2_semisimplicial_index.lp": "64350349a86cf54fa058687badf82352f3b5091ffc9d31c50f1a92f1f57edb7e",
+        "emdash3_2_simplex_shapes.lp": "5352c770161d53f4e067b60085494ec141bd4349427b422d3e5af01caf557c77",
+        "emdash3_2_truncation_reflector.lp": "768750396af7e0576c7227418720774ab8dd9bf937ad44d6763bc89bfc1734b2",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_higher_triangle_recursion.lp": "a948e732037464f46e8c0371a3d292a7bfe4da69ef42e24d93337ff6b454e305",
+        "native_higher_triangle_shape.lp": "bb022315738ae349ec0457d64bf8ae4e0ccced36fc1d71313dc8c357c291c02b",
+        "native_join_cone_action.lp": "d18095a9eac19a70f245747510eb167d6fbd8661ed051807965d9fa6dcdb2780",
+        "native_join_cone_components.lp": "dda926526721641c5e202e9a4c4ec883a48c735831518e06c4506e5e53515031",
+        "native_join_cone_extension.lp": "2bd04da5be55311b0430b576013e4bbca633ef7ad78c98ff2e4dea273caeb5da",
+        "native_join_cross_profile.lp": "c17df48271bb10efb137fec3222d59dc525e6f21567a6e5a1d1281782211a8cc",
+        "native_join_qualification.lp": "16ab03a8c3e8a21b0a3fa9eca71de9a125bf192e7009eddad040d239201f4fe9",
+        "native_section_reindex_controls.lp": "dc6d4ad7cacae3eccde18f566240f2b8cdd7b9115d861cc12f77c5e72950ba58"
+      },
+      "receipt": "20261028T194735Z-d131526ec95147dcb5c3ad7f6e1a5526",
+      "outcome": "passed-fresh"
+    },
+    "join-dependencies": {
+      "target": "native_join_dependencies.lp",
+      "timeoutMs": 180000,
+      "ownerInsertions": [
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Whole dual and postcomposition views of a constant coefficient family.\n",
+          "parentSha256": "fe85009da18343b8e5a0d70f7661a385af5b8f66cbdfb8d6d453a2cf59bee21e",
+          "fragment": "constant_family_composition.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// lhs-audit: keep 1 -- only composition inside the Cartesian coefficient.\n",
+          "parentSha256": "ddf04f7f7278d401ac4280e59916025721c0186502e077d0a4c82caa92e505ba",
+          "fragment": "cartesian_identity_action.lpfragment"
+        }
+      ],
+      "expectedInputs": {
+        "emdash3_2.lp": "60e5f964a81bac2b7ff2a6ce9a69a192bfe2aa5371ea61917646c3797e835f96",
+        "emdash3_2_dependent_simplex_bridge.lp": "d8b2b93b0211c089d196cb16834cb53c4da41c450fc1296c36e7abcafcfc8711",
+        "emdash3_2_dependent_simplex_native_dimensions.lp": "df0a14f02892394b4a96c8b80d07da81d7a45077401ae64bfcf3915ccee7705d",
+        "emdash3_2_dependent_simplex_path_associator.lp": "d33c8049058aa9f9bd383397cf82a8ebac3d10f077167088cc197f857d12519e",
+        "emdash3_2_dependent_simplex_represented_source.lp": "f9fcb665d35c62e947189ec608f5d91c3393dc91b6071f35ca791f08db0d8904",
+        "emdash3_2_face_realization.lp": "39de45f4a546503319935f772bebf2385d31c2d1c1b51dfaad98cbb02d6403bc",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_join_mapping_recursion.lp": "483deefcc6da0a9b654a5e9512f0040d896ded7aab73b7810ae4a7ee89eea702",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_semisimplicial_face_codes.lp": "7c229a1e2a318c2daf3113c64e5b96c34a85d4e296bb79e960095779408cc571",
+        "emdash3_2_semisimplicial_index.lp": "64350349a86cf54fa058687badf82352f3b5091ffc9d31c50f1a92f1f57edb7e",
+        "emdash3_2_simplex_shapes.lp": "5352c770161d53f4e067b60085494ec141bd4349427b422d3e5af01caf557c77",
+        "emdash3_2_truncation_reflector.lp": "768750396af7e0576c7227418720774ab8dd9bf937ad44d6763bc89bfc1734b2",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_higher_triangle_recursion.lp": "a948e732037464f46e8c0371a3d292a7bfe4da69ef42e24d93337ff6b454e305",
+        "native_higher_triangle_shape.lp": "bb022315738ae349ec0457d64bf8ae4e0ccced36fc1d71313dc8c357c291c02b",
+        "native_join_dependencies.lp": "2f0a7214cca5c6843c8abc033ce19f396099df3f927dfe3f9460c2c52512a806"
+      },
+      "receipt": "20261028T194845Z-0b929d0369394a32b71d097906571a42",
+      "outcome": "passed-fresh"
+    },
+    "join-projection-proof": {
+      "target": "native_projection_reindex_proof.lp",
+      "timeoutMs": 90000,
+      "ownerInsertions": [],
+      "expectedInputs": {
+        "emdash3_2.lp": "fe85009da18343b8e5a0d70f7661a385af5b8f66cbdfb8d6d453a2cf59bee21e",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_projection_reindex_proof.lp": "83d269828254984763ca8db17b2759008f2a4e6bd3ab37f79988e382d8b1b885"
+      },
+      "receipt": "20261028T194504Z-af72738fcf38476c9205355c8858adbc",
+      "outcome": "passed-fresh"
+    },
+    "join-action-omission": {
+      "target": "native_join_cone_action.lp",
+      "timeoutMs": 180000,
+      "ownerInsertions": [
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Whole dual and postcomposition views of a constant coefficient family.\n",
+          "parentSha256": "fe85009da18343b8e5a0d70f7661a385af5b8f66cbdfb8d6d453a2cf59bee21e",
+          "fragment": "constant_family_composition.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// lhs-audit: keep 1 -- only composition inside the Cartesian coefficient.\n",
+          "parentSha256": "ddf04f7f7278d401ac4280e59916025721c0186502e077d0a4c82caa92e505ba",
+          "fragment": "cartesian_identity_action.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// A constant pair of represented endpoints selects the constant Hom family.",
+          "parentSha256": "60e5f964a81bac2b7ff2a6ce9a69a192bfe2aa5371ea61917646c3797e835f96",
+          "fragment": "join/constant_left_hom_view.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// DISPLAYED-CHAIN-1A explicit object-level bridge from a displayed functor to",
+          "parentSha256": "1417ff4bfc6ef79850c806f39d80564706bbdc8fefbdd69590cbf233e41c0f61",
+          "fragment": "join/projection_reindex_view.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// The source endpoint of a pulled section action agrees propositionally with",
+          "parentSha256": "67624b8e2bacd943c95e44249a9b27f7d63e909bca6ce844a0c3afe1a4cde82c",
+          "fragment": "join/section_pullback_constant.lpfragment"
+        }
+      ],
+      "expectedInputs": {
+        "emdash3_2.lp": "0cd19350435e15e3f1b32b5f31f7177d0883b5ae186bcb478d82f4b152007408",
+        "emdash3_2_dependent_simplex_bridge.lp": "d8b2b93b0211c089d196cb16834cb53c4da41c450fc1296c36e7abcafcfc8711",
+        "emdash3_2_dependent_simplex_native_dimensions.lp": "df0a14f02892394b4a96c8b80d07da81d7a45077401ae64bfcf3915ccee7705d",
+        "emdash3_2_dependent_simplex_path_associator.lp": "d33c8049058aa9f9bd383397cf82a8ebac3d10f077167088cc197f857d12519e",
+        "emdash3_2_dependent_simplex_represented_source.lp": "f9fcb665d35c62e947189ec608f5d91c3393dc91b6071f35ca791f08db0d8904",
+        "emdash3_2_face_realization.lp": "39de45f4a546503319935f772bebf2385d31c2d1c1b51dfaad98cbb02d6403bc",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_join_mapping_recursion.lp": "483deefcc6da0a9b654a5e9512f0040d896ded7aab73b7810ae4a7ee89eea702",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_semisimplicial_face_codes.lp": "7c229a1e2a318c2daf3113c64e5b96c34a85d4e296bb79e960095779408cc571",
+        "emdash3_2_semisimplicial_index.lp": "64350349a86cf54fa058687badf82352f3b5091ffc9d31c50f1a92f1f57edb7e",
+        "emdash3_2_simplex_shapes.lp": "5352c770161d53f4e067b60085494ec141bd4349427b422d3e5af01caf557c77",
+        "emdash3_2_truncation_reflector.lp": "768750396af7e0576c7227418720774ab8dd9bf937ad44d6763bc89bfc1734b2",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_higher_triangle_recursion.lp": "a948e732037464f46e8c0371a3d292a7bfe4da69ef42e24d93337ff6b454e305",
+        "native_higher_triangle_shape.lp": "bb022315738ae349ec0457d64bf8ae4e0ccced36fc1d71313dc8c357c291c02b",
+        "native_join_cone_action.lp": "d18095a9eac19a70f245747510eb167d6fbd8661ed051807965d9fa6dcdb2780",
+        "native_join_cone_components.lp": "dda926526721641c5e202e9a4c4ec883a48c735831518e06c4506e5e53515031",
+        "native_join_cone_extension.lp": "2bd04da5be55311b0430b576013e4bbca633ef7ad78c98ff2e4dea273caeb5da",
+        "native_join_cross_profile.lp": "c17df48271bb10efb137fec3222d59dc525e6f21567a6e5a1d1281782211a8cc"
+      },
+      "receipt": "20261028T195013Z-827147f0a0ca4d9daf7bdc7e95c5cc7d",
+      "outcome": "failed"
+    },
+    "join-cell-image-pending": {
+      "target": "native_join_cell_image_pending.lp",
+      "timeoutMs": 180000,
+      "ownerInsertions": [
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// Whole dual and postcomposition views of a constant coefficient family.\n",
+          "parentSha256": "fe85009da18343b8e5a0d70f7661a385af5b8f66cbdfb8d6d453a2cf59bee21e",
+          "fragment": "constant_family_composition.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// lhs-audit: keep 1 -- only composition inside the Cartesian coefficient.\n",
+          "parentSha256": "ddf04f7f7278d401ac4280e59916025721c0186502e077d0a4c82caa92e505ba",
+          "fragment": "cartesian_identity_action.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// A constant pair of represented endpoints selects the constant Hom family.",
+          "parentSha256": "60e5f964a81bac2b7ff2a6ce9a69a192bfe2aa5371ea61917646c3797e835f96",
+          "fragment": "join/constant_left_hom_view.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// DISPLAYED-CHAIN-1A explicit object-level bridge from a displayed functor to",
+          "parentSha256": "1417ff4bfc6ef79850c806f39d80564706bbdc8fefbdd69590cbf233e41c0f61",
+          "fragment": "join/projection_reindex_view.lpfragment"
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "before": "// The source endpoint of a pulled section action agrees propositionally with",
+          "parentSha256": "67624b8e2bacd943c95e44249a9b27f7d63e909bca6ce844a0c3afe1a4cde82c",
+          "fragment": "join/section_pullback_action.lpfragment"
+        }
+      ],
+      "expectedInputs": {
+        "emdash3_2.lp": "4bee59a6cc4a75386cbbba88c76f7f94d67604c84e2d4080e7eb0a1f86eb367c",
+        "emdash3_2_dependent_simplex_bridge.lp": "d8b2b93b0211c089d196cb16834cb53c4da41c450fc1296c36e7abcafcfc8711",
+        "emdash3_2_dependent_simplex_native_dimensions.lp": "df0a14f02892394b4a96c8b80d07da81d7a45077401ae64bfcf3915ccee7705d",
+        "emdash3_2_dependent_simplex_path_associator.lp": "d33c8049058aa9f9bd383397cf82a8ebac3d10f077167088cc197f857d12519e",
+        "emdash3_2_dependent_simplex_represented_source.lp": "f9fcb665d35c62e947189ec608f5d91c3393dc91b6071f35ca791f08db0d8904",
+        "emdash3_2_face_realization.lp": "39de45f4a546503319935f772bebf2385d31c2d1c1b51dfaad98cbb02d6403bc",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_join_mapping_recursion.lp": "483deefcc6da0a9b654a5e9512f0040d896ded7aab73b7810ae4a7ee89eea702",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_semisimplicial_face_codes.lp": "7c229a1e2a318c2daf3113c64e5b96c34a85d4e296bb79e960095779408cc571",
+        "emdash3_2_semisimplicial_index.lp": "64350349a86cf54fa058687badf82352f3b5091ffc9d31c50f1a92f1f57edb7e",
+        "emdash3_2_simplex_shapes.lp": "5352c770161d53f4e067b60085494ec141bd4349427b422d3e5af01caf557c77",
+        "emdash3_2_truncation_reflector.lp": "768750396af7e0576c7227418720774ab8dd9bf937ad44d6763bc89bfc1734b2",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_higher_triangle_recursion.lp": "a948e732037464f46e8c0371a3d292a7bfe4da69ef42e24d93337ff6b454e305",
+        "native_higher_triangle_shape.lp": "bb022315738ae349ec0457d64bf8ae4e0ccced36fc1d71313dc8c357c291c02b",
+        "native_join_cell_image_pending.lp": "8bf90be084fc3cdfc201395c754f5339cb91f0c40972a7a408eca0ed7783ff8e",
+        "native_join_cone_action.lp": "d18095a9eac19a70f245747510eb167d6fbd8661ed051807965d9fa6dcdb2780",
+        "native_join_cone_components.lp": "dda926526721641c5e202e9a4c4ec883a48c735831518e06c4506e5e53515031",
+        "native_join_cone_extension.lp": "2bd04da5be55311b0430b576013e4bbca633ef7ad78c98ff2e4dea273caeb5da",
+        "native_join_cross_profile.lp": "c17df48271bb10efb137fec3222d59dc525e6f21567a6e5a1d1281782211a8cc"
+      },
+      "receipt": "20261028T195117Z-cbb37fe04c374d4db8592128a79c6ffb",
+      "outcome": "failed"
     }
   },
   "qualification": {
@@ -5125,7 +5393,7 @@
       "disposition": "retained-endpoint identity comparison failed; production-core replay reproduces failure"
     }
   ],
-  "selectedContinuationMode": "recursive-core",
+  "selectedContinuationMode": "join-core",
   "connectingQualification": {
     "status": "isolated structural Cartesian duality coefficient; derived negative-Sigma arrow comparison, whole connecting transformation and whole raw modification; required triangle boundary identifications and Phi remain open",
     "selectedReceipt": "20261028T140502Z-cded9735e2554534a181794151d99802",
@@ -5364,5 +5632,88 @@
       "coverage": "abstract and version metadata only; no exact theorem or implementation imported",
       "relevance": "The abstract distinguishes strict-infinity joins from ordinary joins up to truncation and discusses higher lax/oplax functoriality qualifications."
     }
-  }
+  },
+  "joinQualification": {
+    "status": "isolated terminal-join cone construction and extracted cross-section action; whole mapping-category successor and inverse laws open",
+    "receipt": "20261028T194735Z-d131526ec95147dcb5c3ad7f6e1a5526",
+    "inputCount": 24,
+    "wallSeconds": 44.715100958012044,
+    "maxRssKiB": 181124,
+    "derived": [
+      "right-directed join cross cell extracted from join_cross_transf",
+      "actual HigherTriangle -> Join(1,WalkingArrow) map",
+      "generic cone extension from D:S->PathOut_C(x) to Join(1,S)->C using reindexed sigma_functord_sec(id)",
+      "actual Join(1,WalkingArrow) -> HigherTriangle map, vertex and cross-edge beta",
+      "original nonidentity triangle filler recovered by the supplied cross-section intrinsic action; unrelated filler rejected",
+      "Sigma projection-reindexing equality proved on unchanged production core without new views"
+    ],
+    "structural": [
+      "constant-left Unit_prof reindex/represented Hom comparison at whole family level",
+      "section_pullback_sec intrinsic Hom, capped and transported-identity action refinement",
+      "constant-family section pullback selects the ordinary functor composite"
+    ],
+    "notEstablished": [
+      "action-derived image of the join cross cell versus the supplied cross section",
+      "whole parameterized geometric successor from negative Sigma of diagram coefficients",
+      "whole geometric/native equivalence or shape associativity/rebracketing",
+      "full simplicial index and production promotion"
+    ],
+    "resourceReason": "Existing coupled higher-shape and dependent-simplex import scope; retained 180s/2GiB ceiling, unchanged memory/file/serial/SR guards. Final selected 24-input scope finished within 90s.",
+    "next": "Internalize the generic cone extension with its actual higher parameter profile; retain the separate higher-constructor computation boundary."
+  },
+  "joinWarnings": {
+    "baselineReceipt": "20261028T194845Z-0b929d0369394a32b71d097906571a42",
+    "selectedReceipt": "20261028T194735Z-d131526ec95147dcb5c3ad7f6e1a5526",
+    "categories": {
+      "unjoinable critical pair": 2002,
+      "replaceable pattern variable": 178
+    },
+    "mappedLocationDelta": {},
+    "termHeadDelta": {},
+    "ruleFamilyDelta": {},
+    "parserIssues": {},
+    "disposition": "Exact mapped warning locations, term heads, families and counts unchanged; new fragment ranges contain no warning locations. This is not a confluence certificate."
+  },
+  "joinAttempts": [
+    {
+      "receipt": "20261028T185024Z-be59f1b9865c4314a355b30cbd99bf80",
+      "status": "rejected",
+      "reason": "Without the constant-left represented Hom view, the cone cross family does not type."
+    },
+    {
+      "receipt": "20261028T190500Z-7466fd5b8e8d41e395dad512e483af36",
+      "status": "replaced",
+      "reason": "Prematurely retyping the Sigma tautological section as a plain pullback hid the guarded component owner; cross-edge beta failed."
+    },
+    {
+      "receipt": "20261028T193429Z-79c00bd4f02341099ede68c8c3779cad",
+      "status": "rejected",
+      "reason": "Generic same-head pullback comparison decomposed the injective heads before the intended view. Preserve the source head and use its represented view at the consumer."
+    },
+    {
+      "receipt": "20261028T194552Z-14bb182fb57d41ec9f8eb2eab8116202",
+      "status": "fixed",
+      "reason": "Constant-family intrinsic action exposed the ordinary functor representation, missing the original section component. Qualified whole constant-pullback fold joins it."
+    },
+    {
+      "receipt": "20261028T195013Z-827147f0a0ca4d9daf7bdc7e95c5cc7d",
+      "status": "expected-failure",
+      "reason": "Removing only the three section reindex action refinements restores the original-alpha computation failure."
+    },
+    {
+      "receipt": "20261028T193912Z-865fd52c7ab340c6948e20859c3cc589",
+      "status": "authoring-error",
+      "reason": "Incorrect assertion binder syntax; not semantic evidence."
+    },
+    {
+      "receipt": "20261028T194321Z-ef3671f3e6954544aafe4673f4e72f12",
+      "status": "invalid-negative-control",
+      "reason": "Unrelated sections changed comparison endpoints; replaced by the same-type alpha/beta and family-source controls."
+    },
+    {
+      "receipt": "20261028T195117Z-cbb37fe04c374d4db8592128a79c6ffb",
+      "status": "pending",
+      "reason": "The actual strict-functor Hom image of the intrinsic join cross cell is constructed, but its mapped composite boundary does not convert to the named triangle composite. The asserted cell equality was not reached as a same-type comparison. No filler collapse, equality payload or nerve inverse is added."
+    }
+  ]
 }

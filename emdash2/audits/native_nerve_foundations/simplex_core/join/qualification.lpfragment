@@ -1,0 +1,12 @@
+require open emdash.native_join_cone_action;
+require open emdash.native_section_reindex_controls;
+
+// Extracting join-cross naturality has not equated the triangle boundaries.
+assertnot ⊢ @comp_fapp0 (native_join_cone_cat WalkingArrow_cat)
+    (native_join_apex WalkingArrow_cat)
+    (@native_join_vertex WalkingArrow_cat walking_arrow_src)
+    (@native_join_vertex WalkingArrow_cat walking_arrow_tgt)
+    (@fapp1_fapp0 WalkingArrow_cat (native_join_cone_cat WalkingArrow_cat)
+      (join_snd_func Terminal_cat WalkingArrow_cat) walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+    (@native_join_cross_arrow WalkingArrow_cat walking_arrow_src)
+  ≡ @native_join_cross_arrow WalkingArrow_cat walking_arrow_tgt;

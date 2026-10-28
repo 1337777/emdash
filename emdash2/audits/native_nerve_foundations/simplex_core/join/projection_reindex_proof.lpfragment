@@ -1,0 +1,29 @@
+require open emdash.emdash3_2;
+
+symbol native_projection_family_path [K : Cat] (R D : τ (Catd K))
+  : τ (@= (Catd (@Sigma_cat K R))
+      (@Sigma_proj1_pullback_catd K R D)
+      (@Pullback_catd (@Sigma_cat K R) K D (@Sigma_proj1_func K R)))
+≔ @eq_refl (Catd (@Sigma_cat K R)) (@Sigma_proj1_pullback_catd K R D);
+
+symbol native_projection_family_reindex_path [A K : Cat]
+  (R D : τ (Catd K)) (F : τ (Functor A (@Sigma_cat K R)))
+  : τ (@= (Catd A)
+      (@Pullback_catd A (@Sigma_cat K R) (@Sigma_proj1_pullback_catd K R D) F)
+      (@Pullback_catd A K D (@comp_cat_fapp0 A (@Sigma_cat K R) K (@Sigma_proj1_func K R) F)))
+≔ @eq_ap (Catd (@Sigma_cat K R)) (Catd A)
+    (λ E, @Pullback_catd A (@Sigma_cat K R) E F)
+    (@Sigma_proj1_pullback_catd K R D)
+    (@Pullback_catd (@Sigma_cat K R) K D (@Sigma_proj1_func K R))
+    (@native_projection_family_path K R D);
+
+// The represented instance uses only existing represented-family reindexing.
+symbol native_projection_represented_reindex_path [A K C : Cat]
+  (R : τ (Catd K)) (H : τ (Functor K C)) (x : τ (Obj C))
+  (F : τ (Functor A (@Sigma_cat K R)))
+  : τ (@= (Catd A)
+      (@Pullback_catd A (@Sigma_cat K R)
+        (@Sigma_proj1_pullback_catd K R (@hom_ C K H x)) F)
+      (@hom_ C A (@comp_cat_fapp0 A K C H
+        (@comp_cat_fapp0 A (@Sigma_cat K R) K (@Sigma_proj1_func K R) F)) x))
+≔ @native_projection_family_reindex_path A K R (@hom_ C K H x) F;

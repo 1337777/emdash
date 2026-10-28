@@ -1,0 +1,10 @@
+require open emdash.native_join_cone_extension;
+
+assert ⊢ fapp0 native_join_into_triangle (native_join_apex WalkingArrow_cat) ≡ triangle_v0;
+assert ⊢ fapp0 native_join_into_triangle (@native_join_vertex WalkingArrow_cat walking_arrow_src) ≡ triangle_v1;
+assert ⊢ fapp0 native_join_into_triangle (@native_join_vertex WalkingArrow_cat walking_arrow_tgt) ≡ triangle_v2;
+
+assert ⊢ @fapp1_fapp0 _ _ native_join_into_triangle _ _
+    (@native_join_cross_arrow WalkingArrow_cat walking_arrow_src) ≡ triangle_e01;
+assert ⊢ @fapp1_fapp0 _ _ native_join_into_triangle _ _
+    (@native_join_cross_arrow WalkingArrow_cat walking_arrow_tgt) ≡ triangle_e02;

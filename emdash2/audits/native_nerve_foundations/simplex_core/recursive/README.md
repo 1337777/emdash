@@ -101,6 +101,12 @@ Replay from the repository root using the parent `replay.py` and modes
 
 ## Next geometric feasibility slice
 
+The [terminal-join continuation](../join/README.md) now qualifies a generic
+cone extension and nonidentity cross-section computation, plus both actual
+HigherTriangle/`Join(1,I)` maps. Its whole parameterized successor and actual
+join-cell image remain distinct open obligations. This advances the review
+below without assuming a shape equivalence or ordinary truncation.
+
 Review the existing terminal join against the checked higher triangle and a
 nonidentity cross-cell consumer. Active `Prof_transf_cat` is a `Functord_cat`
 over a product base; older “ordinary simplex” comments alone do not establish

@@ -1,0 +1,10 @@
+// Represented projection pullback after base change. This is the semantic
+// image of the independently proved Sigma-projection reindexing path.
+// Preserve both runtime heads and every actual map/endpoint.
+unif_rule @Pullback_catd $A _
+    (@Sigma_proj1_pullback_catd $K $R (@hom_ $C $B $H $x)) $F
+  ≡ @hom_ $C0 $A0 $G $x0
+  ↪ [ $B ≡ $K; $C0 ≡ $C; $A0 ≡ $A; $x0 ≡ $x;
+      $G ≡ @comp_cat_fapp0 $A $K $C $H
+        (@comp_cat_fapp0 $A (@Sigma_cat $K $R) $K
+          (@Sigma_proj1_func $K $R) $F) ];

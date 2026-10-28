@@ -8,6 +8,17 @@ History: [complete earlier ledger](EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER
 
 ## Current boundary
 
+Latest geometric slice: the [uniform terminal-join cone extension](../emdash2/audits/native_nerve_foundations/simplex_core/join/README.md)
+and both actual HigherTriangle/`Join(1,I)` maps now check. Its supplied
+cross-section recovers the original α; the actual recursor Hom image of the
+join's own cross cell still fails a composite-boundary conversion. These are
+different observations. No equality payload or inverse is supplied. The
+24-input scope passes in 44.715s with unchanged mapped warnings; the generic
+Sigma-reindex proof also passes independently on production. Next internalize
+the geometric successor in both apex and diagram with the required higher
+profile. Keep the cell-image, whole equivalence and index laws as explicit
+later refinements, rather than restarting point-only tests.
+
 The [native all-flags triangle core](../emdash2/audits/native_nerve_foundations/simplex_core/README.md)
 now passes in an isolated 44-input scope, including whole edge projections
 and the actual directed interchanger. The new arrow coefficient is structural;

@@ -1,0 +1,48 @@
+/* Terminal join profile review. Every comparison below is extracted from
+   the existing join_cross_transf; no new triangle filler is declared. */
+require open emdash.native_higher_triangle_recursion;
+
+symbol native_join_cone_cat (S : Cat) : Cat ≔ Join_cat Terminal_cat S;
+symbol native_join_cross_base (S : Cat) : Cat ≔ Product_cat (Op_cat Terminal_cat) S;
+symbol native_join_apex (S : Cat) : τ (Obj (native_join_cone_cat S))
+≔ fapp0 (join_fst_func Terminal_cat S) Terminal_obj;
+symbol native_join_vertex [S : Cat] (s : τ (Obj S)) : τ (Obj (native_join_cone_cat S))
+≔ fapp0 (join_snd_func Terminal_cat S) s;
+symbol native_join_pair [S : Cat] (s : τ (Obj S)) : τ (Obj (native_join_cross_base S))
+≔ @Product_pair (Op_cat Terminal_cat) S Terminal_obj s;
+symbol native_join_hom_family (S : Cat) : τ (Catd (native_join_cross_base S))
+≔ @Prof_reindex (native_join_cone_cat S) Terminal_cat (native_join_cone_cat S) S
+    (Unit_prof (native_join_cone_cat S)) (join_fst_func Terminal_cat S) (join_snd_func Terminal_cat S);
+
+symbol native_join_cross_func [S : Cat] (s : τ (Obj S))
+  : τ (Functor Terminal_cat (Hom_cat (native_join_cone_cat S) (native_join_apex S) (@native_join_vertex S s)))
+≔ @Fibre_func (native_join_cross_base S) (Terminal_prof Terminal_cat S) (native_join_hom_family S)
+    (join_cross_transf Terminal_cat S) (@native_join_pair S s);
+symbol native_join_cross_arrow [S : Cat] (s : τ (Obj S))
+  : τ (Hom (native_join_cone_cat S) (native_join_apex S) (@native_join_vertex S s))
+≔ fapp0 (@native_join_cross_func S s) Terminal_obj;
+
+symbol native_join_right_cell [S : Cat] [s t : τ (Obj S)] (p : τ (Hom S s t))
+  : τ (Hom (Hom_cat (native_join_cone_cat S) (native_join_apex S) (@native_join_vertex S t))
+      (@comp_fapp0 (native_join_cone_cat S) (native_join_apex S)
+        (@native_join_vertex S s) (@native_join_vertex S t)
+        (@fapp1_fapp0 S (native_join_cone_cat S) (join_snd_func Terminal_cat S) s t p)
+        (@native_join_cross_arrow S s))
+      (@native_join_cross_arrow S t))
+≔ @fdapp1_int_cell (native_join_cross_base S)
+    (Terminal_prof Terminal_cat S) (native_join_hom_family S)
+    (join_cross_transf Terminal_cat S) (@native_join_pair S s) (@native_join_pair S t)
+    (@Product_pair (Hom_cat (Op_cat Terminal_cat) Terminal_obj Terminal_obj) (Hom_cat S s t)
+      (@id (Op_cat Terminal_cat) Terminal_obj) p) Terminal_obj;
+
+symbol native_triangle_into_terminal_join
+  : τ (Functor HigherTriangle_cat (native_join_cone_cat WalkingArrow_cat))
+≔ @triangle_shape_rec (native_join_cone_cat WalkingArrow_cat)
+    (native_join_apex WalkingArrow_cat)
+    (@native_join_vertex WalkingArrow_cat walking_arrow_src)
+    (@native_join_vertex WalkingArrow_cat walking_arrow_tgt)
+    (@native_join_cross_arrow WalkingArrow_cat walking_arrow_src)
+    (@native_join_cross_arrow WalkingArrow_cat walking_arrow_tgt)
+    (@fapp1_fapp0 WalkingArrow_cat (native_join_cone_cat WalkingArrow_cat)
+      (join_snd_func Terminal_cat WalkingArrow_cat) walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+    (@native_join_right_cell WalkingArrow_cat walking_arrow_src walking_arrow_tgt walking_arrow_generator);

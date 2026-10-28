@@ -1,0 +1,29 @@
+require open emdash.native_join_cone_components;
+
+// Extracted naturality of the supplied cross section, at the walking arrow.
+symbol native_cone_path_cross_cell [C : Cat]
+  (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02))
+  : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)
+≔ @fdapp1_int_cell (native_join_cross_base WalkingArrow_cat)
+    (Terminal_prof Terminal_cat WalkingArrow_cat)
+    (@Prof_reindex C Terminal_cat C WalkingArrow_cat (Unit_prof C) (@Obj_func C x0)
+      (@native_cone_branch WalkingArrow_cat C x0
+        (@native_cone_path_diagram C x0 x1 x2 p01 p02 p12 alpha)))
+    (@native_cone_cross WalkingArrow_cat C x0
+      (@native_cone_path_diagram C x0 x1 x2 p01 p02 p12 alpha))
+    (@native_join_pair WalkingArrow_cat walking_arrow_src)
+    (@native_join_pair WalkingArrow_cat walking_arrow_tgt)
+    (@Product_pair (Hom_cat (Op_cat Terminal_cat) Terminal_obj Terminal_obj)
+      (Hom_cat WalkingArrow_cat walking_arrow_src walking_arrow_tgt)
+      (@id (Op_cat Terminal_cat) Terminal_obj) walking_arrow_generator) Terminal_obj;
+
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)) ⊢
+  @native_cone_path_cross_cell C x0 x1 x2 p01 p02 p12 alpha ≡ alpha;
+assertnot [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha beta : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)) ⊢
+  @native_cone_path_cross_cell C x0 x1 x2 p01 p02 p12 alpha ≡ beta;

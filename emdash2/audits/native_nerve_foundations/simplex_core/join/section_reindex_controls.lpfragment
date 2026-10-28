@@ -1,0 +1,36 @@
+require open emdash.emdash3_2;
+
+// Whole fibre-Hom projection and capping agree at arbitrary mapped base p.
+assert [A B : Cat] (F : τ (Functor A B)) (E : τ (Catd B))
+  (s : τ (Obj (Pi_cat E))) [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @fdapp1_int_hom_func A (@Const_catd A Terminal_cat) (@Pullback_catd A B E F)
+    (@section_pullback_sec A B F E s) x y p Terminal_obj Terminal_obj
+  ≡ @fdapp1_int_hom_func B (@Const_catd B Terminal_cat) E s
+      (fapp0 F x) (fapp0 F y) (@fapp1_fapp0 A B F x y p) Terminal_obj Terminal_obj;
+assert [A B : Cat] (F : τ (Functor A B)) (E : τ (Catd B))
+  (s : τ (Obj (Pi_cat E))) [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  fapp0 (@fdapp1_int_hom_func A (@Const_catd A Terminal_cat) (@Pullback_catd A B E F)
+    (@section_pullback_sec A B F E s) x y p Terminal_obj Terminal_obj) Terminal_obj
+  ≡ @fdapp1_int_cell B (@Const_catd B Terminal_cat) E s
+      (fapp0 F x) (fapp0 F y) (@fapp1_fapp0 A B F x y p) Terminal_obj;
+
+// Constant-family specialization still computes ordinary functor action.
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @fdapp1_int_cell A (@Const_catd A Terminal_cat) (@Const_catd A C)
+    (@section_pullback_sec A B F (@Const_catd B C) G) x y p Terminal_obj
+  ≡ @fapp1_fapp0 B C G (fapp0 F x) (fapp0 F y) (@fapp1_fapp0 A B F x y p);
+
+// The constant-left family view retains the original source object.
+assertnot [A B C : Cat] (G : τ (Functor B C)) (x z : τ (Obj C)) ⊢
+  @eq_refl (Catd (Product_cat (Op_cat A) B))
+    (@Prof_reindex C A C B (Unit_prof C) (@Const_func A C x) G)
+  : τ (@= (Catd (Product_cat (Op_cat A) B))
+      (@Prof_reindex C A C B (Unit_prof C) (@Const_func A C x) G)
+      (@hom_ C (Product_cat (Op_cat A) B)
+        (@comp_cat_fapp0 (Product_cat (Op_cat A) B) B C G (@Product_projR_func (Op_cat A) B)) z));
+
+// Both-constant overlap agrees with the earlier constant-Hom family owner.
+assert [A B C : Cat] (x y : τ (Obj C)) ⊢
+  @Prof_reindex C A C B (Unit_prof C) (@Const_func A C x) (@Const_func B C y)
+  ≡ @Const_catd (Product_cat (Op_cat A) B) (Hom_cat C x y);

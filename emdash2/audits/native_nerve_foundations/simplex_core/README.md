@@ -5,8 +5,10 @@ Status: isolated native triangle, whole connecting map and derived raw modificat
 Owner: [core-feasibility outline](../../../../docs/EMDASH_NATIVE_NERVE_IMPLEMENTATION_OUTLINE.md)
 Evidence: [exact sources, scopes and attempts](verification.json)
 
-Current continuation: [internal recursive native coefficients](recursive/README.md).
-Use `--mode recursive-core` for that isolated qualification. The preceding
+Current continuation: [terminal-join geometric successor](join/README.md),
+with the [internal recursive native coefficients](recursive/README.md) retained.
+Use `--mode join-core` for the latest isolated qualification or
+`--mode recursive-core` for the native recursion. The preceding
 [connecting map and modification](#whole-connecting-map-and-derived-modification--2026-10-28)
 remain available, with their whole triangle boundary identifications open.
 

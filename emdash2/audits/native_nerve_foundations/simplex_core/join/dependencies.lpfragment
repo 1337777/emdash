@@ -1,0 +1,3 @@
+// Same existing-owner dependencies as the join/cone consumer.
+require open emdash.native_higher_triangle_recursion;
+require open emdash.emdash3_2_dependent_simplex_native_dimensions;

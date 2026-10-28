@@ -1,0 +1,24 @@
+// A section of a constant family is an ordinary functor. Reindexing it
+// selects the existing whole ordinary composite, joining the constant-family
+// intrinsic-action route with section-component evaluation.
+rule @section_pullback_sec $A $B $F (@Const_catd $B $C) $s
+  ↪ @comp_cat_fapp0 $A $B $C $s $F;
+
+// Reindex a section's existing intrinsic Hom action. No independent
+// comparison is supplied and the original nonidentity cell is retained.
+// Whole Hom, capped action and transported-identity projections agree.
+rule @fdapp1_int_hom_func _ _ _
+    (@section_pullback_sec $A $B $F $E $s) $x $y $p _ _
+  ↪ @fdapp1_int_hom_func $B (@Const_catd $B Terminal_cat) $E $s
+      (@fapp0 $A $B $F $x) (@fapp0 $A $B $F $y)
+      (@fapp1_fapp0 $A $B $F $x $y $p) Terminal_obj Terminal_obj;
+rule @fdapp1_int_hom_fapp0 _ _ _
+    (@section_pullback_sec $A $B $F $E $s) $x $y $p _ _ _
+  ↪ @fdapp1_int_hom_fapp0 $B (@Const_catd $B Terminal_cat) $E $s
+      (@fapp0 $A $B $F $x) (@fapp0 $A $B $F $y)
+      (@fapp1_fapp0 $A $B $F $x $y $p) Terminal_obj Terminal_obj Terminal_obj;
+rule @fdapp1_int_cell _ _ _
+    (@section_pullback_sec $A $B $F $E $s) $x $y $p _
+  ↪ @fdapp1_int_cell $B (@Const_catd $B Terminal_cat) $E $s
+      (@fapp0 $A $B $F $x) (@fapp0 $A $B $F $y)
+      (@fapp1_fapp0 $A $B $F $x $y $p) Terminal_obj;
