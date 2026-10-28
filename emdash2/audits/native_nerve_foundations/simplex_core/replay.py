@@ -30,7 +30,8 @@ def main() -> int:
                                           "higher-qualification", "higher-dependencies",
                                           "vertices-pending", "coefficient-boundary-pending",
                                           "boundary-qualification", "constant-total-pending",
-                                          "constant-qualification"),
+                                          "constant-qualification", "endpoints-qualification",
+                                          "shared-edge-pending", "universal-qualification"),
                         default="qualification")
     parser.add_argument("--assemble-only", action="store_true")
     args = parser.parse_args()
@@ -65,7 +66,15 @@ def main() -> int:
         target.write_text(content.replace(anchor, fragment(insertion["fragment"]) + anchor, 1))
     programs = {**record["programs"], **mode.get("programOverrides", {})}
     for target, source in programs.items():
-        (package / target).write_text(fragment(source))
+        content = fragment(source)
+        stop = mode.get("programPrefixBefore", {}).get(target)
+        if stop:
+            if content.count(stop) != 1:
+                raise SystemExit(f"simplex program prefix is not unique: {stop!r}")
+            content = content.split(stop, 1)[0]
+        destination = package / target
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(content)
     if input_hashes([Path(mode["target"])], package) != mode["expectedInputs"]:
         raise SystemExit("simplex assembly differs from the recorded input snapshot")
     print(f"Exact simplex {args.mode} assembly verified: {package}", flush=True)

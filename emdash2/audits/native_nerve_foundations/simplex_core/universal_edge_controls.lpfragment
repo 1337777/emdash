@@ -1,0 +1,20 @@
+// Actual edge data and noninvertible universal-arrow action are retained.
+require open emdash.native_triangle_universal_edges;
+
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)) ⊢
+  @tapp0_fapp0 _ _ _ _ (@nerve_native_triangle_from_cell C x0 x1 x2 p01 p02 p12 alpha)
+    (triangle_universal_edge01 C) ≡ p01;
+
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)) ⊢
+  @tapp0_fapp0 _ _ _ _ (@nerve_native_triangle_from_cell C x0 x1 x2 p01 p02 p12 alpha)
+    (triangle_universal_edge02 C) ≡ p02;
+
+assert [C : Cat] (x0 x1 x2 : τ (Obj C))
+  (p01 : τ (Hom C x0 x1)) (p02 : τ (Hom C x0 x2)) (p12 : τ (Hom C x1 x2))
+  (alpha : τ (Hom (Hom_cat C x0 x2) (@comp_fapp0 C x0 x1 x2 p12 p01) p02)) ⊢
+  @tapp0_fapp0 _ _ _ _ (@nerve_native_triangle_from_cell C x0 x1 x2 p01 p02 p12 alpha)
+    (triangle_universal_edge12_raw C) ≡ p12;

@@ -54,7 +54,11 @@ functor to whole Sigma-map composites. That 61-input proof tranche adds no
 formal rule. Four constant constructor/unit cases needed by the endpoint
 presentation also pass in isolation (65 inputs, 64.250s / 282,172 KiB), with
 their broader identity/duality overlap review still required before promotion.
-The literal third-edge endpoint proof and native universal filler remain open;
+Both literal whole third-edge endpoint equalities now pass (67 inputs), and
+the native universal-arrow owner constructs edges 01/02 at shared vertices
+and edge 12 at its raw projected endpoints (70 inputs, 64.137s / 280,500 KiB).
+Using the proved comparisons as conversion in edge 12's shared-vertex type
+and constructing the native universal filler remain open;
 the [simplex audit](../emdash2/audits/native_nerve_foundations/simplex_core/README.md)
 distinguishes these obligations from the now proved coefficient comparisons.
 

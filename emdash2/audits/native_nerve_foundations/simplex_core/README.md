@@ -262,6 +262,62 @@ Broader Terminal/Product/Q identity-erasure and dual-unit interaction review
 remains required before production promotion. These candidates are not a
 global confluence certificate or an installed production change.
 
+## Whole endpoint proofs and native universal edges
+
+Both [literal third-edge endpoint equalities](whole_endpoints.lpfragment)
+are now proved as equalities of whole functors:
+
+```text
+src ∘ face₁₂ ≐ tgt ∘ face₀₁ = vertex₁
+tgt ∘ face₁₂ ≐ tgt ∘ face₀₂ = vertex₂.
+```
+
+The [whole totalization compatibilities](cone_total_paths.lpfragment) supply
+the proof. For a Cartesian map U:E⇒const(B), write
+T(U)=O(π₂∘Σ(O_fib(U))). The two derived laws are
+
+```text
+T(V∘U) ≐ T(V) ∘ O(Σ(O_fib(U)))
+T(const(F)∘U) ≐ F ∘ T(U).
+```
+
+They retain the original maps, shifted bases and intermediate totals. Apply
+them to the already proved coefficient naturality equations. No endpoint
+equation is postulated or installed as a rewrite. Arbitrary whole K-parameter
+families preserve the comparison, and a control rejects identifying vertex₁
+with vertex₂. This 67-input scope passes in **66.934s / 279,908 KiB**, with
+all five warning inventories identical to the preceding constant scope.
+
+The [native edge construction](universal_edges.lpfragment) then reuses the
+existing native universal-arrow transformation. Its
+[retained prefix](walking_universal_prefix.lpfragment) is checked under its
+`native_nerve_realization_review` owner name used by the cubical replay;
+the original source is pinned. Its previously qualified
+[total-dual postcomposition units](../total_dual_postcomp_units.lpfragment)
+are required by subject reduction and are carried at their existing owner
+position. This does not import the unfinished moving-action experiment or
+assume a walking inverse.
+
+Fixed whiskering through the existing horizontal action, with an identity
+first leg, forms edge₀₁ and edge₀₂ at the common vertex functors. It also
+forms edge₁₂ at its original projected source and target. The
+[component checks](universal_edge_controls.lpfragment) recover p₀₁, p₀₂ and
+p₁₂. The original universal-arrow filler, identity and noncollapse checks
+run inside their owning module, where their protected presentation helper
+is available. The 70-input scope passes in **64.137s / 280,500 KiB**, with
+subject reduction at 180s / 2 GiB. The 31 additional warning reports belong
+to the reused total-dual postcomposition unit families; the final inventory
+is 2,504 / 181, with no parser issues. Broader promotion review remains open.
+
+**The shared-vertex type of edge₁₂ is still unresolved.** Its whole endpoint
+equalities are now proved, but the checker does not automatically treat these
+proofs as conversion when typing that edge. The
+[original failed shared-type consumer](shared_edge_type_pending.lpfragment)
+is retained separately. The first stable-precomposition spelling also failed
+to type edge₀₁; existing fixed horizontal whiskering solves that earlier
+presentation issue. No operational path cast, supplied equality proof or
+new endpoint unifier has been used to hide the remaining edge₁₂ issue.
+
 ## Replay and next core task
 
 Run `python3 .../simplex_core/replay.py --mode qualification --assemble-only`
@@ -287,16 +343,21 @@ The second failed direct proof is superseded mathematically by the staged
 proof in `boundary-qualification`; it remains a reproducible direct-reflexivity
 limitation. `constant-total-pending` retains the failed constant Sigma
 comparison without the new cases; `constant-qualification` assembles all four
-scoped cases and their interaction consumers. None of these scopes assumes
-the desired nerve endpoint equality or an inverse.
+scoped cases and their interaction consumers. `endpoints-qualification`
+checks the now derived whole endpoint proofs. `universal-qualification`
+checks the native edge constructions and original universal-arrow controls;
+`shared-edge-pending` reproduces the still-failed shared-type application.
+The latter selects the exact older owner prefix before its appended controls.
+All program and dependency hashes are checked. None of these scopes supplies
+a desired nerve endpoint equality or inverse as an assumption.
 
 Next construct the whole native/geometric comparison. The available whole
 family realizer needs the native triangle's universal vertex functors, edge
 transformations and modification as its inputs. Two outgoing-edge source
-comparisons are checked. The source/target coefficient and totalized
-comparisons now pass, with the constant constructor cases qualified separately.
-Use them to finish the third edge's literal endpoint comparisons, then obtain
-the whole native universal filler. Pointwise observation and
+comparisons are checked, as are both literal third-edge endpoint equalities.
+Next make these derived comparisons usable at the semantic owners needed by
+the shared edge₁₂ type, without operational proof payloads; then obtain the
+whole native universal filler. Pointwise observation and
 T₂(Functor_cat(K,C)) data do not discharge those obligations. The ordinary
 DirectedSimplex_cat(2) is not substituted for the genuine higher shape.
 

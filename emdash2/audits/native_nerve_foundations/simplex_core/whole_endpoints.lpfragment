@@ -1,0 +1,53 @@
+// Whole endpoint agreement for the third native edge, assembled from
+// existing coefficient naturality and totalization. No boundary rule.
+require open emdash.native_triangle_cone_total;
+
+symbol triangle_face12_source_path (C : Cat)
+  : τ (@= (Functor (nerve_native_triangle_cat C) C)
+      (@comp_cat_fapp0 _ _ _ (cubical_src_func C) (nerve_triangle_face12_func C))
+      (triangle_vertex1_func C))
+≔ @eq_trans _ _ _ _
+    (@eq_sym _ _ _
+      (@triangle_cone_postcomposition_path (Op_cat C) (nerve_triangle_fibres C) (LaxArrow_cat C) C
+        (nerve_triangle_third_edge_funcd C) (cubical_src_func C)))
+    (@eq_trans _ _ _ _
+      (@eq_ap
+        (Hom (Functor_cart_cat (Op_cat C) Cat_cart) (nerve_triangle_fibres C) (@Const_catd (Op_cat C) C))
+        (Functor (nerve_native_triangle_cat C) C)
+        (λ U, @triangle_cone_total (Op_cat C) (nerve_triangle_fibres C) C U)
+        _ _ (triangle_source_coeff_naturality C))
+      (@triangle_cone_composition_path (Op_cat C) (nerve_triangle_fibres C) (@PathOut_cat_func C) C
+        (nerve_triangle_first_edge_funcd C) (triangle_path_target_coeff C)));
+
+symbol triangle_face12_target_path (C : Cat)
+  : τ (@= (Functor (nerve_native_triangle_cat C) C)
+      (@comp_cat_fapp0 _ _ _ (cubical_tgt_func C) (nerve_triangle_face12_func C))
+      (triangle_vertex2_func C))
+≔ @eq_trans _ _ _ _
+    (@eq_sym _ _ _
+      (@triangle_cone_postcomposition_path (Op_cat C) (nerve_triangle_fibres C) (LaxArrow_cat C) C
+        (nerve_triangle_third_edge_funcd C) (cubical_tgt_func C)))
+    (@eq_trans _ _ _ _
+      (@eq_ap
+        (Hom (Functor_cart_cat (Op_cat C) Cat_cart) (nerve_triangle_fibres C) (@Const_catd (Op_cat C) C))
+        (Functor (nerve_native_triangle_cat C) C)
+        (λ U, @triangle_cone_total (Op_cat C) (nerve_triangle_fibres C) C U)
+        _ _ (triangle_target_coeff_naturality C))
+      (@triangle_cone_composition_path (Op_cat C) (nerve_triangle_fibres C) (@PathOut_cat_func C) C
+        (nerve_triangle_second_edge_funcd C) (triangle_path_target_coeff C)));
+
+// The resulting comparison retains arbitrary whole parameter families.
+symbol triangle_face12_source_family_path [K C : Cat]
+  (H : τ (Functor K (nerve_native_triangle_cat C)))
+  : τ (@= (Functor K C)
+      (@comp_cat_fapp0 K (nerve_native_triangle_cat C) C
+        (@comp_cat_fapp0 _ _ _ (cubical_src_func C) (nerve_triangle_face12_func C)) H)
+      (@comp_cat_fapp0 K (nerve_native_triangle_cat C) C (triangle_vertex1_func C) H))
+≔ @eq_ap (Functor (nerve_native_triangle_cat C) C) (Functor K C)
+    (λ F, @comp_cat_fapp0 K (nerve_native_triangle_cat C) C F H)
+    _ _ (triangle_face12_source_path C);
+
+// The two different endpoint projections are not silently identified.
+assertnot [C : Cat] ⊢
+  @eq_refl (Functor (nerve_native_triangle_cat C) C) (triangle_vertex1_func C)
+  : τ (@= (Functor (nerve_native_triangle_cat C) C) (triangle_vertex1_func C) (triangle_vertex2_func C));

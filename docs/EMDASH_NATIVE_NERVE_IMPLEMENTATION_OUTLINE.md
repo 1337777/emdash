@@ -387,16 +387,18 @@ to obtain T₂(C)→G(S₂,C). These are construction obligations: do not declar
 the universal filler or inverse merely to close the comparison. Whole vertex
 agreement and the modification must come from the native Sigma/Homd owners.
 
-The earlier direct third-edge source comparison remains open, but its
-upstream source/target coefficient naturality equations are now derived
-through existing horizontal action, with no new formal rules. The actual
-R-shifted fibre-duality/Sigma functor transports these to whole total-map
-comparisons (61-input scope). Four constant constructor/unit cases needed
-to expose the endpoint projections pass separately in a temporary full core
-(65 inputs, 64.250s / 282,172 KiB), with broader overlap review retained as a
-promotion gate. Next assemble the literal third-edge endpoint proofs from
-these comparisons, then the native universal filler. No nerve boundary
-equation itself has been installed as a rewrite.
+Both literal whole third-edge endpoint equalities are now derived from the
+coefficient naturality, R-shifted totalization and constant cases (67 inputs,
+66.934s / 279,908 KiB). The existing native universal-arrow owner then gives
+edges 01/02 at the common vertex functors and edge 12 at its raw projected
+endpoints; all three original components and the original directed filler
+controls pass (70 inputs, 64.137s / 280,500 KiB). The remaining local issue is
+using the proved endpoint comparisons as type conversion for edge 12 at the
+shared vertices. Resolve that at the relevant semantic owners without
+operational proof payloads, then construct the whole native universal filler.
+No nerve boundary equation itself has been installed as a rewrite. The
+constant cases and reused total-dual unit rules still have their separate
+production/overlap qualification boundary.
 
 Keep the user-selected higher simplex shapes. Strict maps from ordinary
 ordinals are not substituted for arbitrary triangles with nonidentity fillers.

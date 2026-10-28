@@ -1,0 +1,83 @@
+/* Whole negative totalization to a constant target. All maps below are
+   transparent compositions of existing owners; no new computation rule. */
+require open emdash.native_triangle_constant_interactions;
+
+symbol triangle_sigma_projection_view [K : Cat] [E : τ (Catd K)] [B : Cat]
+  (U : τ (@Functord K E (@Const_catd K B)))
+  : τ (@= (Functor (@Sigma_cat K E) B)
+    (@comp_cat_fapp0 _ _ _ (@Product_projR_func K B) (@sigma_map_func K E (@Const_catd K B) U))
+    (@sigma_const_target_func K E B U))
+≔ @eq_refl _ _;
+
+symbol triangle_cone_total [K : Cat] [E : τ (Catd K)] [B : Cat]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) E (@Const_catd K B)))
+  : τ (Functor (TotalOp_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E))) B)
+≔ @TotalOp_func (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E)) (TotalOp_cat B)
+    (@comp_cat_fapp0 _ _ _ (@Product_projR_func (CoAbove2_cat K) (TotalOp_cat B))
+      (@triangle_dual_sigma_map K E (@Const_catd K B) U));
+
+// A staged use of the existing projection view after the constant cases.
+symbol triangle_constant_dual_projection_path [K A B : Cat]
+  (F : τ (Functor A B))
+  : τ (@= (Functor (Product_cat (CoAbove2_cat K) (TotalOp_cat A)) (TotalOp_cat B))
+    (@comp_cat_fapp0 _ _ _ (@Product_projR_func (CoAbove2_cat K) (TotalOp_cat B))
+      (@triangle_dual_sigma_map K (@Const_catd K A) (@Const_catd K B) (@Const_transf K Cat_cart A B F)))
+    (@comp_cat_fapp0 _ _ _ (@TotalOp_func A B F) (@Product_projR_func (CoAbove2_cat K) (TotalOp_cat A))))
+≔ @triangle_sigma_projection_view (CoAbove2_cat K)
+    (@Const_catd (CoAbove2_cat K) (TotalOp_cat A)) (TotalOp_cat B)
+    (@strict_transfor _ _ _ _
+      (@Const_transf (CoAbove2_cat K) Cat_cart (TotalOp_cat A) (TotalOp_cat B) (@TotalOp_func A B F)));
+
+// Totalize a composite and retain the actual outer map and intermediate total.
+symbol triangle_cone_composition_path [K : Cat] [E D : τ (Catd K)] [B : Cat]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) E D))
+  (V : τ (Hom (Functor_cart_cat K Cat_cart) D (@Const_catd K B)))
+  : τ (@= (Functor (TotalOp_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E))) B)
+    (@triangle_cone_total K E B
+      (@comp_fapp0 (Functor_cart_cat K Cat_cart) E D (@Const_catd K B) V U))
+    (@comp_cat_fapp0 _ _ _ (@triangle_cone_total K D B V)
+      (@TotalOp_func _ _ (@triangle_dual_sigma_map K E D U))))
+≔ @eq_trans _ _ _ _
+    (@eq_ap
+      (Functor (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E))
+        (Product_cat (CoAbove2_cat K) (TotalOp_cat B)))
+      (Functor (TotalOp_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E))) B)
+      (λ H, @TotalOp_func (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E)) (TotalOp_cat B)
+        (@comp_cat_fapp0 _ _ _ (@Product_projR_func (CoAbove2_cat K) (TotalOp_cat B)) H))
+      _ _ (@triangle_dual_sigma_comp_path K E D (@Const_catd K B) U V))
+    (@triangle_total_dual_comp_path
+      (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E))
+      (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K D)) (TotalOp_cat B)
+      (@triangle_dual_sigma_map K E D U)
+      (@comp_cat_fapp0 _ _ _ (@Product_projR_func (CoAbove2_cat K) (TotalOp_cat B))
+        (@triangle_dual_sigma_map K D (@Const_catd K B) V)));
+
+// Change a constant target by the original strict functor F.
+symbol triangle_cone_postcomposition_path [K : Cat] [E : τ (Catd K)] [A B : Cat]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) E (@Const_catd K A))) (F : τ (Functor A B))
+  : τ (@= (Functor (TotalOp_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E))) B)
+    (@triangle_cone_total K E B
+      (@comp_fapp0 (Functor_cart_cat K Cat_cart) E (@Const_catd K A) (@Const_catd K B)
+        (@Const_transf K Cat_cart A B F) U))
+    (@comp_cat_fapp0 _ _ _ F (@triangle_cone_total K E A U)))
+≔ @eq_trans _ _ _ _
+    (@eq_ap
+      (Functor (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E))
+        (Product_cat (CoAbove2_cat K) (TotalOp_cat B)))
+      (Functor (TotalOp_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E))) B)
+      (λ H, @TotalOp_func (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E)) (TotalOp_cat B)
+        (@comp_cat_fapp0 _ _ _ (@Product_projR_func (CoAbove2_cat K) (TotalOp_cat B)) H))
+      _ _ (@triangle_dual_sigma_comp_path K E (@Const_catd K A) (@Const_catd K B)
+        U (@Const_transf K Cat_cart A B F)))
+    (@eq_trans _ _ _ _
+      (@eq_ap
+        (Functor (Product_cat (CoAbove2_cat K) (TotalOp_cat A)) (TotalOp_cat B))
+        (Functor (TotalOp_cat (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E))) B)
+        (λ H, @TotalOp_func (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E)) (TotalOp_cat B)
+          (@comp_cat_fapp0 _ _ _ H (@triangle_dual_sigma_map K E (@Const_catd K A) U)))
+        _ _ (@triangle_constant_dual_projection_path K A B F))
+      (@triangle_total_dual_comp_path
+        (@Sigma_cat (CoAbove2_cat K) (@TotalOp_catd K E)) (TotalOp_cat A) (TotalOp_cat B)
+        (@comp_cat_fapp0 _ _ _ (@Product_projR_func (CoAbove2_cat K) (TotalOp_cat A))
+          (@triangle_dual_sigma_map K E (@Const_catd K A) U))
+        (@TotalOp_func A B F)));

@@ -1,0 +1,37 @@
+// Fixed ordinary whiskering, using the existing horizontal action with
+// an identity first leg. No unrestricted two-lax-leg interchange is used.
+require open emdash.native_nerve_realization_review;
+
+symbol triangle_edge_whisker [C : Cat]
+  (F : τ (Functor (nerve_native_triangle_cat C) (LaxArrow_cat C)))
+  : τ (@Transf (nerve_native_triangle_cat C) C
+      (@comp_cat_fapp0 _ _ _ (cubical_src_func C) F)
+      (@comp_cat_fapp0 _ _ _ (cubical_tgt_func C) F))
+≔ @comp_prod_fapp1_fapp0 Cat_cat (nerve_native_triangle_cat C) (LaxArrow_cat C) C
+    (@Product_pair (Functor_cat (nerve_native_triangle_cat C) (LaxArrow_cat C))
+      (Functor_cat (LaxArrow_cat C) C) F (cubical_src_func C))
+    (@Product_pair (Functor_cat (nerve_native_triangle_cat C) (LaxArrow_cat C))
+      (Functor_cat (LaxArrow_cat C) C) F (cubical_tgt_func C))
+    (@Product_pair
+      (@Transf_cat (nerve_native_triangle_cat C) (LaxArrow_cat C) F F)
+      (@Transf_cat (LaxArrow_cat C) C (cubical_src_func C) (cubical_tgt_func C))
+      (@id (Functor_cat (nerve_native_triangle_cat C) (LaxArrow_cat C)) F)
+      (nerve_native_universal_transf C));
+
+symbol triangle_universal_edge01 (C : Cat)
+  : τ (@Transf (nerve_native_triangle_cat C) C
+      (nerve_triangle_vertex0_func C) (triangle_vertex1_func C))
+≔ @triangle_edge_whisker C (nerve_triangle_face01_func C);
+
+symbol triangle_universal_edge02 (C : Cat)
+  : τ (@Transf (nerve_native_triangle_cat C) C
+      (nerve_triangle_vertex0_func C) (triangle_vertex2_func C))
+≔ @triangle_edge_whisker C (nerve_triangle_face02_func C);
+
+// The actual third edge exists at its original projected endpoints.
+// Re-expressing it at the shared vertices remains the separate pending test.
+symbol triangle_universal_edge12_raw (C : Cat)
+  : τ (@Transf (nerve_native_triangle_cat C) C
+      (@comp_cat_fapp0 _ _ _ (cubical_src_func C) (nerve_triangle_face12_func C))
+      (@comp_cat_fapp0 _ _ _ (cubical_tgt_func C) (nerve_triangle_face12_func C)))
+≔ @triangle_edge_whisker C (nerve_triangle_face12_func C);
